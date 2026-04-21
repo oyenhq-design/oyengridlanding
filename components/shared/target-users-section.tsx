@@ -19,7 +19,7 @@ export function TargetUsersSection() {
             Built for organisations like yours
           </h2>
           <p className="text-lg text-[#A1A1AA] max-w-2xl mx-auto">
-            Whether you're running professional training, intensive bootcamps, or corporate programmes, OYEN Grid has you covered.
+            Whether you&apos;re running professional training, intensive bootcamps, or corporate programmes, OYEN Grid has you covered.
           </p>
         </div>
 

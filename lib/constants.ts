@@ -76,33 +76,33 @@ export const DASHBOARD_NAV_ITEMS = [
 // Features
 export const FEATURES = [
   {
-    title: "Programme Management",
-    description: "Create, structure, and manage programmes with ease.",
+    title: "Curriculum Architect",
+    description: "Design multi-layered programmes with prerequisites, cohorts, and custom learning paths.",
     icon: "Briefcase",
   },
   {
-    title: "Session Delivery",
-    description: "Schedule and deliver training sessions with full control.",
+    title: "Precision Delivery",
+    description: "Execute live sessions seamlessly with automated scheduling, reminders, and strict access control.",
     icon: "Calendar",
   },
   {
-    title: "Communication",
-    description: "Built-in messaging for instructors and participants.",
+    title: "Centralised Communications",
+    description: "Streamline announcements and messaging across cohorts without leaving the platform.",
     icon: "MessageSquare",
   },
   {
-    title: "Recordings & Storage",
-    description: "Automatically store and organise session recordings.",
+    title: "Automated Asset Vault",
+    description: "Securely store, organise, and permission class recordings and materials instantly.",
     icon: "Film",
   },
   {
-    title: "Tracking & Oversight",
-    description: "Real-time insights into programme progress and participation.",
+    title: "Performance Analytics",
+    description: "Monitor engagement, attendance, and completion rates with granular real-time dashboards.",
     icon: "BarChart3",
   },
   {
-    title: "Certificates",
-    description: "Issue certificates automatically upon programme completion.",
+    title: "Automated Credentialing",
+    description: "Issue verified, branded certificates automatically upon milestone or programme completion.",
     icon: "Award",
   },
 ] as const

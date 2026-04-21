@@ -2,36 +2,40 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ChevronRight } from "lucide-react"
 
 export function CTASection() {
   return (
-    <section className="py-16 md:py-24 bg-[#0B0B0F] relative overflow-hidden">
-      {/* Subtle gold glow */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#C8A95A] rounded-full blur-3xl"></div>
+    <section className="py-32 bg-[#0B0B0F] relative overflow-hidden border-b border-[#1F1F1F]">
+      {/* Abstract Background Element */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-[#C8A95A]/20 via-[#C8A95A]/5 to-transparent opacity-30 rounded-full blur-[100px]" />
+        
+        {/* Subtle grid pattern overlay */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiMzMzMzMzMiLz48L3N2Zz4=')] opacity-20" />
       </div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-          Ready to transform your programme management?
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-tight">
+          Ready to bring <span className="text-[#C8A95A]">structure</span> to your programmes?
         </h2>
-        <p className="text-lg text-[#A1A1AA] mb-8 max-w-2xl mx-auto">
-          Join organisations already using OYEN Grid to streamline their operations and deliver better results.
+        <p className="text-xl text-[#A1A1AA] mb-12 max-w-2xl mx-auto leading-relaxed">
+          Stop duct-taping tools together. Join leading organisations using OYEN Grid to deliver, manage, and scale their learning operations.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/app">
-            <Button className="bg-[#C8A95A] text-black hover:bg-[#D4B86A] px-6 py-3 text-base">
-              Get Started Now
-              <ArrowRight className="ml-2 w-4 h-4" />
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <Link href="/app" className="w-full sm:w-auto">
+            <Button className="w-full sm:w-auto bg-[#C8A95A] text-black hover:bg-white hover:text-black h-14 px-10 text-base font-bold uppercase tracking-wider rounded-xl shadow-[0_0_30px_rgba(200,169,90,0.2)] transition-all duration-300 group">
+              Start Free Trial
+              <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
-          <Link href="#pricing">
+          <Link href="#pricing" className="w-full sm:w-auto">
             <Button 
               variant="outline" 
-              className="border-[#C8A95A] text-[#C8A95A] hover:bg-[#C8A95A]/10 px-6 py-3 text-base"
+              className="w-full sm:w-auto h-14 px-10 text-base font-bold uppercase tracking-wider rounded-xl bg-transparent border-2 border-[#2A2A2A] text-white hover:border-[#C8A95A] hover:bg-transparent transition-all duration-300 group"
             >
-              See Pricing
+              View Pricing
+              <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform opacity-50" />
             </Button>
           </Link>
         </div>
