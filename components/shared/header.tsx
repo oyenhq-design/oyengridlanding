@@ -9,7 +9,7 @@ export function Header() {
   const pathname = usePathname()
 
   return (
-    <header className="fixed top-0 w-full bg-[#0A0A0A]/90 backdrop-blur-sm z-50 border-b border-[#1F1F23]">
+    <header className="fixed top-0 w-full bg-[#0A0A0B]/90 backdrop-blur-sm z-50 border-b border-[#1F1F23]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -46,7 +46,7 @@ export function Header() {
               </Button>
             </Link>
             <Link href="/get-started">
-              <Button className="bg-gradient-to-b from-[#D4B882] to-[#C9A96E] hover:from-[#E5D0A1] hover:to-[#D4B882] text-[#0A0A0A] h-9 px-4 text-xs font-bold rounded-sm shadow-[0_0_15px_rgba(201,169,110,0.15)] border border-[#E5D0A1]/20">
+              <Button className="bg-[#C9A96E] hover:bg-[#B39358] text-[#0A0A0B] h-9 px-4 text-xs font-bold rounded-sm shadow-none">
                 Get Started
               </Button>
             </Link>

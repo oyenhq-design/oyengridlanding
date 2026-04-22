@@ -23,11 +23,11 @@ export function UseCasesSection() {
   ]
 
   return (
-    <section className="py-32 bg-[#0A0A0A] border-b border-[#1F1F23]">
+    <section className="py-32 bg-[#F8F8F6] border-b border-[#E5E5E5]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-white mb-4 tracking-tight">Built for Different Programmes</h2>
-          <p className="text-[#A1A1AA] text-lg max-w-2xl font-light">
+          <h2 className="text-3xl font-bold text-[#111111] mb-4 tracking-tight">Built for Different Programmes</h2>
+          <p className="text-[#555555] text-lg max-w-2xl font-light">
             An adaptive architecture that supports the unique requirements of your delivery model without sacrificing structure.
           </p>
         </div>
@@ -42,13 +42,13 @@ export function UseCasesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-[#0A0A0A] border border-[#1F1F23] rounded-sm p-10 hover:border-[#555555] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group"
+                className="bg-[#FFFFFF] border border-[#E5E5E5] rounded-sm p-10 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group"
               >
-                <div className="w-8 h-8 rounded-sm bg-[#111113] border border-[#1F1F23] flex items-center justify-center mb-6 group-hover:bg-[#C9A96E]/10 group-hover:border-[#C9A96E]/30 transition-colors">
-                  <Icon className="w-4 h-4 text-[#A1A1AA] group-hover:text-[#C9A96E] transition-colors" strokeWidth={1.5} />
+                <div className="w-8 h-8 rounded-sm bg-[#FAFAF9] border border-[#E5E5E5] flex items-center justify-center mb-6 group-hover:bg-[#C9A96E]/10 group-hover:border-[#C9A96E]/30 transition-colors">
+                  <Icon className="w-4 h-4 text-[#111111] group-hover:text-[#C9A96E] transition-colors" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3 tracking-tight">{useCase.title}</h3>
-                <p className="text-[#A1A1AA] text-sm leading-relaxed font-light">
+                <h3 className="text-lg font-semibold text-[#111111] mb-3 tracking-tight">{useCase.title}</h3>
+                <p className="text-[#555555] text-sm leading-relaxed font-light">
                   {useCase.description}
                 </p>
               </motion.div>
