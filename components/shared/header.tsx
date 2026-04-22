@@ -46,7 +46,7 @@ export function Header() {
               </Button>
             </Link>
             <Link href="/get-started">
-              <Button className="bg-[#C9A96E] hover:bg-[#B39358] text-[#0A0A0A] h-9 px-4 text-xs font-semibold rounded-sm shadow-none">
+              <Button className="bg-gradient-to-b from-[#D4B882] to-[#C9A96E] hover:from-[#E5D0A1] hover:to-[#D4B882] text-[#0A0A0A] h-9 px-4 text-xs font-bold rounded-sm shadow-[0_0_15px_rgba(201,169,110,0.15)] border border-[#E5D0A1]/20">
                 Get Started
               </Button>
             </Link>

@@ -8,6 +8,12 @@ import { motion } from "framer-motion"
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-[#0A0A0A] pt-32 pb-24 border-b border-[#1F1F23]">
+      {/* Premium Deep Radial Gradient */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] opacity-30 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#C9A96E_0%,transparent_60%)] opacity-20 mix-blend-screen" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#111113_0%,#0A0A0A_100%)] opacity-80" />
+      </div>
+
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left: Content */}
@@ -17,13 +23,13 @@ export function HeroSection() {
             transition={{ duration: 0.5 }}
           >
             <div className="mb-6">
-              <span className="text-[10px] font-bold text-[#A1A1AA] uppercase tracking-[0.2em]">
+              <span className="text-[10px] font-bold text-[#A1A1AA] uppercase tracking-[0.2em] bg-clip-text text-transparent bg-gradient-to-r from-[#A1A1AA] to-[#555555]">
                 STRUCTURED PROGRAMME OPERATING SYSTEM
               </span>
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-[72px] font-bold text-white mb-6 leading-[1.05] tracking-tight">
-              Run and manage your programmes from a <span className="text-[#C9A96E]">single, structured system.</span>
+              Run and manage your programmes from a <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E5D0A1] via-[#C9A96E] to-[#8C6D31]">single, structured system.</span>
             </h1>
             
             <p className="text-lg text-[#A1A1AA] mb-10 leading-relaxed max-w-md font-light">
@@ -32,12 +38,12 @@ export function HeroSection() {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/get-started">
-                <Button className="bg-[#C9A96E] hover:bg-[#B39358] text-[#0A0A0A] h-12 px-8 text-sm font-semibold rounded-md transition-all w-full sm:w-auto shadow-none rounded-none">
+                <Button className="bg-gradient-to-b from-[#D4B882] to-[#C9A96E] hover:from-[#E5D0A1] hover:to-[#D4B882] text-[#0A0A0A] h-12 px-8 text-sm font-bold rounded-sm transition-all w-full sm:w-auto shadow-[0_0_20px_rgba(201,169,110,0.15)] border border-[#E5D0A1]/20">
                   Get Started
                 </Button>
               </Link>
               <Link href="#pricing">
-                <Button variant="outline" className="border-[#1F1F23] bg-transparent hover:bg-[#111113] text-white h-12 px-8 text-sm font-semibold transition-all w-full sm:w-auto shadow-none rounded-none">
+                <Button variant="outline" className="border-[#1F1F23] bg-gradient-to-b from-[#111113] to-[#0A0A0A] hover:from-[#1A1A1E] hover:to-[#111113] text-white h-12 px-8 text-sm font-semibold transition-all w-full sm:w-auto shadow-none rounded-sm">
                   Book a Demo
                 </Button>
               </Link>
