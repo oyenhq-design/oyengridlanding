@@ -1,132 +1,145 @@
-import { Header } from "@/components/shared/header";
-import { Footer } from "@/components/shared/footer";
-import { CTASection } from "@/components/shared/cta-section";
-import { DeepFeatureBreakdownSection } from "@/components/shared/deep-feature-breakdown-section";
-import { CheckCircle2, Layers, Users, Video, Database, LineChart, GraduationCap, MessageSquare, Bot, StickyNote, ShieldCheck, HeadphonesIcon } from "lucide-react";
+"use client"
+
+import { Header } from "@/components/shared/header"
+import { Footer } from "@/components/shared/footer"
+import { CTASection } from "@/components/shared/cta-section"
+import { motion } from "framer-motion"
+import { 
+  fadeUpVariant, 
+  staggerContainerVariant, 
+  staggerItemVariant 
+} from "@/lib/motion"
+import { 
+  Layout, Users, Video, Database, 
+  GraduationCap, TrendingUp, Key,
+  MessageSquare, MessagesSquare, 
+  Bot, FileText, Sparkles, Pencil,
+  Lock, BookOpen
+} from "lucide-react"
 
 export default function FeaturesPage() {
-  const featureSections = [
+  const categories = [
     {
-      title: "Programme Infrastructure",
-      description: "Build robust learning pathways with powerful structural tools.",
-      icon: Layers,
-      points: ["Programme creation & templates", "Structured session planning", "Dashboard control center"]
+      title: "Core Platform",
+      description: "The foundational primitives for managing structured training.",
+      features: [
+        { title: "Programme Hosting", desc: "Build multi-layered curriculums with strict dependencies.", icon: Layout },
+        { title: "Participant Management", desc: "Granular access control and profile tracking.", icon: Users },
+        { title: "Session Delivery", desc: "Native HD sessions directly in the browser.", icon: Video },
+        { title: "Content Management", desc: "Immutable recording vaults and resource lockers.", icon: Database },
+      ]
     },
     {
-      title: "Participant Management",
-      description: "Keep your cohorts organised and secure.",
-      icon: Users,
-      points: ["Invite-only secure access", "Assign participants to specific cohorts", "Organisation-level ownership"]
+      title: "Training / Bootcamp System",
+      description: "Specialized tools for intensive cohort-based learning.",
+      features: [
+        { title: "Participant Profiles", desc: "Centralized view of attendance and engagement.", icon: GraduationCap },
+        { title: "Progress Tracking", desc: "Automated progression metrics across modules.", icon: TrendingUp },
+        { title: "Structured Learning Flow", desc: "Enforce module completion before unlocking next steps.", icon: Key },
+        { title: "Trainer Control Panel", desc: "Override permissions, grade tasks, and monitor health.", icon: Layout },
+      ]
     },
     {
-      title: "Session Delivery",
-      description: "Seamless live instruction built directly into the platform.",
-      icon: Video,
-      points: ["Automated scheduling", "Secure session linking", "Integrated live rooms"]
+      title: "Communication",
+      description: "Contextual chat systems integrated directly into the learning flow.",
+      features: [
+        { title: "Session Chat", desc: "Time-synced chat linked to specific live sessions.", icon: MessageSquare },
+        { title: "Group Chat (Bootcamp)", desc: "Persistent cohort communication channels.", icon: MessagesSquare },
+      ]
     },
     {
-      title: "Content & Storage",
-      description: "A centralized vault for all your programme materials.",
-      icon: Database,
-      points: ["Unlimited file uploads", "Attach files directly to sessions", "Centralised, role-based access"]
-    },
-    {
-      title: "Tracking & Insights",
-      description: "Never lose track of participant progress.",
-      icon: LineChart,
-      points: ["Automated attendance tracking", "Session activity monitoring", "Comprehensive programme records"]
-    },
-    {
-      title: "Bootcamp / Training System",
-      description: "Purpose-built for intensive, multi-week programmes.",
-      icon: GraduationCap,
-      points: ["Detailed participant profiles", "Granular progress tracking", "Milestone & completion tracking", "Structured learning flow"]
-    },
-    {
-      title: "Communication System",
-      description: "Keep the conversation going without external chat apps.",
-      icon: MessageSquare,
-      points: ["In-session live chat", "Dedicated group chat for cohorts", "Direct messaging"]
-    },
-    {
-      title: "AI Tools",
-      description: "Work smarter with built-in artificial intelligence.",
-      icon: Bot,
-      points: ["AI chat assistant for instructors", "Automated session summaries", "Smart trainer preparation tools"]
+      title: "AI Layer",
+      description: "Intelligent assistance that understands the context of your curriculum.",
+      features: [
+        { title: "AI Chat Assistant", desc: "Answers participant questions based on uploaded materials.", icon: Bot },
+        { title: "Session Summaries", desc: "Automated transcription and key takeaway generation.", icon: FileText },
+        { title: "Trainer AI Tools", desc: "Generate quiz questions and evaluate basic responses.", icon: Sparkles },
+      ]
     },
     {
       title: "Notes System",
-      description: "Capture knowledge right where the learning happens.",
-      icon: StickyNote,
-      points: ["Private instructor notes", "Public session notes", "Participant-specific tracking notes"]
-    },
-    {
-      title: "Structure & Control",
-      description: "Our core differentiator. Maintain absolute operational clarity.",
-      icon: ShieldCheck,
-      points: ["Long-term programme memory", "Operational clarity at scale", "Strictly structured delivery"]
-    },
-    {
-      title: "Support & Services",
-      description: "We're with you every step of the way.",
-      icon: HeadphonesIcon,
-      points: ["White-glove setup support", "Priority technical assistance", "Dedicated training & onboarding"]
+      description: "Integrated knowledge capture for participants and trainers.",
+      features: [
+        { title: "Private Notes", desc: "Participant-specific workspaces linked to modules.", icon: Pencil },
+        { title: "Session Notes", desc: "Collaborative or private note-taking during live sessions.", icon: BookOpen },
+        { title: "Participant Notes", desc: "Trainer-only administrative notes on participant health.", icon: Lock },
+      ]
     }
-  ];
+  ]
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#0B0B0F]">
+    <main className="flex min-h-screen flex-col bg-[#0A0A0B] pt-[76px]">
       <Header />
-      <main className="flex-1 pt-24">
-        {/* Page Header */}
-        <section className="py-20 bg-[#0B0B0F] border-b border-[#1F1F1F] relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#C8A95A]/10 rounded-full blur-[100px]" />
-          </div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Platform <span className="text-[#C8A95A]">Features</span>
+      
+      {/* Hero Section */}
+      <section className="py-24 border-b border-[#1F1F23]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUpVariant}
+            className="max-w-3xl"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+              A complete system, not a collection of features.
             </h1>
-            <p className="text-xl text-[#A1A1AA] max-w-3xl mx-auto">
-              Everything you need to structure, deliver, and manage complex learning programmes at scale.
+            <p className="text-[#A1A1AA] text-lg font-light leading-relaxed">
+              Every capability in OYEN Grid is designed to work together, providing a single source of truth for your entire programme operation.
             </p>
-          </div>
-        </section>
+          </motion.div>
+        </div>
+      </section>
 
-        {/* Features List */}
-        <section className="py-24 bg-[#111111]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featureSections.map((section, idx) => {
-                const Icon = section.icon;
-                return (
-                  <div key={idx} className="bg-[#121212] border border-[#1F1F1F] rounded-3xl p-8 hover:border-[#C8A95A]/30 transition-all duration-300 group">
-                    <div className="w-12 h-12 rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] flex items-center justify-center mb-6 group-hover:bg-[#C8A95A]/10 transition-colors">
-                      <Icon className="w-6 h-6 text-[#A1A1AA] group-hover:text-[#C8A95A] transition-colors" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-3">{section.title}</h3>
-                    <p className="text-[#A1A1AA] mb-6 min-h-[48px]">{section.description}</p>
-                    <ul className="space-y-3">
-                      {section.points.map((point, pIdx) => (
-                        <li key={pIdx} className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-[#C8A95A] shrink-0 mt-0.5" />
-                          <span className="text-[#A1A1AA] text-sm leading-relaxed">{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
+      {/* Feature Categories */}
+      <div className="bg-[#111113]">
+        {categories.map((category, idx) => (
+          <section key={idx} className="py-24 border-b border-[#1F1F23] even:bg-[#0A0A0B]">
+            <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={fadeUpVariant}
+                className="mb-12"
+              >
+                <h2 className="text-2xl font-bold text-white mb-3 tracking-tight">{category.title}</h2>
+                <p className="text-[#A1A1AA] text-sm font-light max-w-2xl">{category.description}</p>
+              </motion.div>
+
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={staggerContainerVariant}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+              >
+                {category.features.map((feature, fIdx) => {
+                  const Icon = feature.icon
+                  return (
+                    <motion.div 
+                      key={fIdx}
+                      variants={staggerItemVariant}
+                      whileHover={{ y: -4, backgroundColor: "rgba(255,255,255,0.03)" }}
+                      transition={{ duration: 0.2 }}
+                      className="bg-[#0A0A0B] border border-[#1F1F23] rounded-xl p-6 transition-colors"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-[#111113] border border-[#1F1F23] flex items-center justify-center mb-5">
+                        <Icon className="w-4 h-4 text-[#C9A96E]" strokeWidth={1.5} />
+                      </div>
+                      <h3 className="text-white font-semibold text-sm mb-2">{feature.title}</h3>
+                      <p className="text-[#A1A1AA] text-xs leading-relaxed font-light">{feature.desc}</p>
+                    </motion.div>
+                  )
+                })}
+              </motion.div>
             </div>
-          </div>
-        </section>
+          </section>
+        ))}
+      </div>
 
-        {/* Overview Section at the bottom to reinforce structure */}
-        <DeepFeatureBreakdownSection />
-
-        <CTASection />
-      </main>
+      <CTASection />
       <Footer />
-    </div>
-  );
+    </main>
+  )
 }
