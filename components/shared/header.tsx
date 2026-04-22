@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
@@ -66,9 +66,25 @@ export function Header() {
   const pathname = usePathname()
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  // Handle scroll behavior
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0B]/95 backdrop-blur-md border-b border-[#1F1F23]">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+        isScrolled 
+          ? "bg-black/70 backdrop-blur-md border-b border-[#1F1F23]" 
+          : "bg-transparent border-b-0"
+      }`}
+    >
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-[76px]">
           
@@ -77,7 +93,7 @@ export function Header() {
             <div className="w-7 h-7 bg-[#111113] border border-[#1F1F23] rounded-sm flex items-center justify-center">
               <span className="text-white font-bold text-xs">OG</span>
             </div>
-            <div className="flex items-center gap-1.5 font-bold tracking-tight text-sm">
+            <div className="flex items-center gap-1.5 font-bold tracking-wider text-sm">
               <span className="text-white">OYEN</span>
               <span className="text-[#A1A1AA] font-medium">GRID</span>
             </div>
@@ -96,17 +112,17 @@ export function Header() {
                   <Link
                     href={item.href!}
                     className={`text-sm font-medium transition-colors ${
-                      pathname === item.href ? "text-[#C9A96E]" : "text-[#A1A1AA] hover:text-white"
+                      pathname === item.href ? "text-[#C9A96E]" : "text-[#D1D1D6] hover:text-white"
                     }`}
                   >
                     {item.label}
                   </Link>
                 ) : (
-                  <div className="flex items-center gap-1.5 cursor-pointer text-[#A1A1AA] hover:text-white transition-colors group">
-                    <span className={`text-sm font-medium ${activeDropdown === item.label ? 'text-white' : ''}`}>
+                  <div className="flex items-center gap-1.5 cursor-pointer text-[#D1D1D6] hover:text-white transition-colors group">
+                    <span className={`text-sm font-medium ${activeDropdown === item.label ? 'text-[#C9A96E]' : ''}`}>
                       {item.label}
                     </span>
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180 text-white' : ''}`} />
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180 text-[#C9A96E]' : ''}`} />
                   </div>
                 )}
 
@@ -119,16 +135,16 @@ export function Header() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 4, scale: 0.98 }}
                         transition={{ duration: 0.15, ease: "easeOut" }}
-                        className="absolute top-[76px] left-1/2 -translate-x-1/2 w-[340px] bg-[#111113] border border-[#1F1F23] rounded-xl shadow-2xl p-2.5 overflow-hidden"
+                        className="absolute top-[76px] left-1/2 -translate-x-1/2 w-[340px] bg-[#111113]/85 backdrop-blur-lg border border-[#1F1F23] rounded-xl shadow-2xl p-2.5 overflow-hidden"
                       >
                         <div className="flex flex-col gap-1">
                           {item.items?.map((subItem, idx) => (
                             <Link 
                               key={idx} 
                               href={subItem.href}
-                              className="p-3 rounded-lg hover:bg-[#1A1A1D] transition-colors group/item block"
+                              className="p-3 rounded-lg hover:bg-white/5 transition-colors group/item block"
                             >
-                              <div className="text-sm font-semibold text-white mb-0.5 group-hover/item:text-[#C9A96E] transition-colors">
+                              <div className="text-sm font-semibold text-white mb-0.5 transition-colors">
                                 {subItem.title}
                               </div>
                               <div className="text-xs text-[#A1A1AA] leading-relaxed font-light">
@@ -149,13 +165,13 @@ export function Header() {
           <div className="hidden md:flex items-center gap-6 shrink-0">
             <Link 
               href="/login" 
-              className="text-sm font-medium text-[#A1A1AA] hover:text-white transition-colors"
+              className="text-sm font-medium text-[#D1D1D6] hover:text-white transition-colors"
             >
               Login
             </Link>
             <Link 
               href="/get-started"
-              className="bg-[#C9A96E] hover:bg-[#D4B882] text-[#0A0A0B] px-4 py-2 text-sm font-semibold rounded-lg transition-all"
+              className="bg-[#C9A96E]/15 border border-[#C9A96E] hover:bg-[#C9A96E] text-[#C9A96E] hover:text-[#0A0A0B] px-6 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200"
             >
               Get Started
             </Link>
@@ -163,7 +179,7 @@ export function Header() {
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden text-[#A1A1AA] hover:text-white"
+            className="md:hidden text-[#D1D1D6] hover:text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -178,7 +194,7 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-b border-[#1F1F23] bg-[#0A0A0B] overflow-hidden"
+            className="md:hidden border-b border-[#1F1F23] bg-[#0A0A0B]/95 backdrop-blur-lg overflow-hidden"
           >
             <div className="px-4 py-6 space-y-6">
               {NAV_MENU.map((item) => (
@@ -186,7 +202,7 @@ export function Header() {
                   {item.type === "link" ? (
                     <Link 
                       href={item.href!}
-                      className="text-white font-medium text-lg"
+                      className="text-[#D1D1D6] hover:text-white font-medium text-lg transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.label}
@@ -201,7 +217,7 @@ export function Header() {
                           <Link 
                             key={idx} 
                             href={subItem.href}
-                            className="text-white text-sm"
+                            className="text-[#D1D1D6] hover:text-white text-sm transition-colors"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {subItem.title}
@@ -216,14 +232,14 @@ export function Header() {
               <div className="pt-6 border-t border-[#1F1F23] flex flex-col gap-4">
                 <Link 
                   href="/login" 
-                  className="text-white font-medium text-lg"
+                  className="text-[#D1D1D6] hover:text-white font-medium text-lg transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Login
                 </Link>
                 <Link 
                   href="/get-started"
-                  className="bg-[#C9A96E] text-[#0A0A0B] text-center py-3 text-base font-semibold rounded-lg"
+                  className="bg-[#C9A96E]/15 border border-[#C9A96E] text-[#C9A96E] hover:bg-[#C9A96E] hover:text-[#0A0A0B] text-center py-3 text-base font-semibold rounded-lg transition-all"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Get Started
