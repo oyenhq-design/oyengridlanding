@@ -40,7 +40,7 @@ export function HeroSection() {
 
   return (
     <section 
-      className="relative overflow-hidden bg-[#0B0B0C] pt-32 pb-32 border-b border-[#1F1F23]"
+      className="relative overflow-hidden bg-[#0A0A0A] pt-36 pb-32 border-b border-[#1F1F23]"
       onMouseMove={handleMouseMove}
       onMouseLeave={() => {
         mouseX.set(0)
@@ -95,7 +95,7 @@ export function HeroSection() {
               ].map((point, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#C9A96E]" strokeWidth={2} />
-                  <span className="text-[#D1D1D6] font-medium text-sm tracking-wide">{point}</span>
+                  <span className="text-[#F5F5F5] font-medium text-sm tracking-wide">{point}</span>
                 </div>
               ))}
             </motion.div>
@@ -122,46 +122,23 @@ export function HeroSection() {
                 </motion.div>
               </Link>
             </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+              className="mt-8 pt-6 border-t border-white/5"
+            >
+              <p className="text-xs text-[#A1A1AA] uppercase tracking-widest font-semibold">
+                Trusted by structured training organisations
+              </p>
+            </motion.div>
           </div>
 
           {/* Right: Layered System UI */}
           <div className="relative h-[500px] sm:h-[600px] w-full mt-10 lg:mt-0 flex items-center justify-center perspective-1000">
             
-            {/* Layer 4: Analytics (Background) */}
-            <motion.div 
-              initial={{ opacity: 0, y: -30, x: 60, scale: 0.98 }}
-              animate={{ opacity: 0.3, y: -60, x: 60, scale: 1 }}
-              transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
-              style={{
-                x: useTransform(mouseXSpring, [-0.5, 0.5], [57, 63]),
-                y: useTransform(mouseYSpring, [-0.5, 0.5], [-63, -57])
-              }}
-              className="absolute w-[280px] sm:w-[340px] bg-[#0A0A0B] border border-white/10 rounded-xl p-4 shadow-2xl backdrop-blur-sm z-10 hidden sm:block will-change-transform"
-            >
-              <motion.div 
-                animate={{ y: [0, -4, 0] }} 
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              >
-                <div className="flex items-center gap-2 mb-4 pb-2 border-b border-white/5">
-                  <BarChart3 className="w-3.5 h-3.5 text-[#A1A1AA]" />
-                  <span className="text-[10px] text-[#A1A1AA] uppercase tracking-wider font-bold">Analytics Engine</span>
-                </div>
-                <div className="flex items-end gap-1.5 h-24 mb-2">
-                  {[40, 60, 45, 80, 55, 90, 75, 85].map((h, i) => (
-                    <div key={i} className="flex-1 bg-white/5 border border-white/10 rounded-t-sm h-full flex items-end">
-                      <motion.div 
-                        initial={{ height: 0 }}
-                        animate={{ height: `${h}%` }}
-                        transition={{ duration: 1.5, delay: 1 + (i * 0.1), ease: "easeOut" }}
-                        className="w-full bg-white/10"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Layer 3: Session View */}
+            {/* Layer 3: Session View (Back) */}
             <motion.div 
               initial={{ opacity: 0, y: 0, x: 30, scale: 0.98 }}
               animate={{ opacity: 0.6, y: -30, x: 30, scale: 1 }}
