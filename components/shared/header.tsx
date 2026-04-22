@@ -45,7 +45,7 @@ export function Header() {
                 Login
               </Button>
             </Link>
-            <Link href="/app">
+            <Link href="/get-started">
               <Button className="bg-[#C8A95A] hover:bg-[#D4B86A] text-black">
                 Get Started
               </Button>
