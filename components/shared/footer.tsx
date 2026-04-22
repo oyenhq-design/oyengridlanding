@@ -4,13 +4,13 @@ import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="bg-[#0A0A0A] border-t border-[#1F1F23] pt-20 pb-10">
+    <footer className="bg-[#0A0A0A] border-t border-[#1A1A1A] pt-20 pb-10">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-20">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-6 h-6 bg-[#111113] border border-[#1F1F23] rounded-sm flex items-center justify-center">
+              <div className="w-6 h-6 bg-[#111113] border border-[#1A1A1A] rounded-sm flex items-center justify-center">
                 <span className="text-white font-bold text-[10px]">OG</span>
               </div>
               <span className="font-semibold text-white text-sm tracking-tight">OYEN Grid</span>
@@ -54,7 +54,7 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-[#1F1F23] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-[#1A1A1A] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[10px] text-[#555555] font-light uppercase tracking-widest">
             © 2026 OYEN Grid. All rights reserved.
           </p>

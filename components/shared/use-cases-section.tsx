@@ -8,61 +8,66 @@ export function UseCasesSection() {
   const useCases = [
     {
       title: "Training Organisations",
-      description: "Simplify programme delivery and participant management for professional training. Centralise your entire operation into one hub.",
-      icon: Building2
+      description: "Simplify programme delivery and participant management. Centralise your full operation into one unified hub with zero tool-switching.",
+      icon: Building2,
+      tag: "Enterprise"
     },
     {
       title: "Bootcamps",
-      description: "Run intensive, structured programmes with real-time tracking, cohort management, and deep engagement analytics.",
-      icon: Zap
+      description: "Run intensive, structured programmes with real-time cohort tracking, attendance scoring, and deep engagement analytics.",
+      icon: Zap,
+      tag: "Intensive"
     },
     {
       title: "Corporate Programmes",
-      description: "Enterprise-grade solutions for internal training, compliance modules, and continuous professional development.",
-      icon: Briefcase
+      description: "Enterprise-grade solutions for internal training, compliance modules, and continuous professional development at scale.",
+      icon: Briefcase,
+      tag: "Corporate"
     }
   ]
 
   return (
-    <section className="py-32 bg-[#F8F8F6] border-b border-[#E5E5E5] overflow-hidden">
+    <section className="py-32 bg-[#0A0A0A] border-b border-[#1A1A1A]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUpVariant}
-          className="mb-20"
+          className="mb-16"
         >
-          <h2 className="text-3xl font-bold text-[#111111] mb-4 tracking-tight">Built for Different Programmes</h2>
-          <p className="text-[#555555] text-lg max-w-2xl font-light">
-            An adaptive architecture that supports the unique requirements of your delivery model without sacrificing structure.
+          <p className="text-[10px] font-bold text-[#A1A1AA] uppercase tracking-[0.2em] mb-4">Programme Types</p>
+          <h2 className="text-3xl font-bold text-white mb-4 tracking-tight">Built for different delivery models</h2>
+          <p className="text-[#A1A1AA] text-base max-w-xl font-light">
+            An adaptive architecture that supports the unique requirements of your model without sacrificing structure.
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={staggerContainerVariant}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
-          {useCases.map((useCase, idx) => {
-            const Icon = useCase.icon
+          {useCases.map((uc, idx) => {
+            const Icon = uc.icon
             return (
               <motion.div
                 key={idx}
                 variants={staggerItemVariant}
-                whileHover={{ y: -4, boxShadow: "0 10px 30px rgba(0,0,0,0.05)" }}
+                whileHover={{ y: -5, borderColor: "rgba(255,255,255,0.07)" }}
                 transition={{ duration: 0.2 }}
-                className="bg-[#FFFFFF] border border-[#E5E5E5] hover:border-[#D1D1D6] rounded-sm p-10 transition-colors group"
+                className="group flex flex-col bg-[#0D0D0D] border border-[#1A1A1A] rounded-xl p-8"
               >
-                <div className="w-8 h-8 rounded-sm bg-[#FAFAF9] border border-[#E5E5E5] flex items-center justify-center mb-6 group-hover:bg-[#C9A96E]/10 group-hover:border-[#C9A96E]/30 transition-colors">
-                  <Icon className="w-4 h-4 text-[#111111] group-hover:text-[#C9A96E] transition-colors" strokeWidth={1.5} />
+                <div className="flex items-start justify-between mb-7">
+                  <div className="w-9 h-9 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center group-hover:border-[#C9A96E]/30 transition-colors">
+                    <Icon className="w-4 h-4 text-[#C9A96E]" strokeWidth={1.5} />
+                  </div>
+                  <span className="text-[9px] font-bold text-[#555555] uppercase tracking-widest border border-[#1A1A1A] px-2 py-1 rounded-sm">{uc.tag}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-[#111111] mb-3 tracking-tight">{useCase.title}</h3>
-                <p className="text-[#555555] text-sm leading-relaxed font-light">
-                  {useCase.description}
-                </p>
+                <h3 className="text-white font-semibold mb-3 tracking-tight">{uc.title}</h3>
+                <p className="text-[#A1A1AA] text-sm leading-relaxed font-light">{uc.description}</p>
               </motion.div>
             )
           })}

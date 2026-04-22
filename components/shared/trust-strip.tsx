@@ -1,6 +1,6 @@
 export function TrustStrip() {
   return (
-    <section className="bg-[#0A0A0A] py-16 border-b border-[#1F1F23]">
+    <section className="bg-[#0A0A0A] py-16 border-b border-[#1A1A1A]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-center text-[10px] font-bold text-[#555555] uppercase tracking-[0.2em] mb-12">
           Trusted by forward-thinking organisations

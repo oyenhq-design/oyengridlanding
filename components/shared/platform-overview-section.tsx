@@ -5,77 +5,56 @@ import { Layers, CalendarClock, MessageSquare, Workflow, LineChart, ShieldCheck 
 import { fadeUpVariant, staggerContainerVariant, staggerItemVariant } from "@/lib/motion"
 
 const features = [
-  {
-    title: "Curriculum Structuring",
-    description: "Design multi-layered programmes with prerequisites, distinct modules, and custom learning paths.",
-    icon: Layers
-  },
-  {
-    title: "Precision Scheduling",
-    description: "Automate calendar invites, enforce timezones, and manage complex cohort timelines instantly.",
-    icon: CalendarClock
-  },
-  {
-    title: "Centralised Communication",
-    description: "Keep all announcements, cohort chats, and session discussions natively within the platform.",
-    icon: MessageSquare
-  },
-  {
-    title: "Automated Session Workflow",
-    description: "From lobby entry to recording processing, the entire session lifecycle runs on autopilot.",
-    icon: Workflow
-  },
-  {
-    title: "Performance Analytics",
-    description: "Granular dashboards showing engagement metrics, completion rates, and active participants.",
-    icon: LineChart
-  },
-  {
-    title: "Attendance Intelligence",
-    description: "Silent tracking monitors who joins, when they leave, and their overall participation score.",
-    icon: ShieldCheck
-  }
+  { title: "Curriculum Structuring", desc: "Design multi-layered programmes with prerequisites and custom paths.", icon: Layers },
+  { title: "Precision Scheduling", desc: "Automate calendar invites, enforce timezones, manage complex timelines.", icon: CalendarClock },
+  { title: "Centralised Communication", desc: "Keep all announcements and cohort chats natively within the platform.", icon: MessageSquare },
+  { title: "Automated Session Workflow", desc: "From lobby entry to recording processing — the full lifecycle runs on autopilot.", icon: Workflow },
+  { title: "Performance Analytics", desc: "Granular dashboards tracking engagement, completion rates, and attendance.", icon: LineChart },
+  { title: "Attendance Intelligence", desc: "Silent tracking monitors join time, exit time, and participation scores.", icon: ShieldCheck },
 ]
 
 export function ComplexDeliverySection() {
   return (
-    <section className="py-24 bg-[#0A0A0B] border-b border-[#1F1F23]">
+    <section className="py-32 bg-[#0D0D0D] border-b border-[#1A1A1A]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUpVariant}
-          className="mb-16 border-b border-[#1F1F23] pb-10"
+          className="mb-16 pb-10 border-b border-[#1A1A1A]"
         >
-          <h2 className="text-3xl font-bold text-white mb-4 tracking-tight">Engineered for Complex Delivery</h2>
-          <p className="text-[#A1A1AA] text-lg max-w-2xl font-light">
-            Go beyond basic scheduling. OYEN Grid provides the architectural primitives required to run sophisticated programmes at scale.
+          <p className="text-[10px] font-bold text-[#A1A1AA] uppercase tracking-[0.2em] mb-4">Capabilities</p>
+          <h2 className="text-3xl font-bold text-white mb-4 tracking-tight">Engineered for complex delivery</h2>
+          <p className="text-[#A1A1AA] text-base max-w-xl font-light">
+            Go beyond basic scheduling. OYEN Grid provides the primitives required to run sophisticated programmes at scale.
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={staggerContainerVariant}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16"
+          className="grid grid-cols-1 md:grid-cols-2 gap-0"
         >
-          {features.map((feature, idx) => {
-            const Icon = feature.icon;
+          {features.map((f, idx) => {
+            const Icon = f.icon
+            const isRight = idx % 2 !== 0
             return (
-              <motion.div 
+              <motion.div
                 key={idx}
                 variants={staggerItemVariant}
-                className="group flex flex-col"
+                className={`group flex items-start gap-5 py-8 px-6 border-b border-[#1A1A1A] ${isRight ? "md:border-l" : ""} hover:bg-[#101010] transition-colors`}
               >
-                <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center shrink-0 group-hover:border-[#C9A96E]/30 transition-colors">
                   <Icon className="w-4 h-4 text-[#C9A96E]" strokeWidth={1.5} />
-                  <h3 className="text-sm font-bold text-white tracking-wide uppercase">{feature.title}</h3>
                 </div>
-                <p className="text-[#A1A1AA] text-sm leading-relaxed font-light pl-7 group-hover:text-[#D1D1D6] transition-colors duration-300">
-                  {feature.description}
-                </p>
+                <div>
+                  <h3 className="text-sm font-bold text-white mb-1.5 tracking-tight">{f.title}</h3>
+                  <p className="text-[#A1A1AA] text-xs leading-relaxed font-light">{f.desc}</p>
+                </div>
               </motion.div>
             )
           })}

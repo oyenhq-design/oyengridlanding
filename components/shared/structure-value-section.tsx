@@ -4,31 +4,19 @@ import { motion } from "framer-motion"
 import { Shield, GitCommit, Search } from "lucide-react"
 import { fadeUpVariant, staggerContainerVariant, staggerItemVariant } from "@/lib/motion"
 
-export function StructureValueSection() {
-  const points = [
-    {
-      title: "Immutable Records",
-      description: "Once a session is completed, its attendance records, chat logs, and recordings are cryptographically sealed.",
-      icon: Shield
-    },
-    {
-      title: "Traceable Progress",
-      description: "Every participant action creates an audit trail. See exactly when someone viewed a resource or left a session.",
-      icon: GitCommit
-    },
-    {
-      title: "Global Search",
-      description: "Instantly query across all your cohorts, historical recordings, and participant data with milisecond latency.",
-      icon: Search
-    }
-  ]
+const points = [
+  { title: "Immutable Records", description: "Session attendance, chat logs, and recordings are cryptographically sealed on completion.", icon: Shield },
+  { title: "Traceable Progress", description: "Every participant action creates an audit trail — views, joins, exits, durations.", icon: GitCommit },
+  { title: "Global Search", description: "Query all cohorts, recordings, and participant data instantly across your entire organisation.", icon: Search },
+]
 
+export function StructureValueSection() {
   return (
-    <section className="py-32 bg-[#FAFAF9] border-b border-[#E5E5E5] overflow-hidden">
+    <section className="py-32 bg-[#0A0A0A] border-b border-[#1A1A1A]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          
-          {/* Content */}
+
+          {/* Left — Content */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -36,25 +24,26 @@ export function StructureValueSection() {
             variants={staggerContainerVariant}
           >
             <motion.div variants={fadeUpVariant} className="mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#111111] mb-6 tracking-tight">The Value of Pure Structure</h2>
-              <p className="text-[#555555] text-lg leading-relaxed font-light">
+              <p className="text-[10px] font-bold text-[#A1A1AA] uppercase tracking-[0.2em] mb-4">Data Architecture</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 tracking-tight">The value of pure structure</h2>
+              <p className="text-[#A1A1AA] text-base leading-relaxed font-light">
                 Generic tools treat data loosely. OYEN Grid enforces strict data models, meaning your operational data becomes an asset you can actually query, analyse, and trust.
               </p>
             </motion.div>
 
             <div className="space-y-8">
-              {points.map((point, idx) => {
-                const Icon = point.icon
+              {points.map((pt, idx) => {
+                const Icon = pt.icon
                 return (
                   <motion.div key={idx} variants={staggerItemVariant} className="flex gap-5">
-                    <div className="shrink-0 mt-1">
-                      <div className="w-8 h-8 rounded-sm bg-[#FFFFFF] border border-[#E5E5E5] flex items-center justify-center shadow-sm">
-                        <Icon className="w-4 h-4 text-[#111111]" strokeWidth={1.5} />
+                    <div className="shrink-0 mt-0.5">
+                      <div className="w-8 h-8 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center">
+                        <Icon className="w-4 h-4 text-[#C9A96E]" strokeWidth={1.5} />
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-[#111111] font-semibold mb-2 tracking-tight">{point.title}</h3>
-                      <p className="text-[#555555] text-sm leading-relaxed font-light">{point.description}</p>
+                      <h3 className="text-white font-semibold text-sm mb-1.5 tracking-tight">{pt.title}</h3>
+                      <p className="text-[#A1A1AA] text-xs leading-relaxed font-light">{pt.description}</p>
                     </div>
                   </motion.div>
                 )
@@ -62,67 +51,64 @@ export function StructureValueSection() {
             </div>
           </motion.div>
 
-          {/* Minimal Diagram */}
-          <motion.div 
+          {/* Right — Diagram */}
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="bg-[#FFFFFF] border border-[#E5E5E5] rounded-sm p-12 flex items-center justify-center relative shadow-sm"
+            className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-xl flex items-center justify-center p-12 relative"
+            style={{ minHeight: 380 }}
           >
-            <div className="relative w-full aspect-square max-w-[400px]">
-              
-              {/* Central Node */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-[#111111] border border-[#E5E5E5] rounded-sm z-20 flex items-center justify-center shadow-md">
-                <span className="text-[#FFFFFF] font-bold text-[10px] tracking-widest uppercase">Grid</span>
+            {/* Central Hub */}
+            <div className="relative flex items-center justify-center w-full h-full" style={{ minHeight: 260 }}>
+
+              {/* Pulsing rings */}
+              <motion.div
+                animate={{ scale: [1, 1.12, 1], opacity: [0.08, 0.2, 0.08] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute w-36 h-36 border border-[#C9A96E]/20 rounded-full"
+              />
+              <motion.div
+                animate={{ scale: [1, 1.06, 1], opacity: [0.05, 0.12, 0.05] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute w-56 h-56 border border-[#1A1A1A] rounded-full"
+              />
+
+              {/* Centre node */}
+              <div className="relative z-20 w-16 h-16 bg-[#111111] border border-[#C9A96E]/30 rounded-xl flex flex-col items-center justify-center shadow-lg">
+                <div className="w-2 h-2 bg-[#C9A96E] rounded-sm mb-1" />
+                <span className="text-[9px] font-bold text-white uppercase tracking-widest">Grid</span>
               </div>
 
-              {/* Connecting Lines */}
-              <div className="absolute top-1/2 left-1/4 right-1/4 h-px bg-[#E5E5E5] -translate-y-1/2 z-10" />
-              <div className="absolute left-1/2 top-1/4 bottom-1/4 w-px bg-[#E5E5E5] -translate-x-1/2 z-10" />
+              {/* Orbit nodes */}
+              {[
+                { label: "Data",      style: { top: "8%",  left: "50%", transform: "translateX(-50%)" } },
+                { label: "Sessions",  style: { top: "50%", left: "4%",  transform: "translateY(-50%)" } },
+                { label: "Analytics", style: { top: "50%", right: "4%", transform: "translateY(-50%)" } },
+                { label: "Access",    style: { top: "84%", left: "50%", transform: "translateX(-50%)" } },
+              ].map((node, i) => (
+                <motion.div
+                  key={i}
+                  whileHover={{ scale: 1.08, borderColor: "rgba(201,169,110,0.4)" }}
+                  transition={{ duration: 0.2 }}
+                  style={{ position: "absolute", ...node.style }}
+                  className="z-20 w-12 h-12 bg-[#0A0A0A] border border-[#1A1A1A] rounded-lg flex items-center justify-center cursor-default"
+                >
+                  <span className="text-[8px] font-bold text-[#A1A1AA] uppercase tracking-wide">{node.label}</span>
+                </motion.div>
+              ))}
 
-              {/* Outer Nodes */}
-              <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-[#FAFAF9] border border-[#E5E5E5] rounded-sm z-20 flex items-center justify-center cursor-default"
-              >
-                <div className="w-1.5 h-1.5 bg-[#C9A96E] rounded-full" />
-              </motion.div>
-
-              <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="absolute bottom-1/4 left-1/2 -translate-x-1/2 translate-y-1/2 w-12 h-12 bg-[#FAFAF9] border border-[#E5E5E5] rounded-sm z-20 flex items-center justify-center cursor-default"
-              >
-                <div className="w-1.5 h-1.5 bg-[#A1A1AA] rounded-full" />
-              </motion.div>
-
-              <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-[#FAFAF9] border border-[#E5E5E5] rounded-sm z-20 flex items-center justify-center cursor-default"
-              >
-                <div className="w-1.5 h-1.5 bg-[#A1A1AA] rounded-full" />
-              </motion.div>
-
-              <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-[#FAFAF9] border border-[#E5E5E5] rounded-sm z-20 flex items-center justify-center cursor-default"
-              >
-                <div className="w-1.5 h-1.5 bg-[#27C93F] rounded-full" />
-              </motion.div>
-
-              {/* Subtle pulsing background circles */}
-              <motion.div 
-                animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.3, 0.1] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-[#E5E5E5] rounded-full z-0"
-              />
-              <motion.div 
-                animate={{ scale: [1, 1.05, 1], opacity: [0.05, 0.15, 0.05] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 border border-[#E5E5E5] rounded-full z-0"
-              />
+              {/* Connector lines (SVG) */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 10 }}>
+                <line x1="50%" y1="50%" x2="50%" y2="12%" stroke="#1A1A1A" strokeWidth="1" strokeDasharray="4 4" />
+                <line x1="50%" y1="50%" x2="8%" y2="50%" stroke="#1A1A1A" strokeWidth="1" strokeDasharray="4 4" />
+                <line x1="50%" y1="50%" x2="92%" y2="50%" stroke="#1A1A1A" strokeWidth="1" strokeDasharray="4 4" />
+                <line x1="50%" y1="50%" x2="50%" y2="88%" stroke="#1A1A1A" strokeWidth="1" strokeDasharray="4 4" />
+              </svg>
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>
