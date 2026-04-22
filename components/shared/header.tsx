@@ -9,15 +9,15 @@ export function Header() {
   const pathname = usePathname()
 
   return (
-    <header className="fixed top-0 w-full bg-[#0B0B0F]/95 backdrop-blur supports-[backdrop-filter]:bg-[#0B0B0F]/60 z-50 border-b border-[#1F1F1F]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="fixed top-0 w-full bg-[#0A0A0A]/90 backdrop-blur-sm z-50 border-b border-[#1F1F23]">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#C8A95A] rounded-lg flex items-center justify-center">
-              <span className="text-black font-bold text-sm">OG</span>
+            <div className="w-6 h-6 bg-[#111113] border border-[#1F1F23] rounded-sm flex items-center justify-center">
+              <span className="text-white font-bold text-[10px]">OG</span>
             </div>
-            <span className="font-semibold text-white">OYEN Grid</span>
+            <span className="font-semibold text-white tracking-tight">OYEN Grid</span>
           </Link>
 
           {/* Navigation */}
@@ -28,8 +28,8 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-sm font-medium transition-colors duration-300 ${
-                    isActive ? "text-[#C8A95A]" : "text-[#A1A1AA] hover:text-[#C8A95A]"
+                  className={`text-xs font-semibold tracking-wide transition-colors duration-300 ${
+                    isActive ? "text-[#C9A96E]" : "text-[#A1A1AA] hover:text-white"
                   }`}
                 >
                   {item.label}
@@ -41,12 +41,12 @@ export function Header() {
           {/* Actions */}
           <div className="flex items-center gap-3">
             <Link href="/login">
-              <Button variant="ghost" className="hidden sm:inline-flex text-[#A1A1AA] hover:text-white hover:bg-white/10">
+              <Button variant="ghost" className="hidden sm:inline-flex text-[#A1A1AA] hover:text-white hover:bg-white/5 h-9 rounded-sm text-xs font-semibold">
                 Login
               </Button>
             </Link>
             <Link href="/get-started">
-              <Button className="bg-[#C8A95A] hover:bg-[#D4B86A] text-black">
+              <Button className="bg-[#C9A96E] hover:bg-[#B39358] text-[#0A0A0A] h-9 px-4 text-xs font-semibold rounded-sm shadow-none">
                 Get Started
               </Button>
             </Link>
