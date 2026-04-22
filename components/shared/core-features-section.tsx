@@ -2,27 +2,39 @@
 
 import { motion } from "framer-motion"
 import { Layout, Video, Database } from "lucide-react"
+import { fadeUpVariant, staggerContainerVariant, staggerItemVariant } from "@/lib/motion"
 
 export function CoreFeaturesSection() {
   return (
-    <section className="py-32 bg-[#FAFAF9] border-b border-[#E5E5E5]">
+    <section className="py-32 bg-[#FAFAF9] border-b border-[#E5E5E5] overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="mb-24">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUpVariant}
+          className="mb-24"
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-[#111111] mb-4 tracking-tight">
             Everything your organisation needs <span className="text-[#A1A1AA] font-light">— in one system</span>
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <motion.div 
+          variants={staggerContainerVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-12"
+        >
           
           {/* Column 1: Programme Management */}
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col bg-[#FFFFFF] border border-[#E5E5E5] p-8 rounded-sm shadow-sm"
+            variants={staggerItemVariant}
+            whileHover={{ y: -4, boxShadow: "0 10px 30px rgba(0,0,0,0.05)" }}
+            transition={{ duration: 0.2 }}
+            className="flex flex-col bg-[#FFFFFF] border border-[#E5E5E5] hover:border-[#D1D1D6] p-8 rounded-sm shadow-sm transition-colors"
           >
             {/* Minimal Header */}
             <div className="flex flex-col mb-8">
@@ -56,11 +68,10 @@ export function CoreFeaturesSection() {
 
           {/* Column 2: Session Delivery */}
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col bg-[#FFFFFF] border border-[#E5E5E5] p-8 rounded-sm shadow-sm"
+            variants={staggerItemVariant}
+            whileHover={{ y: -4, boxShadow: "0 10px 30px rgba(0,0,0,0.05)" }}
+            transition={{ duration: 0.2 }}
+            className="flex flex-col bg-[#FFFFFF] border border-[#E5E5E5] hover:border-[#D1D1D6] p-8 rounded-sm shadow-sm transition-colors"
           >
             {/* Minimal Header */}
             <div className="flex flex-col mb-8">
@@ -91,11 +102,10 @@ export function CoreFeaturesSection() {
 
           {/* Column 3: Recordings & Storage */}
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col bg-[#FFFFFF] border border-[#E5E5E5] p-8 rounded-sm shadow-sm"
+            variants={staggerItemVariant}
+            whileHover={{ y: -4, boxShadow: "0 10px 30px rgba(0,0,0,0.05)" }}
+            transition={{ duration: 0.2 }}
+            className="flex flex-col bg-[#FFFFFF] border border-[#E5E5E5] hover:border-[#D1D1D6] p-8 rounded-sm shadow-sm transition-colors"
           >
             {/* Minimal Header */}
             <div className="flex flex-col mb-8">
@@ -124,7 +134,7 @@ export function CoreFeaturesSection() {
             </div>
           </motion.div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   )

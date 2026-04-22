@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Building2, Zap, Briefcase } from "lucide-react"
+import { fadeUpVariant, staggerContainerVariant, staggerItemVariant } from "@/lib/motion"
 
 export function UseCasesSection() {
   const useCases = [
@@ -23,26 +24,37 @@ export function UseCasesSection() {
   ]
 
   return (
-    <section className="py-32 bg-[#F8F8F6] border-b border-[#E5E5E5]">
+    <section className="py-32 bg-[#F8F8F6] border-b border-[#E5E5E5] overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-20">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUpVariant}
+          className="mb-20"
+        >
           <h2 className="text-3xl font-bold text-[#111111] mb-4 tracking-tight">Built for Different Programmes</h2>
           <p className="text-[#555555] text-lg max-w-2xl font-light">
             An adaptive architecture that supports the unique requirements of your delivery model without sacrificing structure.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <motion.div 
+          variants={staggerContainerVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
           {useCases.map((useCase, idx) => {
             const Icon = useCase.icon
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-[#FFFFFF] border border-[#E5E5E5] rounded-sm p-10 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group"
+                variants={staggerItemVariant}
+                whileHover={{ y: -4, boxShadow: "0 10px 30px rgba(0,0,0,0.05)" }}
+                transition={{ duration: 0.2 }}
+                className="bg-[#FFFFFF] border border-[#E5E5E5] hover:border-[#D1D1D6] rounded-sm p-10 transition-colors group"
               >
                 <div className="w-8 h-8 rounded-sm bg-[#FAFAF9] border border-[#E5E5E5] flex items-center justify-center mb-6 group-hover:bg-[#C9A96E]/10 group-hover:border-[#C9A96E]/30 transition-colors">
                   <Icon className="w-4 h-4 text-[#111111] group-hover:text-[#C9A96E] transition-colors" strokeWidth={1.5} />
@@ -54,7 +66,7 @@ export function UseCasesSection() {
               </motion.div>
             )
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
