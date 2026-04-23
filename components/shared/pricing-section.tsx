@@ -1,96 +1,224 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { CheckCircle2 } from "lucide-react"
-import { PRICING_TIERS } from "@/lib/constants"
+import { motion } from "framer-motion"
+import { Check } from "lucide-react"
+
+const PLANS = [
+  {
+    name: "Basic",
+    price: "$15",
+    period: "/month",
+    equivalent: "(₦25,000 equivalent)",
+    description: "For small teams running a single programme.",
+    features: [
+      "1 Programme",
+      "Up to 50 Participants",
+      "Session chat only",
+      "Limited storage",
+      "Basic dashboard",
+      "Invite-only access",
+      "Limited bootcamp support",
+      "Private trainer notes only",
+    ],
+    cta: "Start Basic",
+    ctaStyle: "outline",
+    popular: false,
+  },
+  {
+    name: "Standard",
+    price: "$30",
+    period: "/month",
+    equivalent: "(₦50,000 equivalent)",
+    description: "Everything you need to run structured programmes.",
+    features: [
+      "Up to 5 Programmes",
+      "Up to 200 Participants",
+      "Session + Group chat",
+      "Attendance tracking",
+      "Basic progress tracking",
+      "Participant profiles (basic)",
+      "Session notes + trainer notes",
+      "Limited recordings",
+      "Multi-admin (up to 3)",
+      "Basic AI assistant (limited)",
+    ],
+    cta: "Start Standard",
+    ctaStyle: "solid",
+    popular: true,
+  },
+  {
+    name: "Premium",
+    price: "$60",
+    period: "/month",
+    equivalent: "(₦100,000 equivalent)",
+    description: "Advanced tools for scaling operations.",
+    features: [
+      "Unlimited Programmes",
+      "500+ Participants",
+      "Full bootcamp system",
+      "Advanced participant tracking",
+      "Full notes system",
+      "Session recording & storage",
+      "Advanced analytics",
+      "Full communication system",
+      "Expanded AI tools",
+      "Priority performance",
+    ],
+    cta: "Start Premium",
+    ctaStyle: "outline-gold",
+    popular: false,
+  },
+  {
+    name: "Premium+",
+    price: "Custom",
+    period: "",
+    equivalent: "",
+    description: "For enterprise and large-scale organisations.",
+    features: [
+      "Custom deployment",
+      "White-label branding",
+      "Custom domains",
+      "Dedicated support",
+      "API integrations",
+      "SLA guarantees",
+      "Advanced reporting",
+      "Onboarding & training support",
+    ],
+    cta: "Contact Sales",
+    ctaStyle: "outline",
+    popular: false,
+  },
+]
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="py-24 md:py-32 bg-[#0B0B0F] border-b border-[#1F1F1F]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-32 relative bg-[#0A0A0A] border-b border-[#1A1A1A] overflow-hidden">
+      {/* Soft background glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+      >
+        <div
+          style={{
+            width: 800,
+            height: 400,
+            background:
+              "radial-gradient(ellipse at center, rgba(201,169,110,0.035) 0%, transparent 70%)",
+            borderRadius: "50%",
+          }}
+        />
+      </div>
+
+      <div className="relative max-w-[1200px] mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Scale with <span className="text-[#C8A95A]">confidence</span>
-          </h2>
-          <p className="text-lg text-[#A1A1AA] max-w-2xl mx-auto">
-            Predictable pricing built for organisations of all sizes. No hidden fees.
-          </p>
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-[48px] md:text-[56px] font-bold text-white tracking-tight leading-tight mb-6"
+          >
+            Simple pricing. Serious scale.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="text-[18px] md:text-[20px] text-[#A1A1AA] leading-relaxed"
+          >
+            Start small or deploy across your organisation. Pricing scales with your growth.
+          </motion.p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {PRICING_TIERS.map((tier, idx) => (
-            <div
-              key={idx}
-              className={`rounded-3xl p-8 flex flex-col transition-all duration-500 relative ${
-                tier.popular
-                  ? "bg-[#121212] border-2 border-[#C8A95A] scale-105 shadow-2xl shadow-[#C8A95A]/10 z-10"
-                  : "bg-[#121212] border border-[#1F1F1F] hover:border-[#C8A95A]/50 hover:-translate-y-1 hover:z-10"
-              }`}
+        {/* Pricing Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          {PLANS.map((plan, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
+              className={`group relative flex flex-col bg-[#111111] rounded-2xl transition-all duration-300 ease-out hover:-translate-y-2
+                ${
+                  plan.popular
+                    ? "border border-[#C9A86A] shadow-[0_0_40px_rgba(201,168,106,0.12)] lg:scale-105 z-10"
+                    : "border border-[#222222] hover:border-[#C9A86A]/40 hover:shadow-[0_0_30px_rgba(201,168,106,0.06)]"
+                }`}
+              style={{ padding: "2.5rem 2rem" }}
             >
-              {/* Optional Gradient Background for Popular Tier */}
-              {tier.popular && (
-                <div className="absolute inset-0 bg-gradient-to-br from-[#C8A95A]/5 to-transparent rounded-3xl pointer-events-none" />
-              )}
-
-              {/* Badge */}
-              <div className="h-8 mb-4 flex items-center">
-                {tier.popular && (
-                  <span className="inline-block bg-[#C8A95A] text-black text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+              {/* Popular Badge */}
+              {plan.popular && (
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <span className="bg-[#C9A86A] text-[#0A0A0A] text-[13px] font-bold uppercase tracking-widest py-1.5 px-4 rounded-full">
                     Most Popular
                   </span>
-                )}
-              </div>
+                </div>
+              )}
 
-              {/* Title */}
-              <h3 className={`text-2xl font-semibold mb-3 ${tier.popular ? "text-[#C8A95A]" : "text-white"}`}>
-                {tier.name}
-              </h3>
-
-              {/* Description */}
-              <p className="text-[#A1A1AA] text-sm mb-6 leading-relaxed min-h-[40px]">
-                {tier.description}
-              </p>
-
-              {/* Price */}
-              <div className="mb-8 flex items-baseline gap-2">
-                <span className={`text-4xl md:text-5xl font-bold ${tier.popular ? "text-white" : "text-white"}`}>
-                  {tier.price}
-                </span>
-                {tier.price !== "Custom" && (
-                  <span className="text-[#A1A1AA] text-sm font-medium">
-                    /month
+              {/* Card Header */}
+              <div className="mb-8">
+                <h3 className="text-[20px] md:text-[22px] font-semibold text-white mb-4">
+                  {plan.name}
+                </h3>
+                <div className="flex items-baseline gap-1 mb-2">
+                  <span className="text-[36px] md:text-[44px] font-bold text-white leading-none">
+                    {plan.price}
                   </span>
+                  {plan.period && (
+                    <span className="text-[16px] text-[#A1A1AA] font-medium">
+                      {plan.period}
+                    </span>
+                  )}
+                </div>
+                {plan.equivalent ? (
+                  <div className="text-[14px] text-[#71717A] mb-4 min-h-[20px]">
+                    {plan.equivalent}
+                  </div>
+                ) : (
+                  <div className="min-h-[20px] mb-4" />
+                )}
+                {plan.description && (
+                  <p className="text-[16px] text-[#D4D4D8] leading-relaxed">
+                    {plan.description}
+                  </p>
                 )}
               </div>
 
-              {/* CTA */}
-              <Button
-                className={`w-full mb-8 h-12 text-sm font-bold uppercase tracking-wider rounded-xl transition-all duration-300 ${
-                  tier.popular
-                    ? "bg-[#C8A95A] text-black hover:bg-white hover:text-black shadow-[0_0_20px_rgba(200,169,90,0.3)]"
-                    : "bg-[#1A1A1A] text-white hover:bg-[#C8A95A] hover:text-black border border-[#2A2A2A] hover:border-[#C8A95A]"
-                }`}
-              >
-                {tier.price === "Custom" ? "Contact Sales" : "Get Started"}
-              </Button>
-
-              {/* Features */}
-              <div className="mt-auto">
-                <p className="text-sm font-semibold text-white mb-4">Includes:</p>
-                <ul className="space-y-4">
-                  {tier.features.map((feature, fidx) => (
-                    <li key={fidx} className="flex items-start gap-3">
-                      <CheckCircle2 className={`w-5 h-5 mt-0.5 shrink-0 ${tier.popular ? "text-[#C8A95A]" : "text-[#A1A1AA]"}`} />
-                      <span className="text-sm text-[#A1A1AA] leading-relaxed">
+              {/* Features List */}
+              <div className="flex-1">
+                <ul className="flex flex-col gap-4 mb-8">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <div className="mt-1 shrink-0 w-5 h-5 rounded-full bg-[#C9A86A]/10 border border-[#C9A86A]/30 flex items-center justify-center">
+                        <Check className="w-3 h-3 text-[#C9A86A]" strokeWidth={2.5} />
+                      </div>
+                      <span className="text-[16px] text-[#E4E4E7] leading-snug font-medium">
                         {feature}
                       </span>
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
+
+              {/* CTA Button */}
+              <div className="mt-auto pt-4">
+                <button
+                  className={`w-full py-4 px-6 rounded-xl text-[16px] md:text-[18px] font-semibold transition-all duration-200
+                    ${
+                      plan.ctaStyle === "solid"
+                        ? "bg-[#C9A86A] hover:bg-[#D4B882] text-[#0A0A0A] shadow-[0_0_20px_rgba(201,168,106,0.3)] hover:shadow-[0_0_25px_rgba(201,168,106,0.4)]"
+                        : plan.ctaStyle === "outline-gold"
+                        ? "bg-transparent border border-[#C9A86A]/50 text-[#C9A86A] hover:bg-[#C9A86A]/10"
+                        : "bg-transparent border border-[#333333] text-white hover:border-[#C9A86A]/50 hover:bg-[#1A1A1A]"
+                    }`}
+                >
+                  {plan.cta}
+                </button>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

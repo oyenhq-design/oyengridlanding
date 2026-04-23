@@ -54,7 +54,7 @@ export function PositioningSection() {
           {/* Label */}
           <p
             className="uppercase font-semibold mb-5"
-            style={{ fontSize: 10, letterSpacing: "0.26em", color: "#555555" }}
+            style={{ fontSize: 10, letterSpacing: "0.26em", color: "#71717A" }}
           >
             Positioning
           </p>
@@ -68,7 +68,7 @@ export function PositioningSection() {
             <em
               className="not-italic"
               style={{
-                color: "#A1A1AA",
+                color: "#C4C4C4",
                 fontWeight: 300,
                 fontStyle: "italic",
               }}
@@ -81,10 +81,10 @@ export function PositioningSection() {
           {/* Sub-headline */}
           <p
             className="font-light leading-relaxed max-w-[480px]"
-            style={{ fontSize: 16, color: "#6B7280", lineHeight: 1.6 }}
+            style={{ fontSize: 16, color: "#A1A1AA", lineHeight: 1.65 }}
           >
             Most platforms solve fragments.{" "}
-            <span style={{ color: "#9CA3AF" }}>
+            <span style={{ color: "#D4D4D8", fontWeight: 400 }}>
               This replaces the entire system.
             </span>
           </p>
@@ -116,7 +116,7 @@ export function PositioningSection() {
             {/* Column label */}
             <p
               className="font-semibold uppercase mb-6"
-              style={{ fontSize: 10, letterSpacing: "0.22em", color: "#3D3D3D" }}
+              style={{ fontSize: 10, letterSpacing: "0.22em", color: "#555555" }}
             >
               What it is not
             </p>
@@ -155,18 +155,18 @@ export function PositioningSection() {
                       className="not-label block font-medium"
                       style={{
                         fontSize: 15,
-                        color: "#A1A1AA",
-                        lineHeight: 1.3,
+                        color: "#D4D4D8",
+                        lineHeight: 1.35,
                         transition: "color 0.22s ease",
                         textDecoration: "line-through",
-                        textDecorationColor: "rgba(255,255,255,0.1)",
+                        textDecorationColor: "rgba(255,255,255,0.18)",
                       }}
                     >
                       {label}
                     </span>
                     <span
-                      className="block font-light mt-0.5"
-                      style={{ fontSize: 12, color: "#4B4B4B", lineHeight: 1.5 }}
+                      className="block font-light mt-1"
+                      style={{ fontSize: 12.5, color: "#71717A", lineHeight: 1.55 }}
                     >
                       {desc}
                     </span>
@@ -228,7 +228,7 @@ export function PositioningSection() {
               {/* Column label */}
               <p
                 className="font-bold uppercase mb-6"
-                style={{ fontSize: 10, letterSpacing: "0.22em", color: "#C9A96E" }}
+                style={{ fontSize: 10, letterSpacing: "0.22em", color: "#D4AF37" }}
               >
                 What it actually is
               </p>
@@ -245,8 +245,7 @@ export function PositioningSection() {
 
               {/* Description */}
               <p
-                className="font-light leading-relaxed"
-                style={{ fontSize: 15, color: "#A1A1AA", lineHeight: 1.65, maxWidth: 460 }}
+                style={{ fontSize: 15.5, color: "#D4D4D8", lineHeight: 1.7, maxWidth: 460, fontWeight: 400 }}
               >
                 One unified platform where your programmes, sessions, participants,
                 and data live, communicate, and scale together — without stitching
@@ -289,7 +288,7 @@ export function PositioningSection() {
                   </div>
                   <span
                     className="font-medium"
-                    style={{ fontSize: 15, color: "rgba(255,255,255,0.88)", lineHeight: 1.4 }}
+                    style={{ fontSize: 15.5, color: "#FFFFFF", lineHeight: 1.45 }}
                   >
                     {pt}
                   </span>
@@ -303,9 +302,9 @@ export function PositioningSection() {
 
       {/* CSS hover rules for left-side items */}
       <style>{`
-        .not-item:hover .not-label   { color: #D1D1D1 !important; text-decoration-color: rgba(255,255,255,0.18) !important; }
-        .not-item:hover .not-icon    { box-shadow: 0 0 10px rgba(220,80,80,0.12) !important; border-color: rgba(220,80,80,0.2) !important; }
-        .not-item:hover .not-icon svg { color: #C05050 !important; }
+        .not-item:hover .not-label   { color: #F4F4F5 !important; text-decoration-color: rgba(255,255,255,0.25) !important; }
+        .not-item:hover .not-icon    { box-shadow: 0 0 12px rgba(220,80,80,0.16) !important; border-color: rgba(220,80,80,0.28) !important; }
+        .not-item:hover .not-icon svg { color: #CD5C5C !important; }
       `}</style>
     </section>
   )
