@@ -1,6 +1,5 @@
 import { HeroSection } from "@/components/shared/hero-section";
-import { FeatureStrip } from "@/components/shared/feature-strip";
-import { TrustStrip } from "@/components/shared/trust-strip";
+import { CapabilityTrustSection } from "@/components/shared/feature-strip";
 import { CoreFeaturesSection } from "@/components/shared/core-features-section";
 import { ComplexDeliverySection } from "@/components/shared/platform-overview-section";
 import { HowItWorksSection } from "@/components/shared/how-it-works-section";
@@ -16,15 +15,12 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-1 pt-16">
-        
+
         {/* 1. HERO */}
         <HeroSection />
 
-        {/* 2. FEATURE STRIP */}
-        <FeatureStrip />
-
-        {/* 3. TRUST STRIP */}
-        <TrustStrip />
+        {/* 2. CAPABILITY & TRUST — unified feature strip + logo section */}
+        <CapabilityTrustSection />
 
         {/* 3. POSITIONING */}
         <PositioningSection />

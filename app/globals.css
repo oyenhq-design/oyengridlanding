@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+/* ── Capability strip: icon hover via CSS group ── */
+.cap-item:hover .cap-icon-base  { color: transparent !important; }
+.cap-item:hover .cap-icon-gold  { opacity: 1 !important; }
+.cap-item:hover .cap-icon-glow  { opacity: 1 !important; }
