@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/shared/hero-section";
+import { FeatureStrip } from "@/components/shared/feature-strip";
 import { TrustStrip } from "@/components/shared/trust-strip";
 import { CoreFeaturesSection } from "@/components/shared/core-features-section";
 import { ComplexDeliverySection } from "@/components/shared/platform-overview-section";
@@ -19,7 +20,10 @@ export default function Home() {
         {/* 1. HERO */}
         <HeroSection />
 
-        {/* 2. TRUST STRIP */}
+        {/* 2. FEATURE STRIP */}
+        <FeatureStrip />
+
+        {/* 3. TRUST STRIP */}
         <TrustStrip />
 
         {/* 3. POSITIONING */}

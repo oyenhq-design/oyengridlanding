@@ -4,9 +4,9 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { motion, useMotionValue, useSpring, useTransform, animate } from "framer-motion"
 import {
-  CheckCircle2, Users, Activity, BarChart3, Layout,
-  Calendar, MessageSquare, Settings, Bell, Search, ChevronDown
+  CheckCircle2, Users, Calendar, MessageSquare, Settings, Bell, Search, ChevronDown
 } from "lucide-react"
+
 
 function useCountUp(from: number, to: number, delay = 0.9) {
   const [val, setVal] = useState(from)
@@ -419,31 +419,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* ── Bottom strip ── */}
-      <motion.div
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.1 }}
-        className="relative z-10 border-t border-[#1A1A1A]"
-      >
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4 divide-x divide-[#1A1A1A]">
-          {[
-            { Icon: Layout,      title: "All-in-one platform",      desc: "Everything you need in one place." },
-            { Icon: CheckCircle2,title: "Enterprise-grade security", desc: "Built with security at the core." },
-            { Icon: BarChart3,   title: "Deep analytics",           desc: "Real-time insights that matter." },
-            { Icon: Activity,    title: "Scalable & reliable",       desc: "Built to grow with you." },
-          ].map(({ Icon, title, desc }, i) => (
-            <div key={i} className="flex items-start gap-4 py-7 px-6 first:pl-0 last:pr-0 group">
-              <div className="w-9 h-9 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center shrink-0 group-hover:border-[#C9A96E]/30 transition-colors">
-                <Icon className="w-4 h-4 text-[#C9A96E]" strokeWidth={1.5} />
-              </div>
-              <div>
-                <div className="text-white text-sm font-semibold mb-0.5">{title}</div>
-                <div className="text-[#555555] text-xs font-light">{desc}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.div>
+
     </section>
   )
 }
