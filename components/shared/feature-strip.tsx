@@ -30,12 +30,12 @@ const FEATURES = [
 
 // ─── Logo data — styled text placeholders ──────────────────────────────────────
 const LOGOS: { name: string; style: React.CSSProperties }[] = [
-  { name: "ACME Corp",   style: { fontWeight: 700, letterSpacing: "-0.02em", fontSize: "0.82rem" } },
-  { name: "GLOBALSCALE", style: { fontWeight: 700, letterSpacing: "0.26em",  fontSize: "0.66rem" } },
-  { name: "NovaTech",    style: { fontWeight: 300, letterSpacing: "0.06em",  fontStyle: "italic", fontSize: "0.84rem" } },
-  { name: "Lumiere",     style: { fontWeight: 600, letterSpacing: "0.04em",  fontSize: "0.82rem" } },
-  { name: "APEX",        style: { fontWeight: 700, letterSpacing: "0.3em",   fontSize: "0.66rem" } },
-  { name: "Meridian",    style: { fontWeight: 500, letterSpacing: "0.08em",  fontSize: "0.8rem"  } },
+  { name: "ACME Corp",   style: { fontWeight: 700, letterSpacing: "-0.02em", fontSize: "0.92rem" } },
+  { name: "GLOBALSCALE", style: { fontWeight: 700, letterSpacing: "0.26em",  fontSize: "0.72rem" } },
+  { name: "NovaTech",    style: { fontWeight: 300, letterSpacing: "0.06em",  fontStyle: "italic", fontSize: "0.94rem" } },
+  { name: "Lumiere",     style: { fontWeight: 600, letterSpacing: "0.04em",  fontSize: "0.92rem" } },
+  { name: "APEX",        style: { fontWeight: 700, letterSpacing: "0.3em",   fontSize: "0.72rem" } },
+  { name: "Meridian",    style: { fontWeight: 500, letterSpacing: "0.08em",  fontSize: "0.9rem"  } },
 ]
 
 // ─── Unified Capability & Trust Section ───────────────────────────────────────
@@ -76,7 +76,7 @@ export function CapabilityTrustSection() {
                 cap-item → triggers CSS hover rules in globals.css
                 for cap-icon-base / cap-icon-gold / cap-icon-glow
               */
-              className="cap-item group relative flex items-start gap-4 px-8 py-16"
+              className="cap-item group relative flex items-start gap-5 px-8 py-16"
               initial={{ opacity: 0, y: 12 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55, delay: 0.06 * i, ease: "easeOut" }}
@@ -89,14 +89,14 @@ export function CapabilityTrustSection() {
               }}
             >
               {/* Icon stack */}
-              <div className="relative shrink-0 mt-0.5" style={{ width: 18, height: 18 }}>
+              <div className="relative shrink-0 mt-0.5" style={{ width: 20, height: 20 }}>
                 {/* Glow orb — hidden by default, shown by CSS on cap-item:hover */}
                 <div
                   className="cap-icon-glow absolute rounded-full pointer-events-none"
                   style={{
                     inset: 0,
                     opacity: 0,
-                    transform: "scale(3)",
+                    transform: "scale(3.2)",
                     background:
                       "radial-gradient(circle at center, rgba(212,175,55,0.24) 0%, transparent 65%)",
                     transition: "opacity 0.25s ease",
@@ -104,29 +104,39 @@ export function CapabilityTrustSection() {
                 />
                 {/* Base icon — muted white */}
                 <Icon
-                  className="cap-icon-base absolute inset-0 w-[18px] h-[18px]"
-                  style={{ color: "rgba(255,255,255,0.26)", transition: "color 0.25s ease" }}
+                  className="cap-icon-base absolute inset-0 w-5 h-5"
+                  style={{ color: "rgba(255,255,255,0.28)", transition: "color 0.25s ease" }}
                   strokeWidth={1.5}
                 />
                 {/* Gold icon — hidden by default, shown on hover */}
                 <Icon
-                  className="cap-icon-gold absolute inset-0 w-[18px] h-[18px]"
+                  className="cap-icon-gold absolute inset-0 w-5 h-5"
                   style={{ color: "#D4AF37", opacity: 0, transition: "opacity 0.25s ease" }}
                   strokeWidth={1.5}
                 />
               </div>
 
               {/* Text */}
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col">
                 <span
-                  className="text-[13px] font-semibold leading-tight"
-                  style={{ color: "rgba(255,255,255,0.88)" }}
+                  style={{
+                    fontSize: "17px",
+                    fontWeight: 600,
+                    letterSpacing: "-0.01em",
+                    color: "#FFFFFF",
+                    lineHeight: 1.25,
+                    marginBottom: "8px",
+                  }}
                 >
                   {title}
                 </span>
                 <span
-                  className="text-[11.5px] font-light leading-snug"
-                  style={{ color: "#6B7280" }}
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: 400,
+                    lineHeight: 1.55,
+                    color: "#A1A1AA",
+                  }}
                 >
                   {desc}
                 </span>
@@ -162,18 +172,18 @@ export function CapabilityTrustSection() {
             transition={{ duration: 0.55, delay: 0.28, ease: "easeOut" }}
             style={{
               textAlign: "center",
-              fontSize: "9.5px",
-              fontWeight: 600,
+              fontSize: "12px",
+              fontWeight: 500,
               textTransform: "uppercase",
-              letterSpacing: "0.26em",
-              color: "#3A3A3A",
+              letterSpacing: "0.18em",
+              color: "#71717A",
             }}
           >
             Trusted by forward-thinking organisations
           </motion.p>
 
           {/* Logos row */}
-          <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-5 md:gap-x-20 w-full">
+          <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-6 md:gap-x-24 w-full">
             {LOGOS.map(({ name, style }, i) => (
               <motion.span
                 key={i}
@@ -185,6 +195,7 @@ export function CapabilityTrustSection() {
                   color: "rgba(255,255,255,0.32)",
                   filter: "grayscale(1)",
                   transition: "color 0.28s ease, filter 0.28s ease",
+                  fontSize: style.fontSize ?? "0.9rem",
                   ...style,
                 }}
                 whileHover={{
