@@ -9,7 +9,6 @@ import { Header } from "@/components/shared/header";
 import { Footer } from "@/components/shared/footer";
 import { UseCasesSection } from "@/components/shared/use-cases-section";
 import { PositioningSection } from "@/components/shared/positioning-section";
-import { PricingSection } from "@/components/shared/pricing-section";
 
 export default function Home() {
   return (
@@ -41,10 +40,7 @@ export default function Home() {
         {/* 8. STRUCTURE VALUE (RADIAL VISUAL) */}
         <StructureValueSection />
 
-        {/* 9. PRICING */}
-        <PricingSection />
-
-        {/* 10. CTA */}
+        {/* 9. CTA */}
         <CTASection />
 
       </main>

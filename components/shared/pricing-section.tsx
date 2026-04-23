@@ -92,7 +92,7 @@ const PLANS = [
 
 export function PricingSection() {
   return (
-    <section className="py-32 relative bg-[#0A0A0A] border-b border-[#1A1A1A] overflow-hidden">
+    <section className="pt-[140px] pb-32 relative bg-[#0A0A0A] overflow-hidden min-h-screen">
       {/* Soft background glow */}
       <div
         aria-hidden
@@ -141,11 +141,11 @@ export function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-              className={`group relative flex flex-col bg-[#111111] rounded-2xl transition-all duration-300 ease-out hover:-translate-y-2
+              className={`group relative flex flex-col bg-[#111111] rounded-2xl transition-all duration-300 ease-out hover:-translate-y-[6px]
                 ${
                   plan.popular
-                    ? "border border-[#C9A86A] shadow-[0_0_40px_rgba(201,168,106,0.12)] lg:scale-105 z-10"
-                    : "border border-[#222222] hover:border-[#C9A86A]/40 hover:shadow-[0_0_30px_rgba(201,168,106,0.06)]"
+                    ? "border border-[#C9A86A] shadow-[0_0_40px_rgba(201,168,106,0.12)] lg:scale-[1.04] z-10 hover:shadow-[0_0_50px_rgba(201,168,106,0.18)]"
+                    : "border border-[#222222] hover:border-[#C9A86A]/40 hover:shadow-[0_0_30px_rgba(201,168,106,0.08)]"
                 }`}
               style={{ padding: "2.5rem 2rem" }}
             >
