@@ -16,15 +16,8 @@ import {
   BarChart3,
   Layout,
   Calendar,
-  ChevronDown,
-  Users,
-  MessageSquare,
-  Settings,
-  Bell,
-  Search,
 } from "lucide-react"
 
-// ── Counter ────────────────────────────────────────────────────────────────────
 function useCountUp(from: number, to: number, delay = 0.9) {
   const [val, setVal] = useState(from)
   useEffect(() => {
@@ -39,182 +32,11 @@ function useCountUp(from: number, to: number, delay = 0.9) {
   return val
 }
 
-// ── Shared panel shell ─────────────────────────────────────────────────────────
-function PanelShell({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode
-  className?: string
-}) {
-  return (
-    <div
-      className={`bg-[#0A0A0A] border border-[#1F1F23] rounded-xl overflow-hidden ${className}`}
-    >
-      {children}
-    </div>
-  )
-}
-
-// ── UI Panel: Programme Overview (front) ───────────────────────────────────────
-function PanelProgramme() {
-  return (
-    <PanelShell>
-      <div className="flex items-center gap-2 px-4 h-9 bg-[#0D0D0D] border-b border-[#1A1A1A]">
-        <Layout className="w-3 h-3 text-[#C9A96E]" />
-        <span className="text-[9px] font-bold text-[#888888] uppercase tracking-widest">
-          Programme Overview
-        </span>
-        <div className="ml-auto flex items-center gap-1 bg-[#111111] border border-[#1A1A1A] px-2 py-0.5 rounded-sm">
-          <span className="text-[8px] text-[#444444]">Q3 Engineering Bootcamp</span>
-          <ChevronDown className="w-2.5 h-2.5 text-[#333333]" />
-        </div>
-      </div>
-      <div className="p-3">
-        <div className="flex gap-3 mb-2.5 border-b border-[#1A1A1A] pb-2">
-          {["Overview", "Sessions", "Participants", "Analytics"].map((t, i) => (
-            <span
-              key={i}
-              className={`text-[8px] font-bold ${
-                i === 0
-                  ? "text-[#C9A96E] border-b border-[#C9A96E]/40 pb-0.5"
-                  : "text-[#333333]"
-              }`}
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-        <div className="grid grid-cols-4 gap-1.5">
-          {[
-            { l: "Participants", v: "420", gold: false },
-            { l: "Attendance", v: "94.2%", gold: true },
-            { l: "Sessions", v: "32", gold: false },
-            { l: "Completion", v: "78.6%", gold: false },
-          ].map((s, i) => (
-            <div
-              key={i}
-              className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-lg p-2"
-            >
-              <div className="text-[7px] text-[#555555] uppercase font-bold mb-1 leading-tight">
-                {s.l}
-              </div>
-              <div
-                className={`text-sm font-bold tracking-tight ${
-                  s.gold ? "text-[#C9A96E]" : "text-white"
-                }`}
-              >
-                {s.v}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </PanelShell>
-  )
-}
-
-// ── UI Panel: Session Activity (middle) ────────────────────────────────────────
-function PanelSession() {
-  return (
-    <PanelShell>
-      <div className="flex items-center gap-2 px-4 h-9 bg-[#0D0D0D] border-b border-[#1A1A1A]">
-        <Activity className="w-3 h-3 text-[#555555]" />
-        <span className="text-[9px] font-bold text-[#555555] uppercase tracking-widest">
-          Session Activity
-        </span>
-        <div className="ml-auto flex items-center gap-1.5">
-          <div className="w-1.5 h-1.5 bg-[#27C93F]/70 rounded-full" />
-          <span className="text-[8px] text-[#444444]">3 live now</span>
-        </div>
-      </div>
-      <div className="p-3 flex flex-col gap-1.5">
-        {[
-          { name: "System Design Patterns", week: "Week 4", live: true },
-          { name: "Database Fundamentals", week: "Week 4", live: false },
-          { name: "API Integration Workshop", week: "Week 4", live: false },
-        ].map((s, i) => (
-          <div
-            key={i}
-            className="flex items-center gap-2 p-1.5 bg-[#0D0D0D] border border-[#1A1A1A] rounded-lg"
-          >
-            <div className="w-5 h-5 bg-[#111111] border border-[#1A1A1A] rounded-md flex items-center justify-center shrink-0">
-              <Calendar className="w-2.5 h-2.5 text-[#444444]" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="text-[8px] font-semibold text-white truncate">
-                {s.name}
-              </div>
-              <div className="text-[7px] text-[#444444]">{s.week}</div>
-            </div>
-            <span
-              className={`text-[6px] font-bold px-1.5 py-0.5 rounded-sm shrink-0 ${
-                s.live
-                  ? "bg-[#C9A96E]/20 text-[#C9A96E]"
-                  : "bg-[#1A1A1A] text-[#444444]"
-              }`}
-            >
-              {s.live ? "Live" : "Scheduled"}
-            </span>
-          </div>
-        ))}
-      </div>
-    </PanelShell>
-  )
-}
-
-// ── UI Panel: Analytics Overview (back) ───────────────────────────────────────
-function PanelAnalytics() {
-  const bars = [35, 55, 40, 75, 50, 88, 65, 90, 72, 85]
-  return (
-    <PanelShell>
-      <div className="flex items-center gap-2 px-4 h-9 bg-[#0D0D0D] border-b border-[#1A1A1A]">
-        <BarChart3 className="w-3 h-3 text-[#555555]" />
-        <span className="text-[9px] font-bold text-[#555555] uppercase tracking-widest">
-          Analytics Overview
-        </span>
-        <span className="ml-auto text-[8px] text-[#333333] bg-[#111111] border border-[#1A1A1A] px-2 py-0.5 rounded-sm">
-          This Month
-        </span>
-      </div>
-      <div className="p-3">
-        <div className="flex items-end gap-1" style={{ height: 52 }}>
-          {bars.map((h, i) => (
-            <div
-              key={i}
-              style={{ height: `${h}%` }}
-              className={`flex-1 rounded-t-sm ${
-                i === 7 || i === 9
-                  ? "bg-[#C9A96E]/30"
-                  : "bg-white/[0.04]"
-              } border border-white/[0.04]`}
-            />
-          ))}
-        </div>
-        <div className="grid grid-cols-3 gap-1.5 mt-2.5">
-          {[
-            { l: "Total Revenue", v: "£184,200" },
-            { l: "New Orgs", v: "24" },
-            { l: "Retention", v: "96.1%" },
-          ].map(({ l, v }, i) => (
-            <div key={i} className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-lg p-1.5">
-              <div className="text-[7px] text-[#444444] mb-0.5">{l}</div>
-              <div className="text-[10px] font-bold text-white">{v}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </PanelShell>
-  )
-}
-
-// ── Hero ──────────────────────────────────────────────────────────────────────
 export function HeroSection() {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
-  const mxs = useSpring(mouseX, { damping: 38, stiffness: 55 })
-  const mys = useSpring(mouseY, { damping: 38, stiffness: 55 })
-  const count = useCountUp(1200, 1248)
+  const mxs = useSpring(mouseX, { damping: 40, stiffness: 55 })
+  const mys = useSpring(mouseY, { damping: 40, stiffness: 55 })
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const r = e.currentTarget.getBoundingClientRect()
@@ -222,85 +44,106 @@ export function HeroSection() {
     mouseY.set((e.clientY - r.top) / r.height - 0.5)
   }
 
+  /* Parallax helpers — each layer gets its own speed */
+  const pxSlow  = (r: [number, number]) => useTransform(mxs, [-0.5, 0.5], r)
+  const pySlow  = (r: [number, number]) => useTransform(mys, [-0.5, 0.5], r)
+  const pxMid   = (r: [number, number]) => useTransform(mxs, [-0.5, 0.5], r)
+  const pyMid   = (r: [number, number]) => useTransform(mys, [-0.5, 0.5], r)
+  const pxFast  = (r: [number, number]) => useTransform(mxs, [-0.5, 0.5], r)
+  const pyFast  = (r: [number, number]) => useTransform(mys, [-0.5, 0.5], r)
+
   return (
     <section
       onMouseMove={handleMouseMove}
-      onMouseLeave={() => {
-        mouseX.set(0)
-        mouseY.set(0)
-      }}
-      className="relative bg-[#0A0A0A] overflow-hidden border-b border-[#1A1A1A]"
-      style={{ minHeight: "100vh" }}
+      onMouseLeave={() => { mouseX.set(0); mouseY.set(0) }}
+      className="relative overflow-hidden border-b border-[#1A1A1A]"
+      style={{ minHeight: "100vh", background: "#0B0B0B" }}
     >
-      {/* Section-wide subtle gold glow, right half */}
+      {/* ── Ambient background glow (right half) ── */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 55% 65% at 75% 50%, rgba(201,169,110,0.04) 0%, transparent 68%)",
+            "radial-gradient(ellipse 60% 70% at 80% 50%, rgba(212,175,55,0.055) 0%, transparent 65%)",
         }}
       />
 
-      {/* ── Content wrapper ── */}
+      {/* ── Page-wide wrapper ── */}
       <div
-        className="relative z-10 max-w-[1440px] mx-auto px-10 lg:px-16 flex items-center"
+        className="relative z-10 max-w-[1440px] mx-auto px-8 lg:px-14 flex items-center"
         style={{ minHeight: "100vh" }}
       >
-        {/* Two-column: 45 / 55 */}
-        <div className="grid grid-cols-1 lg:grid-cols-[45fr_55fr] gap-10 xl:gap-16 items-center w-full py-24">
+        {/*
+          ┌──────────────────────────────────────────────────────────┐
+          │  LEFT 45%   │   RIGHT 55% — visual composition           │
+          └──────────────────────────────────────────────────────────┘
+        */}
+        <div className="grid grid-cols-1 lg:grid-cols-[45fr_55fr] items-center w-full gap-0 py-20">
 
-          {/* ════════════════════════════════
-              LEFT: Text block
-          ════════════════════════════════ */}
-          <div className="flex flex-col">
+          {/* ══════════════════════════════════════════
+              LEFT — Text block
+          ══════════════════════════════════════════ */}
+          <div className="flex flex-col pr-8 xl:pr-14">
 
-            {/* 1. Label */}
+            {/* 1 · Label */}
             <motion.div
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.04, ease: "easeOut" }}
+              transition={{ duration: 0.55, delay: 0.05, ease: "easeOut" }}
               className="flex items-center gap-2.5 mb-6"
             >
-              <div className="w-5 h-px bg-[#C9A96E]" />
-              <span className="text-[10px] font-bold text-[#C9A96E] uppercase tracking-[0.22em]">
+              <div className="h-px w-5" style={{ background: "#D4AF37" }} />
+              <span
+                className="text-[10px] font-bold uppercase tracking-[0.24em]"
+                style={{ color: "#D4AF37" }}
+              >
                 Structured Programme Operating System
               </span>
             </motion.div>
 
-            {/* 2. Headline */}
+            {/* 2 · Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" }}
-              className="text-5xl md:text-6xl xl:text-[4.25rem] font-bold text-white leading-[1.06] tracking-tight mb-7"
+              className="font-bold text-white leading-[1.06] tracking-tight mb-6"
+              style={{ fontSize: "clamp(2.6rem, 4.2vw, 4.25rem)" }}
             >
               Run and manage<br />
               your programmes<br />
               from a{" "}
-              <span className="text-[#C9A96E]">
+              <span
+                style={{
+                  background: "linear-gradient(92deg, #D4AF37 0%, #F5D27A 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
                 single,<br />structured system.
               </span>
             </motion.h1>
 
-            {/* 3. Paragraph */}
+            {/* 3 · Supporting paragraph */}
             <motion.p
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.22, ease: "easeOut" }}
-              className="text-[#A1A1AA] text-[1.05rem] leading-relaxed font-light max-w-[400px] mb-8"
+              className="leading-relaxed font-light max-w-[390px] mb-8"
+              style={{ color: "#A1A1AA", fontSize: "1.05rem" }}
             >
               Consolidate your entire operation into one intelligent platform.
               Built for organisations that need strict control, deep analytics,
               and scalable delivery.
             </motion.p>
 
-            {/* 4. Bullet points */}
+            {/* 4 · Bullets */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.3, ease: "easeOut" }}
-              className="space-y-3.5 mb-10"
+              transition={{ duration: 0.65, delay: 0.30, ease: "easeOut" }}
+              className="flex flex-col gap-3.5 mb-10"
             >
               {[
                 "Structured programme delivery",
@@ -308,54 +151,61 @@ export function HeroSection() {
                 "Built for real organisations",
               ].map((pt, i) => (
                 <div key={i} className="flex items-center gap-3.5">
-                  <div className="w-8 h-8 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center shrink-0">
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                    style={{
+                      background: "#111111",
+                      border: "1px solid #1A1A1A",
+                    }}
+                  >
                     <CheckCircle2
-                      className="w-4 h-4 text-[#C9A96E]"
+                      className="w-4 h-4"
+                      style={{ color: "#D4AF37" }}
                       strokeWidth={2}
                     />
                   </div>
-                  <span className="text-[#E0E0E0] font-medium text-sm">
+                  <span className="text-sm font-medium" style={{ color: "#E0E0E0" }}>
                     {pt}
                   </span>
                 </div>
               ))}
             </motion.div>
 
-            {/* 5. CTA buttons */}
+            {/* 5 · CTA buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.38, ease: "easeOut" }}
-              className="flex flex-col sm:flex-row gap-4 mb-8"
+              className="flex flex-row gap-4 mb-7"
             >
+              {/* Gold primary */}
               <Link href="/get-started">
                 <motion.button
-                  whileHover={{ scale: 1.03 }}
+                  whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ duration: 0.16 }}
-                  className="flex items-center gap-2.5 bg-[#C9A96E] hover:bg-[#D4B882] text-[#0A0A0A] font-bold text-sm h-12 px-7 rounded-lg transition-colors"
+                  className="flex items-center gap-2.5 font-bold text-sm h-12 px-7 rounded-lg"
+                  style={{
+                    background: "linear-gradient(92deg, #D4AF37 0%, #F5D27A 100%)",
+                    color: "#0B0B0B",
+                    boxShadow: "0 0 28px rgba(212,175,55,0.3), 0 4px 14px rgba(0,0,0,0.4)",
+                  }}
                 >
                   Get Started
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    viewBox="0 0 24 24"
-                  >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </motion.button>
               </Link>
+
+              {/* Outline secondary */}
               <Link href="/contact">
                 <motion.button
-                  whileHover={{
-                    scale: 1.03,
-                    borderColor: "rgba(255,255,255,0.28)",
-                  }}
+                  whileHover={{ scale: 1.03, borderColor: "rgba(255,255,255,0.28)" }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ duration: 0.16 }}
-                  className="flex items-center gap-2.5 bg-transparent text-white border border-white/15 font-semibold text-sm h-12 px-7 rounded-lg"
+                  className="flex items-center gap-2.5 bg-transparent text-white font-semibold text-sm h-12 px-7 rounded-lg"
+                  style={{ border: "1px solid rgba(255,255,255,0.15)" }}
                 >
                   Book a Demo
                   <Calendar className="w-4 h-4 opacity-50" />
@@ -363,206 +213,239 @@ export function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* 6. Trust text */}
+            {/* 6 · Trust text */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.92 }}
+              transition={{ duration: 1, delay: 0.95 }}
               className="flex items-center gap-2"
             >
-              <CheckCircle2
-                className="w-3.5 h-3.5 text-[#333333]"
-                strokeWidth={1.5}
-              />
-              <span className="text-[11px] text-[#444444]">
+              <CheckCircle2 className="w-3.5 h-3.5" style={{ color: "#2D2D2D" }} strokeWidth={1.5} />
+              <span className="text-[11px]" style={{ color: "#3D3D3D" }}>
                 Trusted by training organisations worldwide
               </span>
             </motion.div>
           </div>
 
-          {/* ════════════════════════════════
-              RIGHT: Device + UI panel composition
-          ════════════════════════════════
+          {/* ══════════════════════════════════════════
+              RIGHT — Visual composition
 
-          Absolute coordinate system (760 × 720 container):
+              Z-stack (back → front):
+              [1] tab.png × 3  — blurred panels, stacked, top-right behind laptop
+              [2] golden glow  — behind laptop
+              [3] hero-laptop  — dominant, rotateY(-8deg), 115% scale
+              [4] hero-phone   — bottom-left overlap, front
 
-                    [Analytics]  ← z:10, top:0,  right:0,  opacity 0.65
-                  [Session]      ← z:15, top:40, right:40, opacity 0.80
-                [Programme]      ← z:20, top:80, right:80
-          [tab.png]              ← z:22, behind laptop top-right
-          [hero-laptop.png]      ← z:30, bottom-left dominant (760px wide)
-          [hero-phone.png]       ← z:40, bottom-left corner overlap
-
-          The UI panels sit above the laptop in y-axis (top half)
-          and the laptop covers their lower portion — creating
-          the illusion that they're floating behind the screen.
-          ════════════════════════════════ */}
+              All layers respond to mouse parallax.
+          ══════════════════════════════════════════ */}
           <div
-            className="relative select-none"
-            style={{ height: 680 }}
+            className="relative hidden lg:block select-none"
+            style={{
+              /*
+                Container is intentionally taller than viewport content
+                so the composition "overflows" the right side naturally.
+                The overflow-hidden on <section> clips it cleanly.
+              */
+              height: 720,
+              /* Extend visually past the container edge on the right */
+              marginRight: "-4rem",
+            }}
           >
-            {/* Gold radial glow — centred behind devices */}
+
+            {/* ── Gold radial glow — sits behind laptop ── */}
             <div
               aria-hidden
-              className="pointer-events-none absolute"
+              className="absolute pointer-events-none"
               style={{
-                width: 600,
-                height: 500,
+                width: 680,
+                height: 520,
                 top: "50%",
-                left: "55%",
-                transform: "translate(-50%, -50%)",
+                left: "50%",
+                transform: "translate(-44%, -50%)",
                 background:
-                  "radial-gradient(ellipse at center, rgba(201,169,110,0.06) 0%, transparent 62%)",
+                  "radial-gradient(ellipse at center, rgba(212,175,55,0.10) 0%, rgba(212,175,55,0.03) 40%, transparent 70%)",
                 borderRadius: "50%",
-                zIndex: 1,
+                zIndex: 2,
               }}
             />
 
-            {/* ── BACK: Analytics panel ── */}
+            {/* ── LAYER 1: tab.png — 3 stacked background panels ── */}
+
+            {/* Panel C — furthest back */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 0.65, y: 0 }}
-              transition={{ duration: 0.85, delay: 0.75, ease: "easeOut" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.15 }}
+              transition={{ duration: 0.9, delay: 0.9, ease: "easeOut" }}
               style={{
                 position: "absolute",
                 top: 0,
-                right: 0,
-                width: 360,
-                zIndex: 10,
-                x: useTransform(mxs, [-0.5, 0.5], [4, -4]),
-                y: useTransform(mys, [-0.5, 0.5], [3, -3]),
-              }}
-              className="will-change-transform"
-            >
-              <PanelAnalytics />
-            </motion.div>
-
-            {/* ── MIDDLE: Session panel ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 0.82, y: 0 }}
-              transition={{ duration: 0.85, delay: 0.6, ease: "easeOut" }}
-              style={{
-                position: "absolute",
-                top: 44,
-                right: 40,
-                width: 360,
-                zIndex: 15,
-                x: useTransform(mxs, [-0.5, 0.5], [6, -6]),
-                y: useTransform(mys, [-0.5, 0.5], [4, -4]),
-              }}
-              className="will-change-transform"
-            >
-              <PanelSession />
-            </motion.div>
-
-            {/* ── FRONT: Programme panel ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85, delay: 0.45, ease: "easeOut" }}
-              style={{
-                position: "absolute",
-                top: 88,
-                right: 80,
-                width: 360,
-                zIndex: 20,
-                x: useTransform(mxs, [-0.5, 0.5], [8, -8]),
-                y: useTransform(mys, [-0.5, 0.5], [5, -5]),
-              }}
-              className="will-change-transform"
-            >
-              <PanelProgramme />
-            </motion.div>
-
-            {/* ── Tablet — mid-layer, behind laptop top edge ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 0.55, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.52, ease: "easeOut" }}
-              style={{
-                position: "absolute",
-                top: 160,
-                right: 0,
-                width: 280,
-                zIndex: 22,
-                x: useTransform(mxs, [-0.5, 0.5], [5, -5]),
-                y: useTransform(mys, [-0.5, 0.5], [3, -3]),
+                right: "2%",
+                width: "80%",
+                zIndex: 3,
+                filter: "blur(3.5px)",
+                transform: "scale(0.90) translateY(-24px)",
+                transformOrigin: "top right",
+                x: pxSlow([3, -3]),
+                y: pySlow([2, -2]),
               }}
               className="will-change-transform"
             >
               <Image
                 src="/img/tab.png"
-                alt="Tablet device showing OYEN Grid"
-                width={700}
-                height={500}
+                alt=""
+                aria-hidden
+                width={900}
+                height={640}
                 className="w-full h-auto"
-                style={{
-                  filter: "drop-shadow(0 16px 32px rgba(0,0,0,0.7))",
-                }}
                 priority
               />
             </motion.div>
 
-            {/* ── Laptop — dominant base, bottom spanning full width ── */}
+            {/* Panel B — middle background */}
             <motion.div
-              initial={{ opacity: 0, y: 32, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 1.0, delay: 0.28, ease: "easeOut" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.20 }}
+              transition={{ duration: 0.9, delay: 0.75, ease: "easeOut" }}
               style={{
                 position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                zIndex: 30,
-                x: useTransform(mxs, [-0.5, 0.5], [-10, 10]),
-                y: useTransform(mys, [-0.5, 0.5], [-5, 5]),
+                top: 24,
+                right: "1%",
+                width: "82%",
+                zIndex: 4,
+                filter: "blur(2px)",
+                transform: "scale(0.94) translateY(-14px)",
+                transformOrigin: "top right",
+                x: pxSlow([4, -4]),
+                y: pySlow([3, -3]),
               }}
               className="will-change-transform"
             >
               <Image
-                src="/img/hero-laptop.png"
-                alt="OYEN Grid dashboard on laptop"
-                width={1400}
-                height={900}
+                src="/img/tab.png"
+                alt=""
+                aria-hidden
+                width={900}
+                height={640}
                 className="w-full h-auto"
-                style={{
-                  filter:
-                    "drop-shadow(0 40px 70px rgba(0,0,0,0.95))",
-                }}
                 priority
               />
             </motion.div>
 
-            {/* ── Phone — bottom-left, overlapping laptop ── */}
+            {/* Panel A — closest background panel */}
             <motion.div
-              initial={{ opacity: 0, y: 18, scale: 0.94 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.85, delay: 0.65, ease: "easeOut" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.25 }}
+              transition={{ duration: 0.9, delay: 0.6, ease: "easeOut" }}
               style={{
                 position: "absolute",
-                bottom: 10,
-                left: 10,
-                width: 110,
-                zIndex: 40,
-                x: useTransform(mxs, [-0.5, 0.5], [-7, 7]),
-                y: useTransform(mys, [-0.5, 0.5], [-8, 8]),
+                top: 50,
+                right: 0,
+                width: "88%",
+                zIndex: 5,
+                filter: "blur(0.8px)",
+                transform: "scale(0.98)",
+                transformOrigin: "top right",
+                x: pxSlow([5, -5]),
+                y: pySlow([4, -4]),
+              }}
+              className="will-change-transform"
+            >
+              <Image
+                src="/img/tab.png"
+                alt=""
+                aria-hidden
+                width={900}
+                height={640}
+                className="w-full h-auto"
+                priority
+              />
+            </motion.div>
+
+            {/* ── LAYER 2: hero-laptop.png — dominant hero device ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 36, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 1.0, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                position: "absolute",
+                /*
+                  Placed at the bottom of the container, spanning nearly
+                  full width. The negative right margin on the parent
+                  lets it bleed past the grid boundary for dominance.
+                */
+                bottom: 0,
+                left: "2%",
+                right: 0,
+                zIndex: 20,
+                /* Perspective tilt */
+                perspective: 1200,
+                x: pxMid([-12, 12]),
+                y: pyMid([-6, 6]),
+              }}
+              className="will-change-transform"
+            >
+              <div
+                style={{
+                  transform: "rotateY(-8deg) rotateX(2deg)",
+                  transformOrigin: "center bottom",
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                <Image
+                  src="/img/hero-laptop.png"
+                  alt="OYEN Grid dashboard on laptop"
+                  width={1400}
+                  height={900}
+                  className="w-full h-auto"
+                  style={{
+                    filter:
+                      "drop-shadow(0 40px 80px rgba(0,0,0,1)) drop-shadow(0 0 60px rgba(212,175,55,0.08))",
+                  }}
+                  priority
+                />
+              </div>
+            </motion.div>
+
+            {/* ── LAYER 3: hero-phone.png — front, bottom-left overlap ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 24, scale: 0.92 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.85, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                position: "absolute",
+                bottom: 0,
+                /*
+                  Place over the left side of the laptop.
+                  "left: 0" overlaps the laptop's left edge naturally.
+                */
+                left: 0,
+                /*
+                  55–60% of laptop width so phones feel substantial.
+                  The laptop occupies ~88% of the container width.
+                  60% of that ≈ 53% of container.
+                */
+                width: "52%",
+                zIndex: 30,
+                x: pxFast([-10, 10]),
+                y: pyFast([-10, 10]),
               }}
               className="will-change-transform"
             >
               <Image
                 src="/img/hero-phone.png"
                 alt="OYEN Grid on mobile"
-                width={320}
-                height={640}
+                width={780}
+                height={900}
                 className="w-full h-auto"
                 style={{
-                  filter: "drop-shadow(0 16px 32px rgba(0,0,0,0.9))",
+                  filter:
+                    "drop-shadow(0 24px 48px rgba(0,0,0,0.95)) drop-shadow(0 0 24px rgba(0,0,0,0.6))",
                 }}
                 priority
               />
             </motion.div>
-          </div>
+
+          </div>{/* end right composition */}
         </div>
       </div>
 
@@ -571,43 +454,29 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.1 }}
-        className="relative z-10 border-t border-[#1A1A1A]"
+        className="relative z-10"
+        style={{ borderTop: "1px solid #1A1A1A" }}
       >
-        <div className="max-w-[1440px] mx-auto px-10 lg:px-16 grid grid-cols-2 md:grid-cols-4 divide-x divide-[#1A1A1A]">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-14 grid grid-cols-2 md:grid-cols-4 divide-x divide-[#1A1A1A]">
           {[
-            {
-              Icon: Layout,
-              title: "All-in-one platform",
-              desc: "Everything you need in one place.",
-            },
-            {
-              Icon: CheckCircle2,
-              title: "Enterprise-grade security",
-              desc: "Built with security at the core.",
-            },
-            {
-              Icon: BarChart3,
-              title: "Deep analytics",
-              desc: "Real-time insights that matter.",
-            },
-            {
-              Icon: Activity,
-              title: "Scalable & reliable",
-              desc: "Built to grow with you.",
-            },
+            { Icon: Layout,       title: "All-in-one platform",       desc: "Everything you need in one place."  },
+            { Icon: CheckCircle2, title: "Enterprise-grade security",  desc: "Built with security at the core."   },
+            { Icon: BarChart3,    title: "Deep analytics",            desc: "Real-time insights that matter."    },
+            { Icon: Activity,     title: "Scalable & reliable",       desc: "Built to grow with you."            },
           ].map(({ Icon, title, desc }, i) => (
-            <div
-              key={i}
-              className="flex items-start gap-4 py-7 px-6 first:pl-0 last:pr-0 group"
-            >
-              <div className="w-9 h-9 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center shrink-0 group-hover:border-[#C9A96E]/30 transition-colors duration-200">
-                <Icon className="w-4 h-4 text-[#C9A96E]" strokeWidth={1.5} />
+            <div key={i} className="flex items-start gap-4 py-7 px-6 first:pl-0 last:pr-0 group">
+              <div
+                className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-200"
+                style={{
+                  background: "#111111",
+                  border: "1px solid #1A1A1A",
+                }}
+              >
+                <Icon className="w-4 h-4" style={{ color: "#D4AF37" }} strokeWidth={1.5} />
               </div>
               <div>
-                <div className="text-white text-sm font-semibold mb-0.5">
-                  {title}
-                </div>
-                <div className="text-[#555555] text-xs font-light">{desc}</div>
+                <div className="text-white text-sm font-semibold mb-0.5">{title}</div>
+                <div className="text-xs font-light" style={{ color: "#555555" }}>{desc}</div>
               </div>
             </div>
           ))}
