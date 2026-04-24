@@ -41,31 +41,31 @@ const NAV_MENU = [
       { 
         title: "Training Organisations", 
         description: "Run structured programmes at scale", 
-        href: "#",
+        href: "/solutions/training",
         icon: Building2
       },
       { 
         title: "Bootcamps", 
         description: "Intensive cohort-based learning", 
-        href: "#",
+        href: "/solutions/bootcamps",
         icon: Zap
       },
       { 
         title: "Corporate Training", 
         description: "Enterprise internal development", 
-        href: "#",
+        href: "/solutions/corporate",
         icon: Briefcase
       },
       { 
         title: "Internship Programmes", 
         description: "Manage incoming talent pipelines", 
-        href: "#",
+        href: "/solutions/internships",
         icon: Users
       },
       { 
         title: "Educational Institutions", 
         description: "Scale academic delivery", 
-        href: "#",
+        href: "/solutions/education",
         icon: GraduationCap
       }
     ]
