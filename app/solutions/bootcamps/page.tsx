@@ -7,30 +7,31 @@ const bootcampsData: UseCaseData = {
   label: "For Bootcamps",
   hero: {
     title: "Deliver intensive bootcamps with full control and visibility",
-    subtext: "Track every student, enforce attendance, and maintain high completion rates with a system built for intensity."
+    subtext: "Track every student, enforce attendance, and maintain high completion rates with a system built for intensity.",
+    heroImage: "/bootcamp-dashboard.png"
   },
   problem: {
     title: "Most bootcamps break down because of this",
     bullets: [
-      "No real-time visibility into who is falling behind",
+      "You don't know who is falling behind until it's too late",
       "Manual attendance tracking eats up instruction time",
       "Students get lost in fragmented communication channels",
       "Inconsistent pacing across different cohorts"
     ]
   },
   solution: {
-    title: "A structured system for how you actually run bootcamps",
+    title: "Stop managing bootcamps. Start operating them.",
     description: "OYEN GRID acts as your bootcamp's operating system. It enforces pacing, silently tracks engagement, and ensures you can focus on teaching rather than administration."
   },
   features: [
     {
       title: "Fixed Timetable System",
-      description: "Lock in your curriculum schedule. Ensure every session runs on time, with automated reminders and access control.",
+      description: "Lock in your curriculum schedule. Ensure every session runs on time, with automated reminders.",
       icon: CalendarClock
     },
     {
       title: "Attendance Enforcement",
-      description: "Silent, background attendance tracking. Know instantly if a student misses critical instructional hours.",
+      description: "Silent, background attendance tracking. Know instantly if a student misses critical hours.",
       icon: ShieldAlert
     },
     {
@@ -40,7 +41,7 @@ const bootcampsData: UseCaseData = {
     },
     {
       title: "Group Communication",
-      description: "Keep cohort chatter, Q&A, and trainer announcements centralized within the specific programme context.",
+      description: "Keep cohort chatter, Q&A, and announcements centralized within the programme context.",
       icon: MessageSquareText
     }
   ],
@@ -51,7 +52,7 @@ const bootcampsData: UseCaseData = {
     },
     {
       title: "Launch the cohort",
-      description: "Onboard students into a unified environment where everything they need is instantly available."
+      description: "Onboard students into a unified environment where everything is instantly available."
     },
     {
       title: "Monitor in real-time",
