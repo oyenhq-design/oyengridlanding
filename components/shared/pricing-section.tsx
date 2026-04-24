@@ -19,12 +19,12 @@ const PLANS = [
     description: "For starting structured programmes",
     subtext: "Best for small teams getting started",
     features: [
-      { text: "1 Programme", bold: true },
-      { text: "Up to 50 Participants", bold: true },
-      { text: "Session chat only", bold: false },
-      { text: "Limited storage", bold: false },
-      { text: "Basic dashboard", bold: false },
-      { text: "Invite-only access", bold: false },
+      { text: "1 Programme", bold: true, locked: false },
+      { text: "Up to 50 Participants", bold: true, locked: false },
+      { text: "Session chat only", bold: false, locked: false },
+      { text: "Limited storage", bold: false, locked: false },
+      { text: "Basic dashboard", bold: false, locked: false },
+      { text: "Invite-only access", bold: false, locked: false },
     ],
     cta: "Start Basic",
     ctaHref: "/get-started",
@@ -42,13 +42,13 @@ const PLANS = [
     description: "For running structured programmes at scale",
     subtext: "Most organisations start here",
     features: [
-      { text: "Up to 5 Programmes", bold: true },
-      { text: "Up to 200 Participants", bold: true },
-      { text: "Session + Group chat", bold: true },
-      { text: "Attendance tracking", bold: false },
-      { text: "Basic progress tracking", bold: false },
-      { text: "Participant profiles", bold: false },
-      { text: "Session notes + trainer notes", bold: false },
+      { text: "Up to 5 Programmes", bold: true, locked: false },
+      { text: "Up to 200 Participants", bold: true, locked: false },
+      { text: "Session + Group chat", bold: true, locked: false },
+      { text: "Attendance tracking", bold: false, locked: false },
+      { text: "Basic progress tracking", bold: false, locked: false },
+      { text: "Participant profiles", bold: false, locked: false },
+      { text: "Session notes + trainer notes", bold: false, locked: false },
     ],
     cta: "Start Standard",
     ctaHref: "/get-started",
@@ -66,13 +66,13 @@ const PLANS = [
     description: "For scaling training operations",
     subtext: "Built for serious programme delivery",
     features: [
-      { text: "Unlimited Programmes", bold: true },
-      { text: "500+ Participants", bold: true },
-      { text: "Full bootcamp system", bold: true },
-      { text: "Advanced participant tracking", bold: false },
-      { text: "Full notes system", bold: false },
-      { text: "Session recording & storage", bold: false },
-      { text: "Advanced analytics", bold: false },
+      { text: "Unlimited Programmes", bold: true, locked: false },
+      { text: "500+ Participants", bold: true, locked: false },
+      { text: "Full bootcamp system", bold: true, locked: false },
+      { text: "Advanced participant tracking", bold: false, locked: false },
+      { text: "Full notes system", bold: false, locked: false },
+      { text: "Session recording & storage", bold: false, locked: false },
+      { text: "Advanced analytics", bold: false, locked: false },
     ],
     cta: "Start Premium",
     ctaHref: "/get-started",
@@ -90,12 +90,12 @@ const PLANS = [
     description: "Enterprise-grade deployment",
     subtext: "Tailored for large organisations",
     features: [
-      { text: "Custom deployment", bold: true },
-      { text: "White-label branding", bold: false },
-      { text: "Custom domains", bold: false },
-      { text: "Dedicated support", bold: false },
-      { text: "API integrations", bold: false },
-      { text: "SLA guarantees", bold: false },
+      { text: "Custom deployment", bold: true, locked: false },
+      { text: "White-label branding", bold: false, locked: false },
+      { text: "Custom domains", bold: false, locked: false },
+      { text: "Dedicated support", bold: false, locked: false },
+      { text: "API integrations", bold: false, locked: false },
+      { text: "SLA guarantees", bold: false, locked: false },
     ],
     cta: "Contact Sales",
     ctaHref: "/contact",
@@ -109,48 +109,42 @@ const PLANS = [
 const cardStyles = {
   basic: {
     wrapper:
-      "relative flex flex-col rounded-[18px] transition-all duration-300 ease-out cursor-default",
+      "relative flex flex-col rounded-[16px] transition-all duration-250 ease-out cursor-default order-3 lg:order-1",
     bg: "bg-[#111111]",
-    border: "border border-[rgba(201,168,106,0.15)]",
-    hoverBorder: "hover:border-[rgba(201,168,106,0.35)]",
-    hoverGlow: "",
-    padding: "p-7 lg:p-8",
+    border: "border border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.15)]",
+    hoverGlow: "hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)]",
     scale: "",
+    defaultY: "translate-y-0",
     zIndex: "z-0",
   },
   standard: {
     wrapper:
-      "relative flex flex-col rounded-[18px] transition-all duration-300 ease-out cursor-default",
-    bg: "bg-[#141412]",
+      "relative flex flex-col rounded-[16px] transition-all duration-250 ease-out cursor-default order-1 lg:order-2",
+    bg: "bg-[#141310]",
     border: "border border-[#C9A86A]",
-    hoverBorder: "",
-    hoverGlow:
-      "hover:shadow-[0_0_50px_rgba(201,168,106,0.22),0_0_100px_rgba(201,168,106,0.08)]",
-    padding: "p-7 lg:p-9",
-    scale: "lg:scale-[1.05]",
+    hoverGlow: "shadow-[0_0_40px_rgba(201,168,106,0.12)] hover:shadow-[0_0_60px_rgba(201,168,106,0.2)]",
+    scale: "lg:scale-[1.06]",
+    defaultY: "lg:-translate-y-[8px]",
     zIndex: "z-10",
   },
   premium: {
     wrapper:
-      "relative flex flex-col rounded-[18px] transition-all duration-300 ease-out cursor-default",
+      "relative flex flex-col rounded-[16px] transition-all duration-250 ease-out cursor-default order-2 lg:order-3",
     bg: "bg-[#111111]",
-    border: "border border-[rgba(201,168,106,0.3)]",
-    hoverBorder: "hover:border-[rgba(201,168,106,0.6)]",
-    hoverGlow:
-      "hover:shadow-[0_0_30px_rgba(201,168,106,0.12)]",
-    padding: "p-7 lg:p-8",
+    border: "border border-[rgba(201,168,106,0.2)] hover:border-[rgba(201,168,106,0.4)]",
+    hoverGlow: "hover:shadow-[0_8px_30px_rgba(201,168,106,0.08)]",
     scale: "",
+    defaultY: "translate-y-0",
     zIndex: "z-0",
   },
   enterprise: {
     wrapper:
-      "relative flex flex-col rounded-[18px] transition-all duration-300 ease-out cursor-default",
-    bg: "bg-[#0E0E0E]",
-    border: "border border-dashed border-[rgba(201,168,106,0.25)]",
-    hoverBorder: "hover:border-[rgba(201,168,106,0.45)]",
-    hoverGlow: "",
-    padding: "p-7 lg:p-8",
+      "relative flex flex-col rounded-[16px] transition-all duration-250 ease-out cursor-default order-4 lg:order-4",
+    bg: "bg-[#0A0A0A]",
+    border: "border border-dashed border-[rgba(201,168,106,0.25)] hover:border-[rgba(201,168,106,0.4)]",
+    hoverGlow: "hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)]",
     scale: "",
+    defaultY: "translate-y-0",
     zIndex: "z-0",
   },
 }
@@ -161,63 +155,44 @@ export function PricingSection() {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly")
 
   return (
-    <section className="relative bg-[#0A0A0A] overflow-hidden pt-[100px] pb-[60px] min-h-screen">
-      {/* ── Ambient background glow ── */}
+    <section className="relative bg-[#0A0A0A] overflow-hidden pt-[100px] pb-[80px] min-h-screen flex flex-col justify-center">
+      {/* ── Background Glow ── */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,106,0.045) 0%, transparent 65%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-[-10%] top-[30%] w-[40%] h-[40%] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(201,168,106,0.02) 0%, transparent 70%)",
-        }}
-      />
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+      >
+        <div 
+          className="w-full max-w-[1000px] h-[600px] rounded-full"
+          style={{
+            background: "radial-gradient(circle at center, rgba(201,168,106,0.08) 0%, transparent 60%)",
+          }}
+        />
+      </div>
 
-      <div className="relative max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12">
+      <div className="relative z-10 max-w-[1200px] mx-auto w-full px-5 sm:px-8 lg:px-8">
 
         {/* ════════════════════════════════════════════
             1. HERO HEADER
         ════════════════════════════════════════════ */}
-        <div className="text-center pb-[72px] max-w-3xl mx-auto">
+        <div className="text-center pb-[50px] max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 mb-6">
-              <div className="h-px w-8 bg-[#C9A86A]/40" />
-              <span
-                className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#C9A86A]"
-              >
-                Pricing
-              </span>
-              <div className="h-px w-8 bg-[#C9A86A]/40" />
-            </div>
-
             <h1
-              className="font-bold text-white tracking-tight leading-[1.08] mb-6"
+              className="font-bold text-white tracking-tight leading-[1.1] mb-6"
               style={{ fontSize: "clamp(38px, 5vw, 56px)" }}
             >
-              Simple pricing.{" "}
-              <span className="text-[#C9A86A]">Serious scale.</span>
+              Simple pricing. Serious scale.
             </h1>
 
             <p
-              className="text-[#A1A1AA] leading-relaxed"
-              style={{ fontSize: "clamp(17px, 2vw, 20px)" }}
+              className="text-[#A1A1AA] leading-relaxed max-w-lg mx-auto"
+              style={{ fontSize: "clamp(16px, 2vw, 18px)" }}
             >
-              Start small or deploy across your organisation.
-              <br className="hidden sm:block" />
-              Pricing that grows with you.
+              Start small or deploy across your organisation. Pricing that grows with you.
             </p>
           </motion.div>
         </div>
@@ -230,7 +205,7 @@ export function PricingSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex items-center justify-center gap-4 mb-[72px]"
+          className="flex items-center justify-center gap-4 mb-[60px]"
         >
           <span
             className="text-[16px] font-medium transition-colors duration-200"
@@ -239,7 +214,6 @@ export function PricingSection() {
             Monthly
           </span>
 
-          {/* Toggle track */}
           <button
             id="billing-toggle"
             role="switch"
@@ -291,7 +265,7 @@ export function PricingSection() {
         {/* ════════════════════════════════════════════
             3. PRICING CARDS
         ════════════════════════════════════════════ */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 xl:gap-6 items-center pb-28">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-[24px] xl:gap-[32px] items-start pb-10">
           {PLANS.map((plan, i) => {
             const styles = cardStyles[plan.tier as keyof typeof cardStyles]
             const isYearly = billing === "yearly"
@@ -326,22 +300,18 @@ export function PricingSection() {
                   styles.wrapper,
                   styles.bg,
                   styles.border,
-                  styles.hoverBorder,
                   styles.hoverGlow,
-                  styles.padding,
                   styles.scale,
+                  styles.defaultY,
                   styles.zIndex,
-                  // Standard card glow always on
-                  plan.popular
-                    ? "shadow-[0_0_40px_rgba(201,168,106,0.15),0_0_80px_rgba(201,168,106,0.05)]"
-                    : "",
+                  "px-[24px] py-[28px] lg:py-[32px] hover:-translate-y-[6px]"
                 ].join(" ")}
               >
                 {/* Popular Plan badge — Standard only */}
                 {plan.popular && (
                   <div className="absolute -top-[14px] left-1/2 -translate-x-1/2 z-30 pointer-events-none group-hover:scale-[1.02] group-hover:brightness-110 transition-all duration-300">
                     <span
-                      className="text-[11px] md:text-[12px] font-medium tracking-[0.04em] px-[12px] py-[6px] rounded-full backdrop-blur-sm inline-block"
+                      className="text-[11px] md:text-[12px] font-medium tracking-[0.04em] px-[12px] py-[6px] rounded-full backdrop-blur-sm inline-block whitespace-nowrap"
                       style={{
                         background: "rgba(201, 168, 106, 0.10)",
                         color: "#C9A86A",
@@ -353,153 +323,122 @@ export function PricingSection() {
                   </div>
                 )}
 
-                {/* Subtle inner top glow for Standard */}
+                {/* Subtle inner top gold gradient for Standard */}
                 {plan.popular && (
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-0 rounded-[18px]"
+                    className="pointer-events-none absolute inset-0 rounded-[16px]"
                     style={{
-                      background:
-                        "linear-gradient(180deg, rgba(201,168,106,0.06) 0%, transparent 45%)",
+                      background: "linear-gradient(180deg, rgba(201,168,106,0.06) 0%, transparent 40%)",
                     }}
                   />
                 )}
 
                 {/* ── Card header ── */}
-                <div className="relative z-10 mb-7">
+                <div className="relative z-10 flex-col flex h-full">
+                  
                   {/* Plan name */}
-                  <div className="flex items-center justify-between mb-2">
-                    <h2
-                      className="font-bold tracking-wide"
-                      style={{
-                        fontSize: "22px",
-                        color: plan.popular ? "#C9A86A" : "#E4E4E7",
-                      }}
-                    >
+                  <div className="mb-[12px]">
+                    <h2 className="font-semibold text-white tracking-wide text-[20px] lg:text-[22px]">
                       {plan.name}
                     </h2>
                   </div>
-                  <p className="text-[14px] text-[#A1A1AA] mb-5 h-[20px]">
-                    {plan.description}
-                  </p>
-
+                  
                   {/* Price display */}
                   {usdPrice !== null ? (
-                    <div className="mb-1">
-                      <div className="flex items-end gap-1.5 leading-none">
-                        <span
-                          className="font-bold text-white"
-                          style={{ fontSize: "clamp(42px, 4.5vw, 48px)", lineHeight: 1 }}
-                        >
+                    <div>
+                      <div className="flex items-end gap-1.5 leading-[1]">
+                        <span className="font-bold text-white text-[44px] lg:text-[52px] tracking-tight">
                           ${usdPrice}
                         </span>
-                        <span className="text-[16px] text-[#71717A] font-medium mb-1">
+                        <span className="text-[14px] lg:text-[16px] text-[#A1A1AA] font-medium mb-[6px]">
                           /month
                         </span>
                       </div>
-                      <AnimatePresence mode="wait">
-                        <motion.p
-                          key={billing + plan.id}
-                          initial={{ opacity: 0, y: 4 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -4 }}
-                          transition={{ duration: 0.2 }}
-                          className="text-[14px] text-[#52525B] font-medium mt-2"
-                        >
-                          {ngnEquiv} billed locally
-                          {isYearly && (
-                            <span className="ml-1.5 text-[#C9A86A]/70">
-                              · billed annually
-                            </span>
-                          )}
-                        </motion.p>
-                      </AnimatePresence>
+                      
+                      <div className="mt-[6px] h-[20px]">
+                        <AnimatePresence mode="wait">
+                          <motion.p
+                            key={billing + plan.id}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.15 }}
+                            className="text-[13px] lg:text-[14px] text-[#888888] font-medium"
+                          >
+                            {ngnEquiv}
+                          </motion.p>
+                        </AnimatePresence>
+                      </div>
                     </div>
                   ) : (
-                    <div className="mb-1">
-                      <span
-                        className="font-bold text-white"
-                        style={{ fontSize: "clamp(38px, 4.5vw, 48px)", lineHeight: 1 }}
-                      >
+                    <div>
+                      <span className="font-bold text-white text-[40px] lg:text-[46px] tracking-tight leading-[1]">
                         Custom
                       </span>
-                      <p className="text-[14px] text-[#52525B] font-medium mt-2">
-                        &nbsp;
-                      </p>
+                      <div className="mt-[6px] h-[20px]" />
                     </div>
                   )}
 
-                  {/* Divider */}
-                  <div className="h-px bg-[#1E1E1E] mt-6" />
-                </div>
-
-                {/* ── Features list ── */}
-                <div className="relative z-10 flex-1">
-                  <ul className="flex flex-col gap-[12px] mb-8">
-                    {plan.features.map((feat, fi) => (
-                      <li key={fi} className="flex items-start gap-3">
-                        <div
-                          className="mt-[2px] shrink-0 w-[20px] h-[20px] rounded-full flex items-center justify-center"
-                          style={{
-                            background: "rgba(201,168,106,0.12)",
-                            border: "1px solid rgba(201,168,106,0.35)",
-                          }}
-                        >
-                          <Check className="w-3 h-3 text-[#C9A86A]" strokeWidth={2.8} />
-                        </div>
-                        <span
-                          className="text-[16px] md:text-[17px] leading-relaxed"
-                          style={{
-                            color: feat.bold ? "#E4E4E7" : "#A1A1AA",
-                            fontWeight: feat.bold ? 600 : 400,
-                          }}
-                        >
-                          {feat.text}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* ── Subtext & CTA Button ── */}
-                <div className="relative z-10 mt-auto pt-2">
-                  <p className="text-[13px] text-[#71717A] text-center mb-4 h-[20px]">
-                    {plan.subtext}
+                  {/* Description */}
+                  <p className="text-[14px] lg:text-[16px] text-[#A1A1AA] mt-[14px] leading-relaxed max-w-[220px]">
+                    {plan.description}
                   </p>
-                  <Link href={plan.ctaHref} className="block w-full">
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      transition={{ duration: 0.18 }}
-                      id={`cta-${plan.id}`}
-                      className="w-full flex items-center justify-center gap-2 rounded-xl font-bold transition-all duration-300"
-                      style={{
-                        fontSize: "16px",
-                        padding: "16px 24px",
-                        ...(plan.popular
-                          ? {
-                              background:
-                                "linear-gradient(135deg, #D4AF37 0%, #C9A86A 100%)",
-                              color: "#0A0A0A",
-                              boxShadow: "0 4px 20px rgba(201,168,106,0.3)",
-                            }
-                          : plan.enterprise
-                          ? {
-                              background: "rgba(255,255,255,0.03)",
-                              color: "#E4E4E7",
-                              border: "1px solid #333333",
-                            }
-                          : {
-                              background: "transparent",
-                              color: "#C9A86A",
-                              border: "1px solid rgba(201,168,106,0.45)",
-                            }),
-                      }}
-                    >
-                      {plan.cta}
-                      {plan.enterprise ? null : <ArrowRight className="w-4 h-4" strokeWidth={2.2} />}
-                    </motion.button>
-                  </Link>
+
+                  <div className="mt-[20px] flex-1">
+                    <ul className="flex flex-col gap-[10px] lg:gap-[12px]">
+                      {plan.features.map((feat, fi) => (
+                        <li key={fi} className="flex items-start gap-[10px]">
+                          <div className="mt-[4px] shrink-0 flex items-center justify-center">
+                            <Check className="w-[14px] h-[14px] text-[#C9A86A] opacity-80" strokeWidth={3} />
+                          </div>
+                          <span
+                            className="text-[15px] lg:text-[16px] leading-[1.6] transition-colors"
+                            style={{
+                              color: feat.bold ? "#FFFFFF" : plan.tier === "basic" ? "#999999" : "#D4D4D8",
+                              opacity: feat.locked ? 0.45 : 1,
+                            }}
+                          >
+                            {feat.text}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* ── Subtext & CTA Button ── */}
+                  <div className="mt-[24px]">
+                    <Link href={plan.ctaHref} className="block w-full">
+                      <motion.button
+                        whileHover={{ scale: 1.01, y: -1, filter: "brightness(1.05)" }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={{ duration: 0.15 }}
+                        className="w-full h-[44px] lg:h-[48px] flex items-center justify-center gap-2 rounded-[8px] font-semibold transition-all duration-300"
+                        style={{
+                          fontSize: "15px",
+                          ...(plan.popular
+                            ? {
+                                background: "#C9A86A",
+                                color: "#0A0A0A",
+                                boxShadow: "0 4px 15px rgba(201,168,106,0.25)",
+                              }
+                            : plan.enterprise
+                            ? {
+                                background: "rgba(255,255,255,0.02)",
+                                color: "#FFFFFF",
+                                border: "1px solid rgba(255,255,255,0.1)",
+                              }
+                            : {
+                                background: "transparent",
+                                color: "#FFFFFF",
+                                border: "1px solid rgba(201,168,106,0.4)",
+                              }),
+                        }}
+                      >
+                        {plan.cta}
+                      </motion.button>
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             )
