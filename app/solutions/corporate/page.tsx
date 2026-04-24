@@ -1,3 +1,5 @@
+"use client"
+
 import { UseCaseLayout, UseCaseData } from "@/components/shared/use-case-layout"
 import { Building, Lock, Network, PieChart } from "lucide-react"
 

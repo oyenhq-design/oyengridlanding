@@ -1,3 +1,5 @@
+"use client"
+
 import { UseCaseLayout, UseCaseData } from "@/components/shared/use-case-layout"
 import { CalendarClock, ShieldAlert, BarChart3, MessageSquareText } from "lucide-react"
 
