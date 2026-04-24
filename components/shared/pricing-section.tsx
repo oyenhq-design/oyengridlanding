@@ -337,18 +337,18 @@ export function PricingSection() {
                     : "",
                 ].join(" ")}
               >
-                {/* MOST POPULAR badge — Standard only */}
+                {/* Recommended Plan badge — Standard only */}
                 {plan.popular && (
-                  <div className="absolute -top-[14px] left-1/2 -translate-x-1/2 z-20">
+                  <div className="absolute -top-[15px] left-1/2 -translate-x-1/2 z-30 pointer-events-none group-hover:scale-[1.03] group-hover:brightness-110 transition-all duration-300">
                     <span
-                      className="text-[11px] font-extrabold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full"
+                      className="text-[11px] md:text-[12px] font-medium uppercase tracking-[0.08em] px-[12px] py-[6px] rounded-full backdrop-blur-sm inline-block"
                       style={{
-                        background: "linear-gradient(135deg, #D4AF37, #C9A86A)",
-                        color: "#0A0A0A",
-                        boxShadow: "0 4px 16px rgba(201,168,106,0.35)",
+                        background: "rgba(201, 168, 106, 0.12)",
+                        color: "#C9A86A",
+                        border: "1px solid rgba(201, 168, 106, 0.35)",
                       }}
                     >
-                      Most Popular
+                      Recommended Plan
                     </span>
                   </div>
                 )}
