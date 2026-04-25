@@ -37,6 +37,7 @@ export default function RootLayout({
       <body
         className="min-h-full flex flex-col bg-[#0A0A0A]"
         style={{ textRendering: "optimizeLegibility", fontFamily: "var(--font-inter), var(--font-geist-sans), system-ui, sans-serif" }}
+        suppressHydrationWarning
       >
         {children}
       </body>
