@@ -1,73 +1,112 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Building2, Zap, Briefcase } from "lucide-react"
+import { Building2, Zap, Briefcase, ArrowRight } from "lucide-react"
 import { fadeUpVariant, staggerContainerVariant, staggerItemVariant } from "@/lib/motion"
+import Link from "next/link"
+
+const useCases = [
+  {
+    title: "Training Organisations",
+    description: "Centralise programme delivery, participant management, and operations in a single structured system.",
+    icon: Building2,
+    label: "Training",
+    href: "/solutions/training"
+  },
+  {
+    title: "Bootcamps",
+    description: "Run intensive cohorts with real-time tracking, enforced structure, and deep engagement visibility.",
+    icon: Zap,
+    label: "Bootcamps",
+    href: "/solutions/bootcamps",
+    isFeatured: true
+  },
+  {
+    title: "Corporate Programmes",
+    description: "Deliver internal training, compliance, and workforce development with full operational control.",
+    icon: Briefcase,
+    label: "Corporate",
+    href: "/solutions/corporate"
+  }
+]
 
 export function UseCasesSection() {
-  const useCases = [
-    {
-      title: "Training Organisations",
-      description: "Simplify programme delivery and participant management. Centralise your full operation into one unified hub with zero tool-switching.",
-      icon: Building2,
-      tag: "Enterprise"
-    },
-    {
-      title: "Bootcamps",
-      description: "Run intensive, structured programmes with real-time cohort tracking, attendance scoring, and deep engagement analytics.",
-      icon: Zap,
-      tag: "Intensive"
-    },
-    {
-      title: "Corporate Programmes",
-      description: "Enterprise-grade solutions for internal training, compliance modules, and continuous professional development at scale.",
-      icon: Briefcase,
-      tag: "Corporate"
-    }
-  ]
-
   return (
-    <section className="py-32 bg-[#0A0A0A] border-b border-[#1A1A1A]">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-32 bg-[#0B0B0C] relative overflow-hidden">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+        
+        {/* Section Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUpVariant}
-          className="mb-16"
+          className="mb-16 md:mb-24 text-left"
         >
-          <p className="text-[10px] font-bold text-[#A1A1AA] uppercase tracking-[0.2em] mb-4">Programme Types</p>
-          <h2 className="text-3xl font-bold text-white mb-4 tracking-tight">Built for different delivery models</h2>
-          <p className="text-[#A1A1AA] text-base max-w-xl font-light">
-            An adaptive architecture that supports the unique requirements of your model without sacrificing structure.
+          <span className="text-[12px] font-bold text-[#C9A86A] uppercase tracking-[0.2em] block mb-6">
+            PROGRAMME TYPES
+          </span>
+          <h2 className="text-[40px] md:text-[48px] font-bold text-[#EDEDED] leading-[1.1] tracking-tight mb-4 max-w-2xl">
+            Built for structured programme delivery
+          </h2>
+          <p className="text-[#9CA3AF] text-base md:text-lg max-w-[520px] font-normal leading-[1.6]">
+            Designed to support training organisations, bootcamps, and enterprise programmes without compromising structure.
           </p>
         </motion.div>
 
+        {/* Grid System */}
         <motion.div
           variants={staggerContainerVariant}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 items-center"
         >
           {useCases.map((uc, idx) => {
             const Icon = uc.icon
+            const isFeatured = uc.isFeatured
+            
             return (
               <motion.div
                 key={idx}
                 variants={staggerItemVariant}
-                whileHover={{ y: -5, borderColor: "rgba(255,255,255,0.07)" }}
-                transition={{ duration: 0.2 }}
-                className="group flex flex-col bg-[#0D0D0D] border border-[#1A1A1A] rounded-xl p-8"
+                whileHover={{ 
+                  y: -4,
+                  borderColor: "rgba(255,255,255,0.12)",
+                }}
+                className={`group relative bg-[#111113] border ${isFeatured ? 'border-[#C9A86A]/30 scale-[1.02] shadow-[0_0_40px_rgba(201,168,106,0.05)]' : 'border-white/[0.06]'} rounded-[18px] p-8 transition-all duration-300`}
               >
-                <div className="flex items-start justify-between mb-7">
-                  <div className="w-9 h-9 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center group-hover:border-[#C9A96E]/30 transition-colors">
-                    <Icon className="w-4 h-4 text-[#C9A96E]" strokeWidth={1.5} />
+                {/* Soft Inner Glow on Hover */}
+                <div className="absolute inset-0 bg-[#C9A86A]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity rounded-[18px]" />
+                
+                <div className="relative z-10">
+                  {/* Top Row */}
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center group-hover:border-[#C9A86A]/40 transition-colors">
+                      <Icon className="w-5 h-5 text-[#EDEDED] group-hover:text-[#C9A86A] transition-colors stroke-[1.5]" />
+                    </div>
+                    <span className="text-[11px] font-medium text-[#9CA3AF] uppercase tracking-widest">
+                      {uc.label}
+                    </span>
                   </div>
-                  <span className="text-[9px] font-bold text-[#555555] uppercase tracking-widest border border-[#1A1A1A] px-2 py-1 rounded-sm">{uc.tag}</span>
+
+                  {/* Title & Description */}
+                  <h3 className="text-[20px] md:text-[22px] font-semibold text-[#F5F5F5] mb-4">
+                    {uc.title}
+                  </h3>
+                  <p className="text-[#9CA3AF] text-[15px] leading-[1.6] mb-8 min-h-[72px]">
+                    {uc.description}
+                  </p>
+
+                  {/* CTA */}
+                  <Link 
+                    href={uc.href}
+                    className="inline-flex items-center gap-2 text-[14px] font-medium text-[#C9A86A] hover:text-[#D4AF37] transition-colors group/cta"
+                  >
+                    View setup
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/cta:translate-x-1" />
+                  </Link>
                 </div>
-                <h3 className="text-white font-semibold mb-3 tracking-tight">{uc.title}</h3>
-                <p className="text-[#A1A1AA] text-sm leading-relaxed font-light">{uc.description}</p>
               </motion.div>
             )
           })}
