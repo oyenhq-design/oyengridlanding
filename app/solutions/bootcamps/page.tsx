@@ -8,7 +8,7 @@ const bootcampsData: UseCaseData = {
   hero: {
     title: "Deliver intensive bootcamps with full control and visibility",
     subtext: "Track every student, enforce attendance, and maintain high completion rates with a system built for intensity.",
-    heroImage: "/bootcamp-dashboard.png"
+    heroImage: "/img/pg mgt.png"
   },
   problem: {
     title: "Most bootcamps break down because of this",
