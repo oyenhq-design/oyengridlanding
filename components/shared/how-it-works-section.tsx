@@ -2,53 +2,152 @@
 
 import { motion } from "framer-motion"
 import { fadeUpVariant, staggerContainerVariant, staggerItemVariant } from "@/lib/motion"
-import { Video, BarChart3 } from "lucide-react"
+import { Video, BarChart3, Lock, CheckCircle2, Users, Mic, Video as VideoIcon, MessageSquare } from "lucide-react"
 
-// ─── Minimal device frame helpers ────────────────────────────────────────────
+// ─── UI Preview Components ──────────────────────────────────────────────────
 
-function DesktopFrame({ children }: { children: React.ReactNode }) {
+function UIPanel({ children, className = "" }: { children: React.ReactNode, className?: string }) {
   return (
-    <div>
-      <div className="rounded-t-lg border border-[#2A2A2A] bg-[#111111] overflow-hidden shadow-[0_20px_48px_rgba(0,0,0,0.6)]">
-        <div className="h-5 bg-[#0D0D0D] border-b border-[#1A1A1A] flex items-center px-2.5 gap-1.5">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#2A2A2A]" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#2A2A2A]" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#2A2A2A]" />
-          <div className="flex-1 mx-2 h-2.5 bg-[#1A1A1A] rounded-sm" />
+    <div
+      className={`bg-[#111113] border border-white/12 rounded-2xl overflow-hidden ${className}`}
+      style={{ boxShadow: 'none', borderWidth: 1.5 }}
+    >
+      {children}
+    </div>
+  )
+}
+
+function CurriculumPreview() {
+  return (
+    <UIPanel className="p-6">
+      <div className="flex items-center justify-between mb-10 pb-4 border-b border-white/6">
+        <div className="flex items-center gap-3">
+          <div className="w-2 h-2 rounded-full bg-[#C9A86A]" />
+          <span className="text-[12px] font-bold text-[#EDEDED] uppercase tracking-widest">Curriculum Builder</span>
         </div>
-        {children}
+        <span className="text-[11px] text-[#9CA3AF]">v2.4.0</span>
       </div>
-      <div className="h-2.5 bg-[#0D0D0D] border-x border-[#2A2A2A] mx-[42%]" />
-      <div className="h-1 bg-[#1A1A1A] rounded-sm mx-[32%] border border-[#2A2A2A]" />
-    </div>
+      <div className="space-y-4">
+        <div className="p-5 bg-white/2 border border-[#C9A86A]/30 rounded-2xl flex items-center justify-between group">
+          <div className="flex items-center gap-4">
+            <div className="w-9 h-9 rounded-lg bg-[#C9A86A]/15 flex items-center justify-center">
+              <CheckCircle2 className="w-5 h-5 text-[#C9A86A]" />
+            </div>
+            <div>
+              <p className="text-[15px] font-bold text-[#EDEDED]">01. Core Architecture</p>
+              <p className="text-[11px] text-[#C9A86A] font-medium">Active • 4 Sessions</p>
+            </div>
+          </div>
+          <div className="w-2 h-2 rounded-full bg-[#C9A86A] animate-pulse" />
+        </div>
+        <div className="p-5 bg-white/1 border border-white/6 rounded-2xl flex items-center justify-between opacity-60">
+          <div className="flex items-center gap-4">
+            <div className="w-9 h-9 rounded-lg bg-white/3 flex items-center justify-center">
+              <Lock className="w-5 h-5 text-[#9CA3AF]" />
+            </div>
+            <div>
+              <p className="text-[15px] font-bold text-[#9CA3AF]">02. Advanced Patterns</p>
+              <p className="text-[11px] text-[#555555]">Locked • 3 Sessions</p>
+            </div>
+          </div>
+        </div>
+        <div className="p-5 bg-transparent border border-dashed border-white/9 rounded-2xl flex items-center justify-center">
+          <span className="text-[12px] text-[#555555] font-medium">+ Add Module</span>
+        </div>
+      </div>
+    </UIPanel>
   )
 }
 
-function TabletFrame({ children }: { children: React.ReactNode }) {
+function SessionPreview() {
   return (
-    <div className="rounded-xl border-2 border-[#222222] bg-[#0D0D0D] overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.6)]">
-      <div className="h-4 bg-[#0A0A0A] border-b border-[#1A1A1A] flex items-center justify-center">
-        <div className="w-6 h-1 bg-[#1A1A1A] rounded-full" />
+    <UIPanel className="relative aspect-video flex flex-col min-h-85">
+      {/* Video Stage */}
+      <div className="flex-1 bg-[#101014] flex items-center justify-center relative border-b border-white/6">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-20 h-20 rounded-full bg-white/3 border border-white/9 flex items-center justify-center">
+            <VideoIcon className="w-7 h-7 text-[#C9A86A]" />
+          </div>
+          <p className="text-[12px] text-[#C9A86A] font-semibold">Session broadcast active</p>
+        </div>
+        
+        {/* Indicators */}
+        <div className="absolute top-5 left-5 flex items-center gap-3">
+          <div className="flex items-center gap-2 bg-red-500/10 border border-red-500/30 px-3 py-1 rounded-lg">
+            <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+            <span className="text-[11px] font-bold text-red-500 tracking-wider">LIVE</span>
+          </div>
+          <div className="flex items-center gap-2 bg-black/40 backdrop-blur-md border border-white/9 px-3 py-1 rounded-lg">
+            <Users className="w-4 h-4 text-[#C9A86A]" />
+            <span className="text-[11px] font-bold text-[#EDEDED]">124</span>
+          </div>
+        </div>
       </div>
-      {children}
-      <div className="h-3 bg-[#0A0A0A] border-t border-[#1A1A1A] flex items-center justify-center">
-        <div className="w-5 h-0.5 bg-[#2A2A2A] rounded-full" />
+
+      {/* Controls */}
+      <div className="h-16 bg-[#0D0D0D] border-t border-white/9 px-8 flex items-center justify-between">
+        <div className="flex items-center gap-5">
+          <div className="w-9 h-9 rounded-lg bg-white/3 flex items-center justify-center border border-white/9">
+            <Mic className="w-5 h-5 text-[#EDEDED]" />
+          </div>
+          <div className="w-9 h-9 rounded-lg bg-white/3 flex items-center justify-center border border-white/9">
+            <VideoIcon className="w-5 h-5 text-[#EDEDED]" />
+          </div>
+          <div className="w-9 h-9 rounded-lg bg-white/3 flex items-center justify-center border border-white/9">
+            <MessageSquare className="w-5 h-5 text-[#EDEDED]" />
+          </div>
+        </div>
+        <div className="h-9 px-5 bg-red-500/10 border border-red-500/30 rounded-xl flex items-center">
+          <span className="text-[11px] font-bold text-red-500 uppercase tracking-widest">End Session</span>
+        </div>
       </div>
-    </div>
+    </UIPanel>
   )
 }
 
-function PhoneFrame({ children }: { children: React.ReactNode }) {
+function AnalyticsPreview() {
   return (
-    <div className="rounded-2xl border-2 border-[#222222] bg-[#0D0D0D] overflow-hidden shadow-[0_12px_32px_rgba(0,0,0,0.6)]">
-      <div className="h-4 bg-[#0A0A0A] border-b border-[#1A1A1A] flex items-center justify-center">
-        <div className="w-8 h-1 bg-[#1A1A1A] rounded-full" />
+    <UIPanel className="p-8">
+      <div className="flex items-center justify-between mb-10 pb-4 border-b border-white/9">
+        <span className="text-[13px] font-bold text-[#EDEDED] uppercase tracking-widest">Performance Intelligence</span>
+        <BarChart3 className="w-5 h-5 text-[#C9A86A]" />
       </div>
-      {children}
-      <div className="h-4 bg-[#0A0A0A] border-t border-[#1A1A1A] flex items-center justify-center">
-        <div className="w-5 h-0.5 bg-[#2A2A2A] rounded-full" />
+      
+      <div className="grid grid-cols-2 gap-6 mb-8">
+        <div className="p-5 bg-white/2 border border-white/9 rounded-2xl">
+          <p className="text-[11px] text-[#9CA3AF] uppercase tracking-wider mb-2">Avg. Completion</p>
+          <p className="text-[26px] font-extrabold text-[#EDEDED]">84.2%</p>
+          <div className="mt-4 w-full h-1.5 bg-white/3 rounded-full overflow-hidden">
+            <motion.div 
+              initial={{ width: 0 }} 
+              whileInView={{ width: "84.2%" }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              className="h-full bg-[#C9A86A]" 
+            />
+          </div>
+        </div>
+        <div className="p-5 bg-white/2 border border-white/9 rounded-2xl">
+          <p className="text-[11px] text-[#9CA3AF] uppercase tracking-wider mb-2">Attendance</p>
+          <p className="text-[26px] font-extrabold text-[#EDEDED]">92.8%</p>
+          <div className="mt-4 flex items-end gap-1.5 h-5">
+            {[40, 70, 45, 90, 65, 80].map((h, i) => (
+              <div key={i} className="flex-1 bg-[#C9A86A]/20 rounded-t-xs" style={{ height: `${h}%` }} />
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+
+      <div className="space-y-4">
+        <div className="flex items-center justify-between p-4 bg-white/1 rounded-xl border border-white/6">
+          <span className="text-[12px] text-[#9CA3AF]">Q3 Cohort Status</span>
+          <span className="text-[12px] font-bold text-green-500/80">On Track</span>
+        </div>
+        <div className="flex items-center justify-between p-4 bg-white/1 rounded-xl border border-white/6">
+          <span className="text-[12px] text-[#9CA3AF]">Participation Signals</span>
+          <span className="text-[12px] font-bold text-[#C9A86A]">High</span>
+        </div>
+      </div>
+    </UIPanel>
   )
 }
 
@@ -56,163 +155,19 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
 
 const steps = [
   {
-    step: "01",
-    device: "Desktop",
-    title: "Create your programme",
-    description: "Define modules, set prerequisites, build a strict curriculum, and configure automated grading rules before inviting a single participant.",
-    preview: (
-      <DesktopFrame>
-        <div className="bg-[#0A0A0A] p-4">
-          <div className="flex justify-between items-center mb-3 pb-2.5 border-b border-[#1A1A1A]">
-            <span className="text-[10px] font-bold text-white uppercase tracking-widest">Programme Builder</span>
-            <span className="text-[8px] text-[#A1A1AA] bg-[#111111] px-2 py-0.5 rounded-sm border border-[#1A1A1A]">Draft</span>
-          </div>
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between p-2.5 bg-[#111111] border border-[#1A1A1A] rounded-md border-l-2 border-l-[#C9A96E]">
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 bg-[#0A0A0A] border border-[#1A1A1A] rounded text-[7px] text-[#A1A1AA] flex items-center justify-center font-bold">1</div>
-                <span className="text-[10px] text-white font-semibold">Core Architecture</span>
-              </div>
-              <span className="text-[8px] text-[#A1A1AA]">3 Sessions</span>
-            </div>
-            <div className="flex items-center justify-between p-2.5 bg-[#0D0D0D] border border-[#1A1A1A] rounded-md">
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 bg-[#111111] border border-[#1A1A1A] rounded text-[7px] text-[#555555] flex items-center justify-center font-bold">2</div>
-                <span className="text-[10px] text-[#555555] font-medium">Advanced Patterns</span>
-              </div>
-              <span className="text-[8px] text-[#333333]">Locked</span>
-            </div>
-            <div className="flex items-center justify-between p-2.5 bg-[#0D0D0D] border border-dashed border-[#1A1A1A] rounded-md">
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 bg-[#111111] border border-[#1A1A1A] rounded text-[7px] text-[#333333] flex items-center justify-center">+</div>
-                <span className="text-[10px] text-[#333333]">Add Module</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </DesktopFrame>
-    ),
+    title: "Define your delivery structure",
+    description: "Design structured programmes with enforced flow, prerequisites, and controlled access.",
+    visual: <CurriculumPreview />,
   },
   {
-    step: "02",
-    device: "Tablet",
-    title: "Invite and run sessions",
-    description: "Share secure invite links or import your roster. Host HD sessions natively with automatic background attendance tracking running silently.",
-    preview: (
-      <div className="max-w-[320px]">
-        <TabletFrame>
-          <div className="bg-[#0A0A0A] p-4">
-            <div className="flex justify-between items-center mb-3">
-              <div>
-                <div className="text-[10px] font-bold text-white">Session Control</div>
-                <div className="text-[8px] text-[#555555]">Q3 Engineering Bootcamp</div>
-              </div>
-              <div className="flex items-center gap-1.5 bg-[#0D0D0D] border border-[#1A1A1A] px-2 py-1 rounded-sm">
-                <motion.div animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }} transition={{ duration: 2, repeat: Infinity }} className="w-1.5 h-1.5 rounded-full bg-[#27C93F]" />
-                <span className="text-[8px] text-white font-bold tracking-wider">01:24:15</span>
-              </div>
-            </div>
-            {/* Video stage */}
-            <div className="h-24 bg-[#0D0D0D] border border-[#1A1A1A] rounded-md flex items-center justify-center mb-3 relative overflow-hidden">
-              <div className="w-10 h-10 rounded-sm bg-[#111111] border border-[#1A1A1A] flex items-center justify-center text-[10px] text-[#A1A1AA] font-bold">SC</div>
-              <div className="absolute bottom-2 left-2 flex items-center gap-1.5">
-                {[1, 2, 3].map(i => (
-                  <div key={i} className="w-7 h-7 rounded-sm bg-[#111111] border border-[#1A1A1A] flex items-center justify-center text-[7px] text-[#555555] font-bold">P{i}</div>
-                ))}
-                <div className="w-7 h-7 rounded-sm bg-[#111111] border border-[#1A1A1A] flex items-center justify-center text-[7px] text-[#333333]">+38</div>
-              </div>
-            </div>
-            {/* Controls */}
-            <div className="grid grid-cols-4 gap-1.5">
-              {[
-                { label: "Mute", active: false },
-                { label: "Video", active: true },
-                { label: "Chat", active: false },
-                { label: "End", active: false, danger: true },
-              ].map((btn, i) => (
-                <div key={i} className={`py-1.5 rounded-sm border text-[7px] font-bold flex items-center justify-center cursor-default ${
-                  btn.danger ? "border-red-900/30 text-red-500/70 bg-red-950/20"
-                  : btn.active ? "border-[#C9A96E]/40 text-[#C9A96E] bg-[#C9A96E]/10"
-                  : "border-[#1A1A1A] text-[#555555]"
-                }`}>{btn.label}</div>
-              ))}
-            </div>
-          </div>
-        </TabletFrame>
-      </div>
-    ),
+    title: "Run sessions within the system",
+    description: "Deliver sessions with integrated communication, silent attendance tracking, and automated recording.",
+    visual: <SessionPreview />,
   },
   {
-    step: "03",
-    device: "Phone",
-    title: "Access data and recordings",
-    description: "Dive into granular performance data from the dashboard. Recordings are processed automatically and access is enforced per cohort.",
-    preview: (
-      <div className="max-w-[200px]">
-        <PhoneFrame>
-          <div className="bg-[#0A0A0A] p-3">
-            <div className="text-[8px] font-bold text-white uppercase tracking-widest mb-3">My Progress</div>
-            {/* Progress ring placeholder — using bar */}
-            <div className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-md p-3 mb-3 flex items-center gap-3">
-              <div className="relative w-10 h-10 shrink-0">
-                <svg viewBox="0 0 36 36" className="w-10 h-10 -rotate-90">
-                  <circle cx="18" cy="18" r="15" fill="none" stroke="#1A1A1A" strokeWidth="3" />
-                  <motion.circle
-                    cx="18" cy="18" r="15" fill="none"
-                    stroke="#C9A96E" strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeDasharray="94.2"
-                    initial={{ strokeDashoffset: 94.2 }}
-                    whileInView={{ strokeDashoffset: 94.2 * 0.35 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
-                  />
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-[8px] font-bold text-[#C9A96E]">65%</span>
-                </div>
-              </div>
-              <div>
-                <div className="text-[9px] font-bold text-white mb-0.5">Module 1</div>
-                <div className="text-[7px] text-[#555555]">Core Architecture</div>
-              </div>
-            </div>
-            {/* Mini chart */}
-            <div className="bg-[#0D0D0D] border border-[#1A1A1A] rounded-md p-2.5">
-              <div className="flex items-center gap-1 mb-2">
-                <BarChart3 className="w-2.5 h-2.5 text-[#555555]" />
-                <span className="text-[7px] text-[#555555] uppercase font-bold tracking-wider">Attendance</span>
-              </div>
-              <div className="flex items-end gap-0.5 h-8">
-                {[55, 70, 60, 90, 75, 95, 80].map((h, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ scaleY: 0 }}
-                    whileInView={{ scaleY: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, delay: i * 0.07, ease: "easeOut" }}
-                    style={{ transformOrigin: "bottom", height: `${h}%` }}
-                    className={`flex-1 rounded-t-sm ${i === 5 ? "bg-[#C9A96E]/40" : "bg-white/8"}`}
-                  />
-                ))}
-              </div>
-            </div>
-            {/* Recordings list */}
-            <div className="mt-2.5 space-y-1.5">
-              {[{ name: "Session 01", size: "420 MB" }, { name: "Session 02", size: "380 MB" }].map((rec, i) => (
-                <div key={i} className="flex items-center justify-between p-1.5 bg-[#0D0D0D] border border-[#1A1A1A] rounded-sm">
-                  <div className="flex items-center gap-1.5">
-                    <Video className="w-2.5 h-2.5 text-[#555555]" />
-                    <span className="text-[7px] text-[#A1A1AA] font-medium">{rec.name}</span>
-                  </div>
-                  <span className="text-[6px] text-[#333333]">{rec.size}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </PhoneFrame>
-      </div>
-    ),
+    title: "Monitor performance in real time",
+    description: "Track engagement, attendance, and completion instantly to intervene early.",
+    visual: <AnalyticsPreview />,
   },
 ]
 
@@ -220,75 +175,64 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="py-32 bg-[#0D0D0D] border-b border-[#1A1A1A]">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-48 bg-[#0B0B0C] border-b border-white/6 relative overflow-hidden">
+      <div className="max-w-330 mx-auto px-6 lg:px-12">
+        {/* Section Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUpVariant}
-          className="mb-20"
+          className="mb-44 max-w-2xl"
         >
-          <p className="text-[10px] font-bold text-[#A1A1AA] uppercase tracking-[0.2em] mb-4">Process</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">How it works</h2>
-          <p className="text-[#A1A1AA] text-base font-light mt-3 max-w-xl">
-            The same system, from any context — desktop, tablet, or mobile.
-          </p>
+          <span className="text-[14px] font-extrabold text-[#C9A86A] uppercase tracking-[0.22em] block mb-8">
+            SYSTEM OVERVIEW
+          </span>
+          <h2 className="text-[52px] md:text-[72px] font-extrabold text-[#EDEDED] leading-[1.05] tracking-tight mb-8">
+            Operational clarity, built-in.
+          </h2>
         </motion.div>
 
-        <div className="relative">
-          {/* Vertical connector line */}
-          <div className="absolute left-[19px] top-6 bottom-6 w-px bg-[#1A1A1A] hidden md:block" />
-
-          <motion.div
-            variants={staggerContainerVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-24"
-          >
-            {steps.map((step, idx) => (
-              <motion.div key={idx} variants={staggerItemVariant} className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
-
-                {/* Step node */}
-                <div className="hidden md:flex flex-col items-center gap-2 shrink-0 relative z-10">
-                  <div className="w-10 h-10 bg-[#0D0D0D] border border-[#1A1A1A] rounded-sm flex items-center justify-center">
-                    <span className="text-[#C9A96E] font-bold text-xs tracking-widest">{step.step}</span>
-                  </div>
+        {/* Steps */}
+        <motion.div
+          variants={staggerContainerVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="space-y-72 md:space-y-96"
+        >
+          {steps.map((step, idx) => (
+            <motion.div
+              key={idx}
+              variants={staggerItemVariant}
+              className={`flex flex-col md:flex-row items-center gap-24 md:gap-44 ${idx % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+            >
+              {/* Text Side */}
+              <div className="flex-1 space-y-10">
+                <div className="w-16 h-16 rounded-2xl bg-white/3 border border-white/12 flex items-center justify-center mb-3">
+                  <span className="text-[#C9A86A] font-extrabold text-2xl">0{idx + 1}</span>
                 </div>
+                <h3 className="text-[2.3rem] md:text-[3.2rem] font-extrabold text-[#EDEDED] tracking-tight leading-tight">
+                  {step.title}
+                </h3>
+                <p className="text-[#7B7B8A] text-[14px] md:text-[15px] font-medium leading-[1.7] max-w-md">
+                  {step.description}
+                </p>
+              </div>
 
-                {/* Content */}
-                <div className="flex-1 md:max-w-[280px] pt-1 shrink-0">
-                  <div className="md:hidden flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 bg-[#0A0A0A] border border-[#1A1A1A] rounded-sm flex items-center justify-center">
-                      <span className="text-[#C9A96E] font-bold text-xs">{step.step}</span>
-                    </div>
-                  </div>
-                  <div className="inline-flex items-center gap-1.5 bg-[#111111] border border-[#1A1A1A] px-2 py-0.5 rounded-sm mb-3">
-                    <span className="text-[8px] font-bold text-[#555555] uppercase tracking-widest">{step.device}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3 tracking-tight">{step.title}</h3>
-                  <p className="text-[#A1A1AA] leading-relaxed font-light text-sm">{step.description}</p>
-                </div>
-
-                {/* Device UI preview */}
+              {/* Visual Side */}
+              <div className="flex-[1.3] w-full max-w-2xl">
                 <motion.div
-                  className="flex-1 w-full"
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.2 }}
+                  whileHover={{ y: -8 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  className="rounded-2xl border border-white/12 bg-[#111113] p-2 md:p-4"
                 >
-                  <motion.div
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 7 + idx * 1.5, repeat: Infinity, ease: "easeInOut", delay: idx * 0.5 }}
-                  >
-                    {step.preview}
-                  </motion.div>
+                  {step.visual}
                 </motion.div>
-
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )
