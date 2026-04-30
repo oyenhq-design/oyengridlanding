@@ -10,6 +10,8 @@ import { Footer } from "@/components/shared/footer";
 import { UseCasesSection } from "@/components/shared/use-cases-section";
 import { PositioningSection } from "@/components/shared/positioning-section";
 
+import { ProgrammeManagementSection } from "@/components/shared/programme-management-section";
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -25,22 +27,27 @@ export default function Home() {
         {/* 3. POSITIONING */}
         <PositioningSection />
 
-        {/* 4. CORE FEATURES (3 COLUMNS WITH UI PREVIEWS) */}
+
+        {/* 4. PROGRAMME MANAGEMENT DASHBOARD (PREMIUM SECTION) */}
+        <ProgrammeManagementSection />
+
+        {/* 5. CORE FEATURES (3 COLUMNS WITH UI PREVIEWS) */}
         <CoreFeaturesSection />
 
-        {/* 5. COMPLEX DELIVERY (GRID OF 6) */}
+
+        {/* 6. COMPLEX DELIVERY (GRID OF 6) */}
         <ComplexDeliverySection />
 
-        {/* 6. USE CASES */}
+        {/* 7. USE CASES */}
         <UseCasesSection />
 
-        {/* 7. HOW IT WORKS */}
+        {/* 8. HOW IT WORKS */}
         <HowItWorksSection />
 
-        {/* 8. STRUCTURE VALUE (RADIAL VISUAL) */}
+        {/* 9. STRUCTURE VALUE (RADIAL VISUAL) */}
         <StructureValueSection />
 
-        {/* 9. CTA */}
+        {/* 10. CTA */}
         <CTASection />
 
       </main>

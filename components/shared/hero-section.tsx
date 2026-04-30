@@ -269,10 +269,8 @@ export function HeroSection() {
               className="font-bold text-white leading-[1.06] tracking-tight mb-6"
               style={{ fontSize: "clamp(2.5rem, 3.8vw, 4.1rem)" }}
             >
-              Run and manage<br />
-              your programmes<br />
-              from a{" "}
-              <span className="text-[#C9A96E]">single,<br />structured system.</span>
+              Run structured programmes<br />
+              with full <span className="text-[#C9A96E]">operational control.</span>
             </motion.h1>
 
             {/* 3 · Paragraph */}
@@ -280,11 +278,10 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.22, ease: "easeOut" }}
-              className="text-[#A1A1AA] text-[1.05rem] leading-relaxed font-light max-w-[390px] mb-8"
+              className="text-[#A1A1AA] text-[1.05rem] leading-relaxed font-light max-w-[420px] mb-8"
             >
-              Consolidate your entire operation into one intelligent platform.
-              Built for organisations that need strict control, deep analytics,
-              and scalable delivery.
+              Consolidate your entire operation into one intelligent platform. 
+              No fragmentation, no tool switching — just full visibility and enforced structure.
             </motion.p>
 
             {/* 4 · Bullets */}
@@ -295,9 +292,9 @@ export function HeroSection() {
               className="flex flex-col gap-3.5 mb-10"
             >
               {[
-                "Structured programme delivery",
-                "Full participant control",
-                "Built for real organisations",
+                "Enforced delivery flow",
+                "Centralised participant control",
+                "System-level visibility",
               ].map((pt, i) => (
                 <div key={i} className="flex items-center gap-3.5">
                   <div className="w-8 h-8 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center shrink-0">
@@ -322,7 +319,7 @@ export function HeroSection() {
                   transition={{ duration: 0.16 }}
                   className="flex items-center gap-2.5 bg-[#C9A96E] hover:bg-[#D4B882] text-[#0A0A0A] font-bold text-sm h-12 px-7 rounded-lg transition-colors"
                 >
-                  Get Started
+                  Start building
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
@@ -335,7 +332,7 @@ export function HeroSection() {
                   transition={{ duration: 0.16 }}
                   className="flex items-center gap-2.5 bg-transparent text-white border border-white/15 font-semibold text-sm h-12 px-7 rounded-lg"
                 >
-                  Book a Demo
+                  Talk to sales
                   <Calendar className="w-4 h-4 opacity-50" />
                 </motion.button>
               </Link>

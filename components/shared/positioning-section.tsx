@@ -5,10 +5,10 @@ import { useRef } from "react"
 import { X, Check } from "lucide-react"
 
 const NOT_LIST = [
-  { label: "A meeting scheduler",    desc: "Bookings without programme context"  },
-  { label: "A chat application",     desc: "Communication without structure"      },
-  { label: "A basic LMS",           desc: "Courses without operational control"  },
-  { label: "A file storage tool",    desc: "Assets without programme awareness"  },
+  { label: "A meeting scheduler",    desc: "Single-point booking tools"  },
+  { label: "A chat application",     desc: "Unstructured messaging"      },
+  { label: "A basic LMS",           desc: "Passive content delivery"  },
+  { label: "A file storage tool",    desc: "Fragmented asset management"  },
 ]
 
 const IS_LIST = [
@@ -247,9 +247,9 @@ export function PositioningSection() {
               <p
                 style={{ fontSize: 15.5, color: "#D4D4D8", lineHeight: 1.7, maxWidth: 460, fontWeight: 400 }}
               >
-                One unified platform where your programmes, sessions, participants,
-                and data live, communicate, and scale together — without stitching
-                tools together.
+                A unified infrastructure where programmes, sessions, and participants 
+                are governed by a single source of truth. Built for organisations 
+                requiring strict operational control.
               </p>
             </div>
 
