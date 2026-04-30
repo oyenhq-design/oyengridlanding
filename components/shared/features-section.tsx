@@ -1,57 +1,55 @@
-import { Eye, LayoutList, LineChart, MessageSquare } from "lucide-react";
+import { Users, LayoutList, LineChart, MessageSquare } from "lucide-react";
 
-const FEATURES = [
+const CARDS = [
   {
-    title: "Real-time Cohort Visibility",
-    description: "Monitor progress, engagement, and blockages instantly.",
-    icon: Eye,
+    title: "Real-time cohort visibility",
+    description: "Monitor progress, engagement, and blockages instantly across all active cohorts.",
+    icon: Users,
   },
   {
-    title: "Structured Programme Flow",
-    description: "Enforce sequential modules and milestone tracking.",
+    title: "Structured programme flow",
+    description: "Enforce sequential modules, milestone tracking, and required submissions.",
     icon: LayoutList,
   },
   {
-    title: "Performance Analytics",
-    description: "Exportable data on every participant's journey.",
+    title: "Performance analytics",
+    description: "Exportable, granular data on every participant's learning journey and outcomes.",
     icon: LineChart,
   },
   {
-    title: "Centralised Communication",
-    description: "Keep all cohort messaging and resources in one system.",
+    title: "Centralised communication",
+    description: "Keep all cohort messaging, announcements, and resources in one secure system.",
     icon: MessageSquare,
   },
 ];
 
 export function FeaturesSection() {
   return (
-    <section className="py-24 bg-[#0E0E10] border-t border-[#1A1A1D]">
+    <section className="py-24 md:py-32 bg-[#0B0B0C]">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
         <div className="mb-16">
-          <h2 className="text-[32px] sm:text-[36px] font-bold text-white tracking-tight mb-4">
+          <h2 className="text-[36px] sm:text-[48px] font-bold text-white tracking-tight">
             Built for operational clarity
           </h2>
-          <p className="text-[#A1A1AA] max-w-2xl text-lg">
-            A single source of truth for your entire programme delivery lifecycle.
-          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-16">
-          {FEATURES.map((feature, idx) => {
-            const Icon = feature.icon;
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {CARDS.map((card, idx) => {
+            const Icon = card.icon;
             return (
-              <div key={idx} className="flex gap-5 items-start">
-                <div className="shrink-0 p-3 bg-[#1A1A1D] rounded-lg">
-                  <Icon className="w-6 h-6 text-[#C9A86A]" strokeWidth={1.5} />
+              <div 
+                key={idx} 
+                className="bg-[#121214] border border-[rgba(255,255,255,0.06)] rounded-[16px] p-8 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[rgba(255,255,255,0.12)]"
+              >
+                <div className="w-12 h-12 bg-[#1A1A1D] rounded-[10px] flex items-center justify-center mb-6">
+                  <Icon className="w-6 h-6 text-[#C8A96A]" strokeWidth={1.5} />
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-2 tracking-tight">
-                    {feature.title}
-                  </h3>
-                  <p className="text-[#A1A1AA] leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
+                <h3 className="text-[20px] font-semibold text-white mb-3 tracking-tight">
+                  {card.title}
+                </h3>
+                <p className="text-[16px] text-[#9CA3AF] leading-relaxed">
+                  {card.description}
+                </p>
               </div>
             );
           })}
