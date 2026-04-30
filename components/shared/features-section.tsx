@@ -1,68 +1,61 @@
-"use client"
+import { Eye, LayoutList, LineChart, MessageSquare } from "lucide-react";
 
-import { Briefcase, Calendar, MessageSquare, BarChart3 } from "lucide-react"
+const FEATURES = [
+  {
+    title: "Real-time Cohort Visibility",
+    description: "Monitor progress, engagement, and blockages instantly.",
+    icon: Eye,
+  },
+  {
+    title: "Structured Programme Flow",
+    description: "Enforce sequential modules and milestone tracking.",
+    icon: LayoutList,
+  },
+  {
+    title: "Performance Analytics",
+    description: "Exportable data on every participant's journey.",
+    icon: LineChart,
+  },
+  {
+    title: "Centralised Communication",
+    description: "Keep all cohort messaging and resources in one system.",
+    icon: MessageSquare,
+  },
+];
 
 export function FeaturesSection() {
-  const features = [
-    {
-      icon: Briefcase,
-      title: "Real-time Visibility",
-      desc: "Instantly see progress and engagement across all your programmes, cohorts, and sessions in a single view.",
-    },
-    {
-      icon: Calendar,
-      title: "Structured Flow",
-      desc: "Enforce order, manage access, and track completion for every cohort automatically.",
-    },
-    {
-      icon: BarChart3,
-      title: "Deep Analytics",
-      desc: "Track outcomes and surface performance insights for every individual session and participant.",
-    },
-    {
-      icon: MessageSquare,
-      title: "Contextual Comms",
-      desc: "Keep all communication scoped to specific cohorts and sessions, maintaining strict focus.",
-    },
-  ];
-
   return (
-    <section id="features" className="py-24 md:py-32 bg-[#0b0f14]">
-      <div className="max-w-6xl mx-auto px-4 lg:px-8">
-        
-        <div className="text-center mb-16">
-          <h2 className="text-[32px] md:text-[40px] font-bold text-white mb-4 tracking-tight leading-[1.2]">
-            Everything you need. Nothing you don't.
+    <section className="py-24 bg-[#0E0E10] border-t border-[#1A1A1D]">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+        <div className="mb-16">
+          <h2 className="text-[32px] sm:text-[36px] font-bold text-white tracking-tight mb-4">
+            Built for operational clarity
           </h2>
-          <p className="text-[16px] md:text-[18px] text-white/70 max-w-2xl mx-auto leading-relaxed">
-            A focused toolset built exclusively for operational clarity and structured delivery.
+          <p className="text-[#A1A1AA] max-w-2xl text-lg">
+            A single source of truth for your entire programme delivery lifecycle.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {features.map((feature, idx) => {
+
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-16">
+          {FEATURES.map((feature, idx) => {
             const Icon = feature.icon;
             return (
-              <div
-                key={idx}
-                className="group p-8 md:p-12 bg-[#11161d] rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.3)] transition-shadow duration-300 flex flex-col items-start"
-              >
-                <div className="w-14 h-14 mb-8 flex items-center justify-center rounded-xl bg-white/5 text-white">
-                  <Icon className="w-7 h-7 opacity-80" strokeWidth={1.5} />
+              <div key={idx} className="flex gap-5 items-start">
+                <div className="shrink-0 p-3 bg-[#1A1A1D] rounded-lg">
+                  <Icon className="w-6 h-6 text-[#C9A86A]" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">
+                  <h3 className="text-xl font-semibold text-white mb-2 tracking-tight">
                     {feature.title}
                   </h3>
-                  <p className="text-[16px] md:text-[18px] text-white/60 leading-relaxed">
-                    {feature.desc}
+                  <p className="text-[#A1A1AA] leading-relaxed">
+                    {feature.description}
                   </p>
                 </div>
               </div>
             );
           })}
         </div>
-        
       </div>
     </section>
   );
