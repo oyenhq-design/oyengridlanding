@@ -1,62 +1,46 @@
-"use client"
 
-import { motion } from "framer-motion"
-import { fadeUpVariant, staggerContainerVariant, staggerItemVariant } from "@/lib/motion"
-import { Video, BarChart3, Lock, CheckCircle2, Users, Mic, Video as VideoIcon, MessageSquare } from "lucide-react"
+"use client";
 
-// ─── UI Preview Components ──────────────────────────────────────────────────
+const steps = [
+  {
+    title: "1. Structure",
+    desc: "Design your programme with modules, sessions, and access rules—all in one place.",
+  },
+  {
+    title: "2. Deliver",
+    desc: "Schedule, launch, and monitor sessions with real-time attendance and engagement.",
+  },
+  {
+    title: "3. Track",
+    desc: "See progress, completion, and analytics for every cohort and participant.",
+  },
+  {
+    title: "4. Optimise",
+    desc: "Use insights to improve outcomes and scale your training with confidence.",
+  },
+];
 
-function UIPanel({ children, className = "" }: { children: React.ReactNode, className?: string }) {
+export function HowItWorksSection() {
   return (
-    <div
-      className={`bg-[#111113] border border-white/12 rounded-2xl overflow-hidden ${className}`}
-      style={{ boxShadow: 'none', borderWidth: 1.5 }}
-    >
-      {children}
-    </div>
-  )
-}
-
-function CurriculumPreview() {
-  return (
-    <UIPanel className="p-6">
-      <div className="flex items-center justify-between mb-10 pb-4 border-b border-white/6">
-        <div className="flex items-center gap-3">
-          <div className="w-2 h-2 rounded-full bg-[#C9A86A]" />
-          <span className="text-[12px] font-bold text-[#EDEDED] uppercase tracking-widest">Curriculum Builder</span>
-        </div>
-        <span className="text-[11px] text-[#9CA3AF]">v2.4.0</span>
-      </div>
-      <div className="space-y-4">
-        <div className="p-5 bg-white/2 border border-[#C9A86A]/30 rounded-2xl flex items-center justify-between group">
-          <div className="flex items-center gap-4">
-            <div className="w-9 h-9 rounded-lg bg-[#C9A86A]/15 flex items-center justify-center">
-              <CheckCircle2 className="w-5 h-5 text-[#C9A86A]" />
+    <section className="py-32 bg-gradient-to-b from-[#10141b] to-[#0b0f14]">
+      <div className="max-w-5xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center tracking-tight leading-tight">
+          How it works
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          {steps.map((step, idx) => (
+            <div key={idx} className="flex flex-col items-center text-center">
+              <div className="w-12 h-12 rounded-full bg-[#181d23] flex items-center justify-center mb-6 text-2xl font-bold text-[#D4AF37]">
+                {step.title.split(".")[0]}
+              </div>
+              <div className="text-xl font-semibold text-white mb-2">{step.title.replace(/^[0-9]+\. /, "")}</div>
+              <div className="text-base text-white/60 leading-relaxed">{step.desc}</div>
             </div>
-            <div>
-              <p className="text-[15px] font-bold text-[#EDEDED]">01. Core Architecture</p>
-              <p className="text-[11px] text-[#C9A86A] font-medium">Active • 4 Sessions</p>
-            </div>
-          </div>
-          <div className="w-2 h-2 rounded-full bg-[#C9A86A] animate-pulse" />
-        </div>
-        <div className="p-5 bg-white/1 border border-white/6 rounded-2xl flex items-center justify-between opacity-60">
-          <div className="flex items-center gap-4">
-            <div className="w-9 h-9 rounded-lg bg-white/3 flex items-center justify-center">
-              <Lock className="w-5 h-5 text-[#9CA3AF]" />
-            </div>
-            <div>
-              <p className="text-[15px] font-bold text-[#9CA3AF]">02. Advanced Patterns</p>
-              <p className="text-[11px] text-[#555555]">Locked • 3 Sessions</p>
-            </div>
-          </div>
-        </div>
-        <div className="p-5 bg-transparent border border-dashed border-white/9 rounded-2xl flex items-center justify-center">
-          <span className="text-[12px] text-[#555555] font-medium">+ Add Module</span>
+          ))}
         </div>
       </div>
-    </UIPanel>
-  )
+    </section>
+  );
 }
 
 function SessionPreview() {
