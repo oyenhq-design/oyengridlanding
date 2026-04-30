@@ -211,41 +211,276 @@ export function HeroSection() {
     const r = e.currentTarget.getBoundingClientRect()
     mouseX.set((e.clientX - r.left) / r.width - 0.5)
     mouseY.set((e.clientY - r.top) / r.height - 0.5)
-    return (
-      <section className="relative bg-[#0b0b0c] pt-40 pb-32 border-b border-[#18181A] overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-20 md:gap-32">
-          {/* LEFT: Text */}
-          <div className="flex-1 text-center md:text-left">
-            <h1 className="text-6xl md:text-8xl font-extrabold text-white mb-8 leading-[1.05] tracking-tight">
-              Operational clarity<br />for modern organisations
-            </h1>
-            <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-xl mx-auto md:mx-0 leading-relaxed">
-              OYEN Grid brings calm, structure, and real-time control to every layer of your programme delivery.
-            </p>
-            <div className="flex justify-center md:justify-start">
-              <a href="/get-started">
-                <button className="bg-[#D4AF37] hover:bg-[#e6c75a] text-black font-bold px-10 py-5 rounded-xl text-lg shadow-gold transition-all focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-2">
-                  Start Building
-                </button>
-              </a>
-            </div>
+  }
+
+  return (
+    <section
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => { mouseX.set(0); mouseY.set(0) }}
+      className="relative bg-[#0A0A0A] overflow-hidden border-b border-[#1A1A1A]"
+      style={{ minHeight: "100vh" }}
+    >
+      {/* Ambient radial glow — right side */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 60% at 75% 50%, rgba(201,169,110,0.04) 0%, transparent 68%)",
+        }}
+      />
+
+      {/* ── Page wrapper ── */}
+      <div
+        className="relative z-10 max-w-[1440px] mx-auto px-8 lg:px-14 flex items-center"
+        style={{ minHeight: "100vh" }}
+      >
+        {/*
+          ┌────────────────────────┬──────────────────────────────┐
+          │   LEFT  45%            │   RIGHT  55%                 │
+          │   Text block           │   Device + panel composition │
+          └────────────────────────┴──────────────────────────────┘
+        */}
+        <div className="grid grid-cols-1 lg:grid-cols-[45fr_55fr] items-center w-full gap-8 xl:gap-12 py-24">
+
+          {/* ════════════════════════════════════════
+              LEFT: Text block — exact order
+          ════════════════════════════════════════ */}
+          <div className="flex flex-col">
+
+            {/* 1 · Label */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.04, ease: "easeOut" }}
+              className="flex items-center gap-2.5 mb-6"
+            >
+              <div className="w-5 h-px bg-[#C9A96E]" />
+              <span className="text-[10px] font-bold text-[#C9A96E] uppercase tracking-[0.24em]">
+                Structured Programme Operating System
+              </span>
+            </motion.div>
+
+            {/* 2 · Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" }}
+              className="font-bold text-white leading-[1.06] tracking-tight mb-6"
+              style={{ fontSize: "clamp(2.5rem, 3.8vw, 4.1rem)" }}
+            >
+              Run structured programmes<br />
+              with full <span className="text-[#C9A96E]">operational control.</span>
+            </motion.h1>
+
+            {/* 3 · Paragraph */}
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.22, ease: "easeOut" }}
+              className="text-[#A1A1AA] text-[1.05rem] leading-relaxed font-light max-w-[420px] mb-8"
+            >
+              Consolidate your entire operation into one intelligent platform. 
+              No fragmentation, no tool switching — just full visibility and enforced structure.
+            </motion.p>
+
+            {/* 4 · Bullets */}
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.30, ease: "easeOut" }}
+              className="flex flex-col gap-3.5 mb-10"
+            >
+              {[
+                "Enforced delivery flow",
+                "Centralised participant control",
+                "System-level visibility",
+              ].map((pt, i) => (
+                <div key={i} className="flex items-center gap-3.5">
+                  <div className="w-8 h-8 rounded-lg bg-[#111111] border border-[#1A1A1A] flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-4 h-4 text-[#C9A96E]" strokeWidth={2} />
+                  </div>
+                  <span className="text-[#E0E0E0] font-medium text-sm">{pt}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* 5 · CTA buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.38, ease: "easeOut" }}
+              className="flex flex-row gap-4 mb-7"
+            >
+              <Link href="/get-started">
+                <motion.button
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ duration: 0.16 }}
+                  className="flex items-center gap-2.5 bg-[#C9A96E] hover:bg-[#D4B882] text-[#0A0A0A] font-bold text-sm h-12 px-7 rounded-lg transition-colors"
+                >
+                  Start building
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </motion.button>
+              </Link>
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.03, borderColor: "rgba(255,255,255,0.28)" }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ duration: 0.16 }}
+                  className="flex items-center gap-2.5 bg-transparent text-white border border-white/15 font-semibold text-sm h-12 px-7 rounded-lg"
+                >
+                  Talk to sales
+                  <Calendar className="w-4 h-4 opacity-50" />
+                </motion.button>
+              </Link>
+            </motion.div>
+
+            {/* 6 · Trust text */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.92 }}
+              className="flex items-center gap-2"
+            >
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#333333]" strokeWidth={1.5} />
+              <span className="text-[11px] text-[#444444]">
+                Trusted by training organisations worldwide
+              </span>
+            </motion.div>
           </div>
-          {/* RIGHT: Product Image */}
-          <div className="flex-1 flex justify-center items-center">
-            <div className="relative w-105 h-80 md:w-135 md:h-100 rounded-2xl overflow-hidden shadow-2xl bg-[#101012]">
+
+          {/* ════════════════════════════════════════
+              RIGHT: Device + UI panel composition
+
+              Absolute coordinate system within a fixed 780×680 container.
+
+              Z-order (back → front):
+              ┌─────────────────────────────────────────┐
+              │  [Analytics panel]  z:10  top:0,right:0 │ opacity 0.65
+              │    [Session panel]  z:15  top:44,rt:40  │ opacity 0.82
+              │      [Programme]   z:20  top:88,rt:80   │ opacity 1.0
+              │  [tab.png]         z:22  top:160,rt:0   │ opacity 0.5, behind laptop top
+              │  [hero-laptop.png] z:30  bottom:0,left:0│ DOMINANT
+              │  [hero-phone.png]  z:40  btm:10,left:0  │ 25–30% of laptop width
+              └─────────────────────────────────────────┘
+
+              The laptop covers the lower halves of all panels.
+              The panels "float" above the screen, creating layered depth.
+          ════════════════════════════════════════ */}
+          <div
+            className="relative hidden lg:block select-none"
+            style={{ height: 700 }}
+          >
+            {/* Soft gold radial glow — centred behind the composition */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute"
+              style={{
+                width: 640,
+                height: 480,
+                top: "50%",
+                left: "52%",
+                transform: "translate(-50%, -50%)",
+                background:
+                  "radial-gradient(ellipse at center, rgba(201,169,110,0.07) 0%, transparent 62%)",
+                borderRadius: "50%",
+                zIndex: 1,
+              }}
+            />
+
+            {/* ── Back: Analytics panel ──────────────────────── */}
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 0.65, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.78, ease: "easeOut" }}
+              style={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+                width: 370,
+                zIndex: 10,
+                x: useTransform(mxs, [-0.5, 0.5], [4, -4]),
+                y: useTransform(mys, [-0.5, 0.5], [3, -3]),
+              }}
+              className="will-change-transform"
+            >
+              <PanelAnalytics />
+            </motion.div>
+
+            {/* ── Middle: Session panel ──────────────────────── */}
+            {/*
+              Offset from Analytics: ~40px down, ~40px to the left
+              (moves toward the viewer in the card stack)
+            */}
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 0.82, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.62, ease: "easeOut" }}
+              style={{
+                position: "absolute",
+                top: 44,
+                right: 40,
+                width: 370,
+                zIndex: 15,
+                x: useTransform(mxs, [-0.5, 0.5], [6, -6]),
+                y: useTransform(mys, [-0.5, 0.5], [4, -4]),
+              }}
+              className="will-change-transform"
+            >
+              <PanelSession />
+            </motion.div>
+
+            {/* ── Front: Programme panel ─────────────────────── */}
+            {/*
+              Offset from Session: another ~44px down, ~40px left
+            */}
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.46, ease: "easeOut" }}
+              style={{
+                position: "absolute",
+                top: 88,
+                right: 80,
+                width: 370,
+                zIndex: 20,
+                x: useTransform(mxs, [-0.5, 0.5], [8, -8]),
+                y: useTransform(mys, [-0.5, 0.5], [5, -5]),
+              }}
+              className="will-change-transform"
+            >
+              <PanelProgramme />
+            </motion.div>
+
+            {/* ── Tablet: mid-layer, behind laptop top edge ──── */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 0.45, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.5, ease: "easeOut" }}
+              style={{
+                position: "absolute",
+                top: 170,
+                right: 0,
+                width: 260,
+                zIndex: 22,
+                x: useTransform(mxs, [-0.5, 0.5], [5, -5]),
+                y: useTransform(mys, [-0.5, 0.5], [3, -3]),
+              }}
+              className="will-change-transform"
+            >
               <Image
-                src="/img/pg mgt.png"
-                alt="Product dashboard preview"
-                fill
-                className="object-cover object-top rounded-2xl select-none pointer-events-none"
-                draggable={false}
+                src="/img/tab.png"
+                alt="Tablet showing OYEN Grid"
+                width={700}
+                height={500}
+                className="w-full h-auto"
+                style={{ filter: "drop-shadow(0 12px 24px rgba(0,0,0,0.7))" }}
                 priority
               />
-            </div>
-          </div>
-        </div>
-      </section>
-    );
+            </motion.div>
 
             {/* ── Laptop: dominant base ──────────────────────── */}
             {/*
