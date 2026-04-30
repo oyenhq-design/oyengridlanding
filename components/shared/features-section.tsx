@@ -1,62 +1,67 @@
 "use client"
 
-import { FEATURES } from "@/lib/constants"
-import {
-  Briefcase,
-  Calendar,
-  MessageSquare,
-  Film,
-  BarChart3,
-  Award,
-} from "lucide-react"
 
-const iconMap = {
-  Briefcase,
-  Calendar,
-  MessageSquare,
-  Film,
-  BarChart3,
-  Award,
-}
+import { Briefcase, Calendar, MessageSquare, BarChart3, Award } from "lucide-react"
 
-export function FeaturesSection() {
+  // Minimal, premium features (4 only)
+  const features = [
+    {
+      icon: Briefcase,
+      title: "Real-time Cohort Visibility",
+      desc: "Instantly see progress and engagement across all programmes.",
+    },
+    {
+      icon: Calendar,
+      title: "Structured Programme Flow",
+      desc: "Enforce order, access, and completion for every cohort.",
+    },
+    {
+      icon: BarChart3,
+      title: "Performance Analytics",
+      desc: "Track outcomes and surface insights for every session.",
+    },
+    {
+      icon: MessageSquare,
+      title: "Centralised Communication",
+      desc: "Keep all messaging scoped, contextual, and secure.",
+    },
+  ];
+
   return (
-    <section id="features" className="py-24 md:py-32 bg-[#0B0B0F] border-b border-[#1F1F1F]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Engineered for complex delivery
+    <section id="features" className="py-32 bg-[#0b0b0c]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-8">
+        <div className="text-center mb-24">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
+            Built for operational clarity
           </h2>
-          <p className="text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed">
-            OYEN Grid unifies every tool you need to deliver, manage, and scale your programmes — with precision, security, and absolute clarity.
+          <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+            OYEN Grid gives your organisation a single, structured layer for managing, tracking, and scaling every programme.
           </p>
         </div>
-
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {FEATURES.map((feature, idx) => {
-            const Icon = iconMap[feature.icon as keyof typeof iconMap]
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {features.map((feature, idx) => {
+            const Icon = feature.icon;
             return (
               <div
                 key={idx}
-                className="group p-8 rounded-3xl border border-[#1F1F1F] bg-[#121212] hover:border-[#C8A95A]/50 hover:shadow-2xl hover:shadow-[#C8A95A]/5 transition-all duration-500 hover:-translate-y-1 cursor-pointer relative overflow-hidden"
+                className="flex items-start gap-6 p-0 bg-transparent rounded-2xl shadow-none"
               >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#C8A95A]/5 to-transparent pointer-events-none" />
-                <div className="w-14 h-14 rounded-xl bg-[#1F1F1F] flex items-center justify-center mb-6 group-hover:bg-[#C8A95A]/20 transition-colors duration-500">
-                  <Icon className="w-7 h-7 text-[#A1A1AA] group-hover:text-[#C8A95A] transition-colors duration-500" />
+                <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-[#18181a]">
+                  <Icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-[#A1A1AA] text-base leading-relaxed">
-                  {feature.description}
-                </p>
+                <div>
+                  <h3 className="text-2xl font-semibold text-white mb-2 tracking-tight">
+                    {feature.title}
+                  </h3>
+                  <p className="text-base text-white/60 leading-relaxed">
+                    {feature.desc}
+                  </p>
+                </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }
