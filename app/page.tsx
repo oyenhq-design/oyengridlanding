@@ -10,6 +10,7 @@ import { ProductShowcaseSection } from "@/components/shared/product-showcase-sec
 import { HowItWorksSection } from "@/components/shared/how-it-works-section";
 import { TrustSection } from "@/components/shared/trust-section";
 
+export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#0b0f14]">
       <Header />
