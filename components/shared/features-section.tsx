@@ -3,6 +3,7 @@
 
 import { Briefcase, Calendar, MessageSquare, BarChart3, Award } from "lucide-react"
 
+export function FeaturesSection() {
   // Minimal, premium features (4 only)
   const features = [
     {
