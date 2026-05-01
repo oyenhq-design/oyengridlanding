@@ -136,21 +136,23 @@ export const FEATURES = [
 export const HOW_IT_WORKS = [
   {
     step: "1",
-    title: "Create Your Programme",
-    description:
-      "Set up your programme structure with modules, sessions, and timelines.",
+    title: "Structure Programs",
+    description: "Design multi-layered curricula and establish prerequisites with ease.",
   },
   {
     step: "2",
-    title: "Invite & Run Sessions",
-    description:
-      "Add participants and deliver sessions with live tracking and engagement tools.",
+    title: "Assign Workflows",
+    description: "Deploy automated workflows and assign teams to specific cohorts.",
   },
   {
     step: "3",
-    title: "Access & Analyse",
-    description:
-      "Access recordings, track completion, and generate insights from your programme data.",
+    title: "Track Real-Time",
+    description: "Monitor participant progress and engagement as it happens.",
+  },
+  {
+    step: "4",
+    title: "Analyze & Optimize",
+    description: "Use deep insights to refine and scale your program's impact.",
   },
 ] as const
 
