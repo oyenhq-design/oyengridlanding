@@ -3,7 +3,6 @@ import { HeroSection } from "@/components/shared/hero-section";
 import { TrustSection } from "@/components/shared/trust-section";
 import { WhyItWorksSection } from "@/components/shared/why-it-works-section";
 import { ProductOverviewSection } from "@/components/shared/product-overview-section";
-import { TabbedShowcaseSection } from "@/components/shared/tabbed-showcase-section";
 import { PerformanceAnalyticsSection } from "@/components/shared/performance-analytics-section";
 import { FeaturesSection } from "@/components/shared/features-section";
 import { RealWorldUsageSection } from "@/components/shared/real-world-usage-section";
@@ -11,6 +10,7 @@ import { InsightsSection } from "@/components/shared/insights-section";
 import { CustomerStoriesSection } from "@/components/shared/customer-stories-section";
 import { CTASection } from "@/components/shared/cta-section";
 import { TargetUsersSection } from "@/components/shared/target-users-section";
+import { InteractiveFeaturesSection } from "@/components/shared/interactive-features-section";
 import { Footer } from "@/components/shared/footer";
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
         <WhyItWorksSection />
         <ProductOverviewSection />
         <TargetUsersSection />
-        <TabbedShowcaseSection />
+        <InteractiveFeaturesSection />
         <PerformanceAnalyticsSection />
         <FeaturesSection />
         <RealWorldUsageSection />
