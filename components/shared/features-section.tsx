@@ -33,7 +33,7 @@ const FEATURES = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-32 bg-[#0B0B0C] relative overflow-hidden border-t border-[#27272A]/30">
+    <section className="py-32 bg-gradient-to-b from-[#111114] to-[#1A1A1D] relative overflow-hidden border-y border-[#27272A]/40">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
@@ -61,12 +61,12 @@ export function FeaturesSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 key={idx} 
-                className="group relative flex flex-col items-start p-8 bg-[#121214] border border-[#27272A] rounded-2xl transition-all duration-300 ease-out hover:scale-[1.02] hover:border-[#D4AF37]/40 hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] overflow-hidden"
+                className="group relative flex flex-col items-start p-8 bg-[#1E1E22] border border-[#333333] rounded-2xl transition-all duration-300 ease-out hover:scale-[1.02] hover:border-[#D4AF37]/40 hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] overflow-hidden"
               >
                 {/* Subtle top glow on hover */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_15px_rgba(212,175,55,0.8)]" />
 
-                <div className="w-12 h-12 bg-[#1A1A1D] border border-[#333333] group-hover:border-[#D4AF37]/50 rounded-xl flex items-center justify-center mb-8 transition-colors duration-500">
+                <div className="w-12 h-12 bg-[#121214] border border-[#333333] group-hover:border-[#D4AF37]/50 rounded-xl flex items-center justify-center mb-8 transition-colors duration-500">
                   <Icon className="w-5 h-5 text-[#D4AF37]" strokeWidth={2} />
                 </div>
                 
