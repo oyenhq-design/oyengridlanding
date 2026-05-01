@@ -31,24 +31,13 @@ export function PricingEntrySection() {
             className="font-bold text-white tracking-tight mb-6"
             style={{ fontSize: "clamp(32px, 5vw, 48px)", lineHeight: 1.1 }}
           >
-            Simple pricing for <span className="text-[#C8A95A]">structured operations</span>
+            Simple pricing for <span className="text-[#C8A95A]">structured programme operations</span>
           </h2>
           <p className="text-[18px] md:text-[20px] text-[#A1A1AA] mb-12 max-w-2xl mx-auto leading-relaxed">
-            Predictable costs, unlimited potential. Choose the plan that matches your programme's scale.
+            Start with one programme. Scale to full operational control.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-            <Link href="/pricing" className="w-full sm:w-auto">
-              <motion.button 
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white text-[16px] border border-[#333] hover:border-[#C8A95A]/50 bg-transparent transition-all duration-300 hover:bg-white/5 flex items-center justify-center gap-2"
-              >
-                View pricing
-                <ArrowRight className="w-4 h-4 text-[#C8A95A]" strokeWidth={2.5} />
-              </motion.button>
-            </Link>
-            
             <Link href="/get-started" className="w-full sm:w-auto">
               <motion.button 
                 whileHover={{ scale: 1.03 }}
@@ -57,6 +46,17 @@ export function PricingEntrySection() {
                 style={{ background: "linear-gradient(135deg, #D4AF37 0%, #C9A86A 100%)" }}
               >
                 Start building
+              </motion.button>
+            </Link>
+
+            <Link href="/contact" className="w-full sm:w-auto">
+              <motion.button 
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white text-[16px] border border-[#333] hover:border-[#C8A95A]/50 bg-transparent transition-all duration-300 hover:bg-white/5 flex items-center justify-center gap-2"
+              >
+                Talk to sales
+                <ArrowRight className="w-4 h-4 text-[#C8A95A]" strokeWidth={2.5} />
               </motion.button>
             </Link>
           </div>
