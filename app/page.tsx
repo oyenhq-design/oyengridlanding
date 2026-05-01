@@ -4,6 +4,7 @@ import { TrustSection } from "@/components/shared/trust-section";
 import { ProductOverviewSection } from "@/components/shared/product-overview-section";
 import { PerformanceAnalyticsSection } from "@/components/shared/performance-analytics-section";
 import { FeaturesSection } from "@/components/shared/features-section";
+import { RealWorldUsageSection } from "@/components/shared/real-world-usage-section";
 import { CustomerStoriesSection } from "@/components/shared/customer-stories-section";
 import { CTASection } from "@/components/shared/cta-section";
 import { Footer } from "@/components/shared/footer";
@@ -18,6 +19,7 @@ export default function Home() {
         <ProductOverviewSection />
         <PerformanceAnalyticsSection />
         <FeaturesSection />
+        <RealWorldUsageSection />
         <CustomerStoriesSection />
         <CTASection />
       </main>
