@@ -7,6 +7,7 @@ import { TabbedShowcaseSection } from "@/components/shared/tabbed-showcase-secti
 import { PerformanceAnalyticsSection } from "@/components/shared/performance-analytics-section";
 import { FeaturesSection } from "@/components/shared/features-section";
 import { RealWorldUsageSection } from "@/components/shared/real-world-usage-section";
+import { InsightsSection } from "@/components/shared/insights-section";
 import { CustomerStoriesSection } from "@/components/shared/customer-stories-section";
 import { CTASection } from "@/components/shared/cta-section";
 import { Footer } from "@/components/shared/footer";
@@ -24,6 +25,7 @@ export default function Home() {
         <PerformanceAnalyticsSection />
         <FeaturesSection />
         <RealWorldUsageSection />
+        <InsightsSection />
         <CustomerStoriesSection />
         <CTASection />
       </main>
