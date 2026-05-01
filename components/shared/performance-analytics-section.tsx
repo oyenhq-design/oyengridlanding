@@ -55,13 +55,12 @@ export function PerformanceAnalyticsSection() {
               ))}
             </ul>
  
-            <div>
+            <div className="mt-8">
               <Link 
                 href="/analytics"
-                className="inline-flex items-center gap-2 text-[#D4AF37] hover:text-[#E5C354] font-medium transition-colors group"
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-[#27272A] hover:border-[#D4AF37]/50 text-white/80 hover:text-white text-sm font-medium transition-all duration-300 hover:bg-[#121214] group"
               >
-                <span>Explore analytics capabilities</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                Explore analytics <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </motion.div>

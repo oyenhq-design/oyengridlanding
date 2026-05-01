@@ -89,6 +89,21 @@ export function FeaturesSection() {
           })}
         </div>
 
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+          className="mt-16 flex justify-center"
+        >
+          <Link 
+            href="/features" 
+            className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-[#27272A] hover:border-[#D4AF37]/50 text-white/80 hover:text-white text-sm font-medium transition-all duration-300 hover:bg-[#121214] group"
+          >
+            View all features <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </motion.div>
+
       </div>
     </section>
   );
