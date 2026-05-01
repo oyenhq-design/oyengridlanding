@@ -1,6 +1,7 @@
 import { Header } from "@/components/shared/header";
 import { HeroSection } from "@/components/shared/hero-section";
 import { TrustSection } from "@/components/shared/trust-section";
+import { WhyItWorksSection } from "@/components/shared/why-it-works-section";
 import { ProductOverviewSection } from "@/components/shared/product-overview-section";
 import { TabbedShowcaseSection } from "@/components/shared/tabbed-showcase-section";
 import { PerformanceAnalyticsSection } from "@/components/shared/performance-analytics-section";
@@ -17,6 +18,7 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
         <TrustSection />
+        <WhyItWorksSection />
         <ProductOverviewSection />
         <TabbedShowcaseSection />
         <PerformanceAnalyticsSection />
