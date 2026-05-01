@@ -2,37 +2,33 @@ import Link from "next/link";
 
 export function CTASection() {
   return (
-    <section className="py-32 bg-[#0B0B0C]">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-        <div className="bg-[#121214] border border-[rgba(255,255,255,0.06)] rounded-[24px] px-6 py-20 text-center relative overflow-hidden">
-          
-          {/* Subtle Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#C8A96A]/5 blur-[120px] pointer-events-none rounded-full" />
+    <section className="py-32 bg-[#0B0B0C] relative overflow-hidden flex items-center justify-center">
+      {/* Strong Gold Gradient Streak Background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0C] via-[#D4AF37]/20 to-[#0B0B0C] opacity-80" />
+      <div className="absolute top-1/2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent shadow-[0_0_30px_rgba(212,175,55,1)] opacity-50" />
+      
+      {/* Additional subtle diagonal light streaks */}
+      <div className="absolute -top-40 right-1/4 w-[800px] h-[100px] bg-[#D4AF37] opacity-[0.08] blur-[80px] rotate-12 pointer-events-none" />
+      <div className="absolute -bottom-40 left-1/4 w-[800px] h-[100px] bg-[#D4AF37] opacity-[0.08] blur-[80px] -rotate-12 pointer-events-none" />
 
-          <div className="relative z-10">
-            <h2 className="text-[40px] sm:text-[56px] font-bold text-white tracking-tight mb-6">
-              Ready to structure your operations?
-            </h2>
-            <p className="text-[18px] text-[#9CA3AF] mb-10 max-w-xl mx-auto leading-relaxed">
-              Move from chaos to clarity with a unified system.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link 
-                href="/get-started"
-                className="w-full sm:w-auto bg-[#C8A96A] hover:bg-[#B39355] text-[#0B0B0C] font-semibold px-8 py-4 rounded-lg text-[16px] transition-all duration-300 hover:-translate-y-1 shadow-[0_0_20px_rgba(200,169,106,0.15)] flex items-center justify-center"
-              >
-                Start Building
-              </Link>
-              <Link 
-                href="/sales"
-                className="w-full sm:w-auto bg-transparent border border-[rgba(255,255,255,0.15)] hover:border-[rgba(255,255,255,0.3)] hover:bg-[rgba(255,255,255,0.03)] text-white font-semibold px-8 py-4 rounded-lg text-[16px] transition-all duration-300 hover:-translate-y-1 flex items-center justify-center"
-              >
-                Talk to Sales
-              </Link>
-            </div>
-          </div>
-
+      <div className="max-w-[1000px] mx-auto px-6 lg:px-8 relative z-10 text-center">
+        <h2 className="text-[40px] sm:text-[56px] lg:text-[72px] font-bold text-white tracking-tight mb-12 leading-[1.05]">
+          Ready to structure <br className="hidden sm:block" /> your operations?
+        </h2>
+        
+        <div className="flex flex-wrap justify-center items-center gap-5">
+          <Link 
+            href="/get-started"
+            className="inline-flex items-center justify-center bg-[#D4AF37] text-[#0B0B0C] font-semibold px-10 py-4 rounded-lg text-[17px] transition-all duration-300 hover:bg-[#E5C354] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+          >
+            Start building
+          </Link>
+          <Link 
+            href="/contact"
+            className="inline-flex items-center justify-center bg-[#121214] border border-[#27272A] hover:border-[#D4AF37]/60 text-white font-medium px-10 py-4 rounded-lg text-[17px] transition-all duration-300 hover:bg-[#1A1A1D] hover:shadow-[0_0_20px_rgba(212,175,55,0.15)]"
+          >
+            Talk to sales
+          </Link>
         </div>
       </div>
     </section>
