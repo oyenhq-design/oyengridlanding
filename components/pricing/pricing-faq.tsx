@@ -31,7 +31,7 @@ export function PricingFAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   return (
-    <section className="py-24 bg-[#0B0B0C]">
+    <section id="faq" className="py-24 bg-[#0B0B0C]">
       <div className="max-w-[800px] mx-auto px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-white mb-16 text-center">Frequently Asked Questions</h2>
         <div className="space-y-4">
