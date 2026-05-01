@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function TrustSection() {
   return (
-    <section className="py-20 bg-[#0B0B0C] border-y border-[#27272A]/30 relative overflow-hidden">
+    <section className="py-24 bg-[#0F0F11] border-y border-[#27272A]/40 relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[200px] bg-[#D4AF37] opacity-[0.015] blur-[100px] rounded-full pointer-events-none" />
  

@@ -38,7 +38,7 @@ const COLUMNS = [
 
 export function WhyItWorksSection() {
   return (
-    <section className="py-24 md:py-32 bg-[#0B0B0C] relative overflow-hidden">
+    <section className="py-32 bg-[#0B0B0C] relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10">
         
         <motion.div 

@@ -23,7 +23,7 @@ const USAGE_CASES = [
 
 export function RealWorldUsageSection() {
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-b from-[#0B0B0C] via-[#101012] to-[#0B0B0C] border-y border-[#27272A]/40 relative overflow-hidden">
+    <section className="py-32 bg-gradient-to-b from-[#0B0B0C] via-[#101012] to-[#0B0B0C] border-y border-[#27272A]/40 relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D4AF37] opacity-[0.015] blur-[120px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/4" />
       

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function PerformanceAnalyticsSection() {
   return (
-    <section className="py-24 md:py-32 bg-[#0B0B0C] relative overflow-hidden">
+    <section className="py-32 bg-gradient-to-b from-[#0B0B0C] to-[#111114] relative overflow-hidden border-t border-[#27272A]/30">
       {/* Background Lighting */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37] opacity-[0.02] blur-[150px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3" />
 

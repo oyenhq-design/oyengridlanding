@@ -145,11 +145,11 @@ const TABS = [
 
 export function TabbedShowcaseSection() {
   const [activeTab, setActiveTab] = useState(TABS[0].id);
-
+ 
   const activeContent = TABS.find(t => t.id === activeTab);
-
+ 
   return (
-    <section className="py-24 md:py-32 bg-[#0B0B0C] relative overflow-hidden">
+    <section className="py-32 bg-[#0B0B0C] relative overflow-hidden border-t border-[#27272A]/30">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10">
         
         <motion.div 
