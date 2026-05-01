@@ -10,6 +10,7 @@ import { RealWorldUsageSection } from "@/components/shared/real-world-usage-sect
 import { InsightsSection } from "@/components/shared/insights-section";
 import { CustomerStoriesSection } from "@/components/shared/customer-stories-section";
 import { CTASection } from "@/components/shared/cta-section";
+import { TargetUsersSection } from "@/components/shared/target-users-section";
 import { Footer } from "@/components/shared/footer";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <TrustSection />
         <WhyItWorksSection />
         <ProductOverviewSection />
+        <TargetUsersSection />
         <TabbedShowcaseSection />
         <PerformanceAnalyticsSection />
         <FeaturesSection />

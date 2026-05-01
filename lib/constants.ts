@@ -158,20 +158,26 @@ export const HOW_IT_WORKS = [
 export const TARGET_USERS = [
   {
     title: "Training Organisations",
-    description:
-      "Simplify programme delivery and participant management for professional training.",
+    description: "Simplify programme delivery and participant management for professional training.",
     icon: "Building2",
+    href: "/solutions/training",
   },
   {
     title: "Bootcamps",
-    description:
-      "Intensive, structured programmes with real-time tracking and engagement.",
+    description: "Intensive, structured programmes with real-time tracking and engagement.",
     icon: "Zap",
+    href: "/solutions/bootcamps",
   },
   {
     title: "Corporate Programmes",
-    description:
-      "Enterprise-grade solutions for internal training and professional development.",
+    description: "Enterprise-grade solutions for internal training and professional development.",
     icon: "Briefcase",
+    href: "/solutions/corporate",
+  },
+  {
+    title: "NGOs / Programs",
+    description: "Robust tracking and impact reporting for distributed large-scale social programs.",
+    icon: "Globe",
+    href: "/solutions/programs",
   },
 ]
