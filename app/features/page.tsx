@@ -10,6 +10,7 @@ import {
   Bot, FileText, Sparkles, Pencil,
   Lock, BookOpen, ArrowRight
 } from "lucide-react"
+import { InteractiveFeaturesSection } from "@/components/shared/interactive-features-section"
 import Link from "next/link"
 
 const categories = [
@@ -110,6 +111,8 @@ export default function FeaturesPage() {
           </motion.div>
         </div>
       </section>
+
+      <InteractiveFeaturesSection />
 
       {/* ════════════════════════════════════════════
           2. FEATURE SECTIONS

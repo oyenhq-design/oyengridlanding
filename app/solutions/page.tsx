@@ -2,6 +2,7 @@ import { Header } from "@/components/shared/header";
 import { Footer } from "@/components/shared/footer";
 import { CTASection } from "@/components/shared/cta-section";
 import { Building2, Zap, Briefcase, ArrowRight } from "lucide-react";
+import { InteractiveFeaturesSection } from "@/components/shared/interactive-features-section";
 import Link from "next/link";
 
 export default function SolutionsPage() {
@@ -123,6 +124,8 @@ export default function SolutionsPage() {
             </div>
           </div>
         </section>
+        
+        <InteractiveFeaturesSection />
 
         <CTASection />
       </main>
