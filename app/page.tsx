@@ -8,6 +8,7 @@ import { FeaturesSection } from "@/components/shared/features-section";
 import { RealWorldUsageSection } from "@/components/shared/real-world-usage-section";
 import { InsightsSection } from "@/components/shared/insights-section";
 import { CustomerStoriesSection } from "@/components/shared/customer-stories-section";
+import { PricingEntrySection } from "@/components/shared/pricing-entry-section";
 import { CTASection } from "@/components/shared/cta-section";
 import { TargetUsersSection } from "@/components/shared/target-users-section";
 import { InteractiveFeaturesSection } from "@/components/shared/interactive-features-section";
@@ -29,6 +30,7 @@ export default function Home() {
         <RealWorldUsageSection />
         <InsightsSection />
         <CustomerStoriesSection />
+        <PricingEntrySection />
         <CTASection />
       </main>
       <Footer />
