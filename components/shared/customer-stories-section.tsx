@@ -1,26 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { ArrowRight, Quote } from "lucide-react";
 
-const FEATURED_TESTIMONIAL = {
-  quote: "OYEN GRID completely transformed how we deliver our bootcamps. The operational clarity we gained allowed us to double our cohort sizes without adding administrative headcount. It's the infrastructure we always needed.",
-  author: "Sarah Jenkins",
-  role: "Director of Programmes, TechElevate",
-  avatar: "SJ"
-};
-
-const SMALL_TESTIMONIALS = [
+const CASE_STUDIES = [
   {
-    quote: "We used to patch together five different tools. Now, everything from delivery to analytics happens in one structured system.",
-    author: "David Chen",
-    role: "COO, Global Training Inc",
-    avatar: "DC"
+    company: "TechElevate",
+    result: "2x Cohort Growth",
+    quote: "OYEN GRID allowed us to double our cohort sizes without adding any administrative headcount. The operational clarity is unmatched.",
+    author: "Sarah Jenkins",
+    role: "Director of Programmes",
+    image: "/img/case-study-1.png",
+    accent: "from-[#D4AF37]/20 to-transparent"
   },
   {
-    quote: "The real-time visibility into participant progress means we catch drop-off risks weeks before they happen.",
+    company: "Global Training Inc",
+    result: "40% Efficiency Gain",
+    quote: "We replaced five fragmented tools with one unified system. Our delivery speed increased by 40% in the first quarter alone.",
+    author: "David Chen",
+    role: "COO",
+    image: "/img/case-study-2.png",
+    accent: "from-[#22c55e]/10 to-transparent"
+  },
+  {
+    company: "EduScale Systems",
+    result: "98% Completion Rate",
+    quote: "The real-time visibility into participant progress helped us achieve a near-perfect completion rate for our leadership programmes.",
     author: "Elena Rodriguez",
     role: "Head of Student Success",
-    avatar: "ER"
+    image: "/img/case-study-3.png",
+    accent: "from-[#3b82f6]/10 to-transparent"
+  },
+  {
+    company: "Nexus Academy",
+    result: "Zero Manual Errors",
+    quote: "Automating our certification and milestone tracking eliminated human error completely. It's the infrastructure we've been waiting for.",
+    author: "Marcus Thorne",
+    role: "Founder & CEO",
+    image: "/img/case-study-1.png", // Reusing for variety in demo if needed
+    accent: "from-[#D4AF37]/15 to-transparent"
   }
 ];
 
@@ -28,84 +47,80 @@ export function CustomerStoriesSection() {
   return (
     <section className="py-24 md:py-32 bg-[#0B0B0C] relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#D4AF37] opacity-[0.02] blur-[100px] rounded-full pointer-events-none translate-y-1/2" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-[#D4AF37] opacity-[0.02] blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10">
         
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 mb-6 justify-center">
-            <div className="w-8 h-[1px] bg-[#D4AF37]"></div>
-            <span className="text-[#D4AF37] uppercase tracking-widest text-[12px] font-semibold">Testimonials</span>
-            <div className="w-8 h-[1px] bg-[#D4AF37]"></div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          <div>
+            <div className="inline-flex items-center gap-2 mb-6">
+              <div className="w-8 h-[1px] bg-[#D4AF37]"></div>
+              <span className="text-[#D4AF37] uppercase tracking-widest text-[12px] font-semibold">Case Studies</span>
+            </div>
+            <h2 className="text-[36px] md:text-[52px] font-bold text-white tracking-tight leading-[1.1]">
+              Measurable impact <br className="hidden md:block" /> for high-performing teams.
+            </h2>
           </div>
-          <h2 className="text-[36px] sm:text-[48px] font-bold text-white tracking-tight mb-6">
-            Trusted by top operators.
-          </h2>
+          <div className="flex items-center gap-4 text-[#A1A1AA] text-sm font-medium">
+             <span>Scroll to explore</span>
+             <ArrowRight className="w-4 h-4 animate-bounce-x" />
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          
-          {/* Large Featured Quote (Spans 2 columns on lg) */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="lg:col-span-2 relative bg-[#121214] border border-[#D4AF37]/20 rounded-2xl p-10 md:p-14 flex flex-col justify-between shadow-[0_0_30px_rgba(212,175,55,0.05)] hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(212,175,55,0.2)] transition-all duration-300 ease-out overflow-hidden group"
-          >
-            {/* Subtle radial glow inside card */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            <div className="relative z-10">
-              <div className="text-[#D4AF37] text-[64px] leading-none mb-6 font-serif opacity-80">"</div>
-              <p className="text-[20px] md:text-[28px] text-white leading-relaxed mb-12 font-light tracking-tight">
-                {FEATURED_TESTIMONIAL.quote}
-              </p>
-            </div>
-            
-            <div className="flex items-center gap-5 mt-auto relative z-10">
-              <div className="w-14 h-14 rounded-full bg-[#0B0B0C] border border-[#D4AF37]/40 flex items-center justify-center text-[#D4AF37] font-semibold text-[16px] shadow-[0_0_15px_rgba(212,175,55,0.15)]">
-                {FEATURED_TESTIMONIAL.avatar}
-              </div>
-              <div>
-                <div className="text-[17px] font-semibold text-white">{FEATURED_TESTIMONIAL.author}</div>
-                <div className="text-[14px] text-[#A1A1AA]">{FEATURED_TESTIMONIAL.role}</div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Smaller Cards */}
-          <div className="flex flex-col gap-6">
-            {SMALL_TESTIMONIALS.map((testimonial, idx) => (
-              <motion.div 
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: 0.2 + (idx * 0.1), ease: "easeOut" }}
-                key={idx}
-                className="flex-1 relative bg-[#121214] border border-[#27272A] rounded-2xl p-8 flex flex-col justify-between shadow-lg hover:scale-[1.02] hover:border-[#D4AF37]/30 hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] transition-all duration-300 ease-out overflow-hidden group"
-              >
-                <div className="absolute right-0 top-0 w-32 h-32 bg-[#D4AF37] opacity-0 group-hover:opacity-[0.03] blur-[40px] transition-opacity duration-500 rounded-full" />
-
-                <div className="relative z-10">
-                  <p className="text-[15px] text-[#A1A1AA] leading-relaxed mb-8 font-light">
-                    "{testimonial.quote}"
-                  </p>
+        {/* Horizontal Scrolling Row */}
+        <div className="flex gap-6 overflow-x-auto pb-12 scrollbar-hide snap-x snap-mandatory cursor-grab active:cursor-grabbing">
+          {CASE_STUDIES.map((study, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
+              className="flex-shrink-0 w-[350px] md:w-[450px] snap-center group relative bg-[#121214] border border-[#27272A] rounded-2xl p-8 md:p-10 transition-all duration-300 ease-out hover:scale-[1.02] hover:border-[#D4AF37]/40 hover:shadow-[0_0_40px_rgba(212,175,55,0.15)] overflow-hidden"
+            >
+              {/* Subtle Gradient Accent */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${study.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              
+              <div className="relative z-10 h-full flex flex-col">
+                {/* Company & Quote Icon */}
+                <div className="flex justify-between items-start mb-10">
+                  <div className="text-white font-bold text-lg tracking-wider uppercase opacity-80 group-hover:opacity-100 transition-opacity">
+                    {study.company}
+                  </div>
+                  <Quote className="w-8 h-8 text-[#D4AF37] opacity-20 group-hover:opacity-40 transition-opacity" />
                 </div>
-                
-                <div className="flex items-center gap-4 mt-auto relative z-10">
-                  <div className="w-10 h-10 rounded-full bg-[#1A1A1D] border border-[#333333] group-hover:border-[#D4AF37]/30 flex items-center justify-center text-white/80 font-medium text-[13px] transition-colors duration-500">
-                    {testimonial.avatar}
+
+                {/* Measurable Result */}
+                <div className="mb-6">
+                  <div className="text-[32px] md:text-[40px] font-bold text-[#D4AF37] leading-none mb-2 group-hover:scale-105 transition-transform origin-left duration-500">
+                    {study.result}
+                  </div>
+                  <div className="h-[1px] w-12 bg-[#D4AF37]/30 group-hover:w-full transition-all duration-700" />
+                </div>
+
+                {/* Short Quote */}
+                <p className="text-[16px] md:text-[18px] text-[#A1A1AA] leading-relaxed mb-12 font-light group-hover:text-white/90 transition-colors">
+                  "{study.quote}"
+                </p>
+
+                {/* Person Info */}
+                <div className="mt-auto flex items-center gap-4">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#D4AF37]/30 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+                    <Image 
+                      src={study.image} 
+                      alt={study.author}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <div>
-                    <div className="text-[14px] font-medium text-white/90">{testimonial.author}</div>
-                    <div className="text-[12px] text-[#A1A1AA]/80">{testimonial.role}</div>
+                    <div className="text-[15px] font-semibold text-white">{study.author}</div>
+                    <div className="text-[13px] text-[#A1A1AA]">{study.role}</div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-
+              </div>
+            </motion.div>
+          ))}
         </div>
 
       </div>
