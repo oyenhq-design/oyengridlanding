@@ -43,7 +43,7 @@ export interface UseCaseData {
 
 export function UseCaseLayout({ data }: { data: UseCaseData }) {
   return (
-    <div className="bg-[#0A0A0A] min-h-screen text-white pt-[120px] pb-[80px] overflow-hidden selection:bg-[#C9A86A]/30">
+    <div className="bg-background min-h-screen text-white pt-[120px] pb-[80px] overflow-hidden selection:bg-primary/30">
       
       {/* ── GLOBAL AMBIENT GLOW ── */}
       <div 
@@ -113,7 +113,7 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative lg:h-[500px] w-full rounded-2xl border border-white/10 bg-[#111111]/80 backdrop-blur-md overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] group"
+            className="relative lg:h-[500px] w-full rounded-2xl border border-white/10 bg-panel/80 backdrop-blur-md overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] group"
           >
             {/* Subtle glow behind image */}
             <div className="absolute inset-0 bg-gradient-to-tr from-[#C9A86A]/5 via-transparent to-transparent opacity-50" />
@@ -165,7 +165,7 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="bg-[#111111] p-7 rounded-xl border border-white/5 shadow-xl hover:border-white/10 transition-colors group"
+                className="bg-panel p-7 rounded-xl border border-white/5 shadow-xl hover:border-white/10 transition-colors group"
               >
                 <div className="w-2 h-2 rounded-full bg-red-500 mb-6 group-hover:scale-125 transition-transform" />
                 <p className="text-[#A1A1AA] font-medium leading-relaxed group-hover:text-white transition-colors">
@@ -195,7 +195,7 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
               {data.solution.description}
             </p>
             <Link href="/get-started">
-              <button className="flex items-center gap-2 text-[#C9A86A] font-bold hover:gap-3 transition-all">
+              <button className="flex items-center gap-2 text-secondary font-bold hover:gap-3 transition-all">
                 See features in action <ArrowRight className="w-4 h-4" />
               </button>
             </Link>
@@ -214,11 +214,11 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.5 }}
-                  className={`group bg-[#111111] p-8 rounded-2xl border border-white/5 hover:border-[#C9A86A]/40 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(201,168,106,0.1)] hover:-translate-y-1 ${isLarge ? 'md:col-span-2 md:p-10' : ''}`}
+                  className={`group bg-panel p-8 rounded-2xl border border-white/5 hover:border-secondary/40 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(59,130,246,0.1)] hover:-translate-y-1 ${isLarge ? 'md:col-span-2 md:p-10' : ''}`}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-[#C9A86A]/10 transition-colors duration-300 relative">
-                    <Icon className="w-6 h-6 text-[#C9A86A]" />
-                    <div className="absolute inset-0 rounded-xl bg-[#C9A86A]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-secondary/10 transition-colors duration-300 relative">
+                    <Icon className="w-6 h-6 text-secondary" />
+                    <div className="absolute inset-0 rounded-xl bg-secondary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                   <h3 className="text-[20px] font-bold text-white mb-2">
                     {feature.title}
@@ -239,7 +239,7 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
       {/* ════════════════════════════════════════════
           5. HOW IT WORKS (STEPPER)
       ════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#0A0A0A] relative overflow-hidden">
+      <section className="py-24 md:py-32 bg-panel/30 relative overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
           <div className="text-left mb-16">
             <h2 className="text-[32px] md:text-[40px] font-bold text-white mb-4">How it works</h2>
@@ -259,7 +259,7 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
                 transition={{ delay: idx * 0.2, duration: 0.6 }}
                 className="flex-1 relative z-10"
               >
-                <div className="w-11 h-11 rounded-full bg-[#0A0A0A] border-2 border-[#C9A86A] flex items-center justify-center text-[18px] font-bold text-white mb-6 shadow-[0_0_15px_rgba(201,168,106,0.3)] relative">
+                <div className="w-11 h-11 rounded-full bg-background border-2 border-primary flex items-center justify-center text-[18px] font-bold text-white mb-6 shadow-[0_0_15px_rgba(201,168,106,0.3)] relative">
                   {idx + 1}
                   <div className="absolute inset-0 rounded-full bg-[#C9A86A]/20 animate-ping" style={{ animationDuration: '3s' }} />
                 </div>
@@ -297,7 +297,7 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
               transition={{ delay: idx * 0.1 }}
               className="group flex flex-col md:flex-row items-stretch gap-6 md:gap-12"
             >
-              <div className="flex-1 bg-[#111111] border border-white/5 p-6 md:p-8 rounded-2xl flex items-center gap-6 opacity-60 grayscale group-hover:opacity-80 transition-all">
+              <div className="flex-1 bg-panel border border-white/5 p-6 md:p-8 rounded-2xl flex items-center gap-6 opacity-60 grayscale group-hover:opacity-80 transition-all">
                 <div className="w-6 h-6 rounded-full bg-red-950/30 flex items-center justify-center shrink-0">
                   <X className="w-3 h-3 text-red-500" strokeWidth={3} />
                 </div>
@@ -305,15 +305,15 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
               </div>
               
               <div className="hidden md:flex items-center justify-center shrink-0">
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#C9A86A]/20 transition-all duration-500">
-                  <ArrowRight className="w-5 h-5 text-[#C9A86A]" />
+                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:scale-110 group-hover:bg-secondary/20 transition-all duration-500">
+                  <ArrowRight className="w-5 h-5 text-secondary" />
                 </div>
               </div>
 
-              <div className="flex-1 bg-gradient-to-r from-[#1A1813] to-[#111111] border border-[#C9A86A]/20 p-6 md:p-8 rounded-2xl flex items-center gap-6 shadow-2xl relative overflow-hidden group-hover:border-[#C9A86A]/40 transition-all">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#C9A86A]/5 to-transparent pointer-events-none" />
-                <div className="w-6 h-6 rounded-full bg-[#C9A86A]/20 flex items-center justify-center shrink-0 relative z-10">
-                  <Check className="w-3 h-3 text-[#C9A86A]" strokeWidth={3} />
+              <div className="flex-1 bg-panel-alt border border-secondary/20 p-6 md:p-8 rounded-2xl flex items-center gap-6 shadow-2xl relative overflow-hidden group-hover:border-secondary/40 transition-all">
+                <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent pointer-events-none" />
+                <div className="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center shrink-0 relative z-10">
+                  <Check className="w-3 h-3 text-secondary" strokeWidth={3} />
                 </div>
                 <span className="text-[17px] text-white font-semibold relative z-10">{item.after}</span>
               </div>
@@ -347,7 +347,7 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
           8. FINAL CTA
       ════════════════════════════════════════════ */}
       <section className="py-24 px-6 lg:px-8">
-        <div className="max-w-[1200px] mx-auto bg-gradient-to-b from-[#111111] to-[#0A0A0A] border border-white/10 rounded-[32px] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
+        <div className="max-w-[1200px] mx-auto bg-gradient-to-b from-panel to-background border border-white/10 rounded-[32px] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#C9A86A]/5 blur-[120px] rounded-full pointer-events-none" />
           
           <h2 className="text-[40px] md:text-[56px] font-bold text-white mb-4 relative z-10 tracking-tight leading-[1.1]">
@@ -365,7 +365,7 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
                 </button>
               </Link>
               <Link href="/contact" className="w-full sm:w-auto">
-                <button className="w-full sm:w-auto px-10 py-4 bg-transparent border border-white/10 text-white font-bold rounded-xl hover:bg-white/5 transition-all duration-300">
+                <button className="w-full sm:w-auto px-10 py-4 bg-transparent border border-secondary/30 text-secondary font-bold rounded-xl hover:bg-secondary/5 transition-all duration-300">
                   Talk to Sales
                 </button>
               </Link>

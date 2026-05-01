@@ -22,8 +22,8 @@ const COLUMNS = [
       { label: "Unified System", desc: "One high-fidelity source of truth for everything." },
       { label: "Automated Flow", desc: "Intelligent triggers that manage the heavy lifting." }
     ],
-    accent: "border-[#D4AF37]/40",
-    iconColor: "text-[#D4AF37]"
+    accent: "border-secondary/40",
+    iconColor: "text-secondary"
   },
   {
     title: "The Outcome",
@@ -39,7 +39,7 @@ const COLUMNS = [
 
 export function WhyItWorksSection() {
   return (
-    <section className="py-32 bg-[#0B0B0C] relative overflow-hidden">
+    <section className="py-32 bg-background relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10">
         
         <motion.div 
@@ -50,9 +50,9 @@ export function WhyItWorksSection() {
           className="text-center mb-20"
         >
           <div className="inline-flex items-center gap-2 mb-6 justify-center">
-            <div className="w-8 h-[1px] bg-[#D4AF37]"></div>
-            <span className="text-[#D4AF37] uppercase tracking-widest text-[12px] font-semibold">Our Methodology</span>
-            <div className="w-8 h-[1px] bg-[#D4AF37]"></div>
+            <div className="w-8 h-[1px] bg-primary"></div>
+            <span className="text-primary uppercase tracking-widest text-[12px] font-semibold">Our Methodology</span>
+            <div className="w-8 h-[1px] bg-primary"></div>
           </div>
           <h2 className="text-[36px] md:text-[52px] font-bold text-white tracking-tight">
             Built for operational clarity at scale.
@@ -75,7 +75,7 @@ export function WhyItWorksSection() {
                 transition={{ duration: 0.4, delay: idx * 0.1, ease: "easeOut" }}
                 className="flex flex-col p-8 md:p-12 lg:p-16 first:pl-0 last:pr-0"
               >
-                <div className={`w-12 h-12 bg-[#121214] border ${col.accent} rounded-xl flex items-center justify-center mb-8 shadow-lg`}>
+                <div className={`w-12 h-12 bg-panel border ${col.accent} rounded-xl flex items-center justify-center mb-8 shadow-lg`}>
                   <Icon className={`w-6 h-6 ${col.iconColor}`} />
                 </div>
                 
@@ -105,7 +105,7 @@ export function WhyItWorksSection() {
         >
           <Link 
             href="/solutions" 
-            className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-[#27272A] hover:border-[#D4AF37]/50 text-white/80 hover:text-white text-sm font-medium transition-all duration-300 hover:bg-[#121214] group"
+            className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-white/10 hover:border-secondary/50 text-white/80 hover:text-secondary text-sm font-medium transition-all duration-300 hover:bg-panel group"
           >
             See how it works <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>

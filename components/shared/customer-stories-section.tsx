@@ -13,7 +13,7 @@ const CASE_STUDIES = [
     author: "Sarah Jenkins",
     role: "Director of Programmes",
     image: "/img/case-study-1.png",
-    accent: "from-[#D4AF37]/20 to-transparent"
+    accent: "from-secondary/20 to-transparent"
   },
   {
     company: "Global Training Inc",
@@ -40,13 +40,13 @@ const CASE_STUDIES = [
     author: "Marcus Thorne",
     role: "Founder & CEO",
     image: "/img/case-study-1.png", // Reusing for variety in demo if needed
-    accent: "from-[#D4AF37]/15 to-transparent"
+    accent: "from-secondary/15 to-transparent"
   }
 ];
 
 export function CustomerStoriesSection() {
   return (
-    <section className="py-32 bg-gradient-to-b from-[#0B0B0C] to-[#0F0F12] relative overflow-hidden border-t border-[#27272A]/30">
+    <section className="py-32 bg-gradient-to-b from-background to-panel relative overflow-hidden border-t border-white/5">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-[#D4AF37] opacity-[0.02] blur-[120px] rounded-full pointer-events-none" />
 
@@ -55,8 +55,8 @@ export function CustomerStoriesSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
             <div className="inline-flex items-center gap-2 mb-6">
-              <div className="w-8 h-[1px] bg-[#D4AF37]"></div>
-              <span className="text-[#D4AF37] uppercase tracking-widest text-[12px] font-semibold">Case Studies</span>
+              <div className="w-8 h-[1px] bg-primary"></div>
+              <span className="text-primary uppercase tracking-widest text-[12px] font-semibold">Case Studies</span>
             </div>
             <h2 className="text-[36px] md:text-[52px] font-bold text-white tracking-tight leading-[1.1]">
               Measurable impact <br className="hidden md:block" /> for high-performing teams.
@@ -77,7 +77,7 @@ export function CustomerStoriesSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
-              className="flex-shrink-0 w-[350px] md:w-[450px] snap-center group relative bg-[#121214] border border-[#27272A] rounded-2xl p-8 md:p-10 transition-all duration-300 ease-out hover:scale-[1.02] hover:border-[#D4AF37]/40 hover:shadow-[0_0_40px_rgba(212,175,55,0.15)] overflow-hidden"
+              className="flex-shrink-0 w-[350px] md:w-[450px] snap-center group relative bg-panel border border-white/5 rounded-2xl p-8 md:p-10 transition-all duration-300 ease-out hover:scale-[1.02] hover:border-secondary/40 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] overflow-hidden"
             >
               {/* Subtle Gradient Accent */}
               <div className={`absolute inset-0 bg-gradient-to-br ${study.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -88,15 +88,15 @@ export function CustomerStoriesSection() {
                   <div className="text-white font-bold text-lg tracking-wider uppercase opacity-80 group-hover:opacity-100 transition-opacity">
                     {study.company}
                   </div>
-                  <Quote className="w-8 h-8 text-[#D4AF37] opacity-20 group-hover:opacity-40 transition-opacity" />
+                  <Quote className="w-8 h-8 text-secondary opacity-20 group-hover:opacity-40 transition-opacity" />
                 </div>
 
                 {/* Measurable Result */}
                 <div className="mb-6">
-                  <div className="text-[32px] md:text-[40px] font-bold text-[#D4AF37] leading-none mb-2 group-hover:scale-105 transition-transform origin-left duration-500">
+                  <div className="text-[32px] md:text-[40px] font-bold text-secondary leading-none mb-2 group-hover:scale-105 transition-transform origin-left duration-500">
                     {study.result}
                   </div>
-                  <div className="h-[1px] w-12 bg-[#D4AF37]/30 group-hover:w-full transition-all duration-700" />
+                  <div className="h-[1px] w-12 bg-secondary/30 group-hover:w-full transition-all duration-700" />
                 </div>
 
                 {/* Short Quote */}
@@ -106,7 +106,7 @@ export function CustomerStoriesSection() {
 
                 {/* Person Info */}
                 <div className="mt-auto flex items-center gap-4">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#D4AF37]/30 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden border border-secondary/30 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
                     <Image 
                       src={study.image} 
                       alt={study.author}
@@ -133,7 +133,7 @@ export function CustomerStoriesSection() {
         >
           <Link 
             href="/case-studies" 
-            className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-[#27272A] hover:border-[#D4AF37]/50 text-white/80 hover:text-white text-sm font-medium transition-all duration-300 hover:bg-[#121214] group"
+            className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-white/10 hover:border-secondary/50 text-white/80 hover:text-white text-sm font-medium transition-all duration-300 hover:bg-panel group"
           >
             View all case studies <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>

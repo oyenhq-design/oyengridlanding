@@ -7,7 +7,7 @@ import { CheckCircle2 } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-[#0B0B0C] overflow-hidden">
+    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-background overflow-hidden">
       {/* Background Lighting & Effects */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37] opacity-[0.03] blur-[150px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-[800px] h-[400px] bg-[#D4AF37] opacity-[0.02] blur-[120px] rounded-full pointer-events-none -translate-x-1/2 translate-y-1/2" />
@@ -22,8 +22,8 @@ export function HeroSection() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="flex flex-col text-left"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#121214] border border-[#D4AF37]/20 text-[#D4AF37] text-xs font-semibold tracking-wide uppercase w-max mb-8 shadow-[0_0_15px_rgba(212,175,55,0.05)]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-panel border border-primary/20 text-primary text-xs font-semibold tracking-wide uppercase w-max mb-8 shadow-[0_0_15px_rgba(212,175,55,0.05)]">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               Structured Operations
             </div>
             
@@ -48,7 +48,7 @@ export function HeroSection() {
                   transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                   className="flex items-center gap-3 text-base"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-[#D4AF37] shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" />
                   <span>{item}</span>
                 </motion.li>
               ))}
@@ -57,13 +57,13 @@ export function HeroSection() {
             <div className="flex flex-wrap items-center gap-4">
               <Link 
                 href="/get-started"
-                className="inline-flex items-center justify-center bg-[#D4AF37] text-[#0B0B0C] font-semibold px-8 py-3.5 rounded-lg text-base transition-all duration-300 hover:bg-[#E5C354] hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center bg-primary text-background font-semibold px-8 py-3.5 rounded-lg text-base transition-all duration-300 hover:bg-primary-hover hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] hover:-translate-y-0.5"
               >
                 Start building
               </Link>
               <Link 
                 href="/contact"
-                className="inline-flex items-center justify-center bg-[#121214] border border-[#27272A] hover:border-[#D4AF37]/50 text-[#FFFFFF] font-medium px-8 py-3.5 rounded-lg text-base transition-all duration-300 hover:bg-[#1A1A1D] hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center bg-panel border border-secondary/30 text-secondary font-medium px-8 py-3.5 rounded-lg text-base transition-all duration-300 hover:bg-panel-alt hover:border-secondary/60 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:-translate-y-0.5"
               >
                 Talk to sales
               </Link>
@@ -83,7 +83,7 @@ export function HeroSection() {
             className="relative w-full aspect-[4/3] perspective-1000"
           >
             {/* Main Mockup Container with Perspective */}
-            <div className="absolute inset-0 rounded-2xl border border-[#D4AF37]/30 bg-[#0F0F11] shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_40px_rgba(212,175,55,0.15)] overflow-hidden transform rotate-y-[-5deg] rotate-x-[2deg] transition-transform duration-700 hover:rotate-y-0 hover:rotate-x-0">
+            <div className="absolute inset-0 rounded-2xl border border-white/10 bg-panel shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transform rotate-y-[-5deg] rotate-x-[2deg] transition-transform duration-700 hover:rotate-y-0 hover:rotate-x-0">
               
               {/* Top Bar */}
               <div className="h-12 border-b border-[#27272A] bg-[#141417] flex items-center px-4 gap-2">
@@ -92,7 +92,7 @@ export function HeroSection() {
                   <div className="w-3 h-3 rounded-full bg-[#f59e0b]/80" />
                   <div className="w-3 h-3 rounded-full bg-[#22c55e]/80" />
                 </div>
-                <div className="mx-auto px-24 py-1.5 bg-[#0B0B0C] rounded-md border border-[#27272A] flex items-center justify-center">
+                <div className="mx-auto px-24 py-1.5 bg-background rounded-md border border-white/5 flex items-center justify-center">
                   <span className="text-[10px] text-[#A1A1AA] uppercase tracking-widest font-mono">Operations Dashboard</span>
                 </div>
               </div>
@@ -102,15 +102,15 @@ export function HeroSection() {
                 
                 {/* Abstract Header/Stats Area */}
                 <div className="flex gap-4">
-                  <div className="flex-1 bg-[#1A1A1D]/80 backdrop-blur-sm border border-[#27272A] rounded-xl p-4 flex flex-col gap-2 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-[#D4AF37] opacity-[0.05] blur-xl rounded-full translate-x-1/2 -translate-y-1/2" />
+                  <div className="flex-1 bg-panel-alt/80 backdrop-blur-sm border border-white/5 rounded-xl p-4 flex flex-col gap-2 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-secondary opacity-[0.05] blur-xl rounded-full translate-x-1/2 -translate-y-1/2" />
                     <span className="text-xs text-[#A1A1AA]">Active Programmes</span>
                     <span className="text-2xl text-white font-semibold">124</span>
-                    <div className="w-full h-1 bg-[#27272A] rounded-full mt-2 overflow-hidden">
-                      <div className="h-full w-[75%] bg-[#D4AF37] rounded-full" />
+                    <div className="w-full h-1 bg-white/5 rounded-full mt-2 overflow-hidden">
+                      <div className="h-full w-[75%] bg-secondary rounded-full" />
                     </div>
                   </div>
-                  <div className="flex-1 bg-[#1A1A1D]/80 backdrop-blur-sm border border-[#27272A] rounded-xl p-4 flex flex-col gap-2 relative overflow-hidden">
+                  <div className="flex-1 bg-panel-alt/80 backdrop-blur-sm border border-white/5 rounded-xl p-4 flex flex-col gap-2 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-20 h-20 bg-[#22c55e] opacity-[0.05] blur-xl rounded-full translate-x-1/2 -translate-y-1/2" />
                     <span className="text-xs text-[#A1A1AA]">Completion Rate</span>
                     <span className="text-2xl text-white font-semibold">92.4%</span>
@@ -121,12 +121,12 @@ export function HeroSection() {
                 </div>
 
                 {/* Abstract Chart Area */}
-                <div className="flex-1 bg-[#1A1A1D]/80 backdrop-blur-sm border border-[#27272A] rounded-xl p-5 relative overflow-hidden flex flex-col">
+                <div className="flex-1 bg-panel-alt/80 backdrop-blur-sm border border-white/5 rounded-xl p-5 relative overflow-hidden flex flex-col">
                   <div className="flex justify-between items-center mb-4">
                      <span className="text-sm text-white font-medium">Performance Trajectory</span>
                      <div className="flex gap-2">
-                       <div className="w-16 h-1.5 bg-[#D4AF37] rounded-full" />
-                       <div className="w-8 h-1.5 bg-[#27272A] rounded-full" />
+                       <div className="w-16 h-1.5 bg-secondary rounded-full" />
+                       <div className="w-8 h-1.5 bg-white/5 rounded-full" />
                      </div>
                   </div>
                   
@@ -142,7 +142,7 @@ export function HeroSection() {
                     {[40, 65, 45, 80, 55, 90, 75, 100].map((height, i) => (
                       <div key={i} className="flex-1 flex justify-center items-end h-full relative z-10 group">
                         <div 
-                          className={`w-full max-w-[24px] rounded-t-sm transition-all duration-500 ${i === 7 ? 'bg-gradient-to-t from-[#D4AF37]/20 to-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.5)]' : 'bg-[#27272A] group-hover:bg-[#3f3f46]'}`}
+                          className={`w-full max-w-[24px] rounded-t-sm transition-all duration-500 ${i === 7 ? 'bg-gradient-to-t from-secondary/20 to-secondary shadow-[0_0_15px_rgba(59,130,246,0.5)]' : 'bg-white/5 group-hover:bg-white/10'}`}
                           style={{ height: `${height}%` }}
                         />
                       </div>
@@ -156,10 +156,10 @@ export function HeroSection() {
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-              className="absolute -right-6 top-1/4 bg-[#121214]/90 backdrop-blur-md border border-[#D4AF37]/40 rounded-lg p-3 shadow-[0_10px_30px_rgba(0,0,0,0.6),0_0_20px_rgba(212,175,55,0.15)] flex items-center gap-3 w-48"
+              className="absolute -right-6 top-1/4 bg-panel-alt/90 backdrop-blur-md border border-secondary/40 rounded-lg p-3 shadow-[0_10px_30px_rgba(0,0,0,0.6),0_0_20px_rgba(59,130,246,0.15)] flex items-center gap-3 w-48"
             >
-              <div className="w-8 h-8 rounded-full bg-[#D4AF37]/20 flex items-center justify-center border border-[#D4AF37]/50">
-                 <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
+              <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center border border-secondary/50">
+                 <CheckCircle2 className="w-4 h-4 text-secondary" />
               </div>
               <div className="flex flex-col">
                 <span className="text-[11px] text-[#A1A1AA] uppercase tracking-wider">Status</span>
@@ -171,9 +171,9 @@ export function HeroSection() {
             <motion.div 
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1 }}
-              className="absolute -left-8 bottom-1/4 bg-[#121214]/90 backdrop-blur-md border border-[#27272A] rounded-lg p-4 shadow-[0_10px_30px_rgba(0,0,0,0.6)] flex items-center gap-4 w-56"
+              className="absolute -left-8 bottom-1/4 bg-panel-alt/90 backdrop-blur-md border border-white/10 rounded-lg p-4 shadow-[0_10px_30px_rgba(0,0,0,0.6)] flex items-center gap-4 w-56"
             >
-               <div className="w-2 h-10 bg-[#D4AF37] rounded-full" />
+               <div className="w-2 h-10 bg-secondary rounded-full" />
                <div className="flex flex-col">
                  <span className="text-xs text-white font-medium">System optimized</span>
                  <span className="text-[10px] text-[#A1A1AA]">Latency reduced by 14ms</span>

@@ -110,7 +110,7 @@ const cardStyles = {
   basic: {
     wrapper:
       "relative flex flex-col rounded-[16px] transition-all duration-250 ease-out cursor-default order-3 lg:order-1",
-    bg: "bg-[#111111]",
+    bg: "bg-panel",
     border: "border border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.15)]",
     hoverGlow: "hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)]",
     scale: "",
@@ -120,7 +120,7 @@ const cardStyles = {
   standard: {
     wrapper:
       "relative flex flex-col rounded-[16px] transition-all duration-250 ease-out cursor-default order-1 lg:order-2",
-    bg: "bg-[#141310]",
+    bg: "bg-panel-alt",
     border: "border border-[#C9A86A]",
     hoverGlow: "shadow-[0_0_40px_rgba(201,168,106,0.12)] hover:shadow-[0_0_60px_rgba(201,168,106,0.2)]",
     scale: "lg:scale-[1.06]",
@@ -130,7 +130,7 @@ const cardStyles = {
   premium: {
     wrapper:
       "relative flex flex-col rounded-[16px] transition-all duration-250 ease-out cursor-default order-2 lg:order-3",
-    bg: "bg-[#111111]",
+    bg: "bg-panel",
     border: "border border-[rgba(201,168,106,0.2)] hover:border-[rgba(201,168,106,0.4)]",
     hoverGlow: "hover:shadow-[0_8px_30px_rgba(201,168,106,0.08)]",
     scale: "",
@@ -140,7 +140,7 @@ const cardStyles = {
   enterprise: {
     wrapper:
       "relative flex flex-col rounded-[16px] transition-all duration-250 ease-out cursor-default order-4 lg:order-4",
-    bg: "bg-[#0A0A0A]",
+    bg: "bg-background",
     border: "border border-dashed border-[rgba(201,168,106,0.25)] hover:border-[rgba(201,168,106,0.4)]",
     hoverGlow: "hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)]",
     scale: "",
@@ -155,7 +155,7 @@ export function PricingSection() {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly")
 
   return (
-    <section className="relative bg-[#0A0A0A] overflow-hidden pt-[100px] pb-[80px] min-h-screen flex flex-col justify-center">
+    <section className="relative bg-background overflow-hidden pt-[100px] pb-[80px] min-h-screen flex flex-col justify-center">
       {/* ── Background Glow ── */}
       <div
         aria-hidden
@@ -219,7 +219,7 @@ export function PricingSection() {
             role="switch"
             aria-checked={billing === "yearly"}
             onClick={() => setBilling(b => b === "monthly" ? "yearly" : "monthly")}
-            className="relative w-[56px] h-[30px] rounded-full transition-colors duration-300 outline-none focus-visible:ring-2 focus-visible:ring-[#C9A86A]/50"
+            className="relative w-[56px] h-[30px] rounded-full transition-colors duration-300 outline-none focus-visible:ring-2 focus-visible:ring-secondary/50"
             style={{
               background:
                 billing === "yearly"
@@ -314,7 +314,7 @@ export function PricingSection() {
                       className="text-[11px] md:text-[12px] font-medium tracking-[0.04em] px-[12px] py-[6px] rounded-full backdrop-blur-sm inline-block whitespace-nowrap"
                       style={{
                         background: "rgba(201, 168, 106, 0.10)",
-                        color: "#C9A86A",
+                        color: "var(--color-primary)",
                         border: "1px solid rgba(201, 168, 106, 0.30)",
                       }}
                     >
@@ -390,7 +390,7 @@ export function PricingSection() {
                       {plan.features.map((feat, fi) => (
                         <li key={fi} className="flex items-start gap-[10px]">
                           <div className="mt-[4px] shrink-0 flex items-center justify-center">
-                            <Check className="w-[14px] h-[14px] text-[#C9A86A] opacity-80" strokeWidth={3} />
+                            <Check className="w-[14px] h-[14px] text-secondary opacity-80" strokeWidth={3} />
                           </div>
                           <span
                             className="text-[15px] lg:text-[16px] leading-[1.6] transition-colors"
@@ -430,8 +430,9 @@ export function PricingSection() {
                               }
                             : {
                                 background: "transparent",
-                                color: "#FFFFFF",
-                                border: "1px solid rgba(201,168,106,0.4)",
+                                color: "var(--color-secondary)",
+                                border: "1px solid var(--color-secondary)",
+                                opacity: 0.8,
                               }),
                         }}
                       >

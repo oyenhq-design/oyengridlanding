@@ -17,19 +17,19 @@ const TABS = [
       "Automated scheduling conflicts resolution"
     ],
     visual: (
-      <div className="w-full h-full bg-[#0F0F11] border border-[#27272A] rounded-xl flex flex-col p-6 overflow-hidden relative shadow-[0_0_30px_rgba(212,175,55,0.05)]">
+      <div className="w-full h-full bg-panel border border-white/5 rounded-xl flex flex-col p-6 overflow-hidden relative shadow-[0_0_30px_rgba(212,175,55,0.05)]">
         <div className="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-20" />
-        <div className="absolute top-0 right-0 w-40 h-40 bg-[#D4AF37] opacity-[0.05] blur-3xl rounded-full" />
+        <div className="absolute top-0 right-0 w-40 h-40 bg-primary opacity-[0.05] blur-3xl rounded-full" />
         <div className="flex gap-4 mb-6 relative z-10">
-          <div className="h-2 w-1/3 bg-[#27272A] rounded-full" />
-          <div className="h-2 w-1/4 bg-[#D4AF37] rounded-full" />
+          <div className="h-2 w-1/3 bg-white/5 rounded-full" />
+          <div className="h-2 w-1/4 bg-secondary rounded-full" />
         </div>
         <div className="flex-1 flex flex-col gap-3 relative z-10">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="flex-1 bg-[#1A1A1D]/80 backdrop-blur-md rounded-lg border border-[#333333] p-4 flex items-center justify-between group hover:border-[#D4AF37]/50 transition-colors">
+            <div key={i} className="flex-1 bg-panel-alt/80 backdrop-blur-md rounded-lg border border-white/5 p-4 flex items-center justify-between group hover:border-secondary/50 transition-colors">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded bg-[#121214] flex items-center justify-center border border-[#27272A]">
-                  <div className="w-2 h-2 rounded-full bg-[#D4AF37]" />
+                <div className="w-8 h-8 rounded bg-background flex items-center justify-center border border-white/5">
+                  <div className="w-2 h-2 rounded-full bg-secondary" />
                 </div>
                 <div className="space-y-1.5">
                   <div className="h-2 w-24 bg-[#3f3f46] rounded-full" />
@@ -55,19 +55,19 @@ const TABS = [
       "Predictive completion modeling"
     ],
     visual: (
-      <div className="w-full h-full bg-[#0F0F11] border border-[#27272A] rounded-xl flex flex-col p-6 overflow-hidden relative shadow-[0_0_30px_rgba(212,175,55,0.05)]">
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#D4AF37]/10 to-transparent opacity-30" />
+      <div className="w-full h-full bg-panel border border-white/5 rounded-xl flex flex-col p-6 overflow-hidden relative shadow-[0_0_30px_rgba(212,175,55,0.05)]">
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-secondary/10 to-transparent opacity-30" />
         <div className="flex justify-between items-end h-full relative z-10 gap-3 pb-4">
           {[40, 65, 45, 80, 55, 90, 75].map((height, i) => (
             <div key={i} className="flex-1 flex flex-col justify-end items-center gap-2 group h-full">
               <div 
-                className={`w-full rounded-t-sm transition-all duration-700 ${i === 6 ? 'bg-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.4)]' : 'bg-[#27272A] group-hover:bg-[#3f3f46]'}`}
+                className={`w-full rounded-t-sm transition-all duration-700 ${i === 6 ? 'bg-secondary shadow-[0_0_15px_rgba(59,130,246,0.4)]' : 'bg-white/5 group-hover:bg-white/10'}`}
                 style={{ height: `${height}%` }}
               />
             </div>
           ))}
         </div>
-        <div className="absolute top-6 right-6 bg-[#1A1A1D]/90 backdrop-blur-md border border-[#D4AF37]/30 rounded-lg p-3 flex items-center gap-3">
+        <div className="absolute top-6 right-6 bg-panel-alt/90 backdrop-blur-md border border-secondary/30 rounded-lg p-3 flex items-center gap-3">
           <div className="text-[#A1A1AA] text-xs">Engagement</div>
           <div className="text-white font-medium text-lg">+24%</div>
         </div>
@@ -86,22 +86,22 @@ const TABS = [
       "Dynamic resource unlocking"
     ],
     visual: (
-      <div className="w-full h-full bg-[#0F0F11] border border-[#27272A] rounded-xl flex items-center justify-center p-6 overflow-hidden relative shadow-[0_0_30px_rgba(212,175,55,0.05)]">
+      <div className="w-full h-full bg-panel border border-white/5 rounded-xl flex items-center justify-center p-6 overflow-hidden relative shadow-[0_0_30px_rgba(212,175,55,0.05)]">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-64 h-64 border border-[#27272A]/50 rounded-full absolute animate-[spin_10s_linear_infinite]" />
-          <div className="w-48 h-48 border border-[#D4AF37]/20 rounded-full absolute animate-[spin_8s_linear_infinite_reverse]" />
-          <div className="w-32 h-32 border border-[#27272A]/50 rounded-full absolute animate-[spin_6s_linear_infinite]" />
+          <div className="w-64 h-64 border border-white/5 rounded-full absolute animate-[spin_10s_linear_infinite]" />
+          <div className="w-48 h-48 border border-secondary/20 rounded-full absolute animate-[spin_8s_linear_infinite_reverse]" />
+          <div className="w-32 h-32 border border-white/5 rounded-full absolute animate-[spin_6s_linear_infinite]" />
         </div>
         <div className="relative z-10 flex flex-col items-center gap-6">
-          <div className="w-12 h-12 bg-[#1A1A1D] border border-[#D4AF37]/50 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(212,175,55,0.2)]">
-             <Zap className="w-5 h-5 text-[#D4AF37]" />
+          <div className="w-12 h-12 bg-panel-alt border border-secondary/50 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+             <Zap className="w-5 h-5 text-secondary" />
           </div>
           <div className="flex gap-4">
-             <div className="px-4 py-2 bg-[#121214] border border-[#333333] rounded-lg text-xs text-[#A1A1AA] flex items-center gap-2">
+             <div className="px-4 py-2 bg-background border border-white/5 rounded-lg text-xs text-[#A1A1AA] flex items-center gap-2">
                <div className="w-1.5 h-1.5 bg-[#22c55e] rounded-full" /> Trigger Set
              </div>
-             <div className="px-4 py-2 bg-[#121214] border border-[#D4AF37]/30 rounded-lg text-xs text-white flex items-center gap-2 shadow-[0_0_10px_rgba(212,175,55,0.1)]">
-               <div className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full animate-pulse" /> Executing
+             <div className="px-4 py-2 bg-background border border-secondary/30 rounded-lg text-xs text-white flex items-center gap-2 shadow-[0_0_10px_rgba(59,130,246,0.1)]">
+               <div className="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse" /> Executing
              </div>
           </div>
         </div>
@@ -120,18 +120,18 @@ const TABS = [
       "End-to-end data encryption"
     ],
     visual: (
-      <div className="w-full h-full bg-[#0F0F11] border border-[#27272A] rounded-xl flex items-center justify-center p-6 overflow-hidden relative shadow-[0_0_30px_rgba(212,175,55,0.05)]">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#D4AF37]/10 via-transparent to-transparent opacity-50" />
+      <div className="w-full h-full bg-panel border border-white/5 rounded-xl flex items-center justify-center p-6 overflow-hidden relative shadow-[0_0_30px_rgba(212,175,55,0.05)]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary/10 via-transparent to-transparent opacity-50" />
         <div className="relative z-10 flex flex-col items-center gap-8 w-full max-w-xs">
           <div className="relative flex items-center justify-center">
-            <div className="absolute w-24 h-24 border border-[#D4AF37]/30 rounded-full animate-ping opacity-20" />
-            <div className="w-16 h-16 bg-[#1A1A1D] border border-[#D4AF37]/50 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.2)]">
-              <Shield className="w-6 h-6 text-[#D4AF37]" />
+            <div className="absolute w-24 h-24 border border-secondary/30 rounded-full animate-ping opacity-20" />
+            <div className="w-16 h-16 bg-panel-alt border border-secondary/50 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+              <Shield className="w-6 h-6 text-secondary" />
             </div>
           </div>
           <div className="w-full space-y-3">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="w-full bg-[#1A1A1D]/80 backdrop-blur-md rounded text-xs border border-[#333333] p-3 flex justify-between items-center">
+              <div key={i} className="w-full bg-panel-alt/80 backdrop-blur-md rounded text-xs border border-white/5 p-3 flex justify-between items-center">
                 <span className="text-[#A1A1AA] font-mono">sys_req_{i}0{i}</span>
                 <span className="text-[#22c55e] flex items-center gap-1.5"><Shield className="w-3 h-3" /> Encrypted</span>
               </div>
@@ -149,7 +149,7 @@ export function TabbedShowcaseSection() {
   const activeContent = TABS.find(t => t.id === activeTab);
  
   return (
-    <section className="py-32 bg-[#0B0B0C] relative overflow-hidden border-t border-[#27272A]/30">
+    <section className="py-32 bg-background relative overflow-hidden border-t border-white/5">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10">
         
         <motion.div 
@@ -185,12 +185,12 @@ export function TabbedShowcaseSection() {
                       isActive ? "text-white" : "text-[#A1A1AA] hover:text-white"
                     }`}
                   >
-                    <Icon className={`w-4 h-4 ${isActive ? "text-[#D4AF37]" : ""}`} />
+                    <Icon className={`w-4 h-4 ${isActive ? "text-secondary" : ""}`} />
                     {tab.label}
                     {isActive && (
                       <motion.div
                         layoutId="activeTabUnderline"
-                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#D4AF37] shadow-[0_0_10px_rgba(212,175,55,0.8)]"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-secondary shadow-[0_0_10px_rgba(59,130,246,0.8)]"
                         initial={false}
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
@@ -221,7 +221,7 @@ export function TabbedShowcaseSection() {
                   <ul className="space-y-4">
                     {activeContent?.bullets.map((bullet, idx) => (
                       <li key={idx} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-[#D4AF37] shrink-0" />
+                        <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" />
                         <span className="text-white/90 text-base">{bullet}</span>
                       </li>
                     ))}

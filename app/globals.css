@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@theme {
+  --color-background: #0B0B0C;
+  --color-panel: #111111;
+  --color-panel-alt: #151515;
+  --color-primary: #C9A86A;
+  --color-primary-hover: #D4AF37;
+  --color-secondary: #3B82F6;
+}
+
 /* ── Capability strip: icon hover via CSS group ── */
 .cap-item:hover .cap-icon-base  { color: transparent !important; }
 .cap-item:hover .cap-icon-gold  { opacity: 1 !important; }

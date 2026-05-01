@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function PerformanceAnalyticsSection() {
   return (
-    <section className="py-32 bg-gradient-to-b from-[#0B0B0C] to-[#111114] relative overflow-hidden border-t border-[#27272A]/30">
+    <section className="py-32 bg-[#0B0B0C] relative overflow-hidden border-t border-[#27272A]/30">
       {/* Background Lighting */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37] opacity-[0.02] blur-[150px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3" />
 
@@ -58,7 +58,7 @@ export function PerformanceAnalyticsSection() {
             <div className="mt-8">
               <Link 
                 href="/analytics"
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-[#27272A] hover:border-[#D4AF37]/50 text-white/80 hover:text-white text-sm font-medium transition-all duration-300 hover:bg-[#121214] group"
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-[#27272A] hover:border-[#3B82F6]/50 text-white/80 hover:text-[#3B82F6] text-sm font-medium transition-all duration-300 hover:bg-[#111111] group"
               >
                 Explore analytics <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -71,9 +71,9 @@ export function PerformanceAnalyticsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
-            className="relative w-full aspect-square md:aspect-[4/3] rounded-2xl border border-[#27272A] bg-[#0F0F11] shadow-[0_0_50px_rgba(212,175,55,0.05)] overflow-hidden flex items-end justify-center p-8 lg:p-12"
+            className="relative w-full aspect-square md:aspect-[4/3] rounded-2xl border border-[#27272A] bg-[#151515] shadow-[0_0_50px_rgba(212,175,55,0.03)] overflow-hidden flex items-end justify-center p-8 lg:p-12"
           >
-             <div className="absolute inset-0 bg-gradient-to-tr from-[#1A1A1D] to-[#0B0B0C] opacity-80" />
+             <div className="absolute inset-0 bg-gradient-to-tr from-[#1A1A1D] to-[#111111] opacity-80" />
              
              {/* Abstract 3D Gold Bars using CSS */}
              <div className="relative z-10 w-full h-full flex items-end justify-between gap-4 md:gap-8 pt-20">
@@ -129,16 +129,16 @@ export function PerformanceAnalyticsSection() {
                  </motion.div>
                </motion.div>
 
-               {/* Bar 4 */}
+               {/* Bar 4 (Secondary Accent Blue) */}
                <motion.div 
                  initial={{ height: "0%" }}
                  whileInView={{ height: "85%" }}
                  viewport={{ once: true, margin: "-100px" }}
                  transition={{ duration: 1.3, delay: 0.6, ease: "easeOut" }}
-                 className="relative flex-1 bg-[#27272A] rounded-t-sm"
+                 className="relative flex-1 bg-gradient-to-t from-[#1d4ed8] to-[#3B82F6] rounded-t-sm shadow-[0_0_20px_rgba(59,130,246,0.3)]"
                >
-                 <div className="absolute top-0 left-0 w-full h-4 bg-[#3f3f46] transform -translate-y-full skew-x-[45deg] origin-bottom-left" />
-                 <div className="absolute top-0 right-0 w-4 h-full bg-[#18181b] transform translate-x-full skew-y-[45deg] origin-top-left" />
+                 <div className="absolute top-0 left-0 w-full h-4 bg-[#60a5fa] transform -translate-y-full skew-x-[45deg] origin-bottom-left" />
+                 <div className="absolute top-0 right-0 w-4 h-full bg-[#1e3a8a] transform translate-x-full skew-y-[45deg] origin-top-left" />
                </motion.div>
 
              </div>

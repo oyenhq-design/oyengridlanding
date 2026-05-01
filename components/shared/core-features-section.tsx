@@ -6,7 +6,7 @@ import { fadeUpVariant, staggerContainerVariant, staggerItemVariant } from "@/li
 
 export function CoreFeaturesSection() {
   return (
-    <section className="py-32 bg-[#0A0A0A] relative overflow-hidden">
+    <section className="py-32 bg-background relative overflow-hidden">
       {/* Subtle ambient gradient */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#C9A86A]/5 blur-[120px] rounded-full pointer-events-none" />
       
@@ -36,12 +36,12 @@ export function CoreFeaturesSection() {
             viewport={{ once: true }}
             className="lg:col-span-7 group"
           >
-            <div className="h-full bg-[#111111] border border-[#C9A86A]/15 rounded-[24px] p-8 md:p-10 hover:border-[#C9A86A]/40 transition-all duration-500 hover:-translate-y-1.5 shadow-2xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#C9A86A]/5 to-transparent pointer-events-none" />
+            <div className="h-full bg-panel border border-secondary/15 rounded-[24px] p-8 md:p-10 hover:border-secondary/40 transition-all duration-500 hover:-translate-y-1.5 shadow-2xl relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent pointer-events-none" />
               
               <div className="flex flex-col h-full relative z-10">
-                <div className="w-10 h-10 rounded-xl bg-[#1A1A1A] border border-white/5 flex items-center justify-center mb-8 group-hover:border-[#C9A86A]/30 transition-colors">
-                  <Layout className="w-5 h-5 text-[#C9A86A]" />
+                <div className="w-10 h-10 rounded-xl bg-[#1A1A1A] border border-white/5 flex items-center justify-center mb-8 group-hover:border-secondary/30 transition-colors">
+                  <Layout className="w-5 h-5 text-secondary" />
                 </div>
                 
                 <h3 className="text-[24px] font-bold text-white mb-4">Programme Management</h3>
@@ -50,16 +50,16 @@ export function CoreFeaturesSection() {
                 </p>
 
                 {/* UI PREVIEW: Module List */}
-                <div className="mt-auto space-y-3 bg-[#0A0A0A]/50 rounded-2xl p-6 border border-white/5">
+                <div className="mt-auto space-y-3 bg-background/50 rounded-2xl p-6 border border-white/5">
                   {[
                     { title: "Module 01: Strategy Foundations", status: "Active", progress: 100 },
                     { title: "Module 02: Advanced Operations", status: "Active", progress: 65 },
                     { title: "Module 03: Executive Leadership", status: "Locked", progress: 0 },
                   ].map((item, i) => (
-                    <div key={i} className="flex flex-col gap-3 p-4 rounded-xl bg-[#111111] border border-white/5 group-hover:border-[#C9A86A]/20 transition-all">
+                    <div key={i} className="flex flex-col gap-3 p-4 rounded-xl bg-panel border border-white/5 group-hover:border-secondary/20 transition-all">
                       <div className="flex items-center justify-between">
                         <span className="text-[13px] font-bold text-white/90">{item.title}</span>
-                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${item.status === 'Active' ? 'bg-[#C9A86A]/20 text-[#C9A86A]' : 'bg-white/5 text-white/30'}`}>
+                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${item.status === 'Active' ? 'bg-secondary/20 text-secondary' : 'bg-white/5 text-white/30'}`}>
                           {item.status}
                         </span>
                       </div>
@@ -68,7 +68,7 @@ export function CoreFeaturesSection() {
                           initial={{ width: 0 }}
                           whileInView={{ width: `${item.progress}%` }}
                           transition={{ duration: 1, delay: 0.5 + (i * 0.1) }}
-                          className="h-full bg-[#C9A86A]" 
+                          className="h-full bg-secondary" 
                         />
                       </div>
                     </div>
@@ -89,9 +89,9 @@ export function CoreFeaturesSection() {
               transition={{ delay: 0.1 }}
               className="group flex-1"
             >
-              <div className="h-full bg-[#111111] border border-white/5 rounded-[24px] p-8 hover:border-[#C9A86A]/40 transition-all duration-500 hover:-translate-y-1 shadow-xl relative">
+              <div className="h-full bg-panel border border-white/5 rounded-[24px] p-8 hover:border-secondary/40 transition-all duration-500 hover:-translate-y-1 shadow-xl relative">
                 <div className="w-10 h-10 rounded-xl bg-[#1A1A1A] border border-white/5 flex items-center justify-center mb-6">
-                  <Video className="w-5 h-5 text-[#C9A86A]" />
+                  <Video className="w-5 h-5 text-secondary" />
                 </div>
                 <h3 className="text-[20px] font-bold text-white mb-3">Session Delivery</h3>
                 <p className="text-[15px] text-[#A1A1A1] leading-relaxed mb-8">
@@ -99,8 +99,8 @@ export function CoreFeaturesSection() {
                 </p>
 
                 {/* UI PREVIEW: Live Session Mock */}
-                <div className="bg-[#0A0A0A] rounded-xl border border-white/5 overflow-hidden">
-                  <div className="aspect-video bg-[#111111] relative flex items-center justify-center">
+                <div className="bg-background rounded-xl border border-white/5 overflow-hidden">
+                  <div className="aspect-video bg-panel relative flex items-center justify-center">
                     <div className="absolute top-3 left-3 flex items-center gap-2 px-2 py-1 bg-red-600 rounded-md">
                       <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                       <span className="text-[9px] font-bold text-white uppercase tracking-wider">LIVE</span>
@@ -124,9 +124,9 @@ export function CoreFeaturesSection() {
               transition={{ delay: 0.2 }}
               className="group flex-1"
             >
-              <div className="h-full bg-[#111111] border border-white/5 rounded-[24px] p-8 hover:border-[#C9A86A]/40 transition-all duration-500 hover:-translate-y-1 shadow-xl relative">
+              <div className="h-full bg-panel border border-white/5 rounded-[24px] p-8 hover:border-secondary/40 transition-all duration-500 hover:-translate-y-1 shadow-xl relative">
                 <div className="w-10 h-10 rounded-xl bg-[#1A1A1A] border border-white/5 flex items-center justify-center mb-6">
-                  <Database className="w-5 h-5 text-[#C9A86A]" />
+                  <Database className="w-5 h-5 text-secondary" />
                 </div>
                 <h3 className="text-[20px] font-bold text-white mb-3">Recordings & Storage</h3>
                 <p className="text-[15px] text-[#A1A1A1] leading-relaxed mb-8">
@@ -139,7 +139,7 @@ export function CoreFeaturesSection() {
                     { name: "Week 01 Recording", size: "1.2 GB", duration: "1h 24m" },
                     { name: "Week 02 Recording", size: "840 MB", duration: "58m" },
                   ].map((file, i) => (
-                    <div key={i} className="p-3 bg-[#0A0A0A] border border-white/5 rounded-xl hover:border-[#C9A86A]/20 transition-all cursor-default">
+                    <div key={i} className="p-3 bg-background border border-white/5 rounded-xl hover:border-secondary/20 transition-all cursor-default">
                       <div className="text-[11px] font-bold text-white/90 truncate mb-1">{file.name}</div>
                       <div className="flex items-center justify-between text-[9px] text-white/30">
                         <span>{file.size}</span>
