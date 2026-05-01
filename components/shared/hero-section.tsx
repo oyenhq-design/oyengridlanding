@@ -57,13 +57,13 @@ export function HeroSection() {
             <div className="flex flex-wrap items-center gap-4">
               <Link 
                 href="/get-started"
-                className="inline-flex items-center justify-center bg-[#D4AF37] text-[#0B0B0C] font-semibold px-8 py-3.5 rounded-lg text-base transition-all duration-300 hover:bg-[#E5C354] hover:shadow-[0_0_25px_rgba(212,175,55,0.3)]"
+                className="inline-flex items-center justify-center bg-[#D4AF37] text-[#0B0B0C] font-semibold px-8 py-3.5 rounded-lg text-base transition-all duration-300 hover:bg-[#E5C354] hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] hover:-translate-y-0.5"
               >
                 Start building
               </Link>
               <Link 
                 href="/contact"
-                className="inline-flex items-center justify-center bg-[#121214] border border-[#27272A] hover:border-[#D4AF37]/50 text-[#FFFFFF] font-medium px-8 py-3.5 rounded-lg text-base transition-all duration-300 hover:bg-[#1A1A1D] hover:shadow-[0_0_15px_rgba(212,175,55,0.1)]"
+                className="inline-flex items-center justify-center bg-[#121214] border border-[#27272A] hover:border-[#D4AF37]/50 text-[#FFFFFF] font-medium px-8 py-3.5 rounded-lg text-base transition-all duration-300 hover:bg-[#1A1A1D] hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] hover:-translate-y-0.5"
               >
                 Talk to sales
               </Link>
@@ -72,9 +72,14 @@ export function HeroSection() {
 
           {/* Right Side: Visual Mockup */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95, rotateY: 5 }}
-            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            initial={{ opacity: 0, scale: 0.95, rotateY: 5, y: 20 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0, y: [0, -10, 0] }}
+            transition={{ 
+              opacity: { duration: 1, delay: 0.2, ease: "easeOut" },
+              scale: { duration: 1, delay: 0.2, ease: "easeOut" },
+              rotateY: { duration: 1, delay: 0.2, ease: "easeOut" },
+              y: { repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1 }
+            }}
             className="relative w-full aspect-[4/3] perspective-1000"
           >
             {/* Main Mockup Container with Perspective */}

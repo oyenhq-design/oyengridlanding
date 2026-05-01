@@ -61,7 +61,7 @@ export function FeaturesSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 key={idx} 
-                className="group relative flex flex-col items-start p-8 bg-[#121214] border border-[#27272A] rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:border-[#D4AF37]/40 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] overflow-hidden"
+                className="group relative flex flex-col items-start p-8 bg-[#121214] border border-[#27272A] rounded-2xl transition-all duration-300 ease-out hover:scale-[1.02] hover:border-[#D4AF37]/40 hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] overflow-hidden"
               >
                 {/* Subtle top glow on hover */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_15px_rgba(212,175,55,0.8)]" />

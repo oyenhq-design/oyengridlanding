@@ -19,13 +19,13 @@ export function CTASection() {
         <div className="flex flex-wrap justify-center items-center gap-5">
           <Link 
             href="/get-started"
-            className="inline-flex items-center justify-center bg-[#D4AF37] text-[#0B0B0C] font-semibold px-10 py-4 rounded-lg text-[17px] transition-all duration-300 hover:bg-[#E5C354] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+            className="inline-flex items-center justify-center bg-[#D4AF37] text-[#0B0B0C] font-semibold px-10 py-4 rounded-lg text-[17px] transition-all duration-300 ease-out hover:bg-[#E5C354] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] hover:-translate-y-0.5"
           >
             Start building
           </Link>
           <Link 
             href="/contact"
-            className="inline-flex items-center justify-center bg-[#121214] border border-[#27272A] hover:border-[#D4AF37]/60 text-white font-medium px-10 py-4 rounded-lg text-[17px] transition-all duration-300 hover:bg-[#1A1A1D] hover:shadow-[0_0_20px_rgba(212,175,55,0.15)]"
+            className="inline-flex items-center justify-center bg-[#121214] border border-[#27272A] hover:border-[#D4AF37]/60 text-white font-medium px-10 py-4 rounded-lg text-[17px] transition-all duration-300 ease-out hover:bg-[#1A1A1D] hover:shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:-translate-y-0.5"
           >
             Talk to sales
           </Link>

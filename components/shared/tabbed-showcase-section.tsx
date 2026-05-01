@@ -152,14 +152,20 @@ export function TabbedShowcaseSection() {
     <section className="py-24 md:py-32 bg-[#0B0B0C] relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10">
         
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="text-center mb-16"
+        >
           <h2 className="text-[32px] sm:text-[44px] font-bold text-white tracking-tight mb-6">
             The complete operating system.
           </h2>
           <p className="text-[18px] text-[#A1A1AA] max-w-2xl mx-auto font-light">
             Explore the core capabilities that allow high-performing teams to run their structured programmes flawlessly.
           </p>
-        </div>
+        </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           

@@ -22,10 +22,10 @@ export function ProductOverviewSection() {
           
           {/* Left Side: UI Analytics/Dashboard with Gold Lines */}
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="order-2 lg:order-1 relative w-full aspect-[4/3] rounded-2xl border border-[#27272A] bg-[#0F0F11] shadow-[0_0_50px_rgba(212,175,55,0.05)] overflow-hidden flex flex-col p-6"
           >
              <div className="absolute inset-0 bg-gradient-to-tr from-[#1A1A1D] to-[#0B0B0C] opacity-80" />
@@ -47,7 +47,7 @@ export function ProductOverviewSection() {
                  </div>
                </div>
              </div>
-
+ 
              {/* Mockup Chart Area */}
              <div className="relative z-10 flex-1 flex flex-col justify-end pb-4">
                {/* Grid Lines */}
@@ -57,7 +57,7 @@ export function ProductOverviewSection() {
                  <div className="border-t border-[#27272A]/50 w-full" />
                  <div className="border-t border-[#27272A]/50 w-full" />
                </div>
-
+ 
                {/* SVG Gold Line Chart */}
                <svg viewBox="0 0 400 200" className="w-full h-full absolute inset-0 pt-4 pb-8 z-10 overflow-visible" preserveAspectRatio="none">
                  <defs>
@@ -94,7 +94,7 @@ export function ProductOverviewSection() {
                  <span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span>
                </div>
              </div>
-
+ 
              {/* Floating Stat Card */}
              <motion.div 
                animate={{ y: [0, -8, 0] }}
@@ -107,15 +107,15 @@ export function ProductOverviewSection() {
                  <span className="text-[#D4AF37] text-sm">↑</span>
                </div>
              </motion.div>
-
+ 
           </motion.div>
-
+ 
           {/* Right Side: Text Explanation + Bullet Points */}
           <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
             className="order-1 lg:order-2 flex flex-col text-left"
           >
             <div className="inline-flex items-center gap-2 mb-6">
@@ -130,17 +130,24 @@ export function ProductOverviewSection() {
             <p className="text-lg text-[#A1A1AA] leading-relaxed mb-10 font-light">
               Stop relying on disjointed spreadsheets and isolated tools. OYEN GRID brings all your operational data, resource management, and execution tracking into one unified, high-fidelity source of truth.
             </p>
-
+ 
             <ul className="space-y-6">
               {features.map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-4">
+                <motion.li 
+                  key={idx} 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.3 + idx * 0.1 }}
+                  className="flex items-start gap-4"
+                >
                   <div className="w-6 h-6 rounded-full bg-[#121214] border border-[#D4AF37]/30 flex items-center justify-center shrink-0 mt-0.5">
                     <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
                   </div>
                   <span className="text-[16px] text-white/90 leading-tight pt-0.5">
                     {feature}
                   </span>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>

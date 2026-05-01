@@ -49,9 +49,9 @@ export function RealWorldUsageSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: idx * 0.15, ease: "easeOut" }}
+              transition={{ duration: 0.4, delay: idx * 0.1, ease: "easeOut" }}
               key={idx}
-              className="group flex flex-col bg-[#141417] border border-[#27272A] rounded-2xl overflow-hidden hover:border-[#D4AF37]/40 hover:shadow-[0_15px_40px_rgba(212,175,55,0.08)] transition-all duration-500 cursor-pointer"
+              className="group flex flex-col bg-[#141417] border border-[#27272A] rounded-2xl overflow-hidden hover:scale-[1.02] hover:border-[#D4AF37]/40 hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] transition-all duration-300 ease-out cursor-pointer"
             >
               {/* Image Container with Zoom effect */}
               <div className="relative w-full aspect-[4/3] overflow-hidden border-b border-[#27272A] group-hover:border-[#D4AF37]/30 transition-colors duration-500">

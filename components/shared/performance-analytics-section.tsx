@@ -16,10 +16,10 @@ export function PerformanceAnalyticsSection() {
           
           {/* Left Side: Text Block */}
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="flex flex-col text-left"
           >
             <div className="inline-flex items-center gap-2 mb-6">
@@ -34,20 +34,27 @@ export function PerformanceAnalyticsSection() {
             <p className="text-lg text-[#A1A1AA] leading-relaxed mb-8 font-light">
               Make data-driven decisions with real-time analytics. Exportable, granular insights on every metric that is critical to your programme's operational success.
             </p>
-
+ 
             <ul className="space-y-4 mb-10 text-[#A1A1AA]">
               {[
                 "Automated compliance reporting",
                 "Predictive completion forecasting",
                 "Custom metric dashboards"
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-base">
+                <motion.li 
+                  key={i} 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.1 + i * 0.1 }}
+                  className="flex items-center gap-3 text-base"
+                >
                   <CheckCircle2 className="w-5 h-5 text-[#D4AF37] shrink-0" />
                   <span>{item}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
-
+ 
             <div>
               <Link 
                 href="/analytics"
@@ -58,13 +65,13 @@ export function PerformanceAnalyticsSection() {
               </Link>
             </div>
           </motion.div>
-
+ 
           {/* Right Side: Visual (Abstract 3D Gold Bars) */}
           <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
             className="relative w-full aspect-square md:aspect-[4/3] rounded-2xl border border-[#27272A] bg-[#0F0F11] shadow-[0_0_50px_rgba(212,175,55,0.05)] overflow-hidden flex items-end justify-center p-8 lg:p-12"
           >
              <div className="absolute inset-0 bg-gradient-to-tr from-[#1A1A1D] to-[#0B0B0C] opacity-80" />

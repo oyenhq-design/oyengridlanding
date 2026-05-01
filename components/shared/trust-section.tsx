@@ -8,11 +8,17 @@ export function TrustSection() {
     <section className="py-20 bg-[#0B0B0C] border-y border-[#27272A]/30 relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[200px] bg-[#D4AF37] opacity-[0.015] blur-[100px] rounded-full pointer-events-none" />
-
+ 
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
         
         {/* Logos Row */}
-        <div className="flex flex-col items-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="flex flex-col items-center mb-16"
+        >
           <p className="text-[12px] text-[#A1A1AA] tracking-[0.2em] uppercase mb-10 font-semibold opacity-80">
             Trusted by forward-thinking organisations
           </p>
@@ -25,12 +31,18 @@ export function TrustSection() {
             </div>
             <div className="text-2xl font-bold text-white uppercase tracking-wider">Innovate.</div>
           </div>
-        </div>
-
+        </motion.div>
+ 
         {/* Ratings Row */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-12 sm:gap-24">
           
-          <div className="flex flex-col items-center gap-3">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+            className="flex flex-col items-center gap-3"
+          >
             <div className="flex gap-1.5 text-[#D4AF37]">
               {[1, 2, 3, 4, 5].map((i) => (
                 <Star key={i} className={`w-5 h-5 fill-current ${i === 5 ? 'opacity-40' : ''}`} />
@@ -38,11 +50,17 @@ export function TrustSection() {
             </div>
             <div className="text-white font-medium text-[22px] tracking-tight">4.8/5</div>
             <div className="text-[#A1A1AA] text-[13px] tracking-wide uppercase">G2 Crowd</div>
-          </div>
-
+          </motion.div>
+ 
           <div className="hidden sm:block w-[1px] h-12 bg-[#27272A]" />
-
-          <div className="flex flex-col items-center gap-3">
+ 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+            className="flex flex-col items-center gap-3"
+          >
             <div className="flex gap-1.5 text-[#D4AF37]">
               {[1, 2, 3, 4, 5].map((i) => (
                 <Star key={i} className={`w-5 h-5 fill-current ${i === 5 ? 'opacity-60' : ''}`} />
@@ -50,11 +68,17 @@ export function TrustSection() {
             </div>
             <div className="text-white font-medium text-[22px] tracking-tight">4.9/5</div>
             <div className="text-[#A1A1AA] text-[13px] tracking-wide uppercase">Capterra</div>
-          </div>
-
+          </motion.div>
+ 
           <div className="hidden sm:block w-[1px] h-12 bg-[#27272A]" />
-
-          <div className="flex flex-col items-center gap-3">
+ 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+            className="flex flex-col items-center gap-3"
+          >
             <div className="flex gap-1.5 text-[#D4AF37]">
               {[1, 2, 3, 4, 5].map((i) => (
                 <Star key={i} className={`w-5 h-5 fill-current ${i === 5 ? 'opacity-80' : ''}`} />
@@ -62,10 +86,10 @@ export function TrustSection() {
             </div>
             <div className="text-white font-medium text-[22px] tracking-tight">9.8/10</div>
             <div className="text-[#A1A1AA] text-[13px] tracking-wide uppercase">TrustRadius</div>
-          </div>
-
+          </motion.div>
+ 
         </div>
-
+ 
       </div>
     </section>
   );

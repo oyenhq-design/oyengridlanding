@@ -51,7 +51,7 @@ export function CustomerStoriesSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="lg:col-span-2 relative bg-[#121214] border border-[#D4AF37]/20 rounded-2xl p-10 md:p-14 flex flex-col justify-between shadow-[0_0_30px_rgba(212,175,55,0.05)] hover:shadow-[0_0_50px_rgba(212,175,55,0.1)] transition-all duration-500 overflow-hidden group"
+            className="lg:col-span-2 relative bg-[#121214] border border-[#D4AF37]/20 rounded-2xl p-10 md:p-14 flex flex-col justify-between shadow-[0_0_30px_rgba(212,175,55,0.05)] hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(212,175,55,0.2)] transition-all duration-300 ease-out overflow-hidden group"
           >
             {/* Subtle radial glow inside card */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#D4AF37]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -83,7 +83,7 @@ export function CustomerStoriesSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: 0.2 + (idx * 0.1), ease: "easeOut" }}
                 key={idx}
-                className="flex-1 relative bg-[#121214] border border-[#27272A] hover:border-[#D4AF37]/30 rounded-2xl p-8 flex flex-col justify-between shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.05)] transition-all duration-500 overflow-hidden group"
+                className="flex-1 relative bg-[#121214] border border-[#27272A] rounded-2xl p-8 flex flex-col justify-between shadow-lg hover:scale-[1.02] hover:border-[#D4AF37]/30 hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] transition-all duration-300 ease-out overflow-hidden group"
               >
                 <div className="absolute right-0 top-0 w-32 h-32 bg-[#D4AF37] opacity-0 group-hover:opacity-[0.03] blur-[40px] transition-opacity duration-500 rounded-full" />
 
