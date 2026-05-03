@@ -12,11 +12,11 @@ const features = [
 
 export function ProductOverviewSection() {
   return (
-    <section className="py-32 bg-gradient-to-b from-[#0B0B0C] to-[#0E0E10] overflow-hidden relative">
+    <section className="py-24 bg-[#111111] overflow-hidden relative border-t border-neutral-800">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#D4AF37] opacity-[0.02] blur-[100px] rounded-full pointer-events-none -translate-y-1/2 -translate-x-1/4" />
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10">
+      <div className="relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           

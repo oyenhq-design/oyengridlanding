@@ -65,57 +65,77 @@ const PLANS = [
 
 export function PricingCards() {
   return (
-    <section id="plans" className="py-16">
-      <div className="mb-12">
+    <section id="plans" className="py-24 first:pt-0 relative">
+      {/* Radial gold glow behind cards */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full max-w-[900px] h-[500px] rounded-full"
+        style={{
+          background: "radial-gradient(ellipse at center, rgba(212,175,55,0.05) 0%, transparent 65%)",
+        }}
+      />
+
+      <div className="relative z-10 mb-16">
         <h2 className="text-2xl font-bold text-white mb-2">OYEN GRID Workspace</h2>
         <p className="text-[#A1A1AA]">
           Includes programme structuring, session management, tracking, and analytics in one unified system.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {PLANS.map((plan) => (
           <motion.div
             key={plan.name}
-            whileHover={{ y: -8, scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-            className={`flex flex-col p-8 rounded-2xl border transition-all duration-300 ${
-              plan.popular 
-                ? "bg-[#111111] border-[#D4AF37] shadow-[0_0_40px_rgba(212,175,55,0.1)] scale-105 z-10" 
-                : "bg-[#0F0F10] border-[#1F1F1F] hover:border-white/10"
+            whileHover={{ y: -6 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className={`group flex flex-col p-8 rounded-2xl border transition-all duration-300 ${
+              plan.popular
+                ? "bg-[#111111] border-[#D4AF37] shadow-[0_0_40px_rgba(212,175,55,0.12)] scale-[1.03] z-10"
+                : "bg-[#0F0F10] border-[#1f1f1f] hover:border-[#D4AF37]/50 hover:shadow-[0_0_30px_rgba(212,175,55,0.1)]"
             }`}
           >
             {plan.popular && (
-              <div className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37] mb-2">
+              <div className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37] mb-3">
                 Most Popular
               </div>
             )}
 
-            <div className="mb-6">
-              <h3 className="text-sm font-bold text-[#A1A1AA] tracking-widest uppercase mb-4">{plan.name}</h3>
-              <div className="text-3xl font-bold text-white mb-2">{plan.price}</div>
-              <p className="text-[13px] text-[#71717A] leading-relaxed min-h-[40px]">
-                {plan.tagline}
-              </p>
-            </div>
+            {/* Plan name */}
+            <h3 className="text-sm font-bold text-[#A1A1AA] tracking-widest uppercase mb-4">
+              {plan.name}
+            </h3>
 
-            <div className="border-t border-[#1F1F1F] pt-6 flex-1 mb-8">
-              <ul className="space-y-4">
-                {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-[#D4D4D8]">
-                    <Check className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" strokeWidth={3} />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* Price */}
+            <div className="text-4xl font-bold text-white mb-2 leading-none">{plan.price}</div>
+            <p className="text-[13px] text-[#71717A] leading-relaxed mb-5 min-h-[36px]">
+              {plan.tagline}
+            </p>
 
-            <Link href={plan.cta === "Talk to sales" ? "/contact" : "/get-started"}>
-              <button className={`w-full py-4 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 ${
-                plan.popular 
-                  ? "bg-[#D4AF37] text-[#0B0B0C] shadow-lg shadow-[#D4AF37]/20" 
-                  : "bg-white/5 text-white border border-white/10 hover:bg-white/10"
-              }`}>
+            {/* Divider below price block */}
+            <div className="border-t border-neutral-800 mb-5" />
+
+            {/* Features list — flex-1 so CTA stays at bottom */}
+            <ul className="flex flex-col gap-5 flex-1">
+              {plan.features.map((feature, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <Check className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" strokeWidth={3} />
+                  <span className="text-sm text-[#D4D4D8] leading-snug">{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* CTA button — full width, mt-6 */}
+            <Link
+              href={plan.cta === "Talk to sales" ? "/contact" : "/get-started"}
+              className="block mt-6"
+            >
+              <button
+                className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 ${
+                  plan.popular
+                    ? "bg-[#D4AF37] text-[#0B0B0C] shadow-[0_4px_20px_rgba(212,175,55,0.25)] hover:brightness-110 hover:shadow-[0_4px_28px_rgba(212,175,55,0.4)]"
+                    : "bg-white/5 text-white border border-white/10 hover:bg-white/[0.08] hover:border-[#D4AF37]/40"
+                }`}
+              >
                 {plan.cta}
                 <ArrowRight className="w-4 h-4" />
               </button>

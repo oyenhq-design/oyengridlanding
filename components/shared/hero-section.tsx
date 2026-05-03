@@ -7,12 +7,12 @@ import { CheckCircle2 } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-background overflow-hidden">
+    <section className="relative py-24 bg-background overflow-hidden">
       {/* Background Lighting & Effects */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37] opacity-[0.03] blur-[150px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-[800px] h-[400px] bg-[#D4AF37] opacity-[0.02] blur-[120px] rounded-full pointer-events-none -translate-x-1/2 translate-y-1/2" />
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10">
+      <div className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           
           {/* Left Side: Content */}

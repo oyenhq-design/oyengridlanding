@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 
 export function TrustSection() {
   return (
-    <section className="py-24 bg-[#111111] border-y border-[#27272A]/40 relative overflow-hidden">
+    <section className="py-24 bg-[#111111] border-y border-[#27272A]/40 relative overflow-hidden rounded-3xl">
       {/* Subtle background glow */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[200px] bg-[#D4AF37] opacity-[0.015] blur-[100px] rounded-full pointer-events-none" />
  
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
+      <div className="relative z-10">
         
         {/* Logos Row */}
         <motion.div 

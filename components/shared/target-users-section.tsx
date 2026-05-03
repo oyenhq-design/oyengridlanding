@@ -13,8 +13,8 @@ const iconMap = {
 
 export function TargetUsersSection() {
   return (
-    <section id="for" className="py-24 md:py-32 bg-[#0B0B0C] border-t border-[#1F1F1F]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="for" className="py-24 bg-[#0B0B0C] border-t border-neutral-800">
+      <div className="relative">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">

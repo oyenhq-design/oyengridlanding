@@ -6,11 +6,11 @@ import Link from "next/link";
 
 export function PerformanceAnalyticsSection() {
   return (
-    <section className="py-32 bg-[#0B0B0C] relative overflow-hidden border-t border-[#27272A]/30">
+    <section className="py-24 bg-[#0B0B0C] relative overflow-hidden border-t border-neutral-800">
       {/* Background Lighting */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37] opacity-[0.02] blur-[150px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3" />
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10">
+      <div className="relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           

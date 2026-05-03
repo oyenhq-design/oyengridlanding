@@ -43,8 +43,8 @@ export function PricingSidebar() {
   }
 
   return (
-    <div className="hidden lg:block w-64 shrink-0">
-      <div className="sticky top-28 space-y-2">
+    <div className="hidden lg:block w-[240px] shrink-0">
+      <div className="sticky top-32 space-y-2">
         {NAV_ITEMS.map((item) => (
           <button
             key={item.id}

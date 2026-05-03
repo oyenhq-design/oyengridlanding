@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export function PricingEntrySection() {
   return (
-    <section className="py-24 md:py-32 bg-[#0B0B0C] relative overflow-hidden border-y border-white/5">
+    <section className="py-24 bg-[#0B0B0C] relative overflow-hidden border-t border-neutral-800">
       {/* Subtle Glow */}
       <div 
         aria-hidden
@@ -20,7 +20,7 @@ export function PricingEntrySection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
+      <div className="relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

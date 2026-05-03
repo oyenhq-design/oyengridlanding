@@ -23,8 +23,8 @@ const ADDONS = [
 
 export function PricingAddons() {
   return (
-    <section id="addons" className="py-24 border-t border-[#1F1F1F]">
-      <h2 className="text-2xl font-bold text-white mb-12">Add-ons</h2>
+    <section id="addons" className="py-24 bg-[#0B0B0C] border-t border-neutral-800 -mx-8 px-8">
+      <h2 className="text-2xl font-bold text-white mb-16">Add-ons</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {ADDONS.map((addon) => (
           <div key={addon.title} className="p-8 rounded-2xl bg-[#111111] border border-[#1F1F1F] group hover:border-[#D4AF37]/30 transition-all duration-300">

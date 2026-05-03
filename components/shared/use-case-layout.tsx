@@ -3,6 +3,8 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Check, ArrowRight, X, AlertCircle, ChevronRight, Layers } from "lucide-react"
+import { MainGrid } from "@/components/layout/main-grid"
+import { Sidebar } from "@/components/layout/sidebar"
 
 export interface UseCaseData {
   label: string
@@ -42,8 +44,16 @@ export interface UseCaseData {
 }
 
 export function UseCaseLayout({ data }: { data: UseCaseData }) {
+  const navItems = [
+    { id: "hero", label: "Overview" },
+    { id: "problem", label: "The Problem" },
+    { id: "solution", label: "Our Solution" },
+    { id: "how-it-works", label: "How it works" },
+    { id: "value", label: "Outcome" },
+  ]
+
   return (
-    <div className="bg-background min-h-screen text-white pt-[120px] pb-[80px] overflow-hidden selection:bg-primary/30">
+    <div className="bg-background min-h-screen text-white pt-[80px] overflow-hidden selection:bg-primary/30">
       
       {/* ── GLOBAL AMBIENT GLOW ── */}
       <div 
@@ -54,13 +64,11 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
         }}
       />
 
-      {/* ════════════════════════════════════════════
-          1. HERO SECTION
-      ════════════════════════════════════════════ */}
-      {/* ════════════════════════════════════════════
-          1. HERO SECTION
-      ════════════════════════════════════════════ */}
-      <section className="relative max-w-[1200px] mx-auto px-6 lg:px-8 pt-10 pb-24 md:pb-32">
+      <MainGrid sidebar={<Sidebar items={navItems} />}>
+        {/* ════════════════════════════════════════════
+            1. HERO SECTION
+        ════════════════════════════════════════════ */}
+        <section id="hero" className="relative py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           <motion.div 
@@ -145,11 +153,8 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
       {/* ════════════════════════════════════════════
           2. PROBLEM SECTION
       ════════════════════════════════════════════ */}
-      {/* ════════════════════════════════════════════
-          2. PROBLEM SECTION
-      ════════════════════════════════════════════ */}
-      <section className="relative py-24 md:py-32">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+      <section id="problem" className="relative py-24">
+        <div className="w-full">
           <div className="mb-16">
             <h2 className="text-[32px] md:text-[40px] font-bold tracking-tight text-white mb-6">
               {data.problem.title}
@@ -180,10 +185,7 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
       {/* ════════════════════════════════════════════
           3 & 4. SOLUTION & FEATURES SECTION
       ════════════════════════════════════════════ */}
-      {/* ════════════════════════════════════════════
-          3 & 4. SOLUTION & FEATURES SECTION
-      ════════════════════════════════════════════ */}
-      <section className="relative py-32 max-w-[1200px] mx-auto px-6 lg:px-8">
+      <section id="solution" className="relative py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           
           {/* Solution Left side */}
@@ -236,11 +238,8 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
       {/* ════════════════════════════════════════════
           5. HOW IT WORKS (3 STEPS)
       ════════════════════════════════════════════ */}
-      {/* ════════════════════════════════════════════
-          5. HOW IT WORKS (STEPPER)
-      ════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-panel/30 relative overflow-hidden">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
+      <section id="how-it-works" className="py-24 bg-panel/30 relative overflow-hidden rounded-3xl">
+        <div className="px-8 relative z-10">
           <div className="text-left mb-16">
             <h2 className="text-[32px] md:text-[40px] font-bold text-white mb-4">How it works</h2>
             <div className="w-12 h-1 bg-[#C9A86A]/50 rounded-full" />
@@ -276,10 +275,7 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
       {/* ════════════════════════════════════════════
           6. VALUE / OUTCOME (BEFORE & AFTER)
       ════════════════════════════════════════════ */}
-      {/* ════════════════════════════════════════════
-          6. VALUE / OUTCOME (BEFORE & AFTER)
-      ════════════════════════════════════════════ */}
-      <section className="py-32 max-w-[1200px] mx-auto px-6 lg:px-8">
+      <section id="value" className="py-24">
         <div className="text-left mb-16">
           <h2 className="text-[32px] md:text-[40px] font-bold text-white mb-4">
             {data.value.title}
@@ -343,11 +339,8 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
       {/* ════════════════════════════════════════════
           8. FINAL CTA
       ════════════════════════════════════════════ */}
-      {/* ════════════════════════════════════════════
-          8. FINAL CTA
-      ════════════════════════════════════════════ */}
-      <section className="py-24 px-6 lg:px-8">
-        <div className="max-w-[1200px] mx-auto bg-gradient-to-b from-panel to-background border border-white/10 rounded-[32px] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
+      <section className="py-24">
+        <div className="bg-gradient-to-b from-panel to-background border border-white/10 rounded-[32px] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#C9A86A]/5 blur-[120px] rounded-full pointer-events-none" />
           
           <h2 className="text-[40px] md:text-[56px] font-bold text-white mb-4 relative z-10 tracking-tight leading-[1.1]">
@@ -377,6 +370,7 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
         </div>
       </section>
 
+      </MainGrid>
     </div>
   )
 }

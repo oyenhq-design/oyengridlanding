@@ -109,40 +109,40 @@ const PLANS = [
 const cardStyles = {
   basic: {
     wrapper:
-      "relative flex flex-col rounded-[16px] transition-all duration-250 ease-out cursor-default order-3 lg:order-1",
+      "relative flex flex-col rounded-2xl transition-all duration-300 ease-out cursor-default order-3 lg:order-1",
     bg: "bg-panel",
-    border: "border border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.15)]",
-    hoverGlow: "hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)]",
+    border: "border border-[#1f1f1f] hover:border-[#C9A86A]/50",
+    hoverGlow: "hover:shadow-[0_0_30px_rgba(201,168,106,0.08)]",
     scale: "",
     defaultY: "translate-y-0",
     zIndex: "z-0",
   },
   standard: {
     wrapper:
-      "relative flex flex-col rounded-[16px] transition-all duration-250 ease-out cursor-default order-1 lg:order-2",
+      "relative flex flex-col rounded-2xl transition-all duration-300 ease-out cursor-default order-1 lg:order-2",
     bg: "bg-panel-alt",
     border: "border border-[#C9A86A]",
-    hoverGlow: "shadow-[0_0_40px_rgba(201,168,106,0.12)] hover:shadow-[0_0_60px_rgba(201,168,106,0.2)]",
-    scale: "lg:scale-[1.06]",
-    defaultY: "lg:-translate-y-[8px]",
+    hoverGlow: "shadow-[0_0_40px_rgba(201,168,106,0.12)] hover:shadow-[0_0_60px_rgba(201,168,106,0.25)]",
+    scale: "lg:scale-[1.04]",
+    defaultY: "lg:-translate-y-[6px]",
     zIndex: "z-10",
   },
   premium: {
     wrapper:
-      "relative flex flex-col rounded-[16px] transition-all duration-250 ease-out cursor-default order-2 lg:order-3",
+      "relative flex flex-col rounded-2xl transition-all duration-300 ease-out cursor-default order-2 lg:order-3",
     bg: "bg-panel",
-    border: "border border-[rgba(201,168,106,0.2)] hover:border-[rgba(201,168,106,0.4)]",
-    hoverGlow: "hover:shadow-[0_8px_30px_rgba(201,168,106,0.08)]",
+    border: "border border-[#1f1f1f] hover:border-[#C9A86A]/50",
+    hoverGlow: "hover:shadow-[0_0_30px_rgba(201,168,106,0.1)]",
     scale: "",
     defaultY: "translate-y-0",
     zIndex: "z-0",
   },
   enterprise: {
     wrapper:
-      "relative flex flex-col rounded-[16px] transition-all duration-250 ease-out cursor-default order-4 lg:order-4",
+      "relative flex flex-col rounded-2xl transition-all duration-300 ease-out cursor-default order-4 lg:order-4",
     bg: "bg-background",
-    border: "border border-dashed border-[rgba(201,168,106,0.25)] hover:border-[rgba(201,168,106,0.4)]",
-    hoverGlow: "hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)]",
+    border: "border border-dashed border-[#1f1f1f] hover:border-[#C9A86A]/40",
+    hoverGlow: "hover:shadow-[0_0_30px_rgba(201,168,106,0.06)]",
     scale: "",
     defaultY: "translate-y-0",
     zIndex: "z-0",
@@ -265,7 +265,7 @@ export function PricingSection() {
         {/* ════════════════════════════════════════════
             3. PRICING CARDS
         ════════════════════════════════════════════ */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-[24px] xl:gap-[32px] items-start pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-start pb-10">
           {PLANS.map((plan, i) => {
             const styles = cardStyles[plan.tier as keyof typeof cardStyles]
             const isYearly = billing === "yearly"
@@ -304,7 +304,7 @@ export function PricingSection() {
                   styles.scale,
                   styles.defaultY,
                   styles.zIndex,
-                  "px-[24px] py-[28px] lg:py-[32px] hover:-translate-y-[6px]"
+                  "p-8 hover:-translate-y-[6px]"
                 ].join(" ")}
               >
                 {/* Popular Plan badge — Standard only */}
@@ -348,14 +348,14 @@ export function PricingSection() {
                   {usdPrice !== null ? (
                     <div>
                       <div className="flex items-end gap-1.5 leading-[1]">
-                        <span className="font-bold text-white text-[44px] lg:text-[52px] tracking-tight">
+                        <span className="font-bold text-white text-4xl tracking-tight">
                           ${usdPrice}
                         </span>
-                        <span className="text-[14px] lg:text-[16px] text-[#A1A1AA] font-medium mb-[6px]">
+                        <span className="text-[14px] text-[#A1A1AA] font-medium mb-[4px]">
                           /month
                         </span>
                       </div>
-                      
+
                       <div className="mt-[6px] h-[20px]">
                         <AnimatePresence mode="wait">
                           <motion.p
@@ -364,7 +364,7 @@ export function PricingSection() {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.15 }}
-                            className="text-[13px] lg:text-[14px] text-[#888888] font-medium"
+                            className="text-[13px] text-[#888888] font-medium"
                           >
                             {ngnEquiv}
                           </motion.p>
@@ -373,7 +373,7 @@ export function PricingSection() {
                     </div>
                   ) : (
                     <div>
-                      <span className="font-bold text-white text-[40px] lg:text-[46px] tracking-tight leading-[1]">
+                      <span className="font-bold text-white text-4xl tracking-tight leading-[1]">
                         Custom
                       </span>
                       <div className="mt-[6px] h-[20px]" />
@@ -381,50 +381,51 @@ export function PricingSection() {
                   )}
 
                   {/* Description */}
-                  <p className="text-[14px] lg:text-[16px] text-[#A1A1AA] mt-[14px] leading-relaxed max-w-[220px]">
+                  <p className="text-[13px] text-[#A1A1AA] mt-3 leading-relaxed">
                     {plan.description}
                   </p>
 
-                  <div className="mt-[20px] flex-1">
-                    <ul className="flex flex-col gap-[10px] lg:gap-[12px]">
-                      {plan.features.map((feat, fi) => (
-                        <li key={fi} className="flex items-start gap-[10px]">
-                          <div className="mt-[4px] shrink-0 flex items-center justify-center">
-                            <Check className="w-[14px] h-[14px] text-secondary opacity-80" strokeWidth={3} />
-                          </div>
-                          <span
-                            className="text-[15px] lg:text-[16px] leading-[1.6] transition-colors"
-                            style={{
-                              color: feat.bold ? "#FFFFFF" : plan.tier === "basic" ? "#999999" : "#D4D4D8",
-                              opacity: feat.locked ? 0.45 : 1,
-                            }}
-                          >
-                            {feat.text}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {/* Divider below price block */}
+                  <div className="border-t border-neutral-800 mt-5 mb-5" />
 
-                  {/* ── Subtext & CTA Button ── */}
-                  <div className="mt-[24px]">
+                  {/* Features list — flex-1 keeps CTA pinned to bottom */}
+                  <ul className="flex flex-col gap-5 flex-1">
+                    {plan.features.map((feat, fi) => (
+                      <li key={fi} className="flex items-start gap-3">
+                        <div className="mt-[3px] shrink-0">
+                          <Check className="w-[14px] h-[14px] text-secondary opacity-80" strokeWidth={3} />
+                        </div>
+                        <span
+                          className="text-sm leading-snug transition-colors"
+                          style={{
+                            color: feat.bold ? "#FFFFFF" : plan.tier === "basic" ? "#999999" : "#D4D4D8",
+                            opacity: feat.locked ? 0.45 : 1,
+                          }}
+                        >
+                          {feat.text}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA Button — full width, mt-6 */}
+                  <div className="mt-6">
                     <Link href={plan.ctaHref} className="block w-full">
                       <motion.button
-                        whileHover={{ scale: 1.01, y: -1, filter: "brightness(1.05)" }}
+                        whileHover={{ scale: 1.01, y: -1, filter: "brightness(1.08)" }}
                         whileTap={{ scale: 0.98 }}
                         transition={{ duration: 0.15 }}
-                        className="w-full h-[44px] lg:h-[48px] flex items-center justify-center gap-2 rounded-[8px] font-semibold transition-all duration-300"
+                        className="w-full py-3.5 flex items-center justify-center gap-2 rounded-xl font-semibold text-[14px] transition-all duration-300"
                         style={{
-                          fontSize: "15px",
                           ...(plan.popular
                             ? {
                                 background: "#C9A86A",
                                 color: "#0A0A0A",
-                                boxShadow: "0 4px 15px rgba(201,168,106,0.25)",
+                                boxShadow: "0 4px 20px rgba(201,168,106,0.28)",
                               }
                             : plan.enterprise
                             ? {
-                                background: "rgba(255,255,255,0.02)",
+                                background: "rgba(255,255,255,0.03)",
                                 color: "#FFFFFF",
                                 border: "1px solid rgba(255,255,255,0.1)",
                               }
@@ -432,7 +433,7 @@ export function PricingSection() {
                                 background: "transparent",
                                 color: "var(--color-secondary)",
                                 border: "1px solid var(--color-secondary)",
-                                opacity: 0.8,
+                                opacity: 0.85,
                               }),
                         }}
                       >

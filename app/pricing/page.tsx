@@ -21,12 +21,12 @@ export default function PricingPage() {
       <main className="flex-1">
         <PricingHeader />
         
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 flex gap-12 relative">
-          {/* Sticky Sidebar */}
+        <div className="max-w-[1400px] mx-auto px-8 flex flex-col lg:flex-row gap-16 relative">
+          {/* Sticky Sidebar (Fixed 240px) */}
           <PricingSidebar />
 
-          {/* Main Content Area */}
-          <div className="flex-1 min-w-0">
+          {/* Main Content Area (Max 1100px, Centered in its column) */}
+          <div className="flex-1 max-w-[1100px] w-full mx-auto">
             <PricingCards />
             <PricingComparison />
             <PricingAddons />

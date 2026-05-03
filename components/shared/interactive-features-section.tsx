@@ -65,8 +65,8 @@ export function InteractiveFeaturesSection() {
   const activeFeature = FEATURES.find((f) => f.id === activeTab)!
 
   return (
-    <section className="py-24 md:py-32 bg-[#0B0B0C] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-[#111111] overflow-hidden border-t border-neutral-800">
+      <div className="relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Everything you need to <span className="text-[#C8A95A]">operate with power</span>

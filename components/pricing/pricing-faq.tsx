@@ -31,14 +31,14 @@ export function PricingFAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-24 bg-[#0B0B0C]">
-      <div className="max-w-[800px] mx-auto px-6 lg:px-8">
+    <section id="faq" className="py-24 bg-[#111111] border-t border-neutral-800 -mx-8 px-8">
+      <div className="max-w-[800px] mx-auto">
         <h2 className="text-3xl font-bold text-white mb-16 text-center">Frequently Asked Questions</h2>
         <div className="space-y-4">
           {FAQS.map((faq, idx) => (
             <div 
               key={idx} 
-              className="bg-[#111111] border border-[#1F1F1F] rounded-2xl overflow-hidden cursor-pointer"
+              className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl overflow-hidden cursor-pointer hover:border-[#D4AF37]/20 transition-colors duration-300"
               onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
             >
               <div className="p-6 flex items-center justify-between gap-4">

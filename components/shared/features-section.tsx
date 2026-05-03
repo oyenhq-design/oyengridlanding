@@ -33,8 +33,8 @@ const FEATURES = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-32 bg-gradient-to-b from-[#111114] to-[#1A1A1D] relative overflow-hidden border-y border-[#27272A]/40">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10">
+    <section className="py-24 bg-[#111111] relative overflow-hidden border-t border-neutral-800">
+      <div className="relative z-10">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="max-w-2xl">

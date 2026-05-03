@@ -46,11 +46,11 @@ const CASE_STUDIES = [
 
 export function CustomerStoriesSection() {
   return (
-    <section className="py-32 bg-[#F7F7F7] relative overflow-hidden border-y border-gray-200">
+    <section className="py-24 bg-[#F7F7F7] relative overflow-hidden border-y border-gray-200 rounded-3xl">
       {/* Subtle Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-[#C8A95A] opacity-[0.05] blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10">
+      <div className="relative z-10">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>

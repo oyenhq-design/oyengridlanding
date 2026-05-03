@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function CTASection() {
   return (
-    <section className="py-32 bg-[#0B0B0C] relative overflow-hidden flex items-center justify-center">
+    <section className="py-24 bg-[#111111] relative overflow-hidden flex items-center justify-center border-t border-neutral-800">
       {/* Strong Gold Gradient Streak Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0C] via-[#D4AF37]/20 to-[#0B0B0C] opacity-80" />
       <div className="absolute top-1/2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent shadow-[0_0_30px_rgba(212,175,55,1)] opacity-50" />
@@ -11,7 +11,7 @@ export function CTASection() {
       <div className="absolute -top-40 right-1/4 w-[800px] h-[100px] bg-[#D4AF37] opacity-[0.08] blur-[80px] rotate-12 pointer-events-none" />
       <div className="absolute -bottom-40 left-1/4 w-[800px] h-[100px] bg-[#D4AF37] opacity-[0.08] blur-[80px] -rotate-12 pointer-events-none" />
 
-      <div className="max-w-[1000px] mx-auto px-6 lg:px-8 relative z-10 text-center">
+      <div className="relative z-10 text-center">
         <h2 className="text-[40px] sm:text-[56px] lg:text-[72px] font-bold text-white tracking-tight mb-12 leading-[1.05]">
           Ready to structure <br className="hidden sm:block" /> your operations?
         </h2>
