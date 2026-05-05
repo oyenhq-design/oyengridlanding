@@ -57,7 +57,6 @@ export function PremiumHeader() {
                 key={item.label}
                 href={item.href}
                 className="text-white/70 hover:text-white transition-colors duration-200 ease-out font-medium text-base px-1 py-1 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                activeClassName="text-[#FFD700]"
               >
                 {item.label}
               </Link>
