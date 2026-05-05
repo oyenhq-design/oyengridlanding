@@ -54,52 +54,52 @@ export function PricingComparison() {
         <p className="text-[#A1A1AA] text-base">See how each plan supports your operations</p>
       </div>
       <div className="overflow-x-auto scrollbar-hide">
-        <table className="w-full text-left border-collapse min-w-[900px]">
-          <thead>
-            <tr className="border-b border-neutral-800">
+        <table className="w-full text-left border-collapse min-w-[900px] group/table">
+          <thead className="sticky top-0 z-20 bg-[#18181B]">
+            <tr className="border-b border-[#232323]">
               <th className="py-8 px-4" />
               <th className="py-8 px-4 text-left text-xs font-bold text-[#71717A] uppercase tracking-wider w-1/4">Feature</th>
-              <th className="py-8 px-4 text-left text-xs font-bold text-white uppercase tracking-wider">Basic</th>
-              <th className="py-8 px-4 text-left text-xs font-bold text-[#D4AF37] uppercase tracking-wider">Standard</th>
-              <th className="py-8 px-4 text-left text-xs font-bold text-white uppercase tracking-wider">Premium</th>
-              <th className="py-8 px-4 text-left text-xs font-bold text-white uppercase tracking-wider">Enterprise</th>
+              <th className="py-8 px-4 text-left text-xs font-bold text-white uppercase tracking-wider group/header hover:bg-[#232323]/60 cursor-pointer">Basic</th>
+              <th className="py-8 px-4 text-left text-xs font-bold text-[#D4AF37] uppercase tracking-wider group/header hover:bg-[#232323]/60 cursor-pointer">Standard</th>
+              <th className="py-8 px-4 text-left text-xs font-bold text-white uppercase tracking-wider group/header hover:bg-[#232323]/60 cursor-pointer">Premium</th>
+              <th className="py-8 px-4 text-left text-xs font-bold text-white uppercase tracking-wider group/header hover:bg-[#232323]/60 cursor-pointer">Enterprise</th>
             </tr>
           </thead>
           <tbody>
             {GROUPS.map((group) => (
               <React.Fragment key={group.title}>
                 <tr>
-                  <td colSpan={6} className="py-6 px-4 text-xs font-bold text-[#D4AF37] tracking-[0.2em] uppercase bg-[#232323]/60 border-t border-[#232323]">{group.title}</td>
+                  <td colSpan={6} className="py-8 px-4 text-xs font-bold text-[#FFD700] tracking-[0.2em] uppercase bg-[#232323]/60 border-t border-[#232323]">{group.title}</td>
                 </tr>
                 {group.features.map((feature, idx) => {
                   const isAlt = idx % 2 !== 0;
                   return (
                     <tr
                       key={feature.name}
-                      className={`border-b border-neutral-800 group hover:bg-[#18120A]/40 transition-colors ${isAlt ? "bg-[#18120A]/10" : "bg-transparent"}`}
+                      className={`border-b border-neutral-800 group/row hover:bg-[#232323]/40 transition-colors ${isAlt ? "bg-[#18120A]/10" : "bg-transparent"}`}
                     >
-                      <td className="py-5 px-4 w-10">
-                        {feature.icon ? <feature.icon className="w-5 h-5 text-[#D4AF37]/80" /> : null}
+                      <td className="py-5 px-4 w-12">
+                        {feature.icon ? <feature.icon className="w-6 h-6 text-[#FFD700]" /> : null}
                       </td>
-                      <td className="py-5 px-4 text-sm text-[#A1A1AA] font-medium group-hover:text-white transition-colors">{feature.name}</td>
-                      <td className="py-5 px-4 text-left text-sm text-[#71717A]">
+                      <td className="py-5 px-4 text-sm text-[#A1A1AA] font-medium group-hover/row:text-white transition-colors">{feature.name}</td>
+                      <td className="py-5 px-4 text-left text-sm text-[#71717A] group-hover/row:bg-[#FFD700]/10 group-hover/row:text-[#FFD700] transition-colors cursor-pointer">
                         {typeof feature.basic === "boolean" ? (
-                          feature.basic ? <Check className="w-4 h-4 text-[#D4AF37]" /> : <Minus className="w-4 h-4 text-[#333]" />
+                          feature.basic ? <Check className="w-5 h-5 text-[#FFD700]" /> : <Minus className="w-5 h-5 text-[#333]" />
                         ) : feature.basic}
                       </td>
-                      <td className="py-5 px-4 text-left text-sm text-white font-bold">
+                      <td className="py-5 px-4 text-left text-sm text-white font-bold group-hover/row:bg-[#FFD700]/10 group-hover/row:text-[#FFD700] transition-colors cursor-pointer">
                         {typeof feature.standard === "boolean" ? (
-                          feature.standard ? <Check className="w-4 h-4 text-[#D4AF37]" /> : <Minus className="w-4 h-4 text-[#333]" />
+                          feature.standard ? <Check className="w-5 h-5 text-[#FFD700]" /> : <Minus className="w-5 h-5 text-[#333]" />
                         ) : feature.standard}
                       </td>
-                      <td className="py-5 px-4 text-left text-sm text-[#71717A]">
+                      <td className="py-5 px-4 text-left text-sm text-[#71717A] group-hover/row:bg-[#FFD700]/10 group-hover/row:text-[#FFD700] transition-colors cursor-pointer">
                         {typeof feature.premium === "boolean" ? (
-                          feature.premium ? <Check className="w-4 h-4 text-[#D4AF37]" /> : <Minus className="w-4 h-4 text-[#333]" />
+                          feature.premium ? <Check className="w-5 h-5 text-[#FFD700]" /> : <Minus className="w-5 h-5 text-[#333]" />
                         ) : feature.premium}
                       </td>
-                      <td className="py-5 px-4 text-left text-sm text-[#71717A]">
+                      <td className="py-5 px-4 text-left text-sm text-[#71717A] group-hover/row:bg-[#FFD700]/10 group-hover/row:text-[#FFD700] transition-colors cursor-pointer">
                         {typeof feature.enterprise === "boolean" ? (
-                          feature.enterprise ? <Check className="w-4 h-4 text-[#D4AF37]" /> : <Minus className="w-4 h-4 text-[#333]" />
+                          feature.enterprise ? <Check className="w-5 h-5 text-[#FFD700]" /> : <Minus className="w-5 h-5 text-[#333]" />
                         ) : feature.enterprise}
                       </td>
                     </tr>
@@ -112,6 +112,7 @@ export function PricingComparison() {
       </div>
       {/* Bottom separator */}
       <div className="absolute left-0 right-0 bottom-0 h-2 bg-gradient-to-t from-[#232323] to-transparent opacity-80" />
+      <div className="w-full h-px bg-[#232323] opacity-60 my-12" />
     </section>
   )
 }

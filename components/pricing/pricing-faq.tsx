@@ -45,13 +45,15 @@ export function PricingFAQ() {
                 <h3 className="text-lg font-bold text-white tracking-tight">{faq.q}</h3>
                 <ChevronDown className={`w-5 h-5 text-[#D4AF37] transition-transform duration-300 ${activeIndex === idx ? "rotate-180" : ""}`} />
               </div>
-              <AnimatePresence>
+              <AnimatePresence initial={false}>
                 {activeIndex === idx && (
                   <motion.div
+                    key="faq-content"
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ height: { duration: 0.35, ease: "easeInOut" }, opacity: { duration: 0.25 } }}
+                    style={{ overflow: "hidden" }}
                   >
                     <div className="px-6 pb-6 text-[#A1A1AA] leading-relaxed border-t border-[#1F1F1F] pt-4">
                       {faq.a}

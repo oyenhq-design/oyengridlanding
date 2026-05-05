@@ -89,7 +89,7 @@ export function PricingCards() {
           return (
             <motion.div
               key={plan.name}
-              whileHover={{ y: -6 }}
+              whileHover={{ y: -6, scale: 1.02, boxShadow: "0 0 48px 0 rgba(212,175,55,0.18)" }}
               transition={{ duration: 0.25, ease: "easeOut" }}
               className={`group flex flex-col p-8 rounded-2xl border transition-all duration-300 ${
                 isDominant
@@ -103,33 +103,38 @@ export function PricingCards() {
                 </div>
               )}
 
+
               {/* Plan name */}
-              <h3 className="text-sm font-bold text-[#A1A1AA] tracking-widest uppercase mb-4">
+              <h3 className="text-sm font-bold text-[#A1A1AA] tracking-widest uppercase mb-1">
                 {plan.name}
               </h3>
+              {/* Who this is for */}
+              <div className="text-xs text-[#71717A] mb-4 min-h-[18px]">{plan.tagline}</div>
 
               {/* Price */}
               <div className="text-4xl font-bold text-white mb-2 leading-none">{plan.price}</div>
-              <p className="text-[13px] text-[#71717A] leading-relaxed mb-5 min-h-[36px]">
-                {plan.tagline}
-              </p>
 
               {/* CTA button — full width, directly under price */}
+
               <Link
                 href={plan.cta === "Talk to sales" ? "/contact" : "/get-started"}
-                className="block mb-6"
+                className="block mb-2"
               >
                 <button
-                  className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 ${
+                  className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 group/button ${
                     isDominant
-                      ? "bg-[#D4AF37] text-[#0B0B0C] shadow-[0_4px_28px_rgba(212,175,55,0.4)] hover:brightness-110"
+                      ? "bg-[#D4AF37] text-[#0B0B0C] shadow-[0_0_80px_0_rgba(212,175,55,0.32)] scale-[1.07] hover:brightness-110"
                       : "bg-white/5 text-white border border-white/10 hover:bg-white/[0.08] hover:border-[#D4AF37]/40"
                   }`}
+                  style={{ boxShadow: isDominant ? undefined : undefined }}
                 >
                   {plan.cta}
                   <ArrowRight className="w-4 h-4" />
+                  <span className="absolute inset-0 rounded-xl pointer-events-none group-hover/button:shadow-[0_0_24px_0_rgba(212,175,55,0.18)] transition-all duration-300" />
                 </button>
               </Link>
+              {/* Micro-copy under CTA */}
+              <div className={`text-[11px] text-[#A1A1AA] text-center mb-4 ${isDominant ? "font-semibold" : ""}`}>No setup required</div>
 
               {/* Divider between CTA and features */}
               <div className="border-t border-neutral-800 my-5" />
