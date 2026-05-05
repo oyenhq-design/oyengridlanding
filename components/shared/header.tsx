@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ChevronDown, Menu, X, Layout, BarChart3, Zap, 
-  Rocket, Building2, Heart, BookOpen, FileText, Newspaper
+  Rocket, Building2, Heart, BookOpen, FileText, Newspaper,
+  Search, Grid
 } from "lucide-react";
 
 const NAV_MENU = [
@@ -45,6 +46,7 @@ export function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isAnnouncementVisible, setIsAnnouncementVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -53,26 +55,30 @@ export function Header() {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out border-b ${
-        isScrolled
-          ? "bg-[rgba(10,10,10,0.6)] backdrop-blur-[12px] border-[rgba(255,255,255,0.06)] py-4 shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
-          : "bg-transparent border-transparent py-6"
-      }`}
-    >
-      <div className="max-w-[1400px] mx-auto px-12 lg:px-12">
-        <div className="flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 flex flex-col">
+      
+      {/* ════════════════════════════════════════════
+          1. MAIN NAVBAR (TOP LAYER)
+      ════════════════════════════════════════════ */}
+      <nav 
+        className={`w-full h-[64px] lg:h-[72px] transition-all duration-300 ease-out border-b backdrop-blur-[10px] shadow-[0_6px_20px_rgba(0,0,0,0.4)] flex items-center px-6 lg:px-14
+          ${isScrolled 
+            ? "bg-[rgba(5,7,10,0.85)] border-[rgba(255,255,255,0.06)]" 
+            : "bg-gradient-to-r from-[#05070A] to-[#0A0F1C] border-[rgba(255,255,255,0.06)]"}
+        `}
+      >
+        <div className="max-w-[1400px] mx-auto w-full flex items-center justify-between">
           
-          {/* Logo */}
+          {/* LEFT: Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0 group">
-            <div className="w-10 h-10 bg-[#1A1A1D] rounded-xl flex items-center justify-center border border-[rgba(255,255,255,0.06)] group-hover:border-[#FACC15]/30 transition-all duration-500">
+            <div className="w-10 h-10 bg-[#1A1A1D] rounded-xl flex items-center justify-center border border-[rgba(255,255,255,0.1)] group-hover:border-[#FACC15]/40 transition-all duration-500">
               <span className="text-white font-bold text-sm tracking-widest group-hover:text-[#FACC15] transition-colors">OG</span>
             </div>
             <span className="text-white font-bold tracking-tight text-xl group-hover:text-white transition-colors">OYEN GRID</span>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* CENTER: Navigation Items */}
+          <div className="hidden lg:flex items-center gap-8">
             {NAV_MENU.map((item) => (
               <div
                 key={item.label}
@@ -84,72 +90,88 @@ export function Header() {
                   <Link
                     href={item.href!}
                     className={`text-[14px] font-semibold tracking-wide transition-all duration-200 px-1 py-2 relative group ${
-                      pathname === item.href ? "text-white [text-shadow:0_0_8px_rgba(255,255,255,0.2)]" : "text-[#A1A1AA] hover:text-white"
+                      pathname === item.href ? "text-white" : "text-[#A1A1AA] hover:text-white"
                     }`}
                   >
                     {item.label}
-                    <span className={`absolute -bottom-1 left-0 h-[2px] bg-white transition-transform duration-300 origin-left ${pathname === item.href ? "w-full scale-x-100" : "w-full scale-x-0 group-hover:scale-x-100"}`} />
+                    <motion.span 
+                      className="absolute -bottom-1 left-0 h-[2px] bg-white origin-left"
+                      initial={{ scaleX: pathname === item.href ? 1 : 0 }}
+                      animate={{ scaleX: pathname === item.href ? 1 : 0 }}
+                      whileHover={{ scaleX: 1 }}
+                      transition={{ duration: 0.2 }}
+                    />
+                    <span className="absolute -bottom-1 left-0 h-[2px] bg-white w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
                   </Link>
                 ) : (
                   <div className={`flex items-center gap-1.5 cursor-pointer text-[#A1A1AA] hover:text-white transition-all duration-200 py-2 relative group ${activeDropdown === item.label ? "text-white" : ""}`}>
                     <span className="text-[14px] font-semibold tracking-wide">{item.label}</span>
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180 text-[#FACC15]" : "opacity-50"}`} />
-                    <span className={`absolute -bottom-1 left-0 h-[2px] bg-white transition-transform duration-300 origin-left ${activeDropdown === item.label ? "w-full scale-x-100" : "w-full scale-x-0 group-hover:scale-x-100"}`} />
+                    <span className="absolute -bottom-1 left-0 h-[2px] bg-white w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
                   </div>
                 )}
 
                 {/* Dropdown Panel */}
-                {item.type === "dropdown" && (
-                  <AnimatePresence>
-                    {activeDropdown === item.label && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                        transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                        className="absolute top-full left-0 pt-2"
-                      >
-                        <div className="w-[320px] bg-[#121214] border border-[rgba(255,255,255,0.08)] rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-2.5 overflow-hidden">
-                          {item.items?.map((subItem) => {
-                            const Icon = subItem.icon;
-                            return (
-                              <Link
-                                key={subItem.title}
-                                href={subItem.href}
-                                className="group flex items-start gap-4 p-3.5 rounded-[14px] transition-all duration-300 hover:bg-white/[0.03] active:scale-[0.98]"
-                              >
-                                <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center shrink-0 group-hover:border-[#C8A95A]/30 group-hover:bg-[#C8A95A]/5 transition-all duration-300">
-                                  <Icon className="w-5 h-5 text-[#9CA3AF] group-hover:text-[#C8A95A] transition-colors" />
-                                </div>
-                                <div>
-                                  <div className="text-[14px] font-bold text-white mb-0.5 group-hover:text-[#C8A95A] transition-colors">{subItem.title}</div>
-                                  <div className="text-[12px] text-[#71717A] leading-relaxed group-hover:text-[#A1A1AA] transition-colors">{subItem.desc}</div>
-                                </div>
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                )}
+                <AnimatePresence>
+                  {item.type === "dropdown" && activeDropdown === item.label && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 pt-2"
+                    >
+                      <div className="w-[320px] bg-[#0A0F1C] border border-[rgba(255,255,255,0.08)] rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-2.5 overflow-hidden backdrop-blur-xl">
+                        {item.items?.map((subItem) => {
+                          const Icon = subItem.icon;
+                          return (
+                            <Link
+                              key={subItem.title}
+                              href={subItem.href}
+                              className="group flex items-start gap-4 p-3.5 rounded-[14px] transition-all duration-300 hover:bg-white/[0.03]"
+                            >
+                              <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center shrink-0 group-hover:border-[#FACC15]/30 group-hover:bg-[#FACC15]/5 transition-all duration-300">
+                                <Icon className="w-5 h-5 text-[#9CA3AF] group-hover:text-[#FACC15] transition-colors" />
+                              </div>
+                              <div>
+                                <div className="text-[14px] font-bold text-white mb-0.5 group-hover:text-[#FACC15] transition-colors">{subItem.title}</div>
+                                <div className="text-[12px] text-[#71717A] leading-relaxed group-hover:text-[#A1A1AA] transition-colors">{subItem.desc}</div>
+                              </div>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
-          </nav>
+          </div>
 
-          {/* Right Actions */}
-          <div className="hidden lg:flex items-center gap-8">
+          {/* RIGHT: Actions */}
+          <div className="hidden lg:flex items-center gap-6">
+            <button className="text-[#A1A1AA] hover:text-white transition-colors p-2">
+              <Search className="w-5 h-5" />
+            </button>
             <Link href="/login" className="text-[14px] font-bold text-[#A1A1AA] hover:text-white transition-colors">
               Login
             </Link>
+            <Link 
+              href="/contact"
+              className="px-5 py-2.5 rounded-xl border border-white/10 bg-white/5 text-white text-[14px] font-bold hover:bg-white/10 transition-all"
+            >
+              Contact Sales
+            </Link>
             <Link
               href="/get-started"
-              className="relative px-7 py-3 rounded-xl text-[14px] font-bold transition-all duration-500 overflow-hidden group"
+              className="relative px-6 py-2.5 rounded-xl text-[14px] font-bold transition-all duration-300 overflow-hidden group shadow-[0_10px_25px_rgba(250,204,21,0)] hover:shadow-[0_10px_25px_rgba(250,204,21,0.3)] hover:scale-105"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#FACC15] to-[#EAB308] transition-transform duration-500 group-hover:scale-105" />
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_10px_25px_rgba(250,204,21,0.3)]" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FACC15] to-[#EAB308]" />
               <span className="relative z-10 text-black">Get Started</span>
             </Link>
+            <button className="text-[#A1A1AA] hover:text-white transition-colors p-2">
+              <Grid className="w-5 h-5" />
+            </button>
           </div>
 
           {/* Mobile Toggle */}
@@ -159,9 +181,47 @@ export function Header() {
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
-
         </div>
-      </div>
+      </nav>
+
+      {/* ════════════════════════════════════════════
+          2. ANNOUNCEMENT BAR (BELOW NAVBAR)
+      ════════════════════════════════════════════ */}
+      <AnimatePresence>
+        {isAnnouncementVisible && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="w-full bg-gradient-to-r from-[#1E3A8A] via-[#2563EB] to-[#4F46E5] relative overflow-hidden"
+          >
+            <div className="max-w-[1400px] mx-auto h-[44px] lg:h-[48px] px-6 lg:px-14 flex items-center justify-between gap-4">
+              {/* LEFT: Message */}
+              <div className="flex items-center gap-2">
+                <span className="text-white text-[13px] lg:text-[14px] font-medium tracking-tight">
+                  Run structured programmes with full operational clarity and control.
+                </span>
+              </div>
+
+              {/* RIGHT: CTA + Close */}
+              <div className="flex items-center gap-6">
+                <Link 
+                  href="/solutions"
+                  className="bg-white text-black px-4 py-1.5 rounded-full text-[13px] font-semibold hover:bg-white/90 transition-all shadow-sm"
+                >
+                  Explore Platform
+                </Link>
+                <button 
+                  onClick={() => setIsAnnouncementVisible(false)}
+                  className="text-white/80 hover:text-white transition-colors p-1"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
@@ -170,7 +230,7 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-[#0B0B0C] border-t border-white/5 overflow-hidden"
+            className="lg:hidden bg-[#0B0B0C] border-t border-white/5 overflow-hidden backdrop-blur-xl"
           >
             <div className="px-6 py-8 space-y-6">
               {NAV_MENU.map((item) => (
@@ -178,13 +238,13 @@ export function Header() {
                   <div className="text-[12px] font-bold text-[#71717A] uppercase tracking-widest">{item.label}</div>
                   <div className="grid grid-cols-1 gap-4">
                     {item.type === "link" ? (
-                      <Link href={item.href!} className="text-[16px] font-bold text-white hover:text-[#C8A95A]">
+                      <Link href={item.href!} className="text-[16px] font-bold text-white hover:text-[#FACC15]">
                         {item.label}
                       </Link>
                     ) : (
                       item.items?.map((subItem) => (
-                        <Link key={subItem.title} href={subItem.href} className="flex items-center gap-3 text-[16px] font-bold text-white hover:text-[#C8A95A]">
-                          <subItem.icon className="w-5 h-5 text-[#C8A95A]" />
+                        <Link key={subItem.title} href={subItem.href} className="flex items-center gap-3 text-[16px] font-bold text-white hover:text-[#FACC15]">
+                          <subItem.icon className="w-5 h-5 text-[#FACC15]" />
                           {subItem.title}
                         </Link>
                       ))
@@ -196,7 +256,7 @@ export function Header() {
                 <Link href="/login" className="text-center py-3 rounded-xl border border-white/10 text-white font-bold">
                   Login
                 </Link>
-                <Link href="/get-started" className="text-center py-3 rounded-xl bg-[#C8A95A] text-[#0B0B0C] font-bold">
+                <Link href="/get-started" className="text-center py-3 rounded-xl bg-gradient-to-r from-[#FACC15] to-[#EAB308] text-black font-bold">
                   Get Started
                 </Link>
               </div>
