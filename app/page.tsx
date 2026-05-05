@@ -12,6 +12,7 @@ import { PricingEntrySection } from "@/components/shared/pricing-entry-section";
 import { CTASection } from "@/components/shared/cta-section";
 import { TargetUsersSection } from "@/components/shared/target-users-section";
 import { InteractiveFeaturesSection } from "@/components/shared/interactive-features-section";
+import { CinematicCTASection } from "@/components/shared/cinematic-cta-section";
 import { Footer } from "@/components/shared/footer";
 import { MainGrid } from "@/components/layout/main-grid";
 import { Sidebar } from "@/components/layout/sidebar";
@@ -74,6 +75,7 @@ export default function Home() {
 
           <div id="pricing">
             <PricingEntrySection />
+            <CinematicCTASection />
             <CTASection />
           </div>
         </MainGrid>
