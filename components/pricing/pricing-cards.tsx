@@ -65,7 +65,7 @@ const PLANS = [
 
 export function PricingCards() {
   return (
-    <section id="plans" className="py-24 first:pt-0 relative">
+    <section id="plans" className="py-28 first:pt-0 relative bg-gradient-to-b from-[#0A0A0A] to-[#111111]">
       {/* Radial gold glow behind cards */}
       <div
         aria-hidden
@@ -75,26 +75,26 @@ export function PricingCards() {
         }}
       />
 
-      <div className="relative z-10 mb-10">
-        <h2 className="text-2xl font-bold text-white mb-3 tracking-wider uppercase">OYEN GRID Workspace</h2>
-        <p className="text-[#A1A1AA] text-sm">
+      <div className="relative z-10 mb-14">
+        <h2 className="text-3xl font-semibold tracking-tight text-white mb-4">OYEN GRID Workspace</h2>
+        <p className="text-neutral-400 text-base leading-relaxed font-normal">
           Includes programme structuring, session management, tracking, and analytics in one unified system.
         </p>
       </div>
 
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {PLANS.map((plan, idx) => {
           // Make the second plan (STANDARD) dominant
           const isDominant = idx === 1;
           return (
             <motion.div
               key={plan.name}
-              whileHover={{ y: -6, scale: 1.02, boxShadow: "0 0 48px 0 rgba(212,175,55,0.18)" }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className={`group flex flex-col p-8 rounded-2xl border transition-all duration-300 ${
+              whileHover={{ y: -2, scale: 1.02, boxShadow: isDominant ? "0 0 48px 0 rgba(212,175,55,0.18)" : "0 0 32px 0 rgba(24,24,24,0.10)" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className={`group flex flex-col p-10 rounded-3xl border border-neutral-800 transition-all duration-300 ease-out backdrop-blur-sm gap-6 ${
                 isDominant
-                  ? "bg-[#111111] border-[#D4AF37] shadow-[0_0_64px_rgba(212,175,55,0.22)] scale-[1.05] z-20"
-                  : "bg-[#0F0F10] border-[#1f1f1f] hover:border-[#D4AF37]/50 hover:shadow-[0_0_30px_rgba(212,175,55,0.1)]"
+                  ? "bg-[#161616] shadow-[0_0_64px_rgba(212,175,55,0.22)] scale-[1.05] z-20"
+                  : "bg-[#111111] hover:shadow-[0_0_32px_0_rgba(212,175,55,0.08)]"
               }`}
             >
               {plan.popular && (
@@ -105,14 +105,14 @@ export function PricingCards() {
 
 
               {/* Plan name */}
-              <h3 className="text-sm font-bold text-[#A1A1AA] tracking-widest uppercase mb-1">
+              <h3 className={`text-3xl font-semibold tracking-tight mb-1 ${isDominant ? "text-[#FFD700]" : "text-white"}`}>
                 {plan.name}
               </h3>
               {/* Who this is for */}
-              <div className="text-xs text-[#71717A] mb-4 min-h-[18px]">{plan.tagline}</div>
+              <div className="text-sm text-neutral-400 mb-4 min-h-[18px] leading-relaxed font-normal">{plan.tagline}</div>
 
               {/* Price */}
-              <div className="text-4xl font-bold text-white mb-2 leading-none">{plan.price}</div>
+              <div className="text-4xl font-bold text-white mb-2 leading-tight">{plan.price}</div>
 
               {/* CTA button — full width, directly under price */}
 
@@ -121,33 +121,36 @@ export function PricingCards() {
                 className="block mb-2"
               >
                 <button
-                  className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 group/button ${
+                  className={`w-full py-3.5 rounded-2xl font-semibold text-base transition-all duration-300 ease-out flex items-center justify-center gap-2 group/button relative overflow-hidden ${
                     isDominant
-                      ? "bg-[#D4AF37] text-[#0B0B0C] shadow-[0_0_80px_0_rgba(212,175,55,0.32)] scale-[1.07] hover:brightness-110"
-                      : "bg-white/5 text-white border border-white/10 hover:bg-white/[0.08] hover:border-[#D4AF37]/40"
+                      ? "bg-[#FFD700] text-[#0B0B0C] shadow-[0_0_40px_0_rgba(212,175,55,0.18)] scale-[1.07] hover:brightness-110"
+                      : "bg-white/5 text-white border border-white/10 hover:bg-white/[0.08] hover:border-neutral-700"
                   }`}
                   style={{ boxShadow: isDominant ? undefined : undefined }}
                 >
                   {plan.cta}
-                  <ArrowRight className="w-4 h-4" />
-                  <span className="absolute inset-0 rounded-xl pointer-events-none group-hover/button:shadow-[0_0_24px_0_rgba(212,175,55,0.18)] transition-all duration-300" />
+                  <ArrowRight className="w-5 h-5 opacity-80" />
+                  {/* Soft glow under primary button */}
+                  {isDominant && (
+                    <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-4/5 h-2 bg-gradient-to-t from-[#FFD700]/40 to-transparent rounded-b-2xl blur-sm opacity-80 pointer-events-none" />
+                  )}
                 </button>
               </Link>
               {/* Micro-copy under CTA */}
-              <div className={`text-[11px] text-[#A1A1AA] text-center mb-4 ${isDominant ? "font-semibold" : ""}`}>No setup required</div>
+              <div className={`text-xs text-neutral-400 text-center mb-4 font-normal leading-relaxed ${isDominant ? "font-semibold" : ""}`}>No setup required</div>
 
               {/* Divider between CTA and features */}
               <div className="border-t border-neutral-800 my-5" />
 
               {/* Includes label */}
-              <div className="text-xs font-bold uppercase text-[#D4AF37]/70 mb-3 tracking-widest">Includes:</div>
+              <div className="text-xs font-semibold uppercase text-neutral-500 mb-3 tracking-widest">Includes:</div>
 
               {/* Features list */}
               <ul className="flex flex-col gap-6 flex-1">
                 {plan.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" strokeWidth={3} />
-                    <span className="text-sm text-[#D4D4D8] leading-snug">{feature}</span>
+                    <Check className={`w-5 h-5 opacity-70 ${isDominant ? "text-[#FFD700]" : "text-neutral-500"} shrink-0 mt-0.5 transition-all duration-300 ease-out`} strokeWidth={2.2} />
+                    <span className="text-base text-[#D4D4D8] leading-relaxed font-normal">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -155,6 +158,8 @@ export function PricingCards() {
           );
         })}
       </div>
+      {/* Subtle divider below cards */}
+      <div className="w-full h-px bg-neutral-800 opacity-70 my-16" />
     </section>
   )
 }
