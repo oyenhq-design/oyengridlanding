@@ -295,51 +295,55 @@ export function PricingSection() {
                   delay: i * 0.08,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                whileHover={{ y: -6 }}
                 className={[
                   styles.wrapper,
                   styles.bg,
                   styles.border,
-                  styles.hoverGlow,
                   styles.scale,
                   styles.defaultY,
                   styles.zIndex,
-                  "p-8 hover:-translate-y-[6px]"
+                  "p-8 group overflow-hidden"
                 ].join(" ")}
+                whileHover={{ 
+                  y: -10, 
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.4), 0 0 25px rgba(250,204,21,0.15)",
+                }}
               >
+                {/* Inner Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
                 {/* Popular Plan badge — Standard only */}
                 {plan.popular && (
-                  <div className="absolute -top-[14px] left-1/2 -translate-x-1/2 z-30 pointer-events-none group-hover:scale-[1.02] group-hover:brightness-110 transition-all duration-300">
+                  <div className="absolute -top-[14px] left-1/2 -translate-x-1/2 z-30 pointer-events-none">
                     <span
-                      className="text-[11px] md:text-[12px] font-medium tracking-[0.04em] px-[12px] py-[6px] rounded-full backdrop-blur-sm inline-block whitespace-nowrap"
+                      className="text-[11px] md:text-[12px] font-bold tracking-[0.1em] px-[12px] py-[6px] rounded-full backdrop-blur-md inline-block whitespace-nowrap uppercase"
                       style={{
-                        background: "rgba(201, 168, 106, 0.10)",
-                        color: "var(--color-primary)",
-                        border: "1px solid rgba(201, 168, 106, 0.30)",
+                        background: "rgba(201, 168, 106, 0.20)",
+                        color: "#FACC15",
+                        border: "1px solid rgba(201, 168, 106, 0.40)",
                       }}
                     >
-                      Popular
+                      Most Popular
                     </span>
                   </div>
-                )}
-
-                {/* Subtle inner top gold gradient for Standard */}
-                {plan.popular && (
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 rounded-[16px]"
-                    style={{
-                      background: "linear-gradient(180deg, rgba(201,168,106,0.06) 0%, transparent 40%)",
-                    }}
-                  />
                 )}
 
                 {/* ── Card header ── */}
                 <div className="relative z-10 flex-col flex h-full">
                   
+                  {/* Top-Left Icon */}
+                  <div className="mb-6">
+                    <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-[#D4AF37]/40 group-hover:bg-[#D4AF37]/5 transition-all duration-500">
+                      {plan.tier === "basic" && <Zap className="w-5 h-5 text-[#A1A1AA] group-hover:text-[#FACC15]" />}
+                      {plan.tier === "standard" && <Cpu className="w-5 h-5 text-[#FACC15]" />}
+                      {plan.tier === "premium" && <Globe className="w-5 h-5 text-[#A1A1AA] group-hover:text-[#FACC15]" />}
+                      {plan.tier === "enterprise" && <Building2 className="w-5 h-5 text-[#A1A1AA] group-hover:text-[#FACC15]" />}
+                    </div>
+                  </div>
+
                   {/* Plan name */}
                   <div className="mb-[12px]">
-                    <h2 className="font-semibold text-white tracking-wide text-[20px] lg:text-[22px]">
+                    <h2 className="font-bold text-white tracking-tight text-[22px] group-hover:text-[#FACC15] transition-colors">
                       {plan.name}
                     </h2>
                   </div>

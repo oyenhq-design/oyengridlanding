@@ -1,41 +1,46 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, BarChart3 } from "lucide-react";
 import Link from "next/link";
 
 export function PerformanceAnalyticsSection() {
-  return (
-    <section className="py-24 bg-[#0B0B0C] relative overflow-hidden border-t border-neutral-800">
-      {/* Background Lighting */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37] opacity-[0.02] blur-[150px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3" />
+  const bars = [
+    { height: "45%", highlight: false },
+    { height: "75%", highlight: false },
+    { height: "100%", highlight: true },
+    { height: "65%", highlight: false },
+    { height: "85%", highlight: false },
+  ];
 
-      <div className="relative z-10">
+  return (
+    <section className="py-32 bg-transparent relative overflow-hidden border-t border-white/5">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-8">
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
           {/* Left Side: Text Block */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="flex flex-col text-left"
           >
-            <div className="inline-flex items-center gap-2 mb-6">
-              <div className="w-8 h-[1px] bg-[#D4AF37]"></div>
-              <span className="text-[#D4AF37] uppercase tracking-widest text-[12px] font-semibold">Data & Analytics</span>
+            <div className="inline-flex items-center gap-3 text-[#D4AF37] text-[13px] font-bold tracking-[0.2em] uppercase mb-8">
+              <BarChart3 className="w-4 h-4" />
+              Intelligence
             </div>
             
-            <h2 className="text-[36px] md:text-[48px] font-bold text-white leading-[1.1] tracking-tight mb-6">
-              Performance insights that matter.
+            <h2 className="text-[40px] md:text-[56px] font-bold text-white leading-[1.05] tracking-tight mb-8">
+              Operational insights <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#FFF0B3]">that drive results</span>
             </h2>
             
-            <p className="text-lg text-[#A1A1AA] leading-relaxed mb-8 font-light">
-              Make data-driven decisions with real-time analytics. Exportable, granular insights on every metric that is critical to your programme's operational success.
+            <p className="text-lg text-[#A1A1AA] leading-relaxed mb-12 font-light max-w-xl">
+              Make high-stakes decisions with data-driven confidence. Our analytics engine translates raw operational data into actionable intelligence across every cohort.
             </p>
  
-            <ul className="space-y-4 mb-10 text-[#A1A1AA]">
+            <ul className="space-y-6 mb-12">
               {[
                 "Automated compliance reporting",
                 "Predictive completion forecasting",
@@ -43,11 +48,10 @@ export function PerformanceAnalyticsSection() {
               ].map((item, i) => (
                 <motion.li 
                   key={i} 
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.1 + i * 0.1 }}
-                  className="flex items-center gap-3 text-base"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 + i * 0.1 }}
+                  className="flex items-center gap-4 text-base text-[#A1A1AA] font-light"
                 >
                   <CheckCircle2 className="w-5 h-5 text-[#D4AF37] shrink-0" />
                   <span>{item}</span>
@@ -55,101 +59,68 @@ export function PerformanceAnalyticsSection() {
               ))}
             </ul>
  
-            <div className="mt-8">
+            <div className="flex">
               <Link 
                 href="/analytics"
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-[#27272A] hover:border-[#3B82F6]/50 text-white/80 hover:text-[#3B82F6] text-sm font-medium transition-all duration-300 hover:bg-[#111111] group"
+                className="inline-flex items-center justify-center px-8 py-3 rounded-lg border border-white/10 hover:border-[#D4AF37]/50 text-white font-semibold text-[15px] transition-all duration-300 hover:bg-white/5 group"
               >
-                Explore analytics <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                Explore analytics <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </motion.div>
  
-          {/* Right Side: Visual (Abstract 3D Gold Bars) */}
+          {/* Right Side: Minimal Analytics Visualization */}
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
-            className="relative w-full aspect-square md:aspect-[4/3] rounded-2xl border border-[#27272A] bg-[#151515] shadow-[0_0_50px_rgba(212,175,55,0.03)] overflow-hidden flex items-end justify-center p-8 lg:p-12"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative h-[450px] w-full bg-[rgba(20,20,20,0.4)] backdrop-blur-md border border-white/5 rounded-[32px] p-10 flex flex-col justify-end"
           >
-             <div className="absolute inset-0 bg-gradient-to-tr from-[#1A1A1D] to-[#111111] opacity-80" />
-             
-             {/* Abstract 3D Gold Bars using CSS */}
-             <div className="relative z-10 w-full h-full flex items-end justify-between gap-4 md:gap-8 pt-20">
-               
-               {/* Bar 1 */}
-               <motion.div 
-                 initial={{ height: "0%" }}
-                 whileInView={{ height: "45%" }}
-                 viewport={{ once: true, margin: "-100px" }}
-                 transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                 className="relative flex-1 bg-[#27272A] rounded-t-sm"
-               >
-                 {/* Top face */}
-                 <div className="absolute top-0 left-0 w-full h-4 bg-[#3f3f46] transform -translate-y-full skew-x-[45deg] origin-bottom-left" />
-                 {/* Right face */}
-                 <div className="absolute top-0 right-0 w-4 h-full bg-[#18181b] transform translate-x-full skew-y-[45deg] origin-top-left" />
-               </motion.div>
+            {/* Background Grid Lines (Faint) */}
+            <div className="absolute inset-0 p-10 flex flex-col justify-between opacity-[0.03]">
+              {[...Array(8)].map((_, i) => (
+                <div key={i} className="w-full h-[1px] bg-white" />
+              ))}
+            </div>
 
-               {/* Bar 2 */}
-               <motion.div 
-                 initial={{ height: "0%" }}
-                 whileInView={{ height: "70%" }}
-                 viewport={{ once: true, margin: "-100px" }}
-                 transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-                 className="relative flex-1 bg-[#27272A] rounded-t-sm"
-               >
-                 <div className="absolute top-0 left-0 w-full h-4 bg-[#3f3f46] transform -translate-y-full skew-x-[45deg] origin-bottom-left" />
-                 <div className="absolute top-0 right-0 w-4 h-full bg-[#18181b] transform translate-x-full skew-y-[45deg] origin-top-left" />
-               </motion.div>
+            {/* Bars Visualization */}
+            <div className="relative z-10 flex items-end justify-between h-[280px] gap-4 md:gap-8">
+              {bars.map((bar, i) => (
+                <div key={i} className="flex-1 flex flex-col items-center group relative h-full justify-end">
+                  <motion.div 
+                    initial={{ height: 0 }}
+                    whileInView={{ height: bar.height }}
+                    transition={{ duration: 1, delay: 0.3 + i * 0.1, ease: "easeOut" }}
+                    className={`w-full rounded-t-xl transition-all duration-500 relative ${
+                      bar.highlight 
+                        ? "bg-gradient-to-t from-[#D4AF37] to-[#FFF0B3] shadow-[0_0_30px_rgba(212,175,55,0.25)]" 
+                        : "bg-white/5 group-hover:bg-white/10"
+                    }`}
+                  >
+                    {bar.highlight && (
+                      <div className="absolute inset-0 bg-[#D4AF37] opacity-20 blur-xl animate-pulse" />
+                    )}
+                  </motion.div>
+                  <div className="mt-6 text-[10px] font-bold text-[#71717A] tracking-widest uppercase">
+                    Batch 0{i + 1}
+                  </div>
+                </div>
+              ))}
+            </div>
 
-               {/* Bar 3 (Gold) */}
-               <motion.div 
-                 initial={{ height: "0%" }}
-                 whileInView={{ height: "100%" }}
-                 viewport={{ once: true, margin: "-100px" }}
-                 transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
-                 className="relative flex-1 bg-gradient-to-t from-[#B8972E] to-[#D4AF37] rounded-t-sm shadow-[0_0_30px_rgba(212,175,55,0.4)]"
-               >
-                 {/* Top face */}
-                 <div className="absolute top-0 left-0 w-full h-4 bg-[#FFF0B3] transform -translate-y-full skew-x-[45deg] origin-bottom-left" />
-                 {/* Right face */}
-                 <div className="absolute top-0 right-0 w-4 h-full bg-[#A38320] transform translate-x-full skew-y-[45deg] origin-top-left" />
-                 
-                 {/* Floating Label over Gold Bar */}
-                 <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 2 }}
-                    className="absolute -top-16 left-1/2 -translate-x-1/2 bg-[#121214] border border-[#D4AF37]/50 text-white px-3 py-1.5 rounded-md text-xs font-medium whitespace-nowrap shadow-[0_5px_15px_rgba(212,175,55,0.2)]"
-                 >
-                   Target Reached
-                 </motion.div>
-               </motion.div>
-
-               {/* Bar 4 (Secondary Accent Blue) */}
-               <motion.div 
-                 initial={{ height: "0%" }}
-                 whileInView={{ height: "85%" }}
-                 viewport={{ once: true, margin: "-100px" }}
-                 transition={{ duration: 1.3, delay: 0.6, ease: "easeOut" }}
-                 className="relative flex-1 bg-gradient-to-t from-[#1d4ed8] to-[#3B82F6] rounded-t-sm shadow-[0_0_20px_rgba(59,130,246,0.3)]"
-               >
-                 <div className="absolute top-0 left-0 w-full h-4 bg-[#60a5fa] transform -translate-y-full skew-x-[45deg] origin-bottom-left" />
-                 <div className="absolute top-0 right-0 w-4 h-full bg-[#1e3a8a] transform translate-x-full skew-y-[45deg] origin-top-left" />
-               </motion.div>
-
-             </div>
-
-             {/* Grid Floor */}
-             <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#D4AF37]/5 to-transparent pointer-events-none transform perspective-1000 rotate-x-60 origin-bottom" />
-             
+            {/* Float Decor */}
+            <motion.div 
+              animate={{ y: [0, -15, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              className="absolute top-12 left-12 bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-xl"
+            >
+              <div className="text-[10px] text-[#D4AF37] font-bold uppercase tracking-widest mb-2">Primary Metric</div>
+              <div className="text-3xl font-bold text-white tracking-tighter">Engagement</div>
+            </motion.div>
           </motion.div>
 
         </div>
-
       </div>
     </section>
   );

@@ -28,7 +28,17 @@ const HOME_NAV_ITEMS = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#0B0B0C] text-white selection:bg-[#D4AF37]/30 font-sans">
+    <div className="flex flex-col min-h-screen bg-[#0B0B0C] text-white selection:bg-[#D4AF37]/30 font-sans relative">
+      {/* Global Background Atmosphere */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Top Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[#D4AF37] opacity-[0.05] blur-[140px] rounded-full -translate-y-1/2" />
+        {/* Mid Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-white opacity-[0.02] blur-[160px] rounded-full" />
+        {/* Bottom Glow Variation */}
+        <div className="absolute bottom-0 left-0 w-full h-[500px] bg-gradient-to-t from-[#111111] to-transparent opacity-40" />
+      </div>
+
       <Header />
       <main className="flex-1">
         <MainGrid sidebar={<Sidebar items={HOME_NAV_ITEMS} />}>

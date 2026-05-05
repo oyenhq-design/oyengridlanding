@@ -1,15 +1,44 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Layout, Video, Database } from "lucide-react"
-import { fadeUpVariant, staggerContainerVariant, staggerItemVariant } from "@/lib/motion"
+import { Cpu, ShieldCheck, Activity, Layers, ArrowRight } from "lucide-react"
 
 export function CoreFeaturesSection() {
+  const features = [
+    {
+      title: "Structure",
+      description: "Define absolute programme flows with enforced sequencing and participant journey mapping.",
+      icon: Cpu,
+      delay: 0.1,
+      indicators: [
+        { top: "10%", left: "85%", size: "w-1 h-1" },
+        { top: "40%", left: "95%", size: "w-2 h-2" },
+      ]
+    },
+    {
+      title: "Control",
+      description: "Manage bank-grade access, resource allocation, and multi-tenant delivery environments.",
+      icon: ShieldCheck,
+      delay: 0.2,
+      indicators: [
+        { top: "20%", left: "5%", size: "w-1.5 h-1.5" },
+        { top: "70%", left: "10%", size: "w-1 h-1" },
+      ]
+    },
+    {
+      title: "Visibility",
+      description: "Monitor real-time participation metrics and cohort performance through unified dashboards.",
+      icon: Activity,
+      delay: 0.3,
+      indicators: [
+        { top: "30%", left: "90%", size: "w-2 h-2" },
+        { top: "80%", left: "80%", size: "w-1.5 h-1.5" },
+      ]
+    }
+  ];
+
   return (
-    <section className="py-32 bg-background relative overflow-hidden">
-      {/* Subtle ambient gradient */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#C9A86A]/5 blur-[120px] rounded-full pointer-events-none" />
-      
+    <section className="py-32 bg-transparent relative overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -18,140 +47,64 @@ export function CoreFeaturesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-20"
+          className="mb-20 text-left max-w-3xl"
         >
-          <h2 className="text-[42px] md:text-[60px] font-bold text-white tracking-tight leading-[1.1]">
+          <div className="inline-flex items-center gap-3 text-[#D4AF37] text-[13px] font-bold tracking-[0.2em] uppercase mb-4 opacity-80">
+            <Layers className="w-4 h-4" />
+            Operational Foundation
+          </div>
+          <h2 className="text-[42px] md:text-[56px] font-bold text-white tracking-tight leading-[1.1]">
             Everything your organisation needs <br />
-            <span className="text-[#C9A86A]"> — in one system</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#FFF0B3]">in one system</span>
           </h2>
         </motion.div>
 
-        {/* Asymmetrical Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          
-          {/* 1. PRIMARY CARD: Programme Management (Left - 60%) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-7 group"
-          >
-            <div className="h-full bg-panel border border-secondary/15 rounded-[24px] p-8 md:p-10 hover:border-secondary/40 transition-all duration-500 hover:-translate-y-1.5 shadow-2xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent pointer-events-none" />
-              
-              <div className="flex flex-col h-full relative z-10">
-                <div className="w-10 h-10 rounded-xl bg-[#1A1A1A] border border-white/5 flex items-center justify-center mb-8 group-hover:border-secondary/30 transition-colors">
-                  <Layout className="w-5 h-5 text-secondary" />
-                </div>
-                
-                <h3 className="text-[24px] font-bold text-white mb-4">Programme Management</h3>
-                <p className="text-[16px] text-[#A1A1A1] leading-relaxed mb-10 max-w-[400px]">
-                  Structure programmes with enforced flow, access control, and real-time visibility.
-                </p>
+        {/* Feature Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+          {/* Connector Line Decor (System Look) */}
+          <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-y-1/2 hidden md:block" />
 
-                {/* UI PREVIEW: Module List */}
-                <div className="mt-auto space-y-3 bg-background/50 rounded-2xl p-6 border border-white/5">
-                  {[
-                    { title: "Module 01: Strategy Foundations", status: "Active", progress: 100 },
-                    { title: "Module 02: Advanced Operations", status: "Active", progress: 65 },
-                    { title: "Module 03: Executive Leadership", status: "Locked", progress: 0 },
-                  ].map((item, i) => (
-                    <div key={i} className="flex flex-col gap-3 p-4 rounded-xl bg-panel border border-white/5 group-hover:border-secondary/20 transition-all">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[13px] font-bold text-white/90">{item.title}</span>
-                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${item.status === 'Active' ? 'bg-secondary/20 text-secondary' : 'bg-white/5 text-white/30'}`}>
-                          {item.status}
-                        </span>
-                      </div>
-                      <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                        <motion.div 
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${item.progress}%` }}
-                          transition={{ duration: 1, delay: 0.5 + (i * 0.1) }}
-                          className="h-full bg-secondary" 
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* RIGHT COLUMN: Stacked Smaller Cards (Right - 40%) */}
-          <div className="lg:col-span-5 flex flex-col gap-8">
-            
-            {/* 2. SECONDARY CARD: Session Delivery */}
+          {features.map((feature, i) => (
             <motion.div
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="group flex-1"
+              transition={{ duration: 0.5, delay: feature.delay }}
+              className="group relative"
             >
-              <div className="h-full bg-panel border border-white/5 rounded-[24px] p-8 hover:border-secondary/40 transition-all duration-500 hover:-translate-y-1 shadow-xl relative">
-                <div className="w-10 h-10 rounded-xl bg-[#1A1A1A] border border-white/5 flex items-center justify-center mb-6">
-                  <Video className="w-5 h-5 text-secondary" />
-                </div>
-                <h3 className="text-[20px] font-bold text-white mb-3">Session Delivery</h3>
-                <p className="text-[15px] text-[#A1A1A1] leading-relaxed mb-8">
-                  Run sessions natively with attendance tracking and automated recording.
-                </p>
+              {/* Visual Indicators (Dots) */}
+              {feature.indicators.map((dot, dotIdx) => (
+                <div 
+                  key={dotIdx}
+                  className={`absolute ${dot.size} bg-[#D4AF37]/20 rounded-full blur-[1px] group-hover:bg-[#D4AF37]/40 transition-colors duration-500`}
+                  style={{ top: dot.top, left: dot.left }}
+                />
+              ))}
 
-                {/* UI PREVIEW: Live Session Mock */}
-                <div className="bg-background rounded-xl border border-white/5 overflow-hidden">
-                  <div className="aspect-video bg-panel relative flex items-center justify-center">
-                    <div className="absolute top-3 left-3 flex items-center gap-2 px-2 py-1 bg-red-600 rounded-md">
-                      <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                      <span className="text-[9px] font-bold text-white uppercase tracking-wider">LIVE</span>
-                    </div>
-                    <div className="absolute top-3 right-3 flex items-center gap-2 px-2 py-1 bg-black/40 backdrop-blur-md rounded-md border border-white/10">
-                      <span className="text-[9px] font-bold text-white/80">42 participants</span>
-                    </div>
-                    <div className="w-12 h-12 rounded-full border-2 border-white/10 flex items-center justify-center">
-                      <Video className="w-5 h-5 text-white/20" />
-                    </div>
+              <div className="h-full bg-[rgba(20,20,20,0.4)] backdrop-blur-md border border-white/5 rounded-[24px] p-8 transition-all duration-500 hover:border-[#D4AF37]/30 hover:shadow-[0_10px_40px_rgba(212,175,55,0.08)] hover:-translate-y-1.5 overflow-hidden">
+                {/* Hover Glow Gradient */}
+                <div className="absolute -inset-20 bg-gradient-to-br from-[#D4AF37]/0 via-transparent to-transparent group-hover:from-[#D4AF37]/5 transition-all duration-700 pointer-events-none" />
+                
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:border-[#D4AF37]/40 transition-all duration-500">
+                    <feature.icon className="w-6 h-6 text-[#A1A1AA] group-hover:text-[#D4AF37] transition-colors" strokeWidth={1.5} />
+                  </div>
+                  
+                  <h3 className="text-[22px] font-bold text-white mb-4 tracking-tight group-hover:text-[#D4AF37] transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-[15px] text-[#A1A1AA] leading-relaxed mb-8 flex-1 font-light group-hover:text-white/80 transition-colors">
+                    {feature.description}
+                  </p>
+
+                  <div className="inline-flex items-center gap-2 text-[#D4AF37] text-[13px] font-semibold opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-500">
+                    Explore capability <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
               </div>
             </motion.div>
-
-            {/* 3. SECONDARY CARD: Recordings & Storage */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="group flex-1"
-            >
-              <div className="h-full bg-panel border border-white/5 rounded-[24px] p-8 hover:border-secondary/40 transition-all duration-500 hover:-translate-y-1 shadow-xl relative">
-                <div className="w-10 h-10 rounded-xl bg-[#1A1A1A] border border-white/5 flex items-center justify-center mb-6">
-                  <Database className="w-5 h-5 text-secondary" />
-                </div>
-                <h3 className="text-[20px] font-bold text-white mb-3">Recordings & Storage</h3>
-                <p className="text-[15px] text-[#A1A1A1] leading-relaxed mb-8">
-                  Every session is stored, secured, and instantly accessible.
-                </p>
-
-                {/* UI PREVIEW: File Cards */}
-                <div className="grid grid-cols-2 gap-3">
-                  {[
-                    { name: "Week 01 Recording", size: "1.2 GB", duration: "1h 24m" },
-                    { name: "Week 02 Recording", size: "840 MB", duration: "58m" },
-                  ].map((file, i) => (
-                    <div key={i} className="p-3 bg-background border border-white/5 rounded-xl hover:border-secondary/20 transition-all cursor-default">
-                      <div className="text-[11px] font-bold text-white/90 truncate mb-1">{file.name}</div>
-                      <div className="flex items-center justify-between text-[9px] text-white/30">
-                        <span>{file.size}</span>
-                        <span>{file.duration}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-          </div>
+          ))}
         </div>
 
         {/* Statement Line */}
@@ -159,15 +112,15 @@ export function CoreFeaturesSection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 1 }}
+          transition={{ delay: 0.6, duration: 1 }}
           className="mt-24 text-center"
         >
-          <div className="inline-flex items-center gap-4 text-[16px] md:text-[20px] font-medium text-white/80">
-            <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#C9A86A]/40" />
+          <div className="inline-flex items-center gap-6 text-[15px] md:text-[18px] font-light text-[#A1A1AA]">
+            <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-[#D4AF37]/20" />
             <p>
-              Not a collection of tools. <span className="text-white font-bold">A system that enforces how your programmes run.</span>
+              Not a collection of tools. <span className="text-white font-medium">A unified infrastructure that enforces precision.</span>
             </p>
-            <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#C9A86A]/40" />
+            <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-[#D4AF37]/20" />
           </div>
         </motion.div>
 

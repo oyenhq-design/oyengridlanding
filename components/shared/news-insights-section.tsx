@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
+import { motion } from "framer-motion";
 
 const INSIGHTS = [
   {
@@ -7,73 +10,101 @@ const INSIGHTS = [
     title: "Introducing advanced cohort analytics",
     description: "Get granular insights into engagement drops and milestone completion rates.",
     date: "Mar 15, 2026",
-    href: "/blog/advanced-analytics"
+    href: "/blog/advanced-analytics",
+    image: "https://images.unsplash.com/photo-1551288049-bbda38a10ad5?auto=format&fit=crop&q=80&w=800"
   },
   {
     category: "Best Practices",
     title: "How to structure an enterprise bootcamp",
     description: "A framework for scaling high-intensity training programs without operational collapse.",
     date: "Mar 02, 2026",
-    href: "/blog/enterprise-bootcamps"
+    href: "/blog/enterprise-bootcamps",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800"
   },
   {
     category: "Customer Story",
     title: "Scaling from 100 to 1,000 active participants",
     description: "Learn how TechElevate used OYEN Grid to multiply their throughput by 10x.",
     date: "Feb 18, 2026",
-    href: "/blog/techelevate-story"
+    href: "/blog/techelevate-story",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
   }
 ];
 
 export function NewsInsightsSection() {
   return (
-    <section className="py-24 md:py-32 bg-[#0B0B0C] border-t border-[rgba(255,255,255,0.03)]">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+    <section className="py-32 bg-transparent border-t border-white/5">
+      <div className="max-w-[1400px] mx-auto px-8">
         
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-6">
-          <h2 className="text-[36px] sm:text-[48px] font-bold text-white tracking-tight">
-            News & Insights
-          </h2>
-          <Link href="/blog" className="text-[#C8A96A] text-[15px] font-medium hover:text-white transition-colors flex items-center gap-2 group">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-20 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-flex items-center gap-3 text-[#D4AF37] text-[13px] font-bold tracking-[0.2em] uppercase mb-4">
+              <BookOpen className="w-4 h-4" />
+              Resources
+            </div>
+            <h2 className="text-[40px] md:text-[56px] font-bold text-white tracking-tight">
+              News & Insights
+            </h2>
+          </motion.div>
+          <Link href="/blog" className="text-[#D4AF37] text-[15px] font-semibold hover:text-white transition-all flex items-center gap-3 group pb-2">
             View all articles
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" />
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {INSIGHTS.map((item, idx) => (
-            <Link 
+            <motion.div
               key={idx}
-              href={item.href}
-              className="group block bg-[#121214] border border-[rgba(255,255,255,0.06)] rounded-[16px] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(255,255,255,0.12)] relative overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
             >
-              {/* Subtle Glow on hover */}
-              <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-[#C8A96A]/0 blur-[50px] rounded-full transition-colors duration-500 group-hover:bg-[#C8A96A]/10 pointer-events-none" />
-              
-              <div className="relative z-10">
-                <div className="flex justify-between items-center mb-6">
-                  <span className="text-[12px] font-bold tracking-wider uppercase text-[#C8A96A]">
-                    {item.category}
-                  </span>
-                  <span className="text-[13px] text-[#9CA3AF]">
-                    {item.date}
-                  </span>
+              <Link 
+                href={item.href}
+                className="group relative block h-[450px] rounded-[32px] overflow-hidden border border-white/10 hover:border-[#D4AF37]/40 transition-all duration-500 shadow-2xl"
+              >
+                {/* Background Image with Zoom */}
+                <div className="absolute inset-0">
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-70"
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0C] via-[#0B0B0C]/60 to-transparent" />
                 </div>
                 
-                <h3 className="text-[20px] font-semibold text-white mb-3 tracking-tight group-hover:text-[#C8A96A] transition-colors duration-300">
-                  {item.title}
-                </h3>
-                
-                <p className="text-[15px] text-[#9CA3AF] leading-relaxed mb-6">
-                  {item.description}
-                </p>
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <div className="mb-6">
+                    <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#D4AF37] bg-[#D4AF37]/10 px-3 py-1 rounded-full border border-[#D4AF37]/20">
+                      {item.category}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-[24px] font-bold text-white mb-4 leading-tight tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-[15px] text-[#A1A1AA] leading-relaxed mb-8 line-clamp-2 font-light group-hover:text-white/90 transition-colors">
+                    {item.description}
+                  </p>
 
-                <div className="flex items-center text-[#9CA3AF] group-hover:text-white transition-colors text-[14px] font-medium gap-2">
-                  Read more
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <div className="flex items-center text-[#D4AF37] font-bold text-[13px] gap-2 opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-500">
+                    Read article
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
                 </div>
-              </div>
-            </Link>
+
+                {/* Hover Border Glow */}
+                <div className="absolute inset-0 rounded-[32px] border-2 border-[#D4AF37] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" />
+              </Link>
+            </motion.div>
           ))}
         </div>
 
