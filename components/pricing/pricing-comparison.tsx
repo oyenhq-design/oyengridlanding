@@ -1,58 +1,63 @@
 "use client"
 
-import { Check, Minus } from "lucide-react"
+import { Check, Minus, Layers, Lock, Users, BarChart2, Database, Settings, Activity, Shield, PieChart, FileText, Zap, UserCheck } from "lucide-react"
 
 const GROUPS = [
   {
     title: "STRUCTURE",
     features: [
-      { name: "Programmes", basic: "1", standard: "5", premium: "Unlimited", enterprise: "Unlimited" },
-      { name: "Modules per programme", basic: "Unlimited", standard: "Unlimited", premium: "Unlimited", enterprise: "Unlimited" },
-      { name: "Sessions per module", basic: "Unlimited", standard: "Unlimited", premium: "Unlimited", enterprise: "Unlimited" },
+      { name: "Programmes", icon: Layers, basic: "1", standard: "5", premium: "Unlimited", enterprise: "Unlimited" },
+      { name: "Modules per programme", icon: Layers, basic: "Unlimited", standard: "Unlimited", premium: "Unlimited", enterprise: "Unlimited" },
+      { name: "Sessions per module", icon: Layers, basic: "Unlimited", standard: "Unlimited", premium: "Unlimited", enterprise: "Unlimited" },
     ]
   },
   {
     title: "CONTROL",
     features: [
-      { name: "Module locking", basic: true, standard: true, premium: true, enterprise: true },
-      { name: "Session enforcement", basic: false, standard: true, premium: true, enterprise: true },
-      { name: "Role permissions", basic: "Basic", standard: "Standard", premium: "Advanced", enterprise: "Custom" },
+      { name: "Module locking", icon: Lock, basic: true, standard: true, premium: true, enterprise: true },
+      { name: "Session enforcement", icon: Settings, basic: false, standard: true, premium: true, enterprise: true },
+      { name: "Role permissions", icon: Users, basic: "Basic", standard: "Standard", premium: "Advanced", enterprise: "Custom" },
     ]
   },
   {
     title: "TRACKING",
     features: [
-      { name: "Attendance tracking", basic: true, standard: true, premium: true, enterprise: true },
-      { name: "Progress tracking", basic: true, standard: true, premium: true, enterprise: true },
-      { name: "Completion rules", basic: false, standard: true, premium: true, enterprise: true },
+      { name: "Attendance tracking", icon: UserCheck, basic: true, standard: true, premium: true, enterprise: true },
+      { name: "Progress tracking", icon: Activity, basic: true, standard: true, premium: true, enterprise: true },
+      { name: "Completion rules", icon: Shield, basic: false, standard: true, premium: true, enterprise: true },
     ]
   },
   {
     title: "ANALYTICS",
     features: [
-      { name: "Dashboard insights", basic: "Basic", standard: "Full", premium: "Advanced", enterprise: "Tailored" },
-      { name: "Reporting", basic: "Standard", standard: "Enhanced", premium: "Custom", enterprise: "Full API" },
+      { name: "Dashboard insights", icon: BarChart2, basic: "Basic", standard: "Full", premium: "Advanced", enterprise: "Tailored" },
+      { name: "Reporting", icon: FileText, basic: "Standard", standard: "Enhanced", premium: "Custom", enterprise: "Full API" },
     ]
   },
   {
     title: "SYSTEM",
     features: [
-      { name: "Storage", basic: "5GB", standard: "50GB", premium: "500GB", enterprise: "Unlimited" },
-      { name: "Performance tier", basic: "Shared", standard: "Accelerated", premium: "Priority", enterprise: "Dedicated" },
-      { name: "Support level", basic: "Community", standard: "Email", premium: "Priority", enterprise: "Dedicated Manager" },
+      { name: "Storage", icon: Database, basic: "5GB", standard: "50GB", premium: "500GB", enterprise: "Unlimited" },
+      { name: "Performance tier", icon: Zap, basic: "Shared", standard: "Accelerated", premium: "Priority", enterprise: "Dedicated" },
+      { name: "Support level", icon: Shield, basic: "Community", standard: "Email", premium: "Priority", enterprise: "Dedicated Manager" },
     ]
   }
 ]
 
 export function PricingComparison() {
   return (
-    <section id="compare" className="py-24 bg-[#111111] border-t border-neutral-800 -mx-8 px-8">
-      <h2 className="text-2xl font-bold text-white mb-10 tracking-wider uppercase">Feature Comparison</h2>
-      
+    <section id="compare" className="py-24 bg-[#18181B] border-t border-[#232323] -mx-8 px-8 relative">
+      {/* Top separator */}
+      <div className="absolute left-0 right-0 top-0 h-2 bg-gradient-to-b from-[#232323] to-transparent opacity-80" />
+      <div className="max-w-3xl mx-auto mb-12 text-center">
+        <h2 className="text-3xl font-bold text-white mb-3 tracking-tight">Compare all features</h2>
+        <p className="text-[#A1A1AA] text-base">See how each plan supports your operations</p>
+      </div>
       <div className="overflow-x-auto scrollbar-hide">
-        <table className="w-full text-left border-collapse min-w-[800px]">
+        <table className="w-full text-left border-collapse min-w-[900px]">
           <thead>
             <tr className="border-b border-neutral-800">
+              <th className="py-8 px-4" />
               <th className="py-8 px-4 text-left text-xs font-bold text-[#71717A] uppercase tracking-wider w-1/4">Feature</th>
               <th className="py-8 px-4 text-left text-xs font-bold text-white uppercase tracking-wider">Basic</th>
               <th className="py-8 px-4 text-left text-xs font-bold text-[#D4AF37] uppercase tracking-wider">Standard</th>
@@ -64,45 +69,49 @@ export function PricingComparison() {
             {GROUPS.map((group) => (
               <React.Fragment key={group.title}>
                 <tr>
-                  <td colSpan={5} className="py-8 px-4 text-[10px] font-bold text-[#D4AF37]/50 tracking-[0.2em] uppercase bg-white/[0.01]">
-                    {group.title}
-                  </td>
+                  <td colSpan={6} className="py-6 px-4 text-xs font-bold text-[#D4AF37] tracking-[0.2em] uppercase bg-[#232323]/60 border-t border-[#232323]">{group.title}</td>
                 </tr>
-                {group.features.map((feature, idx) => (
-                  <tr 
-                    key={feature.name} 
-                    className={`border-b border-neutral-800 group hover:bg-white/[0.02] transition-colors ${
-                      idx % 2 === 0 ? "bg-transparent" : "bg-[#111111]/40"
-                    }`}
-                  >
-                    <td className="py-7 px-4 text-sm text-[#A1A1AA] font-medium group-hover:text-white transition-colors">{feature.name}</td>
-                    <td className="py-7 px-4 text-left text-sm text-[#71717A]">
-                      {typeof feature.basic === "boolean" ? (
-                        feature.basic ? <Check className="w-4 h-4 text-[#D4AF37]" /> : <Minus className="w-4 h-4 text-[#333]" />
-                      ) : feature.basic}
-                    </td>
-                    <td className="py-7 px-4 text-left text-sm text-white font-bold">
-                      {typeof feature.standard === "boolean" ? (
-                        feature.standard ? <Check className="w-4 h-4 text-[#D4AF37]" /> : <Minus className="w-4 h-4 text-[#333]" />
-                      ) : feature.standard}
-                    </td>
-                    <td className="py-7 px-4 text-left text-sm text-[#71717A]">
-                      {typeof feature.premium === "boolean" ? (
-                        feature.premium ? <Check className="w-4 h-4 text-[#D4AF37]" /> : <Minus className="w-4 h-4 text-[#333]" />
-                      ) : feature.premium}
-                    </td>
-                    <td className="py-7 px-4 text-left text-sm text-[#71717A]">
-                      {typeof feature.enterprise === "boolean" ? (
-                        feature.enterprise ? <Check className="w-4 h-4 text-[#D4AF37]" /> : <Minus className="w-4 h-4 text-[#333]" />
-                      ) : feature.enterprise}
-                    </td>
-                  </tr>
-                ))}
+                {group.features.map((feature, idx) => {
+                  const isAlt = idx % 2 !== 0;
+                  return (
+                    <tr
+                      key={feature.name}
+                      className={`border-b border-neutral-800 group hover:bg-[#18120A]/40 transition-colors ${isAlt ? "bg-[#18120A]/10" : "bg-transparent"}`}
+                    >
+                      <td className="py-5 px-4 w-10">
+                        {feature.icon ? <feature.icon className="w-5 h-5 text-[#D4AF37]/80" /> : null}
+                      </td>
+                      <td className="py-5 px-4 text-sm text-[#A1A1AA] font-medium group-hover:text-white transition-colors">{feature.name}</td>
+                      <td className="py-5 px-4 text-left text-sm text-[#71717A]">
+                        {typeof feature.basic === "boolean" ? (
+                          feature.basic ? <Check className="w-4 h-4 text-[#D4AF37]" /> : <Minus className="w-4 h-4 text-[#333]" />
+                        ) : feature.basic}
+                      </td>
+                      <td className="py-5 px-4 text-left text-sm text-white font-bold">
+                        {typeof feature.standard === "boolean" ? (
+                          feature.standard ? <Check className="w-4 h-4 text-[#D4AF37]" /> : <Minus className="w-4 h-4 text-[#333]" />
+                        ) : feature.standard}
+                      </td>
+                      <td className="py-5 px-4 text-left text-sm text-[#71717A]">
+                        {typeof feature.premium === "boolean" ? (
+                          feature.premium ? <Check className="w-4 h-4 text-[#D4AF37]" /> : <Minus className="w-4 h-4 text-[#333]" />
+                        ) : feature.premium}
+                      </td>
+                      <td className="py-5 px-4 text-left text-sm text-[#71717A]">
+                        {typeof feature.enterprise === "boolean" ? (
+                          feature.enterprise ? <Check className="w-4 h-4 text-[#D4AF37]" /> : <Minus className="w-4 h-4 text-[#333]" />
+                        ) : feature.enterprise}
+                      </td>
+                    </tr>
+                  );
+                })}
               </React.Fragment>
             ))}
           </tbody>
         </table>
       </div>
+      {/* Bottom separator */}
+      <div className="absolute left-0 right-0 bottom-0 h-2 bg-gradient-to-t from-[#232323] to-transparent opacity-80" />
     </section>
   )
 }
