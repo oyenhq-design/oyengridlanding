@@ -3,6 +3,7 @@ import { Footer } from "@/components/shared/footer";
 import { PricingHeader } from "@/components/pricing/pricing-header";
 import { PricingSidebar } from "@/components/pricing/pricing-sidebar";
 import { PricingCards } from "@/components/pricing/pricing-cards";
+import { PricingContextHeader } from "@/components/pricing/pricing-context-header";
 import { PricingComparison } from "@/components/pricing/pricing-comparison";
 import { PricingAddons } from "@/components/pricing/pricing-addons";
 import { PricingFAQ } from "@/components/pricing/pricing-faq";
@@ -27,6 +28,21 @@ export default function PricingPage() {
 
           {/* Main Content Area (Max 1100px, Centered in its column) */}
           <div className="flex-1 max-w-[1100px] w-full mx-auto">
+            <PricingContextHeader
+              planLabel="Most Popular"
+              planName="STANDARD"
+              price="₦50,000"
+              billingText="per month, billed annually"
+              cta="Start building"
+              features={[
+                "5 Programmes",
+                "Up to 200 Participants",
+                "Structured modules & sessions",
+                "Attendance + progress tracking",
+                "Analytics dashboard",
+                "Limited storage"
+              ]}
+            />
             <PricingCards />
             <PricingComparison />
             <PricingAddons />
