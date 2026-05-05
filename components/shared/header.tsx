@@ -56,43 +56,45 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out border-b ${
         isScrolled
-          ? "bg-[#0B0B0C]/80 backdrop-blur-xl border-[rgba(255,255,255,0.06)] py-3 shadow-2xl"
-          : "bg-transparent border-transparent py-5"
+          ? "bg-[rgba(10,10,10,0.6)] backdrop-blur-[12px] border-[rgba(255,255,255,0.06)] py-4 shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
+          : "bg-transparent border-transparent py-6"
       }`}
     >
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-12 lg:px-12">
         <div className="flex items-center justify-between">
           
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
-            <div className="w-9 h-9 bg-[#1A1A1D] rounded-xl flex items-center justify-center border border-[rgba(255,255,255,0.06)] group-hover:border-[#C8A95A]/50 transition-all duration-500">
-              <span className="text-white font-bold text-sm tracking-widest group-hover:text-[#C8A95A] transition-colors">OG</span>
+          <Link href="/" className="flex items-center gap-3 shrink-0 group">
+            <div className="w-10 h-10 bg-[#1A1A1D] rounded-xl flex items-center justify-center border border-[rgba(255,255,255,0.06)] group-hover:border-[#FACC15]/30 transition-all duration-500">
+              <span className="text-white font-bold text-sm tracking-widest group-hover:text-[#FACC15] transition-colors">OG</span>
             </div>
-            <span className="text-white font-bold tracking-tight text-lg group-hover:text-white/90 transition-colors">OYEN GRID</span>
+            <span className="text-white font-bold tracking-tight text-xl group-hover:text-white transition-colors">OYEN GRID</span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-8">
             {NAV_MENU.map((item) => (
               <div
                 key={item.label}
-                className="relative px-2"
+                className="relative"
                 onMouseEnter={() => item.type === "dropdown" && setActiveDropdown(item.label)}
                 onMouseLeave={() => item.type === "dropdown" && setActiveDropdown(null)}
               >
                 {item.type === "link" ? (
                   <Link
                     href={item.href!}
-                    className={`text-[14px] font-semibold tracking-wide transition-all duration-300 px-3 py-2 rounded-lg ${
-                      pathname === item.href ? "text-[#C8A95A] bg-[#C8A95A]/5" : "text-[#9CA3AF] hover:text-white hover:bg-white/5"
+                    className={`text-[14px] font-semibold tracking-wide transition-all duration-200 px-1 py-2 relative group ${
+                      pathname === item.href ? "text-white [text-shadow:0_0_8px_rgba(255,255,255,0.2)]" : "text-[#A1A1AA] hover:text-white"
                     }`}
                   >
                     {item.label}
+                    <span className={`absolute -bottom-1 left-0 h-[2px] bg-white transition-transform duration-300 origin-left ${pathname === item.href ? "w-full scale-x-100" : "w-full scale-x-0 group-hover:scale-x-100"}`} />
                   </Link>
                 ) : (
-                  <div className={`flex items-center gap-1.5 cursor-pointer text-[#9CA3AF] hover:text-white transition-all duration-300 px-3 py-2 rounded-lg ${activeDropdown === item.label ? "text-white bg-white/5" : ""}`}>
+                  <div className={`flex items-center gap-1.5 cursor-pointer text-[#A1A1AA] hover:text-white transition-all duration-200 py-2 relative group ${activeDropdown === item.label ? "text-white" : ""}`}>
                     <span className="text-[14px] font-semibold tracking-wide">{item.label}</span>
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180 text-[#C8A95A]" : "opacity-50"}`} />
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180 text-[#FACC15]" : "opacity-50"}`} />
+                    <span className={`absolute -bottom-1 left-0 h-[2px] bg-white transition-transform duration-300 origin-left ${activeDropdown === item.label ? "w-full scale-x-100" : "w-full scale-x-0 group-hover:scale-x-100"}`} />
                   </div>
                 )}
 
@@ -136,16 +138,17 @@ export function Header() {
           </nav>
 
           {/* Right Actions */}
-          <div className="hidden lg:flex items-center gap-5">
-            <Link href="/login" className="text-[14px] font-bold text-[#9CA3AF] hover:text-white transition-colors">
+          <div className="hidden lg:flex items-center gap-8">
+            <Link href="/login" className="text-[14px] font-bold text-[#A1A1AA] hover:text-white transition-colors">
               Login
             </Link>
             <Link
               href="/get-started"
-              className="relative px-6 py-2.5 rounded-xl text-[14px] font-bold transition-all duration-500 overflow-hidden group"
+              className="relative px-7 py-3 rounded-xl text-[14px] font-bold transition-all duration-500 overflow-hidden group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#C9A86A] transition-transform duration-500 group-hover:scale-105" />
-              <span className="relative z-10 text-[#0B0B0C]">Get Started</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FACC15] to-[#EAB308] transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_10px_25px_rgba(250,204,21,0.3)]" />
+              <span className="relative z-10 text-black">Get Started</span>
             </Link>
           </div>
 

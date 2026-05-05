@@ -23,7 +23,7 @@ export default function PricingPage() {
       <main className="flex-1">
         <PricingHeader />
         
-        <div className="max-w-[1400px] mx-auto px-8 flex flex-col lg:flex-row gap-16 relative">
+        <div className="max-w-[1400px] mx-auto px-8 flex flex-col lg:flex-row gap-8 relative">
           {/* Sticky Sidebar (Fixed 240px) */}
           <PricingSidebar />
 
