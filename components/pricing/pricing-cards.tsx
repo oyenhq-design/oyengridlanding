@@ -75,9 +75,9 @@ export function PricingCards() {
         }}
       />
 
-      <div className="relative z-10 mb-16">
-        <h2 className="text-2xl font-bold text-white mb-2">OYEN GRID Workspace</h2>
-        <p className="text-[#A1A1AA]">
+      <div className="relative z-10 mb-10">
+        <h2 className="text-2xl font-bold text-white mb-3 tracking-wider uppercase">OYEN GRID Workspace</h2>
+        <p className="text-[#A1A1AA] text-sm">
           Includes programme structuring, session management, tracking, and analytics in one unified system.
         </p>
       </div>

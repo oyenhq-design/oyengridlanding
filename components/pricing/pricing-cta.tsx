@@ -24,18 +24,25 @@ export function PricingCTA() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
             <Link href="/get-started">
               <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 bg-[#D4AF37] text-[#0B0B0C] font-bold rounded-xl transition-shadow shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(212,175,55,0.4)]"
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 0 30px rgba(212,175,55,0.3)"
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="px-10 py-4 bg-[#D4AF37] text-[#0B0B0C] font-bold rounded-xl transition-all duration-300"
               >
                 Start building
               </motion.button>
             </Link>
             <Link href="/contact">
               <motion.button 
-                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.05)" }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 border border-[#333] text-white font-bold rounded-xl transition-colors"
+                whileHover={{ 
+                  scale: 1.02,
+                  backgroundColor: "rgba(212,175,55,0.05)",
+                  boxShadow: "0 0 30px rgba(212,175,55,0.1)"
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] font-bold rounded-xl transition-all duration-300"
               >
                 Talk to sales
               </motion.button>

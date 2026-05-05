@@ -33,7 +33,7 @@ export function PricingFAQ() {
   return (
     <section id="faq" className="py-24 bg-[#111111] border-t border-neutral-800 -mx-8 px-8">
       <div className="max-w-[800px] mx-auto">
-        <h2 className="text-3xl font-bold text-white mb-16 text-center">Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-bold text-white mb-10 tracking-wider uppercase">Frequently Asked Questions</h2>
         <div className="space-y-4">
           {FAQS.map((faq, idx) => (
             <div 

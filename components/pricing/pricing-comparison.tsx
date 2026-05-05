@@ -47,7 +47,7 @@ const GROUPS = [
 export function PricingComparison() {
   return (
     <section id="compare" className="py-24 bg-[#111111] border-t border-neutral-800 -mx-8 px-8">
-      <h2 className="text-2xl font-bold text-white mb-16">Feature Comparison</h2>
+      <h2 className="text-2xl font-bold text-white mb-10 tracking-wider uppercase">Feature Comparison</h2>
       
       <div className="overflow-x-auto scrollbar-hide">
         <table className="w-full text-left border-collapse min-w-[800px]">
