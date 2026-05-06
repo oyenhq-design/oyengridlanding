@@ -8,7 +8,10 @@ import { FinalConversionSections } from "@/components/shared/final-conversion-se
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#050505] text-white selection:bg-[#F5B800]/30 font-sans overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-[#0B0B0D] text-white selection:bg-[#F5B800]/30 font-sans overflow-x-hidden">
+      <div style={{ background: 'red', color: 'white', padding: '20px', fontSize: '20px', textAlign: 'center', zIndex: 9999 }}>
+        DEBUG: THIS IS THE ACTIVE FILE
+      </div>
       <Header />
       
       <main className="flex-1">
