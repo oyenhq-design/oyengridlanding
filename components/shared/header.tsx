@@ -1,14 +1,16 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Fuse from "fuse.js";
 import { 
   ChevronDown, Menu, X, Layout, BarChart3, Zap, 
   Rocket, Building2, Heart, BookOpen, FileText, Newspaper,
-  Search as SearchIcon, Grid, ArrowRight
+  Search as SearchIcon, Grid, ArrowRight, CornerDownLeft
 } from "lucide-react";
+import { SEARCH_DATA } from "@/lib/search-data";
 
 const NAV_MENU = [
   {
@@ -47,8 +49,26 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isAnnouncementVisible, setIsAnnouncementVisible] = useState(true);
+  
+  // Search State
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const searchRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // Fuse.js Instance
+  const fuse = useMemo(() => new Fuse(SEARCH_DATA, {
+    keys: ["title", "category"],
+    threshold: 0.3,
+    distance: 100,
+  }), []);
+
+  // Filtered Results
+  const results = useMemo(() => {
+    if (!searchQuery) return [];
+    return fuse.search(searchQuery).map(r => r.item);
+  }, [searchQuery, fuse]);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -56,29 +76,67 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close search when clicking outside
+  // Close search and handle keyboard
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
         setIsSearchExpanded(false);
+        setSearchQuery("");
       }
     };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsSearchExpanded(false);
+        setSearchQuery("");
+      }
+      
+      if (isSearchExpanded && results.length > 0) {
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          setSelectedIndex(prev => (prev + 1) % results.length);
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          setSelectedIndex(prev => (prev - 1 + results.length) % results.length);
+        } else if (e.key === "Enter") {
+          e.preventDefault();
+          const target = results[selectedIndex];
+          if (target) window.location.href = target.href;
+        }
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isSearchExpanded, results, selectedIndex]);
+
+  // Focus input when expanded
+  useEffect(() => {
+    if (isSearchExpanded) {
+      inputRef.current?.focus();
+    }
+  }, [isSearchExpanded]);
 
   return (
     <>
       {/* ════════════════════════════════════════════
-          FULL-SCREEN OVERLAY (When Dropdown Open)
+          FULL-SCREEN OVERLAY (When Dropdown or Search Open)
       ════════════════════════════════════════════ */}
       <AnimatePresence>
-        {activeDropdown && (
+        {(activeDropdown || isSearchExpanded) && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setActiveDropdown(null)}
+            onClick={() => {
+              setActiveDropdown(null);
+              setIsSearchExpanded(false);
+              setSearchQuery("");
+            }}
             className="fixed inset-0 z-[40] bg-black/60 backdrop-blur-[4px] transition-all duration-500"
           />
         )}
@@ -182,31 +240,99 @@ export function Header() {
             {/* RIGHT: Actions */}
             <div className="hidden lg:flex items-center gap-6">
               
-              {/* Search Functional Expansion */}
+              {/* Functional Live Search */}
               <div ref={searchRef} className="relative flex items-center">
                 <AnimatePresence>
                   {isSearchExpanded && (
                     <motion.div
                       initial={{ width: 0, opacity: 0 }}
-                      animate={{ width: 220, opacity: 1 }}
+                      animate={{ width: 280, opacity: 1 }}
                       exit={{ width: 0, opacity: 0 }}
                       className="absolute right-0 flex items-center"
                     >
-                      <input 
-                        type="text"
-                        placeholder="Search programmes..."
-                        autoFocus
-                        className="w-full h-10 pl-10 pr-4 rounded-full bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-1 focus:ring-[#FACC15]/30 focus:border-[#FACC15]/30 transition-all backdrop-blur-md"
-                      />
+                      <div className="relative w-full">
+                        <input 
+                          ref={inputRef}
+                          type="text"
+                          value={searchQuery}
+                          onChange={(e) => {
+                            setSearchQuery(e.target.value);
+                            setSelectedIndex(0);
+                          }}
+                          placeholder="Search platform..."
+                          className="w-full h-10 pl-10 pr-10 rounded-full bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-1 focus:ring-[#FACC15]/30 focus:border-[#FACC15]/30 transition-all backdrop-blur-md"
+                        />
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 opacity-40">
+                          <CornerDownLeft className="w-3 h-3 text-white" />
+                        </div>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
                 <button 
-                  onClick={() => setIsSearchExpanded(!isSearchExpanded)}
+                  onClick={() => {
+                    setIsSearchExpanded(!isSearchExpanded);
+                    if (!isSearchExpanded) setSearchQuery("");
+                  }}
                   className={`relative z-10 p-2 rounded-full transition-all duration-300 ${isSearchExpanded ? "text-[#FACC15]" : "text-[#A1A1AA] hover:text-white"}`}
                 >
                   {isSearchExpanded ? <X className="w-5 h-5" /> : <SearchIcon className="w-5 h-5" />}
                 </button>
+
+                {/* Search Results Dropdown */}
+                <AnimatePresence>
+                  {isSearchExpanded && searchQuery && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                      className="absolute top-[calc(100%+12px)] right-0 z-[60] w-[360px]"
+                    >
+                      <div className="bg-[rgba(12,12,14,0.98)] border border-white/10 rounded-[24px] shadow-[0_30px_60px_rgba(0,0,0,0.6)] overflow-hidden backdrop-blur-3xl ring-1 ring-white/5">
+                        <div className="p-2 space-y-1 max-h-[400px] overflow-y-auto">
+                          {results.length > 0 ? (
+                            results.map((result, idx) => (
+                              <Link
+                                key={result.href + result.title}
+                                href={result.href}
+                                onMouseEnter={() => setSelectedIndex(idx)}
+                                className={`flex items-center gap-4 p-3.5 rounded-[18px] transition-all duration-200 ${idx === selectedIndex ? "bg-white/[0.08]" : "hover:bg-white/[0.04]"}`}
+                              >
+                                <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 border transition-all duration-300 ${idx === selectedIndex ? "border-[#FACC15]/30 bg-[#FACC15]/10 text-[#FACC15]" : "border-white/5 bg-white/5 text-[#71717A]"}`}>
+                                  <result.icon className="w-4.5 h-4.5" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <div className={`text-[14px] font-bold transition-colors ${idx === selectedIndex ? "text-[#FACC15]" : "text-white"}`}>
+                                    {result.title}
+                                  </div>
+                                  <div className="text-[11px] text-[#71717A] uppercase tracking-wider font-semibold">{result.category}</div>
+                                </div>
+                                {idx === selectedIndex && (
+                                  <ArrowRight className="w-4 h-4 text-[#FACC15] animate-in slide-in-from-left-2 duration-300" />
+                                )}
+                              </Link>
+                            ))
+                          ) : (
+                            <div className="p-8 text-center">
+                              <SearchIcon className="w-8 h-8 text-[#27272A] mx-auto mb-3" />
+                              <div className="text-white font-bold text-sm">No results found</div>
+                              <div className="text-[#71717A] text-[12px] mt-1">Try a different keyword or category.</div>
+                            </div>
+                          )}
+                        </div>
+                        {results.length > 0 && (
+                          <div className="p-3 border-t border-white/5 bg-white/[0.02] flex items-center justify-between text-[11px] text-[#52525B] font-medium">
+                            <div className="flex items-center gap-3">
+                              <span className="flex items-center gap-1.5"><CornerDownLeft className="w-3 h-3" /> to select</span>
+                              <span className="flex items-center gap-1.5"><ChevronDown className="w-3 h-3" /> to navigate</span>
+                            </div>
+                            <span>{results.length} matches</span>
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               <Link href="/login" className="text-[14px] font-bold text-[#A1A1AA] hover:text-white transition-colors">
