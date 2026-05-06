@@ -15,7 +15,7 @@ export function PricingEntrySection() {
         <div 
           className="w-full max-w-[1000px] h-[500px] rounded-full"
           style={{
-            background: "radial-gradient(circle at center, rgba(212,175,55,0.08) 0%, transparent 70%)",
+            background: "radial-gradient(circle at center, rgba(245,185,66,0.08) 0%, transparent 70%)",
           }}
         />
       </div>
@@ -27,14 +27,14 @@ export function PricingEntrySection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-[12px] font-bold uppercase tracking-[0.2em] mb-8">
-            <Star className="w-3.5 h-3.5 fill-[#D4AF37]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5B942]/10 border border-[#F5B942]/20 text-[#F5B942] text-[12px] font-bold uppercase tracking-[0.2em] mb-8">
+            <Star className="w-3.5 h-3.5 fill-[#F5B942]" />
             Transparent Pricing
           </div>
           
           <h2 className="text-[42px] md:text-[60px] font-bold text-white tracking-tight leading-[1.1] mb-8">
             Simple pricing for <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FACC15] via-white to-[#EAB308]">structured operations</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5B942] via-white to-[#D4A017]">structured operations</span>
           </h2>
           
           <p className="text-[19px] md:text-[21px] text-[#A1A1AA] font-light leading-relaxed max-w-2xl mx-auto mb-16">
@@ -46,8 +46,8 @@ export function PricingEntrySection() {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full sm:w-auto px-10 py-4.5 rounded-2xl font-bold text-black text-[17px] transition-all duration-300 shadow-[0_15px_40px_rgba(212,175,55,0.25)] hover:shadow-[0_25px_60px_rgba(212,175,55,0.4)]"
-                style={{ background: "linear-gradient(135deg, #FACC15 0%, #EAB308 100%)" }}
+                className="w-full sm:w-auto px-10 py-4.5 rounded-2xl font-bold text-black text-[17px] transition-all duration-300 shadow-[0_15px_40px_rgba(245,185,66,0.25)] hover:shadow-[0_25px_60px_rgba(245,185,66,0.4)]"
+                style={{ background: "#F5B942" }}
               >
                 View all plans
               </motion.button>
@@ -60,7 +60,7 @@ export function PricingEntrySection() {
                 className="w-full sm:w-auto px-10 py-4.5 rounded-2xl font-bold text-white text-[17px] border border-white/10 bg-white/5 transition-all duration-300 hover:bg-white/10 hover:border-white/20 flex items-center justify-center gap-3 group"
               >
                 Talk to sales
-                <ArrowRight className="w-4.5 h-4.5 text-[#D4AF37] transition-transform group-hover:translate-x-1" strokeWidth={2.5} />
+                <ArrowRight className="w-4.5 h-4.5 text-[#F5B942] transition-transform group-hover:translate-x-1" strokeWidth={2.5} />
               </motion.button>
             </Link>
           </div>
@@ -68,7 +68,7 @@ export function PricingEntrySection() {
       </div>
 
       {/* Section Transition Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0B0B0C] to-transparent pointer-events-none" />
     </section>
   );
 }

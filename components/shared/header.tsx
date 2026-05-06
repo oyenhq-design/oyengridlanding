@@ -150,18 +150,18 @@ export function Header() {
         <nav 
           className={`w-full h-[64px] lg:h-[72px] transition-all duration-300 ease-out border-b flex items-center px-6 lg:px-14
             ${isScrolled 
-              ? "bg-[rgba(10,10,10,0.85)] border-[rgba(255,255,255,0.06)] backdrop-blur-xl shadow-[0_6px_20px_rgba(0,0,0,0.4)]" 
-              : "bg-[rgba(10,10,10,0.4)] border-[rgba(255,255,255,0.03)] backdrop-blur-md"}
+              ? "bg-[rgba(10,10,10,0.7)] border-[rgba(255,255,255,0.06)] backdrop-blur-xl shadow-[0_6px_20px_rgba(0,0,0,0.4)]" 
+              : "bg-transparent border-transparent backdrop-blur-md"}
           `}
         >
           <div className="max-w-[1400px] mx-auto w-full flex items-center justify-between">
             
             {/* LEFT: Logo */}
             <Link href="/" className="flex items-center gap-3 shrink-0 group">
-              <div className="w-10 h-10 bg-[#1A1A1D] rounded-xl flex items-center justify-center border border-[rgba(255,255,255,0.1)] group-hover:border-[#FACC15]/40 transition-all duration-500">
-                <span className="text-white font-bold text-sm tracking-widest group-hover:text-[#FACC15] transition-colors">OG</span>
+              <div className="w-10 h-10 bg-[#1A1A1D] rounded-xl flex items-center justify-center border border-[rgba(255,255,255,0.1)] group-hover:border-[#F5B942]/40 transition-all duration-500">
+                <span className="text-white font-bold text-sm tracking-widest group-hover:text-[#F5B942] transition-colors">OG</span>
               </div>
-              <span className="text-white font-bold tracking-tight text-xl group-hover:text-white transition-colors">OYEN GRID</span>
+              <span className="text-white font-bold tracking-tight text-xl group-hover:text-white transition-colors uppercase">OYEN GRID</span>
             </Link>
 
             {/* CENTER: Navigation Items */}
@@ -182,7 +182,7 @@ export function Header() {
                     >
                       {item.label}
                       <motion.span 
-                        className="absolute bottom-4 left-0 h-[2px] bg-[#FACC15] origin-left"
+                        className="absolute bottom-4 left-0 h-[2px] bg-[#F5B942] origin-left"
                         initial={{ scaleX: pathname === item.href ? 1 : 0 }}
                         animate={{ scaleX: pathname === item.href ? 1 : 0 }}
                         whileHover={{ scaleX: 1 }}
@@ -193,9 +193,9 @@ export function Header() {
                   ) : (
                     <div className={`flex items-center gap-1.5 cursor-pointer text-[#A1A1AA] hover:text-white transition-all duration-200 py-2 relative group h-full ${activeDropdown === item.label ? "text-white" : ""}`}>
                       <span className="text-[14px] font-bold tracking-wide">{item.label}</span>
-                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180 text-[#FACC15]" : "opacity-50"}`} />
+                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180 text-[#F5B942]" : "opacity-50"}`} />
                       <motion.span 
-                        className="absolute bottom-4 left-0 h-[2px] bg-[#FACC15] origin-left"
+                        className="absolute bottom-4 left-0 h-[2px] bg-[#F5B942] origin-left"
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: activeDropdown === item.label ? 1 : 0 }}
                         transition={{ duration: 0.2 }}
@@ -223,11 +223,11 @@ export function Header() {
                                 href={subItem.href}
                                 className="group flex items-start gap-4 p-4 rounded-[18px] transition-all duration-300 hover:bg-white/[0.04]"
                               >
-                                <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center shrink-0 group-hover:border-[#FACC15]/30 group-hover:bg-[#FACC15]/5 transition-all duration-300 shadow-sm">
-                                  <Icon className="w-5 h-5 text-[#9CA3AF] group-hover:text-[#FACC15] transition-colors" />
+                                <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center shrink-0 group-hover:border-[#F5B942]/30 group-hover:bg-[#F5B942]/5 transition-all duration-300 shadow-sm">
+                                  <Icon className="w-5 h-5 text-[#9CA3AF] group-hover:text-[#F5B942] transition-colors" />
                                 </div>
                                 <div>
-                                  <div className="text-[14px] font-bold text-white mb-0.5 group-hover:text-[#FACC15] transition-colors flex items-center gap-1.5">
+                                  <div className="text-[14px] font-bold text-white mb-0.5 group-hover:text-[#F5B942] transition-colors flex items-center gap-1.5">
                                     {subItem.title}
                                     <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                                   </div>
@@ -248,99 +248,12 @@ export function Header() {
             <div className="hidden lg:flex items-center gap-6">
               
               {/* Functional Live Search */}
-              <div ref={searchRef} className="relative flex items-center">
-                <AnimatePresence>
-                  {isSearchExpanded && (
-                    <motion.div
-                      initial={{ width: 0, opacity: 0 }}
-                      animate={{ width: 280, opacity: 1 }}
-                      exit={{ width: 0, opacity: 0 }}
-                      className="absolute right-0 flex items-center"
-                    >
-                      <div className="relative w-full">
-                        <input 
-                          ref={inputRef}
-                          type="text"
-                          value={searchQuery}
-                          onChange={(e) => {
-                            setSearchQuery(e.target.value);
-                            setSelectedIndex(0);
-                          }}
-                          placeholder="Search platform..."
-                          className="w-full h-10 pl-10 pr-10 rounded-full bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-1 focus:ring-[#FACC15]/30 focus:border-[#FACC15]/30 transition-all backdrop-blur-md"
-                        />
-                        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 opacity-40">
-                          <CornerDownLeft className="w-3 h-3 text-white" />
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-                <button 
-                  onClick={() => {
-                    setIsSearchExpanded(!isSearchExpanded);
-                    if (!isSearchExpanded) setSearchQuery("");
-                  }}
-                  className={`relative z-10 p-2 rounded-full transition-all duration-300 ${isSearchExpanded ? "text-[#FACC15]" : "text-[#A1A1AA] hover:text-white"}`}
-                >
-                  {isSearchExpanded ? <X className="w-5 h-5" /> : <SearchIcon className="w-5 h-5" />}
-                </button>
-
-                {/* Search Results Dropdown */}
-                <AnimatePresence>
-                  {isSearchExpanded && searchQuery && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                      className="absolute top-[calc(100%+12px)] right-0 z-[60] w-[360px]"
-                    >
-                      <div className="bg-[rgba(15,15,18,0.98)] border border-white/10 rounded-[24px] shadow-[0_30px_60px_rgba(0,0,0,0.6)] overflow-hidden backdrop-blur-3xl ring-1 ring-white/5">
-                        <div className="p-2 space-y-1 max-h-[400px] overflow-y-auto">
-                          {results.length > 0 ? (
-                            results.map((result, idx) => (
-                              <Link
-                                key={result.href + result.title}
-                                href={result.href}
-                                onMouseEnter={() => setSelectedIndex(idx)}
-                                className={`flex items-center gap-4 p-3.5 rounded-[18px] transition-all duration-200 ${idx === selectedIndex ? "bg-white/[0.08]" : "hover:bg-white/[0.04]"}`}
-                              >
-                                <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 border transition-all duration-300 ${idx === selectedIndex ? "border-[#FACC15]/30 bg-[#FACC15]/10 text-[#FACC15]" : "border-white/5 bg-white/5 text-[#71717A]"}`}>
-                                  <result.icon className="w-4.5 h-4.5" />
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <div className={`text-[14px] font-bold transition-colors ${idx === selectedIndex ? "text-[#FACC15]" : "text-white"}`}>
-                                    {result.title}
-                                  </div>
-                                  <div className="text-[11px] text-[#71717A] uppercase tracking-wider font-semibold">{result.category}</div>
-                                </div>
-                                {idx === selectedIndex && (
-                                  <ArrowRight className="w-4 h-4 text-[#FACC15] animate-in slide-in-from-left-2 duration-300" />
-                                )}
-                              </Link>
-                            ))
-                          ) : (
-                            <div className="p-8 text-center">
-                              <SearchIcon className="w-8 h-8 text-[#27272A] mx-auto mb-3" />
-                              <div className="text-white font-bold text-sm">No results found</div>
-                              <div className="text-[#71717A] text-[12px] mt-1">Try a different keyword or category.</div>
-                            </div>
-                          )}
-                        </div>
-                        {results.length > 0 && (
-                          <div className="p-3 border-t border-white/5 bg-white/[0.02] flex items-center justify-between text-[11px] text-[#52525B] font-medium">
-                            <div className="flex items-center gap-3">
-                              <span className="flex items-center gap-1.5"><CornerDownLeft className="w-3 h-3" /> to select</span>
-                              <span className="flex items-center gap-1.5"><ChevronDown className="w-3 h-3" /> to navigate</span>
-                            </div>
-                            <span>{results.length} matches</span>
-                          </div>
-                        )}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+              <button 
+                onClick={() => setIsSearchExpanded(true)}
+                className="p-2 text-[#A1A1AA] hover:text-white transition-colors"
+              >
+                <SearchIcon className="w-5 h-5" />
+              </button>
 
               <Link href="/login" className="text-[14px] font-bold text-[#A1A1AA] hover:text-white transition-colors">
                 Login
@@ -353,14 +266,11 @@ export function Header() {
               </Link>
               <Link
                 href="/get-started"
-                className="relative px-6 py-2.5 rounded-xl text-[14px] font-bold transition-all duration-300 overflow-hidden group shadow-[0_10px_25px_rgba(250,204,21,0)] hover:shadow-[0_10px_25px_rgba(250,204,21,0.3)] hover:scale-105"
+                className="relative px-6 py-2.5 rounded-xl text-[14px] font-bold transition-all duration-300 overflow-hidden group shadow-[0_10px_25px_rgba(245,185,66,0)] hover:shadow-[0_10px_25px_rgba(245,185,66,0.3)] hover:scale-105"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#FACC15] to-[#EAB308]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#F5B942] to-[#D4A017]" />
                 <span className="relative z-10 text-black">Get Started</span>
               </Link>
-              <button className="text-[#A1A1AA] hover:text-white transition-colors p-2">
-                <Grid className="w-5 h-5" />
-              </button>
             </div>
 
             {/* Mobile Toggle */}
@@ -382,33 +292,23 @@ export function Header() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="w-full bg-gradient-to-r from-[rgba(212,160,23,0.15)] via-[rgba(212,160,23,0.05)] to-transparent border-b border-[rgba(212,160,23,0.1)] relative overflow-hidden"
+              className="w-full bg-gradient-to-r from-[#F5B942]/10 via-[#F5B942]/5 to-transparent border-b border-white/5 relative overflow-hidden"
             >
               <div className="max-w-[1400px] mx-auto h-[40px] lg:h-[44px] px-6 lg:px-14 flex items-center justify-between gap-4">
-                {/* LEFT: Message */}
                 <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#FACC15] shadow-[0_0_8px_#FACC15]" />
-                  <span className="text-[#D4AF37] text-[12px] lg:text-[13px] font-bold tracking-tight uppercase">
-                    Programme Infrastructure for Scale
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#F5B942] shadow-[0_0_8px_#F5B942]" />
+                  <span className="text-[#F5B942] text-[12px] lg:text-[13px] font-bold tracking-tight uppercase">
+                    New: AI-Powered Insights Layer
                   </span>
-                  <span className="text-white/40 mx-2 hidden lg:block">|</span>
                   <span className="text-[#A1A1AA] text-[12px] lg:text-[13px] font-medium hidden lg:block">
-                    Run complex cohorts with absolute structural integrity.
+                    — Automate session summaries and participant health tracking.
                   </span>
                 </div>
-
-                {/* RIGHT: CTA + Close */}
-                <div className="flex items-center gap-4 lg:gap-6">
-                  <Link 
-                    href="/solutions"
-                    className="px-3 py-1 rounded-md border border-[#D4AF37]/30 text-[#D4AF37] text-[11px] font-bold hover:bg-[#D4AF37]/10 transition-all uppercase tracking-wider"
-                  >
-                    Explore Platform
+                <div className="flex items-center gap-4">
+                  <Link href="/solutions" className="text-white text-[11px] font-bold hover:text-[#F5B942] transition-all uppercase tracking-wider">
+                    Learn More →
                   </Link>
-                  <button 
-                    onClick={() => setIsAnnouncementVisible(false)}
-                    className="text-white/40 hover:text-white transition-colors p-1"
-                  >
+                  <button onClick={() => setIsAnnouncementVisible(false)} className="text-white/40 hover:text-white p-1">
                     <X className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -417,42 +317,54 @@ export function Header() {
           )}
         </AnimatePresence>
 
-        {/* Mobile Menu Overlay */}
+        {/* Search Modal Overlay */}
         <AnimatePresence>
-          {isMobileMenuOpen && (
+          {isSearchExpanded && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-[#0B0B0C] border-t border-white/5 overflow-hidden backdrop-blur-xl"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center p-6"
             >
-              <div className="px-6 py-8 space-y-6">
-                {NAV_MENU.map((item) => (
-                  <div key={item.label} className="space-y-4">
-                    <div className="text-[12px] font-bold text-[#71717A] uppercase tracking-widest">{item.label}</div>
-                    <div className="grid grid-cols-1 gap-4">
-                      {item.type === "link" ? (
-                        <Link href={item.href!} className="text-[16px] font-bold text-white hover:text-[#FACC15]">
-                          {item.label}
-                        </Link>
-                      ) : (
-                        item.items?.map((subItem) => (
-                          <Link key={subItem.title} href={subItem.href} className="flex items-center gap-3 text-[16px] font-bold text-white hover:text-[#FACC15]">
-                            <subItem.icon className="w-5 h-5 text-[#FACC15]" />
-                            {subItem.title}
-                          </Link>
-                        ))
-                      )}
+              <div ref={searchRef} className="w-full max-w-2xl bg-[#0B0B0C] border border-white/10 rounded-[32px] shadow-2xl overflow-hidden">
+                <div className="p-6 border-b border-white/5 flex items-center gap-4">
+                  <SearchIcon className="w-6 h-6 text-[#F5B942]" />
+                  <input 
+                    ref={inputRef}
+                    autoFocus
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search platform features, resources, and more..."
+                    className="flex-1 bg-transparent border-none text-white text-lg focus:outline-none placeholder:text-white/20"
+                  />
+                  <button onClick={() => setIsSearchExpanded(false)} className="p-2 hover:bg-white/5 rounded-full">
+                    <X className="w-5 h-5 text-white/40" />
+                  </button>
+                </div>
+                <div className="p-4 max-h-[400px] overflow-y-auto">
+                  {results.length > 0 ? (
+                    results.map((result, idx) => (
+                      <Link
+                        key={idx}
+                        href={result.href}
+                        onClick={() => setIsSearchExpanded(false)}
+                        className={`flex items-center gap-4 p-4 rounded-2xl transition-all ${idx === selectedIndex ? "bg-white/5" : "hover:bg-white/[0.02]"}`}
+                      >
+                        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#F5B942]">
+                          <result.icon className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <div className="text-white font-bold">{result.title}</div>
+                          <div className="text-xs text-[#71717A] uppercase tracking-wider">{result.category}</div>
+                        </div>
+                      </Link>
+                    ))
+                  ) : (
+                    <div className="p-12 text-center text-white/40">
+                      {searchQuery ? "No results found for your query." : "Start typing to search..."}
                     </div>
-                  </div>
-                ))}
-                <div className="pt-6 border-t border-white/5 flex flex-col gap-4">
-                  <Link href="/login" className="text-center py-3 rounded-xl border border-white/10 text-white font-bold">
-                    Login
-                  </Link>
-                  <Link href="/get-started" className="text-center py-3 rounded-xl bg-gradient-to-r from-[#FACC15] to-[#EAB308] text-black font-bold">
-                    Get Started
-                  </Link>
+                  )}
                 </div>
               </div>
             </motion.div>

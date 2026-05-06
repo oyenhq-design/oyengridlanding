@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, Quote } from "lucide-react";
+import { ArrowRight, Quote, MessageSquare } from "lucide-react";
 import Link from "next/link";
 
 const CASE_STUDIES = [
@@ -13,7 +13,7 @@ const CASE_STUDIES = [
     author: "Sarah Jenkins",
     role: "Director of Programmes",
     image: "/img/case-study-1.png",
-    accent: "from-[#C8A95A]/10 to-transparent"
+    accent: "from-[#F5B942]/10 to-transparent"
   },
   {
     company: "Global Training Inc",
@@ -31,7 +31,7 @@ const CASE_STUDIES = [
     author: "Elena Rodriguez",
     role: "Head of Student Success",
     image: "/img/case-study-3.png",
-    accent: "from-[#C8A95A]/10 to-transparent"
+    accent: "from-[#F5B942]/10 to-transparent"
   },
   {
     company: "Nexus Academy",
@@ -46,77 +46,77 @@ const CASE_STUDIES = [
 
 export function CustomerStoriesSection() {
   return (
-    <section className="py-24 bg-[#F7F7F7] relative overflow-hidden border-y border-gray-200 rounded-3xl">
-      {/* Subtle Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-[#C8A95A] opacity-[0.05] blur-[120px] rounded-full pointer-events-none" />
+    <section className="py-32 bg-[#0B0B0C] relative overflow-hidden border-t border-white/[0.06]">
+      {/* Background radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-[#F5B942] opacity-[0.03] blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-10">
         
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <div>
-            <div className="inline-flex items-center gap-2 mb-6">
-              <div className="w-8 h-[1px] bg-[#C8A95A]"></div>
-              <span className="text-[#C8A95A] uppercase tracking-widest text-[12px] font-semibold">Case Studies</span>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-24 gap-12">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-3 text-[#F5B942] text-[13px] font-bold tracking-[0.3em] uppercase mb-8">
+              <MessageSquare className="w-4 h-4" />
+              Customer Stories
             </div>
-            <h2 className="text-[36px] md:text-[52px] font-bold text-[#0B0B0C] tracking-tight leading-[1.1]">
-              Measurable impact <br className="hidden md:block" /> for high-performing teams.
+            <h2 className="text-[42px] md:text-[56px] font-bold text-white tracking-tight leading-[1.1]">
+              Measurable impact <br className="hidden md:block" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5B942] to-white">for high-performing teams.</span>
             </h2>
           </div>
-          <div className="flex items-center gap-4 text-gray-500 text-sm font-medium">
+          <div className="flex items-center gap-4 text-[#71717A] text-[13px] font-bold uppercase tracking-widest">
              <span>Scroll to explore</span>
-             <ArrowRight className="w-4 h-4 animate-bounce-x" />
+             <ArrowRight className="w-4.5 h-4.5 animate-bounce-x" />
           </div>
         </div>
 
         {/* Horizontal Scrolling Row */}
-        <div className="flex gap-6 overflow-x-auto pb-12 scrollbar-hide snap-x snap-mandatory cursor-grab active:cursor-grabbing">
+        <div className="flex gap-8 overflow-x-auto pb-16 scrollbar-hide snap-x snap-mandatory cursor-grab active:cursor-grabbing px-2">
           {CASE_STUDIES.map((study, idx) => (
             <motion.div 
               key={idx}
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
-              className="flex-shrink-0 w-[350px] md:w-[450px] snap-center group relative bg-white border border-gray-200 rounded-2xl p-8 md:p-10 transition-all duration-300 ease-out hover:scale-[1.02] hover:border-[#C8A95A]/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)] overflow-hidden"
+              transition={{ duration: 0.8, delay: idx * 0.1, ease: "easeOut" }}
+              className="flex-shrink-0 w-[380px] md:w-[480px] snap-center group relative bg-white/[0.02] border border-white/[0.08] rounded-[40px] p-10 md:p-12 transition-all duration-500 ease-out hover:scale-[1.02] hover:border-[#F5B942]/40 hover:bg-white/[0.04] hover:shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden"
             >
               {/* Subtle Gradient Accent */}
               <div className={`absolute inset-0 bg-gradient-to-br ${study.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
               
               <div className="relative z-10 h-full flex flex-col">
                 {/* Company & Quote Icon */}
-                <div className="flex justify-between items-start mb-10">
-                  <div className="text-gray-900 font-bold text-lg tracking-wider uppercase opacity-80 group-hover:opacity-100 transition-opacity">
+                <div className="flex justify-between items-start mb-12">
+                  <div className="text-white font-bold text-lg tracking-[0.2em] uppercase opacity-60 group-hover:opacity-100 group-hover:text-[#F5B942] transition-all">
                     {study.company}
                   </div>
-                  <Quote className="w-8 h-8 text-[#C8A95A] opacity-20 group-hover:opacity-40 transition-opacity" />
+                  <Quote className="w-10 h-10 text-[#F5B942] opacity-20 group-hover:opacity-40 transition-opacity" />
                 </div>
 
                 {/* Measurable Result */}
-                <div className="mb-6">
-                  <div className="text-[32px] md:text-[40px] font-bold text-[#C8A95A] leading-none mb-2 group-hover:scale-105 transition-transform origin-left duration-500">
+                <div className="mb-10">
+                  <div className="text-[36px] md:text-[48px] font-bold text-[#F5B942] leading-none mb-4 group-hover:scale-105 transition-transform origin-left duration-500 tracking-tighter">
                     {study.result}
                   </div>
-                  <div className="h-[1px] w-12 bg-[#C8A95A]/30 group-hover:w-full transition-all duration-700" />
+                  <div className="h-[2px] w-16 bg-[#F5B942]/30 group-hover:w-full transition-all duration-1000" />
                 </div>
 
                 {/* Short Quote */}
-                <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-12 font-medium group-hover:text-gray-900 transition-colors">
-                  "{study.quote}"
+                <p className="text-[18px] md:text-[20px] text-[#A1A1AA] leading-relaxed mb-16 font-light group-hover:text-white transition-colors">
+                  “{study.quote}”
                 </p>
 
                 {/* Person Info */}
-                <div className="mt-auto flex items-center gap-4">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#C8A95A]/30 shadow-sm">
+                <div className="mt-auto flex items-center gap-6">
+                  <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-white/10 group-hover:border-[#F5B942]/40 transition-all shadow-xl">
                     <Image 
                       src={study.image} 
                       alt={study.author}
                       fill
-                      className="object-cover"
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                     />
                   </div>
                   <div>
-                    <div className="text-[15px] font-bold text-gray-900">{study.author}</div>
-                    <div className="text-[13px] text-gray-500">{study.role}</div>
+                    <div className="text-[17px] font-bold text-white mb-1">{study.author}</div>
+                    <div className="text-[14px] text-[#71717A] font-bold uppercase tracking-wider">{study.role}</div>
                   </div>
                 </div>
               </div>
@@ -124,20 +124,14 @@ export function CustomerStoriesSection() {
           ))}
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
-          className="mt-16 flex justify-center"
-        >
+        <div className="mt-20 flex justify-center">
           <Link 
             href="/solutions" 
-            className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-gray-200 hover:border-[#C8A95A]/50 text-gray-600 hover:text-gray-900 text-sm font-semibold transition-all duration-300 hover:bg-white group"
+            className="inline-flex items-center justify-center px-10 py-4.5 rounded-2xl border border-white/10 bg-white/5 text-white font-bold text-[15px] transition-all duration-300 hover:bg-white/10 hover:border-white/20 group"
           >
-            Explore solutions <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            Explore all solutions <ArrowRight className="ml-2 w-4.5 h-4.5 group-hover:translate-x-1 transition-transform" />
           </Link>
-        </motion.div>
+        </div>
 
       </div>
     </section>
