@@ -18,7 +18,7 @@ export function Header() {
   return (
     <>
       {/* 2. ANNOUNCEMENT BAR */}
-      <div className="relative z-50 bg-[#0B0B0C] border-b border-white/5 py-3">
+      <div className="relative z-50 bg-[#0B0B0D] border-b border-white/5 py-3">
         <div className="max-w-[1280px] mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-1.5 h-1.5 rounded-full bg-[#F5C044] shadow-[0_0_8px_#F5C044]" />
@@ -41,8 +41,8 @@ export function Header() {
       <header 
         className={`sticky top-0 z-40 w-full transition-all duration-500 border-b ${
           scrolled 
-            ? "bg-[#0B0B0C]/80 backdrop-blur-xl border-white/10 py-4" 
-            : "bg-[#0B0B0C] border-white/5 py-6"
+            ? "bg-[#0B0B0D]/80 backdrop-blur-xl border-white/10 py-3" 
+            : "bg-[#0B0B0D] border-white/5 py-5"
         }`}
       >
         <div className="max-w-[1280px] mx-auto px-6 flex items-center justify-between">

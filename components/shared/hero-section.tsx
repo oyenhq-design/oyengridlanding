@@ -7,7 +7,7 @@ import { Star, Globe, Users, Zap, ShieldCheck } from "lucide-react";
 
 export function OyenHero() {
   return (
-    <section className="relative min-h-[900px] flex flex-col justify-center overflow-hidden bg-[#050505] pt-20">
+    <section className="relative min-h-[800px] flex flex-col justify-center overflow-hidden bg-[#0B0B0D] pt-12 pb-24">
       
       {/* 1. BACKGROUND SYSTEM */}
       <div className="absolute inset-0 z-0">
@@ -17,13 +17,13 @@ export function OyenHero() {
             src="/oyen_grid_hero_workspace_v2_1778080769_png_1778080399094.png"
             alt="Operational Environment"
             fill
-            className="object-cover opacity-60 grayscale blur-[1px] brightness-[0.5] scale-105"
+            className="object-cover opacity-40 grayscale blur-[20px] brightness-[0.4] scale-110"
             priority
           />
         </div>
         
         {/* Dark gradient overlay: Left fully dark -> Right fade */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/95 to-[#050505]/30 opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0D] via-[#0B0B0D]/90 to-transparent opacity-100" />
         
         {/* Subtle gold radial glow behind UI (bottom-right) - PULSING */}
         <motion.div 
