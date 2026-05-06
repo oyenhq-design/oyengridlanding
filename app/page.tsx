@@ -1,38 +1,34 @@
-import { ZoomHeader } from "@/components/shared/zoom/header";
-import { ZoomHero } from "@/components/shared/zoom/hero";
-import { ProductCarousel } from "@/components/shared/zoom/product-carousel";
-import { AICompanionSection } from "@/components/shared/zoom/ai-companion";
-import { FeatureAwards } from "@/components/shared/zoom/feature-awards";
-import { PlatformTrust } from "@/components/shared/zoom/platform-trust";
-import { SocialProof } from "@/components/shared/zoom/social-proof";
-import { FooterCTA } from "@/components/shared/zoom/footer-cta";
+import { Header } from "@/components/shared/header";
+import { OyenHero } from "@/components/shared/hero-section";
+import { TrustAndClarity } from "@/components/shared/trust-and-clarity";
+import { CoreValueSections } from "@/components/shared/core-value-sections";
+import { DeepProductSections } from "@/components/shared/deep-product-sections";
+import { ProofAndResourceSections } from "@/components/shared/proof-and-resource-sections";
+import { FinalConversionSections } from "@/components/shared/final-conversion-sections";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white text-[#232333] selection:bg-[#0B5CFF]/30 font-sans overflow-x-hidden">
-      <ZoomHeader />
+    <div className="flex flex-col min-h-screen bg-[#050505] text-white selection:bg-[#F5B800]/30 font-sans overflow-x-hidden">
+      <Header />
       
       <main className="flex-1">
-        {/* 3. HERO SECTION */}
-        <ZoomHero />
+        {/* HERO SECTION */}
+        <OyenHero />
 
-        {/* 4. PRODUCT CAROUSEL */}
-        <ProductCarousel />
+        {/* TRUST / METRICS STRIP + operational clarity */}
+        <TrustAndClarity />
 
-        {/* 5. AI COMPANION SECTION */}
-        <AICompanionSection />
+        {/* FEATURE SPLIT + scale and structure */}
+        <CoreValueSections />
 
-        {/* 6. FEATURE SPLIT + 7. AWARDS CARDS */}
-        <FeatureAwards />
+        {/* CORE PLATFORM + ANALYTICS + FEATURE GRID */}
+        <DeepProductSections />
 
-        {/* 8. PLATFORM SECTION + 9. RATINGS / TRUST METRICS */}
-        <PlatformTrust />
+        {/* CASE STUDIES + KNOWLEDGE + TESTIMONIAL */}
+        <ProofAndResourceSections />
 
-        {/* 10. TESTIMONIAL + 11. CASE STUDY CAROUSEL */}
-        <SocialProof />
-
-        {/* 12. NEWS GRID + 13. FINAL CTA + 14. FOOTER */}
-        <FooterCTA />
+        {/* PRICING CTA + FINAL CTA + FOOTER */}
+        <FinalConversionSections />
       </main>
     </div>
   );
