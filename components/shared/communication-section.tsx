@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageSquare, Users, Send } from "lucide-react";
+import { MessageSquare, CheckCircle2, Send } from "lucide-react";
 
 const MESSAGES_SESSION = [
   { sender: "Amara Nwosu", role: "Trainer", msg: "Great question — yes, we'll cover that in module 3. Hold that thought.", time: "10:24", self: false },
@@ -25,46 +25,25 @@ function ChatUI({ title, subtitle, messages, tag }: {
 }) {
   return (
     <div className="bg-[#0D0D10] rounded-3xl border border-white/[0.07] overflow-hidden shadow-2xl">
-      {/* Window bar */}
       <div className="flex items-center gap-2 px-5 py-3.5 border-b border-white/[0.06] bg-[#111114]">
         <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
         <div className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
         <div className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
         <span className="ml-2 text-[#52525B] text-[11px] font-mono">{tag}</span>
-        <div className="ml-auto flex items-center gap-1.5">
-          <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-          <span className="text-emerald-400 text-[10px] font-bold">Live</span>
-        </div>
       </div>
-
-      {/* Chat header */}
-      <div className="px-5 py-4 border-b border-white/[0.05] flex items-center justify-between">
+      <div className="px-5 py-4 border-b border-white/[0.05] flex items-center justify-between bg-[#0F0F12]">
         <div>
           <p className="text-white font-bold text-sm">{title}</p>
           <p className="text-[#52525B] text-[11px] mt-0.5">{subtitle}</p>
         </div>
-        <div className="flex -space-x-2">
-          {["#F5B942", "#60A5FA", "#A78BFA", "#34D399"].map((c, i) => (
-            <div key={i} className="w-6 h-6 rounded-full border-2 border-[#0D0D10]" style={{ background: c }} />
-          ))}
-          <div className="w-6 h-6 rounded-full border-2 border-[#0D0D10] bg-white/10 flex items-center justify-center text-[8px] text-white font-bold">+12</div>
-        </div>
       </div>
-
-      {/* Messages */}
       <div className="px-5 py-4 space-y-4 min-h-[200px]">
         {messages.map((m, i) => (
           <div key={i} className={`flex gap-3 ${m.self ? "flex-row-reverse" : ""}`}>
-            {!m.self && (
-              <div className="w-7 h-7 rounded-full bg-[#F5B942]/20 flex items-center justify-center text-[9px] font-bold text-[#F5B942] shrink-0 mt-0.5">
-                {m.sender.charAt(0)}
-              </div>
-            )}
             <div className={`max-w-[80%] ${m.self ? "items-end" : "items-start"} flex flex-col`}>
               {!m.self && (
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-white text-[11px] font-bold">{m.sender}</span>
-                  <span className="text-[#3F3F46] text-[9px] uppercase tracking-wider">{m.role}</span>
                 </div>
               )}
               <div className={`px-3.5 py-2.5 rounded-2xl text-[12px] leading-relaxed ${
@@ -74,19 +53,9 @@ function ChatUI({ title, subtitle, messages, tag }: {
               }`}>
                 {m.msg}
               </div>
-              <span className="text-[#3F3F46] text-[9px] mt-1">{m.time}</span>
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Input */}
-      <div className="px-5 py-4 border-t border-white/[0.05]">
-        <div className="flex items-center gap-3 bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-2.5">
-          <MessageSquare className="w-4 h-4 text-[#52525B]" />
-          <span className="flex-1 text-[#3F3F46] text-[12px]">Type a message...</span>
-          <Send className="w-4 h-4 text-[#F5B942] hover:scale-110 transition-transform cursor-pointer" />
-        </div>
       </div>
     </div>
   );
@@ -98,100 +67,68 @@ export function CommunicationSection() {
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/[0.05]" />
       <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/[0.05]" />
 
-      {/* Background texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(245,185,66,0.03)_0%,transparent_70%)]" />
-
-      <div className="relative z-10 max-w-[1100px] mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-[#A1A1AA] text-[12px] font-bold tracking-[0.25em] uppercase mb-5"
-          >
-            Communication
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-[38px] md:text-[50px] font-bold text-white tracking-tight leading-tight"
-          >
-            Keep every conversation{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5B942] to-[#D4A017]">
-              in context
-            </span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-[#71717A] text-[17px] mt-6 max-w-[560px] mx-auto font-light"
-          >
-            From live session chats to full bootcamp group channels — communication in OYEN GRID is structured, searchable, and tied to the right context.
-          </motion.p>
-        </div>
-
-        {/* Two Chat UIs */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
-            <div className="absolute -inset-4 bg-[#F5B942] opacity-[0.04] blur-[60px] rounded-3xl" />
-            <div className="relative">
-              <div className="flex items-center gap-2 mb-4">
-                <MessageSquare className="w-4 h-4 text-[#F5B942]" />
-                <span className="text-white font-bold text-[15px]">Session Chat</span>
-                <span className="text-[#52525B] text-[12px]">— Live during delivery</span>
-              </div>
-              <ChatUI
-                title="Module 2: Live Q&A Session"
-                subtitle="Today · 48 participants · Session ongoing"
-                messages={MESSAGES_SESSION}
-                tag="Session Chat"
-              />
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="relative"
-          >
-            <div className="absolute -inset-4 bg-[#60A5FA] opacity-[0.03] blur-[60px] rounded-3xl" />
-            <div className="relative">
-              <div className="flex items-center gap-2 mb-4">
-                <Users className="w-4 h-4 text-[#60A5FA]" />
-                <span className="text-white font-bold text-[15px]">Group Chat</span>
-                <span className="text-[#52525B] text-[12px]">— Bootcamp cohort channel</span>
-              </div>
+      <div className="relative z-10 max-w-[1100px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        
+        {/* Left: Mockups (Alternating) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative order-2 lg:order-1"
+        >
+          <div className="absolute -inset-10 bg-[#F5B942] opacity-[0.05] blur-[100px] rounded-full" />
+          <div className="flex flex-col gap-6">
+            <ChatUI
+              title="Module 2: Live Q&A Session"
+              subtitle="Today · 48 participants"
+              messages={MESSAGES_SESSION}
+              tag="Session Chat"
+            />
+            <div className="lg:translate-x-12 lg:-mt-10">
               <ChatUI
                 title="Full-Stack Bootcamp · Cohort 08"
-                subtitle="General · 48 members · Always active"
+                subtitle="General Channel"
                 messages={MESSAGES_BOOTCAMP}
                 tag="Bootcamp Channel"
               />
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
 
-        {/* Feature pills */}
-        <div className="flex flex-wrap justify-center gap-3 mt-12">
-          {["Message threading", "Pinned announcements", "File sharing", "Search & history", "Participant tagging", "Trainer-only channels"].map((f) => (
-            <span key={f} className="px-4 py-2 bg-white/[0.03] border border-white/[0.06] rounded-full text-[#A1A1AA] text-[12px] font-medium">
-              {f}
-            </span>
-          ))}
-        </div>
+        {/* Right: Content */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="order-1 lg:order-2"
+        >
+          <div className="inline-flex items-center gap-3 text-[#F5B942] text-[13px] font-bold tracking-[0.3em] uppercase mb-8">
+            <MessageSquare className="w-4 h-4" />
+            Seamless Interaction
+          </div>
+          <h2 className="text-[40px] md:text-[56px] font-bold text-white leading-[1.05] tracking-tight mb-8">
+            Communication <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5B942] via-white to-[#D4A017]">built into the flow</span>
+          </h2>
+          <p className="text-[19px] text-[#A1A1AA] leading-relaxed mb-10 font-light">
+            Don't force your participants into external apps. OYEN GRID provides integrated chat systems for every session and cohort.
+          </p>
+          <ul className="space-y-4">
+            {[
+              "Context-aware session chat",
+              "Permanent cohort group channels",
+              "Real-time participant presence",
+              "Role-based moderation tools"
+            ].map((b, i) => (
+              <li key={i} className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-[#F5B942]" />
+                <span className="text-[#D4D4D8] text-[16px]">{b}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
       </div>
     </section>
   );

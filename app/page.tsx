@@ -1,8 +1,8 @@
 import { Header } from "@/components/shared/header";
-import { HeroSection } from "@/components/shared/hero-section";
+import { CenteredHero } from "@/components/shared/centered-hero";
 import { SystemStatement } from "@/components/shared/system-statement";
-import { FeatureTabs } from "@/components/shared/feature-tabs";
-import { CorePlatform } from "@/components/shared/core-platform";
+import { CurriculumFeature } from "@/components/shared/curriculum-feature";
+import { AnalyticsFeature } from "@/components/shared/analytics-feature";
 import { TrainingSystem } from "@/components/shared/training-system";
 import { CommunicationSection } from "@/components/shared/communication-section";
 import { AILayerSection } from "@/components/shared/ai-layer-section";
@@ -16,8 +16,8 @@ import { Sidebar } from "@/components/layout/sidebar";
 const HOME_NAV_ITEMS = [
   { id: "overview", label: "Overview" },
   { id: "system", label: "System" },
-  { id: "features", label: "Features" },
-  { id: "platform", label: "Platform" },
+  { id: "curriculum", label: "Curriculum" },
+  { id: "analytics", label: "Analytics" },
   { id: "training", label: "Training" },
   { id: "communication", label: "Communication" },
   { id: "intelligence", label: "Intelligence" },
@@ -35,9 +35,6 @@ export default function Home() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[#F5B942] opacity-[0.05] blur-[140px] rounded-full -translate-y-1/2" />
         {/* Mid Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-[#3B82F6] opacity-[0.02] blur-[160px] rounded-full" />
-        {/* Subtle radial gradients */}
-        <div className="absolute top-[20%] right-0 w-[600px] h-[600px] bg-[#F5B942] opacity-[0.02] blur-[120px] rounded-full" />
-        <div className="absolute bottom-[20%] left-0 w-[600px] h-[600px] bg-[#3B82F6] opacity-[0.02] blur-[120px] rounded-full" />
       </div>
 
       <Header />
@@ -45,19 +42,19 @@ export default function Home() {
       <main className="flex-1 relative z-10">
         <MainGrid sidebar={<Sidebar items={HOME_NAV_ITEMS} />}>
           <div id="overview">
-            <HeroSection />
+            <CenteredHero />
           </div>
 
           <div id="system">
             <SystemStatement />
           </div>
 
-          <div id="features">
-            <FeatureTabs />
+          <div id="curriculum">
+            <CurriculumFeature />
           </div>
 
-          <div id="platform">
-            <CorePlatform />
+          <div id="analytics">
+            <AnalyticsFeature />
           </div>
 
           <div id="training">

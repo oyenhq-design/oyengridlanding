@@ -113,85 +113,61 @@ function NotesEditorUI() {
 
 export function NotesSystemSection() {
   return (
-    <section className="py-32 bg-[#0B0B0C] relative overflow-hidden">
+    <section className="py-32 bg-[#0D0D10] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/[0.05]" />
 
-      <div className="relative z-10 max-w-[1100px] mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-[#A1A1AA] text-[12px] font-bold tracking-[0.25em] uppercase mb-5"
-          >
-            Notes System
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-[38px] md:text-[50px] font-bold text-white tracking-tight leading-tight mb-6"
-          >
-            Every thought,{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5B942] to-[#D4A017]">
-              perfectly placed
-            </span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-[#71717A] text-[17px] max-w-[540px] mx-auto font-light"
-          >
-            A structured notes system built for programme operations — not a generic notepad. Everything is contextual, searchable, and linked.
-          </motion.p>
-        </div>
-
-        {/* Note type cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
-          {NOTE_TYPES.map((n, i) => {
-            const Icon = n.icon;
-            return (
-              <motion.div
-                key={n.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group p-6 bg-white/[0.02] border border-white/[0.06] rounded-2xl hover:border-white/10 transition-all duration-300"
-              >
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-5 border"
-                  style={{
-                    background: `${n.color}15`,
-                    borderColor: `${n.color}25`,
-                  }}
-                >
-                  <Icon className="w-4 h-4" style={{ color: n.color }} />
-                </div>
-                <h4 className="text-white font-bold text-[16px] mb-3">{n.title}</h4>
-                <p className="text-[#71717A] text-[13px] leading-relaxed font-light">{n.desc}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* Notes editor mockup */}
+      <div className="relative z-10 max-w-[1100px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        
+        {/* Left: Mockup */}
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="relative"
+          transition={{ duration: 0.8 }}
+          className="relative order-2 lg:order-1"
         >
-          <div className="absolute -inset-6 bg-[#F5B942] opacity-[0.04] blur-[80px] rounded-3xl" />
+          <div className="absolute -inset-10 bg-[#F5B942] opacity-[0.05] blur-[100px] rounded-full" />
           <div className="relative">
             <NotesEditorUI />
           </div>
         </motion.div>
+
+        {/* Right: Content */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="order-1 lg:order-2"
+        >
+          <div className="inline-flex items-center gap-3 text-[#F5B942] text-[13px] font-bold tracking-[0.3em] uppercase mb-8">
+            <PenLine className="w-4 h-4" />
+            Note Management
+          </div>
+          <h2 className="text-[40px] md:text-[56px] font-bold text-white leading-[1.05] tracking-tight mb-8">
+            Every thought, <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5B942] via-white to-[#D4A017]">perfectly placed</span>
+          </h2>
+          <p className="text-[19px] text-[#A1A1AA] leading-relaxed mb-10 font-light">
+            A structured notes system built for programme operations — not a generic notepad. Everything is contextual, searchable, and linked.
+          </p>
+          <div className="space-y-6">
+            {NOTE_TYPES.map((n, i) => {
+              const Icon = n.icon;
+              return (
+                <div key={n.title} className="flex gap-4">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-1" style={{ background: `${n.color}15`, border: `1px solid ${n.color}25` }}>
+                    <Icon className="w-4 h-4" style={{ color: n.color }} />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold text-[15px] mb-1">{n.title}</h4>
+                    <p className="text-[#71717A] text-[13px] leading-relaxed font-light">{n.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );
