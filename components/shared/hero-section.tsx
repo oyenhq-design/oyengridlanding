@@ -7,7 +7,7 @@ import { Check, Play, Star, ArrowRight, Shield, Activity, Zap } from "lucide-rea
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0B0B0C]">
+    <section className="relative min-h-screen flex items-center pt-48 pb-24 overflow-hidden bg-[#0B0B0C]">
       
       {/* 1. BACKGROUND IMAGE & GRADIENT OVERLAY */}
       <div className="absolute inset-0 z-0">
