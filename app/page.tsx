@@ -1,88 +1,38 @@
 import { Header } from "@/components/shared/header";
-import { CenteredHero } from "@/components/shared/centered-hero";
-import { SystemStatement } from "@/components/shared/system-statement";
-import { CurriculumFeature } from "@/components/shared/curriculum-feature";
-import { AnalyticsFeature } from "@/components/shared/analytics-feature";
-import { TrainingSystem } from "@/components/shared/training-system";
-import { CommunicationSection } from "@/components/shared/communication-section";
-import { AILayerSection } from "@/components/shared/ai-layer-section";
-import { NotesSystemSection } from "@/components/shared/notes-system-section";
-import { SocialProofSection } from "@/components/shared/social-proof-section";
-import { FinalCTA } from "@/components/shared/final-cta-section";
+import { HeroSection } from "@/components/shared/hero-section";
+import { TrustAndClarity } from "@/components/shared/trust-and-clarity";
+import { CoreValueSections } from "@/components/shared/core-value-sections";
+import { OperationalSections } from "@/components/shared/operational-sections";
+import { ResourceSections } from "@/components/shared/resource-sections";
+import { ConversionSections } from "@/components/shared/conversion-sections";
 import { Footer } from "@/components/shared/footer";
-import { MainGrid } from "@/components/layout/main-grid";
-import { Sidebar } from "@/components/layout/sidebar";
-
-const HOME_NAV_ITEMS = [
-  { id: "overview", label: "Overview" },
-  { id: "system", label: "System" },
-  { id: "curriculum", label: "Curriculum" },
-  { id: "analytics", label: "Analytics" },
-  { id: "training", label: "Training" },
-  { id: "communication", label: "Communication" },
-  { id: "intelligence", label: "Intelligence" },
-  { id: "workspace", label: "Workspace" },
-  { id: "proof", label: "Social Proof" },
-];
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#0B0B0C] text-white selection:bg-[#F5B942]/30 font-sans relative overflow-x-hidden">
-      
-      {/* Global Background Atmosphere */}
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Top Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[#F5B942] opacity-[0.05] blur-[140px] rounded-full -translate-y-1/2" />
-        {/* Mid Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-[#3B82F6] opacity-[0.02] blur-[160px] rounded-full" />
-      </div>
-
+    <div className="flex flex-col min-h-screen bg-[#0B0B0C] text-white selection:bg-[#F5C044]/30 font-sans overflow-x-hidden">
       <Header />
       
-      <main className="flex-1 relative z-10">
-        <MainGrid sidebar={<Sidebar items={HOME_NAV_ITEMS} />}>
-          <div id="overview">
-            <CenteredHero />
-          </div>
+      <main className="flex-1">
+        {/* 3. HERO SECTION */}
+        <HeroSection />
 
-          <div id="system">
-            <SystemStatement />
-          </div>
+        {/* 4. TRUST / METRICS STRIP + 5. operational clarity */}
+        <TrustAndClarity />
 
-          <div id="curriculum">
-            <CurriculumFeature />
-          </div>
+        {/* 6. FEATURE SPLIT + 7. scale and structure */}
+        <CoreValueSections />
 
-          <div id="analytics">
-            <AnalyticsFeature />
-          </div>
+        {/* 8. operate with power + 9. ANALYTICS */}
+        <OperationalSections />
 
-          <div id="training">
-            <TrainingSystem />
-          </div>
+        {/* 10. FEATURE GRID + 11. CASE STUDIES + 12. KNOWLEDGE */}
+        <ResourceSections />
 
-          <div id="communication">
-            <CommunicationSection />
-          </div>
-
-          <div id="intelligence">
-            <AILayerSection />
-          </div>
-
-          <div id="workspace">
-            <NotesSystemSection />
-          </div>
-
-          <div id="proof">
-            <SocialProofSection />
-          </div>
-
-          <div id="cta">
-            <FinalCTA />
-          </div>
-        </MainGrid>
+        {/* 13. TESTIMONIAL + 14. PRICING CTA + 15. FINAL CTA */}
+        <ConversionSections />
       </main>
 
+      {/* 16. FOOTER */}
       <Footer />
     </div>
   );
