@@ -1,34 +1,27 @@
-import { Header } from "@/components/shared/header";
-import { PremiumHero } from "@/components/shared/hero-section";
-import { TrustAndClarity } from "@/components/shared/trust-and-clarity";
-import { CoreValueSections } from "@/components/shared/core-value-sections";
-import { DeepProductSections } from "@/components/shared/deep-product-sections";
-import { ProofAndResourceSections } from "@/components/shared/proof-and-resource-sections";
-import { FinalConversionSections } from "@/components/shared/final-conversion-sections";
+import { ZoomHeader } from "@/components/shared/zoom-header";
+import { ZoomHero } from "@/components/shared/zoom-hero";
+import { ZoomFeatures } from "@/components/shared/zoom-features";
+import { ZoomSocialProof } from "@/components/shared/zoom-social-proof";
+import { ZoomFooter } from "@/components/shared/zoom-footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#0B0B0C] text-white selection:bg-[#F5C044]/30 font-sans overflow-x-hidden">
-      <Header />
+    <div className="flex flex-col min-h-screen bg-white text-[#0B0B0C] selection:bg-[#0B5CFF]/10 font-sans overflow-x-hidden">
+      {/* 1. NAVBAR + 2. ANNOUNCEMENT BAR */}
+      <ZoomHeader />
       
       <main className="flex-1">
-        {/* 1. HERO + 2. TRUST STRIP */}
-        <PremiumHero />
+        {/* 3. HERO + 4. PRODUCT CAROUSEL + 5. AI INTRO */}
+        <ZoomHero />
 
-        {/* 3. operational clarity */}
-        <TrustAndClarity />
+        {/* 6. FEATURE SPLIT + 7. AWARDS + 8. PLATFORM */}
+        <ZoomFeatures />
 
-        {/* 4. FEATURE SPLIT + 5. scale and structure */}
-        <CoreValueSections />
+        {/* 9. RATINGS + 10. TESTIMONIAL + 11. CASE STUDY CAROUSEL + 12. NEWS GRID */}
+        <ZoomSocialProof />
 
-        {/* 6. CORE PLATFORM + 7. ANALYTICS + 8. FEATURE GRID */}
-        <DeepProductSections />
-
-        {/* 9. CASE STUDIES + 10. KNOWLEDGE + 11. TESTIMONIAL */}
-        <ProofAndResourceSections />
-
-        {/* 12. PRICING CTA + 13. FINAL CTA + 14. FOOTER */}
-        <FinalConversionSections />
+        {/* 13. FINAL CTA + 14. FOOTER */}
+        <ZoomFooter />
       </main>
     </div>
   );
