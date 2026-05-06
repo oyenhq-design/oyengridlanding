@@ -61,10 +61,10 @@ export function Header() {
           1. MAIN NAVBAR (TOP LAYER)
       ════════════════════════════════════════════ */}
       <nav 
-        className={`w-full h-[64px] lg:h-[72px] transition-all duration-300 ease-out border-b backdrop-blur-[10px] shadow-[0_6px_20px_rgba(0,0,0,0.4)] flex items-center px-6 lg:px-14
+        className={`w-full h-[64px] lg:h-[72px] transition-all duration-300 ease-out border-b backdrop-blur-xl shadow-[0_6px_20px_rgba(0,0,0,0.4)] flex items-center px-6 lg:px-14
           ${isScrolled 
-            ? "bg-[rgba(5,7,10,0.85)] border-[rgba(255,255,255,0.06)]" 
-            : "bg-gradient-to-r from-[#05070A] to-[#0A0F1C] border-[rgba(255,255,255,0.06)]"}
+            ? "bg-[rgba(10,10,10,0.7)] border-[rgba(255,255,255,0.06)]" 
+            : "bg-[rgba(10,10,10,0.4)] border-[rgba(255,255,255,0.03)]"}
         `}
       >
         <div className="max-w-[1400px] mx-auto w-full flex items-center justify-between">
@@ -95,19 +95,18 @@ export function Header() {
                   >
                     {item.label}
                     <motion.span 
-                      className="absolute -bottom-1 left-0 h-[2px] bg-white origin-left"
+                      className="absolute -bottom-1 left-0 h-[2px] bg-[#FACC15] origin-left"
                       initial={{ scaleX: pathname === item.href ? 1 : 0 }}
                       animate={{ scaleX: pathname === item.href ? 1 : 0 }}
                       whileHover={{ scaleX: 1 }}
                       transition={{ duration: 0.2 }}
                     />
-                    <span className="absolute -bottom-1 left-0 h-[2px] bg-white w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
                   </Link>
                 ) : (
                   <div className={`flex items-center gap-1.5 cursor-pointer text-[#A1A1AA] hover:text-white transition-all duration-200 py-2 relative group ${activeDropdown === item.label ? "text-white" : ""}`}>
                     <span className="text-[14px] font-semibold tracking-wide">{item.label}</span>
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180 text-[#FACC15]" : "opacity-50"}`} />
-                    <span className="absolute -bottom-1 left-0 h-[2px] bg-white w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
+                    <span className="absolute -bottom-1 left-0 h-[2px] bg-[#FACC15] w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
                   </div>
                 )}
 
@@ -193,29 +192,34 @@ export function Header() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="w-full bg-gradient-to-r from-[#1E3A8A] via-[#2563EB] to-[#4F46E5] relative overflow-hidden"
+            className="w-full bg-gradient-to-r from-[rgba(212,160,23,0.15)] via-[rgba(212,160,23,0.05)] to-transparent border-b border-[rgba(212,160,23,0.1)] relative overflow-hidden"
           >
-            <div className="max-w-[1400px] mx-auto h-[44px] lg:h-[48px] px-6 lg:px-14 flex items-center justify-between gap-4">
+            <div className="max-w-[1400px] mx-auto h-[40px] lg:h-[44px] px-6 lg:px-14 flex items-center justify-between gap-4">
               {/* LEFT: Message */}
               <div className="flex items-center gap-2">
-                <span className="text-white text-[13px] lg:text-[14px] font-medium tracking-tight">
-                  Run structured programmes with full operational clarity and control.
+                <div className="w-1.5 h-1.5 rounded-full bg-[#FACC15] shadow-[0_0_8px_#FACC15]" />
+                <span className="text-[#D4AF37] text-[12px] lg:text-[13px] font-semibold tracking-tight uppercase">
+                  Programme Infrastructure for Scale
+                </span>
+                <span className="text-white/40 mx-2 hidden lg:block">|</span>
+                <span className="text-[#A1A1AA] text-[12px] lg:text-[13px] font-medium hidden lg:block">
+                  Run complex cohorts with absolute structural integrity.
                 </span>
               </div>
 
               {/* RIGHT: CTA + Close */}
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4 lg:gap-6">
                 <Link 
                   href="/solutions"
-                  className="bg-white text-black px-4 py-1.5 rounded-full text-[13px] font-semibold hover:bg-white/90 transition-all shadow-sm"
+                  className="px-3 py-1 rounded-md border border-[#D4AF37]/30 text-[#D4AF37] text-[11px] font-bold hover:bg-[#D4AF37]/10 transition-all uppercase tracking-wider"
                 >
                   Explore Platform
                 </Link>
                 <button 
                   onClick={() => setIsAnnouncementVisible(false)}
-                  className="text-white/80 hover:text-white transition-colors p-1"
+                  className="text-white/40 hover:text-white transition-colors p-1"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
