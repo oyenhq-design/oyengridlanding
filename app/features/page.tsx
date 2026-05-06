@@ -1,23 +1,24 @@
-"use client"
+"use client";
 
-import { Header } from "@/components/shared/header"
-import { Footer } from "@/components/shared/footer"
-import { motion } from "framer-motion"
+import { Header } from "@/components/shared/header";
+import { Footer } from "@/components/shared/footer";
+import { motion } from "framer-motion";
 import { 
   Layout, Users, Video, Database, 
   GraduationCap, TrendingUp, Key,
   MessageSquare, MessagesSquare, 
   Bot, FileText, Sparkles, Pencil,
-  Lock, BookOpen, ArrowRight
-} from "lucide-react"
-import { InteractiveFeaturesSection } from "@/components/shared/interactive-features-section"
-import Link from "next/link"
+  Lock, BookOpen, ArrowRight, Star
+} from "lucide-react";
+import { InteractiveFeaturesSection } from "@/components/shared/interactive-features-section";
+import Link from "next/link";
 
 const categories = [
   {
     title: "Core Platform",
     description: "The foundational primitives for managing structured training.",
-    bg: "bg-[#0A0A0A]",
+    accent: "gold",
+    layout: "split-left",
     features: [
       { title: "Programme Hosting", desc: "Build multi-layered curriculums with strict dependencies.", icon: Layout },
       { title: "Participant Management", desc: "Granular access control and profile tracking.", icon: Users },
@@ -28,7 +29,8 @@ const categories = [
   {
     title: "Training System",
     description: "Specialized tools for intensive cohort-based learning.",
-    bg: "bg-[#0F0F10]",
+    accent: "blue",
+    layout: "grid-4",
     features: [
       { title: "Participant Profiles", desc: "Centralized view of attendance and engagement.", icon: GraduationCap },
       { title: "Progress Tracking", desc: "Automated progression metrics across modules.", icon: TrendingUp },
@@ -37,18 +39,10 @@ const categories = [
     ]
   },
   {
-    title: "Communication",
-    description: "Contextual chat systems integrated directly into the learning flow.",
-    bg: "bg-[#0A0A0A]",
-    features: [
-      { title: "Session Chat", desc: "Time-synced chat linked to specific live sessions.", icon: MessageSquare },
-      { title: "Group Chat (Bootcamp)", desc: "Persistent cohort communication channels.", icon: MessagesSquare },
-    ]
-  },
-  {
     title: "AI Layer",
     description: "Intelligent assistance that understands the context of your curriculum.",
-    bg: "bg-[#0F0F10]",
+    accent: "gold",
+    layout: "split-right",
     features: [
       { title: "AI Chat Assistant", desc: "Answers participant questions based on uploaded materials.", icon: Bot },
       { title: "Session Summaries", desc: "Automated transcription and key takeaway generation.", icon: FileText },
@@ -56,187 +50,270 @@ const categories = [
     ]
   },
   {
+    title: "Communication",
+    description: "Contextual chat systems integrated directly into the learning flow.",
+    accent: "blue",
+    layout: "grid-2",
+    features: [
+      { title: "Session Chat", desc: "Time-synced chat linked to specific live sessions.", icon: MessageSquare },
+      { title: "Group Chat (Bootcamp)", desc: "Persistent cohort communication channels.", icon: MessagesSquare },
+    ]
+  },
+  {
     title: "Notes System",
     description: "Integrated knowledge capture for participants and trainers.",
-    bg: "bg-[#0A0A0A]",
+    accent: "gold",
+    layout: "grid-3",
     features: [
       { title: "Private Notes", desc: "Participant-specific workspaces linked to modules.", icon: Pencil },
       { title: "Session Notes", desc: "Collaborative or private note-taking during live sessions.", icon: BookOpen },
       { title: "Participant Notes", desc: "Trainer-only administrative notes on participant health.", icon: Lock },
     ]
   }
-]
+];
 
 export default function FeaturesPage() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#0A0A0A] font-sans selection:bg-[#C9A86A]/30 selection:text-white overflow-x-hidden">
-      <Header />
+    <div className="flex flex-col min-h-screen bg-[#050505] text-white selection:bg-[#D4AF37]/30 font-sans relative overflow-x-hidden">
       
-      {/* ════════════════════════════════════════════
-          1. HERO SECTION
-      ════════════════════════════════════════════ */}
-      <section className="relative pt-[180px] pb-[100px] border-b border-[#FFFFFF08] flex items-center justify-center min-h-[60vh]">
-        {/* Subtle radial glow */}
-        <div 
-          aria-hidden
-          className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-40"
-        >
-          <div 
-            className="w-[800px] h-[500px] rounded-full"
-            style={{
-              background: "radial-gradient(ellipse at center, rgba(201,168,106,0.06) 0%, transparent 70%)"
-            }}
-          />
-        </div>
-
-        <div className="relative max-w-[1200px] mx-auto px-6 lg:px-8 text-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-4xl mx-auto"
-          >
-            <h1 
-              className="font-bold text-white mb-8 tracking-tight"
-              style={{ fontSize: "clamp(46px, 6vw, 64px)", lineHeight: 1.15 }}
-            >
-              A <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-[#E5C25A] to-[#C9A86A]">complete system</span>, not a collection of features.
-            </h1>
-            <p 
-              className="text-[#B3B3B3] font-medium leading-relaxed max-w-2xl mx-auto"
-              style={{ fontSize: "clamp(18px, 2.5vw, 20px)" }}
-            >
-              Every capability in OYEN GRID is designed to work together — creating a single, structured environment for programme delivery.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      <InteractiveFeaturesSection />
-
-      {/* ════════════════════════════════════════════
-          2. FEATURE SECTIONS
-      ════════════════════════════════════════════ */}
-      <div className="relative z-10">
-        {categories.map((category, idx) => (
-          <section 
-            key={idx} 
-            className={`py-[100px] border-b border-[#FFFFFF08] ${category.bg}`}
-          >
-            <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-              {/* Section Header */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-14"
-              >
-                <h2 className="text-[28px] md:text-[32px] font-semibold text-white mb-4 tracking-tight">
-                  {category.title}
-                </h2>
-                <p className="text-[16px] md:text-[18px] text-[#A1A1AA] font-medium max-w-2xl leading-relaxed">
-                  {category.description}
-                </p>
-              </motion.div>
-
-              {/* Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {category.features.map((feature, fIdx) => {
-                  const Icon = feature.icon
-                  return (
-                    <motion.div 
-                      key={fIdx}
-                      initial={{ opacity: 0, y: 24 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      transition={{ duration: 0.5, delay: fIdx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                      whileHover={{ y: -6 }}
-                      className="group bg-[#111111] rounded-[16px] p-6 lg:p-[24px] transition-all duration-300 ease-out border border-[#FFFFFF08] hover:border-[#C9A86A] hover:shadow-[0_0_25px_rgba(201,168,106,0.15)] flex flex-col"
-                    >
-                      <div className="w-[48px] h-[48px] rounded-full bg-[#1A1A1C] border border-[#2A2A2E] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[#C9A86A]/10 group-hover:border-[#C9A86A]/30 transition-all duration-300">
-                        <Icon className="w-[20px] h-[20px] text-[#C9A86A]" strokeWidth={2} />
-                      </div>
-                      <h3 className="text-[18px] lg:text-[20px] font-medium text-white mb-3 tracking-wide group-hover:text-white transition-colors">
-                        {feature.title}
-                      </h3>
-                      <p className="text-[15px] lg:text-[16px] text-[#B3B3B3] leading-relaxed group-hover:text-[#D4D4D8] transition-colors line-clamp-2">
-                        {feature.desc}
-                      </p>
-                    </motion.div>
-                  )
-                })}
-              </div>
-            </div>
-          </section>
-        ))}
+      {/* Global Background Atmosphere */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Top Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[#D4AF37] opacity-[0.05] blur-[140px] rounded-full -translate-y-1/2" />
+        {/* Mid Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-[#3B82F6] opacity-[0.02] blur-[160px] rounded-full" />
+        {/* Subtle radial gradients across sections */}
+        <div className="absolute top-[20%] right-0 w-[600px] h-[600px] bg-[#D4AF37] opacity-[0.03] blur-[120px] rounded-full" />
+        <div className="absolute bottom-[20%] left-0 w-[600px] h-[600px] bg-[#3B82F6] opacity-[0.03] blur-[120px] rounded-full" />
       </div>
 
-      {/* ════════════════════════════════════════════
-          3. CTA SECTION (CUSTOM FOR THIS PAGE)
-      ════════════════════════════════════════════ */}
-      <section className="relative py-[140px] bg-[#0A0A0A] overflow-hidden">
-        {/* Glow behind CTA */}
-        <div 
-          aria-hidden
-          className="pointer-events-none absolute inset-0 flex items-center justify-center"
-        >
-          <div 
-            className="w-[800px] h-[500px] rounded-full"
-            style={{
-              background: "radial-gradient(ellipse at center, rgba(201,168,106,0.08) 0%, transparent 60%)"
-            }}
-          />
-        </div>
-
-        <div className="relative z-10 max-w-[1000px] mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <h2 
-              className="font-bold text-white tracking-tight mb-6"
-              style={{ fontSize: "clamp(38px, 5vw, 52px)", lineHeight: 1.1 }}
+      <Header />
+      
+      <main className="relative z-10 flex-1">
+        {/* ════════════════════════════════════════════
+            1. HERO SECTION
+        ════════════════════════════════════════════ */}
+        <section className="relative pt-48 pb-32 flex items-center justify-center min-h-[70vh]">
+          <div className="max-w-[1280px] mx-auto px-6 lg:px-14 text-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="max-w-4xl mx-auto"
             >
-              Ready to structure your operations?
-            </h2>
-            <p className="text-[18px] md:text-[20px] text-[#B3B3B3] mb-10 max-w-2xl mx-auto leading-relaxed">
-              Stop losing control across tools. Run your programmes in one structured system.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-8">
-              <Link href="/get-started" className="w-full sm:w-auto">
-                <motion.button 
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-[#0A0A0A] text-[16px] md:text-[18px] transition-shadow shadow-[0_0_20px_rgba(201,168,106,0.2)] hover:shadow-[0_0_30px_rgba(201,168,106,0.35)]"
-                  style={{ background: "linear-gradient(135deg, #D4AF37 0%, #C9A86A 100%)" }}
-                >
-                  Start Building
-                </motion.button>
-              </Link>
-              <Link href="/contact" className="w-full sm:w-auto">
-                <motion.button 
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white text-[16px] md:text-[18px] border border-[#333333] hover:border-[#C9A86A]/50 bg-transparent transition-colors hover:bg-white/5 flex items-center justify-center gap-2"
-                >
-                  Talk to Sales
-                  <ArrowRight className="w-4 h-4 text-[#C9A86A]" strokeWidth={2.5} />
-                </motion.button>
-              </Link>
-            </div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-[12px] font-bold uppercase tracking-[0.2em] mb-8">
+                <Star className="w-3.5 h-3.5 fill-[#D4AF37]" />
+                Platform Infrastructure
+              </div>
+              
+              <h1 className="text-[48px] md:text-[72px] font-bold text-white mb-8 tracking-tight leading-[1.05]">
+                A <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FACC15] via-white to-[#EAB308] animate-gradient-x">complete system</span>, <br />
+                not a collection of features.
+              </h1>
+              
+              <p className="text-[18px] md:text-[21px] text-[#A1A1AA] font-light leading-relaxed max-w-2xl mx-auto mb-12">
+                Every capability in OYEN GRID is designed to work together — creating a single, structured environment for high-stakes programme delivery.
+              </p>
 
-            <p className="text-[14px] font-medium text-[#71717A] tracking-wide">
-              No setup fees. Cancel anytime.
-            </p>
-          </motion.div>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+                <Link href="/get-started">
+                  <button className="px-8 py-4 rounded-xl bg-gradient-to-r from-[#FACC15] to-[#EAB308] text-black font-bold text-[16px] transition-all duration-300 shadow-[0_10px_30px_rgba(250,204,21,0.2)] hover:shadow-[0_20px_40px_rgba(250,204,21,0.4)] hover:scale-105 active:scale-95">
+                    Start Building
+                  </button>
+                </Link>
+                <Link href="/contact">
+                  <button className="px-8 py-4 rounded-xl border border-white/10 bg-white/5 text-white font-bold text-[16px] transition-all duration-300 hover:bg-white/10 hover:border-white/20 active:scale-95">
+                    Talk to Sales
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+          
+          {/* Section Transition Fade */}
+          <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none" />
+        </section>
+
+        <InteractiveFeaturesSection />
+
+        {/* ════════════════════════════════════════════
+            2. FEATURE CATEGORIES (ALTERNATING LAYOUTS)
+        ════════════════════════════════════════════ */}
+        <div className="space-y-48 py-32">
+          {categories.map((category, idx) => (
+            <section 
+              key={idx} 
+              className="relative px-6 lg:px-14 scroll-mt-24"
+            >
+              <div className="max-w-[1280px] mx-auto">
+                
+                {category.layout === "split-left" && (
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                    <motion.div 
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      className="lg:col-span-5 pt-8"
+                    >
+                      <div className={`inline-block text-[13px] font-bold tracking-[0.2em] uppercase mb-4 ${category.accent === "gold" ? "text-[#D4AF37]" : "text-[#3B82F6]"}`}>
+                        {category.title}
+                      </div>
+                      <h2 className="text-[32px] md:text-[42px] font-bold text-white mb-8 tracking-tight leading-tight">
+                        {category.description}
+                      </h2>
+                      <p className="text-[#A1A1AA] text-lg font-light leading-relaxed mb-10">
+                        The foundational building blocks required to manage thousands of participants across global time zones with total precision.
+                      </p>
+                      <div className={`w-20 h-1 rounded-full ${category.accent === "gold" ? "bg-[#D4AF37]" : "bg-[#3B82F6]"}`} />
+                    </motion.div>
+                    
+                    <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {category.features.map((feature, fIdx) => (
+                        <FeatureCard key={fIdx} feature={feature} accent={category.accent} delay={fIdx * 0.1} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {category.layout === "split-right" && (
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                    <div className="lg:col-span-7 order-2 lg:order-1 grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {category.features.map((feature, fIdx) => (
+                        <FeatureCard key={fIdx} feature={feature} accent={category.accent} delay={fIdx * 0.1} />
+                      ))}
+                    </div>
+
+                    <motion.div 
+                      initial={{ opacity: 0, x: 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      className="lg:col-span-5 pt-8 order-1 lg:order-2"
+                    >
+                      <div className={`inline-block text-[13px] font-bold tracking-[0.2em] uppercase mb-4 ${category.accent === "gold" ? "text-[#D4AF37]" : "text-[#3B82F6]"}`}>
+                        {category.title}
+                      </div>
+                      <h2 className="text-[32px] md:text-[42px] font-bold text-white mb-8 tracking-tight leading-tight">
+                        {category.description}
+                      </h2>
+                      <p className="text-[#A1A1AA] text-lg font-light leading-relaxed mb-10">
+                        Move beyond static materials with an intelligent layer that understands your curriculum and supports every participant journey.
+                      </p>
+                      <div className={`w-20 h-1 rounded-full ${category.accent === "gold" ? "bg-[#D4AF37]" : "bg-[#3B82F6]"}`} />
+                    </motion.div>
+                  </div>
+                )}
+
+                {category.layout.startsWith("grid") && (
+                  <div>
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="text-center mb-20 max-w-3xl mx-auto"
+                    >
+                      <div className={`inline-block text-[13px] font-bold tracking-[0.2em] uppercase mb-4 ${category.accent === "gold" ? "text-[#D4AF37]" : "text-[#3B82F6]"}`}>
+                        {category.title}
+                      </div>
+                      <h2 className="text-[32px] md:text-[42px] font-bold text-white mb-6 tracking-tight leading-tight">
+                        {category.description}
+                      </h2>
+                    </motion.div>
+
+                    <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${category.layout.split("-")[1]} gap-8`}>
+                      {category.features.map((feature, fIdx) => (
+                        <FeatureCard key={fIdx} feature={feature} accent={category.accent} delay={fIdx * 0.1} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+              </div>
+              
+              {/* Subtle transition fade */}
+              <div className="absolute bottom-[-32px] left-0 w-full h-[64px] bg-gradient-to-b from-[#050505] to-transparent pointer-events-none opacity-50" />
+            </section>
+          ))}
         </div>
-      </section>
+
+        {/* ════════════════════════════════════════════
+            3. FINAL CONVERSION SECTION
+        ════════════════════════════════════════════ */}
+        <section className="relative py-48 overflow-hidden bg-transparent">
+          {/* Gradient Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#D4AF37] opacity-[0.08] blur-[120px] rounded-full pointer-events-none" />
+          
+          <div className="max-w-[1280px] mx-auto px-6 lg:px-14 text-center relative z-10">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-[42px] md:text-[72px] font-bold text-white tracking-tight leading-[1.05] mb-8">
+                Ready to structure <br /> your operations?
+              </h2>
+              <p className="text-[20px] md:text-[24px] text-[#A1A1AA] font-light mb-16 max-w-2xl mx-auto leading-relaxed">
+                Stop losing control across fragmented tools. Run your programmes in one unified system built for scale and structural integrity.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <Link href="/get-started">
+                  <button className="px-12 py-5 rounded-2xl bg-[#D4AF37] text-black font-bold text-[18px] transition-all duration-300 shadow-[0_15px_40px_rgba(212,175,55,0.3)] hover:shadow-[0_25px_60px_rgba(212,175,55,0.5)] hover:scale-105 active:scale-95">
+                    Start Building →
+                  </button>
+                </Link>
+                <Link href="/contact">
+                  <button className="px-12 py-5 rounded-2xl border border-white/10 bg-white/5 text-white font-bold text-[18px] transition-all duration-300 hover:bg-white/10 hover:border-white/20 active:scale-95">
+                    Talk to Sales
+                  </button>
+                </Link>
+              </div>
+              
+              <p className="mt-16 text-[13px] text-[#52525B] font-bold uppercase tracking-[0.2em]">
+                Enterprise-grade security included by default.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+      </main>
 
       <Footer />
-    </main>
-  )
+    </div>
+  );
+}
+
+function FeatureCard({ feature, accent, delay }: { feature: any, accent: string, delay: number }) {
+  const Icon = feature.icon;
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay }}
+      whileHover={{ y: -8, transition: { duration: 0.3 } }}
+      className="group relative h-full"
+    >
+      {/* Glass Card */}
+      <div className="h-full bg-[rgba(255,255,255,0.02)] backdrop-blur-xl border border-white/[0.08] rounded-[24px] p-10 flex flex-col transition-all duration-300 group-hover:border-[#D4AF37]/40 group-hover:bg-white/[0.04] group-hover:shadow-[0_30px_70px_rgba(0,0,0,0.7)] overflow-hidden">
+        
+        {/* Border Glow Accent */}
+        <div className={`absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[24px] ${accent === "gold" ? "shadow-[0_0_20px_rgba(212,175,55,0.15)]" : "shadow-[0_0_20px_rgba(59,130,246,0.15)]"}`} />
+
+        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-10 transition-all duration-500 border ${accent === "gold" ? "bg-[#D4AF37]/5 border-[#D4AF37]/10 text-[#D4AF37] group-hover:bg-[#D4AF37]/20 group-hover:border-[#D4AF37]/40 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.3)]" : "bg-[#3B82F6]/5 border-[#3B82F6]/10 text-[#3B82F6] group-hover:bg-[#3B82F6]/20 group-hover:border-[#3B82F6]/40 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]"}`}>
+          <Icon className="w-7 h-7" strokeWidth={1.5} />
+        </div>
+        
+        <h3 className="text-[22px] font-bold text-white mb-5 group-hover:text-white transition-colors">
+          {feature.title}
+        </h3>
+        <p className="text-[16px] text-[#A1A1AA] leading-relaxed font-light group-hover:text-white/80 transition-colors">
+          {feature.desc}
+        </p>
+
+        <div className="mt-auto pt-10 flex items-center gap-2 text-[14px] font-bold text-white/40 group-hover:text-[#D4AF37] transition-all duration-300 translate-x-[-4px] group-hover:translate-x-0">
+          Learn more <ArrowRight className="w-4.5 h-4.5" />
+        </div>
+      </div>
+    </motion.div>
+  );
 }
