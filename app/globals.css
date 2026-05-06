@@ -7,6 +7,11 @@
   --color-accent: #F5B301;
   --color-text-secondary: #A1A1AA;
   --color-border-subtle: rgba(255, 255, 255, 0.08);
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
 }
 
 @layer base {
@@ -31,6 +36,17 @@
 
   .container-custom {
     @apply max-w-[1200px] mx-auto px-6;
+  }
+
+  .perspective-1000 { perspective: 1000px; }
+  .perspective-2000 { perspective: 2000px; }
+
+  .animate-shimmer {
+    animation: shimmer 8s infinite linear;
+  }
+
+  .animate-spin-slow {
+    animation: spin 12s infinite linear;
   }
 }
 

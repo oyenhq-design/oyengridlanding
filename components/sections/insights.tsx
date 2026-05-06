@@ -115,7 +115,7 @@ export function Insights() {
             </div>
 
             {/* Decorative Grid Behind */}
-            <div className="absolute -inset-10 bg-[radial-gradient(rgba(245,179,1,0.05)_1px,transparent_1px)] bg-[size:40px:40px] pointer-events-none -z-10" />
+            <div className="absolute -inset-10 bg-[radial-gradient(rgba(245,179,1,0.05)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10" />
           </motion.div>
 
         </div>
