@@ -1,94 +1,99 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { X, Search } from "lucide-react"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Search, X, Menu } from "lucide-react";
 
 export function PremiumHeader() {
-  const [showPromo, setShowPromo] = useState(true)
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", onScroll)
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="w-full sticky top-0 z-50">
-      {/* Top Promo Bar */}
-      {showPromo && (
-        <div className="w-full flex items-center justify-center h-9 md:h-10 px-4 bg-gradient-to-r from-[#18120A] via-[#0A0A0A] to-[#18120A] text-white/90 text-xs md:text-sm font-medium tracking-tight relative transition-all duration-200 ease-out">
-          <span className="mx-auto">Structured programme operations with full visibility <span className="inline-block align-middle ml-1">→</span> <Link href="#" className="underline underline-offset-2 hover:text-[#FFD700] transition-colors">Learn more</Link></span>
-          <button
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white/90 transition-colors p-1"
-            aria-label="Dismiss promo"
-            onClick={() => setShowPromo(false)}
-          >
-            <X className="w-4 h-4" />
-          </button>
+    <div className="fixed top-0 left-0 right-0 z-[100]">
+      {/* 2. ANNOUNCEMENT BAR */}
+      <div className="w-full bg-gradient-to-r from-[#0B0B0C] via-[#F5B800]/20 to-[#0B0B0C] border-b border-[#F5B800]/10 py-2.5 relative backdrop-blur-md">
+        <div className="max-w-[1280px] mx-auto px-6 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#F5B800] shadow-[0_0_8px_#F5B800]" />
+            <p className="text-[#A1A1AA] text-[11px] font-bold tracking-[0.1em] uppercase">
+              Run structured programmes with full <span className="text-white">operational clarity and control.</span>
+            </p>
+          </div>
+          <div className="flex items-center gap-6 shrink-0">
+            <button className="text-white text-[10px] font-black tracking-widest uppercase hover:text-[#F5B800] transition-colors">
+              EXPLORE PLATFORM
+            </button>
+            <button className="text-[#3F3F46] hover:text-white transition-colors">
+              <X className="w-4 h-4" />
+            </button>
+          </div>
         </div>
-      )}
+      </div>
 
-      {/* Main Navigation Bar */}
-      <nav
-        className={`w-full border-b border-white/5 backdrop-blur-xl transition-all duration-200 ease-out ${
-          scrolled ? "bg-[rgba(10,10,10,0.92)] h-[60px]" : "bg-[rgba(10,10,10,0.7)] h-[72px]"
+      {/* 1. NAVBAR */}
+      <header 
+        className={`w-full transition-all duration-500 border-b ${
+          scrolled 
+            ? "bg-[#0A0A0A]/80 backdrop-blur-xl border-[#F5B800]/20 py-3" 
+            : "bg-[#0A0A0A]/40 backdrop-blur-md border-white/5 py-5"
         }`}
       >
-        <div className="max-w-[1280px] mx-auto flex items-center justify-between px-6 md:px-8 h-full">
-          {/* Left: Logo */}
-          <Link href="/" className="flex items-center gap-2 font-extrabold text-xl md:text-2xl tracking-tight text-white select-none">
-            <span className="inline-block bg-gradient-to-r from-[#FFD700] to-[#E6B800] bg-clip-text text-transparent">OYEN</span>
-            <span className="text-white">GRID</span>
-          </Link>
+        <div className="max-w-[1280px] mx-auto px-6 flex items-center justify-between">
+          <div className="flex items-center gap-12">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#F5B800] to-[#B88A00] flex items-center justify-center shadow-[0_0_20px_rgba(245,184,0,0.3)] group-hover:scale-105 transition-transform">
+                <span className="text-black font-black text-lg">OG</span>
+              </div>
+              <span className="text-white font-black text-xl tracking-tighter uppercase group-hover:text-[#F5B800] transition-colors">OYEN GRID</span>
+            </Link>
 
-          {/* Center: Primary Nav */}
-          <div className="hidden md:flex items-center gap-10 mx-auto">
-            {[
-              { label: "Features", href: "#features" },
-              { label: "Solutions", href: "#solutions" },
-              { label: "Resources", href: "#resources" },
-              { label: "Pricing", href: "/pricing" },
-            ].map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-white/70 hover:text-white transition-colors duration-200 ease-out font-medium text-base px-1 py-1 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-              >
-                {item.label}
-              </Link>
-            ))}
+            <nav className="hidden lg:flex items-center gap-10">
+              {["Features", "Solutions", "Resources", "Pricing"].map((item) => (
+                <Link 
+                  key={item} 
+                  href="#" 
+                  className="text-[#A1A1AA] text-[14px] font-bold tracking-wide uppercase hover:text-white transition-colors"
+                >
+                  {item}
+                </Link>
+              ))}
+            </nav>
           </div>
 
-          {/* Right: Utility + CTA */}
-          <div className="flex items-center gap-4 md:gap-6">
-            {/* Search icon placeholder */}
-            <button className="hidden md:inline-flex items-center justify-center text-white/60 hover:text-white transition-colors duration-200 ease-out p-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-black">
-              <Search className="w-5 h-5" />
-            </button>
-            {/* Login */}
-            <Link href="/login" className="text-white/60 hover:text-white transition-colors duration-200 ease-out font-medium text-base px-2 py-1 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-black">
-              Login
-            </Link>
-            {/* CTA */}
-            <Link href="/get-started" className="relative group">
-              <span
-                className="inline-block bg-gradient-to-tr from-[#FFD700] to-[#E6B800] text-black font-semibold px-5 py-2.5 rounded-lg shadow-md transition-all duration-200 ease-out group-hover:-translate-y-0.5 group-hover:shadow-[0_4px_24px_0_rgba(212,175,55,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+          <div className="flex items-center gap-6">
+            <div className="hidden sm:flex items-center gap-6">
+              <button className="text-[#A1A1AA] hover:text-[#F5B800] transition-colors">
+                <Search className="w-5 h-5" />
+              </button>
+              <Link href="/login" className="text-white text-[14px] font-bold hover:text-[#F5B800] transition-colors">
+                Login
+              </Link>
+            </div>
+            <div className="flex items-center gap-4">
+              <Link 
+                href="/contact" 
+                className="hidden md:block px-6 py-2.5 rounded-full border border-white/10 text-white text-[13px] font-bold uppercase tracking-widest hover:bg-white/5 transition-all"
+              >
+                Contact Sales
+              </Link>
+              <Link 
+                href="/get-started" 
+                className="px-6 py-2.5 rounded-full bg-[#F5B800] text-black text-[13px] font-black uppercase tracking-widest hover:bg-[#D4A000] transition-all shadow-[0_10px_20px_rgba(245,184,0,0.2)]"
               >
                 Get Started
-              </span>
-            </Link>
-            {/* Hamburger for mobile */}
-            <button className="md:hidden ml-2 text-white/80 hover:text-white transition-colors duration-200 ease-out p-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] focus-visible:ring-offset-2 focus-visible:ring-offset-black">
-              <span className="sr-only">Open menu</span>
-              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
+              </Link>
+            </div>
+            <button className="lg:hidden text-white">
+              <Menu className="w-6 h-6" />
             </button>
           </div>
         </div>
-      </nav>
-    </header>
-  )
+      </header>
+    </div>
+  );
 }

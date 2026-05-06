@@ -1,27 +1,27 @@
-import { ZoomHeader } from "@/components/shared/zoom-header";
-import { ZoomHero } from "@/components/shared/zoom-hero";
-import { ZoomFeatures } from "@/components/shared/zoom-features";
-import { ZoomSocialProof } from "@/components/shared/zoom-social-proof";
-import { ZoomFooter } from "@/components/shared/zoom-footer";
+import { PremiumHeader } from "@/components/shared/premium-header";
+import { PremiumHero } from "@/components/shared/premium-hero";
+import { PremiumFeatures } from "@/components/shared/premium-features";
+import { PremiumInsights } from "@/components/shared/premium-insights";
+import { PremiumConversion } from "@/components/shared/premium-conversion";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white text-[#0B0B0C] selection:bg-[#0B5CFF]/10 font-sans overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-[#0B0B0C] text-white selection:bg-[#F5B800]/30 font-sans overflow-x-hidden">
       {/* 1. NAVBAR + 2. ANNOUNCEMENT BAR */}
-      <ZoomHeader />
+      <PremiumHeader />
       
       <main className="flex-1">
-        {/* 3. HERO + 4. PRODUCT CAROUSEL + 5. AI INTRO */}
-        <ZoomHero />
+        {/* 3. HERO + 4. TRUST LOGOS + 5. OPERATIONAL CLARITY */}
+        <PremiumHero />
 
-        {/* 6. FEATURE SPLIT + 7. AWARDS + 8. PLATFORM */}
-        <ZoomFeatures />
+        {/* 6. FEATURE SPLIT + 7. FEATURE GRID + 8. OPERATE WITH POWER TABS */}
+        <PremiumFeatures />
 
-        {/* 9. RATINGS + 10. TESTIMONIAL + 11. CASE STUDY CAROUSEL + 12. NEWS GRID */}
-        <ZoomSocialProof />
+        {/* 9. INSIGHTS + 10. SCALE GRID + 11. CASE STUDIES + 12. KNOWLEDGE */}
+        <PremiumInsights />
 
-        {/* 13. FINAL CTA + 14. FOOTER */}
-        <ZoomFooter />
+        {/* 13. TESTIMONIAL + 14. PRICING CTA + 15. FINAL CTA + 16. FOOTER */}
+        <PremiumConversion />
       </main>
     </div>
   );
