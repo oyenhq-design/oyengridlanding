@@ -1,11 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0B0B0C;
+  --color-background: #0B0B0D;
+  --color-secondary: #111114;
+  --color-tertiary: #151518;
+  --color-accent: #F5B301;
+  --color-text-secondary: #A1A1AA;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
 }
 
-body {
-  background: var(--color-background);
-  color: white;
-  font-family: system-ui, -apple-system, sans-serif;
+@layer base {
+  body {
+    @apply bg-background text-white antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
 }
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-accent text-black font-bold rounded-lg transition-all hover:scale-[1.03] hover:brightness-110 active:scale-95 shadow-lg shadow-accent/10;
+  }
+  
+  .btn-outline {
+    @apply px-6 py-3 border border-border-subtle text-white font-bold rounded-lg transition-all hover:bg-white/5 active:scale-95;
+  }
+
+  .glass-card {
+    @apply bg-tertiary border border-border-subtle rounded-xl shadow-xl transition-all duration-300;
+  }
+
+  .container-custom {
+    @apply max-w-[1200px] mx-auto px-6;
+  }
+}
+
+.text-accent { color: #F5B301; }
+.bg-accent { background-color: #F5B301; }
