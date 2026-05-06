@@ -1,41 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0B0B0D;
-  --color-accent: #F5B942;
-  --color-accent-hover: #D4A017;
-  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-background: #0B0B0C;
 }
 
-@layer base {
-  body {
-    @apply bg-background text-white antialiased selection:bg-accent/30 selection:text-white;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tighter font-bold;
-  }
+body {
+  background: var(--color-background);
+  color: white;
+  font-family: system-ui, -apple-system, sans-serif;
 }
-
-@layer components {
-  .glass-card {
-    @apply bg-white/[0.02] border border-border-subtle backdrop-blur-md rounded-[16px] transition-all duration-300;
-  }
-  
-  .btn-gold {
-    @apply px-6 py-3 rounded-xl bg-accent text-black font-bold transition-all hover:bg-accent-hover hover:scale-[1.02] active:scale-95 shadow-lg shadow-accent/10;
-  }
-  
-  .btn-outline {
-    @apply px-6 py-3 rounded-xl border border-border-subtle text-white font-bold transition-all hover:bg-white/5 active:scale-95;
-  }
-}
-
-/* Custom Utilities */
-.text-gold { color: #F5B942; }
-.bg-gold { background-color: #F5B942; }
-
-/* Animation Overrides */
-.hide-scrollbar::-webkit-scrollbar { display: none; }
-.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
