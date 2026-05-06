@@ -13,7 +13,7 @@ export function FinalConversionSections() {
       <section className="py-40 relative overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/professional_workspace_ops_team_1778024747201.png" 
+            src="/premium_saas_workspace_night_1778072758177_png_1778076123899.png" 
             alt="Operational Team" 
             fill 
             className="object-cover opacity-20 grayscale scale-110"

@@ -39,7 +39,7 @@ export function ProofAndResourceSections() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
               { 
-                image: "/professional_workspace_ops_team_1778024747201.png", 
+                image: "/premium_saas_workspace_night_1778072758177_png_1778076123899.png", 
                 category: "Enterprise Scale", 
                 title: "How TechElevate scaled their internal training by 400%",
                 desc: "Replacing fragmented LMS tools with OYEN GRID unified their entire global talent operations."

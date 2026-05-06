@@ -13,7 +13,7 @@ export function PremiumHero() {
       <div className="absolute inset-0 z-0">
         {/* Workspace image with subtle blur */}
         <Image
-          src="/professional_workspace_ops_team_1778024747201.png"
+          src="/premium_saas_workspace_night_1778072758177_png_1778076123899.png"
           alt="Modern Workspace"
           fill
           className="object-cover opacity-[0.12] blur-[2px] scale-105"
