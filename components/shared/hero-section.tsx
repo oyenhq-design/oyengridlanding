@@ -12,20 +12,20 @@ export function OyenHero() {
       {/* 1. BACKGROUND SYSTEM */}
       <div className="absolute inset-0 z-0">
         {/* Subtle office image on the right side ONLY */}
-        <div className="absolute top-0 right-0 w-1/2 h-full">
+        <div className="absolute top-0 right-0 w-full h-full">
           <Image
-            src="/subtle_office_bg_right_1778080315_png_1778079922978.png"
+            src="/oyen_grid_hero_workspace_v2_1778080769_png_1778080399094.png"
             alt="Office background"
             fill
-            className="object-cover opacity-30 grayscale blur-[2px]"
+            className="object-cover opacity-60 grayscale blur-[2px] brightness-[0.6]"
           />
         </div>
         
-        {/* Dark gradient overlay: Left fully dark -> Right image visible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent" />
+        {/* Dark gradient overlay: Left fully dark -> Right image visible (90deg) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/90 to-transparent opacity-100" />
         
-        {/* Gold radial glow behind UI mockup (bottom-right) */}
-        <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-[#F5B800] opacity-[0.03] blur-[150px] rounded-full pointer-events-none translate-x-1/4 translate-y-1/4" />
+        {/* Gold radial glow behind UI mockup (circle at 75% 60%) */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_60%,rgba(245,184,0,0.15),transparent_60%)] pointer-events-none" />
         
         {/* Dotted/grid floor effect fading forward */}
         <div className="absolute bottom-0 left-0 right-0 h-[300px] opacity-[0.1] bg-[url('/grid-dots.svg')] [mask-image:linear-gradient(to_top,black,transparent)] pointer-events-none" />
