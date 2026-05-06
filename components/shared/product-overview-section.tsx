@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, Layout, Activity, Database, Shield } from "lucide-react";
+import { CheckCircle2, Layout, Activity, Database, Shield, ArrowRight } from "lucide-react";
 
 export function ProductOverviewSection() {
   return (
