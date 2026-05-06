@@ -1,14 +1,14 @@
-import { Header } from "@/components/shared/header";
-import { Footer } from "@/components/shared/footer";
-import { PricingHeader } from "@/components/pricing/pricing-header";
-import { PricingSidebar } from "@/components/pricing/pricing-sidebar";
-import { PricingCards } from "@/components/pricing/pricing-cards";
-import { PricingContextHeader } from "@/components/pricing/pricing-context-header";
-import { PlanExplainerSection } from "@/components/pricing/plan-explainer-section";
-import { PricingComparison } from "@/components/pricing/pricing-comparison";
-import { PricingAddons } from "@/components/pricing/pricing-addons";
-import { PricingFAQ } from "@/components/pricing/pricing-faq";
-import { PricingCTA } from "@/components/pricing/pricing-cta";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { PricingHeader } from "@/components/sections/pricing-header";
+import { PricingSidebar } from "@/components/sections/pricing-sidebar";
+import { PricingCards } from "@/components/sections/pricing-cards";
+import { PricingContextHeader } from "@/components/sections/pricing-context-header";
+import { PlanExplainerSection } from "@/components/sections/plan-explainer-section";
+import { PricingComparison } from "@/components/sections/pricing-comparison";
+import { PricingAddons } from "@/components/sections/pricing-addons";
+import { PricingFAQ } from "@/components/sections/pricing-faq";
+import { PricingCTA } from "@/components/sections/pricing-cta";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

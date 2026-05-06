@@ -27,7 +27,7 @@ export function TrustAndClarity() {
               className="group"
             >
               <div className="relative aspect-video rounded-2xl overflow-hidden mb-6 border border-white/10 shadow-2xl">
-                <img 
+                <img loading="lazy" 
                   src={card.img} 
                   alt={card.title} 
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100" 

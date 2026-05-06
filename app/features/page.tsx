@@ -1,7 +1,7 @@
 "use client";
 
-import { Header } from "@/components/shared/header";
-import { Footer } from "@/components/shared/footer";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 import { motion } from "framer-motion";
 import { 
   Layout, Users, Video, Database, 
@@ -11,7 +11,7 @@ import {
   Lock, BookOpen, ArrowRight, Star,
   ShieldCheck, BarChart3, Zap, Users2
 } from "lucide-react";
-import { InteractiveFeaturesSection } from "@/components/shared/interactive-features-section";
+import { InteractiveFeaturesSection } from "@/components/sections/interactive-features-section";
 import Link from "next/link";
 import Image from "next/image";
 

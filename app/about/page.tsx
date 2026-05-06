@@ -1,8 +1,8 @@
 "use client"
 
-import { Header } from "@/components/shared/header";
-import { Footer } from "@/components/shared/footer";
-import { CTASection } from "@/components/shared/cta-section";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { CTASection } from "@/components/sections/cta-section";
 import { motion } from "framer-motion";
 
 export default function AboutPage() {

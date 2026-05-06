@@ -44,7 +44,7 @@ export function DeepProductSections() {
             className="lg:col-span-7"
           >
             <div className="relative aspect-video rounded-[32px] overflow-hidden border border-white/10 shadow-2xl group">
-              <img 
+              <img loading="lazy" 
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978" 
                 alt="Enterprise Operations" 
                 className="w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"

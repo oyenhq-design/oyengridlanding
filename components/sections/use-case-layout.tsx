@@ -128,7 +128,7 @@ export function UseCaseLayout({ data }: { data: UseCaseData }) {
             
             {data.hero.heroImage ? (
               <div className="w-full h-full relative">
-                <img 
+                <img loading="lazy" 
                   src={data.hero.heroImage} 
                   alt="Dashboard Preview" 
                   className="w-full h-full object-cover opacity-90 group-hover:scale-[1.02] transition-transform duration-700"

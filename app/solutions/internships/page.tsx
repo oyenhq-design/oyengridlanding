@@ -1,6 +1,6 @@
 "use client"
 
-import { UseCaseLayout, UseCaseData } from "@/components/shared/use-case-layout"
+import { UseCaseLayout, UseCaseData } from "@/components/sections/use-case-layout"
 import { Target, SearchCheck, CheckCircle2, Navigation } from "lucide-react"
 
 const internshipsData: UseCaseData = {

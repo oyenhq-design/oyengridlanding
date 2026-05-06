@@ -1,10 +1,10 @@
-import { Header } from "@/components/shared/header";
-import { OyenHero } from "@/components/shared/hero-section";
-import { TrustAndClarity } from "@/components/shared/trust-and-clarity";
-import { CoreValueSections } from "@/components/shared/core-value-sections";
-import { DeepProductSections } from "@/components/shared/deep-product-sections";
-import { ProofAndResourceSections } from "@/components/shared/proof-and-resource-sections";
-import { FinalConversionSections } from "@/components/shared/final-conversion-sections";
+import { Header } from "@/components/layout/header";
+import { OyenHero } from "@/components/sections/hero-section";
+import { TrustAndClarity } from "@/components/sections/trust-and-clarity";
+import { CoreValueSections } from "@/components/sections/core-value-sections";
+import { DeepProductSections } from "@/components/sections/deep-product-sections";
+import { ProofAndResourceSections } from "@/components/sections/proof-and-resource-sections";
+import { FinalConversionSections } from "@/components/sections/final-conversion-sections";
 
 export default function Home() {
   return (

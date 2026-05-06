@@ -17,7 +17,7 @@ export function CoreValueSections() {
             className="relative"
           >
             <div className="relative aspect-[4/3] bg-[#0D0D10] rounded-[32px] overflow-hidden border border-white/10 shadow-2xl group">
-               <img 
+               <img loading="lazy" 
                 src="https://images.unsplash.com/photo-1531403009284-440f080d1e12" 
                 alt="Unified System" 
                 className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-1000"

@@ -22,7 +22,7 @@ export function ProofAndResourceSections() {
                 key={study.title}
                 className="group relative h-[400px] rounded-[28px] overflow-hidden border border-white/10 shadow-2xl"
               >
-                <img src={study.img} alt={study.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100" />
+                <img loading="lazy" src={study.img} alt={study.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <h3 className="text-white font-bold text-xl group-hover:text-[#F5B942] transition-colors">{study.title}</h3>

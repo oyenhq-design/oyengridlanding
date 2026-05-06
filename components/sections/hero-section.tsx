@@ -13,7 +13,7 @@ export function OyenHero() {
       <div className="absolute inset-0 z-0">
         {/* Force Image Render Test */}
         <div className="absolute top-10 left-10 z-50 pointer-events-none">
-          <img 
+          <img loading="lazy" 
             src="https://images.unsplash.com/photo-1556761175-4b46a572b786" 
             style={{ width: '400px', border: '5px solid yellow' }} 
             alt="FORCE RENDER TEST"
@@ -25,6 +25,7 @@ export function OyenHero() {
           <img
             src="https://images.unsplash.com/photo-1492724441997-5dc865305da7"
             alt="Office background"
+            loading="lazy"
             className="w-full h-full object-cover opacity-40 grayscale blur-[10px] brightness-[0.4]"
           />
         </div>
@@ -102,7 +103,7 @@ export function OyenHero() {
               transition={{ duration: 1, delay: 0.2 }}
               className="relative z-10 w-full aspect-[1.2/1] bg-[#0A0A0A] border border-white/10 rounded-[24px] shadow-[0_50px_100px_rgba(0,0,0,0.8)] overflow-hidden group"
             >
-              <img 
+              <img loading="lazy" 
                 src="https://images.unsplash.com/photo-1551288049-bbbda536639a" 
                 alt="Product UI Mockup" 
                 className="w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
