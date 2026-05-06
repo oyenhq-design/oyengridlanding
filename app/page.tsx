@@ -1,27 +1,38 @@
-import { PremiumHeader } from "@/components/shared/premium-header";
-import { PremiumHero } from "@/components/shared/premium-hero";
-import { PremiumFeatures } from "@/components/shared/premium-features";
-import { PremiumInsights } from "@/components/shared/premium-insights";
-import { PremiumConversion } from "@/components/shared/premium-conversion";
+import { ZoomHeader } from "@/components/shared/zoom/header";
+import { ZoomHero } from "@/components/shared/zoom/hero";
+import { ProductCarousel } from "@/components/shared/zoom/product-carousel";
+import { AICompanionSection } from "@/components/shared/zoom/ai-companion";
+import { FeatureAwards } from "@/components/shared/zoom/feature-awards";
+import { PlatformTrust } from "@/components/shared/zoom/platform-trust";
+import { SocialProof } from "@/components/shared/zoom/social-proof";
+import { FooterCTA } from "@/components/shared/zoom/footer-cta";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#0B0B0C] text-white selection:bg-[#F5B800]/30 font-sans overflow-x-hidden">
-      {/* 1. NAVBAR + 2. ANNOUNCEMENT BAR */}
-      <PremiumHeader />
+    <div className="flex flex-col min-h-screen bg-white text-[#232333] selection:bg-[#0B5CFF]/30 font-sans overflow-x-hidden">
+      <ZoomHeader />
       
       <main className="flex-1">
-        {/* 3. HERO + 4. TRUST LOGOS + 5. OPERATIONAL CLARITY */}
-        <PremiumHero />
+        {/* 3. HERO SECTION */}
+        <ZoomHero />
 
-        {/* 6. FEATURE SPLIT + 7. FEATURE GRID + 8. OPERATE WITH POWER TABS */}
-        <PremiumFeatures />
+        {/* 4. PRODUCT CAROUSEL */}
+        <ProductCarousel />
 
-        {/* 9. INSIGHTS + 10. SCALE GRID + 11. CASE STUDIES + 12. KNOWLEDGE */}
-        <PremiumInsights />
+        {/* 5. AI COMPANION SECTION */}
+        <AICompanionSection />
 
-        {/* 13. TESTIMONIAL + 14. PRICING CTA + 15. FINAL CTA + 16. FOOTER */}
-        <PremiumConversion />
+        {/* 6. FEATURE SPLIT + 7. AWARDS CARDS */}
+        <FeatureAwards />
+
+        {/* 8. PLATFORM SECTION + 9. RATINGS / TRUST METRICS */}
+        <PlatformTrust />
+
+        {/* 10. TESTIMONIAL + 11. CASE STUDY CAROUSEL */}
+        <SocialProof />
+
+        {/* 12. NEWS GRID + 13. FINAL CTA + 14. FOOTER */}
+        <FooterCTA />
       </main>
     </div>
   );
