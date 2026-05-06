@@ -12,11 +12,11 @@ export function MainGrid({ sidebar, children, className = "" }: MainGridProps) {
   return (
     // Outer shell: constrains the full page width and centers the layout
     <div className={`w-full max-w-[1420px] mx-auto px-8 ${className}`}>
-      <div className="flex flex-row gap-4">
-        {/* Sidebar Column — 200px fixed, sticky with glassmorphism */}
+      <div className="flex flex-row gap-8">
+        {/* Sidebar Column — 240px fixed, sticky */}
         {sidebar && (
-          <aside className="w-[200px] shrink-0 hidden lg:flex flex-col relative z-20">
-            <div className="sticky top-32 pt-8 pr-4 border-r border-white/5 bg-gradient-to-r from-[#0B0B0C]/60 to-transparent backdrop-blur-md">
+          <aside className="w-[240px] shrink-0 hidden lg:flex flex-col">
+            <div className="sticky top-32 pt-8">
               {sidebar}
             </div>
           </aside>

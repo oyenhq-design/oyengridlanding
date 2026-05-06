@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
 
 export interface SidebarItem {
   id: string
@@ -50,18 +49,12 @@ export function Sidebar({ items, activeOffset = 150 }: SidebarProps) {
         <button
           key={item.id}
           onClick={() => scrollTo(item.id)}
-          className={`w-full text-left px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 relative group ${
+          className={`w-full text-left px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 ${
             activeItem === item.id 
-              ? "text-[#F5B942]" 
-              : "text-[#71717A] hover:text-white"
+              ? "bg-[#111111] text-[#C9A86A] border border-[#1F1F1F]" 
+              : "text-[#71717A] hover:text-white hover:bg-white/5"
           }`}
         >
-          {activeItem === item.id && (
-            <motion.div 
-              layoutId="sidebar-active"
-              className="absolute inset-0 bg-white/[0.03] border border-white/[0.08] rounded-xl backdrop-blur-md -z-10 shadow-lg"
-            />
-          )}
           {item.label}
         </button>
       ))}
