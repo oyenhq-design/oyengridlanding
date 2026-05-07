@@ -5,12 +5,12 @@ import { ArrowRight, Layout, BarChart3, Users, Network } from "lucide-react";
 
 export function ScaleStructure() {
   return (
-    <section className="py-40 relative bg-[#050816] overflow-hidden">
+    <section className="py-40 relative bg-background overflow-hidden">
       
       {/* Background Atmosphere */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,166,42,0.02),transparent_70%)]" />
 
-      <div className="container-custom max-w-[1400px] relative z-10">
+      <div className="container-custom relative z-10" style={{maxWidth:1400}}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
           
           {/* Left: Asymmetrical Storytelling */}
@@ -37,7 +37,7 @@ export function ScaleStructure() {
                  { title: "Cohort Sync", val: "98.4%", icon: Users },
                  { title: "Efficiency", val: "+4.5x", icon: Network }
                ].map((stat, i) => (
-                 <div key={i} className="glass-card p-8 bg-[#050816]/60 border-none shadow-[0_30px_60px_rgba(0,0,0,0.4)]">
+                 <div key={i} className="glass-card p-8 bg-background/60 border-none shadow-[0_30px_60px_rgba(0,0,0,0.4)]">
                     <stat.icon className="w-5 h-5 text-accent/30 mb-6 group-hover:text-accent transition-colors" />
                     <div className="text-3xl font-bold text-white tracking-tighter mb-1">{stat.val}</div>
                     <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em]">{stat.title}</div>
@@ -45,7 +45,7 @@ export function ScaleStructure() {
                ))}
             </div>
 
-            <button className="btn-primary mt-16 h-[52px] px-10 text-[15px]">See the Infrastructure</button>
+            <button className="btn-primary mt-16 px-10 text-[15px]" style={{height:52}}>See the Infrastructure</button>
           </motion.div>
 
           {/* Right: Immersive Dashboard Environment */}
@@ -58,7 +58,7 @@ export function ScaleStructure() {
              <div className="relative group">
                 <div className="absolute -inset-10 bg-accent/5 blur-[80px] rounded-full pointer-events-none opacity-50" />
                 
-                <div className="relative rounded-[48px] overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.8)] bg-[#050816]/60 border-none">
+                <div className="relative rounded-[48px] overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.8)] bg-background/60 border-none">
                     <img 
                       src="/wide-dashboard.png" 
                       alt="Operational Dashboard" 
@@ -69,7 +69,7 @@ export function ScaleStructure() {
                     <motion.div 
                       animate={{ x: [0, 10, 0] }}
                       transition={{ duration: 6, repeat: Infinity }}
-                      className="absolute top-12 right-12 glass-card p-8 bg-[#050816]/90 border-none backdrop-blur-3xl shadow-2xl w-56"
+                      className="absolute top-12 right-12 glass-card p-8 bg-background/90 border-none backdrop-blur-3xl shadow-2xl w-56"
                     >
                        <div className="text-[10px] font-black text-accent uppercase tracking-[0.3em] mb-4 opacity-60">Live Insights</div>
                        <div className="h-1 w-full bg-white/5 rounded-full mb-5"><div className="h-full bg-accent w-[84%] shadow-[0_0_10px_#D4A62A]" /></div>

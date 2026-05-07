@@ -1,27 +1,29 @@
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
-import { OperationalClarity } from "@/components/sections/operational-clarity";
-import { ProductShowcase } from "@/components/sections/product-showcase";
-import { ProgrammeControl } from "@/components/sections/programme-control";
+import { OperationalOverview } from "@/components/sections/operational-overview";
+import { EnterpriseInfrastructure } from "@/components/sections/enterprise-infrastructure";
 import { OperationalIntelligence } from "@/components/sections/operational-intelligence";
-import { EnterpriseSecurity } from "@/components/sections/enterprise-security";
-import { TestimonialMetrics } from "@/components/sections/testimonial-metrics";
+import { Security } from "@/components/sections/security";
+import { SocialProof } from "@/components/sections/social-proof";
+import { TestimonialSection } from "@/components/sections/testimonial-section";
 import { FinalCTA } from "@/components/sections/final-cta";
+import { ChatAssistant } from "@/components/shared/chat-assistant";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#050816] selection:bg-accent selection:text-black">
+    <main className="min-h-screen bg-[#040816]">
       <Header />
       <Hero />
-      <OperationalClarity />
-      <ProductShowcase />
-      <ProgrammeControl />
-      <EnterpriseSecurity />
+      <OperationalOverview />
+      <EnterpriseInfrastructure />
       <OperationalIntelligence />
-      <TestimonialMetrics />
+      <Security />
+      <SocialProof />
+      <TestimonialSection />
       <FinalCTA />
       <Footer />
+      <ChatAssistant />
     </main>
   );
 }

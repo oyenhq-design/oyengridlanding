@@ -5,7 +5,7 @@ import { Activity, BarChart3, TrendingUp, Zap, Target } from "lucide-react";
 
 export function Insights() {
   return (
-    <section className="py-40 bg-[#050816] relative overflow-hidden">
+    <section className="py-40 bg-background relative overflow-hidden">
       
       {/* Background Atmosphere Band */}
       <div className="absolute inset-0 z-0">
@@ -14,10 +14,10 @@ export function Insights() {
            alt="Command Wide" 
            className="w-full h-full object-cover opacity-20 grayscale-[0.5] scale-110"
          />
-         <div className="absolute inset-0 bg-gradient-to-r from-[#050816] via-[#050816]/90 to-[#050816]" />
+         <div className="absolute inset-0 bg-linear-to-r from-background via-background/90 to-background" />
       </div>
 
-      <div className="container-custom max-w-[1400px] relative z-10">
+      <div className="container-custom relative z-10" style={{maxWidth:1400}}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
           
           {/* Left Content: Editorial Spacing */}

@@ -11,7 +11,7 @@ export function ProductShowcase() {
   ];
 
   return (
-    <section className="section-padding relative bg-[#070B1D] overflow-hidden">
+    <section className="section-padding relative bg-secondary overflow-hidden">
       <div className="noise-bg absolute inset-0" />
       
       <div className="container-custom relative z-10">
@@ -40,14 +40,14 @@ export function ProductShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2 }}
-            className="relative rounded-2xl overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.9)] border border-white/5 bg-[#050816]"
+            className="relative rounded-2xl overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.9)] border border-white/5 bg-background"
           >
             <img 
               src="/product-showcase.png" 
               alt="OYEN GRID Analytics Dashboard" 
               className="w-full h-auto opacity-95"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent opacity-40" />
+            <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent opacity-40" />
           </motion.div>
 
           {/* Floating Labels */}
@@ -58,7 +58,7 @@ export function ProductShowcase() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 + i * 0.2, duration: 0.8 }}
-              className="absolute hidden lg:flex items-center gap-3 glass-card py-3 px-5 bg-[#050816]/80 border-white/10 backdrop-blur-xl shadow-2xl"
+              className="absolute hidden lg:flex items-center gap-3 glass-card py-3 px-5 bg-background/80 border-white/10 backdrop-blur-xl shadow-2xl"
               style={{ top: label.top, left: label.left, right: label.right, bottom: label.bottom }}
             >
               <label.icon className="w-3.5 h-3.5 text-accent" />

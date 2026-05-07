@@ -3,97 +3,10 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  ChevronDown, 
-  Search, 
-  Menu, 
-  X, 
-  LayoutGrid, 
-  Zap, 
-  Shield, 
-  BarChart3, 
-  Users, 
-  Globe, 
-  Database,
-  ArrowRight,
-  Cpu,
-  Lock,
-  Workflow,
-  GraduationCap,
-  Building2,
-  FileText,
-  BookOpen,
-  PieChart,
-  Activity
-} from "lucide-react";
-
-const navigation = [
-  {
-    name: "Features",
-    dropdown: [
-      { name: "Curriculum Architecture", desc: "Design multi-layer programmes.", icon: LayoutGrid, href: "/features/curriculum-architect" },
-      { name: "Precision Delivery", desc: "Automate sessions and coordination.", icon: Zap, href: "/features/precision-delivery" },
-      { name: "Operational Insights", desc: "Monitor cohorts and metrics.", icon: BarChart3, href: "/features/operational-insights" },
-      { name: "AI Infrastructure", desc: "Automated evaluations and insights.", icon: Cpu, href: "/features/ai-infrastructure" },
-      { name: "Governance & Security", desc: "Enterprise permissions and audit.", icon: Lock, href: "/features/security-governance" },
-      { name: "Workflow Automation", desc: "Build automated operational triggers.", icon: Workflow, href: "/features/workflow-automation" }
-    ],
-    rightPanel: {
-      title: "Intelligence",
-      desc: "Infrastructure for enterprise-scale execution.",
-      img: "/dropdown-preview.png",
-      metrics: [
-        { label: "Uptime", val: "99.9%" },
-        { label: "Rate", val: "94.8%" }
-      ]
-    }
-  },
-  {
-    name: "Solutions",
-    dropdown: [
-      { name: "Enterprise Training", desc: "Scale workforce enablement.", icon: Users, href: "/solutions/enterprise-onboarding" },
-      { name: "Global Programmes", desc: "Coordinate distributed cohorts.", icon: Globe, href: "/solutions/global-programmes" },
-      { name: "Bootcamps", desc: "Centralize delivery and engagement.", icon: Building2, href: "/solutions/training-operations" },
-      { name: "Universities", desc: "Infrastructure for academic ops.", icon: GraduationCap, href: "/solutions/higher-education" },
-      { name: "Government Programmes", desc: "Large-scale impact visibility.", icon: Shield, href: "/solutions/government-ngos" }
-    ],
-    rightPanel: {
-      title: "Solutions",
-      desc: "Unified global operational environment.",
-      img: "/team-collab.png",
-      metrics: [
-        { label: "Nodes", val: "12" },
-        { label: "Regions", val: "45+" }
-      ]
-    }
-  },
-  {
-    name: "Resources",
-    dropdown: [
-      { name: "Documentation", desc: "Implementation and API guides.", icon: Database, href: "/resources/documentation" },
-      { name: "Case Studies", desc: "Transformation stories from teams.", icon: FileText, href: "/resources/case-studies" },
-      { name: "Security Center", desc: "Governance and encryption.", icon: Lock, href: "/resources/security" },
-      { name: "Operational Playbooks", desc: "Best practices for scale.", icon: BookOpen, href: "/resources/playbooks" },
-      { name: "AI Research", desc: "Intelligent infrastructure insights.", icon: PieChart, href: "/resources/ai-research" },
-      { name: "System Status", desc: "Infrastructure health monitoring.", icon: Activity, href: "/status" }
-    ],
-    rightPanel: {
-      title: "Ecosystem",
-      desc: "Blueprints for programme infra.",
-      img: "/security-analyst.png",
-      metrics: [
-        { label: "Guides", val: "150+" },
-        { label: "Nodes", val: "2,400" }
-      ]
-    }
-  }
-];
+import { Search, Menu, X, ArrowRight } from "lucide-react";
 
 export function Header() {
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
   const [showAnnouncement, setShowAnnouncement] = useState(true);
 
   useEffect(() => {
@@ -107,264 +20,78 @@ export function Header() {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 right-0 z-[100] h-[76px] flex items-center transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-[100] h-[78px] flex items-center transition-all duration-300 ${
           isScrolled 
-            ? "bg-[#050A19]/90 backdrop-blur-2xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]" 
+            ? "bg-[#040816]/80 backdrop-blur-xl border-b border-white/5" 
             : "bg-transparent"
         }`}
       >
-        <div className="w-full max-w-[1500px] mx-auto flex items-center justify-between px-10 relative">
+        <div className="container-custom flex items-center justify-between w-full">
           
-          {/* LOGO AREA */}
-          <div className="flex items-center gap-14">
-            <Link href="/" className="flex items-center gap-4 group">
-              <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(212,166,42,0.2)] group-hover:scale-105 transition-all duration-300">
-                <LayoutGrid className="w-4.5 h-4.5 text-black" />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-bold text-[18px] tracking-tight text-white uppercase">OYEN GRID</span>
-                <span className="text-[7.5px] font-black text-accent/40 uppercase tracking-[0.4em] mt-0.5">INFRASTRUCTURE</span>
-              </div>
-            </Link>
+          {/* LEFT: LOGO */}
+          <Link href="/" className="flex flex-col leading-none group">
+            <span className="font-bold text-[20px] tracking-tight text-white uppercase">OYEN GRID</span>
+            <span className="text-[8px] font-black text-accent-gold/60 uppercase tracking-[0.4em] mt-0.5">INFRASTRUCTURE</span>
+          </Link>
 
-            {/* NAVIGATION LINKS (DESKTOP) */}
-            <nav className="hidden lg:flex items-center gap-10">
-              {navigation.map((item) => (
-                <div 
-                  key={item.name}
-                  className="relative h-[76px] flex items-center"
-                  onMouseEnter={() => setActiveDropdown(item.name)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <div className="group flex items-center gap-1 text-[14.5px] font-semibold text-white/50 hover:text-white transition-all cursor-default py-1">
-                    {item.name}
-                    <ChevronDown className={`w-3 h-3 transition-transform duration-300 text-white/20 group-hover:text-accent ${activeDropdown === item.name ? "rotate-180" : ""}`} />
-                    
-                    <motion.div 
-                      className="absolute bottom-[26px] left-0 h-[1.5px] bg-accent"
-                      initial={{ width: 0 }}
-                      animate={{ width: activeDropdown === item.name ? "100%" : 0 }}
-                      transition={{ duration: 0.2 }}
-                    />
-                  </div>
-
-                  {/* COMPACT MEGA MENU (640px) */}
-                  <AnimatePresence>
-                    {activeDropdown === item.name && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 6 }}
-                        transition={{ duration: 0.18, ease: "easeOut" }}
-                        className="absolute top-[64px] left-[-40px] w-[640px] glass-card bg-[#050A19]/98 border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.7)] backdrop-blur-[24px] rounded-[22px] overflow-hidden"
-                      >
-                        <div className="flex divide-x divide-white/5">
-                          
-                          {/* LEFT COLUMN: 60% */}
-                          <div className="flex-[0.6] p-5 grid grid-cols-1 gap-y-1">
-                            {item.dropdown.map((sub) => (
-                              <Link 
-                                key={sub.name} 
-                                href={sub.href} 
-                                className="group flex items-start gap-4 p-3 rounded-[14px] hover:bg-white/[0.03] transition-all"
-                              >
-                                <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center shrink-0 group-hover:bg-accent transition-all">
-                                  <sub.icon className="w-4.5 h-4.5 text-accent group-hover:text-black transition-colors" />
-                                </div>
-                                <div className="pt-0.5">
-                                  <div className="font-semibold text-white text-[15px] mb-0.5 group-hover:text-accent transition-colors flex items-center gap-1.5">
-                                    {sub.name}
-                                    <ArrowRight className="w-3 h-3 text-accent/0 group-hover:text-accent group-hover:translate-x-1 transition-all" />
-                                  </div>
-                                  <div className="text-[12px] text-white/40 leading-tight font-light">{sub.desc}</div>
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-
-                          {/* RIGHT COLUMN: 40% (FEATURED) */}
-                          <div className="flex-[0.4] bg-white/[0.01] p-6 flex flex-col justify-between">
-                             <div>
-                                <div className="text-[10px] font-black text-accent/60 uppercase tracking-widest mb-3">{item.rightPanel.title}</div>
-                                <div className="text-[14px] font-bold text-white mb-5 leading-snug tracking-tight">{item.rightPanel.desc}</div>
-                                
-                                <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-white/5 shadow-2xl mb-6">
-                                   <img 
-                                     src={item.rightPanel.img} 
-                                     alt="Preview" 
-                                     className="w-full h-full object-cover opacity-60"
-                                   />
-                                   <div className="absolute inset-0 bg-gradient-to-t from-[#050A19] to-transparent opacity-40" />
-                                </div>
-                             </div>
-
-                             <div className="flex gap-6">
-                                {item.rightPanel.metrics.map((metric, i) => (
-                                  <div key={i}>
-                                     <div className="text-[15px] font-bold text-white tracking-tighter leading-none">{metric.val}</div>
-                                     <div className="text-[9px] font-black text-white/20 uppercase tracking-widest mt-1">{metric.label}</div>
-                                  </div>
-                                ))}
-                             </div>
-                          </div>
-
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-              
-              <Link href="/pricing" className="text-[14.5px] font-semibold text-white/40 hover:text-white transition-all py-1 relative group">
-                Pricing
-                <span className="absolute bottom-[-1px] left-0 w-0 h-[1.5px] bg-accent transition-all duration-300 group-hover:w-full" />
+          {/* CENTER: NAV */}
+          <nav className="hidden lg:flex items-center gap-10">
+            {["Features", "Solutions", "Resources", "Pricing"].map((item) => (
+              <Link 
+                key={item} 
+                href="#" 
+                className="text-[14px] font-semibold text-white/60 hover:text-white transition-colors"
+              >
+                {item}
               </Link>
-            </nav>
-          </div>
+            ))}
+          </nav>
 
-          {/* RIGHT ACTIONS - REFINED */}
-          <div className="flex items-center gap-10">
-            <div className="hidden xl:flex items-center gap-10">
-               {/* Premium Search Trigger */}
-               <button 
-                 onClick={() => window.dispatchEvent(new CustomEvent('open-search'))}
-                 className="w-10 h-10 rounded-full bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-white/40 hover:text-white hover:bg-white/[0.08] hover:border-accent/40 hover:shadow-[0_0_20px_rgba(245,179,1,0.15)] transition-all duration-300 group/search"
-               >
-                 <Search className="w-5 h-5 transition-transform group-hover/search:scale-110" />
-               </button>
-               
-               {/* Login Link */}
-               <Link 
-                 href="/login" 
-                 className="text-[15px] font-bold text-white/40 hover:text-white transition-all relative group/login"
-               >
-                 Login
-                 <span className="absolute bottom-[-4px] left-0 w-0 h-[1.5px] bg-white transition-all duration-300 group-hover/login:w-full opacity-50" />
-               </Link>
+          {/* RIGHT: ACTIONS */}
+          <div className="flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-8">
+              <button className="text-white/40 hover:text-white transition-colors">
+                <Search className="w-5 h-5" />
+              </button>
+              <Link href="#" className="text-[14px] font-semibold text-white/60 hover:text-white transition-colors">
+                Login
+              </Link>
             </div>
-            
             <div className="flex items-center gap-4">
               <Link 
                 href="#" 
-                className="hidden sm:flex items-center px-6 h-10 border border-white/5 bg-white/[0.02] rounded-lg text-[11px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-white hover:border-white/10 transition-all duration-300"
+                className="hidden sm:flex items-center justify-center px-6 h-[44px] rounded-full border border-white/10 text-[13px] font-bold text-white hover:bg-white/5 transition-all"
               >
                 Contact Sales
               </Link>
               <Link 
                 href="#" 
-                className="btn-primary h-10 flex items-center px-6 text-[11px] font-black uppercase tracking-[0.2em] rounded-lg shadow-lg hover:translate-y-[-2px] transition-all duration-300"
+                className="btn-gold !h-[44px] !px-6 text-[13px] !rounded-full"
               >
                 Get Started
               </Link>
             </div>
-
-            <button 
-              className="lg:hidden text-white p-2"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              <Menu className="w-7 h-7" />
-            </button>
           </div>
         </div>
       </header>
 
-      {/* MOBILE NAVIGATION (ACCORDIONS) */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            className="fixed inset-0 z-[110] bg-[#050A19] flex flex-col pt-24 px-8 overflow-y-auto"
-          >
-             <button onClick={() => setIsMobileMenuOpen(false)} className="absolute top-8 right-8 text-white/40">
-                <X className="w-8 h-8" />
-             </button>
-
-             <nav className="space-y-6 mb-16">
-                {navigation.map((item) => (
-                  <div key={item.name} className="border-b border-white/5 pb-4">
-                     <button 
-                       onClick={() => setExpandedMobileItem(expandedMobileItem === item.name ? null : item.name)}
-                       className="w-full flex items-center justify-between text-2xl font-bold text-white tracking-tighter"
-                     >
-                        {item.name}
-                        <ChevronDown className={`w-5 h-5 transition-transform ${expandedMobileItem === item.name ? "rotate-180" : ""}`} />
-                     </button>
-                     
-                     <AnimatePresence>
-                        {expandedMobileItem === item.name && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden mt-4 space-y-4"
-                          >
-                             {item.dropdown.map((sub) => (
-                               <Link 
-                                 key={sub.name} 
-                                 href={sub.href}
-                                 onClick={() => setIsMobileMenuOpen(false)}
-                                 className="flex items-center gap-3 group"
-                               >
-                                  <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center">
-                                     <sub.icon className="w-4 h-4 text-accent" />
-                                  </div>
-                                  <span className="text-lg font-medium text-white/50 group-hover:text-white transition-colors">{sub.name}</span>
-                               </Link>
-                             ))}
-                          </motion.div>
-                        )}
-                     </AnimatePresence>
-                  </div>
-                ))}
-                
-                <Link href="/pricing" onClick={() => setIsMobileMenuOpen(false)} className="block text-2xl font-bold text-white tracking-tighter">Pricing</Link>
-             </nav>
-
-             <div className="mt-auto pb-12 space-y-3">
-                <Link href="#" className="w-full btn-outline h-14 flex items-center justify-center text-md font-black uppercase tracking-widest">Contact Sales</Link>
-                <Link href="#" className="w-full btn-primary h-14 flex items-center justify-center text-md font-black uppercase tracking-widest">Get Started</Link>
-             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* PREMIUM ENTERPRISE ANNOUNCEMENT BAR */}
+      {/* ANNOUNCEMENT BAR */}
       <AnimatePresence>
         {showAnnouncement && (
           <motion.div 
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="fixed top-[84px] left-0 right-0 z-[55] px-8"
+            className="fixed top-[94px] left-0 right-0 z-[90] px-6"
           >
-            <div className="max-w-[1400px] mx-auto flex justify-center">
-              <div className="h-[48px] rounded-full bg-[rgba(212,166,42,0.04)] border border-white/5 flex items-center justify-between px-6 shadow-[0_20px_40px_rgba(0,0,0,0.4)] backdrop-blur-xl relative overflow-hidden group">
-                <div className="flex items-center gap-4 relative z-10">
-                   <div className="w-1.5 h-1.5 rounded-full bg-accent/40 animate-pulse" />
-                   <div className="flex items-center gap-4">
-                      <span className="text-accent text-[10px] font-black tracking-[0.3em] uppercase whitespace-nowrap opacity-80">
-                        PROGRAMME INFRASTRUCTURE FOR SCALE
-                      </span>
-                      <div className="hidden md:block w-px h-3 bg-white/5" />
-                      <span className="hidden lg:block text-white/30 text-[11px] font-light leading-none">
-                        Run complex learning operations with absolute structural integrity.
-                      </span>
-                   </div>
-                </div>
-
-                <div className="flex items-center gap-4 relative z-10">
-                   <button className="flex items-center gap-2 text-accent/60 hover:text-accent text-[10px] font-black uppercase tracking-[0.2em] transition-all group/btn ml-4">
-                     EXPLORE <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
-                   </button>
-                   <button 
-                    onClick={() => setShowAnnouncement(false)}
-                    className="text-white/10 hover:text-white transition-colors p-1"
-                   >
-                     <X className="w-3.5 h-3.5" />
-                   </button>
-                </div>
+            <div className="max-w-fit mx-auto">
+              <div className="h-[40px] px-6 rounded-full bg-[#C9972B]/10 border border-[#C9972B]/20 backdrop-blur-md flex items-center gap-6">
+                <span className="text-[#C9972B] text-[10px] font-black tracking-[0.2em] uppercase">
+                  PROGRAMME INFRASTRUCTURE FOR SCALE
+                </span>
+                <div className="w-px h-3 bg-[#C9972B]/20" />
+                <button className="flex items-center gap-2 text-white text-[10px] font-bold hover:text-[#C9972B] transition-colors">
+                  EXPLORE <ArrowRight className="w-3 h-3" />
+                </button>
               </div>
             </div>
           </motion.div>

@@ -1,94 +1,86 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Shield, Zap, Globe, Layout } from "lucide-react";
+import { CheckCircle2, Shield, Zap, Database } from "lucide-react";
 
 export function EnterpriseInfrastructure() {
-  const bullets = [
-    "Structured Programme Orchestration",
-    "Automated Delivery Engine",
-    "Global Governance Control",
-    "Scale-Ready Infrastructure"
-  ];
-
-  const cards = [
-    { title: "Global Scale", desc: "Enterprise-grade delivery for thousands of users.", icon: Globe },
-    { title: "Precision Logic", desc: "Enforce absolute prerequisite programme rules.", icon: Zap },
-    { title: "Immutable Audit", desc: "Deep structural auditing for global compliance.", icon: Shield }
-  ];
-
   return (
-    <section className="py-40 relative bg-[#050816] overflow-hidden">
-      <div className="container-custom max-w-[1400px] relative z-10">
-        
-        {/* TOP: GRID (2 COLS) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center mb-32">
-          
-          {/* LEFT: HEADING + BULLETS */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center gap-3 mb-8">
-               <div className="h-px w-8 bg-accent" />
-               <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">SYSTEM CORE</span>
-            </div>
-            <h2 className="mb-12 text-white">
-              Enterprise infrastructure <br />
-              <span className="text-gold-gradient italic">for high-fidelity delivery.</span>
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {bullets.map((bullet, i) => (
-                <div key={i} className="flex items-center gap-4 group">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent opacity-40 group-hover:opacity-100 transition-opacity shadow-[0_0_8px_#D4A62A]" />
-                  <span className="text-white/60 group-hover:text-white transition-colors text-[15px] font-medium tracking-tight">{bullet}</span>
-                </div>
-              ))}
-            </div>
-            <button className="btn-primary mt-12 h-12 px-8 text-xs">Explore Architecture</button>
-          </motion.div>
-
-          {/* RIGHT: LARGE DASHBOARD */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <div className="relative group">
-              <div className="absolute -inset-10 bg-accent/5 blur-[120px] rounded-full pointer-events-none opacity-40" />
-              <div className="relative rounded-[48px] overflow-hidden shadow-[0_60px_100px_rgba(0,0,0,0.8)] border-none">
-                <img 
-                  src="/wide-dashboard.png" 
-                  alt="Infrastructure Dashboard" 
-                  className="w-full h-auto opacity-80 group-hover:scale-105 transition-transform duration-1000 grayscale-[0.2]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#050816]/60 via-transparent to-transparent" />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* BOTTOM: 3 SMALL CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {cards.map((card, i) => (
+    <>
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            
+            {/* LEFT: CONTENT */}
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="glass-card p-10 bg-[#050816]/30 border-none hover:bg-white/[0.04] transition-all group shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
+              transition={{ duration: 0.8 }}
             >
-              <card.icon className="w-6 h-6 text-accent/30 mb-8 group-hover:text-accent transition-colors" />
-              <h3 className="text-xl font-bold text-white mb-4 tracking-tight">{card.title}</h3>
-              <p className="opacity-30 text-[14px] group-hover:opacity-60 transition-opacity leading-relaxed">{card.desc}</p>
-            </motion.div>
-          ))}
-        </div>
+              <h2 className="text-white mb-8">
+                Enterprise infrastructure for high-fidelity delivery.
+              </h2>
+              
+              <div className="space-y-6 mb-12">
+                {[
+                  "Distributed governance",
+                  "Automated infrastructure",
+                  "Secure delivery architecture"
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4">
+                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-accent-gold/10 flex items-center justify-center">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-accent-gold" />
+                    </div>
+                    <span className="text-white/70 text-[18px]">{item}</span>
+                  </div>
+                ))}
+              </div>
 
-      </div>
-    </section>
+              <button className="btn-outline">
+                Explore Architecture
+              </button>
+            </motion.div>
+
+            {/* RIGHT: IMAGE */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="relative"
+            >
+              <div className="rounded-[32px] overflow-hidden border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.6)] bg-[#070B1D]">
+                <img 
+                  src="/infra-monitor.png" 
+                  alt="Infrastructure Monitor" 
+                  className="w-full h-auto object-cover opacity-90 transition-transform duration-[4s] hover:scale-105"
+                />
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* MINI FEATURE STRIP */}
+      <section className="py-12 border-y border-white/5 bg-white/[0.01]">
+        <div className="container-custom">
+          <div className="flex flex-wrap justify-center items-center gap-16 md:gap-32">
+            {[
+              { label: "Global Scale", icon: Database },
+              { label: "Precision Logic", icon: Zap },
+              { label: "Immutable Audit", icon: Shield }
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-4 group">
+                <item.icon className="w-5 h-5 text-accent-gold/40 group-hover:text-accent-gold transition-colors" />
+                <span className="text-white/40 group-hover:text-white font-bold text-[14px] uppercase tracking-[0.2em] transition-colors">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

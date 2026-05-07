@@ -11,7 +11,7 @@ export function EverythingNeed() {
   ];
 
   return (
-    <section className="py-40 bg-[#050816] relative overflow-hidden">
+    <section className="py-40 bg-background relative overflow-hidden">
       
       {/* IMMERSIVE FULL-WIDTH BACKGROUND */}
       <div className="absolute inset-0 z-0">
@@ -20,10 +20,10 @@ export function EverythingNeed() {
            alt="Workstation Cinematic" 
            className="w-full h-full object-cover opacity-30 grayscale-[0.5] scale-110"
          />
-         <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/80 to-transparent" />
+         <div className="absolute inset-0" style={{background:'linear-gradient(to top,#050816CC 80%,transparent)'}} />
       </div>
 
-      <div className="container-custom max-w-[1400px] relative z-10">
+      <div className="container-custom relative z-10" style={{maxWidth:1400}}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
           
           {/* Left Content */}
@@ -65,7 +65,7 @@ export function EverythingNeed() {
           >
              <div className="relative group">
                 <div className="absolute -inset-10 bg-accent/5 blur-[120px] rounded-full pointer-events-none opacity-40" />
-                 <div className="relative glass-card p-4 bg-[#050816]/40 border-none rounded-[48px] overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.8)]">
+                 <div className="relative glass-card p-4 border-none overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.8)]" style={{background:'rgba(5,8,22,0.4)',borderRadius:48}}>
                     <img 
                       src="/workstation.png" 
                       alt="Cinematic Workstation" 
@@ -73,7 +73,7 @@ export function EverythingNeed() {
                     />
                     
                     {/* Operational State Label */}
-                    <div className="absolute top-12 right-12 flex items-center gap-3 glass-card px-6 py-2.5 bg-[#050816]/90 border-none shadow-2xl">
+                    <div className="absolute top-12 right-12 flex items-center gap-3 glass-card px-6 py-2.5 border-none shadow-2xl" style={{background:'rgba(5,8,22,0.9)'}}>
                        <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_10px_#D4A62A]" />
                        <span className="text-[10px] font-black text-white uppercase tracking-[0.3em]">Live Operations</span>
                     </div>
