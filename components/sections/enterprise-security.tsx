@@ -1,77 +1,90 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldCheck, Lock, Eye, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Lock, Eye, CheckCircle2, Server, Globe, UserCheck } from "lucide-react";
 
 export function EnterpriseSecurity() {
-  return (
-    <section className="py-32 relative bg-[#050816] overflow-hidden">
-      
-      {/* Background Atmosphere */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,166,42,0.02),transparent_70%)]" />
+  const securityFeatures = [
+    { title: "Role-Based Permissions", icon: UserCheck },
+    { title: "Immutable Audit Logging", icon: Eye },
+    { title: "Encrypted Programme Records", icon: Lock },
+    { title: "Infrastructure Monitoring", icon: Server },
+    { title: "Regional Data Governance", icon: Globe },
+    { title: "Administrative Control Layers", icon: ShieldCheck }
+  ];
 
-      <div className="container-custom max-w-[1400px] relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+  return (
+    <section className="section-padding relative bg-[#050816] overflow-hidden">
+      <div className="noise-bg absolute inset-0" />
+      
+      <div className="container-custom relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
-          {/* Left: Security Visual */}
+          {/* Left: Security Dashboard Visual */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 1.2 }}
             className="relative"
           >
              <div className="relative group">
                 <div className="absolute -inset-10 bg-accent/5 blur-[120px] rounded-full pointer-events-none opacity-40" />
-                 <div className="relative rounded-[48px] overflow-hidden shadow-[0_60px_100px_rgba(0,0,0,0.8)] border-none">
+                 <div className="relative rounded-2xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.8)] border border-white/5 bg-[#070B1D]">
                     <img 
-                      src="/security-analyst.png" 
-                      alt="Security Operations" 
-                      className="w-full h-auto opacity-80 grayscale-[0.3] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+                      src="/security-dashboard.png" 
+                      alt="OYEN GRID Security Dashboard" 
+                      className="w-full h-auto opacity-90 group-hover:scale-105 transition-transform duration-[4s]"
                     />
-                    
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent opacity-80" />
-                    
-                    <motion.div 
-                      animate={{ scale: [1, 1.02, 1] }}
-                      transition={{ duration: 4, repeat: Infinity }}
-                      className="absolute top-10 left-10 glass-card p-8 bg-[#050816]/60 border-none backdrop-blur-3xl shadow-2xl"
-                    >
-                       <ShieldCheck className="w-8 h-8 text-accent mb-4 shadow-[0_0_15px_rgba(212,166,42,0.3)]" />
-                       <div className="text-xl font-bold text-white tracking-tight">SOC2 TYPE II</div>
-                       <div className="text-[9px] font-black text-white/30 uppercase tracking-[0.3em] mt-2">CERTIFIED COMPLIANCE</div>
-                    </motion.div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent opacity-60" />
+                 </div>
+
+                 {/* Floating Compliance Hint */}
+                 <div className="absolute -bottom-6 -right-6 glass-card py-4 px-6 bg-[#050816]/80 border-white/10 backdrop-blur-xl shadow-2xl">
+                    <div className="flex items-center gap-3">
+                       <ShieldCheck className="w-4 h-4 text-accent" />
+                       <span className="text-[10px] font-black text-white/60 uppercase tracking-[0.3em]">Institutional Grade</span>
+                    </div>
                  </div>
              </div>
           </motion.div>
 
-          {/* Right: Editorial Content */}
+          {/* Right: Trust Content */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 1 }}
           >
-            <div className="flex items-center gap-3 mb-6">
-               <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_#D4A62A]" />
-               <span className="text-accent text-[10px] font-black tracking-[0.4em] uppercase opacity-80">ENTERPRISE TRUST</span>
+            <div className="flex items-center gap-3 mb-8">
+               <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+               <span className="text-accent text-[10px] font-black tracking-[0.4em] uppercase opacity-60">GOVERNANCE & SECURITY</span>
             </div>
             <h2 className="mb-8 text-white">
-              Enterprise security <br />
-              <span className="text-gold-gradient italic">at every layer.</span>
+              Institutional security <br />
+              <span className="text-gold-gradient italic">built into the foundation.</span>
             </h2>
-            <p className="mb-10 opacity-60 text-[16px] leading-relaxed max-w-sm">
-              High-fidelity protection for sensitive programme data. Built with immutable audit trails and global encryption standards.
+            <p className="mb-12 text-white/50 text-[16px] font-light leading-relaxed max-w-sm">
+              We provide the structural governance required for high-stakes enterprise programmes, ensuring absolute data integrity.
             </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-               {[
-                 { title: "AES-256", desc: "Military-grade data encryption at rest." },
-                 { title: "Immutable", desc: "Complete structural change tracking." },
-                 { title: "RBAC", desc: "Granular role-based access control." },
-                 { title: "Monitoring", desc: "Real-time threat detection engine." }
-               ].map((item, i) => (
-                 <div key={i} className="group">
-                    <h4 className="text-white font-bold text-[15px] mb-1 group-hover:text-accent transition-colors">{item.title}</h4>
-                    <p className="text-white/30 text-[13px] font-light leading-snug">{item.desc}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 mb-16">
+               {securityFeatures.map((item, i) => (
+                 <div key={i} className="flex items-center gap-3 group">
+                    <item.icon className="w-4 h-4 text-accent/30 group-hover:text-accent transition-colors" />
+                    <span className="text-white/60 text-[13px] font-medium tracking-tight group-hover:text-white transition-colors">{item.title}</span>
+                 </div>
+               ))}
+            </div>
+
+            {/* Compliance Badges */}
+            <div className="pt-10 border-t border-white/5 flex flex-wrap gap-10 opacity-30 grayscale contrast-125">
+               {['SOC2', 'GDPR', 'ISO 27001'].map((badge, i) => (
+                 <div key={i} className="flex flex-col items-center">
+                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center mb-2">
+                       <ShieldCheck className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-[9px] font-black tracking-widest text-white uppercase">{badge}</span>
                  </div>
                ))}
             </div>
