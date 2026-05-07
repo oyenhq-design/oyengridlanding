@@ -223,8 +223,12 @@ export function Header() {
           {/* ACTIONS */}
           <div className="flex items-center gap-6">
             <div className="hidden xl:flex items-center gap-7">
-               <button className="text-white/20 hover:text-white transition-all">
+               <button 
+                 onClick={() => window.dispatchEvent(new CustomEvent('open-search'))}
+                 className="text-white/20 hover:text-white transition-all flex items-center gap-2 group/search"
+               >
                  <Search className="w-4.5 h-4.5" />
+                 <span className="text-[10px] font-black text-white/10 uppercase tracking-widest group-hover/search:text-white/30 transition-colors">⌘K</span>
                </button>
                <Link href="/login" className="text-[14px] font-bold text-white/30 hover:text-white transition-all">Login</Link>
             </div>

@@ -25,6 +25,7 @@ export const metadata: Metadata = {
 };
 
 import { ChatAssistant } from "@/components/shared/chat-assistant";
+import { SearchModal } from "@/components/shared/search-modal";
 
 export default function RootLayout({
   children,
@@ -43,6 +44,7 @@ export default function RootLayout({
       >
         {children}
         <ChatAssistant />
+        <SearchModal />
       </body>
     </html>
   );
