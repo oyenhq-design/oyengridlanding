@@ -20,9 +20,9 @@ export function Hero() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative z-10 pt-48 pb-32 min-h-[90vh] flex items-center">
+      <section className="relative z-10 pt-40 pb-20 min-h-[85vh] flex items-center">
         <div className="container-custom max-w-[1400px]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             {/* Left Content: Tighter Typography */}
             <motion.div 
@@ -31,35 +31,33 @@ export function Hero() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-6 relative"
             >
-              <div className="glow-ambient w-[500px] h-[500px] top-[-200px] left-[-200px]" />
+              <div className="glow-ambient w-[400px] h-[400px] top-[-200px] left-[-150px]" />
               
-              <div className="flex items-center gap-3 mb-8">
-                 <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_#D4A62A]" />
-                 <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">SYSTEM ARCHITECTURE</span>
+              <div className="flex items-center gap-3 mb-6">
+                 <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_#D4A62A]" />
+                 <span className="text-accent text-[10px] font-black tracking-[0.4em] uppercase opacity-80">SYSTEM ARCHITECTURE</span>
               </div>
-              <h1 className="mb-8 text-white">
-                Run structured programmes with <br />
-                <span className="text-gold-gradient italic">full operational control.</span>
+              <h1 className="mb-6 text-white text-[44px] md:text-[68px] leading-[0.95]">
+                Professional programme <br />
+                <span className="text-gold-gradient italic">infrastructure for scale.</span>
               </h1>
-              <p className="max-w-lg mb-12 font-light tracking-tight opacity-70">
-                The high-fidelity infrastructure for professional training and operations at global scale. Built for absolute governance and structural clarity.
+              <p className="max-w-md mb-10 font-light tracking-tight opacity-60 text-[17px] leading-relaxed">
+                Coordinate complex cohorts and delivery logic with absolute structural clarity. Built for global governance and high-performance teams.
               </p>
-              <div className="flex flex-wrap items-center gap-6">
-                <button className="btn-primary">Start Building</button>
-                <button className="flex items-center gap-2 text-white/50 hover:text-white font-bold text-[15px] transition-all group">
-                   Talk to Strategic Sales <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+              <div className="flex items-center gap-8">
+                <button className="btn-primary h-12 px-10 text-xs">Start Building</button>
+                <button className="flex items-center gap-2 text-white/40 hover:text-white font-bold text-[14px] transition-all group">
+                   Speak with Architects <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                 </button>
               </div>
 
               {/* Tighter Trusted Strip */}
-              <div className="flex items-center gap-8 pt-12 border-t border-white/5 opacity-50">
-                <div className="flex items-center gap-2">
-                   <div className="text-[10px] font-black text-white tracking-[0.2em] uppercase">Trusted by Enterprise Leaders</div>
-                </div>
-                <div className="h-4 w-px bg-white/10" />
+              <div className="flex items-center gap-6 pt-10 mt-12 border-t border-white/5 opacity-30">
+                <div className="text-[9px] font-black text-white tracking-[0.3em] uppercase">Trusted by Global Leaders</div>
+                <div className="h-3 w-px bg-white/10" />
                 <div className="flex items-center gap-1.5">
-                   <Star className="w-3 h-3 text-accent fill-accent" />
-                   <span className="text-xs font-bold text-white tracking-wider">4.9/5 RATING</span>
+                   <Star className="w-2.5 h-2.5 text-accent fill-accent" />
+                   <span className="text-[10px] font-bold text-white tracking-widest">ENTERPRISE GRADE</span>
                 </div>
               </div>
             </motion.div>
@@ -72,28 +70,24 @@ export function Hero() {
               className="lg:col-span-6 relative"
             >
               <div className="relative group">
-                {/* Restricted Glow */}
-                <div className="absolute -inset-10 bg-accent/5 blur-[100px] rounded-full pointer-events-none" />
+                <div className="absolute -inset-10 bg-accent/5 blur-[120px] rounded-full pointer-events-none opacity-40" />
                 
-                {/* Dashboard with Perspective */}
-                <div className="relative glass-card border-none rounded-[32px] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)] transform perspective-2000 group-hover:rotate-y-[-2deg] transition-transform duration-1000">
+                <div className="relative rounded-[40px] overflow-hidden shadow-[0_60px_100px_rgba(0,0,0,0.9)] transform perspective-2000 group-hover:rotate-y-[-1deg] transition-transform duration-1000">
                   <img 
                     src="/wide-dashboard.png" 
                     alt="System Dashboard" 
-                    className="w-full aspect-[1.4/1] object-cover opacity-90"
+                    className="w-full aspect-[1.5/1] object-cover opacity-90 grayscale-[0.2]"
                   />
-                  {/* Subtle Layered Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-black/40 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#050816]/40 via-transparent to-transparent pointer-events-none" />
                 </div>
 
-                {/* Compact Floating Data Chips */}
                 <motion.div 
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-6 -right-6 glass-card p-5 bg-[#050814]/90 border-accent/20 backdrop-blur-2xl shadow-2xl w-48"
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-6 -right-6 glass-card p-6 bg-[#050816]/90 border-none backdrop-blur-3xl shadow-2xl w-52"
                 >
-                  <div className="text-[10px] font-black text-accent uppercase tracking-widest mb-3">Live Performance</div>
-                  <div className="text-2xl font-bold text-white tracking-tighter">94.2%</div>
+                  <div className="text-[9px] font-black text-accent uppercase tracking-[0.2em] mb-4 opacity-60">System Velocity</div>
+                  <div className="text-3xl font-bold text-white tracking-tighter">98.2%</div>
                 </motion.div>
               </div>
             </motion.div>
@@ -102,19 +96,19 @@ export function Hero() {
         </div>
       </section>
 
-      {/* RESTRAINED METRICS BAND */}
-      <section className="relative z-10 py-12 border-y border-white/5 bg-[#050814]/40 backdrop-blur-md">
+      {/* RESTRAINED METRICS BAND (TRUST BAR) */}
+      <section className="relative z-10 py-8 border-y border-white/5 bg-[#050816]/20">
         <div className="container-custom max-w-[1400px]">
-          <div className="flex flex-wrap justify-between items-center opacity-40">
+          <div className="flex flex-wrap justify-between items-center opacity-30">
             {[
-              { label: "Scale", val: "2k+ Programmes" },
-              { label: "Uptime", val: "99.99% Global" },
-              { label: "Security", val: "SOC2 TYPE II" },
-              { label: "Presence", val: "45+ Countries" }
+              { label: "Execution", val: "2,400+ Nodes" },
+              { label: "Uptime", val: "99.99% Core" },
+              { label: "Security", val: "ISO 27001" },
+              { label: "Regions", val: "Global Availability" }
             ].map((stat, i) => (
               <div key={i} className="flex items-center gap-4">
-                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60">{stat.label}</span>
-                <span className="text-lg font-bold text-white tracking-tighter">{stat.val}</span>
+                <span className="text-[9px] font-black uppercase tracking-[0.3em] text-white/50">{stat.label}</span>
+                <span className="text-[15px] font-bold text-white tracking-tight">{stat.val}</span>
               </div>
             ))}
           </div>
