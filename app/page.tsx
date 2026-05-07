@@ -6,28 +6,30 @@ import { FeatureSplit } from "@/components/sections/feature-split";
 import { ScaleStructure } from "@/components/sections/scale-structure";
 import { EverythingNeed } from "@/components/sections/everything-need";
 import { Insights } from "@/components/sections/insights";
-import { ToolsGrid } from "@/components/sections/tools-grid";
 import { ProofKnowledge } from "@/components/sections/proof-knowledge";
 import { TestimonialMetrics } from "@/components/sections/testimonial-metrics";
+import { EnterpriseSecurity } from "@/components/sections/enterprise-security";
+import { GovernanceControl } from "@/components/sections/governance-control";
+import { AIIntelligence } from "@/components/sections/ai-intelligence";
+import { GlobalInfrastructure } from "@/components/sections/global-infrastructure";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <main className="min-h-screen bg-[#050812]">
       <Header />
-      
-      <main className="flex-1">
-        <Hero />
-        <OperationalClarity />
-        <FeatureSplit />
-        <ScaleStructure />
-        <EverythingNeed />
-        <Insights />
-        <ToolsGrid />
-        <ProofKnowledge />
-        <TestimonialMetrics />
-      </main>
-
+      <Hero />
+      <OperationalClarity />
+      <FeatureSplit />
+      <ScaleStructure />
+      <GovernanceControl />
+      <EverythingNeed />
+      <AIIntelligence />
+      <Insights />
+      <EnterpriseSecurity />
+      <ProofKnowledge />
+      <GlobalInfrastructure />
+      <TestimonialMetrics />
       <Footer />
-    </div>
+    </main>
   );
 }
