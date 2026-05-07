@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Globe, Shield, Activity } from "lucide-react";
+import { Twitter, Linkedin, Github, Shield, Activity } from "lucide-react";
 
 export function Footer() {
   const columns = [
@@ -59,7 +59,7 @@ export function Footer() {
               The high-fidelity operating system for global programme delivery. Engineered for structural integrity and absolute administrative control.
             </p>
             <div className="flex items-center gap-6">
-              {[Globe, Shield, Activity].map((Icon, i) => (
+              {[Twitter, Linkedin, Github].map((Icon, i) => (
                 <Link key={i} href="#" className="text-white/20 hover:text-accent transition-all duration-300 transform hover:-translate-y-1">
                   <Icon className="w-4 h-4" />
                 </Link>
