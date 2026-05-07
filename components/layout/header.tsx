@@ -94,6 +94,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
+  const [showAnnouncement, setShowAnnouncement] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -301,6 +302,50 @@ export function Header() {
                 <Link href="#" className="w-full btn-outline h-14 flex items-center justify-center text-md font-black uppercase tracking-widest">Contact Sales</Link>
                 <Link href="#" className="w-full btn-primary h-14 flex items-center justify-center text-md font-black uppercase tracking-widest">Get Started</Link>
              </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      {/* PREMIUM ENTERPRISE ANNOUNCEMENT BAR */}
+      <AnimatePresence>
+        {showAnnouncement && (
+          <motion.div 
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="fixed top-[84px] left-0 right-0 z-[55] px-8"
+          >
+            <div className="max-w-[1400px] mx-auto flex justify-center">
+              <div className="h-[52px] rounded-full bg-[rgba(255,196,0,0.06)] border border-[rgba(255,196,0,0.18)] flex items-center justify-between px-6 shadow-[0_10px_30px_rgba(0,0,0,0.4),0_0_20px_rgba(245,179,1,0.02)] backdrop-blur-md relative overflow-hidden group">
+                
+                {/* Shimmer Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.03] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+
+                <div className="flex items-center gap-4 relative z-10">
+                   <div className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_10px_#F5B301]" />
+                   <div className="flex items-center gap-4">
+                      <span className="text-accent text-[12px] font-black tracking-[0.25em] uppercase whitespace-nowrap">
+                        PROGRAMME INFRASTRUCTURE FOR SCALE
+                      </span>
+                      <div className="hidden md:block w-px h-4 bg-accent/20" />
+                      <span className="hidden lg:block text-white/40 text-[12px] font-medium leading-none">
+                        Run complex learning operations with absolute structural integrity.
+                      </span>
+                   </div>
+                </div>
+
+                <div className="flex items-center gap-4 relative z-10">
+                   <button className="flex items-center gap-2 bg-accent/10 hover:bg-accent/20 text-accent text-[11px] font-black uppercase tracking-[0.15em] px-5 py-2 rounded-full transition-all border border-accent/20 shadow-lg group/btn">
+                     EXPLORE PLATFORM <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                   </button>
+                   <button 
+                    onClick={() => setShowAnnouncement(false)}
+                    className="text-white/20 hover:text-white transition-colors p-1"
+                   >
+                     <X className="w-4 h-4" />
+                   </button>
+                </div>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
