@@ -30,14 +30,14 @@ import {
 const navigation = [
   {
     name: "Features",
-    href: "#",
+    href: "/features",
     dropdown: [
-      { name: "Curriculum Architect", desc: "Design structured multi-layer programmes with control.", icon: LayoutGrid },
-      { name: "Precision Delivery", desc: "Automate attendance, scheduling, and coordination.", icon: Zap },
-      { name: "Operational Insights", desc: "Monitor cohorts, engagement, and metrics in real-time.", icon: BarChart3 },
-      { name: "AI Infrastructure", desc: "Automate evaluations and predictive recommendations.", icon: Cpu },
-      { name: "Governance & Security", desc: "Enterprise permissions, audit visibility, and compliance.", icon: Lock },
-      { name: "Workflow Automation", desc: "Build automated triggers, reporting, and approvals.", icon: Workflow }
+      { name: "Curriculum Architect", desc: "Design structured multi-layer programmes with control.", icon: LayoutGrid, href: "/features/curriculum-architect" },
+      { name: "Precision Delivery", desc: "Automate attendance, scheduling, and coordination.", icon: Zap, href: "/features/precision-delivery" },
+      { name: "Operational Insights", desc: "Monitor cohorts, engagement, and metrics in real-time.", icon: BarChart3, href: "/features/operational-insights" },
+      { name: "AI Infrastructure", desc: "Automate evaluations and predictive recommendations.", icon: Cpu, href: "/features/ai-infrastructure" },
+      { name: "Governance & Security", desc: "Enterprise permissions, audit visibility, and compliance.", icon: Lock, href: "/features/security-governance" },
+      { name: "Workflow Automation", desc: "Build automated triggers, reporting, and approvals.", icon: Workflow, href: "/features/workflow-automation" }
     ],
     rightPanel: {
       title: "Platform Intelligence",
@@ -51,13 +51,13 @@ const navigation = [
   },
   {
     name: "Solutions",
-    href: "#",
+    href: "/solutions",
     dropdown: [
-      { name: "Enterprise Onboarding", desc: "Scale workforce enablement with structured learning.", icon: Users },
-      { name: "Global Programmes", desc: "Coordinate distributed cohorts across regions.", icon: Globe },
-      { name: "Training Operations", desc: "Centralize delivery, reporting, and engagement.", icon: Building2 },
-      { name: "Higher Education", desc: "Modern infrastructure for academic operations.", icon: GraduationCap },
-      { name: "Government & NGOs", desc: "Manage large-scale impact programmes with visibility.", icon: Shield }
+      { name: "Enterprise Onboarding", desc: "Scale workforce enablement with structured learning.", icon: Users, href: "/solutions/enterprise-onboarding" },
+      { name: "Global Programmes", desc: "Coordinate distributed cohorts across regions.", icon: Globe, href: "/solutions/global-programmes" },
+      { name: "Training Operations", desc: "Centralize delivery, reporting, and engagement.", icon: Building2, href: "/solutions/training-operations" },
+      { name: "Higher Education", desc: "Modern infrastructure for academic operations.", icon: GraduationCap, href: "/solutions/higher-education" },
+      { name: "Government & NGOs", desc: "Manage large-scale impact programmes with visibility.", icon: Shield, href: "/solutions/government-ngos" }
     ],
     rightPanel: {
       title: "Enterprise Ecosystem",
@@ -71,13 +71,13 @@ const navigation = [
   },
   {
     name: "Resources",
-    href: "#",
+    href: "/resources",
     dropdown: [
-      { name: "Case Studies", desc: "Real operational transformation stories from teams.", icon: FileText },
-      { name: "Documentation", desc: "Implementation guides, APIs, and infrastructure docs.", icon: Database },
-      { name: "Security Center", desc: "Governance standards, encryption, and compliance.", icon: Lock },
-      { name: "Operational Playbooks", desc: "Best practices for managing programmes at scale.", icon: BookOpen },
-      { name: "AI Research", desc: "Insights into intelligent operational infrastructure.", icon: PieChart }
+      { name: "Case Studies", desc: "Real operational transformation stories from teams.", icon: FileText, href: "/resources/case-studies" },
+      { name: "Documentation", desc: "Implementation guides, APIs, and infrastructure docs.", icon: Database, href: "/resources/documentation" },
+      { name: "Security Center", desc: "Governance standards, encryption, and compliance.", icon: Lock, href: "/resources/security" },
+      { name: "Operational Playbooks", desc: "Best practices for managing programmes at scale.", icon: BookOpen, href: "/resources/playbooks" },
+      { name: "AI Research", desc: "Insights into intelligent operational infrastructure.", icon: PieChart, href: "/resources/ai-research" }
     ],
     rightPanel: {
       title: "Knowledge Hub",
