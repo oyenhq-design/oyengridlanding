@@ -6,53 +6,76 @@ import { CheckCircle2, Shield, Zap, Database } from "lucide-react";
 export function EnterpriseInfrastructure() {
   return (
     <>
-      <section className="section-padding bg-security-cold">
+      <section className="section-padding bg-security-cold overflow-hidden">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
             
-            {/* LEFT: CINEMATIC IMAGE */}
+            {/* LEFT: CINEMATIC STORYTELLING IMAGE */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 1.2 }}
               className="relative"
             >
-              <div className="absolute -inset-4 bg-accent-gold/5 blur-2xl rounded-[40px] opacity-40" />
-              <div className="relative rounded-[32px] overflow-hidden border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.7)] bg-[#070B1D] aspect-[1.1]">
+              <div className="absolute -inset-20 bg-accent-gold/5 blur-[120px] rounded-full opacity-30" />
+              <div className="relative rounded-[48px] overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.8)] bg-[#01030a] aspect-[1.1]">
                 <img 
-                  src="/infra-left.png" 
-                  alt="Infrastructure Command" 
-                  className="w-full h-full object-cover opacity-80"
+                  src="/infra-ops.png" 
+                  alt="Infrastructure Command Center" 
+                  className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-[3s] ease-out"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-40" />
+              </div>
+
+              {/* FLOATING STATUS MODULE */}
+              <div className="absolute -bottom-10 -right-10 p-10 glass-card bg-[#020617]/90 backdrop-blur-3xl min-w-[280px]">
+                 <div className="flex items-center gap-4 mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-accent-gold/10 border border-accent-gold/20 flex items-center justify-center">
+                       <Zap className="w-5 h-5 text-accent-gold" />
+                    </div>
+                    <div>
+                       <div className="text-white font-bold text-[16px]">Node Velocity</div>
+                       <div className="text-white/40 text-[10px] font-black uppercase tracking-widest">Global Aggregate</div>
+                    </div>
+                 </div>
+                 <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "84%" }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 2, delay: 0.5 }}
+                      className="h-full bg-accent-gold" 
+                    />
+                 </div>
               </div>
             </motion.div>
 
-            {/* RIGHT: STACKED FEATURES */}
+            {/* RIGHT: EDITORIAL FEATURE SET */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1 }}
             >
-              <div className="text-accent-gold text-[10px] font-black uppercase tracking-[0.4em] mb-6">Execution Layer</div>
-              <h2 className="text-white mb-8">
-                Enterprise infrastructure for <span className="text-gold-gradient">fidelity</span> delivery.
+              <div className="text-accent-gold text-[10px] font-black uppercase tracking-[0.4em] mb-10">Execution Layer</div>
+              <h2 className="text-white mb-10 max-w-md">
+                Infrastructure built for <span className="text-gold-gradient font-medium italic">fidelity</span> delivery at global scale.
               </h2>
               
-              <div className="space-y-10">
+              <div className="space-y-12">
                 {[
-                  { title: "Distributed governance", desc: "Enforce global standards across every node." },
-                  { title: "Automated infrastructure", desc: "Scale delivery logic with precise orchestration." },
-                  { title: "Secure architecture", desc: "Immutable audit logs and encrypted data flow." }
+                  { title: "Distributed governance", desc: "Enforce institutional standards across every global node." },
+                  { title: "Automated infrastructure", desc: "Scale complex delivery logic with precise orchestration." },
+                  { title: "Immutable architecture", desc: "Tamper-proof audit logs and encrypted operational flow." }
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-6 group">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center group-hover:border-accent-gold/30 transition-colors">
-                      <CheckCircle2 className="w-4 h-4 text-accent-gold/40 group-hover:text-accent-gold transition-colors" />
+                  <div key={i} className="flex gap-8 group">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-center group-hover:border-accent-gold/30 transition-all duration-500">
+                      <CheckCircle2 className="w-4 h-4 text-accent-gold/30 group-hover:text-accent-gold transition-colors" />
                     </div>
-                    <div>
-                       <div className="text-white font-bold text-[18px] mb-2">{item.title}</div>
-                       <p className="text-white/40 text-[15px] leading-relaxed">{item.desc}</p>
+                    <div className="pt-2">
+                       <div className="text-white font-semibold text-[19px] mb-3 tracking-tight">{item.title}</div>
+                       <p className="text-white/30 text-[16px] leading-[1.7] max-w-xs">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -63,8 +86,8 @@ export function EnterpriseInfrastructure() {
         </div>
       </section>
 
-      {/* REFINED FEATURE STRIP */}
-      <section className="py-16 border-y border-white/5 bg-navy-midnight">
+      {/* REFINED TRUST STRIP */}
+      <section className="py-20 border-y border-white/5 bg-[#01030a]">
         <div className="container-custom">
           <div className="flex flex-wrap justify-center items-center gap-16 md:gap-32">
             {[
@@ -73,8 +96,8 @@ export function EnterpriseInfrastructure() {
               { label: "Immutable Audit", icon: Shield }
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-4 group">
-                <item.icon className="w-5 h-5 text-accent-gold/20 group-hover:text-accent-gold transition-all duration-500" />
-                <span className="text-white/20 group-hover:text-white font-bold text-[13px] uppercase tracking-[0.2em] transition-colors">
+                <item.icon className="w-4 h-4 text-accent-gold/10 group-hover:text-accent-gold transition-all duration-700" />
+                <span className="text-white/10 group-hover:text-white/40 font-bold text-[11px] uppercase tracking-[0.4em] transition-all duration-700">
                   {item.label}
                 </span>
               </div>
