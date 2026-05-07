@@ -1,78 +1,90 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Layers, ShieldCheck, Zap } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 
 export function OperationalClarity() {
-  const cards = [
-    {
-      icon: Layers,
-      title: "The Problem",
-      description: "Fragmented spreadsheets, siloed tracking, and zero structural visibility across cohorts and modules."
-    },
-    {
-      icon: ShieldCheck,
-      title: "What We Do",
-      description: "Unify every data point into a single, high-fidelity infrastructure for managed programme delivery."
-    },
-    {
-      icon: Zap,
-      title: "The Outcome",
-      description: "Absolute operational control, automated governance, and 2x faster scaling capabilities."
-    }
+  const points = [
+    { title: "Fragmentation Elimination", desc: "Unify siloed spreadsheets into a single, high-fidelity infrastructure." },
+    { title: "Structural Governance", desc: "Enforce absolute programme logic and compliance across all cohorts." },
+    { title: "Automated Scaling", desc: "Execute global deployments with 2x faster orchestration capabilities." }
   ];
 
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-40 relative bg-[#050812] overflow-hidden">
       
-      {/* CINEMATIC BACKGROUND */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa" 
-          alt="Operations Center" 
-          className="w-full h-full object-cover opacity-20 grayscale blur-[8px]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(11,11,13,0.88),rgba(11,11,13,0.94))]" />
-        {/* Golden Grid Lines */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(245,179,1,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(245,179,1,0.05)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
-      </div>
+      {/* Subtle Grid Accent */}
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(245,179,1,0.03)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
 
-      <div className="container-custom relative z-10">
-        <div className="text-center mb-24">
+      <div className="container-custom max-w-[1400px] relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+          
+          {/* Left: Editorial Storytelling */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-tight mb-8">
-              Built for operational clarity <span className="text-accent">at scale.</span>
+            <div className="flex items-center gap-3 mb-8">
+               <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+               <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">OPERATIONAL ECOSYSTEM</span>
+            </div>
+            <h2 className="text-[32px] md:text-[42px] font-bold text-white tracking-tight leading-[1.1] mb-10">
+              Built for operational clarity <br />
+              <span className="text-white/40 italic">at global enterprise scale.</span>
             </h2>
-            <p className="text-lg md:text-xl text-text-secondary font-light max-w-2xl mx-auto leading-relaxed">
-              Stop guessing. Start governing. A structured approach to complex programme delivery that removes fragmentation and manual overhead.
+            <p className="text-[17px] text-white/50 font-light leading-relaxed mb-12 max-w-lg">
+              OYEN GRID transforms fragmented operations into a cohesive, high-performance system. Manage sessions, participants, and outcomes in one immersive environment.
             </p>
-          </motion.div>
-        </div>
+            
+            <div className="space-y-12">
+               {points.map((point, i) => (
+                 <div key={i} className="flex gap-6 group">
+                   <div className="mt-1">
+                      <CheckCircle2 className="w-5 h-5 text-accent" />
+                   </div>
+                   <div>
+                      <h4 className="text-white font-bold text-lg mb-2 tracking-tight group-hover:text-accent transition-colors">{point.title}</h4>
+                      <p className="text-white/40 text-[15px] font-light leading-relaxed max-w-sm">{point.desc}</p>
+                   </div>
+                 </div>
+               ))}
+            </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {cards.map((card, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="glass-card p-12 bg-secondary/20 border-white/10 hover:border-accent/40 group relative overflow-hidden"
-            >
-              {/* Subtle Card Glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 blur-3xl group-hover:bg-accent/10 transition-all pointer-events-none" />
-              
-              <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center mb-10 group-hover:scale-110 transition-transform group-hover:bg-accent/10">
-                <card.icon className="w-7 h-7 text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-6 tracking-tight">{card.title}</h3>
-              <p className="text-[#A1A1AA] font-light leading-relaxed text-[16px]">{card.description}</p>
-            </motion.div>
-          ))}
+            <button className="btn-primary mt-16 h-[52px] px-10 text-[15px]">Download Operational Guide</button>
+          </motion.div>
+
+          {/* Right: Immersive Environmental Visual */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="relative group">
+               {/* Restricted Glow */}
+               <div className="absolute -inset-10 bg-accent/5 blur-[100px] rounded-full pointer-events-none" />
+               
+               <div className="relative rounded-[32px] overflow-hidden border border-white/5 shadow-[0_40px_80px_rgba(0,0,0,0.5)]">
+                  <img 
+                    src="/team-collab.png" 
+                    alt="Team Collaborating" 
+                    className="w-full h-auto grayscale-[0.2] opacity-90 group-hover:scale-105 transition-transform duration-1000"
+                  />
+                  {/* Subtle Shading */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+               </div>
+
+               {/* Stats Overlay Hint */}
+               <div className="absolute bottom-10 left-10 glass-card p-6 bg-[#050812]/90 border-white/10 backdrop-blur-xl shadow-2xl">
+                  <div className="text-[10px] font-black text-accent uppercase tracking-widest mb-2">Systems Active</div>
+                  <div className="flex -space-x-2">
+                     {[1,2,3,4].map(i => <div key={i} className="w-8 h-8 rounded-full border-2 border-[#050812] bg-gray-800" />)}
+                  </div>
+               </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

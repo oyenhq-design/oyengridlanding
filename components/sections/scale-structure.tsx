@@ -1,106 +1,84 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu, Network, BarChart3, ListChecks, Users, Globe, Zap, ArrowRight } from "lucide-react";
+import { ArrowRight, Layout, BarChart3, Users, Network } from "lucide-react";
 
 export function ScaleStructure() {
-  const cards = [
-    {
-      icon: Cpu,
-      title: "Training Orchestration",
-      description: "Manage cohorts, modules, and instructors in a single, high-fidelity plane.",
-      type: "vertical",
-      stats: "98.4%",
-      label: "SYNC RATE"
-    },
-    {
-      icon: Network,
-      title: "Data Intelligence",
-      description: "Advanced analytics that turn participation into actionable operational insights.",
-      type: "horizontal",
-      stats: "4.2M",
-      label: "DATA POINTS"
-    },
-    {
-      icon: BarChart3,
-      title: "Corporate Systems",
-      description: "Onboard thousands of employees with structured, governed training flows.",
-      type: "vertical",
-      stats: "10k+",
-      label: "USERS"
-    },
-    {
-      icon: ListChecks,
-      title: "ROI Programs",
-      description: "Measure the direct impact of every session on business outcomes.",
-      type: "horizontal",
-      stats: "40%",
-      label: "GAIN RATE"
-    }
-  ];
-
   return (
-    <section className="py-40 bg-background relative overflow-hidden">
+    <section className="py-40 relative bg-[#050812] overflow-hidden">
       
-      {/* Background Grid Accent */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/micro-carbon.png')] opacity-20 pointer-events-none" />
+      {/* Background Atmosphere */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,179,1,0.02),transparent_70%)]" />
 
-      <div className="container-custom relative z-10">
-        <div className="text-center mb-24">
+      <div className="container-custom max-w-[1400px] relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+          
+          {/* Left: Asymmetrical Storytelling */}
           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-5"
           >
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tighter uppercase italic">Built for scale and structure</h2>
-            <p className="text-text-secondary font-light max-w-xl mx-auto text-lg leading-relaxed">
-              Sophisticated infrastructure for any learning or operational use case. Standardized delivery at global volume.
+            <div className="flex items-center gap-3 mb-8">
+               <div className="h-px w-8 bg-accent" />
+               <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">SYSTEM FLOW</span>
+            </div>
+            <h2 className="text-[32px] md:text-[40px] font-bold text-white tracking-tight leading-tight mb-10">
+              A structured workflow <br />
+              <span className="text-white/40 italic">for high-fidelity teams.</span>
+            </h2>
+            <p className="text-[17px] text-white/50 font-light leading-relaxed mb-12">
+              OYEN GRID isn&apos;t just a dashboard—it&apos;s an operational environment where programme logic, participant data, and outcomes converge.
             </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+               {[
+                 { title: "Cohort Sync", val: "98.4%", icon: Users },
+                 { title: "Efficiency", val: "+4.5x", icon: Network }
+               ].map((stat, i) => (
+                 <div key={i} className="glass-card p-8 bg-white/[0.02] border-white/5">
+                    <stat.icon className="w-5 h-5 text-accent/40 mb-6" />
+                    <div className="text-3xl font-bold text-white tracking-tighter mb-1">{stat.val}</div>
+                    <div className="text-[10px] font-black text-white/40 uppercase tracking-widest">{stat.title}</div>
+                 </div>
+               ))}
+            </div>
+
+            <button className="btn-primary mt-16 h-[52px] px-10 text-[15px]">See the Infrastructure</button>
           </motion.div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
-          {cards.map((card, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`glass-card p-10 bg-secondary/10 border-white/5 hover:-translate-y-2 hover:border-accent/40 group relative overflow-hidden ${
-                card.type === "horizontal" ? "lg:col-span-8" : "lg:col-span-4"
-              }`}
-            >
-              {/* Internal Tiny Visuals (Graphs/Nodes) */}
-              <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-30 transition-opacity">
-                 {card.icon === Cpu && <div className="grid grid-cols-4 gap-1"><div className="w-1 h-8 bg-accent" /><div className="w-1 h-4 bg-accent" /><div className="w-1 h-10 bg-accent" /><div className="w-1 h-6 bg-accent" /></div>}
-                 {card.icon === Network && <div className="w-24 h-24 border-2 border-accent rounded-full border-dashed animate-spin-slow" />}
-                 {card.icon === BarChart3 && <div className="flex gap-1 items-end"><div className="w-2 h-10 bg-accent" /><div className="w-2 h-16 bg-accent" /><div className="w-2 h-12 bg-accent" /></div>}
-                 {card.icon === ListChecks && <Zap className="w-16 h-16 text-accent" />}
-              </div>
-
-              <div className="flex flex-col h-full relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center mb-10 group-hover:bg-accent/10 transition-colors">
-                  <card.icon className="w-7 h-7 text-text-secondary group-hover:text-accent" />
-                </div>
+          {/* Right: Immersive Dashboard Environment */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-7 relative"
+          >
+             <div className="relative group">
+                <div className="absolute -inset-10 bg-accent/5 blur-[80px] rounded-full pointer-events-none opacity-50" />
                 
-                <div className="flex flex-col mb-10">
-                   <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-accent transition-colors">{card.title}</h4>
-                   <p className="text-[#A1A1AA] text-[15px] font-light leading-relaxed max-w-sm">{card.description}</p>
+                <div className="relative rounded-[24px] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.7)] bg-[#0B0F14]">
+                   <img 
+                     src="/wide-dashboard.png" 
+                     alt="Operational Dashboard" 
+                     className="w-full h-auto grayscale-[0.5] group-hover:grayscale-0 transition-all duration-1000 opacity-90"
+                   />
+                   
+                   {/* Overlay Hint Cards */}
+                   <motion.div 
+                     animate={{ x: [0, 15, 0] }}
+                     transition={{ duration: 6, repeat: Infinity }}
+                     className="absolute top-10 right-10 glass-card p-5 bg-[#050812]/95 border-accent/20 backdrop-blur-2xl shadow-2xl w-48"
+                   >
+                      <div className="text-[10px] font-black text-accent uppercase tracking-widest mb-3">Live Insights</div>
+                      <div className="h-1 w-full bg-white/5 rounded-full mb-3"><div className="h-full bg-accent w-[84%]" /></div>
+                      <div className="text-lg font-bold text-white">84% Retention</div>
+                   </motion.div>
                 </div>
+             </div>
+          </motion.div>
 
-                <div className="mt-auto pt-10 border-t border-white/5 flex items-center justify-between">
-                   <div className="flex flex-col">
-                      <span className="text-xs font-black text-accent uppercase tracking-widest leading-none mb-1">{card.label}</span>
-                      <span className="text-2xl font-black text-white tracking-tighter leading-none">{card.stats}</span>
-                   </div>
-                   <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all">
-                      <ArrowRight className="w-5 h-5 text-text-secondary group-hover:text-black" />
-                   </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>
