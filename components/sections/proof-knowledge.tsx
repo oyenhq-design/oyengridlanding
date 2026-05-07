@@ -78,7 +78,7 @@ export function ProofKnowledge() {
                   <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">INTELLIGENCE ASSETS</span>
                 </div>
                 <h2 className="text-[32px] md:text-[40px] font-bold text-white tracking-tight leading-tight mb-8">
-                  Intelligence <span className="text-accent italic">Hub.</span>
+                  Intelligence <span className="text-gold-gradient italic">Hub.</span>
                 </h2>
                 <p className="text-white/40 text-[17px] font-light leading-relaxed mb-12">
                   Access our library of expert guides on building high-fidelity operational structures for modern programme delivery.

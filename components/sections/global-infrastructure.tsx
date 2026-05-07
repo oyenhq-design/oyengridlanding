@@ -9,6 +9,7 @@ export function GlobalInfrastructure() {
       
       {/* FULL-WIDTH IMMERSIVE BACKGROUND */}
       <div className="absolute inset-0 z-0">
+         <div className="glow-ambient w-[800px] h-[800px] top-[20%] left-[20%]" />
          <img 
            src="/global-infra.png" 
            alt="Global Infrastructure" 
@@ -30,7 +31,7 @@ export function GlobalInfrastructure() {
               </div>
               <h2 className="text-[32px] md:text-[44px] font-bold text-white tracking-tight mb-8">
                 The backbone of <br />
-                <span className="text-accent italic">global programme delivery.</span>
+                <span className="text-gold-gradient italic">global programme delivery.</span>
               </h2>
               <p className="text-[17px] text-white/50 font-light max-w-2xl mx-auto leading-relaxed">
                 OYEN GRID operates on a resilient, multi-region cloud infrastructure designed for 99.99% uptime and zero-latency operational control.

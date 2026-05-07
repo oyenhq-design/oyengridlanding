@@ -158,7 +158,7 @@ export function ChatAssistant() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             onClick={() => { setIsOpen(true); setIsMinimized(false); }}
-            className="group relative w-16 h-16 bg-accent rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(245,179,1,0.3)] hover:shadow-[0_0_40px_rgba(245,179,1,0.5)] transition-all duration-300 overflow-hidden"
+            className="group relative w-16 h-16 bg-accent rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(212,166,42,0.3)] hover:shadow-[0_0_40px_rgba(212,166,42,0.5)] transition-all duration-300 overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <Bot className="w-8 h-8 text-black relative z-10" />
@@ -168,7 +168,7 @@ export function ChatAssistant() {
             
             {/* Notification Badge (Simulated) */}
             <div className="absolute top-0 right-0 w-5 h-5 bg-white border-2 border-accent rounded-full flex items-center justify-center">
-               <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+               <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_8px_#D4A62A]" />
             </div>
           </motion.button>
         )}
@@ -181,12 +181,12 @@ export function ChatAssistant() {
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: -20, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.95 }}
-            className="absolute bottom-16 right-0 w-[380px] md:w-[420px] h-[75vh] max-h-[800px] flex flex-col glass-card bg-[#050A19]/98 border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8),0_0_30px_rgba(245,179,1,0.05)] backdrop-blur-[32px] rounded-[28px] overflow-hidden"
+            className="absolute bottom-16 right-0 w-[380px] md:w-[420px] h-[75vh] max-h-[800px] flex flex-col glass-card bg-[#050A19]/98 border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8),0_0_30px_rgba(212,166,42,0.05)] backdrop-blur-[32px] rounded-[28px] overflow-hidden"
           >
             {/* HEADER */}
             <div className="p-6 border-b border-white/5 flex items-center justify-between bg-white/[0.02]">
               <div className="flex items-center gap-4">
-                <div className="w-11 h-11 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center relative">
+                <div className="w-11 h-11 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center relative shadow-[0_0_15px_rgba(212,166,42,0.15)]">
                    <Bot className="w-6.5 h-6.5 text-accent" />
                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#050A19] rounded-full flex items-center justify-center">
                       <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]" />
@@ -312,7 +312,7 @@ export function ChatAssistant() {
                   <button
                     onClick={() => handleSend()}
                     disabled={!inputValue.trim() || isTyping}
-                    className="absolute right-2.5 w-10 h-10 rounded-xl bg-accent flex items-center justify-center text-black hover:scale-105 active:scale-95 disabled:opacity-30 disabled:scale-100 transition-all shadow-[0_0_15px_rgba(245,179,1,0.3)]"
+                    className="absolute right-2.5 w-10 h-10 rounded-xl bg-accent flex items-center justify-center text-black hover:scale-105 active:scale-95 disabled:opacity-30 disabled:scale-100 transition-all shadow-[0_0_15px_rgba(212,166,42,0.3)]"
                   >
                     <Send className="w-4.5 h-4.5" />
                   </button>

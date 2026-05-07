@@ -33,7 +33,7 @@ export function AIIntelligence() {
             </div>
             <h2 className="text-[32px] md:text-[40px] font-bold text-white tracking-tight leading-tight mb-10">
               AI-driven <br />
-              <span className="text-white/40 italic">operational intelligence.</span>
+              <span className="text-gold-gradient italic">operational intelligence.</span>
             </h2>
             <p className="text-[17px] text-white/50 font-light leading-relaxed mb-12">
               OYEN GRID leverages advanced AI infrastructure to provide predictive programme insights, automated grading workflows, and intelligent participant tracking.

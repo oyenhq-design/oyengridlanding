@@ -29,15 +29,17 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="lg:col-span-6"
+              className="lg:col-span-6 relative"
             >
+              <div className="glow-ambient w-[500px] h-[500px] top-[-200px] left-[-200px]" />
+              
               <div className="flex items-center gap-3 mb-8">
-                 <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_#F5B301]" />
+                 <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_#D4A62A]" />
                  <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">SYSTEM ARCHITECTURE</span>
               </div>
               <h1 className="text-[44px] md:text-[68px] font-bold leading-[1.02] mb-8 tracking-[-0.03em] text-white">
                 Run structured programmes with <br />
-                <span className="text-accent italic">full operational control.</span>
+                <span className="text-gold-gradient italic">full operational control.</span>
               </h1>
               <p className="text-[17px] md:text-[19px] text-white/60 leading-relaxed max-w-lg mb-12 font-light tracking-tight">
                 The high-fidelity infrastructure for professional training and operations at global scale. Built for absolute governance and structural clarity.

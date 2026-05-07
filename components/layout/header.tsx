@@ -118,7 +118,7 @@ export function Header() {
           {/* LOGO AREA */}
           <div className="flex items-center gap-14">
             <Link href="/" className="flex items-center gap-4 group">
-              <div className="w-10 h-10 bg-accent rounded-[14px] flex items-center justify-center shadow-[0_0_25px_rgba(245,179,1,0.25)] group-hover:scale-105 transition-all duration-300">
+              <div className="w-10 h-10 bg-accent rounded-[14px] flex items-center justify-center shadow-[0_0_25px_rgba(212,166,42,0.25)] group-hover:scale-105 transition-all duration-300">
                 <LayoutGrid className="w-5.5 h-5.5 text-black" />
               </div>
               <div className="flex flex-col leading-none">
@@ -340,13 +340,13 @@ export function Header() {
             className="fixed top-[84px] left-0 right-0 z-[55] px-8"
           >
             <div className="max-w-[1400px] mx-auto flex justify-center">
-              <div className="h-[52px] rounded-full bg-[rgba(255,196,0,0.06)] border border-[rgba(255,196,0,0.18)] flex items-center justify-between px-6 shadow-[0_10px_30px_rgba(0,0,0,0.4),0_0_20px_rgba(245,179,1,0.02)] backdrop-blur-md relative overflow-hidden group">
+              <div className="h-[52px] rounded-full bg-[rgba(212,166,42,0.06)] border border-[rgba(212,166,42,0.18)] flex items-center justify-between px-6 shadow-[0_10px_30px_rgba(0,0,0,0.4),0_0_20px_rgba(212,166,42,0.02)] backdrop-blur-md relative overflow-hidden group">
                 
                 {/* Shimmer Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.03] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
                 <div className="flex items-center gap-4 relative z-10">
-                   <div className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_10px_#F5B301]" />
+                   <div className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_10px_#D4A62A]" />
                    <div className="flex items-center gap-4">
                       <span className="text-accent text-[12px] font-black tracking-[0.25em] uppercase whitespace-nowrap">
                         PROGRAMME INFRASTRUCTURE FOR SCALE

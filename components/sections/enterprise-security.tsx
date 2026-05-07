@@ -8,7 +8,8 @@ export function EnterpriseSecurity() {
     <section className="py-40 relative bg-[#050812] overflow-hidden">
       
       {/* Background Atmosphere */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(245,179,1,0.02),transparent_70%)]" />
+      {/* Background Atmosphere */}
+      <div className="glow-ambient w-[600px] h-[600px] top-[10%] right-[10%]" />
 
       <div className="container-custom max-w-[1400px] relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
@@ -37,7 +38,7 @@ export function EnterpriseSecurity() {
                      transition={{ duration: 4, repeat: Infinity }}
                      className="absolute top-10 left-10 glass-card p-6 bg-[#050812]/90 border-accent/20 backdrop-blur-2xl shadow-2xl"
                    >
-                      <ShieldCheck className="w-8 h-8 text-accent mb-4" />
+                      <ShieldCheck className="w-8 h-8 text-accent mb-4 shadow-[0_0_10px_#D4A62A]" />
                       <div className="text-xl font-bold text-white tracking-tight">SOC2 TYPE II</div>
                       <div className="text-[10px] font-black text-white/40 uppercase tracking-widest mt-1">CERTIFIED COMPLIANCE</div>
                    </motion.div>
@@ -53,12 +54,12 @@ export function EnterpriseSecurity() {
             className="lg:col-span-5"
           >
             <div className="flex items-center gap-3 mb-8">
-               <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+               <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_#D4A62A]" />
                <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">ENTERPRISE TRUST</span>
             </div>
             <h2 className="text-[32px] md:text-[40px] font-bold text-white tracking-tight leading-tight mb-10">
               Enterprise security <br />
-              <span className="text-white/40 italic">at every layer.</span>
+              <span className="text-gold-gradient italic">at every layer.</span>
             </h2>
             <p className="text-[17px] text-white/50 font-light leading-relaxed mb-12">
               OYEN GRID is built on a foundation of absolute data security and governance. We protect your programme integrity with world-class infrastructure.

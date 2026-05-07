@@ -8,7 +8,8 @@ export function GovernanceControl() {
     <section className="py-40 bg-black relative overflow-hidden">
       
       {/* Background Accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(245,179,1,0.02),transparent_70%)]" />
+      {/* Background Accent */}
+      <div className="glow-ambient w-[600px] h-[600px] top-[20%] left-[10%]" />
 
       <div className="container-custom max-w-[1400px] relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
@@ -26,7 +27,7 @@ export function GovernanceControl() {
             </div>
             <h2 className="text-[32px] md:text-[40px] font-bold text-white tracking-tight leading-tight mb-10">
               Granular control <br />
-              <span className="text-white/40 italic">at global scale.</span>
+              <span className="text-gold-gradient italic">at global scale.</span>
             </h2>
             <p className="text-[17px] text-white/50 font-light leading-relaxed mb-12 max-w-sm">
               Manage distributed teams and programmes through a centralized governance engine with deep structural permissions and audit trails.
@@ -59,7 +60,7 @@ export function GovernanceControl() {
              <div className="relative glass-card p-12 bg-secondary/10 border-white/5 rounded-[32px] shadow-[0_50px_100px_rgba(0,0,0,0.7)]">
                 <div className="flex items-center justify-between mb-12">
                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center shadow-[0_0_15px_rgba(212,166,42,0.15)]">
                          <Shield className="w-5 h-5 text-accent" />
                       </div>
                       <div className="text-lg font-bold text-white tracking-tight">Permissions Matrix</div>

@@ -169,7 +169,7 @@ export function SearchModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.98, y: 10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="relative w-full max-w-[760px] glass-card bg-[#050A19]/98 border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.8),0_0_40px_rgba(245,179,1,0.05)] backdrop-blur-[32px] rounded-[28px] overflow-hidden"
+            className="relative w-full max-w-[760px] glass-card bg-[#050A19]/98 border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.8),0_0_40px_rgba(212,166,42,0.05)] backdrop-blur-[32px] rounded-[28px] overflow-hidden"
           >
             {/* Search Input */}
             <div className="relative border-b border-white/10 h-[72px] flex items-center px-8">
@@ -308,10 +308,10 @@ function SearchRow({ item, active, onClick }: { item: SearchItem, active: boolea
     <button 
       onClick={onClick}
       className={`w-full flex items-center gap-5 p-4 rounded-2xl transition-all text-left group relative ${
-        active ? "bg-white/[0.06] shadow-[inset_0_0_20px_rgba(245,179,1,0.05)] border-white/10" : "hover:bg-white/[0.03] border-transparent"
+        active ? "bg-white/[0.06] shadow-[inset_0_0_20px_rgba(212,166,42,0.05)] border-white/10" : "hover:bg-white/[0.03] border-transparent"
       } border`}
     >
-       {active && <div className="absolute left-0 top-4 bottom-4 w-1 bg-accent rounded-full shadow-[0_0_15px_#F5B301]" />}
+       {active && <div className="absolute left-0 top-4 bottom-4 w-1 bg-accent rounded-full shadow-[0_0_15px_#D4A62A]" />}
        <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-all ${
          active ? "bg-accent text-black" : "bg-white/5 text-white/40 group-hover:text-accent"
        }`}>

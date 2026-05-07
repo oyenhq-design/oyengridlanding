@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0B0B0D;
-  --color-secondary: #111114;
-  --color-tertiary: #151518;
-  --color-accent: #F5B301;
+  --color-background: #050812;
+  --color-secondary: #0A0F1E;
+  --color-tertiary: #0D1326;
+  --color-accent: #D4A62A;
+  --color-accent-muted: #8A6512;
+  --color-accent-bright: #F0C75E;
   --color-navy: #081B4B;
   --color-navy-dark: #050812;
   --color-navy-light: #0B2562;
@@ -26,23 +28,40 @@
 
 @layer components {
   .btn-primary {
-    @apply px-8 py-3 bg-accent text-black font-bold rounded-xl transition-all hover:translate-y-[-2px] hover:shadow-[0_0_20px_rgba(245,179,1,0.4)] active:scale-95;
+    @apply flex items-center justify-center rounded-xl font-black transition-all duration-300 relative overflow-hidden;
+    background: linear-gradient(180deg, #E0B94A 0%, #C9971A 100%);
+    box-shadow: 0 8px 24px rgba(201,151,26,0.18), inset 0 1px 0 rgba(255,255,255,0.18);
+    color: #050812;
   }
   
+  .btn-primary:hover {
+    @apply -translate-y-0.5 shadow-[0_12px_32px_rgba(201,151,26,0.25)];
+    filter: brightness(1.05);
+  }
+
   .btn-outline {
-    @apply px-6 py-2.5 border border-white/10 bg-white/5 text-white font-medium rounded-xl transition-all hover:translate-y-[-1px] hover:bg-white/10 active:scale-95;
+    @apply px-6 py-2.5 border border-white/10 bg-white/5 text-white font-medium rounded-xl transition-all hover:translate-y-[-1px] hover:bg-white/10 active:scale-95 hover:border-accent/40;
   }
 
-  .btn-zoom-white {
-    @apply px-6 py-2.5 bg-white text-navy font-bold rounded-xl transition-all hover:translate-y-[-2px] hover:shadow-lg active:scale-95;
-  }
-
-  .btn-zoom-primary {
-    @apply px-6 py-2.5 bg-accent text-black font-bold rounded-xl transition-all hover:translate-y-[-2px] hover:shadow-[0_0_20px_rgba(245,179,1,0.4)] active:scale-95;
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #F0C75E 0%, #D4A62A 35%, #B88A1B 70%, #8A6512 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 12px rgba(212,166,42,0.12);
   }
 
   .glass-card {
-    @apply bg-tertiary border border-border-subtle rounded-xl shadow-xl transition-all duration-300;
+    @apply bg-white/[0.02] border border-border-subtle rounded-[22px] transition-all duration-500 backdrop-blur-xl;
+  }
+
+  .glass-card:hover {
+    @apply border-accent/20;
+    box-shadow: 0 0 60px rgba(212,166,42,0.08);
+  }
+
+  .glow-ambient {
+    @apply absolute pointer-events-none rounded-full blur-[120px] opacity-[0.05];
+    background: radial-gradient(circle, #D4A62A 0%, transparent 70%);
   }
 
   .container-custom {
