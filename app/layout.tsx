@@ -24,6 +24,8 @@ export const metadata: Metadata = {
   keywords: ["training", "bootcamp", "programme management", "sessions", "recordings"],
 };
 
+import { ChatAssistant } from "@/components/shared/chat-assistant";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,6 +42,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         {children}
+        <ChatAssistant />
       </body>
     </html>
   );
