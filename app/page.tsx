@@ -3,7 +3,6 @@ import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { OperationalClarity } from "@/components/sections/operational-clarity";
 import { ProductShowcase } from "@/components/sections/product-showcase";
-import { OperationalVisibility } from "@/components/sections/operational-visibility";
 import { ProgrammeControl } from "@/components/sections/programme-control";
 import { OperationalIntelligence } from "@/components/sections/operational-intelligence";
 import { EnterpriseSecurity } from "@/components/sections/enterprise-security";
@@ -17,7 +16,6 @@ export default function Home() {
       <Hero />
       <OperationalClarity />
       <ProductShowcase />
-      <OperationalVisibility />
       <ProgrammeControl />
       <EnterpriseSecurity />
       <OperationalIntelligence />
