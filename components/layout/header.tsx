@@ -22,7 +22,7 @@ export function Header() {
       <header 
         className={`fixed top-0 left-0 right-0 z-[100] h-[78px] flex items-center transition-all duration-300 ${
           isScrolled 
-            ? "bg-[#040816]/80 backdrop-blur-xl border-b border-white/5" 
+            ? "bg-[#030712]/80 backdrop-blur-xl border-b border-white/5" 
             : "bg-transparent"
         }`}
       >
@@ -30,17 +30,17 @@ export function Header() {
           
           {/* LEFT: LOGO */}
           <Link href="/" className="flex flex-col leading-none group">
-            <span className="font-bold text-[20px] tracking-tight text-white uppercase">OYEN GRID</span>
-            <span className="text-[8px] font-black text-accent-gold/60 uppercase tracking-[0.4em] mt-0.5">INFRASTRUCTURE</span>
+            <span className="font-bold text-[22px] tracking-tight text-white uppercase">OYEN GRID</span>
+            <span className="text-[8px] font-black text-accent-gold/60 uppercase tracking-[0.4em] mt-0.5">Institutional Infrastructure</span>
           </Link>
 
           {/* CENTER: NAV */}
-          <nav className="hidden lg:flex items-center gap-10">
-            {["Features", "Solutions", "Resources", "Pricing"].map((item) => (
+          <nav className="hidden lg:flex items-center gap-12">
+            {["Architecture", "Solutions", "Governance", "Resources"].map((item) => (
               <Link 
                 key={item} 
                 href="#" 
-                className="text-[14px] font-semibold text-white/60 hover:text-white transition-colors"
+                className="text-[13px] font-bold text-white/40 hover:text-white uppercase tracking-[0.1em] transition-colors"
               >
                 {item}
               </Link>
@@ -49,24 +49,18 @@ export function Header() {
 
           {/* RIGHT: ACTIONS */}
           <div className="flex items-center gap-8">
-            <div className="hidden md:flex items-center gap-8">
-              <button className="text-white/40 hover:text-white transition-colors">
+            <div className="hidden md:flex items-center gap-10">
+              <button className="text-white/20 hover:text-white transition-colors">
                 <Search className="w-5 h-5" />
               </button>
-              <Link href="#" className="text-[14px] font-semibold text-white/60 hover:text-white transition-colors">
+              <Link href="#" className="text-[13px] font-bold text-white/30 hover:text-white uppercase tracking-widest transition-colors">
                 Login
               </Link>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-5">
               <Link 
                 href="#" 
-                className="hidden sm:flex items-center justify-center px-6 h-[44px] rounded-full border border-white/10 text-[13px] font-bold text-white hover:bg-white/5 transition-all"
-              >
-                Contact Sales
-              </Link>
-              <Link 
-                href="#" 
-                className="btn-gold !h-[44px] !px-6 text-[13px] !rounded-full"
+                className="btn-gold !h-[42px] !px-8 text-[12px] !rounded-full uppercase tracking-widest"
               >
                 Get Started
               </Link>
@@ -84,13 +78,13 @@ export function Header() {
             className="fixed top-[94px] left-0 right-0 z-[90] px-6"
           >
             <div className="max-w-fit mx-auto">
-              <div className="h-[40px] px-6 rounded-full bg-[#C9972B]/10 border border-[#C9972B]/20 backdrop-blur-md flex items-center gap-6">
-                <span className="text-[#C9972B] text-[10px] font-black tracking-[0.2em] uppercase">
-                  PROGRAMME INFRASTRUCTURE FOR SCALE
+              <div className="h-[38px] px-6 rounded-full bg-accent-gold/10 border border-accent-gold/20 backdrop-blur-xl flex items-center gap-6 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                <span className="text-accent-gold text-[9px] font-black tracking-[0.3em] uppercase">
+                  Programme Infrastructure for Scale
                 </span>
-                <div className="w-px h-3 bg-[#C9972B]/20" />
-                <button className="flex items-center gap-2 text-white text-[10px] font-bold hover:text-[#C9972B] transition-colors">
-                  EXPLORE <ArrowRight className="w-3 h-3" />
+                <div className="w-px h-3 bg-accent-gold/20" />
+                <button className="flex items-center gap-2 text-white text-[9px] font-black tracking-widest hover:text-accent-gold transition-colors uppercase">
+                  Architecture <ArrowRight className="w-3 h-3" />
                 </button>
               </div>
             </div>

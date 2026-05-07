@@ -5,76 +5,51 @@ import { Quote } from "lucide-react";
 
 export function TestimonialSection() {
   return (
-    <section className="section-padding overflow-hidden">
+    <section className="section-padding bg-testimonial-luxury overflow-hidden">
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
-          
-          {/* LEFT: QUOTE */}
+        <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-7"
+            transition={{ duration: 1 }}
+            className="text-center"
           >
-            <Quote className="w-16 h-16 text-accent-gold/20 mb-8" />
-            <blockquote className="text-white text-[32px] md:text-[40px] font-bold leading-[1.2] tracking-tight mb-12">
-              "OYEN GRID has fundamentally transformed our global delivery logic. We now operate with absolute structural clarity and institutional-grade governance at every level of our programme ecosystem."
+            <Quote className="w-12 h-12 text-accent-gold/20 mx-auto mb-12" />
+            
+            <blockquote className="text-white text-[28px] md:text-[36px] font-bold leading-[1.2] tracking-tight mb-16 max-w-4xl mx-auto">
+              "OYEN GRID has fundamentally transformed our global delivery logic. We now operate with <span className="text-gold-gradient italic">absolute structural clarity</span> and institutional governance."
             </blockquote>
             
-            <div className="flex items-center gap-5">
-              <div className="w-14 h-14 rounded-full overflow-hidden border border-white/10">
+            <div className="flex flex-col items-center gap-6">
+              <div className="w-16 h-16 rounded-full overflow-hidden border border-white/10 p-0.5 bg-gradient-to-tr from-accent-gold/20 to-transparent">
                 <img 
                   src="/testimonial-avatar.png" 
                   alt="Executive" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-full"
                 />
               </div>
               <div>
-                <div className="text-white font-bold text-[18px]">Marcus Thorne</div>
-                <div className="text-white/30 text-[12px] font-black uppercase tracking-[0.2em]">Director of Global Operations, Stratos Group</div>
+                <div className="text-white font-bold text-[18px] mb-1">Marcus Thorne</div>
+                <div className="text-white/30 text-[10px] font-black uppercase tracking-[0.4em]">Director of Global Operations, Stratos Group</div>
               </div>
             </div>
           </motion.div>
 
-          {/* RIGHT: STATS CARD */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="lg:col-span-5"
-          >
-            <div className="glass-card p-12 bg-[#040816]/60 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent-gold/5 blur-[60px] rounded-full" />
-              
-              <div className="space-y-12 relative z-10">
-                <div>
-                  <div className="text-[48px] font-bold text-white mb-2 tracking-tighter">
-                    +4.5x
-                  </div>
-                  <div className="text-accent-gold text-[12px] font-black uppercase tracking-[0.3em]">
-                    Operational Efficiency
-                  </div>
-                </div>
-                
-                <div className="w-full h-px bg-white/5" />
-                
-                <div>
-                  <div className="text-[48px] font-bold text-white mb-2 tracking-tighter">
-                    98.2%
-                  </div>
-                  <div className="text-accent-gold text-[12px] font-black uppercase tracking-[0.3em]">
-                    Infrastructure Resilience
-                  </div>
-                </div>
+          {/* MINIMAL STATS ROW */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mt-32 pt-16 border-t border-white/5">
+            {[
+              { val: "+4.5x", label: "Efficiency" },
+              { val: "98.2%", label: "Resilience" },
+              { val: "1.2M", label: "Daily Ops" },
+              { val: "45+", label: "Regions" }
+            ].map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="text-[32px] font-bold text-white mb-2 tracking-tighter">{stat.val}</div>
+                <div className="text-white/20 text-[9px] font-black uppercase tracking-[0.3em]">{stat.label}</div>
               </div>
-
-              {/* Decorative accent */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
-          </motion.div>
-
+            ))}
+          </div>
         </div>
       </div>
     </section>
