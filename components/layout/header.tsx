@@ -107,42 +107,44 @@ export function Header() {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 right-0 z-[100] h-[72px] flex items-center transition-all duration-300 ${
-          isScrolled ? "bg-[#050A19]/96 backdrop-blur-xl border-b border-white/5" : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-[100] h-[76px] flex items-center transition-all duration-500 ${
+          isScrolled 
+            ? "bg-[#050A19]/90 backdrop-blur-2xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]" 
+            : "bg-transparent"
         }`}
       >
-        <div className="container-custom max-w-[1400px] w-full flex items-center justify-between relative px-8">
+        <div className="w-full max-w-[1500px] mx-auto flex items-center justify-between px-10 relative">
           
           {/* LOGO AREA */}
-          <div className="flex items-center gap-12">
+          <div className="flex items-center gap-14">
             <Link href="/" className="flex items-center gap-4 group">
-              <div className="w-9 h-9 bg-accent rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(245,179,1,0.2)] group-hover:scale-105 transition-all">
-                <LayoutGrid className="w-5 h-5 text-black" />
+              <div className="w-10 h-10 bg-accent rounded-[14px] flex items-center justify-center shadow-[0_0_25px_rgba(245,179,1,0.25)] group-hover:scale-105 transition-all duration-300">
+                <LayoutGrid className="w-5.5 h-5.5 text-black" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="font-bold text-[18px] tracking-tight text-white uppercase mb-0.5">OYEN GRID</span>
-                <span className="text-[8px] font-black text-accent/50 uppercase tracking-[0.3em]">INFRASTRUCTURE</span>
+                <span className="font-bold text-[20px] tracking-tight text-white uppercase mb-0.5">OYEN GRID</span>
+                <span className="text-[8.5px] font-black text-accent/40 uppercase tracking-[0.35em]">INFRASTRUCTURE</span>
               </div>
             </Link>
 
             {/* NAVIGATION LINKS (DESKTOP) */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-10">
               {navigation.map((item) => (
                 <div 
                   key={item.name}
-                  className="relative h-[72px] flex items-center"
+                  className="relative h-[76px] flex items-center"
                   onMouseEnter={() => setActiveDropdown(item.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <div className="group flex items-center gap-1 text-[14px] font-semibold text-white/50 hover:text-white transition-all cursor-default py-1">
+                  <div className="group flex items-center gap-1 text-[14.5px] font-semibold text-white/50 hover:text-white transition-all cursor-default py-1">
                     {item.name}
-                    <ChevronDown className={`w-3 h-3 transition-transform duration-200 text-white/20 group-hover:text-accent ${activeDropdown === item.name ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-3 h-3 transition-transform duration-300 text-white/20 group-hover:text-accent ${activeDropdown === item.name ? "rotate-180" : ""}`} />
                     
                     <motion.div 
-                      className="absolute bottom-[24px] left-0 h-[1.5px] bg-accent"
+                      className="absolute bottom-[26px] left-0 h-[1.5px] bg-accent"
                       initial={{ width: 0 }}
                       animate={{ width: activeDropdown === item.name ? "100%" : 0 }}
-                      transition={{ duration: 0.15 }}
+                      transition={{ duration: 0.2 }}
                     />
                   </div>
 
@@ -154,7 +156,7 @@ export function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 6 }}
                         transition={{ duration: 0.18, ease: "easeOut" }}
-                        className="absolute top-[60px] left-[-40px] w-[640px] glass-card bg-[#050A19]/98 border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.7)] backdrop-blur-[24px] rounded-[22px] overflow-hidden"
+                        className="absolute top-[64px] left-[-40px] w-[640px] glass-card bg-[#050A19]/98 border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.7)] backdrop-blur-[24px] rounded-[22px] overflow-hidden"
                       >
                         <div className="flex divide-x divide-white/5">
                           
@@ -213,36 +215,54 @@ export function Header() {
                 </div>
               ))}
               
-              <Link href="/pricing" className="text-[14px] font-semibold text-white/40 hover:text-white transition-all py-1 relative group">
+              <Link href="/pricing" className="text-[14.5px] font-semibold text-white/40 hover:text-white transition-all py-1 relative group">
                 Pricing
                 <span className="absolute bottom-[-1px] left-0 w-0 h-[1.5px] bg-accent transition-all duration-300 group-hover:w-full" />
               </Link>
             </nav>
           </div>
 
-          {/* ACTIONS */}
-          <div className="flex items-center gap-6">
-            <div className="hidden xl:flex items-center gap-7">
+          {/* RIGHT ACTIONS - REFINED */}
+          <div className="flex items-center gap-10">
+            <div className="hidden xl:flex items-center gap-10">
+               {/* Premium Search Trigger */}
                <button 
                  onClick={() => window.dispatchEvent(new CustomEvent('open-search'))}
-                 className="text-white/20 hover:text-white transition-all flex items-center gap-2 group/search"
+                 className="w-10 h-10 rounded-full bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-white/40 hover:text-white hover:bg-white/[0.08] hover:border-accent/40 hover:shadow-[0_0_20px_rgba(245,179,1,0.15)] transition-all duration-300 group/search"
                >
-                 <Search className="w-4.5 h-4.5" />
-                 <span className="text-[10px] font-black text-white/10 uppercase tracking-widest group-hover/search:text-white/30 transition-colors">⌘K</span>
+                 <Search className="w-5 h-5 transition-transform group-hover/search:scale-110" />
                </button>
-               <Link href="/login" className="text-[14px] font-bold text-white/30 hover:text-white transition-all">Login</Link>
+               
+               {/* Login Link */}
+               <Link 
+                 href="/login" 
+                 className="text-[15px] font-bold text-white/40 hover:text-white transition-all relative group/login"
+               >
+                 Login
+                 <span className="absolute bottom-[-4px] left-0 w-0 h-[1.5px] bg-white transition-all duration-300 group-hover/login:w-full opacity-50" />
+               </Link>
             </div>
             
-            <div className="flex items-center gap-3">
-              <Link href="#" className="hidden sm:flex btn-outline h-[38px] items-center px-6 text-[12px] font-black uppercase tracking-widest border-white/10">Contact Sales</Link>
-              <Link href="#" className="btn-primary h-[38px] flex items-center px-6 text-[12px] font-black uppercase tracking-widest">Get Started</Link>
+            <div className="flex items-center gap-5">
+              <Link 
+                href="#" 
+                className="hidden sm:flex items-center px-7 h-[42px] bg-white/[0.03] border border-white/10 rounded-xl text-[12px] font-black uppercase tracking-widest text-white/60 hover:text-white hover:border-accent/40 hover:bg-white/[0.06] hover:shadow-[0_0_20px_rgba(245,179,1,0.05)] transition-all duration-300"
+              >
+                Contact Sales
+              </Link>
+              <Link 
+                href="#" 
+                className="btn-primary h-[42px] flex items-center px-8 text-[12px] font-black uppercase tracking-widest shadow-[0_8px_25px_rgba(245,179,1,0.2)] rounded-xl hover:translate-y-[-2px] transition-all duration-300"
+              >
+                Get Started
+              </Link>
             </div>
 
             <button 
               className="lg:hidden text-white p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              <Menu className="w-6.5 h-6.5" />
+              <Menu className="w-7 h-7" />
             </button>
           </div>
         </div>
@@ -309,6 +329,7 @@ export function Header() {
           </motion.div>
         )}
       </AnimatePresence>
+
       {/* PREMIUM ENTERPRISE ANNOUNCEMENT BAR */}
       <AnimatePresence>
         {showAnnouncement && (
