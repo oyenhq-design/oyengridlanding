@@ -51,6 +51,7 @@ const suggestedPrompts = [
 export function ChatAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -58,6 +59,8 @@ export function ChatAssistant() {
   const [greetingComplete, setGreetingComplete] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const avatarUrl = "/oyen_ai_assistant_avatar_female.png";
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -76,17 +79,8 @@ export function ChatAssistant() {
   const startGreeting = async () => {
     setIsTyping(true);
     await new Promise(r => setTimeout(r, 1000));
-    const welcomeText = "Welcome to OYEN GRID Intelligence. I am your operational assistant for large-scale programme infrastructure. I can help you understand cohort orchestration, analytics velocity, governance logic, and global delivery systems. How can I assist your team today?";
+    const welcomeText = "Good day. I am your OYEN Intelligence concierge. I specialize in programme infrastructure and operational logic at global scale. Whether you are orchestrating complex cohorts or auditing delivery data, I am here to ensure absolute structural clarity. How may I assist your strategy today?";
     
-    // Simple simulated streaming
-    let currentText = "";
-    const words = welcomeText.split(" ");
-    for (const word of words) {
-      currentText += word + " ";
-      // We don't actually update state for every word to avoid jitter, but we simulate the time
-      await new Promise(r => setTimeout(r, 40));
-    }
-
     setMessages([{
       id: "greeting",
       role: "assistant",
@@ -112,22 +106,21 @@ export function ChatAssistant() {
     setInputValue("");
     setIsTyping(true);
 
-    // Simulate AI Intelligence (Multi-step reasoning simulation)
     await new Promise(r => setTimeout(r, 1500));
 
-    let response = "I understand your request for information regarding OYEN GRID's operational capabilities. Our infrastructure is designed for high-fidelity execution across global cohorts. Would you like a detailed breakdown of the structural logic or a live dashboard demonstration?";
+    let response = "I have analyzed your request against our operational framework. OYEN GRID provides the foundational infrastructure for such requirements. Would you like me to detail the specific governance protocols or the analytics velocity associated with this?";
 
     const query = content.toLowerCase();
     if (query.includes("cohort")) {
-      response = "OYEN GRID enables structured multi-layer cohort orchestration. Our system manages participant progression, module sequencing, and real-time attendance tracking with absolute structural logic. This ensures governance even across distributed regional deployments.";
+      response = "Our cohort orchestration engine is designed for absolute structural integrity. It enforces prerequisite logic and progression rules across every regional node, ensuring a unified delivery standard regardless of scale.";
     } else if (query.includes("security") || query.includes("governance")) {
-      response = "Governance is embedded at the infrastructure layer. We provide SOC2 Type II compliance, E2E encryption for all participant assets, and granular Role-Based Access Control (RBAC) with immutable audit trails for every structural change.";
+      response = "Security is the bedrock of OYEN GRID. We implement immutable audit trails, multi-layer encryption, and SOC2-compliant governance to protect high-stakes programme data and intellectual property.";
     } else if (query.includes("analytics") || query.includes("reporting")) {
-      response = "Our analytics infrastructure provides high-fidelity operational intelligence. This includes predictive health scoring for cohorts, engagement velocity metrics, and automated ROI reporting across your entire programme ecosystem.";
+      response = "The analytics layer provides high-fidelity operational intelligence. We track engagement velocity and predictive health scoring, allowing your team to identify and mitigate risks before they impact programme outcomes.";
     } else if (query.includes("automation")) {
-      response = "OYEN GRID's automation engine allows you to build complex operational triggers. You can automate certifications, performance-based progression, and multi-channel notifications to reduce administrative overhead by up to 60%.";
+      response = "Automation in OYEN GRID is about eliminating administrative friction. From automated grading to intelligent session sequencing, our engine handles the logistics so your strategists can focus on delivery.";
     } else if (query.includes("pricing") || query.includes("plans")) {
-      response = "We offer tiered enterprise deployment options. From our 'Programme OS' for single high-fidelity bootcamps to our 'Infrastructure' tier for global university-scale orchestration. Our strategic consultants can provide a custom ROI breakdown for your specific volume.";
+      response = "We tailor our infrastructure to your delivery volume. From dedicated 'Programme OS' environments to global 'Enterprise Grid' deployments, our solutions are optimized for high-fidelity ROI at scale.";
     }
 
     const assistantMessage: Message = {
@@ -150,27 +143,53 @@ export function ChatAssistant() {
   return (
     <div className="fixed bottom-8 right-8 z-[100] font-inter">
       
-      {/* LAUNCHER BUTTON */}
+      {/* LAUNCHER BUTTON: CINEMATIC AVATAR */}
       <AnimatePresence>
         {(!isOpen || isMinimized) && (
-          <motion.button
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            onClick={() => { setIsOpen(true); setIsMinimized(false); }}
-            className="group relative w-16 h-16 bg-accent rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(212,166,42,0.3)] hover:shadow-[0_0_40px_rgba(212,166,42,0.5)] transition-all duration-300 overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            <Bot className="w-8 h-8 text-black relative z-10" />
-            
-            {/* Intelligent Pulse */}
-            <div className="absolute inset-0 rounded-full border border-accent/40 animate-ping opacity-30" />
-            
-            {/* Notification Badge (Simulated) */}
-            <div className="absolute top-0 right-0 w-5 h-5 bg-white border-2 border-accent rounded-full flex items-center justify-center">
-               <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_8px_#D4A62A]" />
-            </div>
-          </motion.button>
+          <div className="relative flex flex-col items-end">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, x: 20 }}
+              animate={isHovered ? { opacity: 1, scale: 1, x: 0 } : { opacity: 0, scale: 0.8, x: 20 }}
+              className="mb-4 mr-2 py-3 px-5 rounded-2xl glass-card bg-[#050A19]/90 border-accent/20 backdrop-blur-xl shadow-2xl pointer-events-none"
+            >
+              <div className="text-white font-bold text-[13px] tracking-tight mb-0.5">OYEN AI Assistant</div>
+              <div className="text-accent text-[9px] font-black uppercase tracking-[0.2em] opacity-80">Operational Intelligence Online</div>
+            </motion.div>
+
+            <motion.button
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              onClick={() => { setIsOpen(true); setIsMinimized(false); }}
+              className="group relative w-16 h-16 rounded-full flex items-center justify-center p-0.5 transition-all duration-500"
+            >
+              {/* Outer Luxury Glow */}
+              <div className="absolute inset-0 rounded-full bg-accent/20 blur-[15px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              {/* Gold Ring */}
+              <div className="absolute inset-0 rounded-full border border-accent/30 group-hover:border-accent group-hover:scale-105 transition-all duration-500" />
+              
+              {/* Avatar Container */}
+              <div className="relative w-full h-full rounded-full overflow-hidden bg-[#050A19] shadow-2xl z-10">
+                <img 
+                  src={avatarUrl} 
+                  alt="AI Assistant" 
+                  className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent opacity-40 group-hover:opacity-0 transition-opacity" />
+              </div>
+
+              {/* Online Indicator */}
+              <div className="absolute bottom-0 right-0 w-4.5 h-4.5 bg-[#050A19] rounded-full flex items-center justify-center z-20 shadow-lg">
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]" />
+              </div>
+
+              {/* Breathing Glow Pulse */}
+              <div className="absolute inset-[-4px] rounded-full border border-accent/10 animate-[pulse_4s_infinite] opacity-30" />
+            </motion.button>
+          </div>
         )}
       </AnimatePresence>
 
@@ -186,10 +205,10 @@ export function ChatAssistant() {
             {/* HEADER */}
             <div className="p-6 border-b border-white/5 flex items-center justify-between bg-white/[0.02]">
               <div className="flex items-center gap-4">
-                <div className="w-11 h-11 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center relative shadow-[0_0_15px_rgba(212,166,42,0.15)]">
-                   <Bot className="w-6.5 h-6.5 text-accent" />
-                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#050A19] rounded-full flex items-center justify-center">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]" />
+                <div className="w-12 h-12 rounded-2xl overflow-hidden border border-accent/30 relative shadow-[0_0_15px_rgba(212,166,42,0.15)] bg-black">
+                   <img src={avatarUrl} alt="OYEN AI" className="w-full h-full object-cover" />
+                   <div className="absolute top-0 right-0 p-0.5 bg-[#050A19] rounded-bl-lg">
+                      <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_5px_#22c55e]" />
                    </div>
                 </div>
                 <div>
@@ -198,7 +217,7 @@ export function ChatAssistant() {
                      <Sparkles className="w-3 h-3 text-accent" />
                    </div>
                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">Active Intelligence</span>
+                      <span className="text-[9px] font-black text-white/30 uppercase tracking-[0.3em]">Operational Intelligence</span>
                    </div>
                 </div>
               </div>
@@ -213,10 +232,10 @@ export function ChatAssistant() {
             </div>
 
             {/* BODY: MESSAGES */}
-            <div className="flex-1 overflow-y-auto p-6 space-y-8 scrollbar-hide">
+            <div className="flex-1 overflow-y-auto p-6 space-y-10 scrollbar-hide">
               {messages.length === 0 && isTyping && (
-                <div className="flex items-center gap-3 text-white/20 font-black text-[10px] uppercase tracking-widest animate-pulse">
-                   <Terminal className="w-4 h-4" /> Initializing Core Logic...
+                <div className="flex items-center gap-3 text-white/20 font-black text-[10px] uppercase tracking-[0.4em] animate-pulse">
+                   <Activity className="w-4 h-4" /> Initializing Strategy Logic...
                 </div>
               )}
 
@@ -227,32 +246,25 @@ export function ChatAssistant() {
                   animate={{ opacity: 1, y: 0 }}
                   className={`flex flex-col ${msg.role === "user" ? "items-end" : "items-start"}`}
                 >
-                  <div className={`max-w-[85%] p-5 rounded-2xl text-[14.5px] leading-relaxed tracking-tight group relative ${
+                  <div className={`max-w-[88%] p-6 rounded-[24px] text-[14px] leading-relaxed tracking-tight group relative ${
                     msg.role === "user" 
-                    ? "bg-accent/10 text-white border border-accent/20 rounded-tr-none shadow-[0_0_20px_rgba(245,179,1,0.05)]" 
-                    : "bg-white/[0.03] text-white/80 border border-white/5 rounded-tl-none"
+                    ? "bg-accent/10 text-white border border-accent/20 rounded-tr-none shadow-[0_0_20px_rgba(212,166,42,0.05)]" 
+                    : "bg-white/[0.03] text-white/80 border border-white/5 rounded-tl-none font-light"
                   }`}>
                     {msg.content}
                     
-                    {/* Message Actions */}
                     {msg.role === "assistant" && (
-                       <div className="absolute top-[-25px] right-0 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                       <div className="absolute top-[-28px] right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                           <button 
                             onClick={() => copyToClipboard(msg.content, msg.id)}
                             className="p-1.5 rounded-lg bg-white/5 border border-white/10 text-white/40 hover:text-white transition-all"
                           >
                              {copiedId === msg.id ? <Check className="w-3.5 h-3.5 text-accent" /> : <Copy className="w-3.5 h-3.5" />}
                           </button>
-                          <button 
-                            onClick={() => handleSend(messages[messages.indexOf(msg) - 1]?.content)}
-                            className="p-1.5 rounded-lg bg-white/5 border border-white/10 text-white/40 hover:text-white transition-all"
-                          >
-                             <RefreshCcw className="w-3.5 h-3.5" />
-                          </button>
                        </div>
                     )}
                   </div>
-                  <span className="text-[9px] font-black text-white/10 uppercase tracking-widest mt-2 px-1">
+                  <span className="text-[8px] font-black text-white/10 uppercase tracking-[0.4em] mt-3 px-1">
                     {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </span>
                 </motion.div>
@@ -260,10 +272,10 @@ export function ChatAssistant() {
 
               {isTyping && messages.length > 0 && (
                 <div className="flex items-start gap-3">
-                   <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 flex gap-1.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent/40 animate-bounce [animation-delay:-0.3s]" />
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent/40 animate-bounce [animation-delay:-0.15s]" />
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent/40 animate-bounce" />
+                   <div className="py-4 px-6 rounded-2xl bg-white/[0.03] border border-white/5 flex gap-2">
+                      <div className="w-1 h-1 rounded-full bg-accent/60 animate-bounce [animation-delay:-0.3s]" />
+                      <div className="w-1 h-1 rounded-full bg-accent/60 animate-bounce [animation-delay:-0.15s]" />
+                      <div className="w-1 h-1 rounded-full bg-accent/60 animate-bounce" />
                    </div>
                 </div>
               )}
@@ -272,17 +284,20 @@ export function ChatAssistant() {
 
               {/* SMART SUGGESTIONS */}
               {greetingComplete && messages.length === 1 && (
-                <div className="pt-4 grid grid-cols-1 gap-3">
-                   <div className="text-[10px] font-black text-white/20 uppercase tracking-[0.3em] mb-3 px-1">Intelligent Actions</div>
-                   <div className="flex flex-wrap gap-2">
-                     {suggestedPrompts.map((prompt, i) => (
+                <div className="pt-6 space-y-4">
+                   <div className="text-[9px] font-black text-white/20 uppercase tracking-[0.4em] px-1">Strategic Discovery</div>
+                   <div className="grid grid-cols-1 gap-2.5">
+                     {suggestedPrompts.slice(0, 4).map((prompt, i) => (
                        <button
                          key={i}
                          onClick={() => handleSend(prompt.text)}
-                         className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/[0.02] border border-white/5 hover:border-accent/40 hover:bg-white/[0.05] transition-all group"
+                         className="flex items-center justify-between px-5 py-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-accent/40 hover:bg-white/[0.04] transition-all group text-left"
                        >
-                          <prompt.icon className="w-3.5 h-3.5 text-accent/40 group-hover:text-accent transition-colors" />
-                          <span className="text-[12.5px] text-white/60 group-hover:text-white transition-colors">{prompt.text}</span>
+                          <div className="flex items-center gap-4">
+                             <prompt.icon className="w-4 h-4 text-accent/30 group-hover:text-accent transition-colors" />
+                             <span className="text-[13.5px] text-white/60 group-hover:text-white transition-colors">{prompt.text}</span>
+                          </div>
+                          <ArrowRight className="w-4 h-4 text-white/10 group-hover:text-accent group-hover:translate-x-1 transition-all" />
                        </button>
                      ))}
                    </div>
@@ -291,7 +306,7 @@ export function ChatAssistant() {
             </div>
 
             {/* INPUT AREA */}
-            <div className="p-6 border-t border-white/5 bg-white/[0.01]">
+            <div className="p-8 border-t border-white/5 bg-white/[0.01]">
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/20 to-transparent rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity" />
                 <div className="relative flex items-center">
@@ -306,30 +321,23 @@ export function ChatAssistant() {
                         handleSend();
                       }
                     }}
-                    placeholder="Ask about operations, analytics, governance..."
-                    className="w-full h-14 bg-[#050A19] border border-white/10 rounded-2xl pl-5 pr-14 text-[14.5px] text-white placeholder:text-white/20 focus:outline-none focus:border-accent/40 transition-all shadow-inner"
+                    placeholder="Inquire about operational strategy..."
+                    className="w-full h-14 bg-[#050A19] border border-white/10 rounded-2xl pl-6 pr-14 text-[14px] text-white placeholder:text-white/20 focus:outline-none focus:border-accent/40 transition-all"
                   />
                   <button
                     onClick={() => handleSend()}
                     disabled={!inputValue.trim() || isTyping}
-                    className="absolute right-2.5 w-10 h-10 rounded-xl bg-accent flex items-center justify-center text-black hover:scale-105 active:scale-95 disabled:opacity-30 disabled:scale-100 transition-all shadow-[0_0_15px_rgba(212,166,42,0.3)]"
+                    className="absolute right-2.5 w-10 h-10 rounded-xl bg-accent flex items-center justify-center text-black hover:scale-105 active:scale-95 disabled:opacity-30 disabled:scale-100 transition-all shadow-[0_0_15px_rgba(212,166,42,0.4)]"
                   >
                     <Send className="w-4.5 h-4.5" />
                   </button>
                 </div>
               </div>
-              <div className="mt-5 flex items-center justify-between px-2">
+              <div className="mt-5 flex items-center justify-between px-1">
                  <div className="flex items-center gap-3">
-                    <div className="flex items-center gap-1">
-                       <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] text-white/20 font-bold">↵</kbd>
-                       <span className="text-[9px] text-white/10 font-bold uppercase tracking-widest">SEND</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                       <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] text-white/20 font-bold">⇧</kbd>
-                       <span className="text-[9px] text-white/10 font-bold uppercase tracking-widest">NEW LINE</span>
-                    </div>
+                    <span className="text-[9px] text-white/10 font-bold uppercase tracking-[0.3em]">Operational Intelligence Advisory</span>
                  </div>
-                 <span className="text-[9px] font-black text-white/10 uppercase tracking-widest">v4.2.0-STABLE</span>
+                 <span className="text-[8px] font-black text-white/10 uppercase tracking-widest opacity-40">OYEN v4.5</span>
               </div>
             </div>
 
