@@ -10,30 +10,34 @@ export function ProofKnowledge() {
       {/* PROVEN IN ACTION: Editorial Cinematic Section */}
       <section className="py-40 relative overflow-hidden">
         <div className="container-custom max-w-[1400px] relative z-10">
-          <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-12">
+          <div className="flex flex-col lg:flex-row justify-between items-end mb-32 gap-12">
              <motion.div
                initial={{ opacity: 0, y: 20 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
-               className="max-w-2xl"
+               className="max-w-2xl relative"
              >
+               <div className="glow-ambient w-[400px] h-[400px] top-[-100px] left-[-100px]" />
                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_#D4A62A]" />
                   <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">OPERATIONAL PROOF</span>
                </div>
-               <h2 className="text-[32px] md:text-[44px] font-bold text-white tracking-tight leading-tight">
-                 Proven in high-fidelity <br /> <span className="text-white/40 italic text-[36px] md:text-[48px]">programme environments.</span>
+               <h2 className="text-white mb-6">
+                 Proven in high-fidelity <br /> <span className="text-gold-gradient italic">programme environments.</span>
                </h2>
+               <p className="opacity-60 max-w-lg">
+                 Validated by global enterprise leaders through rigorous multi-layer orchestration and precision delivery.
+               </p>
              </motion.div>
-             <button className="flex items-center gap-3 text-white/60 hover:text-white font-bold text-[14px] uppercase tracking-widest transition-all group">
-                Explore Enterprise Case Studies <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+             <button className="flex items-center gap-3 text-white/40 hover:text-white font-bold text-[13px] uppercase tracking-[0.2em] transition-all group pb-4">
+                Explore Case Studies <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
              </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
             {[
-              { title: "Global Training Infrastructure", img: "/training-session.png", desc: "Coordinating multi-cohort programmes for Fortune 500 enterprise partners." },
-              { title: "Enterprise Command Center", img: "/command-wide.png", desc: "Automating programme governance and session delivery across distributed regions." }
+              { title: "Global Training Infrastructure", img: "/training-session.png", desc: "Coordinating multi-cohort programmes for Fortune 500 enterprise partners with absolute structural integrity." },
+              { title: "Enterprise Command Center", img: "/command-wide.png", desc: "Automating programme governance and session delivery across distributed regions for high-stakes operations." }
             ].map((card, i) => (
               <motion.div
                 key={i}
@@ -43,19 +47,19 @@ export function ProofKnowledge() {
                 transition={{ delay: i * 0.1 }}
                 className="group cursor-pointer"
               >
-                <div className="relative aspect-[16/10] rounded-[32px] overflow-hidden mb-10 shadow-[0_40px_80px_rgba(0,0,0,0.6)] border border-white/5 transition-all duration-700">
+                <div className="relative aspect-[16/11] rounded-[48px] overflow-hidden mb-12 shadow-[0_60px_100px_rgba(0,0,0,0.6)] transition-all duration-1000 border-none group-hover:shadow-[0_80px_120px_rgba(0,0,0,0.8)]">
                   <img 
                     src={card.img} 
                     alt={card.title} 
-                    className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
+                    className="w-full h-full object-cover grayscale-[0.4] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                  <div className="absolute bottom-10 left-10 text-white z-20">
-                     <div className="text-[10px] font-black text-accent uppercase tracking-widest mb-2">High Fidelity</div>
-                     <h4 className="text-2xl font-bold tracking-tight">{card.title}</h4>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/20 to-transparent" />
+                  <div className="absolute bottom-12 left-12 right-12 text-white z-20">
+                     <div className="text-[10px] font-black text-accent uppercase tracking-[0.3em] mb-4 opacity-60">High Fidelity Execution</div>
+                     <h3 className="text-2xl font-bold tracking-tight mb-2">{card.title}</h3>
+                     <p className="text-white/40 text-[15px] font-light leading-relaxed group-hover:text-white/60 transition-colors">{card.desc}</p>
                   </div>
                 </div>
-                <p className="text-white/40 text-[16px] font-light leading-relaxed max-w-sm">{card.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -77,10 +81,10 @@ export function ProofKnowledge() {
                   <Database className="w-5 h-5 text-accent" />
                   <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">INTELLIGENCE ASSETS</span>
                 </div>
-                <h2 className="text-[32px] md:text-[40px] font-bold text-white tracking-tight leading-tight mb-8">
+                <h2 className="mb-8">
                   Intelligence <span className="text-gold-gradient italic">Hub.</span>
                 </h2>
-                <p className="text-white/40 text-[17px] font-light leading-relaxed mb-12">
+                <p className="mb-12 opacity-60">
                   Access our library of expert guides on building high-fidelity operational structures for modern programme delivery.
                 </p>
                 <div className="space-y-8">

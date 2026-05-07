@@ -13,10 +13,10 @@ export function Hero() {
         <img 
           src="/manager-ops.png" 
           alt="Programme Manager in Ops Room" 
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-60 scale-105 blur-[2px] grayscale-[0.2]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050812] via-[#050812]/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050812] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050816] via-[#050816]/90 to-[#050816]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent" />
       </div>
 
       {/* HERO SECTION */}
@@ -37,16 +37,16 @@ export function Hero() {
                  <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_#D4A62A]" />
                  <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">SYSTEM ARCHITECTURE</span>
               </div>
-              <h1 className="text-[44px] md:text-[68px] font-bold leading-[1.02] mb-8 tracking-[-0.03em] text-white">
+              <h1 className="mb-8 text-white">
                 Run structured programmes with <br />
                 <span className="text-gold-gradient italic">full operational control.</span>
               </h1>
-              <p className="text-[17px] md:text-[19px] text-white/60 leading-relaxed max-w-lg mb-12 font-light tracking-tight">
+              <p className="max-w-lg mb-12 font-light tracking-tight opacity-70">
                 The high-fidelity infrastructure for professional training and operations at global scale. Built for absolute governance and structural clarity.
               </p>
-              <div className="flex flex-wrap items-center gap-6 mb-16">
-                <button className="btn-primary h-[54px] px-10 text-[16px]">Start Building</button>
-                <button className="flex items-center gap-2 text-white/80 hover:text-white font-bold text-[16px] transition-all group">
+              <div className="flex flex-wrap items-center gap-6">
+                <button className="btn-primary">Start Building</button>
+                <button className="flex items-center gap-2 text-white/50 hover:text-white font-bold text-[15px] transition-all group">
                    Talk to Strategic Sales <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                 </button>
               </div>
@@ -76,14 +76,14 @@ export function Hero() {
                 <div className="absolute -inset-10 bg-accent/5 blur-[100px] rounded-full pointer-events-none" />
                 
                 {/* Dashboard with Perspective */}
-                <div className="relative glass-card border-white/10 rounded-2xl overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.6)] transform perspective-1000 group-hover:rotate-y-[-2deg] transition-transform duration-1000">
+                <div className="relative glass-card border-none rounded-[32px] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)] transform perspective-2000 group-hover:rotate-y-[-2deg] transition-transform duration-1000">
                   <img 
                     src="/wide-dashboard.png" 
                     alt="System Dashboard" 
-                    className="w-full aspect-[1.4/1] object-cover opacity-95"
+                    className="w-full aspect-[1.4/1] object-cover opacity-90"
                   />
                   {/* Subtle Layered Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-black/20 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-black/40 pointer-events-none" />
                 </div>
 
                 {/* Compact Floating Data Chips */}

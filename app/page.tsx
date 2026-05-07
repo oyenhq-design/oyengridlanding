@@ -12,15 +12,19 @@ import { EnterpriseSecurity } from "@/components/sections/enterprise-security";
 import { GovernanceControl } from "@/components/sections/governance-control";
 import { AIIntelligence } from "@/components/sections/ai-intelligence";
 import { GlobalInfrastructure } from "@/components/sections/global-infrastructure";
+import { FinalCTA } from "@/components/sections/final-cta";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#050812]">
+    <main className="min-h-screen bg-[#050816] selection:bg-accent selection:text-black">
       <Header />
       <Hero />
       <OperationalClarity />
-      <FeatureSplit />
-      <ScaleStructure />
+      <div className="relative">
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#050816] to-transparent z-10" />
+        <FeatureSplit />
+        <ScaleStructure />
+      </div>
       <GovernanceControl />
       <EverythingNeed />
       <AIIntelligence />
@@ -29,6 +33,7 @@ export default function Home() {
       <ProofKnowledge />
       <GlobalInfrastructure />
       <TestimonialMetrics />
+      <FinalCTA />
       <Footer />
     </main>
   );

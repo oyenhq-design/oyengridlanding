@@ -23,26 +23,26 @@ export function EnterpriseSecurity() {
           >
              <div className="relative group">
                 <div className="absolute -inset-10 bg-accent/5 blur-[100px] rounded-full pointer-events-none opacity-40" />
-                <div className="relative rounded-[32px] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8)]">
-                   <img 
-                     src="/security-analyst.png" 
-                     alt="Security Operations" 
-                     className="w-full h-auto opacity-80 grayscale group-hover:grayscale-0 transition-all duration-1000"
-                   />
-                   
-                   {/* Security Overlay Elements */}
-                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
-                   
-                   <motion.div 
-                     animate={{ scale: [1, 1.05, 1] }}
-                     transition={{ duration: 4, repeat: Infinity }}
-                     className="absolute top-10 left-10 glass-card p-6 bg-[#050812]/90 border-accent/20 backdrop-blur-2xl shadow-2xl"
-                   >
-                      <ShieldCheck className="w-8 h-8 text-accent mb-4 shadow-[0_0_10px_#D4A62A]" />
-                      <div className="text-xl font-bold text-white tracking-tight">SOC2 TYPE II</div>
-                      <div className="text-[10px] font-black text-white/40 uppercase tracking-widest mt-1">CERTIFIED COMPLIANCE</div>
-                   </motion.div>
-                </div>
+                 <div className="relative rounded-[48px] overflow-hidden shadow-[0_60px_100px_rgba(0,0,0,0.8)] border-none">
+                    <img 
+                      src="/security-analyst.png" 
+                      alt="Security Operations" 
+                      className="w-full h-auto opacity-80 grayscale-[0.3] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+                    />
+                    
+                    {/* Security Overlay Elements */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent opacity-80" />
+                    
+                    <motion.div 
+                      animate={{ scale: [1, 1.02, 1] }}
+                      transition={{ duration: 4, repeat: Infinity }}
+                      className="absolute top-12 left-12 glass-card p-8 bg-[#050816]/60 border-none backdrop-blur-3xl shadow-2xl"
+                    >
+                       <ShieldCheck className="w-10 h-10 text-accent mb-5 shadow-[0_0_15px_rgba(212,166,42,0.3)]" />
+                       <div className="text-2xl font-bold text-white tracking-tight">SOC2 TYPE II</div>
+                       <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mt-2">CERTIFIED COMPLIANCE</div>
+                    </motion.div>
+                 </div>
              </div>
           </motion.div>
 
@@ -57,13 +57,13 @@ export function EnterpriseSecurity() {
                <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_#D4A62A]" />
                <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">ENTERPRISE TRUST</span>
             </div>
-            <h2 className="text-[32px] md:text-[40px] font-bold text-white tracking-tight leading-tight mb-10">
-              Enterprise security <br />
-              <span className="text-gold-gradient italic">at every layer.</span>
-            </h2>
-            <p className="text-[17px] text-white/50 font-light leading-relaxed mb-12">
-              OYEN GRID is built on a foundation of absolute data security and governance. We protect your programme integrity with world-class infrastructure.
-            </p>
+             <h2 className="mb-10 text-white">
+               Enterprise security <br />
+               <span className="text-gold-gradient italic">at every layer.</span>
+             </h2>
+             <p className="mb-12 opacity-60">
+               OYEN GRID is built on a foundation of absolute data security and governance. We protect your programme integrity with world-class infrastructure.
+             </p>
             
             <div className="space-y-10">
                {[

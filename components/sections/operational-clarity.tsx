@@ -11,7 +11,7 @@ export function OperationalClarity() {
   ];
 
   return (
-    <section className="py-40 relative bg-[#050812] overflow-hidden">
+    <section className="py-40 relative bg-[#050816] overflow-hidden">
       
       {/* Subtle Grid Accent */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(245,179,1,0.03)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
@@ -29,13 +29,13 @@ export function OperationalClarity() {
                <div className="w-1.5 h-1.5 rounded-full bg-accent" />
                <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">OPERATIONAL ECOSYSTEM</span>
             </div>
-            <h2 className="text-[32px] md:text-[42px] font-bold text-white tracking-tight leading-[1.1] mb-10">
-              Built for operational clarity <br />
-              <span className="text-white/40 italic">at global enterprise scale.</span>
-            </h2>
-            <p className="text-[17px] text-white/50 font-light leading-relaxed mb-12 max-w-lg">
-              OYEN GRID transforms fragmented operations into a cohesive, high-performance system. Manage sessions, participants, and outcomes in one immersive environment.
-            </p>
+             <h2 className="mb-10 text-white">
+               Built for operational clarity <br />
+               <span className="text-gold-gradient italic">at global enterprise scale.</span>
+             </h2>
+             <p className="mb-12 opacity-60">
+               OYEN GRID transforms fragmented operations into a cohesive, high-performance system. Manage sessions, participants, and outcomes in one immersive environment.
+             </p>
             
             <div className="space-y-12">
                {points.map((point, i) => (
@@ -64,24 +64,23 @@ export function OperationalClarity() {
             <div className="relative group">
                {/* Restricted Glow */}
                <div className="absolute -inset-10 bg-accent/5 blur-[100px] rounded-full pointer-events-none" />
-               
-               <div className="relative rounded-[32px] overflow-hidden border border-white/5 shadow-[0_40px_80px_rgba(0,0,0,0.5)]">
-                  <img 
-                    src="/team-collab.png" 
-                    alt="Team Collaborating" 
-                    className="w-full h-auto grayscale-[0.2] opacity-90 group-hover:scale-105 transition-transform duration-1000"
-                  />
-                  {/* Subtle Shading */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-               </div>
+                              <div className="relative rounded-[48px] overflow-hidden border-none shadow-[0_60px_100px_rgba(0,0,0,0.8)]">
+                   <img 
+                     src="/team-collab.png" 
+                     alt="Team Collaborating" 
+                     className="w-full h-auto grayscale-[0.3] opacity-90 group-hover:scale-105 transition-transform duration-1000 group-hover:grayscale-0"
+                   />
+                   {/* Subtle Shading */}
+                   <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/20 to-transparent pointer-events-none" />
+                </div>
 
-               {/* Stats Overlay Hint */}
-               <div className="absolute bottom-10 left-10 glass-card p-6 bg-[#050812]/90 border-white/10 backdrop-blur-xl shadow-2xl">
-                  <div className="text-[10px] font-black text-accent uppercase tracking-widest mb-2">Systems Active</div>
-                  <div className="flex -space-x-2">
-                     {[1,2,3,4].map(i => <div key={i} className="w-8 h-8 rounded-full border-2 border-[#050812] bg-gray-800" />)}
-                  </div>
-               </div>
+                {/* Stats Overlay Hint */}
+                <div className="absolute bottom-12 left-12 glass-card p-8 bg-[#050816]/60 border-none backdrop-blur-3xl shadow-2xl">
+                   <div className="text-[10px] font-black text-accent uppercase tracking-[0.3em] mb-4 opacity-60">Systems Active</div>
+                   <div className="flex -space-x-2">
+                      {[1,2,3,4].map(i => <div key={i} className="w-9 h-9 rounded-full border-2 border-[#050816] bg-gray-800" />)}
+                   </div>
+                </div>
             </div>
           </motion.div>
 

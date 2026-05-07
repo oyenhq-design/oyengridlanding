@@ -25,11 +25,11 @@ export function GovernanceControl() {
                <div className="h-px w-8 bg-accent" />
                <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">OPERATIONAL GOVERNANCE</span>
             </div>
-            <h2 className="text-[32px] md:text-[40px] font-bold text-white tracking-tight leading-tight mb-10">
+            <h2 className="mb-10 text-white">
               Granular control <br />
               <span className="text-gold-gradient italic">at global scale.</span>
             </h2>
-            <p className="text-[17px] text-white/50 font-light leading-relaxed mb-12 max-w-sm">
+            <p className="mb-12 opacity-60">
               Manage distributed teams and programmes through a centralized governance engine with deep structural permissions and audit trails.
             </p>
             
@@ -57,39 +57,39 @@ export function GovernanceControl() {
             viewport={{ once: true }}
             className="lg:col-span-7"
           >
-             <div className="relative glass-card p-12 bg-secondary/10 border-white/5 rounded-[32px] shadow-[0_50px_100px_rgba(0,0,0,0.7)]">
+             <div className="relative glass-card p-12 bg-[#050816]/40 border-none rounded-[48px] shadow-[0_60px_100px_rgba(0,0,0,0.8)]">
                 <div className="flex items-center justify-between mb-12">
-                   <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center shadow-[0_0_15px_rgba(212,166,42,0.15)]">
-                         <Shield className="w-5 h-5 text-accent" />
+                   <div className="flex items-center gap-5">
+                      <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center shadow-[0_0_20px_rgba(212,166,42,0.1)]">
+                         <Shield className="w-6 h-6 text-accent" />
                       </div>
-                      <div className="text-lg font-bold text-white tracking-tight">Permissions Matrix</div>
+                      <div className="text-xl font-bold text-white tracking-tight">Permissions Matrix</div>
                    </div>
-                   <div className="flex gap-2">
-                      <div className="w-2 h-2 rounded-full bg-accent" />
-                      <div className="w-2 h-2 rounded-full bg-white/10" />
+                   <div className="flex gap-2.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_10px_rgba(212,166,42,0.4)]" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
                    </div>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-4">
                    {[
                      { role: "Global Admin", status: "All Permissions", active: true },
                      { role: "Cohort Lead", status: "Restricted View", active: true },
                      { role: "Session Facilitator", status: "Delivery Only", active: false }
                    ].map((row, i) => (
-                     <div key={i} className="flex items-center justify-between p-5 rounded-2xl bg-white/[0.03] border border-white/5">
-                        <div className="flex items-center gap-4">
-                           <div className={`w-2 h-2 rounded-full ${row.active ? "bg-green-500 shadow-[0_0_5px_#22c55e]" : "bg-white/20"}`} />
-                           <span className="text-white font-bold tracking-tight">{row.role}</span>
+                     <div key={i} className="flex items-center justify-between p-6 rounded-[24px] bg-white/[0.02] border-none shadow-sm hover:bg-white/[0.04] transition-all group/row">
+                        <div className="flex items-center gap-5">
+                           <div className={`w-2 h-2 rounded-full ${row.active ? "bg-green-500 shadow-[0_0_10px_#22c55e]" : "bg-white/10"}`} />
+                           <span className="text-white font-bold tracking-tight text-[15px]">{row.role}</span>
                         </div>
-                        <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">{row.status}</span>
+                        <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] group-hover/row:text-accent transition-colors">{row.status}</span>
                      </div>
                    ))}
                 </div>
                 
-                <div className="mt-12 pt-8 border-t border-white/5 flex items-center justify-center">
-                   <button className="flex items-center gap-2 text-accent text-[11px] font-black uppercase tracking-[0.3em] hover:translate-x-2 transition-all">
-                      View Audit Engine <ArrowRight className="w-3.5 h-3.5" />
+                <div className="mt-12 pt-10 border-t border-white/5 flex items-center justify-center">
+                   <button className="flex items-center gap-3 text-white/40 hover:text-accent text-[11px] font-black uppercase tracking-[0.4em] transition-all group/btn">
+                      View Audit Engine <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
                    </button>
                 </div>
              </div>

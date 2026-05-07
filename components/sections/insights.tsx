@@ -5,16 +5,16 @@ import { Activity, BarChart3, TrendingUp, Zap, Target } from "lucide-react";
 
 export function Insights() {
   return (
-    <section className="py-40 bg-[#050812] relative overflow-hidden">
+    <section className="py-40 bg-[#050816] relative overflow-hidden">
       
       {/* Background Atmosphere Band */}
       <div className="absolute inset-0 z-0">
          <img 
            src="/command-wide.png" 
            alt="Command Wide" 
-           className="w-full h-full object-cover opacity-10 grayscale"
+           className="w-full h-full object-cover opacity-20 grayscale-[0.5] scale-110"
          />
-         <div className="absolute inset-0 bg-gradient-to-r from-[#050812] via-transparent to-[#050812]" />
+         <div className="absolute inset-0 bg-gradient-to-r from-[#050816] via-[#050816]/90 to-[#050816]" />
       </div>
 
       <div className="container-custom max-w-[1400px] relative z-10">
@@ -31,12 +31,12 @@ export function Insights() {
                <Zap className="w-5 h-5 text-accent fill-accent" />
                <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">INTELLIGENCE INFRASTRUCTURE</span>
             </div>
-            <h2 className="text-[32px] md:text-[42px] font-bold text-white tracking-tight leading-tight mb-10">
-              Operational <span className="text-white/40 italic">insights.</span>
-            </h2>
-            <p className="text-[17px] text-white/50 font-light leading-relaxed mb-12 max-w-sm">
-              Transform raw cohort performance into a strategic advantage. OYEN GRID provides absolute visibility across every programme touchpoint.
-            </p>
+             <h2 className="mb-10 text-white">
+               Operational <span className="text-gold-gradient italic">insights.</span>
+             </h2>
+             <p className="mb-12 opacity-60">
+               Transform raw cohort performance into a strategic advantage. OYEN GRID provides absolute visibility across every programme touchpoint.
+             </p>
             <div className="flex flex-col gap-6">
               {[
                 { label: "Completion Index", val: "94.8%", color: "text-accent" },
@@ -60,8 +60,8 @@ export function Insights() {
             <div className="relative group">
               <div className="absolute -inset-10 bg-accent/5 blur-[100px] rounded-full pointer-events-none opacity-40" />
               
-              <div className="glass-card p-12 lg:p-16 border-white/10 bg-[#0B0F14] shadow-[0_50px_100px_rgba(0,0,0,0.7)] relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,179,1,0.05),transparent_70%)]" />
+              <div className="glass-card p-12 lg:p-16 border-none bg-[#050816]/60 shadow-[0_60px_100px_rgba(0,0,0,0.8)] relative overflow-hidden rounded-[48px]">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,166,42,0.05),transparent_70%)]" />
                 
                 <div className="flex items-center justify-between mb-16 relative z-10">
                   <div className="flex items-center gap-4">

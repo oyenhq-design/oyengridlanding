@@ -31,11 +31,11 @@ export function AIIntelligence() {
                <Brain className="w-5 h-5 text-accent" />
                <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">DATA INTELLIGENCE</span>
             </div>
-            <h2 className="text-[32px] md:text-[40px] font-bold text-white tracking-tight leading-tight mb-10">
+            <h2 className="mb-10 text-white">
               AI-driven <br />
               <span className="text-gold-gradient italic">operational intelligence.</span>
             </h2>
-            <p className="text-[17px] text-white/50 font-light leading-relaxed mb-12">
+            <p className="mb-12 opacity-60">
               OYEN GRID leverages advanced AI infrastructure to provide predictive programme insights, automated grading workflows, and intelligent participant tracking.
             </p>
             
@@ -66,17 +66,17 @@ export function AIIntelligence() {
             className="lg:col-span-7"
           >
              <div className="relative group">
-                <div className="absolute -inset-10 bg-accent/10 blur-[120px] rounded-full pointer-events-none opacity-40" />
-                <div className="relative rounded-[32px] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] bg-black">
-                   <img 
-                     src="/ai-intel.png" 
-                     alt="AI Dashboard" 
-                     className="w-full h-auto opacity-90 group-hover:scale-105 transition-transform duration-1000"
-                   />
-                   
-                   {/* Holographic Element Hint */}
-                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,179,1,0.1),transparent_70%)] pointer-events-none" />
-                </div>
+                 <div className="glow-ambient w-[600px] h-[600px] top-[10%] left-[10%]" />
+                 <div className="relative rounded-[48px] overflow-hidden shadow-[0_60px_100px_rgba(0,0,0,0.8)] bg-[#050816]/60 border-none">
+                    <img 
+                      src="/ai-intel.png" 
+                      alt="AI Dashboard" 
+                      className="w-full h-auto opacity-80 group-hover:scale-105 transition-transform duration-1000"
+                    />
+                    
+                    {/* Holographic Element Hint */}
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,166,42,0.1),transparent_70%)] pointer-events-none opacity-40" />
+                 </div>
              </div>
           </motion.div>
 

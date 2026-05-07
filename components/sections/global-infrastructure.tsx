@@ -29,7 +29,7 @@ export function GlobalInfrastructure() {
                  <Globe className="w-5 h-5 text-accent" />
                  <span className="text-accent text-[11px] font-black tracking-[0.4em] uppercase">GLOBAL RELIABILITY</span>
               </div>
-              <h2 className="text-[32px] md:text-[44px] font-bold text-white tracking-tight mb-8">
+              <h2 className="mb-8 text-white">
                 The backbone of <br />
                 <span className="text-gold-gradient italic">global programme delivery.</span>
               </h2>
@@ -45,21 +45,21 @@ export function GlobalInfrastructure() {
              { title: "Zero-Latency Execution", desc: "Edge-optimized delivery for sessions and participant interactions.", icon: Zap },
              { title: "Enterprise Integrations", desc: "Deeply integrate with your existing CRM, LMS, and HRIS tech stack.", icon: Globe }
            ].map((item, i) => (
-             <motion.div
-               key={i}
-               initial={{ opacity: 0, y: 30 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ delay: i * 0.1 }}
-               className="glass-card p-12 bg-[#0B0F14]/40 border-white/5 hover:border-accent/30 transition-all group"
-             >
-                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center mb-10 group-hover:bg-accent group-hover:border-accent transition-all">
-                   <item.icon className="w-6 h-6 text-accent group-hover:text-black transition-all" />
-                </div>
-                <h4 className="text-xl font-bold text-white mb-6 tracking-tight">{item.title}</h4>
-                <p className="text-white/40 text-[15px] font-light leading-relaxed">{item.desc}</p>
-                <div className="mt-10 h-px w-full bg-white/5 group-hover:bg-accent/20 transition-all" />
-             </motion.div>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="glass-card p-12 bg-[#050816]/40 border-none hover:bg-white/[0.04] transition-all group"
+              >
+                 <div className="w-16 h-16 rounded-2xl bg-white/5 border-none flex items-center justify-center mb-10 group-hover:bg-accent group-hover:shadow-[0_0_20px_rgba(212,166,42,0.4)] transition-all">
+                    <item.icon className="w-6 h-6 text-accent group-hover:text-black transition-all" />
+                 </div>
+                 <h3 className="text-xl font-bold text-white mb-6 tracking-tight">{item.title}</h3>
+                 <p className="opacity-40 text-[15px] group-hover:opacity-60 transition-opacity">{item.desc}</p>
+                 <div className="mt-10 h-px w-full bg-white/5 group-hover:bg-accent/20 transition-all" />
+              </motion.div>
            ))}
         </div>
 
