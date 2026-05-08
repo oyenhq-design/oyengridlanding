@@ -1,6 +1,7 @@
 import { Header, AnnouncementBar } from "@/components/layout/header";
 import { Hero } from "@/components/sections/hero";
 import { OperationalClarity } from "@/components/sections/operational-clarity";
+import { WhoItIsFor } from "@/components/sections/who-it-is-for";
 import { InfrastructureStrip } from "@/components/sections/infrastructure-strip";
 import { OperationalIntelligence } from "@/components/sections/operational-intelligence";
 import { EnterpriseSecurity } from "@/components/sections/enterprise-security";
@@ -17,6 +18,7 @@ export default function Home() {
         <AnnouncementBar />
         <Hero />
         <OperationalClarity />
+        <WhoItIsFor />
         <InfrastructureStrip />
         <OperationalIntelligence />
         <EnterpriseSecurity />

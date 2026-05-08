@@ -4,16 +4,19 @@
   --color-background: #040816;
   --color-foreground: #ffffff;
   --color-navy-deep: #040816;
-  --color-navy-light: #061120;
-  --color-accent-gold: #D4A62A;
-  --color-accent-gold-muted: #C89B2B;
-  --color-text-secondary: rgba(255, 255, 255, 0.6);
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-navy-mid: #061120;
+  --color-navy-light: #081426;
+  --color-accent-gold: #C89B2D;
+  --color-accent-gold-bright: #D6A63A;
+  --color-text-secondary: rgba(255, 255, 255, 0.4);
+  --color-border-subtle: rgba(255, 255, 255, 0.05);
 }
 
 @layer base {
   :root {
-    --gold-gradient: linear-gradient(180deg, #D4A62A 0%, #C89B2B 100%);
+    --gold-gradient: linear-gradient(135deg, #C89B2D 0%, #D6A63A 100%);
+    --gold-glow: 0 0 40px rgba(200, 155, 45, 0.15);
+    --atmos-glow: radial-gradient(circle at center, rgba(200, 155, 45, 0.12) 0%, transparent 70%);
   }
 
   body {
@@ -25,7 +28,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tight font-semibold;
+    @apply tracking-tighter font-bold;
   }
 
   p {
@@ -83,10 +86,48 @@
     opacity: 0.015;
     pointer-events: none;
     z-index: 9999;
+    animation: noise-anim 0.2s infinite steps(2);
+  }
+
+  @keyframes noise-anim {
+    0% { transform: translate(0,0); }
+    10% { transform: translate(-1px,-1px); }
+    20% { transform: translate(-2px,1px); }
+    30% { transform: translate(1px,-2px); }
+    40% { transform: translate(-1px,2px); }
+    50% { transform: translate(-2px,-1px); }
+    60% { transform: translate(1px,1px); }
+    70% { transform: translate(2px,-2px); }
+    80% { transform: translate(-1px,-1px); }
+    90% { transform: translate(1px,2px); }
+    100% { transform: translate(0,0); }
   }
 
   .ambient-glow {
     @apply absolute blur-[160px] opacity-30 pointer-events-none;
-    background: radial-gradient(circle, rgba(212,166,42,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(200, 155, 45, 0.1) 0%, transparent 70%);
+  }
+
+  .environmental-overlay {
+    @apply absolute inset-0 bg-navy-deep/90 backdrop-blur-[4px] pointer-events-none;
+  }
+
+  .atmos-fade-top {
+    @apply absolute top-0 left-0 right-0 h-48 pointer-events-none;
+    background: linear-gradient(to bottom, var(--color-background), transparent);
+  }
+
+  .atmos-fade-bottom {
+    @apply absolute bottom-0 left-0 right-0 h-48 pointer-events-none;
+    background: linear-gradient(to top, var(--color-background), transparent);
+  }
+
+  .section-transition {
+    @apply relative py-32 md:py-48 border-t border-white/[0.03];
+    background: radial-gradient(circle at 50% 0%, rgba(200, 155, 45, 0.05), transparent 70%);
+  }
+
+  .cinematic-bleed {
+    @apply relative z-10 scale-105 shadow-[0_40px_100px_rgba(0,0,0,0.6)];
   }
 }
