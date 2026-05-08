@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -47,10 +48,11 @@ export function ProvenEnvironments() {
               className="group cursor-pointer"
             >
               <div className="relative rounded-[40px] overflow-hidden border border-white/10 mb-10 aspect-[16/10] shadow-[0_30px_60px_rgba(0,0,0,0.5)] bg-navy-light">
-                <img 
+                <Image 
                   src={card.img} 
                   alt={card.title} 
-                  className="w-full h-full object-cover grayscale-[0.4] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                  fill
+                  className="object-cover grayscale-[0.4] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-transparent to-transparent opacity-60" />
               </div>

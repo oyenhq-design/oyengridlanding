@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
@@ -54,10 +55,11 @@ export function OperationalClarity() {
             className="relative"
           >
             <div className="relative rounded-[40px] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] aspect-[4/5]">
-              <img 
+              <Image 
                 src="/ops-portrait.png" 
                 alt="Enterprise Operations Specialist" 
-                className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+                fill
+                className="object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/40 to-transparent" />
             </div>

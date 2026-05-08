@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export function TestimonialSection() {
@@ -22,10 +23,12 @@ export function TestimonialSection() {
             </blockquote>
             
             <div className="flex items-center gap-6">
-              <div className="w-16 h-16 rounded-full overflow-hidden border border-white/10 p-0.5 bg-gradient-to-tr from-accent-gold/20 to-transparent">
-                <img 
+              <div className="w-16 h-16 rounded-full overflow-hidden border border-white/10 p-0.5 bg-gradient-to-tr from-accent-gold/20 to-transparent relative">
+                <Image 
                   src="/exec-avatar.png" 
                   alt="Sarah Jenkins" 
+                  width={64}
+                  height={64}
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>

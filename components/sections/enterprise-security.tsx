@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShieldCheck, Eye, Database } from "lucide-react";
 
@@ -23,10 +24,11 @@ export function EnterpriseSecurity() {
             transition={{ duration: 1.2 }}
           >
             <div className="relative rounded-[40px] overflow-hidden border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.6)] bg-navy-deep aspect-[1.1]">
-              <img 
+              <Image 
                 src="/security-soc.png" 
                 alt="Enterprise Security Operations Center" 
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/40 to-transparent" />
             </div>

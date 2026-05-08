@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Brain, Workflow, Shield, Activity } from "lucide-react";
 
@@ -26,10 +27,11 @@ export function OperationalIntelligence() {
           >
             <div className="ambient-glow -bottom-20 -left-20 w-[600px] h-[600px] opacity-20" />
             <div className="relative rounded-[40px] overflow-hidden border border-white/10 shadow-[0_60px_120px_rgba(0,0,0,0.8)] bg-navy-light aspect-[16/11]">
-              <img 
+              <Image 
                 src="/monitor-intelligence.png" 
                 alt="Operational Intelligence Monitor" 
-                className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-1000"
+                fill
+                className="object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-1000"
               />
             </div>
           </motion.div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -13,7 +14,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
             className="lg:col-span-6"
           >
             <div className="text-accent-gold text-[11px] font-bold tracking-[0.3em] uppercase mb-10 flex items-center gap-3">
@@ -61,24 +62,26 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, delay: 0.2 }}
+            transition={{ duration: 1, delay: 0.2 }}
             className="lg:col-span-6 relative"
           >
             {/* Ambient Glow */}
             <div className="ambient-glow -top-20 -right-20 w-[600px] h-[600px]" />
             
             <div className="relative rounded-[32px] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] bg-navy-light aspect-[16/11]">
-              <img 
+              <Image 
                 src="/hero-dashboard.png" 
                 alt="Enterprise Analytics Dashboard" 
-                className="w-full h-full object-cover opacity-90"
+                fill
+                priority
+                className="object-cover opacity-90"
               />
               
               {/* Floating Stat Cards */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 }}
+                transition={{ delay: 0.8 }}
                 className="absolute top-10 right-10 p-6 glass-card border-white/10 shadow-2xl min-w-[180px]"
               >
                 <div className="text-2xl font-bold text-white mb-1">98.2%</div>
@@ -88,7 +91,7 @@ export function Hero() {
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2 }}
+                transition={{ delay: 1 }}
                 className="absolute bottom-10 left-10 p-6 glass-card border-white/10 shadow-2xl min-w-[200px]"
               >
                 <div className="text-2xl font-bold text-white mb-1">4,284</div>
