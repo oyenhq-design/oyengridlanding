@@ -18,41 +18,49 @@ export default function Home() {
         <AnnouncementBar />
         <Hero />
         
-        <SectionDivider />
+        {/* UNEVEN EDITORIAL RHYTHM */}
+        
+        <div className="mt-40"> {/* 160px spacing */}
+          <SectionDivider />
+          <SectionReveal>
+            <OperationalClarity />
+          </SectionReveal>
+        </div>
 
-        <SectionReveal>
-          <OperationalClarity />
-        </SectionReveal>
+        <div className="mt-56"> {/* 224px spacing */}
+          <SectionDivider />
+          <SectionReveal>
+            <OperationalIntelligence />
+          </SectionReveal>
+        </div>
 
-        <SectionDivider />
+        <div className="mt-40"> {/* 160px spacing */}
+          <SectionDivider />
+          <SectionReveal>
+            <MetricsStrip />
+          </SectionReveal>
+        </div>
 
-        <SectionReveal>
-          <OperationalIntelligence />
-        </SectionReveal>
+        <div className="mt-64"> {/* 256px spacing */}
+          <SectionDivider />
+          <SectionReveal>
+            <EnterpriseSecurity />
+          </SectionReveal>
+        </div>
 
-        <SectionDivider />
+        <div className="mt-48"> {/* 192px spacing */}
+          <SectionDivider />
+          <SectionReveal>
+            <TestimonialSection />
+          </SectionReveal>
+        </div>
 
-        <SectionReveal>
-          <MetricsStrip />
-        </SectionReveal>
-
-        <SectionDivider />
-
-        <SectionReveal>
-          <EnterpriseSecurity />
-        </SectionReveal>
-
-        <SectionDivider />
-
-        <SectionReveal>
-          <TestimonialSection />
-        </SectionReveal>
-
-        <SectionDivider />
-
-        <SectionReveal>
-          <FinalCTA />
-        </SectionReveal>
+        <div className="mt-64"> {/* 256px spacing */}
+          <SectionDivider />
+          <SectionReveal>
+            <FinalCTA />
+          </SectionReveal>
+        </div>
       </main>
       <Footer />
     </>

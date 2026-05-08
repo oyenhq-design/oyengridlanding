@@ -33,15 +33,15 @@ function Counter({ value, suffix = "" }: { value: string, suffix?: string }) {
 export function MetricsStrip() {
   const metrics = [
     { label: "Delivery Nodes", value: "1240", suffix: "+" },
-    { label: "Sync Latency", value: "0.8", suffix: "ms" },
-    { label: "System Uptime", value: "99.999", suffix: "%" },
-    { label: "Global Reach", value: "140", suffix: "+" }
+    { label: "Institutional Uptime", value: "99.999", suffix: "%" },
+    { label: "Node Latency", value: "0.8", suffix: "ms" },
+    { label: "Global Presence", value: "142", suffix: "+" }
   ];
 
   return (
-    <section className="relative py-24 bg-[#030712] overflow-hidden border-y border-white/[0.04]">
+    <section className="relative py-40 bg-[#030712] overflow-hidden border-y border-white/[0.04]">
       <div className="container-custom">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-16 md:gap-24">
           {metrics.map((metric, i) => (
             <motion.div
               key={i}
@@ -51,12 +51,12 @@ export function MetricsStrip() {
               transition={{ duration: 1, delay: i * 0.1 }}
               className="flex flex-col items-start group"
             >
-              <div className="flex items-center gap-3 mb-6">
-                 <div className="w-1.5 h-1.5 rounded-full bg-[#d6a63c]/30 group-hover:bg-[#d6a63c] transition-colors" />
-                 <div className="text-[9px] text-white/20 font-bold uppercase tracking-[0.4em]">{metric.label}</div>
+              <div className="flex items-center gap-4 mb-8">
+                 <div className="w-1.5 h-1.5 rounded-full bg-[#d6a63c]/20 group-hover:bg-[#d6a63c] transition-colors" />
+                 <div className="text-[10px] text-white/15 font-bold uppercase tracking-[0.5em]">{metric.label}</div>
               </div>
 
-              <div className="text-[32px] md:text-[44px] font-bold text-white tracking-[-0.05em] leading-none group-hover:text-[#d6a63c] transition-colors">
+              <div className="text-[36px] md:text-[52px] font-bold text-white tracking-[-0.05em] leading-none group-hover:text-[#d6a63c] transition-colors">
                 <Counter value={metric.value} suffix={metric.suffix} />
               </div>
             </motion.div>
