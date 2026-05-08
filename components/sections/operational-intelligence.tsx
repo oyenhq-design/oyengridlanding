@@ -91,10 +91,28 @@ export function OperationalIntelligence() {
                  <div className="absolute inset-0 bg-gradient-to-l from-navy-deep/80 via-transparent to-transparent" />
                  
                  {/* Floating Analytics Node */}
-                 <div className="absolute top-12 right-12 p-8 glass-card border-white/10 bg-navy-deep/80">
-                    <div className="text-[10px] text-white/20 font-black uppercase tracking-widest mb-3">Live Forecast</div>
+                 <div className="absolute top-12 right-12 p-8 glass-card border-white/10 bg-navy-deep/80 min-w-[240px]">
+                    <div className="flex items-center gap-3 mb-4">
+                       <div className="w-2 h-2 rounded-full bg-accent-gold shadow-[0_0_10px_rgba(200,155,45,0.6)]" />
+                       <span className="text-[10px] text-white/20 font-black uppercase tracking-widest">Node Orchestration Logic</span>
+                    </div>
                     <div className="text-3xl font-bold text-white mb-2 tracking-tighter">+14.2%</div>
-                    <div className="text-[11px] text-accent-gold/60 font-bold uppercase">Efficiency Projection</div>
+                    <div className="text-[11px] text-accent-gold/60 font-bold uppercase tracking-widest">Efficiency Projection</div>
+                    
+                    <div className="mt-8 space-y-3">
+                       {[0, 1, 2].map((i) => (
+                         <div key={i} className="flex items-center justify-between">
+                            <div className="w-24 h-1 bg-white/5 rounded-full overflow-hidden">
+                               <motion.div 
+                                 animate={{ x: ["-100%", "100%"] }}
+                                 transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
+                                 className="w-full h-full bg-accent-gold/20" 
+                               />
+                            </div>
+                            <span className="text-[9px] text-white/20 font-mono">NODE_0{i+1}_SYNC</span>
+                         </div>
+                       ))}
+                    </div>
                  </div>
                </div>
             </div>
