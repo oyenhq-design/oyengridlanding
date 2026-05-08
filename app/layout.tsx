@@ -9,13 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "OYEN Grid - Run & Manage Programmes",
-  description: "A unified platform for managing programmes, sessions, and participant tracking.",
-  keywords: ["training", "bootcamp", "programme management", "sessions", "recordings"],
+  title: "OYEN GRID | Professional Programme Infrastructure",
+  description: "Run complex learning operations with absolute structural integrity at global enterprise scale.",
 };
-
-import { ChatAssistant } from "@/components/shared/chat-assistant";
-import { SearchModal } from "@/components/shared/search-modal";
 
 export default function RootLayout({
   children,
@@ -23,18 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} h-full antialiased`}
-    >
-      <body
-        className="min-h-full flex flex-col bg-background"
-        style={{ textRendering: "optimizeLegibility", fontFamily: "var(--font-inter), Inter, system-ui, sans-serif" }}
-        suppressHydrationWarning
-      >
-        {children}
-        <ChatAssistant />
-        <SearchModal />
+    <html lang="en" className={`${inter.variable} h-full`}>
+      <body className="min-h-full flex flex-col bg-background font-sans antialiased relative">
+        <div className="noise-bg" aria-hidden="true" />
+        <main className="flex-1">
+          {children}
+        </main>
       </body>
     </html>
   );

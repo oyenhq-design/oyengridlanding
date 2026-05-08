@@ -1,55 +1,64 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
 
 export function TestimonialSection() {
   return (
-    <section className="section-padding bg-testimonial-luxury overflow-hidden border-t border-white/5">
+    <section className="section-padding bg-navy-deep overflow-hidden relative border-t border-white/5">
       <div className="container-custom">
-        <div className="max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+          
+          {/* LEFT SIDE */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.2 }}
-            className="text-center"
+            transition={{ duration: 1 }}
+            className="lg:col-span-7"
           >
-            <Quote className="w-16 h-16 text-accent-gold/10 mx-auto mb-16" />
-            
-            <blockquote className="text-white text-[28px] md:text-[38px] font-medium leading-[1.3] tracking-tight mb-20 max-w-4xl mx-auto">
-              "OYEN GRID has fundamentally transformed our global delivery logic. We now operate with <span className="text-gold-gradient font-medium italic">absolute structural clarity</span> and institutional governance at a scale we previously thought impossible."
+            <div className="text-[120px] font-serif text-accent-gold/10 leading-none mb-[-40px] select-none">“</div>
+            <blockquote className="text-[32px] md:text-[42px] font-medium text-white mb-14 leading-[1.15] tracking-tight">
+              OYEN GRID hasn’t just improved our operations; it has redefined how we think about <span className="text-gold-gradient italic">scale.</span>
             </blockquote>
             
-            <div className="flex flex-col items-center gap-10">
-              <div className="w-24 h-24 rounded-full overflow-hidden border border-white/10 p-1 bg-gradient-to-tr from-accent-gold/30 to-transparent">
+            <div className="flex items-center gap-6">
+              <div className="w-16 h-16 rounded-full overflow-hidden border border-white/10 p-0.5 bg-gradient-to-tr from-accent-gold/20 to-transparent">
                 <img 
-                  src="/exec-portrait.png" 
-                  alt="Executive" 
-                  className="w-full h-full object-cover rounded-full grayscale-[0.3] hover:grayscale-0 transition-all duration-1000"
+                  src="/exec-avatar.png" 
+                  alt="Sarah Jenkins" 
+                  className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <div className="space-y-3">
-                <div className="text-white font-semibold text-[22px] tracking-tight">Marcus Thorne</div>
-                <div className="text-white/20 text-[11px] font-black uppercase tracking-[0.4em]">Director of Global Operations, Stratos Group</div>
+              <div>
+                <div className="text-[18px] font-bold text-white mb-1">Sarah Jenkins</div>
+                <div className="text-[11px] font-black text-white/30 uppercase tracking-[0.3em]">Global Programme Director</div>
               </div>
             </div>
           </motion.div>
 
-          {/* MINIMAL INSTITUTIONAL STATS */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-16 mt-40 pt-20 border-t border-white/5">
-            {[
-              { val: "+4.5x", label: "Efficiency" },
-              { val: "98.2%", label: "Resilience" },
-              { val: "1.2M", label: "Daily Ops" },
-              { val: "45+", label: "Regions" }
-            ].map((stat, i) => (
-              <div key={i} className="text-center space-y-4">
-                <div className="text-[36px] font-medium text-white tracking-tighter">{stat.val}</div>
-                <div className="text-white/10 text-[10px] font-black uppercase tracking-[0.4em]">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          {/* RIGHT SIDE - FLOATING CARD */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="lg:col-span-5"
+          >
+            <div className="p-10 glass-card bg-white/[0.01] border-white/5 shadow-[0_40px_100px_rgba(0,0,0,0.6)]">
+               <div className="space-y-12">
+                  <div className="group">
+                    <div className="text-4xl md:text-5xl font-bold text-white mb-3 group-hover:text-accent-gold transition-colors">+4.5x</div>
+                    <div className="text-[11px] font-black text-white/20 uppercase tracking-[0.4em]">Operational Efficiency</div>
+                  </div>
+                  <div className="h-px w-full bg-white/5" />
+                  <div className="group">
+                    <div className="text-4xl md:text-5xl font-bold text-white mb-3 group-hover:text-accent-gold transition-colors">98.2%</div>
+                    <div className="text-[11px] font-black text-white/20 uppercase tracking-[0.4em]">Infrastructure Resilience</div>
+                  </div>
+               </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

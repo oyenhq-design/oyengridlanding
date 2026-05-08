@@ -1,66 +1,73 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brain, Workflow, Shield, Activity, ArrowRight } from "lucide-react";
+import { Brain, Workflow, Shield, Activity } from "lucide-react";
 
 export function OperationalIntelligence() {
-  return (
-    <section className="relative min-h-[900px] flex items-center overflow-hidden py-40">
-      {/* FULL WIDTH BACKGROUND IMAGE - STORYTELLING */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="/intel-exec.png" 
-          alt="Enterprise Intelligence Collaboration" 
-          className="w-full h-full object-cover grayscale-[0.1]"
-        />
-        {/* Advanced Atmospheric Blending */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/90 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-[#020617]" />
-        <div className="absolute inset-0 bg-[#020617]/20 backdrop-blur-[1px]" />
-      </div>
+  const capabilities = [
+    { title: "AI Forecasting", icon: Brain, desc: "Predictive operational logic" },
+    { title: "Automated Orchestration", icon: Workflow, desc: "Seamless programme flow" },
+    { title: "Content Governance", icon: Shield, desc: "Secure asset management" },
+    { title: "Live Analytics", icon: Activity, desc: "Real-time decision metrics" }
+  ];
 
-      <div className="container-custom relative z-10">
-        <div className="max-w-3xl">
+  return (
+    <section className="section-padding overflow-hidden relative">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+          
+          {/* LEFT IMAGE */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.2 }}
+            transition={{ duration: 1 }}
+            className="lg:col-span-7 relative"
           >
-            <div className="text-accent-gold text-[10px] font-black uppercase tracking-[0.4em] mb-10">Intelligence Layer</div>
-            <h2 className="text-white mb-10 text-[36px] md:text-[42px] leading-[1.1]">
+            <div className="ambient-glow -bottom-20 -left-20 w-[600px] h-[600px] opacity-20" />
+            <div className="relative rounded-[40px] overflow-hidden border border-white/10 shadow-[0_60px_120px_rgba(0,0,0,0.8)] bg-navy-light aspect-[16/11]">
+              <img 
+                src="/monitor-intelligence.png" 
+                alt="Operational Intelligence Monitor" 
+                className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-1000"
+              />
+            </div>
+          </motion.div>
+
+          {/* RIGHT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-5"
+          >
+            <h2 className="text-[36px] md:text-[48px] font-bold text-white mb-10 leading-[1.1] tracking-tight">
               Absolute operational <br />
-              <span className="text-gold-gradient font-medium italic">intelligence</span> and control.
+              <span className="text-gold-gradient italic font-medium">intelligence and control.</span>
             </h2>
             
-            <p className="text-white/50 text-[18px] mb-16 leading-[1.8] max-w-xl font-light">
-              OYEN GRID transforms complex operational data into strategic foresight. 
-              Deploy intelligent orchestration layers that predict risks and optimize delivery velocity at institutional scale.
+            <p className="text-[17px] text-white/40 mb-12 max-w-[480px] leading-relaxed font-light">
+              Leverage high-fidelity data to drive strategic programme outcomes. OYEN GRID transforms complex delivery into a streamlined, intelligent operating system.
             </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
-              {[
-                { label: "AI Forecasting", icon: Brain, desc: "Predictive risk modeling." },
-                { label: "Automated Logic", icon: Workflow, desc: "Immutable delivery orchestration." },
-                { label: "Context Governance", icon: Shield, desc: "Institutional node security." },
-                { label: "Live Analytics", icon: Activity, desc: "Global performance scoring." }
-              ].map((item, i) => (
-                <div key={i} className="p-8 glass-card bg-[#020617]/40 border-white/5 backdrop-blur-3xl group flex flex-col gap-6 hover:border-accent-gold/20 transition-all duration-700">
-                  <div className="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center group-hover:border-accent-gold/30 transition-all duration-500">
-                    <item.icon className="w-5 h-5 text-accent-gold/40 group-hover:text-accent-gold transition-colors" />
+            
+            <div className="grid grid-cols-2 gap-6 mb-12">
+              {capabilities.map((cap, i) => (
+                <div key={i} className="p-6 glass-card bg-white/[0.01] border-white/5 hover:border-accent-gold/20 group cursor-default">
+                  <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-5 group-hover:bg-accent-gold/5 transition-colors">
+                    <cap.icon className="w-5 h-5 text-accent-gold" />
                   </div>
-                  <div>
-                    <div className="text-white font-semibold text-[16px] mb-2 tracking-tight">{item.label}</div>
-                    <p className="text-white/20 text-[13px] font-medium leading-relaxed">{item.desc}</p>
-                  </div>
+                  <div className="text-[14px] font-bold text-white mb-1.5">{cap.title}</div>
+                  <div className="text-[10px] text-white/30 uppercase tracking-[0.2em] font-black">{cap.desc}</div>
                 </div>
               ))}
             </div>
 
-            <button className="btn-gold px-12">
-              Deploy Intelligence
+            <button className="btn-gold h-12 px-10 rounded-full font-bold">
+              Explore Intelligence
             </button>
           </motion.div>
+
         </div>
       </div>
     </section>
