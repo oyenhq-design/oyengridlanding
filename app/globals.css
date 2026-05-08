@@ -28,11 +28,11 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tighter font-bold;
+    @apply tracking-tight font-bold;
   }
 
   p {
-    @apply leading-relaxed text-text-secondary;
+    @apply leading-relaxed text-text-secondary font-light;
   }
 }
 

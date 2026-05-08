@@ -1,23 +1,22 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function FinalCTA() {
   return (
-    <section className="relative overflow-hidden py-48 md:py-64">
+    <section className="relative overflow-hidden py-48 md:py-72 bg-[#040816]">
       
-      {/* ENVIRONMENTAL BACKGROUND: Final Command Anchor */}
+      {/* ATMOSPHERIC BACKGROUND: Cinematic Ending */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/env-command-new.png" 
-          alt="Final Infrastructure Background" 
+          src="/hero-ops-center.png" 
+          alt="Final Environment" 
           fill
-          className="object-cover blur-[80px] scale-110 opacity-[0.12] grayscale"
+          className="object-cover opacity-[0.3] grayscale-[0.2]"
         />
-        <div className="absolute inset-0 bg-navy-deep/90 backdrop-blur-3xl" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background" />
-        <div className="absolute inset-0 bg-[url('/dashboard-textures.png')] opacity-[0.05] mix-blend-screen scale-150" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#040816] via-[#040816]/80 to-[#040816]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(200,155,45,0.08),transparent_70%)]" />
       </div>
 
       <div className="container-custom relative z-10 text-center">
@@ -25,45 +24,37 @@ export function FinalCTA() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-4xl mx-auto"
         >
-          <div className="inline-flex items-center gap-4 mb-12">
-             <div className="w-16 h-[1px] bg-accent-gold/40" />
-             <span className="text-[11px] font-black text-accent-gold uppercase tracking-[0.6em]">System Ready</span>
-             <div className="w-16 h-[1px] bg-accent-gold/40" />
+          <div className="flex items-center justify-center gap-4 mb-12">
+             <div className="h-[1px] w-12 bg-[#C89B2D]/40" />
+             <span className="text-[11px] font-medium text-[#C89B2D] uppercase tracking-[0.5em]">The Next Phase</span>
+             <div className="h-[1px] w-12 bg-[#C89B2D]/40" />
           </div>
 
-          <h2 className="text-[54px] md:text-[100px] font-bold text-white mb-16 leading-[0.85] tracking-tighter uppercase">
-            Initialize your <br />
-            <span className="text-gold-gradient italic font-medium lowercase">global delivery.</span>
+          <h2 className="text-[44px] md:text-[72px] font-bold text-white mb-12 leading-[1.1] tracking-tight">
+            Built for the future <br />
+            of <span className="text-[#C89B2D] italic font-medium">operational delivery.</span>
           </h2>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-10 mb-20">
-            <button className="btn-gold px-16 h-16 text-[13px] tracking-widest uppercase shadow-[0_30px_60px_rgba(200,155,45,0.25)] hover:scale-105 transition-all">
-              Initialize System
-            </button>
-            <button className="text-[13px] font-black text-white/40 hover:text-white transition-all uppercase tracking-[0.3em]">
-              Request Architecture Review
-            </button>
-          </div>
+          <p className="text-[21px] text-white/50 mb-16 max-w-2xl mx-auto leading-relaxed font-light">
+            Deploy the single source of operational truth. Scale your programme infrastructure with absolute structural integrity.
+          </p>
 
-          {/* Infrastructure Stats */}
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 pt-20 border-t border-white/5 max-w-4xl mx-auto">
-             {[
-               { val: "99.99%", label: "System Integrity" },
-               { val: "Global", label: "Delivery Scale" },
-               { val: "Active", label: "Governance" }
-             ].map((stat, i) => (
-               <div key={i} className="text-center">
-                  <div className="text-2xl font-bold text-white mb-2">{stat.val}</div>
-                  <div className="text-[10px] text-white/20 font-black uppercase tracking-[0.3em]">{stat.label}</div>
-               </div>
-             ))}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-10">
+            <button className="btn-gold px-14 h-16 w-full sm:w-auto text-[13px] font-black tracking-widest uppercase shadow-[0_20px_50px_rgba(200,155,45,0.2)]">
+              Secure access
+            </button>
+            <button className="text-[13px] font-bold text-white/40 hover:text-white transition-all uppercase tracking-[0.3em] flex items-center gap-4 group">
+              View the roadmap <span className="group-hover:translate-x-2 transition-transform duration-500">→</span>
+            </button>
           </div>
         </motion.div>
       </div>
 
-      <div className="atmos-fade-top h-64" />
+      {/* Atmospheric Fog/Noise Overlay */}
+      <div className="noise-bg opacity-[0.015]" />
     </section>
   );
 }

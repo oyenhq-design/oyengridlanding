@@ -1,8 +1,8 @@
 import { Header, AnnouncementBar } from "@/components/layout/header";
 import { Hero } from "@/components/sections/hero";
 import { OperationalClarity } from "@/components/sections/operational-clarity";
-import { WhoItIsFor } from "@/components/sections/who-it-is-for";
 import { OperationalIntelligence } from "@/components/sections/operational-intelligence";
+import { MetricsStrip } from "@/components/sections/metrics-strip";
 import { EnterpriseSecurity } from "@/components/sections/enterprise-security";
 import { TestimonialSection } from "@/components/sections/testimonial-section";
 import { FinalCTA } from "@/components/sections/final-cta";
@@ -15,11 +15,11 @@ export default function Home() {
       <main>
         <AnnouncementBar />
         <Hero />
-        <OperationalClarity />      {/* Section 02: Infrastructure */}
-        <WhoItIsFor />              {/* Segmentation Layer */}
-        <OperationalIntelligence /> {/* Section 03: Intelligence */}
-        <EnterpriseSecurity />      {/* Section 04: Security */}
-        <TestimonialSection />      {/* Section 05: Social Proof */}
+        <OperationalClarity />
+        <OperationalIntelligence />
+        <MetricsStrip />
+        <EnterpriseSecurity />
+        <TestimonialSection />
         <FinalCTA />
       </main>
       <Footer />
