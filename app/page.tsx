@@ -7,6 +7,7 @@ import { EnterpriseSecurity } from "@/components/sections/enterprise-security";
 import { TestimonialSection } from "@/components/sections/testimonial-section";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { Footer } from "@/components/layout/footer";
+import { SectionReveal } from "@/components/layout/section-reveal";
 
 export default function Home() {
   return (
@@ -15,12 +16,30 @@ export default function Home() {
       <main>
         <AnnouncementBar />
         <Hero />
-        <OperationalClarity />
-        <OperationalIntelligence />
-        <MetricsStrip />
-        <EnterpriseSecurity />
-        <TestimonialSection />
-        <FinalCTA />
+        
+        <SectionReveal>
+          <OperationalClarity />
+        </SectionReveal>
+
+        <SectionReveal>
+          <OperationalIntelligence />
+        </SectionReveal>
+
+        <SectionReveal>
+          <MetricsStrip />
+        </SectionReveal>
+
+        <SectionReveal>
+          <EnterpriseSecurity />
+        </SectionReveal>
+
+        <SectionReveal>
+          <TestimonialSection />
+        </SectionReveal>
+
+        <SectionReveal>
+          <FinalCTA />
+        </SectionReveal>
       </main>
       <Footer />
     </>

@@ -130,4 +130,27 @@
   .cinematic-bleed {
     @apply relative z-10 scale-105 shadow-[0_40px_100px_rgba(0,0,0,0.6)];
   }
+
+  .cursor-glow {
+    background: radial-gradient(circle 400px at var(--x) var(--y), rgba(200,155,45,0.03), transparent 80%);
+    @apply fixed inset-0 pointer-events-none z-50;
+  }
+
+  .smoke-overlay {
+    @apply absolute inset-0 pointer-events-none mix-blend-screen opacity-[0.03];
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.015' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    filter: blur(20px);
+  }
+
+  .live-pulse {
+    @apply w-2 h-2 rounded-full bg-[#C89B2D];
+    box-shadow: 0 0 10px rgba(200,155,45,0.5);
+    animation: live-pulse-anim 2s infinite;
+  }
+
+  @keyframes live-pulse-anim {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+  }
 }
