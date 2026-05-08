@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { Search, ChevronDown, X, Command } from "lucide-react";
+import { Search, ChevronDown, X, Command, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Header() {
