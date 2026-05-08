@@ -8,6 +8,7 @@ import { TestimonialSection } from "@/components/sections/testimonial-section";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { Footer } from "@/components/layout/footer";
 import { SectionReveal } from "@/components/layout/section-reveal";
+import { SectionDivider } from "@/components/layout/section-divider";
 
 export default function Home() {
   return (
@@ -17,25 +18,37 @@ export default function Home() {
         <AnnouncementBar />
         <Hero />
         
+        <SectionDivider />
+
         <SectionReveal>
           <OperationalClarity />
         </SectionReveal>
+
+        <SectionDivider />
 
         <SectionReveal>
           <OperationalIntelligence />
         </SectionReveal>
 
+        <SectionDivider />
+
         <SectionReveal>
           <MetricsStrip />
         </SectionReveal>
+
+        <SectionDivider />
 
         <SectionReveal>
           <EnterpriseSecurity />
         </SectionReveal>
 
+        <SectionDivider />
+
         <SectionReveal>
           <TestimonialSection />
         </SectionReveal>
+
+        <SectionDivider />
 
         <SectionReveal>
           <FinalCTA />
