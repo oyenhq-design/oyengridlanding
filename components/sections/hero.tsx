@@ -13,131 +13,101 @@ export function Hero() {
   });
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
   const opacityFade = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#040816]">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-[#030712]">
       
-      {/* BACKGROUND: Immersive Cinematic Environment with Parallax */}
+      {/* BACKGROUND: Cinematic Environment with Controlled Contrast */}
       <motion.div style={{ y: backgroundY }} className="absolute inset-0 z-0">
         <Image 
           src="/hero-ops-center.png" 
-          alt="Enterprise Operations Center" 
+          alt="Operations Center" 
           fill
           priority
-          className="object-cover opacity-[0.65] grayscale-[0.1]"
+          className="object-cover opacity-[0.4] grayscale-[0.2]"
         />
-        {/* Atmospheric Layers */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#040816] via-[#040816]/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#040816] via-transparent to-transparent" />
+        {/* Sharper Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030712] via-[#030712]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent" />
         
-        {/* Moving Light Reflections */}
-        <motion.div 
-          animate={{ 
-            opacity: [0.1, 0.3, 0.1],
-            x: ["-20%", "20%", "-20%"],
-            y: ["-10%", "10%", "-10%"]
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(200,155,45,0.08),transparent_60%)]"
-        />
-
-        {/* Smoke/Noise Texture Overlay */}
-        <div className="smoke-overlay" />
+        {/* Controlled Ambient Glow */}
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#d6a63c]/5 blur-[120px] rounded-full" />
       </motion.div>
 
-      {/* Floating Operational Monitors (Blurred in Background) */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <motion.div
-          animate={{ y: [0, -20, 0], opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-10 w-64 h-40 bg-white/[0.02] border border-white/5 rounded-2xl blur-[40px]"
-        />
-        <motion.div
-          animate={{ y: [0, 20, 0], opacity: [0.1, 0.15, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-1/3 right-20 w-80 h-56 bg-white/[0.02] border border-white/5 rounded-2xl blur-[60px]"
-        />
-      </div>
-
       <div className="container-custom relative z-10 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
           
-          {/* LEFT CONTENT: Clean & Authoritative */}
+          {/* LEFT CONTENT */}
           <motion.div
-            style={{ y: contentY, opacity: opacityFade }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            style={{ opacity: opacityFade }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7"
           >
-            {/* Top Indicator: Quiet Luxury */}
-            <div className="inline-flex items-center gap-3 mb-10">
-               <div className="live-pulse" />
-               <span className="text-[11px] font-medium text-[#C89B2D] uppercase tracking-[0.5em]">Live Operations Environment</span>
+            <div className="flex items-center gap-4 mb-12">
+               <div className="w-2 h-2 rounded-full bg-[#d6a63c]" />
+               <span className="premium-label">Institutional Infrastructure</span>
             </div>
             
-            {/* Heading: Restrained, Mixed Case, Premium */}
-            <h1 className="text-[44px] md:text-[62px] font-bold text-white mb-10 leading-[1.1] tracking-[-0.02em]">
+            <h1 className="text-[52px] md:text-[76px] font-bold text-white mb-10 tracking-[-0.05em] leading-[0.95]">
               Professional programme <br />
-              infrastructure for <span className="text-[#C89B2D] italic font-medium">scale.</span>
+              infrastructure for <span className="text-[#d6a63c] italic font-medium">scale.</span>
             </h1>
             
-            <p className="text-[19px] text-white/50 mb-14 max-w-[560px] leading-relaxed font-light">
+            <p className="max-w-[520px] mb-16 text-[15px] leading-[1.7] text-white/60 font-light">
               Built for operational clarity at global enterprise scale. The premier platform for managing complex initiatives with absolute structural integrity.
             </p>
 
-            {/* Actions: Simplified */}
             <div className="flex flex-col sm:flex-row items-center gap-10">
-              <button className="btn-gold px-12 h-14 w-full sm:w-auto text-[13px] font-black tracking-widest uppercase shadow-[0_20px_40px_rgba(200,155,45,0.15)]">
+              <button className="btn-gold px-12 h-14 w-full sm:w-auto">
                 Initialize System
               </button>
-              <button className="text-[13px] font-bold text-white/40 hover:text-white transition-all uppercase tracking-[0.2em] flex items-center gap-3 group">
-                Access Documentation <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <button className="text-[13px] font-bold text-white/30 hover:text-white transition-all uppercase tracking-[0.2em] flex items-center gap-3 group">
+                Documentation <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </motion.div>
 
-          {/* RIGHT VISUAL: Integrated System Layer (No Heavy Boxes) */}
+          {/* RIGHT VISUAL: Sharp Perspective Dashboard */}
           <motion.div
-            style={{ y: contentY }}
-            initial={{ opacity: 0, scale: 0.98, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.95, rotateY: 0 }}
+            animate={{ opacity: 1, scale: 1, rotateY: -6 }}
             transition={{ duration: 1.4, delay: 0.2 }}
-            className="lg:col-span-5 hidden lg:block"
+            className="lg:col-span-5 hidden lg:block perspective-[2000px]"
           >
             <div className="relative group">
-               {/* Ambient Glow */}
-               <div className="absolute -inset-20 bg-[#C89B2D]/5 blur-[140px] -z-10 group-hover:bg-[#C89B2D]/10 transition-colors duration-1000" />
+               {/* Ambient Embedded Glow */}
+               <div className="absolute -inset-10 bg-[#d6a63c]/10 blur-[100px] opacity-40 group-hover:opacity-60 transition-opacity duration-1000" />
                
-               {/* Integrated Visual: Less Framing, More Atmosphere */}
-               <div className="relative rounded-[32px] overflow-hidden border border-white/5 bg-white/[0.02] backdrop-blur-3xl shadow-2xl transition-all duration-700 group-hover:border-white/10 group-hover:bg-white/[0.04]">
+               {/* Sharp Card Framing */}
+               <div className="relative rounded-[32px] overflow-hidden border border-white/10 bg-[#0E1728]/80 backdrop-blur-3xl cinematic-shadow transition-all duration-700 group-hover:border-white/20">
                  <Image 
                    src="/hero-dashboard.png" 
                    alt="System Dashboard" 
                    width={1200}
                    height={800}
-                   className="opacity-80 grayscale-[0.4] group-hover:grayscale-[0.1] group-hover:scale-105 transition-all duration-[2s]"
+                   className="opacity-90 grayscale-[0.4] group-hover:grayscale-0 transition-all duration-[2s] group-hover:scale-105"
                  />
-                 <div className="absolute inset-0 bg-gradient-to-tr from-[#040816]/60 via-transparent to-white/5" />
+                 <div className="absolute inset-0 bg-gradient-to-tr from-[#030712]/60 via-transparent to-white/5" />
                  
-                 {/* Dashboard Light Reflection (Foreground) */}
+                 {/* Moving Light Scan */}
                  <motion.div 
                     animate={{ x: ["-100%", "200%"] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "linear", repeatDelay: 4 }}
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12"
                  />
                </div>
                
-               {/* Minimal Floating Metric */}
+               {/* Minimal Floating Status */}
                <motion.div
                  animate={{ y: [0, -8, 0] }}
                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                 className="absolute -bottom-10 -left-10 p-8 rounded-3xl bg-[#081526]/60 backdrop-blur-2xl border border-white/10 shadow-2xl"
+                 className="absolute -bottom-8 -left-8 p-6 premium-card border-[#d6a63c]/20"
                >
-                  <div className="text-[9px] text-[#C89B2D] font-black uppercase tracking-widest mb-1">Live Telemetry</div>
-                  <div className="text-2xl font-bold text-white tabular-nums">99.9% Optimal</div>
+                  <div className="text-[9px] text-[#d6a63c] font-bold uppercase tracking-[0.3em] mb-1">Live Telemetry</div>
+                  <div className="text-xl font-bold text-white tabular-nums tracking-tighter">99.9% Optimal</div>
                </motion.div>
             </div>
           </motion.div>
@@ -145,8 +115,8 @@ export function Hero() {
         </div>
       </div>
       
-      {/* Bottom atmospheric fade (Smoother transition) */}
-      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#040816] via-[#040816]/80 to-transparent z-20" />
+      {/* Sharp Transition to Next Section */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-white/[0.04]" />
     </section>
   );
 }

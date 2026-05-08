@@ -40,29 +40,6 @@ export function SearchSystem() {
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        setSelectedIndex(prev => (prev < filteredResults.length - 1 ? prev + 1 : prev));
-      }
-      if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        setSelectedIndex(prev => (prev > 0 ? prev - 1 : prev));
-      }
-      if (e.key === 'Enter') {
-        if (filteredResults[selectedIndex]) {
-           onClose();
-        }
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, selectedIndex, query]);
-
   const filteredResults = query.trim() === "" 
     ? [] 
     : SEARCH_DATA.filter(item => 
@@ -79,7 +56,7 @@ export function SearchSystem() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-[#050816]/80 backdrop-blur-xl cursor-default"
+            className="absolute inset-0 bg-[#030712]/85 backdrop-blur-xl cursor-default"
           />
 
           <motion.div
@@ -87,10 +64,10 @@ export function SearchSystem() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.98, y: -20 }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="relative w-full max-w-2xl bg-[#07101F]/90 border border-white/10 rounded-[28px] shadow-[0_80px_160px_rgba(0,0,0,0.8)] overflow-hidden"
+            className="relative w-full max-w-2xl bg-[#0E1728]/95 border border-white/10 rounded-[28px] shadow-[0_80px_160px_rgba(0,0,0,0.8)] overflow-hidden"
           >
-            <div className="flex items-center h-[72px] px-6 border-b border-white/5">
-              <Search className="w-6 h-6 text-[#D4A62A] mr-4" />
+            <div className="flex items-center h-[72px] px-8 border-b border-white/5">
+              <Search className="w-6 h-6 text-[#d6a63c] mr-4" />
               <input 
                 ref={inputRef}
                 type="text" 
@@ -99,8 +76,8 @@ export function SearchSystem() {
                 placeholder="Search infrastructure, analytics, governance, workflows..."
                 className="flex-1 bg-transparent border-none text-white text-[17px] focus:ring-0 placeholder:text-white/20 font-light"
               />
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-1.5 px-2.5 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[11px] text-white/40 font-black uppercase tracking-widest">
+              <div className="flex items-center gap-4">
+                <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[11px] text-white/40 font-black uppercase tracking-widest">
                   <Command className="w-3 h-3" /> K
                 </div>
                 <button onClick={onClose} className="p-2 text-white/20 hover:text-white transition-colors">
@@ -111,29 +88,29 @@ export function SearchSystem() {
 
             <div className="max-h-[480px] overflow-y-auto scrollbar-hide">
               {query.trim() === "" ? (
-                <div className="p-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="p-10">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div>
-                      <div className="text-[10px] text-white/20 font-black uppercase tracking-[0.4em] mb-6 flex items-center gap-3">
+                      <div className="text-[10px] text-white/20 font-bold uppercase tracking-[0.4em] mb-8 flex items-center gap-3">
                         <History className="w-3 h-3" /> Recent Searches
                       </div>
-                      <div className="space-y-4">
+                      <div className="space-y-5">
                         {["Programme v.04", "Node Security", "Latency Reports"].map((s, i) => (
-                          <div key={i} className="text-[14px] text-white/40 hover:text-white transition-colors cursor-pointer flex items-center gap-3 group">
-                             <div className="w-1 h-1 rounded-full bg-[#D4A62A]/30 group-hover:bg-[#D4A62A]" />
+                          <div key={i} className="text-[14px] text-white/40 hover:text-[#d6a63c] transition-colors cursor-pointer flex items-center gap-4 group">
+                             <div className="w-1.5 h-1.5 rounded-full bg-white/10 group-hover:bg-[#d6a63c] transition-colors" />
                              {s}
                           </div>
                         ))}
                       </div>
                     </div>
                     <div>
-                      <div className="text-[10px] text-white/20 font-black uppercase tracking-[0.4em] mb-6 flex items-center gap-3">
+                      <div className="text-[10px] text-white/20 font-bold uppercase tracking-[0.4em] mb-8 flex items-center gap-3">
                         <TrendingUp className="w-3 h-3" /> Popular Now
                       </div>
-                      <div className="space-y-4">
+                      <div className="space-y-5">
                         {["Global Orchestration", "Governance Logic", "AI Forecasting"].map((s, i) => (
-                          <div key={i} className="text-[14px] text-white/40 hover:text-white transition-colors cursor-pointer flex items-center gap-3 group">
-                             <div className="w-1 h-1 rounded-full bg-[#D4A62A]/30 group-hover:bg-[#D4A62A]" />
+                          <div key={i} className="text-[14px] text-white/40 hover:text-[#d6a63c] transition-colors cursor-pointer flex items-center gap-4 group">
+                             <div className="w-1.5 h-1.5 rounded-full bg-white/10 group-hover:bg-[#d6a63c] transition-colors" />
                              {s}
                           </div>
                         ))}
@@ -142,20 +119,20 @@ export function SearchSystem() {
                   </div>
                 </div>
               ) : filteredResults.length > 0 ? (
-                <div className="p-4 space-y-2">
+                <div className="p-6 space-y-3">
                   {filteredResults.map((result, i) => (
                     <div 
                       key={result.id}
                       onMouseEnter={() => setSelectedIndex(i)}
-                      className={`flex items-center justify-between p-4 rounded-2xl cursor-pointer transition-all duration-300 group ${
+                      className={`flex items-center justify-between p-5 rounded-2xl cursor-pointer transition-all duration-300 group ${
                         selectedIndex === i 
-                        ? 'bg-[#D4A62A]/10 border border-[#D4A62A]/20' 
+                        ? 'bg-[#d6a63c]/10 border border-[#d6a63c]/20' 
                         : 'bg-transparent border border-transparent hover:bg-white/[0.02]'
                       }`}
                     >
-                      <div className="flex items-center gap-5">
+                      <div className="flex items-center gap-6">
                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all ${
-                          selectedIndex === i ? 'bg-[#D4A62A] text-[#050816]' : 'bg-white/5 text-white/20'
+                          selectedIndex === i ? 'bg-[#d6a63c] text-[#030712]' : 'bg-white/5 text-white/20'
                         }`}>
                           <result.icon className="w-5 h-5" />
                         </div>
@@ -166,41 +143,22 @@ export function SearchSystem() {
                           <div className="text-[12px] text-white/30 font-light mt-1">{result.description}</div>
                         </div>
                       </div>
-                      <div className="flex items-center gap-4">
-                        <span className="text-[10px] text-white/10 font-black uppercase tracking-widest">{result.category}</span>
-                        <ArrowRight className={`w-4 h-4 transition-all ${
-                          selectedIndex === i ? 'text-[#D4A62A] translate-x-0 opacity-100' : 'text-white/10 -translate-x-2 opacity-0'
-                        }`} />
-                      </div>
+                      <ArrowRight className={`w-5 h-5 transition-all ${
+                        selectedIndex === i ? 'text-[#d6a63c] translate-x-0 opacity-100' : 'text-white/10 -translate-x-2 opacity-0'
+                      }`} />
                     </div>
                   ))}
                 </div>
               ) : (
                 <div className="py-24 text-center">
-                  <div className="w-16 h-16 bg-white/[0.02] border border-white/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Search className="w-6 h-6 text-white/10" />
-                  </div>
                   <div className="text-[18px] font-bold text-white mb-2">No operational results found.</div>
-                  <div className="text-[13px] text-white/20 font-light max-w-[280px] mx-auto">
-                    Adjust your query or explore suggested infrastructure protocols.
-                  </div>
+                  <div className="text-[13px] text-white/20 font-light">Adjust your query or explore suggested protocols.</div>
                 </div>
               )}
             </div>
 
-            <div className="p-6 bg-white/[0.02] border-t border-white/5 flex items-center justify-between">
-               <div className="flex items-center gap-6">
-                  <div className="flex items-center gap-2 text-[10px] text-white/20 font-black uppercase tracking-widest">
-                     <span className="px-1.5 py-0.5 bg-white/5 rounded border border-white/10 text-white/40">↑↓</span> Navigate
-                  </div>
-                  <div className="flex items-center gap-2 text-[10px] text-white/20 font-black uppercase tracking-widest">
-                     <span className="px-1.5 py-0.5 bg-white/5 rounded border border-white/10 text-white/40">↵</span> Select
-                  </div>
-                  <div className="flex items-center gap-2 text-[10px] text-white/20 font-black uppercase tracking-widest">
-                     <span className="px-1.5 py-0.5 bg-white/5 rounded border border-white/10 text-white/40">ESC</span> Close
-                  </div>
-               </div>
-               <div className="text-[9px] text-white/10 font-black uppercase tracking-[0.4em]">SYSTEM SEARCH v.04</div>
+            <div className="p-6 bg-white/[0.02] border-t border-white/5 flex items-center justify-center">
+               <div className="text-[9px] text-white/10 font-black uppercase tracking-[0.5em]">SYSTEM SEARCH v.0.4.2</div>
             </div>
           </motion.div>
         </div>
