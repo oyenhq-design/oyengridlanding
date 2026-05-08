@@ -84,9 +84,9 @@ export function EnterpriseSecurity() {
                <span className="text-[11px] font-black text-accent-gold uppercase tracking-[0.4em]">Section 04 // Security</span>
             </div>
 
-            <h2 className="text-[48px] md:text-[64px] font-bold text-white mb-10 leading-[0.95] tracking-tighter">
+            <h2 className="text-[48px] md:text-[84px] font-bold text-white mb-10 leading-[0.85] tracking-tighter uppercase">
               Institutional <br />
-              <span className="text-gold-gradient italic font-medium">structural protection.</span>
+              <span className="text-gold-gradient italic font-medium lowercase">structural protection.</span>
             </h2>
             
             <p className="text-[20px] text-white/40 mb-14 max-w-[480px] leading-relaxed font-light tracking-wide">

@@ -35,9 +35,9 @@ export function TestimonialSection() {
                <span className="text-[11px] font-black text-accent-gold uppercase tracking-[0.4em]">Section 05 // Social Proof</span>
             </div>
 
-            <div className="text-[140px] font-serif text-accent-gold/10 leading-none mb-[-60px] select-none">“</div>
-            <blockquote className="text-[36px] md:text-[52px] font-medium text-white mb-16 leading-[1.05] tracking-tighter">
-              OYEN GRID hasn’t just improved our operations; it has redefined how we think about <span className="text-gold-gradient italic font-medium">global scale.</span>
+            <blockquote className="text-[36px] md:text-[52px] font-medium text-white mb-16 leading-[1.05] tracking-tighter uppercase">
+              OYEN GRID hasn’t just improved our operations; it has redefined how we think about <br />
+              <span className="text-gold-gradient italic font-medium lowercase">global scale.</span>
             </blockquote>
             
             <div className="flex items-center gap-8">

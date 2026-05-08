@@ -68,9 +68,9 @@ export function OperationalClarity() {
                <span className="text-[11px] font-black text-accent-gold uppercase tracking-[0.4em]">Section 02 // Infrastructure</span>
             </div>
 
-            <h2 className="text-[48px] md:text-[64px] font-bold text-white mb-10 leading-[0.95] tracking-tighter">
+            <h2 className="text-[48px] md:text-[84px] font-bold text-white mb-10 leading-[0.85] tracking-tighter uppercase">
               Structural <br />
-              <span className="text-gold-gradient italic font-medium">operational clarity.</span>
+              <span className="text-gold-gradient italic font-medium lowercase">operational clarity.</span>
             </h2>
             
             <p className="text-[20px] text-white/40 mb-14 max-w-[480px] leading-relaxed font-light tracking-wide">
