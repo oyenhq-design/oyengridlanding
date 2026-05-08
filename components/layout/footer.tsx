@@ -25,37 +25,43 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-navy-deep border-t border-white/5 pt-32 pb-16">
-      <div className="container-custom">
+    <footer className="bg-navy-deep/80 border-t border-white/5 pt-32 pb-16 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(200,155,45,0.03)_0%,transparent_70%)]" />
+      
+      <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 mb-32">
           
-          {/* Brand Column */}
+          {/* Brand Column: Institutional Identity */}
           <div className="lg:col-span-4 max-w-sm">
-            <Link href="/" className="flex items-center gap-2.5 mb-8">
-              <div className="w-7 h-7 bg-accent-gold rounded-md flex items-center justify-center font-bold text-navy-deep text-base">O</div>
-              <span className="font-bold text-white tracking-tight text-lg">OYEN GRID</span>
+            <Link href="/" className="flex items-center gap-3 mb-10 group">
+              <div className="w-8 h-8 bg-accent-gold rounded-lg flex items-center justify-center font-bold text-navy-deep text-lg shadow-[0_0_20px_rgba(200,155,45,0.3)] group-hover:scale-105 transition-transform duration-500">O</div>
+              <span className="font-bold text-white tracking-tighter text-xl group-hover:text-accent-gold transition-colors duration-500">OYEN GRID</span>
             </Link>
-            <p className="text-[15px] text-white/30 leading-relaxed font-light">
+            <p className="text-[16px] text-white/30 leading-relaxed font-light tracking-wide mb-10">
               Providing the mission-critical structural infrastructure for global enterprise programme delivery. Orchestrate complexity with absolute integrity.
             </p>
+            <div className="flex items-center gap-5">
+               <div className="w-2 h-2 rounded-full bg-accent-gold/40" />
+               <span className="text-[10px] font-black text-white/10 uppercase tracking-[0.4em]">System_Status: Operational</span>
+            </div>
           </div>
 
-          {/* Links Columns */}
+          {/* Links Columns: Structural Nodes */}
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-12 lg:gap-16">
             {groupLinks(links)}
           </div>
 
         </div>
 
-        {/* Bottom Row */}
+        {/* Bottom Row: Compliance & Social */}
         <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="text-[11px] font-medium text-white/20 uppercase tracking-[0.2em] select-none">
-            © {currentYear} OYEN GRID. Institutional Programme Infrastructure.
+          <div className="text-[11px] font-medium text-white/15 uppercase tracking-[0.3em] select-none">
+            © {currentYear} OYEN GRID. Institutional Programme Infrastructure v.04
           </div>
-          <div className="flex items-center gap-10 text-[11px] font-medium text-white/20 uppercase tracking-[0.2em]">
-            <Link href="#" className="hover:text-white transition-colors">Twitter</Link>
-            <Link href="#" className="hover:text-white transition-colors">LinkedIn</Link>
-            <Link href="#" className="hover:text-white transition-colors">GitHub</Link>
+          <div className="flex items-center gap-12 text-[11px] font-bold text-white/20 uppercase tracking-[0.3em]">
+            <Link href="#" className="hover:text-accent-gold transition-colors duration-500">Twitter_X</Link>
+            <Link href="#" className="hover:text-accent-gold transition-colors duration-500">LinkedIn_System</Link>
+            <Link href="#" className="hover:text-accent-gold transition-colors duration-500">GitHub_Nodes</Link>
           </div>
         </div>
       </div>

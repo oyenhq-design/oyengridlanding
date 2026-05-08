@@ -59,9 +59,9 @@ export function WhoItIsFor() {
             <div className="h-[1px] w-12 bg-accent-gold/40" />
             <span className="text-[11px] font-black text-accent-gold uppercase tracking-[0.4em]">Target Sectors</span>
           </div>
-          <h2 className="text-[48px] md:text-[72px] font-bold text-white mb-8 leading-[0.95] tracking-tighter">
+          <h2 className="text-[48px] md:text-[84px] font-bold text-white mb-8 leading-[0.9] tracking-tighter uppercase">
             Architected for <br />
-            <span className="text-gold-gradient italic font-medium">operational diversity.</span>
+            <span className="text-gold-gradient italic font-medium lowercase">operational diversity.</span>
           </h2>
           <p className="text-[19px] text-white/40 leading-relaxed font-light">
             OYEN GRID provides the underlying infrastructure for complex programs across industries, ensuring structural integrity at any scale.

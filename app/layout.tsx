@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import { Chatbot } from "@/components/layout/chatbot";
 import "./globals.css";
 

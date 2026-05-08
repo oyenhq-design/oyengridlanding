@@ -39,9 +39,9 @@ export function Hero() {
                <span className="text-[12px] font-black text-accent-gold uppercase tracking-[0.6em]">Core Infrastructure System</span>
             </div>
             
-            <h1 className="text-[64px] md:text-[96px] font-bold text-white mb-10 leading-[0.9] tracking-tighter">
+            <h1 className="text-[64px] md:text-[110px] font-bold text-white mb-10 leading-[0.85] tracking-tighter uppercase">
               Orchestrate <br />
-              <span className="text-gold-gradient italic font-medium">global delivery.</span>
+              <span className="text-gold-gradient italic font-medium lowercase">global delivery.</span>
             </h1>
             
             <p className="text-[20px] text-white/50 mb-14 max-w-[560px] leading-relaxed font-light tracking-wide">
