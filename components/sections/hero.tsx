@@ -38,7 +38,7 @@ export function Hero() {
           alt="Operations Environment" 
           fill
           priority
-          className="object-cover opacity-[0.42] brightness-[0.72] contrast-[1.05] saturate-[0.92]"
+          className="object-cover opacity-[0.72] brightness-[0.88] contrast-[1.05] saturate-[0.92]"
           style={{ objectPosition: '68% center' }}
         />
       </motion.div>
@@ -46,7 +46,7 @@ export function Hero() {
       {/* 2. CINEMATIC OVERLAY: Precision depth layering */}
       <div className="absolute inset-0 z-[2] pointer-events-none">
         {/* Horizontal Editorial Fade */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#04060c]/92 via-[#04060c]/78 28% via-[#04060c]/52 48% via-[#04060c]/28 70% to-[#04060c]/16" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#04060c]/92 via-[#04060c]/78 28% via-[#04060c]/52 48% via-[#04060c]/22 70% to-[#04060c]/05" />
         {/* Vertical Depth Layer */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#04060c]/38 to-[#04060c]/58" />
       </div>
