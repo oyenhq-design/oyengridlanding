@@ -1,63 +1,28 @@
 import { Header, AnnouncementBar } from "@/components/layout/header";
-import { Hero } from "@/components/sections/hero";
-import { OperationalIntelligence } from "@/components/sections/operational-intelligence";
-import { MetricsStrip } from "@/components/sections/metrics-strip";
-import { EnterpriseSecurity } from "@/components/sections/enterprise-security";
-import { TestimonialSection } from "@/components/sections/testimonial-section";
-import { FinalCTA } from "@/components/sections/final-cta";
+import { HeroInstitutional } from "@/components/sections/hero-institutional";
+import { OperationalClarityV2 } from "@/components/sections/operational-clarity-v2";
+import { IntelligenceLayerV2 } from "@/components/sections/intelligence-layer-v2";
+import { StructuralProtection } from "@/components/sections/structural-protection";
+import { InstitutionalTestimonials } from "@/components/sections/institutional-testimonials";
+import { FinalCTAInstitutional } from "@/components/sections/final-cta-institutional";
 import { Footer } from "@/components/layout/footer";
-import { SectionReveal } from "@/components/layout/section-reveal";
+import { Chatbot } from "@/components/layout/chatbot";
+import { SearchSystem } from "@/components/layout/search-system";
 
 export default function Home() {
   return (
-    <>
+    <main className="min-h-screen bg-[#040816]">
       <Header />
-      <main className="relative">
-        {/* Continuous Environment Anchor */}
-        <div className="absolute inset-0 z-0 continuous-env opacity-40 pointer-events-none" />
-
-        <AnnouncementBar />
-        <Hero />
-        
-        {/* EDITORIAL SPACING RHYTHM */}
-        
-        <div className="section-rhythm-1 relative z-10">
-          <SectionReveal>
-            <MetricsStrip />
-          </SectionReveal>
-        </div>
-
-        <div className="section-rhythm-2 relative z-10">
-          <SectionReveal>
-            <OperationalIntelligence />
-          </SectionReveal>
-        </div>
-
-        <div className="section-divider-subtle" />
-
-        <div className="section-rhythm-3 relative z-10">
-          <SectionReveal>
-            <EnterpriseSecurity />
-          </SectionReveal>
-        </div>
-
-        <div className="section-divider-subtle" />
-
-        <div className="section-rhythm-4 relative z-10">
-          <SectionReveal>
-            <TestimonialSection />
-          </SectionReveal>
-        </div>
-
-        <div className="section-divider-subtle" />
-
-        <div className="section-rhythm-2 relative z-10">
-          <SectionReveal>
-            <FinalCTA />
-          </SectionReveal>
-        </div>
-      </main>
+      <AnnouncementBar />
+      <HeroInstitutional />
+      <OperationalClarityV2 />
+      <IntelligenceLayerV2 />
+      <StructuralProtection />
+      <InstitutionalTestimonials />
+      <FinalCTAInstitutional />
       <Footer />
-    </>
+      <Chatbot />
+      <SearchSystem />
+    </main>
   );
 }
