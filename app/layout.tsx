@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description: "Institutional Infrastructure",
 };
 
+import { SearchProvider } from "@/context/search-context";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -16,7 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <SearchProvider>
+          {children}
+        </SearchProvider>
+      </body>
     </html>
   );
 }
