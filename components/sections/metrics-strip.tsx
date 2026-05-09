@@ -37,7 +37,7 @@ export function MetricsStrip() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 bg-[#020617] overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-[#04070D] overflow-hidden">
       <div className="container-custom">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20">
           {metrics.map((metric, i) => (

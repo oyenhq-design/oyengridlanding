@@ -73,7 +73,7 @@ export function Chatbot() {
                 initial={{ opacity: 0, y: 30, scale: 0.95, transformOrigin: "bottom right" }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 30, scale: 0.95 }}
-                className="w-[400px] h-[640px] bg-[#07101F]/98 backdrop-blur-[40px] border border-white/10 rounded-[28px] shadow-[0_80px_160px_rgba(0,0,0,0.9)] flex flex-col overflow-hidden mb-6"
+                className="w-[400px] h-[640px] bg-[#04070D]/98 backdrop-blur-[40px] border border-white/10 rounded-[28px] shadow-[0_80px_160px_rgba(0,0,0,0.9)] flex flex-col overflow-hidden mb-6"
               >
                 {/* Mission Control Header */}
                 <div className="p-8 bg-white/[0.02] border-b border-white/5 flex items-center justify-between">
@@ -150,7 +150,7 @@ export function Chatbot() {
                       onChange={(e) => setInput(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && handleSendMessage(input)}
                       placeholder="Input operational command..."
-                      className="w-full bg-[#020617]/80 border border-white/5 rounded-2xl py-5 pl-6 pr-24 text-[14px] text-white placeholder:text-white/20 focus:outline-none focus:border-accent-gold/40 transition-all"
+                      className="w-full bg-[#04070D]/80 border border-white/5 rounded-2xl py-5 pl-6 pr-24 text-[14px] text-white placeholder:text-white/20 focus:outline-none focus:border-accent-gold/40 transition-all"
                     />
                     <div className="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
                        <button className="p-2.5 text-white/20 hover:text-white transition-colors">
@@ -178,7 +178,7 @@ export function Chatbot() {
                 setIsMinimized(false);
               }}
               whileHover={{ y: -3 }}
-              className="bg-[#07101F]/90 backdrop-blur-2xl border border-white/10 rounded-full pl-3 pr-8 py-3 flex items-center gap-5 shadow-[0_40px_80px_rgba(0,0,0,0.5)] group hover:border-accent-gold/40 transition-all duration-500"
+              className="bg-[#04070D]/90 backdrop-blur-2xl border border-white/10 rounded-full pl-3 pr-8 py-3 flex items-center gap-5 shadow-[0_40px_80px_rgba(0,0,0,0.5)] group hover:border-accent-gold/40 transition-all duration-500"
             >
               <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-700">
                 <Image src="/exec-avatar-new.png" alt="Assistant" fill className="object-cover" />

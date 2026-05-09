@@ -36,7 +36,7 @@ function NavDropdown({ label, sections, columns = 1 }: NavDropdownProps) {
       onMouseLeave={() => setIsOpen(false)}
     >
       <button className={cn(
-        "flex items-center gap-1.5 text-[14px] font-medium tracking-tight transition-all h-full px-1 group",
+        "flex items-center gap-1.5 text-[14px] font-medium tracking-[0.02em] transition-all h-full px-1 group",
         isOpen ? "text-white opacity-100" : "text-white/78 hover:text-white"
       )}>
         {label}
@@ -155,7 +155,7 @@ export function Header() {
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b",
       scrolled 
-        ? "bg-gradient-to-b from-[#060a12]/92 to-[#060a12]/78 backdrop-blur-[16px] h-[76px] border-white/[0.06]" 
+        ? "bg-gradient-to-b from-[#060a12]/92 to-[#060a12]/78 backdrop-blur-[14px] h-[76px] border-white/[0.06]" 
         : "bg-transparent h-[76px] border-transparent"
     )}>
       <div className="container-custom h-full flex items-center justify-between">
@@ -174,8 +174,8 @@ export function Header() {
           <nav className="hidden lg:flex items-center gap-[34px] h-full ml-2">
             <NavDropdown label="Platform" sections={platformSections} columns={2} />
             <NavDropdown label="Solutions" sections={solutionsSections} columns={2} />
-            <Link href="#" className="text-[14px] font-medium text-white/78 hover:text-white transition-all h-full flex items-center tracking-tight">Operations</Link>
-            <Link href="#" className="text-[14px] font-medium text-white/78 hover:text-white transition-all h-full flex items-center tracking-tight">Pricing</Link>
+            <Link href="#" className="text-[14px] font-medium text-white/78 hover:text-white transition-all h-full flex items-center tracking-[0.02em]">Operations</Link>
+            <Link href="#" className="text-[14px] font-medium text-white/78 hover:text-white transition-all h-full flex items-center tracking-[0.02em]">Pricing</Link>
             <NavDropdown label="Resources" sections={resourcesSections} />
           </nav>
         </div>

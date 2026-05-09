@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -16,8 +16,14 @@ export function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-5%"]);
   const opacityFade = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 
+  const checklistItems = [
+    "Sovereign node architecture",
+    "Absolute governance integrity",
+    "Global operational synchronization"
+  ];
+
   return (
-    <section ref={sectionRef} className="relative min-h-[90vh] flex items-center pt-32 pb-48 overflow-hidden bg-[#020617]">
+    <section ref={sectionRef} className="relative min-h-[95vh] flex items-center pt-32 pb-48 overflow-hidden bg-[#04070D]">
       
       {/* CINEMATIC BACKGROUND: Full Operational Environment */}
       <motion.div style={{ y: backgroundY }} className="absolute inset-0 z-0">
@@ -26,16 +32,17 @@ export function Hero() {
           alt="Operations Environment" 
           fill
           priority
-          className="object-cover opacity-[0.4] grayscale-[0.2]"
+          className="object-cover opacity-[0.35] grayscale-[0.3]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#020617]/90 to-[#020617]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-transparent to-[#020617]/40" />
+        {/* Elite Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#04070D] via-[#04070D]/92 35% via-[#04070D]/75 35% via-[#04070D]/28 65% to-[#04070D]/12" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#04070D] via-transparent to-[#04070D]" />
       </motion.div>
 
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
-          {/* LAYERED CONTENT: Integrated into the scene */}
+          {/* LAYERED CONTENT: Elite Editorial Hierarchy */}
           <motion.div
             style={{ y: contentY, opacity: opacityFade }}
             initial={{ opacity: 0, y: 30 }}
@@ -43,32 +50,44 @@ export function Hero() {
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-12 xl:col-span-10"
           >
-            <div className="max-w-4xl">
+            <div className="max-w-[480px]">
               {/* Institutional Tag */}
               <div className="inline-flex items-center gap-5 mb-14">
-                 <div className="h-px w-8 bg-accent-gold/40" />
-                 <span className="label-institutional !tracking-[0.24em] opacity-80">Institutional Operating System</span>
+                 <div className="h-px w-8 bg-accent-gold/30" />
+                 <span className="label-institutional opacity-60">Institutional Operating System</span>
               </div>
               
-              {/* Headline: Precise & Calm */}
-              <h1 className="text-white mb-14 max-w-4xl">
+              {/* Headline: Editorial Luxury Compression */}
+              <h1 className="text-white mb-10 leading-[0.94] tracking-[-0.05em] font-bold">
                 Professional programme <br />
                 infrastructure for global <br />
-                operational <span className="text-accent-gold italic font-medium">scale.</span>
+                operational <span className="text-accent-gold font-semibold italic">scale.</span>
               </h1>
               
-              {/* Supporting Copy: Believable */}
-              <p className="max-w-[520px] mb-20 text-white/50">
-                Coordinate large-scale programme operations through a unified operational infrastructure layer. Built for absolute structural integrity and systemic clarity.
+              {/* Supporting Copy: Bloomberg Restraint */}
+              <p className="mb-14 text-white/50 leading-relaxed font-light">
+                Coordinate large-scale programme operations through a unified institutional layer. Built for absolute structural integrity.
               </p>
 
-              {/* Action Protocol */}
-              <div className="flex flex-col sm:flex-row items-center gap-10">
-                <button className="btn-gold px-14 h-16 text-[14px]">
+              {/* Elite Checklist Refinement */}
+              <div className="space-y-4 mb-16">
+                {checklistItems.map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 group">
+                    <div className="w-4 h-4 rounded-full border border-accent-gold/45 flex items-center justify-center bg-accent-gold/[0.03]">
+                      <Check className="w-2.5 h-2.5 text-accent-gold" strokeWidth={3} />
+                    </div>
+                    <span className="text-[13px] text-white/40 font-medium tracking-tight group-hover:text-white/60 transition-colors">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Action Protocol: Metallic Materiality */}
+              <div className="flex flex-col sm:flex-row items-center gap-8">
+                <button className="btn-gold px-10">
                   Initialize System
                 </button>
-                <button className="text-[14px] font-bold text-white/30 hover:text-white transition-all uppercase tracking-[0.22em] flex items-center gap-3 group">
-                  Access Documentation <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <button className="btn-outline">
+                  Access Documentation
                 </button>
               </div>
             </div>
@@ -76,27 +95,28 @@ export function Hero() {
 
           {/* INTEGRATED DASHBOARD: Floating with Perspective */}
           <motion.div
-             initial={{ opacity: 0, x: 100, rotateY: -15 }}
-             animate={{ opacity: 1, x: 0, rotateY: -6 }}
+             initial={{ opacity: 0, x: 100, rotateY: -12 }}
+             animate={{ opacity: 1, x: 0, rotateY: -4 }}
              transition={{ duration: 1.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-             className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[60%] hidden xl:block pointer-events-none"
+             className="absolute right-[-12%] top-1/2 -translate-y-1/2 w-[65%] hidden xl:block pointer-events-none"
           >
-             <div className="hero-perspective relative rounded-[40px] overflow-hidden border border-white/10 bg-[#050b1a]/40 backdrop-blur-2xl">
+             <div className="hero-perspective relative rounded-[48px] overflow-hidden border border-white/5 bg-[#050b1a]/30 backdrop-blur-3xl">
                 <Image 
                   src="/hero-dashboard.png" 
                   alt="System Layer" 
                   width={1400} 
                   height={900} 
-                  className="opacity-70 grayscale-[0.5]"
+                  className="opacity-60 grayscale-[0.6] brightness-75"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#020617]/80 via-transparent to-white/5" />
+                {/* Image Overlay for Depth */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#04070D]/90 via-transparent to-white/[0.02]" />
                 
-                {/* Monitor Glow Effect */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(214,166,60,0.05),transparent_70%)] mix-blend-screen" />
+                {/* Environmental Lighting Highlight */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(214,166,60,0.03),transparent_60%)] mix-blend-screen" />
              </div>
              
-             {/* Foreground Atmosphere */}
-             <div className="absolute inset-0 blur-[100px] bg-accent-gold/5 -z-10" />
+             {/* Subtle Atmospheric Fog */}
+             <div className="absolute inset-0 blur-[120px] bg-accent-gold/[0.02] -z-10" />
           </motion.div>
 
         </div>

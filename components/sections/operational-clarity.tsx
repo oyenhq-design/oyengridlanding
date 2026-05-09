@@ -14,11 +14,11 @@ export function OperationalClarity() {
   const imageY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   return (
-    <section ref={containerRef} className="relative overflow-hidden py-32 md:py-64 bg-[#020617]">
+    <section ref={containerRef} className="relative overflow-hidden py-32 md:py-64 bg-[#04070D]">
       
       {/* CONTINUOUS ENVIRONMENT BACKGROUND */}
       <div className="absolute inset-0 z-0 opacity-40">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#031022] to-[#020617]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#04070D] via-[#04070D]/95 to-[#04070D]" />
         <div className="atmos-glow-radial absolute inset-0 opacity-40" />
       </div>
 

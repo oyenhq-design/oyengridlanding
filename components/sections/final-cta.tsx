@@ -5,12 +5,12 @@ import { ArrowRight } from "lucide-react";
 
 export function FinalCTA() {
   return (
-    <section className="relative py-48 md:py-80 bg-[#020617] overflow-hidden">
+    <section className="relative py-48 md:py-80 bg-[#04070D] overflow-hidden">
       
       {/* CINEMATIC RADIAL GLOW (No Blur Fog) */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[#020617]" />
-        <div className="absolute inset-0 atmos-glow-radial opacity-60" />
+        <div className="absolute inset-0 bg-[#04070D]" />
+        <div className="absolute inset-0 atmos-glow-radial opacity-40" />
       </div>
 
       <div className="container-custom relative z-10 text-center">

@@ -21,7 +21,7 @@ export function OperationalIntelligence() {
   ];
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden py-48 md:py-80 bg-[#020617]">
+    <section ref={sectionRef} className="relative overflow-hidden py-48 md:py-80 bg-[#04070D]">
       
       {/* CINEMATIC ENVIRONMENT BACKGROUND */}
       <div className="absolute inset-0 z-0">
@@ -33,7 +33,7 @@ export function OperationalIntelligence() {
             className="object-cover opacity-[0.4] grayscale-[0.2]"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-transparent to-[#020617]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#04070D] via-transparent to-[#04070D]" />
         <div className="atmos-glow-radial absolute inset-0 opacity-40" />
       </div>
 

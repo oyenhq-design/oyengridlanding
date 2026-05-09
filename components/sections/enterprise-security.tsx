@@ -13,7 +13,7 @@ export function EnterpriseSecurity() {
   ];
 
   return (
-    <section className="relative overflow-hidden py-32 md:py-64 bg-[#020617]">
+    <section className="relative overflow-hidden py-32 md:py-64 bg-[#04070D]">
       
       {/* PANORAMIC CINEMATIC BACKGROUND */}
       <div className="absolute inset-0 z-0 opacity-40">
@@ -23,8 +23,8 @@ export function EnterpriseSecurity() {
           fill
           className="object-cover grayscale-[0.4]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#04070D] via-[#04070D]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#04070D] via-transparent to-transparent" />
       </div>
 
       <div className="container-custom relative z-10">

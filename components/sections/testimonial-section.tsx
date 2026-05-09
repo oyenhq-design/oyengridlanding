@@ -24,7 +24,7 @@ export function TestimonialSection() {
   ];
 
   return (
-    <section className="relative py-32 md:py-64 bg-[#020617] overflow-hidden">
+    <section className="relative py-32 md:py-64 bg-[#04070D] overflow-hidden">
       
       {/* ATMOSPHERIC CONTINUITY */}
       <div className="absolute inset-0 z-0 continuous-env opacity-40" />
