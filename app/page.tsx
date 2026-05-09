@@ -1,4 +1,4 @@
-import { Header } from "@/components/layout/header";
+import { Header, AnnouncementBar } from "@/components/layout/header";
 import { HeroReplica } from "@/components/sections/hero-replica";
 import { StatsStrip, OperationalClarityReplica } from "@/components/sections/operational-clarity-replica";
 import { FeatureGridReplica } from "@/components/sections/feature-grid-replica";
@@ -11,6 +11,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#05070B]">
       <Header />
+      <AnnouncementBar />
       
       {/* SECTION 1: HERO */}
       <HeroReplica />

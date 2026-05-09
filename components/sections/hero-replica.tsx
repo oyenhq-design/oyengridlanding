@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { DashboardMockup } from "@/components/layout/header";
+import { DashboardMockup } from "@/components/sections/dashboard-mockup";
 import { Check } from "lucide-react";
 
 export function HeroReplica() {
