@@ -1,120 +1,117 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { Shield, Lock, FileText, UserCheck } from "lucide-react";
+import Image from "next/image";
+import { ShieldCheck, Lock, Eye, CheckCircle } from "lucide-react";
 
 export function EnterpriseSecurity() {
+  const securityFeatures = [
+    { title: "Immutable Audit Logs", desc: "Every action is logged and verified using cryptographic institutional protocols.", icon: ShieldCheck },
+    { title: "SOC2 Compliance", desc: "Rigorous security standards for enterprise data integrity and platform reliability.", icon: Lock },
+    { title: "Threat Detection", desc: "Real-time surveillance of all infrastructure nodes and delivery patterns.", icon: Eye },
+    { title: "Governance Control", desc: "Fine-grained permission layers for absolute administrative sovereignty.", icon: CheckCircle }
+  ];
+
   return (
-    <section className="relative overflow-hidden py-48 md:py-64 bg-[#020617]" style={{ background: 'var(--section-bg)' }}>
+    <section className="relative overflow-hidden py-32 md:py-64 bg-[#020617]">
       
-      {/* ENVIRONMENTAL BACKDROP */}
-      <div className="absolute inset-0 z-0">
+      {/* PANORAMIC CINEMATIC BACKGROUND */}
+      <div className="absolute inset-0 z-0 opacity-40">
         <Image 
           src="/security-soc-environment.png" 
-          alt="Security Infrastructure" 
+          alt="Security Operations Center" 
           fill
-          className="object-cover opacity-[0.2] grayscale-[0.5]"
+          className="object-cover grayscale-[0.4]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-[#020617]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent" />
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-32 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
           
-          {/* CONTENT (Left) */}
+          {/* SECURITY CONTENT (Left) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="lg:col-span-5"
+            transition={{ duration: 1.2 }}
+            className="lg:col-span-6"
           >
-            <div className="flex items-center gap-6 mb-12">
-               <div className="h-[1px] w-12 bg-[#d6a63c]/30" />
-               <span className="text-[10px] font-bold text-[#d6a63c]/60 uppercase tracking-[0.5em]">Protection Protocols</span>
+            <div className="flex items-center gap-5 mb-10">
+               <div className="h-px w-12 bg-accent-gold/30" />
+               <span className="label-institutional">Security & Compliance</span>
             </div>
 
-            <h2 className="text-[36px] md:text-[64px] font-bold text-white mb-10 tracking-[-0.05em] leading-[1]">
-              Institutional <br />
-              <span className="text-[#d6a63c] italic font-medium">integrity layers.</span>
+            <h2 className="text-white mb-10">
+              Institutional integrity <br />
+              at the <span className="text-accent-gold italic font-medium">system layer.</span>
             </h2>
             
-            <p className="max-w-[480px] mb-16 text-[18px] text-white/40 font-light leading-[1.8]">
-              Mission-critical protection for global delivery infrastructure. Integrity is enforced at every layer through immutable governance and structural protection.
+            <p className="mb-16 max-w-[500px]">
+              Our security architecture is built for the most demanding enterprise requirements. We prioritize sovereign data control and absolute visibility.
             </p>
-            
-            <div className="space-y-16 mb-24">
-              {[
-                { label: "Audit Protocols", desc: "Immutable structural logging across all delivery nodes.", icon: FileText },
-                { label: "Access Governance", desc: "Institutional identity management and access oversight.", icon: UserCheck }
-              ].map((item, i) => (
-                <div key={i} className="group flex gap-8">
-                   <div className="w-16 h-16 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-center group-hover:bg-[#d6a63c]/10 group-hover:border-[#d6a63c]/20 transition-all duration-700">
-                      <item.icon className="w-7 h-7 text-white/10 group-hover:text-[#d6a63c] transition-colors" />
-                   </div>
-                   <div>
-                      <div className="text-[11px] font-bold text-[#d6a63c]/60 uppercase tracking-[0.4em] mb-3">{item.label}</div>
-                      <div className="text-[18px] font-bold text-white/60 group-hover:text-white transition-colors tracking-tight leading-relaxed">{item.desc}</div>
-                   </div>
-                </div>
-              ))}
-            </div>
 
-            {/* Institutional Compliance */}
-            <div className="pt-12 border-t border-white/5">
-              <div className="text-[10px] text-white/10 font-bold uppercase tracking-[0.4em] mb-8">Standardized Compliance Layers</div>
-              <div className="flex flex-wrap gap-5">
-                 {["SOC2 TYPE II", "ISO 27001", "GDPR", "HIPAA"].map((badge) => (
-                   <span key={badge} className="px-4 py-2 text-[11px] font-bold text-white/20 border border-white/10 rounded-xl bg-white/[0.01] uppercase tracking-widest">
-                     {badge}
-                   </span>
-                 ))}
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 lg:gap-14">
+               {securityFeatures.map((f, i) => (
+                 <div key={i} className="group">
+                    <div className="w-12 h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-6 group-hover:border-accent-gold/40 transition-colors duration-500">
+                       <f.icon className="w-5 h-5 text-accent-gold/40 group-hover:text-accent-gold transition-colors" />
+                    </div>
+                    <h4 className="text-[17px] font-bold text-white mb-3 group-hover:text-accent-gold transition-colors">{f.title}</h4>
+                    <p className="text-[13px] opacity-50 font-light leading-relaxed">{f.desc}</p>
+                 </div>
+               ))}
             </div>
           </motion.div>
 
-          {/* PANORAMIC VISUAL (Right) */}
+          {/* VISUAL SECURITY DATA (Right) */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 -mr-32 lg:-mr-48"
+            transition={{ duration: 1.4 }}
+            className="lg:col-span-6"
           >
-            <div className="relative group perspective-[2000px]">
-               <motion.div style={{ rotateY: -4 }} className="relative rounded-l-[64px] overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.8)] border border-white/10 bg-[#020617]/40 backdrop-blur-3xl">
-                 <Image 
-                   src="/security-visual.png" 
-                   alt="Security Visual" 
-                   width={1400}
-                   height={900}
-                   className="opacity-90 grayscale-[0.4] group-hover:grayscale-0 transition-all duration-[2s]"
-                 />
-                 <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#020617]/60" />
-                 
-                 {/* Controlled Governance UI */}
-                 <div className="absolute bottom-12 left-12 p-10 premium-card border-[#d6a63c]/10 bg-[#030712]/80">
-                    <div className="flex items-center gap-4 mb-8">
-                       <div className="w-2 h-2 rounded-full bg-[#d6a63c] animate-pulse" />
-                       <span className="text-[10px] font-bold text-[#d6a63c]/60 uppercase tracking-[0.4em]">Governance Monitoring</span>
-                    </div>
-                    <div className="space-y-6">
-                       {[0, 1, 2].map((i) => (
-                         <div key={i} className="flex flex-col gap-3">
-                            <div className="h-1.5 w-40 bg-white/5 rounded-full overflow-hidden">
-                               <motion.div 
-                                  animate={{ x: ["-100%", "100%"] }}
-                                  transition={{ duration: 2.5 + i, repeat: Infinity, ease: "linear" }}
-                                  className="h-full w-1/3 bg-[#d6a63c]/20" 
-                               />
-                            </div>
-                         </div>
-                       ))}
-                    </div>
-                 </div>
-               </motion.div>
-            </div>
+             <div className="premium-card relative overflow-hidden group">
+                {/* Audit Log Visualization */}
+                <div className="space-y-4 mb-10 relative z-10">
+                   <div className="text-[10px] text-accent-gold font-black uppercase tracking-[0.3em] mb-6">Audit Log Live Stream</div>
+                   {[
+                     { time: "09:42:15", node: "Node-42", status: "VERIFIED", action: "Governance Sync" },
+                     { time: "09:42:10", node: "Node-18", status: "VERIFIED", action: "Infrastructure Scale" },
+                     { time: "09:42:02", node: "Node-04", status: "VERIFIED", action: "Compliance Audit" }
+                   ].map((log, i) => (
+                     <div key={i} className="flex items-center justify-between p-4 rounded-xl bg-white/[0.01] border border-white/[0.03] text-[11px] group-hover:bg-white/[0.03] transition-all duration-700">
+                        <div className="flex items-center gap-6">
+                           <span className="text-white/20 tabular-nums">{log.time}</span>
+                           <span className="text-white/60 font-bold uppercase tracking-widest">{log.node}</span>
+                           <span className="text-white/30 font-light">{log.action}</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                           <div className="w-1 h-1 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]" />
+                           <span className="text-emerald-500/80 font-black uppercase tracking-widest">{log.status}</span>
+                        </div>
+                     </div>
+                   ))}
+                </div>
+
+                <div className="pt-8 border-t border-white/5 flex items-center justify-between">
+                   <div className="flex items-center gap-8">
+                      <Image src="/badge-soc2.png" alt="SOC2" width={50} height={50} className="opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700" />
+                      <Image src="/badge-iso.png" alt="ISO" width={50} height={50} className="opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700" />
+                      <Image src="/badge-gdpr.png" alt="GDPR" width={50} height={50} className="opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700" />
+                   </div>
+                   <div className="text-[10px] text-white/10 font-black uppercase tracking-widest">Protocol Integrity Confirm</div>
+                </div>
+
+                {/* Decorative scanning line */}
+                <motion.div 
+                   animate={{ y: ["-100%", "1000%"] }}
+                   transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                   className="absolute left-0 right-0 h-px bg-accent-gold/20 -z-10 blur-[1px]"
+                />
+             </div>
           </motion.div>
 
         </div>

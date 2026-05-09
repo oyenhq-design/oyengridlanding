@@ -11,29 +11,30 @@ export function OperationalIntelligence() {
     offset: ["start end", "end start"]
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
-  const protocols = [
-    { title: "Predictive Resourcing", desc: "Institutional logic for proactive resource allocation across global nodes." },
-    { title: "Node Orchestration", desc: "Centralized coordination of diverse infrastructure points and delivery teams." },
-    { title: "Asset Integrity", desc: "Secure management of institutional content with absolute version governance." },
-    { title: "Telemetry Feed", desc: "Live operational metrics providing executive visibility across the delivery chain." }
+  const capabilities = [
+    { title: "AI Forecasting", desc: "Predictive operational logic for proactive scaling and resource management." },
+    { title: "Automated Orchestration", desc: "Seamless coordination across all global delivery nodes and team structures." },
+    { title: "Content Governance", desc: "Secure asset management with institutional integrity and compliance." },
+    { title: "Real-time Telemetry", desc: "Real-time decision metrics for global visibility and executive oversight." }
   ];
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden py-48 md:py-64 bg-[#020617]" style={{ background: 'var(--section-bg)' }}>
+    <section ref={sectionRef} className="relative overflow-hidden py-48 md:py-80 bg-[#020617]">
       
-      {/* PANORAMIC BACKDROP */}
+      {/* CINEMATIC ENVIRONMENT BACKGROUND */}
       <div className="absolute inset-0 z-0">
         <motion.div style={{ y: backgroundY }} className="absolute inset-0">
           <Image 
             src="/intelligence-ops-room.png" 
-            alt="Operations Intelligence" 
+            alt="System Intelligence Environment" 
             fill
-            className="object-cover opacity-[0.25] grayscale-[0.4]"
+            className="object-cover opacity-[0.4] grayscale-[0.2]"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#020617]/40 to-[#020617]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-transparent to-[#020617]" />
+        <div className="atmos-glow-radial absolute inset-0 opacity-40" />
       </div>
 
       <div className="container-custom relative z-10 text-center">
@@ -41,43 +42,45 @@ export function OperationalIntelligence() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1.2 }}
           className="max-w-4xl mx-auto mb-32"
         >
-          <div className="flex items-center justify-center gap-6 mb-12">
-             <div className="h-[1px] w-12 bg-[#d6a63c]/30" />
-             <span className="text-[10px] font-bold text-[#d6a63c]/60 uppercase tracking-[0.6em]">Systemic Intelligence Layer</span>
-             <div className="h-[1px] w-12 bg-[#d6a63c]/30" />
+          <div className="flex items-center justify-center gap-5 mb-10">
+             <div className="h-px w-12 bg-[#d6a63c]/30" />
+             <span className="label-institutional">Intelligence Layer</span>
+             <div className="h-px w-12 bg-[#d6a63c]/30" />
           </div>
 
-          <h2 className="text-[40px] md:text-[64px] font-bold text-white mb-10 tracking-[-0.05em] leading-[1]">
-            Deploy with <br />
-            <span className="text-[#d6a63c] italic font-medium">architectural awareness.</span>
+          <h2 className="text-white mb-10">
+            Orchestrate with <br />
+            <span className="text-accent-gold italic font-medium">systemic awareness.</span>
           </h2>
           
-          <p className="max-w-2xl mx-auto mb-16 text-[18px] text-white/50 font-light leading-[1.8]">
-            Transform fragmented data into a cohesive operational layer. Our intelligence protocols provide the governance required for institutional infrastructure management.
+          <p className="max-w-2xl mx-auto opacity-70">
+            Transform fragmented data into a high-fidelity operating system. Our intelligence layer provides real-time governance across every node.
           </p>
         </motion.div>
 
-        {/* PROTOCOL GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
-           {protocols.map((p, i) => (
+        {/* INTEGRATED PROTOCOL CARDS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+           {capabilities.map((cap, i) => (
              <motion.div
                key={i}
-               initial={{ opacity: 0, y: 20 }}
+               initial={{ opacity: 0, y: 30 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
-               transition={{ duration: 0.8, delay: i * 0.1 }}
-               className="text-left group"
+               transition={{ duration: 1, delay: i * 0.1 }}
+               className="premium-card text-left flex flex-col justify-between"
              >
-                <div className="flex items-center gap-4 mb-8">
-                   <div className="w-2 h-2 rounded-full bg-[#d6a63c]/20 group-hover:bg-[#d6a63c] transition-all" />
-                   <div className="text-[10px] text-[#d6a63c]/40 font-bold uppercase tracking-[0.4em]">Protocol L-0{i+1}</div>
+                <div>
+                   <div className="flex items-center gap-3 mb-8">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#d6a63c]/40 group-hover:bg-[#d6a63c] transition-all" />
+                      <div className="text-[10px] text-white/20 font-black uppercase tracking-[0.3em]">Protocol L-0{i+1}</div>
+                   </div>
+                   <h4 className="text-[19px] font-bold text-white mb-5 group-hover:text-accent-gold transition-colors">{cap.title}</h4>
+                   <p className="text-[13.5px] opacity-60 leading-relaxed font-light">{cap.desc}</p>
                 </div>
-                <h4 className="text-[19px] font-bold text-white mb-4 group-hover:text-[#d6a63c] transition-colors tracking-tight">{p.title}</h4>
-                <p className="text-[15px] text-white/40 leading-relaxed font-light">{p.desc}</p>
-                <div className="mt-12 h-[1px] w-12 bg-white/5 group-hover:w-full group-hover:bg-[#d6a63c]/20 transition-all duration-1000" />
+                <div className="mt-12 h-[1px] w-full bg-white/5 group-hover:bg-accent-gold/20 transition-all duration-1000" />
              </motion.div>
            ))}
         </div>

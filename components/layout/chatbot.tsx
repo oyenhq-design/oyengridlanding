@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { 
-  X, Send, Activity, ShieldCheck, Cpu, 
-  Minus, Paperclip, Trash2, Command
+  X, Send, Sparkles, Activity, ShieldCheck, Cpu, 
+  ArrowRight, Minus, Paperclip, Mic, Copy, Trash2 
 } from "lucide-react";
 
 interface Message {
@@ -25,7 +25,7 @@ export function Chatbot() {
     {
       id: "1",
       type: "assistant",
-      content: "System infrastructure is nominal. I am the L-04 Assistant, designated for institutional operational oversight. How may I assist with your current coordination protocols?",
+      content: "System infrastructure is nominal. I am your designated operational assistant. How can I facilitate your institutional coordination today?",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -60,79 +60,81 @@ export function Chatbot() {
     setInput("");
     setIsTyping(true);
 
-    // Contextual Logic
+    // Simulate Operational Response
     setTimeout(() => {
       setIsTyping(false);
-      let responseContent = `Acknowledged. Initializing ${content.toLowerCase()} protocol. System integrity confirmed.`;
-      
-      if (content.toLowerCase().includes("governance")) {
-        responseContent = "Accessing Governance Architecture. I have identified the institutional compliance layers for your current programme structure. Navigating to Governance protocols.";
-      } else if (content.toLowerCase().includes("infrastructure")) {
-        responseContent = "Infrastructure layer protocols are active. 142 nodes are currently operational with 99.999% throughput.";
-      }
-
       const response: Message = {
         id: (Date.now() + 1).toString(),
         type: "assistant",
-        content: responseContent,
+        content: `Acknowledged. Initializing ${content.toLowerCase()} protocol. System integrity confirmed. Current status: Operational.`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages(prev => [...prev, response]);
     }, 1500);
   };
 
+  const quickActions = [
+    { label: "Build Programme", icon: Cpu },
+    { label: "View Governance", icon: ShieldCheck },
+    { label: "Open Analytics", icon: Activity }
+  ];
+
   return (
-    <div className="fixed bottom-10 right-10 z-[100] font-sans">
+    <div className="fixed bottom-8 right-8 z-[100] font-sans">
       <AnimatePresence>
         {isVisible && (
           <div className="relative flex flex-col items-end">
             
-            {/* CHAT PANEL: Mission Control Style */}
+            {/* CHAT PANEL */}
             {isOpen && !isMinimized && (
               <motion.div
-                initial={{ opacity: 0, y: 50, scale: 0.98, transformOrigin: "bottom right" }}
+                initial={{ opacity: 0, y: 50, scale: 0.9, transformOrigin: "bottom right" }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 50, scale: 0.98 }}
-                className="w-[420px] h-[660px] bg-[#07101F]/98 backdrop-blur-[40px] border border-white/10 rounded-[32px] shadow-[0_80px_160px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden mb-8"
+                exit={{ opacity: 0, y: 50, scale: 0.9 }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                className="w-[380px] h-[620px] bg-[#07101F]/95 backdrop-blur-[40px] border border-white/10 rounded-[28px] shadow-[0_80px_160px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden mb-6"
               >
-                {/* Header: Institutional Context */}
-                <div className="p-8 bg-white/[0.02] border-b border-white/5 flex items-center justify-between">
-                  <div className="flex items-center gap-5">
-                    <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-white/10 bg-[#030712]">
+                {/* Gold Top Border Accent */}
+                <div className="h-1 w-full bg-gradient-to-r from-transparent via-[#D4A62A] to-transparent opacity-40" />
+
+                {/* Header */}
+                <div className="p-6 bg-white/[0.02] border-b border-white/5 flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/10 bg-[#050816]">
                       <Image src="/exec-avatar-new.png" alt="Assistant" fill className="object-cover grayscale" />
                     </div>
                     <div>
-                      <div className="text-[16px] font-bold text-white tracking-tight">Executive Assistant</div>
-                      <div className="text-[10px] text-[#d6a63c] font-black uppercase tracking-[0.3em] mt-1.5 flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#d6a63c] animate-pulse" />
-                        Node L-04 Active
+                      <div className="text-[15px] font-bold text-white tracking-tight">OYEN GRID Assistant</div>
+                      <div className="text-[10px] text-[#D4A62A] font-black uppercase tracking-[0.2em] mt-1 flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#D4A62A] animate-pulse shadow-[0_0_8px_#D4A62A]" />
+                        Operational
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <button onClick={() => setIsMinimized(true)} className="w-10 h-10 rounded-full flex items-center justify-center text-white/20 hover:text-white hover:bg-white/5 transition-all">
-                      <Minus className="w-5 h-5" />
+                  <div className="flex items-center gap-2">
+                    <button onClick={() => setIsMinimized(true)} className="w-8 h-8 rounded-full flex items-center justify-center text-white/20 hover:text-white hover:bg-white/5 transition-all">
+                      <Minus className="w-4 h-4" />
                     </button>
-                    <button onClick={() => setIsOpen(false)} className="w-10 h-10 rounded-full flex items-center justify-center text-white/20 hover:text-white hover:bg-white/5 transition-all">
-                      <X className="w-5 h-5" />
+                    <button onClick={() => setIsOpen(false)} className="w-8 h-8 rounded-full flex items-center justify-center text-white/20 hover:text-white hover:bg-white/5 transition-all">
+                      <X className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
 
-                {/* Intelligence Feed */}
-                <div ref={scrollRef} className="flex-1 overflow-y-auto p-8 space-y-8 scrollbar-hide">
+                {/* Chat Feed */}
+                <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide">
                   {messages.map((msg) => (
                     <div key={msg.id} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className="max-w-[85%] space-y-3">
-                        <div className={`p-6 rounded-[24px] text-[15px] leading-relaxed ${
+                      <div className="max-w-[85%] space-y-2">
+                        <div className={`p-4 rounded-2xl text-[14px] leading-relaxed ${
                           msg.type === 'user' 
-                          ? 'bg-[#d6a63c] text-[#030712] font-bold rounded-tr-none' 
-                          : 'bg-white/[0.03] border border-white/5 text-white/70 rounded-tl-none font-light'
+                          ? 'bg-[#D4A62A] text-[#050816] font-medium rounded-tr-none' 
+                          : 'bg-white/[0.03] border border-white/5 text-white/80 rounded-tl-none font-light'
                         }`}>
                           {msg.content}
                         </div>
-                        <div className={`text-[10px] font-bold uppercase tracking-widest ${msg.type === 'user' ? 'text-right opacity-30' : 'opacity-20'}`}>
-                          {msg.timestamp} // {msg.type === 'assistant' ? 'SECURE_NODE' : 'AUTH_USER'}
+                        <div className={`text-[9px] font-black uppercase tracking-widest ${msg.type === 'user' ? 'text-right opacity-30' : 'opacity-20'}`}>
+                          {msg.timestamp}
                         </div>
                       </div>
                     </div>
@@ -140,82 +142,86 @@ export function Chatbot() {
                   
                   {isTyping && (
                     <div className="flex justify-start">
-                      <div className="p-6 rounded-[24px] rounded-tl-none bg-white/[0.03] border border-white/5 flex gap-1.5 items-center">
-                        {[0, 1, 2].map((i) => (
-                          <motion.div key={i} animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1.2, delay: i * 0.2 }} className="w-1.5 h-1.5 rounded-full bg-[#d6a63c]" />
-                        ))}
+                      <div className="p-4 rounded-2xl rounded-tl-none bg-white/[0.03] border border-white/5 flex gap-1 items-center">
+                        <motion.div animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1.2 }} className="w-1.5 h-1.5 rounded-full bg-[#D4A62A]" />
+                        <motion.div animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1.2, delay: 0.2 }} className="w-1.5 h-1.5 rounded-full bg-[#D4A62A]" />
+                        <motion.div animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1.2, delay: 0.4 }} className="w-1.5 h-1.5 rounded-full bg-[#D4A62A]" />
                       </div>
                     </div>
                   )}
                 </div>
 
-                {/* Suggested Coordination Protocols */}
-                <div className="px-8 pb-6 flex flex-wrap gap-3">
-                  {["Show Governance", "Infrastructure Status", "Audit Logs"].map((action, i) => (
-                    <button 
-                      key={i}
-                      onClick={() => handleSendMessage(action)}
-                      className="px-4 py-2 rounded-xl bg-white/[0.02] border border-white/5 text-[11px] text-white/30 hover:text-[#d6a63c] hover:border-[#d6a63c]/30 hover:bg-[#d6a63c]/5 transition-all uppercase tracking-widest font-bold"
-                    >
-                      {action}
-                    </button>
-                  ))}
+                {/* Suggested Quick Actions */}
+                <div className="px-6 pb-4">
+                  <div className="flex flex-wrap gap-2">
+                    {quickActions.map((action, i) => (
+                      <button 
+                        key={i}
+                        onClick={() => handleSendMessage(action.label)}
+                        className="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/5 text-[11px] text-white/40 hover:text-[#D4A62A] hover:border-[#D4A62A]/30 hover:bg-[#D4A62A]/5 transition-all flex items-center gap-2 group"
+                      >
+                        <action.icon className="w-3 h-3" />
+                        {action.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
-                {/* System Input Area */}
-                <div className="p-8 pt-0">
+                {/* Input Area */}
+                <div className="p-6 pt-0">
                   <div className="relative group">
                     <input 
                       type="text" 
                       value={input}
                       onChange={(e) => setInput(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && handleSendMessage(input)}
-                      placeholder="Input coordinating protocol..."
-                      className="w-full bg-[#030712]/60 border border-white/10 rounded-[20px] py-5 pl-6 pr-24 text-[15px] text-white placeholder:text-white/20 focus:outline-none focus:border-[#d6a63c]/40 transition-all shadow-inner"
+                      placeholder="Input systemic query..."
+                      className="w-full bg-[#050816]/60 border border-white/10 rounded-2xl py-4 pl-5 pr-24 text-[14px] text-white placeholder:text-white/20 focus:outline-none focus:border-[#D4A62A]/40 transition-all shadow-inner"
                     />
-                    <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
                       <button className="p-2 text-white/20 hover:text-white transition-colors">
-                        <Paperclip className="w-5 h-5" />
+                        <Paperclip className="w-4 h-4" />
                       </button>
-                      <button onClick={() => handleSendMessage(input)} className="w-11 h-11 rounded-[14px] bg-[#d6a63c] text-[#030712] flex items-center justify-center hover:scale-105 transition-all shadow-lg">
-                        <Send className="w-5 h-5" />
+                      <button onClick={() => handleSendMessage(input)} className="w-10 h-10 rounded-xl bg-[#D4A62A] text-[#050816] flex items-center justify-center hover:scale-105 transition-all shadow-lg">
+                        <Send className="w-4 h-4" />
                       </button>
                     </div>
                   </div>
-                  <div className="mt-5 flex items-center justify-between border-t border-white/5 pt-5">
-                    <button onClick={() => setMessages(messages.slice(0, 1))} className="text-[10px] text-white/10 hover:text-white/30 transition-colors uppercase font-black tracking-[0.3em] flex items-center gap-3">
-                      <Trash2 className="w-3.5 h-3.5" /> Clear Feed
-                    </button>
-                    <div className="flex items-center gap-3">
-                       <Command className="w-3 h-3 text-white/10" />
-                       <div className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/10">L-04 Institutional Access</div>
+                  <div className="mt-4 flex items-center justify-between">
+                    <div className="flex gap-4">
+                       <button onClick={() => setMessages(messages.slice(0, 1))} className="text-[10px] text-white/10 hover:text-white/30 transition-colors uppercase font-black tracking-widest flex items-center gap-2">
+                         <Trash2 className="w-3 h-3" /> Clear Chat
+                       </button>
                     </div>
+                    <div className="text-[9px] font-black uppercase tracking-[0.3em] text-white/10">L-04 Analyst Feed</div>
                   </div>
                 </div>
               </motion.div>
             )}
 
-            {/* OPERATIONAL PRESENCE DOCK */}
+            {/* TRIGGER BUTTON */}
             <motion.button
               onClick={() => {
                 setIsOpen(true);
                 setIsMinimized(false);
               }}
-              whileHover={{ x: -10 }}
+              whileHover={{ y: -2 }}
               animate={{ 
-                x: isOpen && !isMinimized ? 100 : 0,
-                opacity: isOpen && !isMinimized ? 0 : 1
+                scale: isOpen && !isMinimized ? 0 : 1,
+                boxShadow: ["0 0 0 0 rgba(212, 166, 42, 0)", "0 0 0 10px rgba(212, 166, 42, 0.1)", "0 0 0 0 rgba(212, 166, 42, 0)"]
               }}
-              className="group flex items-center gap-6 pl-6 pr-4 py-4 bg-[#0E1728]/80 backdrop-blur-3xl border border-white/10 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-[#d6a63c]/40"
+              transition={{
+                boxShadow: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+              }}
+              className="relative group w-[58px] h-[58px] rounded-full bg-[#07101F]/80 backdrop-blur-xl border border-white/10 flex items-center justify-center shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-visible"
             >
-              <div className="text-right">
-                 <div className="text-[12px] font-bold text-white tracking-tight">Executive Assistant</div>
-                 <div className="text-[9px] text-[#d6a63c] font-bold uppercase tracking-[0.3em] mt-0.5">Operational</div>
-              </div>
-              <div className="relative w-11 h-11 rounded-full overflow-hidden border border-[#d6a63c]/30 group-hover:border-[#d6a63c] transition-all duration-500">
+              <div className="relative w-[50px] h-[50px] rounded-full overflow-hidden border border-[#D4A62A]/20 group-hover:border-[#D4A62A] transition-colors duration-500">
                 <Image src="/exec-avatar-new.png" alt="Assistant" fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-[#0E1728] rounded-full" />
               </div>
+              <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-emerald-500 border-2 border-[#050816] rounded-full shadow-[0_0_10px_rgba(16,185,129,0.8)]" />
+              
+              {/* Gold Ring Hover Effect */}
+              <div className="absolute -inset-[2px] rounded-full border border-[#D4A62A] opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
             </motion.button>
           </div>
         )}
