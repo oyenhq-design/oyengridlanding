@@ -10,69 +10,75 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [scrolled]);
 
-  const navItems = [
-    { label: "Platform", hasDropdown: true },
-    { label: "Solutions", hasDropdown: true },
-    { label: "Governance", hasDropdown: false },
-    { label: "Infrastructure", hasDropdown: false },
-    { label: "Resources", hasDropdown: true },
-    { label: "Pricing", hasDropdown: false }
-  ];
+  const navItems = ["Platform", "Solutions", "Resources", "Pricing"];
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 right-0 z-[100] transition-all duration-700",
+      "fixed top-0 left-0 right-0 z-[100] transition-all duration-300",
       scrolled 
-        ? "bg-[#040816]/80 backdrop-blur-[24px] h-[72px] border-b border-white/5 shadow-2xl" 
-        : "bg-transparent h-[84px] border-transparent"
+        ? "bg-[#050505]/95 backdrop-blur-xl h-[72px] border-b border-white/5 shadow-2xl" 
+        : "bg-transparent h-[72px] border-transparent"
     )}>
-      <div className="container-custom h-full flex items-center justify-between">
-        
-        {/* Logo Section */}
-        <Link href="/" className="flex items-center gap-3 relative z-10 group">
-          <div className="w-9 h-9 bg-accent-gold rounded-lg flex items-center justify-center font-black text-black text-lg transition-transform group-hover:rotate-6">O</div>
-          <div className="flex flex-col justify-center">
-            <span className="font-bold text-white tracking-[-0.04em] text-[17px] leading-none uppercase">OYEN GRID</span>
-            <span className="text-[9px] font-medium text-white/40 uppercase tracking-[0.2em] mt-1.5 hidden sm:block">Institutional Infrastructure</span>
-          </div>
-        </Link>
+      {/* Background Glow Layer */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-blue-900/10 to-transparent pointer-events-none opacity-50" />
 
-        {/* Center Navigation */}
-        <nav className="hidden lg:flex items-center gap-8 h-full">
+      <div className="container-custom h-full flex items-center justify-between relative z-10">
+        
+        {/* LOGO AREA: Gold geometric icon + precise typography */}
+        <div className="flex items-center">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-[30px] h-[30px] bg-accent-gold rounded-md flex items-center justify-center transition-transform duration-500 group-hover:rotate-[15deg]">
+               <div className="w-4 h-4 border-2 border-black rotate-45" />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-bold text-white tracking-[-0.03em] text-[16px] leading-[1.1] uppercase">OYEN GRID</span>
+              <span className="text-[8px] font-black text-[#D4A63A]/60 uppercase tracking-[0.25em] leading-none mt-1">STRUCTURED PROGRAMME OS</span>
+            </div>
+          </Link>
+        </div>
+
+        {/* NAVIGATION: Exact Zoom-style spacing and typography */}
+        <nav className="hidden lg:flex items-center gap-[40px] h-full ml-10">
           {navItems.map((item) => (
             <Link 
-              key={item.label} 
+              key={item} 
               href="#" 
-              className="text-[13px] font-medium text-white/50 hover:text-white transition-all flex items-center gap-1 group tracking-wide"
+              className="text-[14px] font-medium text-white/82 hover:text-white transition-all flex items-center gap-1 group"
             >
-              {item.label}
-              {item.hasDropdown && (
+              {item}
+              {item !== "Pricing" && (
                 <ChevronDown className="w-3.5 h-3.5 opacity-30 group-hover:opacity-100 transition-opacity" />
               )}
             </Link>
           ))}
         </nav>
 
-        {/* Action Actions */}
-        <div className="flex items-center gap-6 relative z-10">
-          <button className="w-10 h-10 flex items-center justify-center text-white/20 hover:text-white transition-colors group">
-            <Search className="w-5 h-5 group-hover:scale-110 transition-transform" />
+        {/* UTILITY ACTIONS & CTA BUTTONS */}
+        <div className="flex items-center gap-6">
+          {/* Circular Search Button */}
+          <button className="w-9 h-9 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md flex items-center justify-center text-white/40 hover:text-white hover:border-white/20 transition-all group">
+            <Search className="w-4 h-4 group-hover:scale-110 transition-transform" />
           </button>
           
-          <div className="flex items-center gap-4">
-            <Link href="/login" className="text-[14px] font-bold text-white/40 hover:text-white transition-colors px-4 hidden xl:block uppercase tracking-wider">
+          <div className="flex items-center gap-2">
+            <Link href="/login" className="text-[14px] font-medium text-white/82 hover:text-white transition-colors px-4">
               Login
             </Link>
-            <button className="h-[46px] px-7 rounded-[12px] border border-white/10 bg-white/[0.03] text-[13px] font-bold text-white transition-all hover:bg-white/5 hover:border-white/20 uppercase tracking-widest whitespace-nowrap">
+            <button className="h-[42px] px-6 rounded-[14px] border border-white/12 bg-white/[0.02] text-[14px] font-bold text-white hover:bg-white/5 transition-all">
               Talk to Sales
             </button>
-            <button className="h-[46px] px-7 rounded-[12px] bg-accent-gold text-black text-[13px] font-bold transition-all hover:scale-[1.02] hover:shadow-[0_8px_24px_rgba(212,166,58,0.3)] uppercase tracking-widest whitespace-nowrap">
-              Get Started
+            <button className="h-[42px] px-6 rounded-[14px] bg-gradient-to-b from-[#E0B84F] to-[#D4A63A] text-black text-[14px] font-bold transition-all hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(212,166,58,0.4)]">
+              Start Building
             </button>
           </div>
         </div>
@@ -83,24 +89,24 @@ export function Header() {
 
 export function AnnouncementBar() {
   return (
-    <div className="pt-[110px] flex justify-center px-4 relative z-50">
+    <div className="pt-[116px] flex justify-center px-4 relative z-50">
       <motion.div 
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        className="h-[44px] bg-white/[0.03] border border-white/5 rounded-full px-6 flex items-center justify-between gap-12 backdrop-blur-3xl shadow-2xl min-w-[700px]"
+        className="h-[44px] bg-[#0A1024]/40 border border-white/5 rounded-full px-8 flex items-center justify-between gap-12 backdrop-blur-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-full max-w-[920px] relative overflow-hidden"
       >
-        <div className="flex items-center gap-3">
-          <div className="w-1.5 h-1.5 rounded-full bg-accent-gold animate-pulse shadow-[0_0_8px_#D4A63A]" />
-          <span className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em]">Infrastructure Status</span>
+        {/* Subtle Inner Glow */}
+        <div className="absolute inset-0 bg-blue-500/5 pointer-events-none" />
+        
+        <div className="flex items-center gap-4 relative z-10">
+          <div className="w-2 h-2 rounded-full bg-accent-gold shadow-[0_0_12px_#D4A63A] animate-pulse" />
+          <span className="text-[13px] text-white/80 font-light tracking-wide">
+            Infrastructure synchronization active across institutional delivery nodes.
+          </span>
         </div>
 
-        <span className="text-[13px] text-white/70 font-light tracking-wide">
-          Operational synchronization active across institutional delivery nodes.
-        </span>
-
-        <div className="flex items-center gap-2 group cursor-pointer">
-          <span className="text-[11px] font-bold text-white/20 group-hover:text-accent-gold transition-colors uppercase tracking-[0.15em]">View Status</span>
-          <ArrowRight className="w-3.5 h-3.5 text-white/10 group-hover:text-accent-gold transition-colors group-hover:translate-x-1" />
+        <div className="flex items-center gap-2 group cursor-pointer relative z-10">
+          <span className="text-[11px] font-bold text-white/30 group-hover:text-accent-gold transition-colors uppercase tracking-[0.15em]">VIEW INFRASTRUCTURE →</span>
         </div>
       </motion.div>
     </div>
