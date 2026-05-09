@@ -5,9 +5,11 @@ import Link from "next/link";
 import { Search, ChevronDown, Grid, X, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useSearch } from "@/context/search-context";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const { openSearch } = useSearch();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -70,7 +72,10 @@ export function Header() {
         {/* RIGHT SECTION */}
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-5 pr-6 border-r border-white/5">
-             <button className="text-white/40 hover:text-brand-gold transition-all">
+             <button 
+               onClick={openSearch}
+               className="text-white/40 hover:text-brand-gold transition-all"
+             >
                 <Search className="w-[17px] h-[17px]" />
              </button>
              <Link href="#" className="text-[13.5px] font-medium text-white/90 flex items-center gap-1.5 hover:text-brand-gold group">

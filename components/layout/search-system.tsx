@@ -6,20 +6,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSearch } from "@/context/search-context";
 
 export function SearchSystem() {
-  const { isOpen, closeSearch } = useSearch();
+  const { isOpen, openSearch, closeSearch } = useSearch();
   const [query, setQuery] = useState("");
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        // openSearch() is handled by context but we can toggle here too if needed
+        openSearch();
       }
       if (e.key === "Escape") closeSearch();
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [closeSearch]);
+  }, [openSearch, closeSearch]);
 
   const results = [
     { title: "Infrastructure Overview", category: "Platform", icon: LayoutGrid },
