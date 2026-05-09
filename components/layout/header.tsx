@@ -24,64 +24,70 @@ export function Header() {
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 right-0 z-[100] transition-all duration-300",
+      "fixed top-0 left-0 right-0 z-[100] transition-all duration-500",
       scrolled 
-        ? "bg-[#061336] h-[72px] border-b border-white/5 shadow-xl" 
-        : "bg-[#061336] h-[72px] border-b border-white/5"
+        ? "bg-brand-dark/95 backdrop-blur-xl h-[72px] border-b border-white/5 shadow-2xl" 
+        : "bg-transparent h-[88px]"
     )}>
-      {/* Subtle Vertical Gradient Overlay */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#071B4D] to-[#05112E] pointer-events-none" />
+      {/* Cinematic Gradient Background */}
+      <div className={cn(
+        "absolute inset-0 z-0 transition-opacity duration-500",
+        scrolled ? "opacity-100" : "opacity-0"
+      )}>
+        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(10,15,25,0.96)] to-[rgba(5,7,11,0.92)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(245,185,66,0.03),transparent_50%)]" />
+      </div>
 
-      <div className="max-w-[1440px] mx-auto h-full flex items-center justify-between px-6 relative z-10">
+      <div className="max-w-[1280px] mx-auto h-full flex items-center justify-between px-6 relative z-10">
         
-        {/* LEFT SECTION: Logo + Brand Area */}
-        <div className="flex items-center">
-          <Link href="/" className="flex items-center gap-3 w-[160px]">
-            <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
-               <div className="w-4 h-4 border-2 border-[#061336] rotate-45" />
+        {/* LEFT SECTION */}
+        <div className="flex items-center gap-12">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-brand-gold rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(245,185,66,0.2)]">
+               <div className="w-3.5 h-3.5 border-2 border-black rotate-45" />
             </div>
-            <span className="font-bold text-white text-[18px] tracking-tight">OYEN GRID</span>
+            <span className="font-bold text-white text-[17px] tracking-tight">OYEN GRID</span>
           </Link>
 
-          {/* CENTER NAVIGATION: Exact Zoom-style density */}
-          <nav className="hidden lg:flex items-center gap-[32px] ml-4">
+          {/* CENTER NAVIGATION: Exact Zoom-style density but Premium Dark */}
+          <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
               <Link 
                 key={item.label} 
                 href="#" 
-                className="text-[14px] font-medium text-white/90 hover:text-white transition-all flex items-center gap-1 group tracking-tight"
+                className="text-[13.5px] font-medium text-white/90 hover:text-brand-gold transition-all flex items-center gap-1.5 group tracking-tight"
               >
-                {item.hasIcon && <Sparkles className="w-3.5 h-3.5 text-blue-400 fill-blue-400/20" />}
+                {item.hasIcon && <Sparkles className="w-3.5 h-3.5 text-brand-gold fill-brand-gold/20" />}
                 {item.label}
                 {item.hasDropdown && (
-                  <ChevronDown className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity" />
+                  <ChevronDown className="w-3 h-3 text-white/30 group-hover:text-brand-gold transition-colors" />
                 )}
               </Link>
             ))}
           </nav>
         </div>
 
-        {/* RIGHT SECTION: Utility Suite */}
+        {/* RIGHT SECTION */}
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-5 pr-6 border-r border-white/10">
-             <button className="text-white/70 hover:text-white transition-all">
-                <Search className="w-[18px] h-[18px]" />
+          <div className="flex items-center gap-5 pr-6 border-r border-white/5">
+             <button className="text-white/40 hover:text-brand-gold transition-all">
+                <Search className="w-[17px] h-[17px]" />
              </button>
-             <Link href="#" className="text-[14px] font-medium text-white/90 flex items-center gap-1 hover:text-white group">
-                Meet <ChevronDown className="w-3 h-3 opacity-40 group-hover:opacity-100" />
+             <Link href="#" className="text-[13.5px] font-medium text-white/90 flex items-center gap-1.5 hover:text-brand-gold group">
+                Meet <ChevronDown className="w-3 h-3 text-white/30 group-hover:text-brand-gold" />
              </Link>
-             <Link href="#" className="text-[14px] font-medium text-white/80 hover:text-white">Sign In</Link>
-             <Link href="#" className="text-[14px] font-medium text-white/80 hover:text-white">Support</Link>
+             <Link href="#" className="text-[13.5px] font-medium text-white/70 hover:text-white transition-colors">Sign In</Link>
+             <Link href="#" className="text-[13.5px] font-medium text-white/70 hover:text-white transition-colors">Support</Link>
           </div>
           
-          <div className="flex items-center gap-3">
-            <button className="h-[40px] px-5 rounded-xl bg-white text-[#061336] text-[14px] font-bold transition-all hover:brightness-110 hover:-translate-y-0.5 shadow-md">
+          <div className="flex items-center gap-4">
+            <button className="h-[38px] px-5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-white text-[13px] font-bold transition-all hover:bg-white/[0.08] hover:border-brand-gold/30 hover:text-brand-gold">
               Contact Sales
             </button>
-            <button className="h-[40px] px-5 rounded-xl bg-[#0B5CFF] text-white text-[14px] font-bold transition-all hover:shadow-[0_0_15px_rgba(11,92,255,0.4)] hover:saturate-150 hover:-translate-y-0.5">
+            <button className="h-[38px] px-5 rounded-lg bg-brand-gold text-brand-dark text-[13px] font-black transition-all hover:shadow-[0_0_20px_rgba(245,185,66,0.4)] hover:scale-[1.02]">
               Sign Up Free
             </button>
-            <button className="p-2 text-white/60 hover:text-white">
+            <button className="p-2 text-white/30 hover:text-brand-gold transition-colors">
                <Grid className="w-4 h-4" />
             </button>
           </div>
@@ -92,24 +98,31 @@ export function Header() {
 }
 
 export function AnnouncementBar() {
+  const [isVisible, setIsVisible] = useState(true);
+
+  if (!isVisible) return null;
+
   return (
-    <div className="pt-[82px] px-[12px] flex justify-center relative z-[60]">
+    <div className="pt-[88px] px-4 md:px-10 flex justify-center relative z-[60]">
       <motion.div 
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="h-[48px] bg-[#1A275A] rounded-[14px] px-6 flex items-center justify-between w-full relative overflow-hidden"
+        className="h-[48px] bg-[#0E1424] border border-white/[0.06] rounded-[14px] px-5 flex items-center justify-between w-full max-w-[1280px] shadow-2xl"
       >
-        <div className="flex items-center gap-8 mx-auto">
-          <span className="text-[15px] text-white/90 font-medium tracking-tight">
+        <div className="flex items-center gap-6 mx-auto">
+          <span className="text-[14px] text-white/70 font-medium tracking-tight">
             AI note-taking across platforms that's secure, personalized, and under your control.
           </span>
           
-          <button className="h-[34px] px-5 rounded-lg bg-gradient-to-r from-[#4A6CFF] to-[#D946EF] text-white text-[13px] font-bold transition-all hover:scale-105 hover:shadow-[0_0_15px_rgba(217,70,239,0.4)]">
+          <button className="h-[32px] px-5 rounded-lg bg-gradient-to-r from-[#F5B942] to-[#D89B2B] text-black text-[12px] font-black transition-all hover:scale-[1.03] hover:shadow-[0_0_15px_rgba(245,185,66,0.3)]">
             Explore My Notes
           </button>
         </div>
 
-        <button className="text-white/40 hover:text-white transition-colors">
+        <button 
+          onClick={() => setIsVisible(false)}
+          className="text-white/20 hover:text-white transition-colors"
+        >
           <X className="w-4 h-4" />
         </button>
       </motion.div>
