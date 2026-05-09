@@ -2,78 +2,93 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { DashboardMockup } from "@/components/sections/dashboard-mockup";
+import { ArrowRight, Terminal, Shield, Activity } from "lucide-react";
+import { DashboardMockup } from "./dashboard-mockup";
 
 export function HeroCinematic() {
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-center pt-[100px] overflow-hidden bg-[#05070B]">
-      
-      {/* CINEMATIC BACKGROUND IMAGE: 60-70% Area, Blended Naturally */}
+    <section className="relative min-h-[90vh] flex items-center pt-32 overflow-hidden bg-[#05070B]">
+      {/* Background Cinematic Atmosphere */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/hero_dashboard_enterprise_1778319138626.png" 
-          alt="Operational Command Center" 
+          src="/hero_command_dashboard_institutional_1778344757260.png" 
+          alt="Command Center Background" 
           fill
-          className="object-cover opacity-[0.12] grayscale brightness-50"
-          priority
+          className="object-cover opacity-[0.08] grayscale brightness-50"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#05070B]/80 to-[#05070B]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#05070B] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#05070B] via-transparent to-[#05070B]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#05070B] via-[#05070B]/80 to-transparent" />
       </div>
 
-      {/* ATMOSPHERIC GLOWS */}
-      <div className="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-brand-gold/5 blur-[120px] rounded-full opacity-50" />
-      <div className="absolute bottom-[10%] left-[-10%] w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full opacity-30" />
-
       <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-16 items-center">
           
-          {/* LEFT: TEXT CONTENT */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6"
-          >
-             <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8">
-                <div className="w-1.5 h-1.5 rounded-full bg-brand-gold shadow-[0_0_8px_#F5B942] animate-pulse" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/60">Institutional Infrastructure</span>
-             </div>
+          {/* LEFT CONTENT: Institutional Text */}
+          <div className="lg:col-span-6">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/20 mb-8">
+                <Shield className="w-3.5 h-3.5 text-brand-gold" />
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-gold">Enterprise Programme Operating System</span>
+              </div>
 
-             <h1 className="mb-8">
-                Run structured programmes <br />
-                with complete <span className="text-gold-highlight">operational control</span> <br />
-                at scale.
-             </h1>
-             
-             <p className="text-editorial mb-12 max-w-xl">
-                OYEN GRID is the institutional operating system for programme-driven organisations. Plan, deliver, and monitor every cohort with absolute visibility and architectural rigour.
-             </p>
+              <h1 className="mb-8">
+                Run structured programmes with complete <span className="text-gold-highlight">operational control</span> at scale.
+              </h1>
 
-             <div className="flex flex-wrap items-center gap-6">
-                <button className="btn-cinematic-gold">
-                   Initialize System
+              <p className="text-editorial mb-12 max-w-xl">
+                Coordinate global programmes, manage complex participant networks, and monitor live session delivery from a single institutional infrastructure. Built for organisations that require absolute operational continuity and real-time intelligence.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center gap-6 mb-12">
+                <button className="btn-cinematic-gold w-full sm:w-auto">
+                  Initialize System
                 </button>
-                <button className="btn-cinematic-outline">
-                   Talk to Architects
+                <button className="flex items-center gap-2 text-[14px] font-bold text-white/40 hover:text-white transition-colors group uppercase tracking-[0.15em]">
+                  Talk to Architects <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-             </div>
-          </motion.div>
+              </div>
 
-          {/* RIGHT: FLOATING REALISTIC DASHBOARD */}
-          <motion.div
-            initial={{ opacity: 0, x: 40, rotateY: 10 }}
-            animate={{ opacity: 1, x: 0, rotateY: 0 }}
-            transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 hidden lg:block"
-          >
-             <div className="relative group perspective-[2000px]">
-                <div className="absolute -inset-4 bg-brand-gold/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                <DashboardMockup />
-                {/* Premium Reflections Overlay */}
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/[0.02] to-transparent rounded-[40px]" />
-             </div>
-          </motion.div>
+              <div className="flex items-center gap-8 pt-8 border-t border-white/5">
+                 <span className="text-[11px] font-bold text-white/20 uppercase tracking-[0.2em]">Trusted by:</span>
+                 <div className="flex gap-8 items-center opacity-30 grayscale contrast-125">
+                    <span className="font-black italic text-[16px]">ALTSCHOOL</span>
+                    <span className="font-black italic text-[16px]">TALENTQL</span>
+                    <span className="font-black italic text-[16px]">INGRESSIVE</span>
+                 </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* RIGHT CONTENT: Complex Command Dashboard */}
+          <div className="lg:col-span-6 relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, x: 50 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="absolute -inset-20 bg-brand-gold/5 blur-[120px] rounded-full" />
+              <DashboardMockup />
+              
+              {/* Technical Overlays */}
+              <div className="absolute -bottom-6 -left-6 glass-panel p-4 flex items-center gap-4 animate-pulse">
+                 <div className="w-2 h-2 rounded-full bg-brand-gold shadow-[0_0_10px_#F5B942]" />
+                 <span className="text-[10px] font-bold tracking-[0.2em] text-white/60">NODE SYNC: ACTIVE</span>
+              </div>
+
+              <div className="absolute top-10 -right-4 glass-panel px-4 py-2 border-brand-gold/20">
+                 <div className="flex items-center gap-3">
+                    <Activity className="w-3 h-3 text-brand-gold" />
+                    <span className="text-[10px] font-bold text-white/80">AI TELEMETRY: NOMINAL</span>
+                 </div>
+              </div>
+            </motion.div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -81,26 +96,21 @@ export function HeroCinematic() {
 }
 
 export function MetricRail() {
-  const stats = [
-    { val: "1,240+", label: "Active Programmes" },
-    { val: "0.8ms", label: "System Latency" },
-    { val: "99.995%", label: "Uptime Protocol" },
-    { val: "140+", label: "Global Nodes" }
+  const metrics = [
+    { label: "Active Programmes", val: "1,240+" },
+    { label: "Participants Coordinated", val: "18.4k" },
+    { label: "Operational Uptime", val: "99.995%" },
+    { label: "Global Nodes", val: "140+" }
   ];
 
   return (
-    <div className="w-full bg-[#0B1020]/50 border-y border-white/5 py-12 relative overflow-hidden">
-      {/* Subtle Background Image Overlay */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none grayscale brightness-50">
-         <Image src="/security_soc_environment_1778252613879.png" alt="Overlay" fill className="object-cover" />
-      </div>
-
-      <div className="container-custom relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, i) => (
-            <div key={i} className="flex flex-col items-center text-center lg:border-r last:border-none border-white/5">
-              <span className="text-[36px] font-black text-brand-gold tracking-tight leading-none mb-2">{stat.val}</span>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/20">{stat.label}</span>
+    <div className="bg-[#0B1020]/50 border-y border-white/5 py-10 relative z-20 backdrop-blur-sm">
+      <div className="container-custom">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+          {metrics.map((m, i) => (
+            <div key={i} className="flex flex-col gap-1 border-l border-white/5 pl-8 first:border-0">
+              <span className="text-[28px] font-black text-white tracking-tighter">{m.val}</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">{m.label}</span>
             </div>
           ))}
         </div>

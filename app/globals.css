@@ -1,72 +1,59 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-gold: #F5B942;
   --color-brand-dark: #05070B;
-  --color-brand-surface: #0B1020;
+  --color-brand-secondary: #0B1020;
   --color-brand-card: #0E1424;
-  --color-brand-panel: #111827;
-  --color-brand-body: #A0AEC0;
+  --color-brand-gold: #F5B942;
+  --color-brand-gold-muted: rgba(245, 185, 66, 0.2);
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-:root {
-  --gold-glow: rgba(245, 185, 66, 0.25);
-  --border-soft: rgba(255, 255, 255, 0.05);
-  --glass-blur: blur(20px);
+@layer base {
+  body {
+    background-color: var(--color-brand-dark);
+    color: rgba(255, 255, 255, 0.94);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
 }
 
-body {
-  background-color: #05070B;
-  color: #ffffff;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+@layer components {
+  .container-custom {
+    @apply max-w-[1280px] mx-auto px-6 md:px-12;
+  }
+
+  .section-gap {
+    @apply py-20 md:py-32;
+  }
+
+  .text-editorial {
+    @apply text-[17px] leading-relaxed text-white/60 tracking-tight;
+  }
+
+  .btn-cinematic-gold {
+    @apply h-[52px] px-10 bg-brand-gold text-brand-dark font-black text-[14px] uppercase tracking-[0.2em] transition-all hover:shadow-[0_0_30px_rgba(245,185,66,0.4)] hover:scale-[1.02] rounded-lg;
+  }
+
+  .glass-panel {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-2xl;
+  }
+  
+  .text-gold-highlight {
+    @apply text-brand-gold italic;
+  }
+
+  h1 { @apply text-[40px] md:text-[68px] font-black tracking-[-0.06em] leading-[1.05] text-white; }
+  h2 { @apply text-[32px] md:text-[48px] font-black tracking-[-0.05em] leading-[1.1] text-white; }
+  h3 { @apply text-[22px] md:text-[28px] font-bold tracking-[-0.03em] leading-tight text-white; }
 }
 
-/* Page Width + Structure */
-.container-custom {
-  @apply max-w-[1280px] mx-auto px-6 md:px-10;
+.cinematic-glow {
+  position: absolute;
+  pointer-events: none;
+  background: radial-gradient(circle at center, var(--color-brand-gold-muted), transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
 }
-
-/* Typography Refinement */
-h1 { @apply text-[48px] md:text-[64px] font-black tracking-[-0.05em] leading-[1.05] text-white; }
-h2 { @apply text-[32px] md:text-[44px] font-bold tracking-[-0.04em] leading-[1.1] text-white; }
-h3 { @apply text-[24px] font-bold tracking-[-0.03em] leading-tight text-white; }
-
-.text-editorial {
-  @apply text-[#A0AEC0] text-[17px] md:text-[18px] leading-[1.6] font-light;
-}
-
-.text-gold-highlight {
-  @apply text-brand-gold italic font-semibold;
-}
-
-/* Button Primitives - Cinematic */
-.btn-cinematic-gold {
-  @apply h-[54px] px-10 rounded-xl font-bold text-[15px] transition-all duration-500 flex items-center justify-center tracking-tight bg-brand-gold text-black shadow-[0_10px_30px_rgba(245,185,66,0.2)];
-}
-
-.btn-cinematic-gold:hover {
-  @apply -translate-y-1 scale-[1.02] bg-[#FFCC66];
-  box-shadow: 0 15px 40px rgba(245,185,66,0.4);
-}
-
-.btn-cinematic-outline {
-  @apply h-[54px] px-10 rounded-xl border border-white/10 bg-white/[0.02] text-[15px] font-bold text-white transition-all hover:bg-white/5;
-}
-
-/* Section Pairing */
-.section-gap {
-  @apply py-20 md:py-32;
-}
-
-/* Cinematic Background Overlay */
-.cinematic-overlay {
-  @apply absolute inset-0 opacity-[0.07] pointer-events-none grayscale brightness-50 mix-blend-screen;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #05070B; }
-::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
