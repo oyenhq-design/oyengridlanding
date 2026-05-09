@@ -23,23 +23,40 @@ export function Hero() {
   ];
 
   return (
-    <section ref={sectionRef} className="relative min-h-[95vh] flex items-center pt-32 pb-48 overflow-hidden bg-[#04070D]">
+    <section 
+      ref={sectionRef} 
+      className="relative min-h-screen flex items-center pt-32 pb-48 overflow-hidden bg-[#05070D]"
+    >
       
-      {/* CINEMATIC BACKGROUND: Full Operational Environment */}
-      <motion.div style={{ y: backgroundY }} className="absolute inset-0 z-0">
+      {/* 1. BACKGROUND IMAGE LAYER: Positioned for optical balance */}
+      <motion.div 
+        style={{ y: backgroundY }} 
+        className="absolute inset-0 z-[1] transform scale-[1.02]"
+      >
         <Image 
           src="/hero-elite-bg.png" 
           alt="Operations Environment" 
           fill
           priority
-          className="object-cover opacity-[0.35] grayscale-[0.3]"
+          className="object-cover opacity-[0.42] brightness-[0.72] contrast-[1.05] saturate-[0.92]"
+          style={{ objectPosition: '68% center' }}
         />
-        {/* Elite Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#04070D] via-[#04070D]/92 35% via-[#04070D]/75 35% via-[#04070D]/28 65% to-[#04070D]/12" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#04070D] via-transparent to-[#04070D]" />
       </motion.div>
 
-      <div className="container-custom relative z-10">
+      {/* 2. CINEMATIC OVERLAY: Precision depth layering */}
+      <div className="absolute inset-0 z-[2] pointer-events-none">
+        {/* Horizontal Editorial Fade */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#04060c]/92 via-[#04060c]/78 28% via-[#04060c]/52 48% via-[#04060c]/28 70% to-[#04060c]/16" />
+        {/* Vertical Depth Layer */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#04060c]/38 to-[#04060c]/58" />
+      </div>
+
+      {/* 3. LIGHT BLOOM: Executive cinematic warmth */}
+      <div className="absolute -top-[10%] -right-[5%] w-[700px] h-[700px] z-[2] pointer-events-none overflow-hidden">
+        <div className="w-full h-full bg-[radial-gradient(circle,rgba(212,166,58,0.10)_0%,rgba(212,166,58,0.04)_32%,transparent_70%)] blur-[40px]" />
+      </div>
+
+      <div className="container-custom relative z-[5]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
           {/* LAYERED CONTENT: Elite Editorial Hierarchy */}
@@ -57,8 +74,8 @@ export function Hero() {
                  <span className="label-institutional opacity-60">Institutional Operating System</span>
               </div>
               
-              {/* Headline: Editorial Luxury Compression */}
-              <h1 className="text-white mb-10 leading-[0.94] tracking-[-0.05em] font-bold">
+              {/* Headline: Editorial Luxury Compression with Shadow */}
+              <h1 className="text-white mb-10 leading-[0.94] tracking-[-0.05em] font-bold drop-shadow-[0_4px_24px_rgba(0,0,0,0.45)]">
                 Professional programme <br />
                 infrastructure for global <br />
                 operational <span className="text-accent-gold font-semibold italic">scale.</span>
