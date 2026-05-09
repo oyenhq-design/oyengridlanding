@@ -93,32 +93,6 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* INTEGRATED DASHBOARD: Floating with Perspective */}
-          <motion.div
-             initial={{ opacity: 0, x: 100, rotateY: -12 }}
-             animate={{ opacity: 1, x: 0, rotateY: -4 }}
-             transition={{ duration: 1.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-             className="absolute right-[-12%] top-1/2 -translate-y-1/2 w-[65%] hidden xl:block pointer-events-none"
-          >
-             <div className="hero-perspective relative rounded-[48px] overflow-hidden border border-white/5 bg-[#050b1a]/30 backdrop-blur-3xl">
-                <Image 
-                  src="/hero-dashboard.png" 
-                  alt="System Layer" 
-                  width={1400} 
-                  height={900} 
-                  className="opacity-60 grayscale-[0.6] brightness-75"
-                />
-                {/* Image Overlay for Depth */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#04070D]/90 via-transparent to-white/[0.02]" />
-                
-                {/* Environmental Lighting Highlight */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(214,166,60,0.03),transparent_60%)] mix-blend-screen" />
-             </div>
-             
-             {/* Subtle Atmospheric Fog */}
-             <div className="absolute inset-0 blur-[120px] bg-accent-gold/[0.02] -z-10" />
-          </motion.div>
-
         </div>
       </div>
     </section>
