@@ -3,9 +3,12 @@
 @theme {
   --color-brand-dark: #05070B;
   --color-brand-secondary: #0B1020;
+  --color-brand-surface: #101726;
   --color-brand-card: #0E1424;
   --color-brand-gold: #F5B942;
   --color-brand-gold-muted: rgba(245, 185, 66, 0.2);
+  --color-brand-amber: rgba(245, 185, 66, 0.04);
+  
   --font-sans: 'Inter', system-ui, sans-serif;
 }
 
@@ -26,34 +29,42 @@
   }
 
   .section-gap {
-    @apply py-20 md:py-32;
+    @apply py-24 md:py-36; /* Slightly more breathable for storytelling */
   }
 
   .text-editorial {
-    @apply text-[17px] leading-relaxed text-white/60 tracking-tight;
+    @apply text-[17px] leading-relaxed text-white/50 tracking-tight font-medium;
   }
 
   .btn-cinematic-gold {
-    @apply h-[52px] px-10 bg-brand-gold text-brand-dark font-black text-[14px] uppercase tracking-[0.2em] transition-all hover:shadow-[0_0_30px_rgba(245,185,66,0.4)] hover:scale-[1.02] rounded-lg;
+    @apply h-[54px] px-10 bg-brand-gold text-brand-dark font-black text-[14px] uppercase tracking-[0.2em] transition-all hover:shadow-[0_0_40px_rgba(245,185,66,0.5)] hover:scale-[1.03] rounded-lg;
   }
 
   .glass-panel {
-    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-2xl;
+    @apply bg-white/[0.04] backdrop-blur-2xl border border-white/[0.08] rounded-2xl shadow-2xl;
   }
   
   .text-gold-highlight {
-    @apply text-brand-gold italic;
+    @apply text-brand-gold italic font-medium;
   }
 
-  h1 { @apply text-[40px] md:text-[68px] font-black tracking-[-0.06em] leading-[1.05] text-white; }
-  h2 { @apply text-[32px] md:text-[48px] font-black tracking-[-0.05em] leading-[1.1] text-white; }
-  h3 { @apply text-[22px] md:text-[28px] font-bold tracking-[-0.03em] leading-tight text-white; }
+  h1 { @apply text-[44px] md:text-[72px] font-black tracking-[-0.06em] leading-[1.02] text-white; }
+  h2 { @apply text-[36px] md:text-[52px] font-black tracking-[-0.05em] leading-[1.1] text-white; }
+  h3 { @apply text-[24px] md:text-[32px] font-bold tracking-[-0.04em] leading-tight text-white; }
 }
 
-.cinematic-glow {
-  position: absolute;
-  pointer-events: none;
-  background: radial-gradient(circle at center, var(--color-brand-gold-muted), transparent 70%);
-  filter: blur(80px);
-  z-index: 0;
+.cinematic-warmth {
+  background: radial-gradient(circle at 50% -20%, rgba(245, 185, 66, 0.1), transparent 70%);
+}
+
+.overlay-cinematic {
+  background: linear-gradient(to bottom, rgba(5, 7, 11, 0.4), rgba(5, 7, 11, 0.9));
+}
+
+.image-cinematic {
+  @apply grayscale-[30%] contrast-[1.1] brightness-[0.85] saturate-[0.9];
+}
+
+.glow-amber {
+  @apply shadow-[0_0_100px_rgba(245,185,66,0.05)];
 }

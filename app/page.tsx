@@ -1,10 +1,8 @@
 import { Header, AnnouncementBar } from "@/components/layout/header";
-import { HeroCinematic, MetricRail } from "@/components/sections/hero-cinematic";
-import { UseCasesSection, OrchestrationSection } from "@/components/sections/institutional-narrative";
-import { WorkflowSection, PlatformModules } from "@/components/sections/system-architecture";
-import { ControlCenterSection, SecuritySection } from "@/components/sections/institutional-integrity";
-import { OperationalOutcomes } from "@/components/sections/operational-outcomes";
-import { FinalCTACinematic } from "@/components/sections/testimonial-cinematic";
+import { HeroHumanSystem, MetricRail } from "@/components/sections/hero-cinematic";
+import { OperationsUseCases, PlatformOrchestration } from "@/components/sections/human-impact-narrative";
+import { WorkflowHorizontal, CoreSystems } from "@/components/sections/human-centered-architecture";
+import { ImpactSection, FinalCTAHuman } from "@/components/sections/human-impact-outcomes";
 import { FooterPremium } from "@/components/layout/footer";
 import { Chatbot } from "@/components/layout/chatbot";
 import { SearchSystem } from "@/components/layout/search-system";
@@ -17,44 +15,38 @@ export default function Home() {
       <AnnouncementBar />
       
       <div className="relative">
-        {/* Atmospheric Glow Layer (Global) */}
+        {/* Atmospheric Cinematic Glows (Refined for Warmth) */}
         <div className="fixed inset-0 pointer-events-none z-0">
-          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-gold/[0.02] blur-[120px] rounded-full" />
-          <div className="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-brand-gold/[0.01] blur-[150px] rounded-full" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold/[0.03] blur-[150px] rounded-full" />
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-gold/[0.02] blur-[120px] rounded-full" />
         </div>
 
         <div className="relative z-10">
-          {/* 2. HERO NARRATIVE: Infrastructure Establishment */}
-          <HeroCinematic />
+          {/* 2. HERO NARRATIVE: Human + System Coordination */}
+          <HeroHumanSystem />
 
           {/* 3. INSTITUTIONAL SCALE: Metrics Proof */}
           <MetricRail />
 
-          {/* 4. ORGANISATIONAL CONTEXT: Use Case Matrix */}
-          <UseCasesSection />
+          {/* 4. OPERATIONS + USE CASES: Merged Narrative */}
+          <OperationsUseCases />
 
-          {/* 5. SYSTEM ORCHESTRATION: The Delivery Core */}
-          <OrchestrationSection />
+          {/* 5. PLATFORM ORCHESTRATION: Integrated Coordination */}
+          <PlatformOrchestration />
 
-          {/* 6. TECHNICAL LIFECYCLE: The Workflow Pipeline */}
-          <WorkflowSection />
+          {/* 6. TECHNICAL LIFECYCLE: Horizontal Operational Flow */}
+          <WorkflowHorizontal />
 
-          {/* 7. CAPABILITY LAYERS: The Platform Modules */}
-          <PlatformModules />
+          {/* 7. CORE SYSTEMS: Infrastructure & Intelligence (Merged) */}
+          <CoreSystems />
 
-          {/* 8. THE COMMAND CENTER: Global Scale (WOW SECTION) */}
-          <ControlCenterSection />
+          {/* 8. ENTERPRISE IMPACT: Metrics & Executive Validation */}
+          <ImpactSection />
 
-          {/* 9. ROI VALIDATION: Operational Outcomes */}
-          <OperationalOutcomes />
+          {/* 9. VISIONARY CLOSE: Final Human-Centered CTA */}
+          <FinalCTAHuman />
 
-          {/* 10. GOVERNANCE: Security & Infrastructure */}
-          <SecuritySection />
-
-          {/* 11. FINAL AUTHORIZATION: The CTA */}
-          <FinalCTACinematic />
-
-          {/* 12. INSTITUTIONAL FOOTER */}
+          {/* 10. INSTITUTIONAL FOOTER */}
           <FooterPremium />
         </div>
       </div>
