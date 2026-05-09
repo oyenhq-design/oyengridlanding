@@ -8,63 +8,159 @@
   --color-brand-gold: #F5B942;
   --color-brand-gold-muted: rgba(245, 185, 66, 0.2);
   --color-brand-amber: rgba(245, 185, 66, 0.04);
-  
   --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-@layer base {
-  body {
-    background-color: var(--color-brand-dark);
-    color: rgba(255, 255, 255, 0.94);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+/* 100% Standard CSS - Zero @apply for absolute build stability */
+
+body {
+  background-color: #05070B;
+  color: rgba(255, 255, 255, 0.94);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.container-custom {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 
-@layer components {
-  .container-custom {
-    @apply max-w-[1280px] mx-auto px-6 md:px-12;
-  }
+.section-gap {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
 
+@media (min-width: 768px) {
   .section-gap {
-    @apply py-24 md:py-36; /* Slightly more breathable for storytelling */
+    padding-top: 9rem;
+    padding-bottom: 9rem;
   }
+}
 
-  .text-editorial {
-    @apply text-[17px] leading-relaxed text-white/50 tracking-tight font-medium;
-  }
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  line-height: 0.98;
+  color: white;
+}
 
-  .btn-cinematic-gold {
-    @apply h-[54px] px-10 bg-brand-gold text-brand-dark font-black text-[14px] uppercase tracking-[0.2em] transition-all hover:shadow-[0_0_40px_rgba(245,185,66,0.5)] hover:scale-[1.03] rounded-lg;
-  }
+@media (min-width: 768px) {
+  h1 { font-size: 5.25rem; }
+}
 
-  .glass-panel {
-    @apply bg-white/[0.04] backdrop-blur-2xl border border-white/[0.08] rounded-2xl shadow-2xl;
-  }
-  
-  .text-gold-highlight {
-    @apply text-brand-gold italic font-medium;
-  }
+h2 {
+  font-size: 2.25rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+  color: white;
+}
 
-  h1 { @apply text-[44px] md:text-[72px] font-black tracking-[-0.06em] leading-[1.02] text-white; }
-  h2 { @apply text-[36px] md:text-[52px] font-black tracking-[-0.05em] leading-[1.1] text-white; }
-  h3 { @apply text-[24px] md:text-[32px] font-bold tracking-[-0.04em] leading-tight text-white; }
+@media (min-width: 768px) {
+  h2 { font-size: 3.5rem; }
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  h3 { font-size: 2rem; }
+}
+
+.text-editorial {
+  font-size: 17px;
+  line-height: 1.625;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+
+.text-gold-highlight {
+  color: #F5B942;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.btn-cinematic-gold {
+  height: 56px;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  background-color: #F5B942;
+  color: #05070B;
+  font-weight: 900;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 50px rgba(245, 185, 66, 0.4);
+}
+
+.btn-cinematic-gold:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 70px rgba(245, 185, 66, 0.6);
+}
+
+.glass-panel {
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(48px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.capability-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s ease;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  border-radius: 0.75rem;
+}
+
+.capability-row:last-child {
+  border-bottom: 0;
+}
+
+.capability-row:hover {
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .cinematic-warmth {
   background: radial-gradient(circle at 50% -20%, rgba(245, 185, 66, 0.1), transparent 70%);
 }
 
-.overlay-cinematic {
-  background: linear-gradient(to bottom, rgba(5, 7, 11, 0.4), rgba(5, 7, 11, 0.9));
-}
-
 .image-cinematic {
-  @apply grayscale-[30%] contrast-[1.1] brightness-[0.85] saturate-[0.9];
+  filter: grayscale(20%) contrast(1.1) brightness(0.8) saturate(0.85);
 }
 
 .glow-amber {
-  @apply shadow-[0_0_100px_rgba(245,185,66,0.05)];
+  box-shadow: 0 0 100px rgba(245, 185, 66, 0.08);
 }
