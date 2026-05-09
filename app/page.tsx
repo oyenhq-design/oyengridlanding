@@ -1,44 +1,37 @@
 import { Header, AnnouncementBar } from "@/components/layout/header";
-import { HeroReplica } from "@/components/sections/hero-replica";
-import { StatsStrip, OperationalClarityReplica } from "@/components/sections/operational-clarity-replica";
-import { FeatureGridReplica } from "@/components/sections/feature-grid-replica";
-import { SecurityReplica, TestimonialReplica } from "@/components/sections/security-replica";
-import { FinalCTAReplica, FooterReplica } from "@/components/layout/footer-replica";
+import { HeroCinematic, MetricRail } from "@/components/sections/hero-cinematic";
+import { OperationalClarityCinematic, FeatureGridPremium } from "@/components/sections/operational-clarity-cinematic";
+import { TestimonialCinematic, FinalCTACinematic } from "@/components/sections/testimonial-cinematic";
+import { FooterPremium } from "@/components/layout/footer";
 import { Chatbot } from "@/components/layout/chatbot";
 import { SearchSystem } from "@/components/layout/search-system";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#05070B]">
+    <main className="min-h-screen bg-[#05070B] selection:bg-brand-gold selection:text-black">
       <Header />
       <AnnouncementBar />
       
-      {/* SECTION 1: HERO */}
-      <HeroReplica />
+      {/* 1. HERO SECTION: Cinematic background, Left text, Right dashboard */}
+      <HeroCinematic />
 
-      {/* SECTION 2: STATS RAIL 1 */}
-      <StatsStrip />
+      {/* 2. METRIC RAIL: Single strip directly below hero */}
+      <MetricRail />
 
-      {/* SECTION 3: OPERATIONAL CLARITY */}
-      <OperationalClarityReplica />
+      {/* 3. OPERATIONAL CLARITY: Image LEFT, Content RIGHT */}
+      <OperationalClarityCinematic />
 
-      {/* SECTION 4: FEATURE GRID */}
-      <FeatureGridReplica />
+      {/* 4. FEATURE GRID: Exactly 4 large premium cards */}
+      <FeatureGridPremium />
 
-      {/* SECTION 5: STATS RAIL 2 (Repeat as requested) */}
-      <StatsStrip />
+      {/* 5. TESTIMONIAL: Centered quote with background image anchor */}
+      <TestimonialCinematic />
 
-      {/* SECTION 6: SECURITY GOVERNANCE */}
-      <SecurityReplica />
+      {/* 6. FINAL CTA: Massive background, Centered composition */}
+      <FinalCTACinematic />
 
-      {/* SECTION 7: TESTIMONIAL & RESULTS */}
-      <TestimonialReplica />
-
-      {/* SECTION 8: FINAL CTA */}
-      <FinalCTAReplica />
-
-      {/* SECTION 9: FOOTER */}
-      <FooterReplica />
+      {/* 7. FOOTER: Zoom-inspired width and density */}
+      <FooterPremium />
 
       {/* INFRASTRUCTURE INTELLIGENCE */}
       <Chatbot />
