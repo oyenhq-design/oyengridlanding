@@ -57,7 +57,7 @@ export function OperationalIntelligence() {
           </h2>
           
           <p className="max-w-2xl mx-auto opacity-70">
-            Transform fragmented data into a high-fidelity operating system. Our intelligence layer provides real-time governance across every node.
+            Coordinate large-scale programme operations through a unified operational infrastructure layer. Built for absolute structural integrity.
           </p>
         </motion.div>
 

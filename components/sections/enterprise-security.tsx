@@ -49,7 +49,7 @@ export function EnterpriseSecurity() {
             </h2>
             
             <p className="mb-16 max-w-[500px]">
-              Our security architecture is built for the most demanding enterprise requirements. We prioritize sovereign data control and absolute visibility.
+              Our security architecture is built for the most demanding institutional requirements. We prioritize sovereign data control and absolute systemic visibility.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 lg:gap-14">

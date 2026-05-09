@@ -12,120 +12,95 @@ export function Hero() {
     offset: ["start start", "end start"]
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
-  const opacityFade = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-5%"]);
+  const opacityFade = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#030712]">
+    <section ref={sectionRef} className="relative min-h-[90vh] flex items-center pt-32 pb-48 overflow-hidden bg-[#020617]">
       
-      {/* BACKGROUND: Immersive Cinematic Environment with Parallax */}
+      {/* CINEMATIC BACKGROUND: Full Operational Environment */}
       <motion.div style={{ y: backgroundY }} className="absolute inset-0 z-0">
         <Image 
           src="/hero-ops-center.png" 
-          alt="Enterprise Operations Center" 
+          alt="Operations Environment" 
           fill
           priority
-          className="object-cover opacity-[0.5] grayscale-[0.2]"
+          className="object-cover opacity-[0.4] grayscale-[0.2]"
         />
-        {/* Controlled Contrast Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#030712]/82 via-[#030712]/94 to-[#030712]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030712] via-transparent to-transparent" />
-        
-        {/* Subtle Atmospheric Reflection */}
-        <motion.div 
-          animate={{ 
-            opacity: [0.05, 0.1, 0.05],
-            x: ["-10%", "10%", "-10%"]
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(214,166,60,0.04),transparent_60%)]"
-        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#020617]/90 to-[#020617]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-transparent to-[#020617]/40" />
       </motion.div>
 
-      <div className="container-custom relative z-10 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+      <div className="container-custom relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
-          {/* LEFT CONTENT: Restrained & Authoritative */}
+          {/* LAYERED CONTENT: Integrated into the scene */}
           <motion.div
             style={{ y: contentY, opacity: opacityFade }}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7"
+            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-12 xl:col-span-10"
           >
-            {/* Top Indicator: Institutional Label */}
-            <div className="inline-flex items-center gap-4 mb-10">
-               <div className="live-pulse" />
-               <span className="label-institutional">Live Operational Infrastructure</span>
-            </div>
-            
-            {/* Heading: Premium Hierarchy */}
-            <h1 className="text-white mb-10">
-              Professional programme <br />
-              infrastructure for <span className="text-accent-gold italic font-medium">scale.</span>
-            </h1>
-            
-            <p className="mb-14 max-w-[540px]">
-              Built for operational clarity at global enterprise scale. The premier platform for managing complex initiatives with absolute structural integrity.
-            </p>
+            <div className="max-w-4xl">
+              {/* Institutional Tag */}
+              <div className="inline-flex items-center gap-5 mb-14">
+                 <div className="h-px w-8 bg-accent-gold/40" />
+                 <span className="label-institutional !tracking-[0.24em] opacity-80">Institutional Operating System</span>
+              </div>
+              
+              {/* Headline: Precise & Calm */}
+              <h1 className="text-white mb-14 max-w-4xl">
+                Professional programme <br />
+                infrastructure for global <br />
+                operational <span className="text-accent-gold italic font-medium">scale.</span>
+              </h1>
+              
+              {/* Supporting Copy: Believable */}
+              <p className="max-w-[520px] mb-20 text-white/50">
+                Coordinate large-scale programme operations through a unified operational infrastructure layer. Built for absolute structural integrity and systemic clarity.
+              </p>
 
-            {/* Actions: Premium Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-8">
-              <button className="btn-gold px-12 h-14 w-full sm:w-auto">
-                Initialize System
-              </button>
-              <button className="text-[13px] font-bold text-white/40 hover:text-white transition-all uppercase tracking-[0.24em] flex items-center gap-3 group">
-                Access Documentation <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              {/* Action Protocol */}
+              <div className="flex flex-col sm:flex-row items-center gap-10">
+                <button className="btn-gold px-14 h-16 text-[14px]">
+                  Initialize System
+                </button>
+                <button className="text-[14px] font-bold text-white/30 hover:text-white transition-all uppercase tracking-[0.22em] flex items-center gap-3 group">
+                  Access Documentation <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
             </div>
           </motion.div>
 
-          {/* RIGHT VISUAL: Integrated Perspective Dashboard */}
+          {/* INTEGRATED DASHBOARD: Floating with Perspective */}
           <motion.div
-            style={{ y: contentY }}
-            initial={{ opacity: 0, scale: 0.98, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 1.4, delay: 0.2 }}
-            className="lg:col-span-5 hidden lg:block"
+             initial={{ opacity: 0, x: 100, rotateY: -15 }}
+             animate={{ opacity: 1, x: 0, rotateY: -6 }}
+             transition={{ duration: 1.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+             className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[60%] hidden xl:block pointer-events-none"
           >
-            <div className="relative group">
-               {/* Perspective Container */}
-               <div className="hero-perspective relative rounded-[32px] overflow-hidden border border-white/10 bg-[#050b1a]/80 backdrop-blur-3xl transition-all duration-1000 group-hover:border-white/20">
-                 <Image 
-                   src="/hero-dashboard.png" 
-                   alt="System Dashboard" 
-                   width={1200}
-                   height={800}
-                   className="opacity-90 grayscale-[0.3] group-hover:grayscale-0 transition-all duration-[2s] group-hover:scale-105"
-                 />
-                 {/* Ambient Glow & Reflections */}
-                 <div className="absolute inset-0 bg-gradient-to-tr from-[#030712]/60 via-transparent to-white/5" />
-                 
-                 <motion.div 
-                    animate={{ x: ["-100%", "200%"] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "linear", repeatDelay: 3 }}
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12"
-                 />
-               </div>
-               
-               {/* Integrated Metric Tag */}
-               <motion.div
-                 animate={{ y: [0, -8, 0] }}
-                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                 className="absolute -bottom-8 -left-12 p-8 rounded-[24px] bg-[#071126]/90 backdrop-blur-2xl border border-white/10 shadow-2xl"
-               >
-                  <div className="text-[10px] text-accent-gold font-black uppercase tracking-[0.24em] mb-2">Live Telemetry</div>
-                  <div className="text-2xl font-bold text-white tabular-nums tracking-tighter">99.9% Optimal</div>
-               </motion.div>
-            </div>
+             <div className="hero-perspective relative rounded-[40px] overflow-hidden border border-white/10 bg-[#050b1a]/40 backdrop-blur-2xl">
+                <Image 
+                  src="/hero-dashboard.png" 
+                  alt="System Layer" 
+                  width={1400} 
+                  height={900} 
+                  className="opacity-70 grayscale-[0.5]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#020617]/80 via-transparent to-white/5" />
+                
+                {/* Monitor Glow Effect */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(214,166,60,0.05),transparent_70%)] mix-blend-screen" />
+             </div>
+             
+             {/* Foreground Atmosphere */}
+             <div className="absolute inset-0 blur-[100px] bg-accent-gold/5 -z-10" />
           </motion.div>
 
         </div>
       </div>
-      
-      {/* Bottom atmospheric transition */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#020617] to-transparent z-20" />
     </section>
   );
 }

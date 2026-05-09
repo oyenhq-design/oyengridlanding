@@ -36,13 +36,23 @@
     @apply text-[32px] md:text-[48px] font-bold leading-[1.1] tracking-tight;
   }
 
+  h3, h4 {
+    @apply font-bold tracking-tight;
+  }
+
   p {
-    @apply text-[15px] leading-[1.7] text-text-secondary font-light;
+    @apply text-[15px] md:text-[17px] leading-[1.7] text-text-secondary font-light;
   }
 
   .label-institutional {
-    @apply text-[11px] font-medium text-accent-gold uppercase tracking-[0.24em];
+    @apply text-[11px] font-medium text-accent-gold uppercase tracking-[0.22em];
   }
+
+  /* Institutional Spacing Rhythm */
+  .section-rhythm-1 { @apply py-[140px]; }
+  .section-rhythm-2 { @apply py-[220px]; }
+  .section-rhythm-3 { @apply py-[160px]; }
+  .section-rhythm-4 { @apply py-[260px]; }
 }
 
 @layer components {

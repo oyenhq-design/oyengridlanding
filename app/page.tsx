@@ -12,37 +12,50 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className="relative">
+        {/* Continuous Environment Anchor */}
+        <div className="absolute inset-0 z-0 continuous-env opacity-40 pointer-events-none" />
+
         <AnnouncementBar />
         <Hero />
         
-        <SectionReveal>
-          <MetricsStrip />
-        </SectionReveal>
+        {/* EDITORIAL SPACING RHYTHM */}
+        
+        <div className="section-rhythm-1 relative z-10">
+          <SectionReveal>
+            <MetricsStrip />
+          </SectionReveal>
+        </div>
+
+        <div className="section-rhythm-2 relative z-10">
+          <SectionReveal>
+            <OperationalIntelligence />
+          </SectionReveal>
+        </div>
 
         <div className="section-divider-subtle" />
 
-        <SectionReveal>
-          <OperationalIntelligence />
-        </SectionReveal>
+        <div className="section-rhythm-3 relative z-10">
+          <SectionReveal>
+            <EnterpriseSecurity />
+          </SectionReveal>
+        </div>
 
         <div className="section-divider-subtle" />
 
-        <SectionReveal>
-          <EnterpriseSecurity />
-        </SectionReveal>
+        <div className="section-rhythm-4 relative z-10">
+          <SectionReveal>
+            <TestimonialSection />
+          </SectionReveal>
+        </div>
 
         <div className="section-divider-subtle" />
 
-        <SectionReveal>
-          <TestimonialSection />
-        </SectionReveal>
-
-        <div className="section-divider-subtle" />
-
-        <SectionReveal>
-          <FinalCTA />
-        </SectionReveal>
+        <div className="section-rhythm-2 relative z-10">
+          <SectionReveal>
+            <FinalCTA />
+          </SectionReveal>
+        </div>
       </main>
       <Footer />
     </>
