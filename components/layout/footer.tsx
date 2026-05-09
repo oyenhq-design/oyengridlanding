@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Globe, ShieldCheck, Activity, Cpu } from "lucide-react";
 
-export function Footer() {
+export function FooterZoom() {
   const columns = [
     {
       title: "Platform",
@@ -18,27 +18,23 @@ export function Footer() {
       links: ["Documentation", "Architecture", "Compliance", "Help Center", "API"]
     },
     {
-      title: "Company",
-      links: ["About", "Careers", "Newsroom", "Contact"]
-    },
-    {
       title: "Legal",
       links: ["Privacy Protocol", "Terms of Governance", "Data Sovereignty"]
     }
   ];
 
   return (
-    <footer className="bg-[#050505] border-t border-white/5 pt-32 pb-16">
+    <footer className="bg-[#040816] border-t border-white/5 pt-32 pb-16">
       <div className="container-custom">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-16 mb-32">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-16 mb-32">
           
-          {/* BRAND COLUMN */}
-          <div className="col-span-2">
-            <div className="flex items-center gap-3 mb-10 group">
-              <div className="w-8 h-8 bg-accent-gold rounded-lg flex items-center justify-center font-black text-black text-sm transition-transform group-hover:rotate-12">O</div>
-              <span className="font-bold text-white tracking-[-0.04em] text-[18px]">OYEN GRID</span>
+          {/* Brand Column */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-4 mb-10 group">
+              <div className="w-[34px] h-[34px] bg-accent-gold rounded-xl flex items-center justify-center font-black text-black text-lg transition-transform group-hover:rotate-12">O</div>
+              <span className="font-bold text-white tracking-[-0.04em] text-[20px] uppercase">OYEN GRID</span>
             </div>
-            <p className="text-white/30 text-[14px] leading-relaxed max-w-[280px] font-light mb-10">
+            <p className="text-white/25 text-[14px] leading-relaxed max-w-[280px] font-light mb-12">
               The professional operating system for global programme delivery and institutional coordination.
             </p>
             <div className="flex items-center gap-6">
@@ -51,14 +47,14 @@ export function Footer() {
             </div>
           </div>
 
-          {/* LINKS COLUMNS */}
+          {/* Links Columns */}
           {columns.map((col, i) => (
             <div key={i}>
-              <h5 className="text-[11px] font-black uppercase tracking-[0.3em] text-white/40 mb-10">{col.title}</h5>
+              <h5 className="text-[11px] font-black uppercase tracking-[0.35em] text-white/30 mb-10">{col.title}</h5>
               <ul className="space-y-5">
                 {col.links.map((link, j) => (
                   <li key={j}>
-                    <Link href="#" className="text-[14px] text-white/20 hover:text-accent-gold transition-colors font-light">
+                    <Link href="#" className="text-[14px] text-white/20 hover:text-white transition-colors font-medium">
                       {link}
                     </Link>
                   </li>
@@ -74,12 +70,12 @@ export function Footer() {
               © 2026 OYEN GRID // Institutional Systems Division
            </div>
            
-           <div className="flex items-center gap-10">
-              <div className="flex items-center gap-3">
-                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]" />
+           <div className="flex items-center gap-12">
+              <div className="flex items-center gap-4">
+                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30">System Nominal</span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                  <Cpu className="w-3.5 h-3.5 text-white/10" />
                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30">L-04 Protocol Active</span>
               </div>
