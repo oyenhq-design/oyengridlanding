@@ -26,7 +26,7 @@ export function EnterpriseSecurityZoom() {
             className="max-w-xl order-2 lg:order-1"
           >
             <div className="flex items-center gap-4 mb-14">
-               <div className="h-px w-8 bg-accent-gold/40" />
+               <div className="h-px w-8 bg-brand-gold/40" />
                <span className="text-[11px] font-black uppercase tracking-[0.4em] text-white/30">Security Architecture</span>
             </div>
             
@@ -42,8 +42,8 @@ export function EnterpriseSecurityZoom() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 mb-20">
                {points.map((t, i) => (
                  <div key={i} className="flex items-center gap-5 group">
-                    <div className="w-5 h-5 rounded-full bg-accent-gold/10 flex items-center justify-center border border-accent-gold/20 group-hover:bg-accent-gold transition-all duration-500">
-                       <Check className="w-3 h-3 text-accent-gold group-hover:text-black transition-colors" />
+                    <div className="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center border border-brand-gold/20 group-hover:bg-brand-gold transition-all duration-500">
+                       <Check className="w-3 h-3 text-brand-gold group-hover:text-black transition-colors" />
                     </div>
                     <span className="text-[15px] text-white/60 font-bold tracking-tight">{t}</span>
                  </div>
@@ -78,8 +78,8 @@ export function EnterpriseSecurityZoom() {
                {/* Telemetry Label */}
                <div className="absolute bottom-12 left-12 p-8 bg-black/50 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-3xl">
                   <div className="flex items-center gap-3 mb-4">
-                     <ShieldCheck className="w-5 h-5 text-accent-gold" />
-                     <span className="text-[10px] font-black uppercase tracking-[0.3em] text-accent-gold">Verified Node Trace</span>
+                     <ShieldCheck className="w-5 h-5 text-brand-gold" />
+                     <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-gold">Verified Node Trace</span>
                   </div>
                   <div className="text-[18px] font-bold text-white tracking-tight mb-2">Sovereign Encryption Layer</div>
                   <div className="flex items-center gap-2">

@@ -21,7 +21,7 @@ export function Chatbot() {
             {/* Header */}
             <div className="p-8 border-b border-white/5 flex items-center justify-between bg-white/[0.02]">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-accent-gold/10 flex items-center justify-center text-accent-gold border border-accent-gold/20 shadow-[0_0_15px_rgba(212,166,58,0.2)]">
+                <div className="w-12 h-12 rounded-2xl bg-brand-gold/10 flex items-center justify-center text-brand-gold border border-brand-gold/20 shadow-[0_0_15px_rgba(212,166,58,0.2)]">
                   <Cpu className="w-6 h-6" />
                 </div>
                 <div>
@@ -57,9 +57,9 @@ export function Chatbot() {
                 <input 
                   type="text" 
                   placeholder="Send operational command..."
-                  className="w-full h-14 bg-white/[0.03] border border-white/5 rounded-2xl px-6 text-[14px] text-white placeholder:text-white/10 focus:outline-none focus:border-accent-gold/40 transition-all font-light"
+                  className="w-full h-14 bg-white/[0.03] border border-white/5 rounded-2xl px-6 text-[14px] text-white placeholder:text-white/10 focus:outline-none focus:border-brand-gold/40 transition-all font-light"
                 />
-                <button className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-accent-gold rounded-xl flex items-center justify-center text-black shadow-lg hover:scale-105 transition-all">
+                <button className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-brand-gold rounded-xl flex items-center justify-center text-black shadow-lg hover:scale-105 transition-all">
                   <Send className="w-4 h-4" />
                 </button>
               </div>
@@ -77,7 +77,7 @@ export function Chatbot() {
           "w-16 h-16 rounded-[22px] flex items-center justify-center transition-all duration-500 shadow-2xl group relative",
           isOpen 
             ? "bg-white/[0.05] border border-white/10 text-white" 
-            : "bg-accent-gold text-black border-none"
+            : "bg-brand-gold text-black border-none"
         )}
       >
         {isOpen ? <X className="w-6 h-6" /> : <MessageSquare className="w-7 h-7" />}

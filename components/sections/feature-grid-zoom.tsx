@@ -49,9 +49,9 @@ export function FeatureGridZoom() {
       <div className="container-custom relative z-10">
         <div className="text-center max-w-4xl mx-auto mb-32">
           <div className="flex items-center justify-center gap-6 mb-12">
-             <div className="h-px w-12 bg-accent-gold/30" />
+             <div className="h-px w-12 bg-brand-gold/30" />
              <span className="text-[11px] font-black uppercase tracking-[0.5em] text-white/30">Intelligence Layer</span>
-             <div className="h-px w-12 bg-accent-gold/30" />
+             <div className="h-px w-12 bg-brand-gold/30" />
           </div>
 
           <h2 className="text-white mb-12 text-[44px] md:text-[76px] leading-[0.95] tracking-[-0.06em]">
@@ -80,18 +80,18 @@ export function FeatureGridZoom() {
                 
                 <div className="relative h-full bg-[#080C1A]/60 backdrop-blur-3xl rounded-[31px] p-10 flex flex-col border border-white/[0.03]">
                    <div className="flex items-center justify-between mb-12">
-                      <div className="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center text-accent-gold/30 group-hover:text-accent-gold group-hover:border-accent-gold/20 group-hover:bg-accent-gold/10 transition-all duration-700">
+                      <div className="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-center text-brand-gold/30 group-hover:text-brand-gold group-hover:border-brand-gold/20 group-hover:bg-brand-gold/10 transition-all duration-700">
                          <card.icon className="w-7 h-7" />
                       </div>
-                      <ArrowUpRight className="w-5 h-5 text-white/5 group-hover:text-accent-gold/40 transition-all duration-500" />
+                      <ArrowUpRight className="w-5 h-5 text-white/5 group-hover:text-brand-gold/40 transition-all duration-500" />
                    </div>
                    
-                   <h4 className="text-[22px] font-bold text-white mb-5 group-hover:text-accent-gold transition-colors duration-500 tracking-tight">{card.title}</h4>
+                   <h4 className="text-[22px] font-bold text-white mb-5 group-hover:text-brand-gold transition-colors duration-500 tracking-tight">{card.title}</h4>
                    <p className="text-[14.5px] text-white/30 leading-relaxed font-light mb-12">{card.desc}</p>
                    
                    <div className="mt-auto pt-8 border-t border-white/5 flex justify-between items-center">
-                      <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/10 group-hover:text-accent-gold/30 transition-colors">Protocol {card.protocol}</span>
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent-gold/0 group-hover:bg-accent-gold/40 transition-all shadow-[0_0_8px_rgba(212,166,58,0.4)]" />
+                      <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/10 group-hover:text-brand-gold/30 transition-colors">Protocol {card.protocol}</span>
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/0 group-hover:bg-brand-gold/40 transition-all shadow-[0_0_8px_rgba(212,166,58,0.4)]" />
                    </div>
                 </div>
              </motion.div>

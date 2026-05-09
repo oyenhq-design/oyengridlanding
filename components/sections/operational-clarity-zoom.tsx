@@ -43,7 +43,7 @@ export function OperationalClarityZoom() {
             </div>
             
             {/* Visual Decoration */}
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-accent-gold/5 blur-[100px] -z-10" />
+            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-brand-gold/5 blur-[100px] -z-10" />
           </motion.div>
 
           {/* RIGHT: CONTENT PROTOCOLS */}
@@ -55,7 +55,7 @@ export function OperationalClarityZoom() {
             className="max-w-xl"
           >
             <div className="flex items-center gap-4 mb-14">
-               <div className="h-px w-8 bg-accent-gold/40" />
+               <div className="h-px w-8 bg-brand-gold/40" />
                <span className="text-[11px] font-black uppercase tracking-[0.4em] text-white/30">Institutional Strategy</span>
             </div>
             
@@ -71,7 +71,7 @@ export function OperationalClarityZoom() {
             <div className="space-y-12 mb-20">
                {features.map((f, i) => (
                  <div key={i} className="flex gap-8 group">
-                    <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-accent-gold/40 group-hover:text-accent-gold group-hover:bg-accent-gold/10 transition-all duration-500">
+                    <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-brand-gold/40 group-hover:text-brand-gold group-hover:bg-brand-gold/10 transition-all duration-500">
                        <f.icon className="w-6 h-6" />
                     </div>
                     <div>
@@ -82,7 +82,7 @@ export function OperationalClarityZoom() {
                ))}
             </div>
 
-            <button className="flex items-center gap-4 text-[13px] font-black uppercase tracking-[0.3em] text-white/30 hover:text-accent-gold transition-all group">
+            <button className="flex items-center gap-4 text-[13px] font-black uppercase tracking-[0.3em] text-white/30 hover:text-brand-gold transition-all group">
                Explore Architecture <ArrowRight className="w-5 h-5 group-hover:translate-x-3 transition-transform" />
             </button>
           </motion.div>

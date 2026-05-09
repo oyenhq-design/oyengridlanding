@@ -38,13 +38,13 @@ export function SecurityGovernance() {
             className="lg:col-span-6"
           >
             <div className="inline-flex items-center gap-4 mb-10">
-               <div className="h-px w-8 bg-accent-gold/40" />
+               <div className="h-px w-8 bg-brand-gold/40" />
                <span className="label-enterprise">Institutional Governance</span>
             </div>
             
             <h2 className="text-white mb-10">
               Institutional protection <br />
-              <span className="text-accent-gold italic font-semibold">by design.</span>
+              <span className="text-brand-gold italic font-semibold">by design.</span>
             </h2>
             
             <p className="text-[19px] text-white/40 mb-20 max-w-xl leading-relaxed font-light">
@@ -54,7 +54,7 @@ export function SecurityGovernance() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">
                {securityItems.map((item, i) => (
                  <div key={i} className="flex gap-5 group">
-                    <div className="w-10 h-10 shrink-0 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-accent-gold/40 group-hover:text-accent-gold group-hover:border-accent-gold/20 transition-all duration-500">
+                    <div className="w-10 h-10 shrink-0 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-brand-gold/40 group-hover:text-brand-gold group-hover:border-brand-gold/20 transition-all duration-500">
                        <item.icon className="w-5 h-5" />
                     </div>
                     <div>
@@ -87,7 +87,7 @@ export function SecurityGovernance() {
                    {[1, 2, 3].map((n) => (
                      <div key={n} className="h-16 rounded-xl bg-white/[0.02] border border-white/5 flex items-center px-6 justify-between group hover:bg-white/[0.04] transition-all">
                         <div className="flex items-center gap-6">
-                           <div className="w-2 h-2 rounded-full bg-accent-gold/20 group-hover:bg-accent-gold transition-colors" />
+                           <div className="w-2 h-2 rounded-full bg-brand-gold/20 group-hover:bg-brand-gold transition-colors" />
                            <div className="text-[14px] text-white/40 font-medium">Protocol Trace L-0{n}</div>
                         </div>
                         <div className="text-[10px] font-black text-emerald-500/40 uppercase tracking-widest">Verified</div>

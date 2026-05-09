@@ -31,17 +31,17 @@ export function FooterZoom() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-4 mb-10 group">
-              <div className="w-[34px] h-[34px] bg-accent-gold rounded-xl flex items-center justify-center font-black text-black text-lg transition-transform group-hover:rotate-12">O</div>
+              <div className="w-[34px] h-[34px] bg-brand-gold rounded-xl flex items-center justify-center font-black text-black text-lg transition-transform group-hover:rotate-12">O</div>
               <span className="font-bold text-white tracking-[-0.04em] text-[20px] uppercase">OYEN GRID</span>
             </div>
             <p className="text-white/25 text-[14px] leading-relaxed max-w-[280px] font-light mb-12">
               The professional operating system for global programme delivery and institutional coordination.
             </p>
             <div className="flex items-center gap-6">
-               <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-white/20 hover:text-accent-gold hover:border-accent-gold/20 transition-all cursor-pointer">
+               <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-white/20 hover:text-brand-gold hover:border-brand-gold/20 transition-all cursor-pointer">
                   <Globe className="w-4 h-4" />
                </div>
-               <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-white/20 hover:text-accent-gold hover:border-accent-gold/20 transition-all cursor-pointer">
+               <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-white/20 hover:text-brand-gold hover:border-brand-gold/20 transition-all cursor-pointer">
                   <ShieldCheck className="w-4 h-4" />
                </div>
             </div>

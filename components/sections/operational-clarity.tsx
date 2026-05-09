@@ -45,13 +45,13 @@ export function OperationalClarity() {
             className="order-1 lg:order-2"
           >
             <div className="flex items-center gap-4 mb-12">
-               <div className="h-px w-8 bg-accent-gold/40" />
+               <div className="h-px w-8 bg-brand-gold/40" />
                <span className="label-enterprise">Delivery Logic</span>
             </div>
             
             <h2 className="text-white mb-10 text-[40px] md:text-[64px] leading-[1.05] tracking-tight">
               Built for operational clarity at <br />
-              <span className="text-accent-gold italic font-semibold">global scale.</span>
+              <span className="text-brand-gold italic font-semibold">global scale.</span>
             </h2>
             
             <p className="text-white/40 text-[20px] leading-relaxed font-light mb-16 max-w-xl">
@@ -62,8 +62,8 @@ export function OperationalClarity() {
                {features.map((f, i) => (
                  <div key={i} className="group">
                     <div className="flex items-center gap-4 mb-5">
-                       <div className="w-6 h-6 rounded-lg bg-accent-gold/10 border border-accent-gold/20 flex items-center justify-center">
-                          <Check className="w-3.5 h-3.5 text-accent-gold" />
+                       <div className="w-6 h-6 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center">
+                          <Check className="w-3.5 h-3.5 text-brand-gold" />
                        </div>
                        <h4 className="text-white text-[18px] font-bold tracking-tight">{f.title}</h4>
                     </div>

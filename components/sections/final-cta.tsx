@@ -18,14 +18,14 @@ export function FinalCTA() {
           className="max-w-4xl mx-auto"
         >
           <div className="flex items-center justify-center gap-5 mb-14">
-             <div className="h-px w-12 bg-accent-gold/30" />
+             <div className="h-px w-12 bg-brand-gold/30" />
              <span className="label-enterprise">Initialize Operations</span>
-             <div className="h-px w-12 bg-accent-gold/30" />
+             <div className="h-px w-12 bg-brand-gold/30" />
           </div>
 
           <h2 className="text-white mb-14 text-[44px] md:text-[84px] leading-[0.95] tracking-[-0.05em] font-bold">
             Built for the future of <br />
-            <span className="text-accent-gold italic font-semibold">global delivery.</span>
+            <span className="text-brand-gold italic font-semibold">global delivery.</span>
           </h2>
           
           <p className="text-[20px] text-white/40 mb-20 max-w-2xl mx-auto leading-relaxed font-light">

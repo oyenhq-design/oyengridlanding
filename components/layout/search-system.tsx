@@ -48,7 +48,7 @@ export function SearchSystem() {
           >
             {/* Search Input Bar */}
             <div className="p-8 border-b border-white/5 flex items-center gap-6">
-              <Search className="w-6 h-6 text-accent-gold/40" />
+              <Search className="w-6 h-6 text-brand-gold/40" />
               <input
                 autoFocus
                 type="text"
@@ -74,15 +74,15 @@ export function SearchSystem() {
                       className="w-full flex items-center justify-between p-6 rounded-[24px] hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all group"
                     >
                        <div className="flex items-center gap-6">
-                          <div className="w-12 h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center text-white/20 group-hover:text-accent-gold group-hover:border-accent-gold/20 group-hover:bg-accent-gold/10 transition-all">
+                          <div className="w-12 h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center text-white/20 group-hover:text-brand-gold group-hover:border-brand-gold/20 group-hover:bg-brand-gold/10 transition-all">
                              <item.icon className="w-5 h-5" />
                           </div>
                           <div className="text-left">
-                             <div className="text-[17px] font-bold text-white group-hover:text-accent-gold transition-colors">{item.title}</div>
+                             <div className="text-[17px] font-bold text-white group-hover:text-brand-gold transition-colors">{item.title}</div>
                              <div className="text-[12px] text-white/20 font-medium uppercase tracking-widest mt-1">{item.category}</div>
                           </div>
                        </div>
-                       <div className="text-[10px] font-black text-white/5 uppercase tracking-widest group-hover:text-accent-gold/40 transition-colors">Select Protocol →</div>
+                       <div className="text-[10px] font-black text-white/5 uppercase tracking-widest group-hover:text-brand-gold/40 transition-colors">Select Protocol →</div>
                     </button>
                   ))}
                </div>
@@ -96,7 +96,7 @@ export function SearchSystem() {
                      <span className="text-[10px] font-bold text-white/10 uppercase tracking-widest">Index Synced</span>
                   </div>
                   <div className="flex items-center gap-2">
-                     <div className="w-1.5 h-1.5 rounded-full bg-accent-gold/40" />
+                     <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/40" />
                      <span className="text-[10px] font-bold text-white/10 uppercase tracking-widest">Global Node Search</span>
                   </div>
                </div>

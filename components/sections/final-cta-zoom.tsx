@@ -29,9 +29,9 @@ export function FinalCTAZoom() {
           className="max-w-5xl mx-auto"
         >
           <div className="flex items-center justify-center gap-6 mb-16">
-             <div className="h-px w-12 bg-accent-gold/40" />
+             <div className="h-px w-12 bg-brand-gold/40" />
              <span className="text-[11px] font-black uppercase tracking-[0.5em] text-white/30">System Initialization</span>
-             <div className="h-px w-12 bg-accent-gold/40" />
+             <div className="h-px w-12 bg-brand-gold/40" />
           </div>
 
           <h2 className="text-white mb-16 text-[56px] md:text-[96px] leading-[0.92] tracking-[-0.07em]">
@@ -56,7 +56,7 @@ export function FinalCTAZoom() {
           <div className="mt-40 pt-20 border-t border-white/5 flex flex-wrap justify-center gap-x-20 gap-y-10 grayscale opacity-20 group">
              {["Infrastructure", "Governance", "Orchestration", "Sovereignty"].map((t) => (
                <div key={t} className="flex items-center gap-4">
-                  <div className="w-2 h-2 rounded-full bg-white group-hover:bg-accent-gold transition-colors duration-700" />
+                  <div className="w-2 h-2 rounded-full bg-white group-hover:bg-brand-gold transition-colors duration-700" />
                   <span className="text-[11px] font-black uppercase tracking-[0.5em] text-white">{t}</span>
                </div>
              ))}

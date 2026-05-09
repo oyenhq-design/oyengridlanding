@@ -22,7 +22,7 @@ export function TestimonialZoom() {
             className="lg:col-span-8"
           >
              <div className="flex items-center gap-6 mb-16">
-                <div className="h-px w-10 bg-accent-gold/40" />
+                <div className="h-px w-10 bg-brand-gold/40" />
                 <span className="text-[11px] font-black uppercase tracking-[0.4em] text-white/30">Executive Validation</span>
              </div>
              
@@ -50,7 +50,7 @@ export function TestimonialZoom() {
             className="lg:col-span-4"
           >
              <div className="bg-[#080C1A]/80 backdrop-blur-3xl border border-white/5 rounded-[40px] p-12 shadow-[0_80px_160px_rgba(0,0,0,0.7)] relative overflow-hidden group">
-                <div className="absolute top-0 left-0 w-full h-1.5 bg-accent-gold/40 group-hover:h-2 transition-all duration-500" />
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-brand-gold/40 group-hover:h-2 transition-all duration-500" />
                 
                 <div className="text-[10px] font-black uppercase tracking-[0.45em] text-white/10 mb-16">Operational Impact Analysis</div>
                 

@@ -58,7 +58,7 @@ export function HeroZoom() {
           >
             <div className="max-w-[720px]">
               <div className="inline-flex items-center gap-4 mb-12">
-                 <div className="h-px w-8 bg-accent-gold/40" />
+                 <div className="h-px w-8 bg-brand-gold/40" />
                  <span className="text-[11px] font-black uppercase tracking-[0.35em] text-white/50">Enterprise Operating System</span>
               </div>
               
@@ -80,8 +80,8 @@ export function HeroZoom() {
                    "Scalable institutional deployment"
                  ].map((t) => (
                    <div key={t} className="flex items-center gap-4">
-                      <div className="w-5 h-5 rounded-full bg-accent-gold/10 flex items-center justify-center border border-accent-gold/20">
-                         <Check className="w-3 h-3 text-accent-gold" />
+                      <div className="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center border border-brand-gold/20">
+                         <Check className="w-3 h-3 text-brand-gold" />
                       </div>
                       <span className="text-[14px] font-bold text-white/60 tracking-tight">{t}</span>
                    </div>
@@ -100,7 +100,7 @@ export function HeroZoom() {
               <div className="mt-14 flex items-center gap-6 pt-10 border-t border-white/5">
                  <div className="flex -space-x-2">
                     {[1,2,3,4,5].map(i => (
-                      <div key={i} className="w-5 h-5 flex items-center justify-center text-accent-gold">
+                      <div key={i} className="w-5 h-5 flex items-center justify-center text-brand-gold">
                         <Star className="w-4 h-4 fill-current" />
                       </div>
                     ))}
@@ -139,7 +139,7 @@ export function HeroZoom() {
                 </div>
 
                 {/* Perspective Reflection */}
-                <div className="absolute -inset-10 bg-accent-gold/5 blur-[100px] -z-10 opacity-40 group-hover:opacity-60 transition-opacity" />
+                <div className="absolute -inset-10 bg-brand-gold/5 blur-[100px] -z-10 opacity-40 group-hover:opacity-60 transition-opacity" />
              </div>
           </motion.div>
         </div>
@@ -151,7 +151,7 @@ export function HeroZoom() {
            {metrics.map((m, i) => (
              <div key={i} className="flex items-center gap-12 group">
                 <div className="flex flex-col items-center">
-                   <span className="text-[36px] font-bold text-white group-hover:text-accent-gold transition-colors duration-500 tracking-[-0.04em]">{m.value}</span>
+                   <span className="text-[36px] font-bold text-white group-hover:text-brand-gold transition-colors duration-500 tracking-[-0.04em]">{m.value}</span>
                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/10 mt-1">{m.label}</span>
                 </div>
                 {i < metrics.length - 1 && (

@@ -17,7 +17,7 @@ export function Hero() {
       
       {/* ENVIRONMENTAL DEPTH */}
       <div className="absolute inset-0 z-0">
-         <div className="absolute top-[10%] right-[-10%] w-[800px] h-[800px] bg-accent-gold/5 blur-[120px] rounded-full opacity-40" />
+         <div className="absolute top-[10%] right-[-10%] w-[800px] h-[800px] bg-brand-gold/5 blur-[120px] rounded-full opacity-40" />
          <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-white/[0.02] blur-[100px] rounded-full" />
       </div>
 
@@ -32,13 +32,13 @@ export function Hero() {
             className="lg:col-span-6"
           >
             <div className="inline-flex items-center gap-4 mb-10">
-               <div className="h-px w-8 bg-accent-gold/40" />
+               <div className="h-px w-8 bg-brand-gold/40" />
                <span className="label-enterprise">Institutional Operating System</span>
             </div>
             
             <h1 className="text-white mb-10 text-[52px] md:text-[76px] leading-[0.94] tracking-[-0.05em] font-bold">
               Run structured programmes with <br />
-              <span className="text-accent-gold italic font-semibold">operational control.</span>
+              <span className="text-brand-gold italic font-semibold">operational control.</span>
             </h1>
             
             <p className="text-[19px] text-white/50 mb-14 max-w-xl leading-relaxed font-light">
@@ -82,7 +82,7 @@ export function Hero() {
              </div>
              
              {/* Sub-atmospheric glow */}
-             <div className="absolute -inset-10 bg-accent-gold/5 blur-[80px] -z-10 opacity-30" />
+             <div className="absolute -inset-10 bg-brand-gold/5 blur-[80px] -z-10 opacity-30" />
           </motion.div>
         </div>
 

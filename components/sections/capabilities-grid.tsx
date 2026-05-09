@@ -25,14 +25,14 @@ export function CapabilitiesGrid() {
       <div className="container-custom relative z-10">
         <div className="text-center max-w-4xl mx-auto mb-32">
           <div className="flex items-center justify-center gap-5 mb-10">
-             <div className="h-px w-12 bg-accent-gold/30" />
+             <div className="h-px w-12 bg-brand-gold/30" />
              <span className="label-enterprise">Operational Capabilities</span>
-             <div className="h-px w-12 bg-accent-gold/30" />
+             <div className="h-px w-12 bg-brand-gold/30" />
           </div>
 
           <h2 className="text-white mb-10">
             Orchestrate every layer of your <br />
-            <span className="text-accent-gold italic font-medium">programme operations.</span>
+            <span className="text-brand-gold italic font-medium">programme operations.</span>
           </h2>
           
           <p className="max-w-2xl mx-auto text-white/40 text-[19px] leading-relaxed font-light">
@@ -52,10 +52,10 @@ export function CapabilitiesGrid() {
                className="feature-card flex flex-col group cursor-pointer"
              >
                 <div className="flex items-center justify-between mb-12">
-                   <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-accent-gold/40 group-hover:text-accent-gold group-hover:bg-accent-gold/10 transition-all duration-500">
+                   <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-brand-gold/40 group-hover:text-brand-gold group-hover:bg-brand-gold/10 transition-all duration-500">
                       <cap.icon className="w-6 h-6" />
                    </div>
-                   <ArrowUpRight className="w-5 h-5 text-white/5 group-hover:text-accent-gold/40 transition-all" />
+                   <ArrowUpRight className="w-5 h-5 text-white/5 group-hover:text-brand-gold/40 transition-all" />
                 </div>
                 
                 <h4 className="text-[22px] font-bold text-white mb-5 tracking-tight">{cap.title}</h4>
@@ -64,7 +64,7 @@ export function CapabilitiesGrid() {
                 </p>
                 
                 <div className="mt-auto pt-8 border-t border-white/5">
-                   <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white/10 group-hover:text-accent-gold/40 transition-colors">
+                   <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white/10 group-hover:text-brand-gold/40 transition-colors">
                       Protocol P-{i+1}0
                    </span>
                 </div>

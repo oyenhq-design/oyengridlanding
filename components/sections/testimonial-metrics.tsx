@@ -29,7 +29,7 @@ export function TestimonialMetrics() {
              <div className="label-enterprise mb-16">Global Validation</div>
              
              <blockquote className="text-[36px] md:text-[64px] font-bold text-white leading-[1.1] tracking-[-0.04em] mb-16 text-balance">
-                "OYEN GRID hasn't just improved our operations; it has redefined how we think about <span className="text-accent-gold italic font-semibold">global scale.</span>"
+                "OYEN GRID hasn't just improved our operations; it has redefined how we think about <span className="text-brand-gold italic font-semibold">global scale.</span>"
              </blockquote>
 
              <div className="flex flex-col items-center gap-6">
