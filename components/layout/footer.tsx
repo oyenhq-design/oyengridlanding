@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Twitter, Linkedin, ArrowUpRight } from "lucide-react";
+import { Globe, Code, Briefcase, ArrowUpRight } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -46,7 +46,7 @@ export function Footer() {
               Professional programme infrastructure for global enterprise scale. Institutional integrity by design.
             </p>
             <div className="flex gap-6">
-              {[Twitter, Github, Linkedin].map((Icon, i) => (
+              {[Globe, Code, Briefcase].map((Icon, i) => (
                 <Link key={i} href="#" className="text-white/20 hover:text-accent-gold transition-colors">
                   <Icon className="w-5 h-5" />
                 </Link>
