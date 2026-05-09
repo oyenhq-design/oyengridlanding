@@ -36,8 +36,8 @@ function NavDropdown({ label, sections, columns = 1 }: NavDropdownProps) {
       onMouseLeave={() => setIsOpen(false)}
     >
       <button className={cn(
-        "flex items-center gap-1.5 text-[14px] font-medium tracking-[0.02em] transition-all h-full px-1 group",
-        isOpen ? "text-white opacity-100" : "text-white/78 hover:text-white"
+        "flex items-center gap-1.5 text-[13px] font-medium tracking-[0.01em] transition-all h-full px-1 group",
+        isOpen ? "text-white opacity-100" : "text-white/74 hover:text-white hover:opacity-100"
       )}>
         {label}
         <ChevronDown className={cn(
@@ -155,27 +155,27 @@ export function Header() {
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b",
       scrolled 
-        ? "bg-gradient-to-b from-[#060a12]/92 to-[#060a12]/78 backdrop-blur-[14px] h-[76px] border-white/[0.06]" 
-        : "bg-transparent h-[76px] border-transparent"
+        ? "bg-gradient-to-b from-[#04060c]/96 to-[#04060c]/82 backdrop-blur-[14px] h-[74px] border-white/[0.06]" 
+        : "bg-transparent h-[74px] border-transparent"
     )}>
       <div className="container-custom h-full flex items-center justify-between">
         
         {/* Left: Brand Identity */}
         <div className="flex items-center gap-12 h-full">
           <Link href="/" className="flex items-center gap-4 relative z-10 group">
-            <div className="w-8.5 h-8.5 bg-accent-gold rounded-xl flex items-center justify-center font-black text-[#020617] text-xl transition-transform group-hover:scale-105">O</div>
+            <div className="w-[34px] h-[34px] bg-[#C8942D] rounded-xl flex items-center justify-center font-black text-[#020617] text-lg transition-transform group-hover:scale-105">O</div>
             <div className="flex flex-col justify-center">
               <span className="font-bold text-white tracking-[-0.04em] text-[18px] leading-none">OYEN GRID</span>
-              <span className="text-[9px] font-medium text-white/52 uppercase tracking-[0.22em] mt-1.5 hidden sm:block">Structured Programme OS</span>
+              <span className="text-[9px] font-medium text-white/48 uppercase tracking-[0.22em] mt-1.5 hidden sm:block">Institutional Infrastructure</span>
             </div>
           </Link>
 
           {/* Center: Enterprise Navigation */}
-          <nav className="hidden lg:flex items-center gap-[34px] h-full ml-2">
+          <nav className="hidden lg:flex items-center gap-[30px] h-full ml-2">
             <NavDropdown label="Platform" sections={platformSections} columns={2} />
             <NavDropdown label="Solutions" sections={solutionsSections} columns={2} />
-            <Link href="#" className="text-[14px] font-medium text-white/78 hover:text-white transition-all h-full flex items-center tracking-[0.02em]">Operations</Link>
-            <Link href="#" className="text-[14px] font-medium text-white/78 hover:text-white transition-all h-full flex items-center tracking-[0.02em]">Pricing</Link>
+            <Link href="#" className="text-[13px] font-medium text-white/74 hover:text-white transition-all h-full flex items-center tracking-[0.01em]">Operations</Link>
+            <Link href="#" className="text-[13px] font-medium text-white/74 hover:text-white transition-all h-full flex items-center tracking-[0.01em]">Pricing</Link>
             <NavDropdown label="Resources" sections={resourcesSections} />
           </nav>
         </div>
@@ -184,20 +184,23 @@ export function Header() {
         <div className="flex items-center gap-6 relative z-10">
           <button 
             onClick={openSearch}
-            className="w-9 h-9 flex items-center justify-center bg-white/[0.03] border border-white/[0.04] text-white/20 hover:text-white rounded-[10px] transition-all group"
+            className="w-9 h-9 flex items-center justify-center bg-white/[0.02] border border-white/[0.05] backdrop-blur-[10px] text-white/20 hover:text-white rounded-[12px] transition-all group"
           >
             <Search className="w-4.5 h-4.5 group-hover:scale-110 transition-transform" />
           </button>
           
           <div className="flex items-center gap-4">
-            <Link href="/login" className="text-[13px] font-medium text-white/58 hover:text-white transition-colors px-4 hidden xl:block">
+            <Link href="/login" className="text-[13px] font-medium text-white/55 hover:text-white transition-colors px-4 hidden xl:block">
               Login
             </Link>
-            <button className="h-10 px-[18px] rounded-xl border border-white/6 bg-white/[0.02] text-[13px] font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">
+            <button className="h-10 px-[18px] rounded-xl border border-white/6 bg-white/[0.025] text-[13px] font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap tracking-[0.02em]">
               Talk to Sales
             </button>
-            <button className="h-[42px] px-6 rounded-2xl text-[13px] font-bold text-[#020617] transition-all hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(217,174,71,0.25)] tracking-[0.08em] whitespace-nowrap"
-              style={{ background: "linear-gradient(180deg, #D9AE47 0%, #C9972F 100%)" }}>
+            <button className="h-[42px] px-[22px] rounded-2xl text-[13px] font-bold text-[#020617] transition-all hover:-translate-y-1 tracking-[0.08em] whitespace-nowrap"
+              style={{ 
+                background: "linear-gradient(180deg, #E0B84F 0%, #C8942D 100%)",
+                boxShadow: "0 8px 24px rgba(212,166,58,0.18), inset 0 1px 0 rgba(255,255,255,0.18)"
+              }}>
               Start Building
             </button>
           </div>
@@ -209,23 +212,23 @@ export function Header() {
 
 export function AnnouncementBar() {
   return (
-    <div className="pt-[118px] flex justify-center px-4 relative z-40">
+    <div className="pt-[114px] flex justify-center px-4 relative z-40">
       <motion.div 
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        className="h-[42px] bg-white/[0.025] border border-white/[0.05] rounded-full px-6 flex items-center justify-between gap-12 backdrop-blur-2xl shadow-2xl min-w-[720px]"
+        className="h-[40px] bg-white/[0.025] border border-white/[0.05] rounded-full px-6 flex items-center justify-between gap-12 backdrop-blur-2xl shadow-2xl min-w-[720px]"
       >
         <div className="flex items-center gap-3">
           <div className="live-pulse" />
-          <span className="text-[11px] font-medium text-white/40 uppercase tracking-[0.1em]">Infrastructure Status</span>
+          <span className="text-[11px] font-medium text-white/55 uppercase tracking-[0.18em]">Infrastructure Status</span>
         </div>
 
-        <span className="text-[12px] text-white/60 font-light tracking-wide">
+        <span className="text-[13px] text-white/72 font-light tracking-wide">
           Operational synchronization active across institutional delivery nodes.
         </span>
 
         <div className="flex items-center gap-2 group cursor-pointer">
-          <span className="text-[11px] font-bold text-white/50 group-hover:text-accent-gold transition-colors uppercase tracking-[0.1em]">View Infrastructure</span>
+          <span className="text-[12px] font-semibold text-white/50 group-hover:text-accent-gold transition-colors uppercase tracking-[0.08em]">View Infrastructure</span>
           <ArrowRight className="w-3.5 h-3.5 text-white/30 group-hover:text-accent-gold transition-colors" />
         </div>
       </motion.div>
