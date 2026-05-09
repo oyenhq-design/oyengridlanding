@@ -1,28 +1,8 @@
-import { Header, AnnouncementBar } from "@/components/layout/header";
-import { HeroInstitutional } from "@/components/sections/hero-institutional";
-import { OperationalClarityV2 } from "@/components/sections/operational-clarity-v2";
-import { IntelligenceLayerV2 } from "@/components/sections/intelligence-layer-v2";
-import { StructuralProtection } from "@/components/sections/structural-protection";
-import { InstitutionalTestimonials } from "@/components/sections/institutional-testimonials";
-import { FinalCTAInstitutional } from "@/components/sections/final-cta-institutional";
-import { Footer } from "@/components/layout/footer";
-import { Chatbot } from "@/components/layout/chatbot";
-import { SearchSystem } from "@/components/layout/search-system";
-
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#040816]">
-      <Header />
-      <AnnouncementBar />
-      <HeroInstitutional />
-      <OperationalClarityV2 />
-      <IntelligenceLayerV2 />
-      <StructuralProtection />
-      <InstitutionalTestimonials />
-      <FinalCTAInstitutional />
-      <Footer />
-      <Chatbot />
-      <SearchSystem />
+    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+      <h1 className="text-4xl font-bold">Start Again</h1>
+      <p className="mt-4 text-xl">The workspace has been cleared. Ready for the new build.</p>
     </main>
   );
 }
