@@ -28,7 +28,7 @@ export function Hero() {
       {/* CINEMATIC BACKGROUND: Full Operational Environment */}
       <motion.div style={{ y: backgroundY }} className="absolute inset-0 z-0">
         <Image 
-          src="/hero-ops-center.png" 
+          src="/hero-elite-bg.png" 
           alt="Operations Environment" 
           fill
           priority
