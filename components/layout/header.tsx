@@ -36,11 +36,14 @@ function NavDropdown({ label, sections, columns = 1 }: NavDropdownProps) {
       onMouseLeave={() => setIsOpen(false)}
     >
       <button className={cn(
-        "flex items-center gap-1.5 text-[14px] font-medium tracking-tight transition-colors h-full px-4",
-        isOpen ? "text-accent-gold" : "text-white/60 hover:text-white"
+        "flex items-center gap-1.5 text-[14px] font-medium tracking-tight transition-all h-full px-1 group",
+        isOpen ? "text-white opacity-100" : "text-white/78 hover:text-white"
       )}>
         {label}
-        <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-300", isOpen && "rotate-180")} />
+        <ChevronDown className={cn(
+          "w-3.5 h-3.5 transition-all duration-300 opacity-0 group-hover:opacity-40", 
+          isOpen && "rotate-180 opacity-100"
+        )} />
       </button>
 
       <AnimatePresence>
@@ -152,27 +155,27 @@ export function Header() {
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b",
       scrolled 
-        ? "bg-[#020617]/95 backdrop-blur-[40px] h-[80px] border-white/[0.06] shadow-2xl" 
-        : "bg-transparent h-[96px] border-transparent"
+        ? "bg-gradient-to-b from-[#060a12]/92 to-[#060a12]/78 backdrop-blur-[16px] h-[76px] border-white/[0.06]" 
+        : "bg-transparent h-[76px] border-transparent"
     )}>
       <div className="container-custom h-full flex items-center justify-between">
         
         {/* Left: Brand Identity */}
         <div className="flex items-center gap-12 h-full">
-          <Link href="/" className="flex items-center gap-4 relative z-10">
-            <div className="w-8.5 h-8.5 bg-accent-gold rounded-xl flex items-center justify-center font-black text-[#020617] text-xl">O</div>
-            <div className="flex flex-col">
-              <span className="font-black text-white tracking-tighter text-[17px] uppercase leading-none">OYEN GRID</span>
-              <span className="text-[9px] font-black text-accent-gold/40 uppercase tracking-[0.15em] mt-2 hidden sm:block">Structured Programme OS</span>
+          <Link href="/" className="flex items-center gap-4 relative z-10 group">
+            <div className="w-8.5 h-8.5 bg-accent-gold rounded-xl flex items-center justify-center font-black text-[#020617] text-xl transition-transform group-hover:scale-105">O</div>
+            <div className="flex flex-col justify-center">
+              <span className="font-bold text-white tracking-[-0.04em] text-[18px] leading-none">OYEN GRID</span>
+              <span className="text-[9px] font-medium text-white/52 uppercase tracking-[0.22em] mt-1.5 hidden sm:block">Structured Programme OS</span>
             </div>
           </Link>
 
           {/* Center: Enterprise Navigation */}
-          <nav className="hidden lg:flex items-center gap-2 h-full ml-6">
+          <nav className="hidden lg:flex items-center gap-[34px] h-full ml-2">
             <NavDropdown label="Platform" sections={platformSections} columns={2} />
             <NavDropdown label="Solutions" sections={solutionsSections} columns={2} />
-            <Link href="#" className="text-[14px] font-medium text-white/60 hover:text-white transition-colors h-full flex items-center px-4 tracking-tight">Use Cases</Link>
-            <Link href="#" className="text-[14px] font-medium text-white/60 hover:text-white transition-colors h-full flex items-center px-4 tracking-tight">Pricing</Link>
+            <Link href="#" className="text-[14px] font-medium text-white/78 hover:text-white transition-all h-full flex items-center tracking-tight">Operations</Link>
+            <Link href="#" className="text-[14px] font-medium text-white/78 hover:text-white transition-all h-full flex items-center tracking-tight">Pricing</Link>
             <NavDropdown label="Resources" sections={resourcesSections} />
           </nav>
         </div>
@@ -181,19 +184,20 @@ export function Header() {
         <div className="flex items-center gap-6 relative z-10">
           <button 
             onClick={openSearch}
-            className="w-11 h-11 flex items-center justify-center text-white/20 hover:text-white hover:bg-white/5 rounded-full transition-all group border border-transparent hover:border-white/10"
+            className="w-9 h-9 flex items-center justify-center bg-white/[0.03] border border-white/[0.04] text-white/20 hover:text-white rounded-[10px] transition-all group"
           >
-            <Search className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            <Search className="w-4.5 h-4.5 group-hover:scale-110 transition-transform" />
           </button>
           
-          <div className="flex items-center gap-4 ml-2">
-            <Link href="/login" className="text-[14px] font-bold text-white/30 hover:text-white transition-colors px-6 py-2 hidden xl:block uppercase tracking-widest text-[11px]">
+          <div className="flex items-center gap-4">
+            <Link href="/login" className="text-[13px] font-medium text-white/58 hover:text-white transition-colors px-4 hidden xl:block">
               Login
             </Link>
-            <button className="h-12 px-7 rounded-2xl border border-white/10 text-[12px] font-bold text-white/60 hover:text-white hover:bg-white/5 transition-all uppercase tracking-widest">
+            <button className="h-10 px-[18px] rounded-xl border border-white/6 bg-white/[0.02] text-[13px] font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">
               Talk to Sales
             </button>
-            <button className="btn-gold h-12 px-9 text-[12px] font-black uppercase tracking-[0.2em] shadow-[0_20px_40px_rgba(214,166,60,0.2)]">
+            <button className="h-[42px] px-6 rounded-2xl text-[13px] font-bold text-[#020617] transition-all hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(217,174,71,0.25)] tracking-[0.08em] whitespace-nowrap"
+              style={{ background: "linear-gradient(180deg, #D9AE47 0%, #C9972F 100%)" }}>
               Start Building
             </button>
           </div>
@@ -205,18 +209,24 @@ export function Header() {
 
 export function AnnouncementBar() {
   return (
-    <div className="pt-[140px] flex justify-center px-4 relative z-40">
+    <div className="pt-[118px] flex justify-center px-4 relative z-40">
       <motion.div 
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-[#031022]/40 border border-white/[0.03] rounded-full px-6 py-2.5 flex items-center gap-5 backdrop-blur-2xl shadow-2xl group cursor-pointer hover:border-accent-gold/20 transition-all duration-700"
+        className="h-[42px] bg-white/[0.025] border border-white/[0.05] rounded-full px-6 flex items-center justify-between gap-12 backdrop-blur-2xl shadow-2xl min-w-[720px]"
       >
-        <div className="live-pulse" />
-        <span className="label-institutional !tracking-[0.3em] opacity-80">Status: Operational</span>
-        <span className="h-4 w-px bg-white/5" />
-        <span className="text-[12px] text-white/30 font-light tracking-wide group-hover:text-white/50 transition-colors">Infrastructure update v.0.4.2 deployed across all nodes.</span>
-        <div className="text-[10px] font-bold text-white group-hover:text-accent-gold transition-colors flex items-center gap-2 ml-4">
-          EXPLORE LOGS <ArrowRight className="w-3.5 h-3.5" />
+        <div className="flex items-center gap-3">
+          <div className="live-pulse" />
+          <span className="text-[11px] font-medium text-white/40 uppercase tracking-[0.1em]">Infrastructure Status</span>
+        </div>
+
+        <span className="text-[12px] text-white/60 font-light tracking-wide">
+          Operational synchronization active across institutional delivery nodes.
+        </span>
+
+        <div className="flex items-center gap-2 group cursor-pointer">
+          <span className="text-[11px] font-bold text-white/50 group-hover:text-accent-gold transition-colors uppercase tracking-[0.1em]">View Infrastructure</span>
+          <ArrowRight className="w-3.5 h-3.5 text-white/30 group-hover:text-accent-gold transition-colors" />
         </div>
       </motion.div>
     </div>
