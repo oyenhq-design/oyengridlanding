@@ -38,19 +38,19 @@ body {
 }
 
 .section-gap {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 @media (min-width: 1024px) {
   .section-gap {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
   }
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 900;
   letter-spacing: -0.07em;
   line-height: 0.92;
@@ -58,15 +58,15 @@ h1 {
 }
 
 @media (min-width: 768px) {
-  h1 { font-size: 5.5rem; }
+  h1 { font-size: 4.5rem; }
 }
 
 @media (min-width: 1280px) {
-  h1 { font-size: 7.5rem; } /* 120px equivalent roughly, commanding presence */
+  h1 { font-size: 6.5rem; } /* Refined from 7.5rem for better balance */
 }
 
 h2 {
-  font-size: 2.75rem;
+  font-size: 2.25rem;
   font-weight: 900;
   letter-spacing: -0.05em;
   line-height: 1;
@@ -74,11 +74,11 @@ h2 {
 }
 
 @media (min-width: 768px) {
-  h2 { font-size: 4.5rem; }
+  h2 { font-size: 3.75rem; }
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1.1;
@@ -86,11 +86,11 @@ h3 {
 }
 
 @media (min-width: 768px) {
-  h3 { font-size: 2.5rem; }
+  h3 { font-size: 2.25rem; }
 }
 
 .text-editorial {
-  font-size: 19px;
+  font-size: 17px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.45);
   letter-spacing: -0.015em;
@@ -98,7 +98,7 @@ h3 {
 }
 
 @media (min-width: 1280px) {
-  .text-editorial { font-size: 22px; }
+  .text-editorial { font-size: 19px; } /* Refined from 22px */
 }
 
 .text-gold-highlight {
@@ -108,17 +108,17 @@ h3 {
 }
 
 .btn-cinematic-gold {
-  height: 64px;
-  padding-left: 3.5rem;
-  padding-right: 3.5rem;
+  height: 60px; /* Reduced from 64px */
+  padding-left: 3rem;
+  padding-right: 3rem;
   background-color: #F5B942;
   color: #05070B;
   font-weight: 900;
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.3em;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border-radius: 0.75rem;
+  border-radius: 0.6rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -134,23 +134,23 @@ h3 {
   background-color: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(48px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.5rem;
+  border-radius: 1.25rem;
   box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6);
 }
 
 .capability-row {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  gap: 2rem;
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
-  border-radius: 1rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+  border-radius: 0.8rem;
 }
 
 .capability-row:last-child {
