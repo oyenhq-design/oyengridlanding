@@ -173,3 +173,12 @@ h3 {
 .glow-amber {
   box-shadow: 0 0 80px rgba(245, 185, 66, 0.08);
 }
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
