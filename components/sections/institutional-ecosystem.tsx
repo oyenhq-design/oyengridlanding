@@ -7,8 +7,25 @@ import { DashboardMockup } from "./dashboard-mockup";
 
 export function HeroInstitutional() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#05070B] cinematic-warmth">
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#05070B]">
       
+      {/* 1. MASTER BACKGROUND IMAGE LAYER */}
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src="/hero-bg-institutional.png" 
+          alt="Institutional Operations Environment" 
+          fill 
+          priority
+          className="object-cover object-center no-repeat opacity-60"
+        />
+        
+        {/* 2. CINEMATIC OVERLAYS & BLENDING */}
+        <div className="absolute inset-0 bg-[#05070B]/40 backdrop-blur-[2px]" /> {/* Dark Navy/Black Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#05070B] via-[#05070B]/60 to-transparent" /> {/* Left-side readability gradient */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(245,185,66,0.05),transparent_70%)]" /> {/* Warm cinematic glow */}
+        <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.8)]" /> {/* Edge Vignette */}
+      </div>
+
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
@@ -51,33 +68,28 @@ export function HeroInstitutional() {
             </div>
           </motion.div>
 
-          {/* RIGHT: Layered Cinematic Visual */}
+          {/* RIGHT: Layered Cinematic Visual (Blended into environment) */}
           <div className="relative lg:h-[800px] flex items-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, x: 60 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 1.5, delay: 0.2 }}
-              className="relative w-full aspect-[4/5] rounded-[40px] overflow-hidden border border-white/10 shadow-[0_0_120px_rgba(0,0,0,0.6)]"
+              className="relative w-full aspect-[4/5] rounded-[40px] overflow-hidden border border-white/10 shadow-[0_0_120px_rgba(0,0,0,0.6)] group"
             >
-               <Image 
-                 src="/hero_institutional_ops_room_v2_1778347155535.png" 
-                 alt="Institutional Operations Room" 
-                 fill 
-                 className="object-cover image-cinematic"
-               />
-               <div className="absolute inset-0 bg-gradient-to-t from-[#05070B] via-transparent to-transparent opacity-70" />
+               {/* Environment Blending for Cards */}
+               <div className="absolute inset-0 bg-gradient-to-t from-[#05070B] via-transparent to-transparent opacity-40 z-10" />
                
-               {/* Floating UI Panel */}
+               {/* Floating UI Panel - Now with stronger blending */}
                <motion.div 
                  animate={{ y: [0, -15, 0] }}
                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                 className="absolute top-20 -left-12 w-[320px] z-20"
+                 className="absolute top-20 -left-12 w-[320px] z-20 opacity-90 hover:opacity-100 transition-opacity"
                >
                  <DashboardMockup small />
                </motion.div>
 
-               {/* Activity Overlay */}
-               <div className="absolute bottom-12 left-12 right-12 z-20 space-y-4">
+               {/* Activity Overlay - Blended into bottom */}
+               <div className="absolute bottom-12 left-12 right-12 z-20 space-y-4 bg-[#05070B]/20 backdrop-blur-md p-6 rounded-2xl border border-white/5">
                   <div className="flex items-center gap-3">
                      <div className="w-2 h-2 rounded-full bg-brand-gold shadow-[0_0_15px_#F5B942]" />
                      <span className="text-[10px] font-black tracking-[0.4em] text-white/60">LIVE PROGRAMME DELIVERY</span>
