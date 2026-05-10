@@ -12,16 +12,18 @@ export function HeroInstitutional() {
       {/* 1. MASTER BACKGROUND IMAGE LAYER (Crisp & Clear) */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/images/hero-bg-institutional-v2.png" 
+          src="/hero-bg-institutional.png" 
           alt="Institutional Operations Environment" 
           fill 
           priority
-          className="object-cover object-center no-repeat brightness-[0.95] contrast-[1.05]"
+          className="object-cover object-center no-repeat opacity-90 brightness-[0.8] contrast-[1.1]"
         />
         
-        {/* Soft gradient for text readability only */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#05070B] via-[#05070B]/40 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#05070B] via-transparent to-transparent opacity-60 z-10" />
+        {/* 2. REFINED CINEMATIC OVERLAYS (Light Touch) */}
+        <div className="absolute inset-0 bg-[#05070B]/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#05070B] via-[#05070B]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#05070B] via-transparent to-transparent opacity-95" />
+        <div className="absolute inset-0 shadow-[inset_0_0_200px_rgba(0,0,0,0.8)]" />
       </div>
 
       <div className="container-custom relative z-10">
@@ -70,14 +72,37 @@ export function HeroInstitutional() {
           </motion.div>
 
           {/* RIGHT: Layered Cinematic Visual (Scaled for presence) */}
-          <div className="relative lg:h-[600px] flex items-center justify-end">
+          <div className="relative lg:h-[600px] flex items-start pt-12 justify-end">
             <motion.div
-              initial={{ opacity: 0, scale: 0.98, x: 40 }}
+              initial={{ opacity: 0, scale: 0.95, x: 60 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 1.5, delay: 0.2 }}
-              className="relative w-full max-w-[560px] glass-panel border-brand-gold/10 shadow-[0_40px_120px_rgba(0,0,0,0.8)] overflow-hidden"
+              className="relative w-full aspect-[4/3] rounded-[48px] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.6)] group"
             >
-               <DashboardMockup />
+               {/* Environment Blending for Cards */}
+               <div className="absolute inset-0 bg-gradient-to-t from-[#05070B] via-transparent to-transparent opacity-50 z-10" />
+               
+               {/* Floating UI Panel - Scaled up */}
+               <motion.div 
+                 animate={{ y: [0, -15, 0] }}
+                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                 className="absolute top-20 -left-12 w-[320px] z-20 opacity-90 hover:opacity-100 transition-opacity"
+               >
+                 <DashboardMockup small />
+               </motion.div>
+
+               {/* Activity Overlay - Scaled and refined */}
+               <div className="absolute bottom-12 left-12 right-12 z-20 space-y-4 bg-[#05070B]/30 backdrop-blur-xl p-6 rounded-[24px] border border-white/10">
+                  <div className="flex items-center gap-3">
+                     <div className="w-2 h-2 rounded-full bg-brand-gold shadow-[0_0_15px_#F5B942]" />
+                     <span className="text-[10px] font-black tracking-[0.4em] text-white/60 uppercase">Live Programme Delivery</span>
+                  </div>
+                  <div className="h-px w-full bg-white/10" />
+                  <div className="flex justify-between items-center">
+                     <span className="text-[9px] font-bold text-white/30 uppercase tracking-[0.3em]">Global Sync Active</span>
+                     <span className="text-[9px] font-mono text-brand-gold font-black">142 NODES ONLINE</span>
+                  </div>
+               </div>
             </motion.div>
           </div>
 
