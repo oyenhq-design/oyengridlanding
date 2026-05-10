@@ -53,7 +53,7 @@ h1 {
   font-size: 3rem;
   font-weight: 900;
   letter-spacing: -0.07em;
-  line-height: 0.92;
+  line-height: 0.9;
   color: white;
 }
 
@@ -62,7 +62,7 @@ h1 {
 }
 
 @media (min-width: 1280px) {
-  h1 { font-size: 6.5rem; } /* Refined from 7.5rem for better balance */
+  h1 { font-size: 5.5rem; } /* Scaled down for premium control */
 }
 
 h2 {
@@ -98,7 +98,7 @@ h3 {
 }
 
 @media (min-width: 1280px) {
-  .text-editorial { font-size: 19px; } /* Refined from 22px */
+  .text-editorial { font-size: 18px; } /* Refined from 19px for tighter composition */
 }
 
 .text-gold-highlight {
@@ -108,9 +108,9 @@ h3 {
 }
 
 .btn-cinematic-gold {
-  height: 60px; /* Reduced from 64px */
-  padding-left: 3rem;
-  padding-right: 3rem;
+  height: 54px; /* Reduced from 60px */
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   background-color: #F5B942;
   color: #05070B;
   font-weight: 900;
@@ -171,5 +171,5 @@ h3 {
 }
 
 .glow-amber {
-  box-shadow: 0 0 120px rgba(245, 185, 66, 0.12);
+  box-shadow: 0 0 80px rgba(245, 185, 66, 0.08);
 }

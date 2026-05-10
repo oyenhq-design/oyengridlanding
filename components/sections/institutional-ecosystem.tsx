@@ -7,7 +7,7 @@ import { DashboardMockup } from "./dashboard-mockup";
 
 export function HeroInstitutional() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-24 pb-16 overflow-hidden bg-[#05070B]">
+    <section className="relative min-h-[80vh] flex items-center pt-20 pb-12 overflow-hidden bg-[#05070B]">
       
       {/* 1. MASTER BACKGROUND IMAGE LAYER (Crisp & Clear) */}
       <div className="absolute inset-0 z-0">
@@ -16,18 +16,18 @@ export function HeroInstitutional() {
           alt="Institutional Operations Environment" 
           fill 
           priority
-          className="object-cover object-center no-repeat opacity-90 brightness-[1.1] contrast-[1.1]"
+          className="object-cover object-center no-repeat opacity-90 brightness-[0.8] contrast-[1.1]"
         />
         
         {/* 2. REFINED CINEMATIC OVERLAYS (Light Touch) */}
-        <div className="absolute inset-0 bg-[#05070B]/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#05070B] via-[#05070B]/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#05070B] via-transparent to-transparent opacity-90" />
-        <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.6)]" />
+        <div className="absolute inset-0 bg-[#05070B]/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#05070B] via-[#05070B]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#05070B] via-transparent to-transparent opacity-95" />
+        <div className="absolute inset-0 shadow-[inset_0_0_200px_rgba(0,0,0,0.8)]" />
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* LEFT: Narrative */}
           <motion.div
@@ -36,23 +36,23 @@ export function HeroInstitutional() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-20"
           >
-            <div className="inline-flex items-center gap-3.5 px-4 py-2 rounded-full bg-brand-gold/10 border border-brand-gold/20 mb-10 backdrop-blur-md">
+            <div className="inline-flex items-center gap-3.5 px-4 py-2 rounded-full bg-brand-gold/10 border border-brand-gold/20 mb-8 backdrop-blur-md">
               <Shield className="w-3.5 h-3.5 text-brand-gold" />
               <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-gold">Enterprise Programme Operating System</span>
             </div>
 
-            <h1 className="mb-10">
+            <h1 className="mb-6 max-w-[540px]">
               Run structured <br />
               programmes with <br />
               <span className="text-gold-highlight">operational clarity.</span>
             </h1>
 
-            <p className="text-editorial mb-12 max-w-xl">
-              OYEN GRID helps organisations coordinate programmes, participants, communication, attendance, training and operational intelligence from one unified infrastructure.
+            <p className="text-editorial mb-10 max-w-xl">
+              OYEN GRID helps organisations coordinate programmes, participants, and intelligence from one unified institutional infrastructure.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-8 mb-16">
-              <button className="btn-cinematic-gold w-full sm:w-auto h-[60px]">
+            <div className="flex flex-col sm:flex-row items-center gap-6 mb-12">
+              <button className="btn-cinematic-gold w-full sm:w-auto h-[54px]">
                 Initialize Infrastructure
               </button>
               <button className="flex items-center gap-4 text-[13px] font-black text-white/40 hover:text-white transition-colors group uppercase tracking-[0.3em]">
@@ -60,8 +60,8 @@ export function HeroInstitutional() {
               </button>
             </div>
 
-            <div className="pt-10 border-t border-white/5">
-               <span className="text-[10px] font-black text-white/20 uppercase tracking-[0.5em] mb-8 block">Institutional Trust Protocol:</span>
+            <div className="pt-8 border-t border-white/5">
+               <span className="text-[10px] font-black text-white/20 uppercase tracking-[0.5em] mb-6 block">Institutional Trust Protocol:</span>
                <div className="flex flex-wrap gap-12 items-center opacity-30 grayscale brightness-200">
                   <span className="font-black italic text-[20px] tracking-tighter">ALTSCHOOL</span>
                   <span className="font-black italic text-[18px] tracking-tighter">INGRESSIVE</span>
@@ -72,12 +72,12 @@ export function HeroInstitutional() {
           </motion.div>
 
           {/* RIGHT: Layered Cinematic Visual (Scaled for presence) */}
-          <div className="relative lg:h-[750px] flex items-center justify-end">
+          <div className="relative lg:h-[600px] flex items-start pt-12 justify-end">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, x: 60 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 1.5, delay: 0.2 }}
-              className="relative w-[90%] aspect-[4/5] rounded-[48px] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.6)] group"
+              className="relative w-full aspect-[4/3] rounded-[48px] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.6)] group"
             >
                {/* Environment Blending for Cards */}
                <div className="absolute inset-0 bg-gradient-to-t from-[#05070B] via-transparent to-transparent opacity-50 z-10" />
