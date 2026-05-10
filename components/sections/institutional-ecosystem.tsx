@@ -110,85 +110,128 @@ export function HeroInstitutional() {
 
 export function PlatformOverview() {
   const capabilities = [
-    { title: "Programme Infrastructure", desc: "Centralize multi-track delivery with total structural visibility.", icon: Database },
-    { title: "Session Coordination", desc: "Automate scheduling, trainer allocation, and session intelligence.", icon: Workflow },
-    { title: "Participant Management", desc: "Monitor complex learner networks with live telemetry and progress indicators.", icon: Users },
-    { title: "Communication Systems", desc: "Session chat and persistent group intelligence for operational flow.", icon: MessageSquare }
+    { title: "Programme Infrastructure", desc: "Structured operational systems for scalable programme delivery.", icon: Database },
+    { title: "Session Coordination", desc: "Coordinate live sessions, schedules and delivery continuity.", icon: Workflow },
+    { title: "Participant Management", desc: "Track attendance, engagement and operational visibility.", icon: Users },
+    { title: "Communication Layer", desc: "Support trainers, facilitators and participant interaction.", icon: MessageSquare },
+    { title: "Operational Visibility", desc: "Monitor delivery performance and programme activity.", icon: Globe },
+    { title: "AI Operational Support", desc: "Generate summaries, insights and operational assistance.", icon: Sparkles }
   ];
 
   return (
     <section className="section-gap relative overflow-hidden bg-[#05070B]">
-      {/* Atmospheric Transitions */}
+      {/* Immersive Depth & Atmosphere */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold/[0.02] blur-[150px] rounded-full -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute top-1/4 -right-64 w-[1000px] h-[1000px] bg-brand-gold/[0.03] blur-[200px] rounded-full pointer-events-none" />
 
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-32 items-center">
+        <div className="grid lg:grid-cols-2 gap-32 items-start">
           
-          {/* LEFT: Large Cinematic Operational Visual */}
+          {/* LEFT SIDE: Immersive Visual with Overlays */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.2 }}
-            className="relative h-[850px] rounded-[48px] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.4)] group"
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            className="relative h-[850px] rounded-[56px] overflow-hidden group shadow-[0_40px_120px_rgba(0,0,0,0.4)]"
           >
              <Image 
-               src="/facilitators_coordinating_ops_v3_1778383275944.png" 
-               alt="Facilitators Coordinating Programmes" 
+               src="/programme-coordination.png" 
+               alt="Institutional Programme Coordination" 
                fill 
                className="object-cover image-cinematic transition-transform duration-1000 group-hover:scale-105"
              />
-             <div className="absolute inset-0 bg-gradient-to-t from-[#05070B] via-transparent to-transparent opacity-90" />
+             <div className="absolute inset-0 bg-gradient-to-t from-[#05070B]/90 via-transparent to-transparent" />
              
-             {/* Floating UI Overlays */}
-             <motion.div 
-               animate={{ y: [0, -10, 0] }}
-               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-               className="absolute top-12 left-12 p-6 glass-panel border-brand-gold/20 shadow-[0_0_40px_rgba(245,185,66,0.1)] max-w-[240px]"
-             >
-                <div className="flex items-center gap-3 mb-4">
-                   <div className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
-                   <span className="text-[10px] font-black uppercase tracking-widest text-brand-gold">Programme Status</span>
+             {/* Subtle Floating UI Overlays */}
+             <div className="absolute inset-0 p-12 flex flex-col justify-between pointer-events-none">
+                <div className="flex justify-end">
+                   <motion.div 
+                     animate={{ y: [0, -10, 0] }}
+                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                     className="glass-panel p-6 border-brand-gold/20 shadow-[0_20px_60px_rgba(245,185,66,0.1)] max-w-[260px] pointer-events-auto"
+                   >
+                      <div className="flex items-center gap-3 mb-4">
+                         <div className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse shadow-[0_0_8px_#F5B942]" />
+                         <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-gold">Programme Status</span>
+                      </div>
+                      <div className="text-[22px] font-black text-white mb-1">Active Cohort Sync</div>
+                      <p className="text-[11px] text-white/40 leading-relaxed font-medium">Global synchronization of 12 active learning nodes complete.</p>
+                   </motion.div>
                 </div>
-                <div className="text-[20px] font-bold text-white mb-1">94% Capacity</div>
-                <p className="text-[11px] text-white/40 leading-relaxed">System-wide session utilization across all active tracks.</p>
-             </motion.div>
 
-             <div className="absolute bottom-12 left-12 right-12 flex justify-between items-end">
-                <div>
-                   <span className="text-[10px] font-black text-brand-gold uppercase tracking-[0.4em] mb-4 block">Institutional Coordination</span>
-                   <h3 className="text-[32px] font-black text-white leading-tight max-w-sm">Strategic oversight of global programme delivery.</h3>
+                <div className="flex justify-start">
+                   <motion.div 
+                     animate={{ y: [0, 10, 0] }}
+                     transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                     className="glass-panel p-6 border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.5)] max-w-[280px] pointer-events-auto"
+                   >
+                      <div className="flex items-center gap-4 mb-4">
+                         <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center">
+                            <Users className="w-4 h-4 text-brand-gold" />
+                         </div>
+                         <div className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">Engagement</div>
+                      </div>
+                      <div className="space-y-3">
+                         <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                            <div className="h-full w-[82%] bg-brand-gold shadow-[0_0_10px_#F5B942]" />
+                         </div>
+                         <div className="flex justify-between items-center">
+                            <span className="text-[11px] font-bold text-white">82% Participation</span>
+                            <span className="text-[9px] font-black text-brand-gold uppercase tracking-widest">+4.2% YTD</span>
+                         </div>
+                      </div>
+                   </motion.div>
                 </div>
              </div>
           </motion.div>
 
-          {/* RIGHT: Content Hierarchy */}
-          <div className="py-12">
-            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-gold/60 mb-6 block">Structural Foundation</span>
-            <h2 className="text-[44px] md:text-[64px] font-black tracking-[-0.06em] leading-[0.95] mb-12">Built for serious <br /><span className="text-gold-highlight">institutional delivery.</span></h2>
-            <p className="text-editorial text-[20px] leading-relaxed mb-16 opacity-80">OYEN GRID is the infrastructure behind multi-track programmes, coordinating teams, training, and intelligence through one unified system.</p>
+          {/* RIGHT SIDE: Content Hierarchy */}
+          <div className="pt-12">
+            <div className="mb-16">
+              <span className="text-[10px] font-black uppercase tracking-[0.6em] text-brand-gold mb-8 block">Institutional Programme Infrastructure</span>
+              <h2 className="text-[48px] md:text-[68px] font-black tracking-[-0.06em] leading-[0.9] mb-12">
+                Built for organisations coordinating <br />
+                <span className="text-gold-highlight underline decoration-white/5 underline-offset-[12px]">structured delivery.</span>
+              </h2>
+              <div className="space-y-8 max-w-xl">
+                 <p className="text-editorial text-[20px] leading-relaxed opacity-90">
+                    OYEN GRID provides the infrastructure required to coordinate programmes, participants, sessions, communication and operational continuity from one unified system.
+                 </p>
+                 <p className="text-[15px] font-medium text-white/30 leading-relaxed italic">
+                    Designed for training organisations, academies, accelerators and institutional teams managing real programme delivery at scale.
+                 </p>
+              </div>
+            </div>
             
-            <div className="space-y-4">
+            {/* Elegant Operational Capability Rows */}
+            <div className="space-y-0">
                {capabilities.map((item, i) => (
                  <motion.div 
                     key={i} 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="capability-row border-white/5 py-10"
+                    transition={{ delay: i * 0.08 }}
+                    className="capability-row py-8 hover:bg-white/[0.02]"
                  >
-                    <div className="w-14 h-14 rounded-2xl bg-white/[0.04] border border-white/5 flex items-center justify-center shrink-0 group-hover:border-brand-gold/40 transition-all shadow-xl">
-                       <item.icon className="w-6 h-6 text-white/20 group-hover:text-brand-gold transition-colors" />
+                    <div className="w-12 h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center shrink-0 group-hover:border-brand-gold/40 transition-all shadow-lg">
+                       <item.icon className="w-5 h-5 text-white/20 group-hover:text-brand-gold transition-colors" />
                     </div>
-                    <div>
-                       <h4 className="text-[18px] font-black text-white mb-2 group-hover:text-brand-gold transition-colors">{item.title}</h4>
-                       <p className="text-[14px] leading-relaxed text-white/40 max-w-sm">{item.desc}</p>
+                    <div className="flex-1">
+                       <div className="flex items-center justify-between mb-1">
+                          <h4 className="text-[17px] font-black text-white group-hover:text-brand-gold transition-colors">{item.title}</h4>
+                          <ArrowRight className="w-4 h-4 text-white/5 group-hover:text-brand-gold/40 transition-all group-hover:translate-x-1" />
+                       </div>
+                       <p className="text-[13px] leading-relaxed text-white/30 max-w-md font-medium tracking-tight">{item.desc}</p>
                     </div>
                  </motion.div>
                ))}
             </div>
+
+            <button className="mt-20 btn-cinematic-gold h-[60px] px-12 group">
+               Deploy Infrastructure <ArrowRight className="ml-4 w-5 h-5 group-hover:translate-x-2 transition-transform" />
+            </button>
           </div>
 
         </div>
