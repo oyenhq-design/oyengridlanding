@@ -1,5 +1,6 @@
 import { Header, AnnouncementBar } from "@/components/layout/header";
 import { HeroInstitutional, PlatformOverview, OperationalControlCenter } from "@/components/sections/institutional-ecosystem";
+import { ScaleStructure } from "@/components/sections/scale-structure";
 import { IntelligenceHumanConnection, TrustOutcomes, FinalAuthorisation } from "@/components/sections/institutional-validation";
 import { FooterPremium } from "@/components/layout/footer";
 import { Chatbot } from "@/components/layout/chatbot";
@@ -20,19 +21,22 @@ export default function Home() {
           {/* 3. PLATFORM OVERVIEW: Built for Structured Delivery */}
           <PlatformOverview />
 
-          {/* 4. OPERATIONAL SYSTEM: Orchestration & Lifecycle (THE MAIN SECTION) */}
+          {/* 4. OPERATIONAL SYSTEM: Orchestration & Lifecycle */}
           <OperationalControlCenter />
 
-          {/* 5. INTELLIGENCE & CONNECTION: Human Intelligence Layer */}
+          {/* 5. INSTITUTIONAL SCALE: Architectural Infrastructure & Global Sync */}
+          <ScaleStructure />
+
+          {/* 6. INTELLIGENCE & CONNECTION: Human Intelligence Layer */}
           <IntelligenceHumanConnection />
 
-          {/* 6. TRUST & OUTCOMES: Metrics & Executive Validation */}
+          {/* 7. TRUST & OUTCOMES: Metrics & Executive Validation */}
           <TrustOutcomes />
 
-          {/* 7. FINAL AUTHORISATION: Immersive Closing */}
+          {/* 8. FINAL AUTHORISATION: Immersive Closing */}
           <FinalAuthorisation />
 
-          {/* 8. INSTITUTIONAL FOOTER */}
+          {/* 9. INSTITUTIONAL FOOTER */}
           <FooterPremium />
         </div>
       </div>
