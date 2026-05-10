@@ -13,12 +13,6 @@ export default function Home() {
       <AnnouncementBar />
       
       <div className="relative">
-        {/* Institutional Ambient Lighting */}
-        <div className="fixed inset-0 pointer-events-none z-0">
-          <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-brand-gold/[0.04] blur-[180px] rounded-full" />
-          <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-brand-gold/[0.02] blur-[150px] rounded-full" />
-        </div>
-
         <div className="relative z-10">
           {/* 2. HERO: Institutional Infrastructure & Human Coordination */}
           <HeroInstitutional />

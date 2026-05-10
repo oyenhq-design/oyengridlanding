@@ -7,23 +7,22 @@ import { DashboardMockup } from "./dashboard-mockup";
 
 export function HeroInstitutional() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#05070B]">
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       
-      {/* 1. MASTER BACKGROUND IMAGE LAYER */}
+      {/* 1. MASTER BACKGROUND IMAGE LAYER (Crisp & Clear) */}
       <div className="absolute inset-0 z-0">
         <Image 
           src="/hero-bg-institutional.png" 
           alt="Institutional Operations Environment" 
           fill 
           priority
-          className="object-cover object-center no-repeat opacity-60"
+          className="object-cover object-center no-repeat opacity-85 brightness-[1.05] contrast-[1.05]"
         />
         
-        {/* 2. CINEMATIC OVERLAYS & BLENDING */}
-        <div className="absolute inset-0 bg-[#05070B]/40 backdrop-blur-[2px]" /> {/* Dark Navy/Black Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#05070B] via-[#05070B]/60 to-transparent" /> {/* Left-side readability gradient */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(245,185,66,0.05),transparent_70%)]" /> {/* Warm cinematic glow */}
-        <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.8)]" /> {/* Edge Vignette */}
+        {/* 2. REFINED CINEMATIC OVERLAYS (Light Touch) */}
+        <div className="absolute inset-0 bg-[#05070B]/25" /> {/* Very subtle dark wash */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#05070B]/80 via-[#05070B]/20 to-transparent" /> {/* Left-side readability gradient */}
+        <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]" /> {/* Slight Edge Vignette */}
       </div>
 
       <div className="container-custom relative z-10">
