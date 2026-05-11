@@ -113,134 +113,62 @@ export function HeroInstitutional() {
 }
 
 export function PlatformOverview() {
+  // Enterprise-grade core capabilities
   const capabilities = [
-    { title: "Programme Infrastructure", desc: "Structured operational systems for scalable programme delivery.", icon: Database },
-    { title: "Session Coordination", desc: "Coordinate live sessions, schedules and delivery continuity.", icon: Workflow },
-    { title: "Participant Management", desc: "Track attendance, engagement and operational visibility.", icon: Users },
-    { title: "Communication Layer", desc: "Support trainers, facilitators and participant interaction.", icon: MessageSquare },
-    { title: "Operational Visibility", desc: "Monitor delivery performance and programme activity.", icon: Globe },
-    { title: "AI Operational Support", desc: "Generate summaries, insights and operational assistance.", icon: Sparkles }
+    { title: "Programme Governance", desc: "Centralized control and oversight for all programme operations, ensuring compliance and delivery integrity.", icon: Database },
+    { title: "Structured Participant Control", desc: "Comprehensive participant management with real-time attendance, engagement, and cohort tracking.", icon: Users },
+    { title: "Delivery Coordination", desc: "Orchestrate live sessions, scheduling, and resource allocation across distributed teams.", icon: Workflow },
+    { title: "Real-Time Operational Visibility", desc: "Live dashboards for monitoring metrics, session activity, and operational throughput.", icon: Globe }
   ];
 
   return (
-    <section className="section-gap relative overflow-hidden bg-[#05070B]">
-      {/* Immersive Depth & Atmosphere */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-      <div className="absolute top-1/4 -right-64 w-[1200px] h-[1200px] bg-brand-gold/[0.03] blur-[220px] rounded-full pointer-events-none" />
+    <section className="relative bg-[#05070B] py-[120px] overflow-hidden border-t border-white/5">
+      {/* Subtle gold accent and background atmosphere */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent" />
+      <div className="absolute top-1/4 -right-64 w-[1200px] h-[1200px] bg-brand-gold/[0.02] blur-[220px] rounded-full pointer-events-none" />
 
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-32 items-start">
-          
-          {/* LEFT SIDE: Immersive Visual with Overlays (Scaled for Balance) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="relative h-[750px] rounded-[56px] overflow-hidden group shadow-[0_40px_120px_rgba(0,0,0,0.5)]"
-          >
-             <Image 
-               src="/programme-coordination.png" 
-               alt="Institutional Programme Coordination" 
-               fill 
-               className="object-cover image-cinematic transition-transform duration-1000 group-hover:scale-105"
-             />
-             <div className="absolute inset-0 bg-gradient-to-t from-[#05070B] via-transparent to-transparent opacity-80" />
-             
-             {/* Subtle Floating UI Overlays */}
-             <div className="absolute inset-0 p-12 flex flex-col justify-between pointer-events-none">
-                <div className="flex justify-end">
-                   <motion.div 
-                     animate={{ y: [0, -12, 0] }}
-                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                     className="glass-panel p-6 border-brand-gold/20 shadow-[0_20px_60px_rgba(245,185,66,0.1)] max-w-[280px] pointer-events-auto"
-                   >
-                      <div className="flex items-center gap-3.5 mb-4">
-                         <div className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse shadow-[0_0_10px_#F5B942]" />
-                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-gold">System Health</span>
-                      </div>
-                      <div className="text-[22px] font-black text-white mb-1.5 leading-tight">Sync Complete</div>
-                      <p className="text-[11px] text-white/40 leading-relaxed font-medium">All active programme nodes are currently synchronized globally.</p>
-                   </motion.div>
-                </div>
-
-                <div className="flex justify-start">
-                   <motion.div 
-                     animate={{ y: [0, 12, 0] }}
-                     transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                     className="glass-panel p-6 border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.6)] max-w-[300px] pointer-events-auto"
-                   >
-                      <div className="flex items-center gap-4 mb-4">
-                         <div className="w-9 h-9 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center">
-                            <Users className="w-4.5 h-4.5 text-brand-gold" />
-                         </div>
-                         <div className="text-[10px] font-black uppercase tracking-[0.5em] text-white/40">Engagement</div>
-                      </div>
-                      <div className="space-y-3.5">
-                         <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                            <div className="h-full w-[82%] bg-brand-gold shadow-[0_0_15px_#F5B942]" />
-                         </div>
-                         <div className="flex justify-between items-center">
-                            <span className="text-[11px] font-black text-white uppercase tracking-widest">82% Participation</span>
-                            <span className="text-[9px] font-black text-brand-gold uppercase tracking-widest">+4.2%</span>
-                         </div>
-                      </div>
-                   </motion.div>
-                </div>
-             </div>
-          </motion.div>
-
-          {/* RIGHT SIDE: Content Hierarchy (Scaled Down) */}
-          <div className="pt-12">
-            <div className="mb-16">
-              <span className="text-[10px] font-black uppercase tracking-[0.7em] text-brand-gold mb-8 block opacity-60">Institutional Programme Infrastructure</span>
-              <h2 className="mb-10">
-                Built for organisations <br />
-                coordinating <br />
-                <span className="text-gold-highlight underline decoration-white/5 underline-offset-[12px]">structured delivery.</span>
-              </h2>
-              <div className="space-y-8 max-w-xl">
-                 <p className="text-editorial opacity-90">
-                    OYEN GRID provides the infrastructure required to coordinate programmes, participants, sessions, communication and operational continuity from one unified system.
-                 </p>
-                 <p className="text-[14px] font-bold text-white/20 leading-relaxed italic uppercase tracking-wider">
-                    Architected for academies, accelerators and institutional teams managing global programme delivery.
-                 </p>
-              </div>
+      <div className="container-custom max-w-[1280px] mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-24 items-center">
+          {/* LEFT: Realistic Operational Dashboard Visual */}
+          <div className="flex justify-center items-center">
+            <div className="w-full max-w-[540px]">
+              <DashboardMockup />
             </div>
-            
-            {/* Elegant Operational Capability Rows */}
-            <div className="space-y-1">
-               {capabilities.map((item, i) => (
-                 <motion.div 
-                    key={i} 
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.08 }}
-                    className="capability-row py-8"
-                 >
-                    <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/5 flex items-center justify-center shrink-0 group-hover:border-brand-gold/40 transition-all shadow-xl">
-                       <item.icon className="w-5 h-5 text-white/20 group-hover:text-brand-gold transition-colors" />
-                    </div>
-                    <div className="flex-1">
-                       <div className="flex items-center justify-between mb-1.5">
-                          <h4 className="text-[18px] font-black text-white group-hover:text-brand-gold transition-colors">{item.title}</h4>
-                          <ArrowRight className="w-4 h-4 text-white/5 group-hover:text-brand-gold/40 transition-all group-hover:translate-x-2" />
-                       </div>
-                       <p className="text-[14px] leading-relaxed text-white/30 max-w-md font-medium tracking-tight">{item.desc}</p>
-                    </div>
-                 </motion.div>
-               ))}
-            </div>
-
-            <button className="mt-16 btn-cinematic-gold h-[60px] px-12 group">
-               Initialize Platform <ArrowRight className="ml-4 w-5 h-5 group-hover:translate-x-2 transition-transform" />
-            </button>
           </div>
 
+          {/* RIGHT: Enterprise Capabilities */}
+          <div className="flex flex-col justify-center pt-6">
+            <span className="text-[11px] font-black uppercase tracking-[0.6em] text-brand-gold mb-8 block opacity-70">Enterprise Product Overview</span>
+            <h2 className="mb-8 text-white text-[38px] md:text-[48px] font-black leading-tight tracking-tight">
+              The operating system for <br />
+              <span className="text-brand-gold font-bold not-italic">programme delivery at scale.</span>
+            </h2>
+            <div className="space-y-8 max-w-xl">
+              <p className="text-white/80 text-[18px] leading-relaxed font-medium">
+                OYEN GRID provides a unified infrastructure for structured delivery, participant management, live sessions, analytics, and operational visibility—trusted by institutions globally.
+              </p>
+            </div>
+            <div className="mt-12 space-y-6">
+              {capabilities.map((item, i) => (
+                <div key={i} className="flex items-start gap-6 py-6 border-b border-white/10 last:border-b-0">
+                  <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center shrink-0">
+                    <item.icon className="w-6 h-6 text-brand-gold/80" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-[20px] font-black text-white mb-1.5 leading-tight">{item.title}</h4>
+                    <p className="text-[15px] leading-relaxed text-white/40 font-medium tracking-tight">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+        }
+            <button className="mt-14 btn-cinematic-gold h-[56px] px-12 text-[16px] font-bold group">
+              Start Building <ArrowRight className="ml-4 w-5 h-5 group-hover:translate-x-2 transition-transform" />
+            </button>
+          </div>
         </div>
       </div>
+    </section>
     </section>
   );
 }
