@@ -10,6 +10,7 @@ import { Chatbot } from "@/components/layout/chatbot";
 import { SearchSystem } from "@/components/layout/search-system";
 
 export default function Home() {
+  // Operational Lifecycle & Institutional Infrastructure
   return (
     <main className="min-h-screen bg-[#05070B] selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden">
       {/* 1. NAVIGATION & ANNOUNCEMENT */}
