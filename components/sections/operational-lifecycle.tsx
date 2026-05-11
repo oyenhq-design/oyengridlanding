@@ -249,7 +249,7 @@ export function OperationalLifecycle() {
                              </div>
                              <h3 className={cn("text-[26px] font-bold transition-all duration-1000 leading-tight tracking-tight", isActive ? "text-white translate-y-0" : "text-white/20 translate-y-2")}>{stage.title}</h3>
                           </div>
-                       </div>
+                       </motion.div>
                     </motion.div>
                   );
                 })}
