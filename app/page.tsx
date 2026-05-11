@@ -1,7 +1,8 @@
 import { Header, AnnouncementBar } from "@/components/layout/header";
 import { HeroInstitutional, PlatformOverview, OperationalControlCenter } from "@/components/sections/institutional-ecosystem";
 import { ScaleStructure } from "@/components/sections/scale-structure";
-import { IntelligenceHumanConnection, TrustOutcomes, FinalAuthorisation } from "@/components/sections/institutional-validation";
+import { IntelligenceLayer } from "@/components/sections/intelligence-layer";
+import { TrustOutcomes, FinalAuthorisation } from "@/components/sections/institutional-validation";
 import { FooterPremium } from "@/components/layout/footer";
 import { Chatbot } from "@/components/layout/chatbot";
 import { SearchSystem } from "@/components/layout/search-system";
@@ -27,8 +28,8 @@ export default function Home() {
           {/* 5. INSTITUTIONAL SCALE: Architectural Infrastructure & Global Sync */}
           <ScaleStructure />
 
-          {/* 6. INTELLIGENCE & CONNECTION: Human Intelligence Layer */}
-          <IntelligenceHumanConnection />
+          {/* 6. INTELLIGENCE LAYER: Human Coordination Powered by Intelligence */}
+          <IntelligenceLayer />
 
           {/* 7. TRUST & OUTCOMES: Metrics & Executive Validation */}
           <TrustOutcomes />
