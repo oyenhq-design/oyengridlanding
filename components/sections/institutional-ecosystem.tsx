@@ -16,14 +16,13 @@ export function HeroInstitutional() {
           alt="Institutional Operations Environment" 
           fill 
           priority
-          className="object-cover object-center no-repeat opacity-90 brightness-[0.8] contrast-[1.1]"
+          className="object-cover object-center no-repeat brightness-[0.9] contrast-[1.05]"
         />
         
         {/* 2. REFINED CINEMATIC OVERLAYS (Light Touch) */}
-        <div className="absolute inset-0 bg-brand-dark/50" />
-        <div className="absolute inset-0 bg-linear-to-r from-brand-dark via-brand-dark/60 to-transparent" />
-        <div className="absolute inset-0 bg-linear-to-t from-brand-dark via-transparent to-transparent opacity-95" />
-        <div className="absolute inset-0 shadow-[inset_0_0_200px_rgba(0,0,0,0.8)]" />
+        {/* A single gradient for text readability without hiding the scene */}
+        <div className="absolute inset-0 bg-linear-to-r from-brand-dark via-brand-dark/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-brand-dark/20 via-transparent to-transparent" />
       </div>
 
       <div className="container-custom relative z-10">
@@ -71,38 +70,22 @@ export function HeroInstitutional() {
             </div>
           </motion.div>
 
-          {/* RIGHT: Layered Cinematic Visual (Scaled for presence) */}
-          <div className="relative lg:h-150 flex items-start pt-12 justify-end">
+          {/* RIGHT: Product Dashboard (Focal Point #3) */}
+          <div className="relative lg:h-150 flex items-center justify-end">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, x: 60 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 1.5, delay: 0.2 }}
-              className="relative w-full aspect-4/3 rounded-[48px] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.6)] group"
+              className="relative w-full z-20"
             >
-               {/* Environment Blending for Cards */}
-               <div className="absolute inset-0 bg-linear-to-t from-brand-dark via-transparent to-transparent opacity-50 z-10" />
-               
-               {/* Floating UI Panel - Scaled up */}
+               {/* Clean Primary Dashboard Mockup */}
                <motion.div 
                  animate={{ y: [0, -15, 0] }}
                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                 className="absolute top-20 -left-12 w-[320px] z-20 opacity-90 hover:opacity-100 transition-opacity"
+                 className="w-full max-w-[540px] ml-auto"
                >
-                 <DashboardMockup small />
+                 <DashboardMockup />
                </motion.div>
-
-               {/* Activity Overlay - Scaled and refined */}
-               <div className="absolute bottom-12 left-12 right-12 z-20 space-y-4 bg-brand-dark/30 backdrop-blur-xl p-6 rounded-3xl border border-white/10">
-                  <div className="flex items-center gap-3">
-                     <div className="w-2 h-2 rounded-full bg-brand-gold shadow-[0_0_15px_#F5B942]" />
-                     <span className="text-[10px] font-black tracking-[0.4em] text-white/60 uppercase">Live Programme Delivery</span>
-                  </div>
-                  <div className="h-px w-full bg-white/10" />
-                  <div className="flex justify-between items-center">
-                     <span className="text-[9px] font-bold text-white/30 uppercase tracking-[0.3em]">Global Sync Active</span>
-                     <span className="text-[9px] font-mono text-brand-gold font-black">142 NODES ONLINE</span>
-                  </div>
-               </div>
             </motion.div>
           </div>
 
