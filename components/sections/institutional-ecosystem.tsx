@@ -161,14 +161,12 @@ export function PlatformOverview() {
                 </div>
               ))}
             </div>
-        }
             <button className="mt-14 btn-cinematic-gold h-14 px-12 text-[16px] font-bold group">
               Start Building <ArrowRight className="ml-4 w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </button>
           </div>
         </div>
       </div>
-    </section>
     </section>
   );
 }
