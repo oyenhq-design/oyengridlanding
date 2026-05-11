@@ -216,11 +216,11 @@ h3 {
 }
 
 .hero-headline {
-  font-size: clamp(60px, 6vw, 86px);
-  line-height: 0.9;
+  font-size: clamp(52px, 5.2vw, 74px);
+  line-height: 0.95;
   font-weight: 800;
   letter-spacing: -0.05em;
-  max-width: 640px;
+  max-width: 600px;
   color: white;
 }
 

@@ -19,7 +19,7 @@ export function HeroInstitutional() {
       <div className="max-w-[1380px] mx-auto px-[56px] w-full grid grid-cols-[0.95fr_1.05fr] gap-[48px] items-center relative z-[2]">
         
         {/* LEFT: CONTENT AREA */}
-        <div className="hero-content">
+        <div className="hero-content mt-[-50px]">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -58,24 +58,9 @@ export function HeroInstitutional() {
           </motion.div>
         </div>
 
-        {/* RIGHT: VISUAL AREA (Minimal Cinematic Indicators) */}
-        <div className="relative h-[500px] flex items-center justify-end">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, delay: 0.5 }}
-            className="relative"
-          >
-            {/* Subtle Operational Sync Indicator */}
-            <div className="glass-panel-institutional p-5 border border-white/10 rounded-2xl backdrop-blur-xl bg-white/[0.02] flex items-center gap-4">
-               <div className="w-2 h-2 rounded-full bg-brand-gold animate-pulse shadow-[0_0_10px_#F5B942]" />
-               <div className="flex flex-col">
-                  <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">Operational Sync</span>
-                  <span className="text-[13px] font-bold text-white">Live Programme Telemetry</span>
-               </div>
-            </div>
-          </motion.div>
-        </div>
+        {/* RIGHT: VISUAL AREA (Focus on Background) */}
+        <div className="relative h-[500px]" />
+
 
 
       </div>
