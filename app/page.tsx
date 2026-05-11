@@ -1,5 +1,6 @@
 import { Header, AnnouncementBar } from "@/components/layout/header";
 import { HeroInstitutional, PlatformOverview, OperationalControlCenter } from "@/components/sections/institutional-ecosystem";
+import { OperationalLifecycle } from "@/components/sections/operational-lifecycle";
 import { ScaleStructure } from "@/components/sections/scale-structure";
 import { IntelligenceLayer } from "@/components/sections/intelligence-layer";
 import { TrustOutcomes, FinalAuthorisation } from "@/components/sections/institutional-validation";
@@ -18,6 +19,9 @@ export default function Home() {
         <div className="relative z-10">
           {/* 2. HERO: Institutional Infrastructure & Human Coordination */}
           <HeroInstitutional />
+
+          {/* NEW: OPERATIONAL LIFECYCLE: Interactive Programme Flow */}
+          <OperationalLifecycle />
 
           {/* 3. PLATFORM OVERVIEW: Built for Structured Delivery */}
           <PlatformOverview />
