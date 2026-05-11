@@ -96,42 +96,36 @@ export function Chatbot() {
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         animate={{ 
-          y: [0, -6, 0],
           boxShadow: [
             "0 10px 30px rgba(0,0,0,0.5), 0 0 0px rgba(245,185,66,0)",
-            "0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(245,185,66,0.1)",
+            "0 15px 35px rgba(0,0,0,0.6), 0 0 15px rgba(245,185,66,0.1)",
             "0 10px 30px rgba(0,0,0,0.5), 0 0 0px rgba(245,185,66,0)"
           ]
         }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        whileHover={{ scale: 1.02, y: -8 }}
-        whileTap={{ scale: 0.98 }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
         className={cn(
-          "px-5 h-14 rounded-full flex items-center gap-4 transition-all duration-500 group relative overflow-hidden",
+          "w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 group relative overflow-hidden",
           isOpen 
-            ? "bg-white/[0.03] border border-white/10 text-white w-14 justify-center px-0" 
-            : "bg-[#0A0A0B] border border-brand-gold/20 text-white shadow-[0_0_20px_rgba(245,185,66,0.05)]"
+            ? "bg-white/[0.03] border border-white/10 text-white" 
+            : "bg-[#0A0A0B] border border-brand-gold/30 text-white shadow-[0_0_20px_rgba(245,185,66,0.05)]"
         )}
       >
-        <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         
         {isOpen ? (
           <X className="w-5 h-5" />
         ) : (
-          <>
-            <div className="relative shrink-0">
-              <div className="w-9 h-9 rounded-full overflow-hidden border border-brand-gold/30">
-                <Image src="/oyen-ai-avatar.png" alt="OYEN AI" width={36} height={36} className="object-cover" />
-              </div>
-              <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-[#0A0A0B]" />
+          <div className="relative shrink-0">
+            <div className="w-10 h-10 rounded-full overflow-hidden border border-brand-gold/20">
+              <Image src="/oyen-ai-avatar.png" alt="OYEN AI" width={40} height={40} className="object-cover" />
             </div>
-            <div className="flex flex-col items-start pr-2">
-               <span className="text-[12px] font-bold tracking-tight">OYEN AI</span>
-               <span className="text-[8px] font-black text-white/20 uppercase tracking-[0.1em]">Need assistance?</span>
-            </div>
-          </>
+            <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-[#0A0A0B]" />
+          </div>
         )}
       </motion.button>
+
     </div>
   );
 }
