@@ -1,21 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-dark: #05070B;
-  --color-brand-secondary: #0B1020;
-  --color-brand-surface: #101726;
-  --color-brand-card: #0E1424;
+  --color-brand-dark: #050816;
   --color-brand-gold: #F5B942;
-  --color-brand-gold-muted: rgba(245, 185, 66, 0.2);
-  --color-brand-amber: rgba(245, 185, 66, 0.04);
   --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-/* 100% Standard CSS - Zero @apply for absolute build stability */
+:root {
+  --background: #050816;
+  --foreground: #ffffff;
+  --brand-gold: #F5B942;
+  --brand-dark: #050816;
+  --glass-bg: rgba(10, 12, 18, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
 
 body {
-  background-color: #05070B;
-  color: rgba(255, 255, 255, 0.94);
+  background-color: var(--background);
+  color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -26,152 +28,157 @@ body {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 48px;
+  padding-right: 48px;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1024px) {
   .container-custom {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-custom {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
 .section-gap {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 68px;
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 1;
+  line-height: 0.95;
   color: white;
 }
 
-@media (min-width: 768px) {
-  h1 { font-size: 4rem; }
+@media (max-width: 1024px) {
+  h1 { font-size: 54px; }
 }
 
-@media (min-width: 1280px) {
-  h1 { font-size: 5rem; }
+@media (max-width: 768px) {
+  h1 { font-size: 40px; }
 }
 
 h2 {
-  font-size: 2.25rem;
-  font-weight: 800;
+  font-size: 48px;
+  font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.1;
+  line-height: 1.05;
   color: white;
 }
 
-@media (min-width: 768px) {
-  h2 { font-size: 3.25rem; }
+@media (max-width: 768px) {
+  h2 { font-size: 32px; }
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
   color: white;
 }
 
-@media (min-width: 768px) {
-  h3 { font-size: 2rem; }
-}
-
 .text-editorial {
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
   letter-spacing: -0.01em;
   font-weight: 400;
 }
 
-@media (min-width: 1280px) {
-  .text-editorial { font-size: 17px; }
-}
-
-.text-gold-highlight {
-  color: #F5B942;
-  font-style: italic;
-  font-weight: 500;
-}
-
-.btn-cinematic-gold {
-  height: 54px; /* Reduced from 60px */
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  background-color: #F5B942;
-  color: #05070B;
+.eyebrow {
+  font-size: 11px;
   font-weight: 900;
-  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.3em;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border-radius: 0.6rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 50px rgba(245, 185, 66, 0.3);
+  letter-spacing: 0.28em;
+  color: rgba(245, 185, 66, 0.6);
+  margin-bottom: 20px;
+  display: block;
 }
 
-.btn-cinematic-gold:hover {
-  transform: scale(1.03) translateY(-2px);
-  box-shadow: 0 0 70px rgba(245, 185, 66, 0.5);
+.glass-panel-institutional {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 22px;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.45);
 }
 
-.glass-panel {
-  background-color: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(48px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.25rem;
-  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6);
+.card-institutional {
+  height: 170px;
+  padding: 24px;
+  background: rgba(12, 16, 26, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  transition: transform 0.3s ease;
 }
 
-.capability-row {
+.card-institutional:hover {
+  transform: translateY(-4px);
+}
+
+.btn-institutional-primary {
+  height: 52px;
+  padding: 0 28px;
+  border-radius: 14px;
+  background: var(--brand-gold);
+  color: black;
+  font-weight: 700;
+  font-size: 15px;
   display: flex;
   align-items: center;
-  gap: 2rem;
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  justify-content: center;
   transition: all 0.3s ease;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  margin-left: -1.25rem;
-  margin-right: -1.25rem;
-  border-radius: 0.8rem;
 }
 
-.capability-row:last-child {
-  border-bottom: 0;
+.btn-institutional-secondary {
+  height: 52px;
+  padding: 0 28px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
-.capability-row:hover {
-  background-color: rgba(255, 255, 255, 0.02);
-  transform: translateX(10px);
+.image-contained {
+  width: 100%;
+  object-fit: cover;
+  background-position: center center;
 }
 
-.cinematic-warmth {
-  background: radial-gradient(circle at 50% -20%, rgba(245, 185, 66, 0.1), transparent 70%);
+.bg-cinematic {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.25;
 }
 
-.image-cinematic {
-  filter: contrast(1.05) brightness(0.9) saturate(0.9);
-}
-
-.glow-amber {
-  box-shadow: 0 0 80px rgba(245, 185, 66, 0.08);
-}
-
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 8s linear infinite;
+.cinematic-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(4, 6, 12, 0.92),
+    rgba(4, 6, 12, 0.88)
+  );
 }

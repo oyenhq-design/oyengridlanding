@@ -1,115 +1,92 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, Shield, Users, Database, Zap, Activity } from "lucide-react";
 import Image from "next/image";
+import { Activity, Globe, Shield, Zap, Database, BarChart3, Users } from "lucide-react";
 
 export function ScaleStructure() {
-  const stats = [
-    { label: "Active Programmes", val: "1,240+", desc: "Global coordination" },
-    { label: "System Uptime", val: "99.995%", desc: "Nominal operational status" },
-    { label: "Infrastructure Health", val: "Verified", desc: "L4 Security protocols" },
-    { label: "Data Throughput", val: "Institutional", desc: "Enterprise-grade bandwidth" }
-  ];
-
   return (
-    <section className="section-gap relative overflow-hidden bg-[#05070B] border-y border-white/5">
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-12 gap-20 items-center">
-          
-          {/* LEFT: Scaling Narrative (Span 5) */}
-          <div className="lg:col-span-5">
-            <span className="text-[11px] font-black uppercase tracking-[0.5em] text-brand-gold mb-6 block opacity-50">Infrastructure Proof-of-Scale</span>
-            <h2 className="mb-8 leading-tight">
-              Stable. Secure. <br />
-              Institutional Grade.
-            </h2>
-
-            <p className="text-editorial mb-12 max-w-lg">
-              OYEN GRID provides the foundational infrastructure for high-scale programme delivery. Monitor active cohorts, deployment health, and global operations through a single, secure environment.
-            </p>
-
-            <div className="grid grid-cols-2 gap-8 mb-12">
-               {stats.map((m, i) => (
-                 <div key={i} className="space-y-2">
-                    <div className="text-[10px] font-black uppercase tracking-widest text-white/30">{m.label}</div>
-                    <div className="text-[28px] font-black text-white tracking-tighter leading-none">{m.val}</div>
-                    <div className="text-[9px] font-bold text-brand-gold uppercase tracking-tighter opacity-60">{m.desc}</div>
+    <section className="bg-[#050816] relative overflow-hidden">
+      
+      {/* METRICS STRIP (Used once per design rules) */}
+      <div className="h-[120px] bg-[rgba(8,10,18,0.92)] border-y border-white/5 flex items-center">
+         <div className="container-custom w-full">
+            <div className="flex justify-between items-center">
+               {[
+                 { label: "Institutional Reach", val: "12M+" },
+                 { label: "Operational Uptime", val: "99.9%" },
+                 { label: "Delivery Precision", val: "L-04" },
+                 { label: "Secure Cohorts", val: "480k" }
+               ].map((m, i) => (
+                 <div key={i} className="text-center">
+                    <div className="text-[44px] font-bold text-white tracking-tighter leading-none mb-1">{m.val}</div>
+                    <div className="text-[12px] font-black text-white/20 uppercase tracking-widest">{m.label}</div>
                  </div>
                ))}
             </div>
+         </div>
+      </div>
 
-            <button className="btn-cinematic-gold h-12 px-10 text-[12px] font-bold">
-               Scale Your Infrastructure
-            </button>
+      <div className="section-gap container-custom">
+        <div className="grid lg:grid-cols-2 gap-[72px] items-center">
+          
+          {/* LEFT: Content */}
+          <div>
+            <span className="eyebrow">GLOBAL INFRASTRUCTURE</span>
+            <h2 className="mb-8 max-w-[520px]">
+              Scalable <span className="text-brand-gold">architecture</span> for global sync.
+            </h2>
+            <p className="text-editorial mb-10 max-w-[520px]">
+              Our platform is built on institutional-grade infrastructure, enabling multi-region deployment and real-time synchronization across thousands of cohorts.
+            </p>
+
+            <div className="space-y-4">
+               {[
+                 { t: "Multi-Region Availability", d: "Global edge deployment for low-latency delivery." },
+                 { t: "Institutional Compliance", d: "SOC2, ISO 27001, and HIPAA ready infrastructure." }
+               ].map((item, i) => (
+                 <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex items-start gap-5">
+                    <Shield className="w-5 h-5 text-brand-gold/60 mt-1" />
+                    <div>
+                       <h4 className="text-[16px] font-bold text-white mb-1">{item.t}</h4>
+                       <p className="text-[12px] text-white/30">{item.d}</p>
+                    </div>
+                 </div>
+               ))}
+            </div>
           </div>
 
-          {/* RIGHT: Infrastructure Monitoring UI (Span 7) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98, x: 40 }}
-            whileInView={{ opacity: 1, scale: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5 }}
-            className="lg:col-span-7"
-          >
-             <div className="glass-panel p-8 border-white/5 bg-[#0A0D14] shadow-2xl relative">
-                <div className="flex justify-between items-center mb-8">
-                   <div className="flex items-center gap-4">
-                      <div className="w-2.5 h-2.5 rounded-full bg-brand-gold animate-pulse" />
-                      <span className="text-[11px] font-black uppercase tracking-widest text-white">System Monitor: active</span>
+          {/* RIGHT: Contained Visual */}
+          <div className="flex justify-center lg:justify-end">
+             <div className="relative w-full max-w-[560px] h-[420px] rounded-[26px] overflow-hidden border border-white/10 shadow-2xl bg-[#0A0C12] p-8 flex flex-col justify-between">
+                <div className="flex justify-between items-center">
+                   <div className="flex items-center gap-3">
+                      <Globe className="w-4 h-4 text-brand-gold" />
+                      <span className="text-[10px] font-black uppercase tracking-widest text-white/40">Network Status</span>
                    </div>
-                   <div className="text-[9px] font-mono text-white/20">GLOBAL_CLUSTER_84</div>
+                   <div className="px-2 py-1 rounded bg-brand-gold/10 border border-brand-gold/20 text-[8px] font-black text-brand-gold uppercase tracking-widest">Stable</div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                   {/* Realistic Analytics Card */}
-                   <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 space-y-4">
-                      <div className="text-[10px] font-black uppercase tracking-widest text-white/40">Participant Activity</div>
-                      <div className="h-32 flex items-end gap-2">
-                         {[40, 70, 45, 90, 65, 80, 55, 100].map((h, i) => (
-                           <div key={i} className="flex-1 bg-brand-gold/10 border-t-2 border-brand-gold/40 rounded-t-sm" style={{ height: `${h}%` }} />
-                         ))}
-                      </div>
-                      <div className="flex justify-between text-[9px] font-bold text-white/20 uppercase">
-                         <span>00:00</span>
-                         <span>Syncing</span>
-                         <span>24:00</span>
-                      </div>
-                   </div>
-
-                   {/* Deployment Status List */}
-                   <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 space-y-4">
-                      <div className="text-[10px] font-black uppercase tracking-widest text-white/40">Active Deployments</div>
-                      <div className="space-y-3">
-                         {[
-                            { name: "Cohort_Alpha_01", status: "Active", val: 84 },
-                            { name: "Strategic_Ops_L2", status: "Nominal", val: 100 },
-                            { name: "Institutional_Sync", status: "Syncing", val: 42 }
-                         ].map((d, i) => (
-                           <div key={i} className="space-y-1.5">
-                              <div className="flex justify-between text-[9px] font-black uppercase tracking-tighter">
-                                 <span className="text-white/60">{d.name}</span>
-                                 <span className="text-brand-gold">{d.status}</span>
-                              </div>
-                              <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
-                                 <div className="h-full bg-brand-gold/60" style={{ width: `${d.val}%` }} />
-                              </div>
-                           </div>
-                         ))}
-                      </div>
-                   </div>
-                </div>
-
-                {/* Infrastructure Tags */}
-                <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-4">
-                   {["L4_SECURITY", "ISO_27001", "SOC2_TYPE_II", "GDPR_COMPLIANT"].map((tag, i) => (
-                     <div key={i} className="px-3 py-1.5 rounded bg-white/[0.03] border border-white/5 text-[9px] font-black uppercase tracking-widest text-white/30">
-                        {tag}
+                <div className="space-y-6">
+                   {[65, 42, 88].map((w, i) => (
+                     <div key={i} className="space-y-2">
+                        <div className="flex justify-between text-[9px] font-black text-white/20 uppercase tracking-widest">
+                           <span>Node_OS_0{i+1}</span>
+                           <span>{w}%</span>
+                        </div>
+                        <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                           <div className="h-full bg-brand-gold/40" style={{ width: `${w}%` }} />
+                        </div>
                      </div>
                    ))}
                 </div>
+
+                <div className="pt-6 border-t border-white/5">
+                   <div className="text-[10px] font-black text-white/20 uppercase tracking-widest mb-2">System Throughput</div>
+                   <div className="text-[24px] font-bold text-white tracking-tighter">482.4 GB/s</div>
+                </div>
              </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>
