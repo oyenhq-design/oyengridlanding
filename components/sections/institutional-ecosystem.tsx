@@ -17,7 +17,7 @@ export function HeroInstitutional() {
   return (
     <section className="hero-section-institutional flex items-center pt-32 pb-24 border-b border-white/5 overflow-hidden">
       
-      <div className="max-w-[1320px] mx-auto px-[48px] w-full grid grid-cols-[1.05fr_0.95fr] gap-[72px] items-center relative z-[2]">
+      <div className="max-w-[1380px] mx-auto px-[56px] w-full grid grid-cols-[0.95fr_1.05fr] gap-[48px] items-center relative z-[2]">
         
         {/* LEFT: CONTENT AREA */}
         <div className="hero-content">
@@ -29,7 +29,8 @@ export function HeroInstitutional() {
             <span className="eyebrow">HUMAN COORDINATION • INSTITUTIONAL OS</span>
 
             <h1 className="hero-headline text-white mb-6">
-              Coordinate programmes with <br />
+              Coordinate programmes <br />
+              with complete <br />
               <span className="text-brand-gold">operational control.</span>
             </h1>
 
@@ -38,10 +39,10 @@ export function HeroInstitutional() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mt-12">
-              <button className="btn-institutional-primary px-10">
+              <button className="btn-institutional-primary px-[30px] h-[54px]">
                 Initialize Infrastructure
               </button>
-              <button className="btn-institutional-secondary group px-8">
+              <button className="btn-institutional-secondary group px-[30px] h-[54px]">
                 Talk to Architects <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -63,10 +64,10 @@ export function HeroInstitutional() {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="relative flex justify-end"
+          className="relative flex justify-end mt-12"
         >
           {/* Main Dashboard Visual */}
-          <div className="relative w-[520px] rounded-[28px] overflow-hidden border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
+          <div className="dashboard-container">
              <div className="bg-[#0A0C12] rounded-[26px] overflow-hidden">
                 <DashboardMockup />
              </div>
@@ -98,6 +99,7 @@ export function HeroInstitutional() {
     </section>
   );
 }
+
 
 
 

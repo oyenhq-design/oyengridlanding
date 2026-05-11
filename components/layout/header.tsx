@@ -28,9 +28,10 @@ export function Header() {
     <header className={cn(
       "fixed top-0 left-0 right-0 z-[100] transition-all duration-500",
       scrolled 
-        ? "bg-brand-dark/95 backdrop-blur-xl h-[72px] border-b border-white/5 shadow-2xl" 
+        ? "bg-[rgba(4,6,12,0.72)] backdrop-blur-[18px] h-[74px] border-b border-white/5 shadow-2xl" 
         : "bg-transparent h-[88px]"
     )}>
+
       {/* Cinematic Gradient Background */}
       <div className={cn(
         "absolute inset-0 z-0 transition-opacity duration-500",
