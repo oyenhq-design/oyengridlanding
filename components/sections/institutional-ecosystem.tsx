@@ -2,98 +2,49 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, Shield, Activity, Globe, Users, Database, Workflow, Sparkles, MessageSquare, Cpu, BarChart3, ChevronRight } from "lucide-react";
-import { DashboardMockup } from "./dashboard-mockup";
+import { ArrowRight, Activity, Globe, Users, Database, Workflow, Sparkles } from "lucide-react";
 
 export function HeroInstitutional() {
   return (
-    <section className="relative min-h-[760px] flex items-center pt-24 pb-24 overflow-hidden bg-[#050816] border-b border-white/5">
+    <section className="relative min-h-[700px] flex items-center pt-32 pb-24 overflow-hidden bg-[#050816] border-b border-white/5">
       
-      {/* CINEMATIC BACKGROUND FOUNDATION (Contained, not edge-to-edge) */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center">
-        <div className="relative w-full h-full max-w-[1440px] opacity-25">
-          <Image 
-            src="/hero-bg-institutional.png" 
-            alt="Environment" 
-            fill 
-            priority
-            className="object-cover bg-cinematic"
-          />
-          <div className="absolute inset-0 cinematic-overlay" />
-        </div>
-      </div>
-
       <div className="container-custom relative z-10 w-full">
-        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-16 items-center">
+        <div className="max-w-[800px] mx-auto text-center">
           
-          {/* LEFT: CONTENT */}
+          {/* CONTENT */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="eyebrow">HUMAN COORDINATION • INSTITUTIONAL OS</span>
+            <span className="eyebrow mx-auto">HUMAN COORDINATION • INSTITUTIONAL OS</span>
 
-            <h1 className="mb-6 max-w-[620px]">
+            <h1 className="mb-8 mx-auto text-balance">
               Coordinate programmes with <br />
               <span className="text-brand-gold">operational control.</span>
             </h1>
 
-            <p className="text-editorial mb-10 max-w-[520px] mt-7">
+            <p className="text-editorial mb-12 max-w-[640px] mx-auto">
               OYEN GRID helps organisations coordinate trainers, participants, and programme operations through one unified system of intelligence and real-time visibility.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 mb-12">
-              <button className="btn-institutional-primary">
+            <div className="flex flex-wrap items-center justify-center gap-5 mb-16">
+              <button className="btn-institutional-primary px-10">
                 Initialize Infrastructure
               </button>
-              <button className="btn-institutional-secondary group">
+              <button className="btn-institutional-secondary group px-8">
                 Talk to Architects <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
 
-            <div className="pt-10 border-t border-white/5 flex items-center gap-10">
-               <div className="flex flex-wrap gap-10 items-center opacity-20 grayscale brightness-150">
-                  <span className="font-black italic text-[16px] tracking-tighter">ALTSCHOOL</span>
-                  <span className="font-black italic text-[14px] tracking-tighter">INGRESSIVE</span>
-                  <span className="font-black italic text-[15px] tracking-tighter">TALENTQL</span>
-                  <span className="font-black italic text-[13px] tracking-tighter">TECHSTARS</span>
+            <div className="pt-12 border-t border-white/5 flex flex-col items-center gap-8">
+               <span className="text-[10px] font-black text-white/20 uppercase tracking-[0.3em]">Institutional Grade Orchestration</span>
+               <div className="flex flex-wrap justify-center gap-12 items-center opacity-20 grayscale brightness-150">
+                  <span className="font-black italic text-[18px] tracking-tighter">ALTSCHOOL</span>
+                  <span className="font-black italic text-[16px] tracking-tighter">INGRESSIVE</span>
+                  <span className="font-black italic text-[17px] tracking-tighter">TALENTQL</span>
+                  <span className="font-black italic text-[15px] tracking-tighter">TECHSTARS</span>
                </div>
-            </div>
-          </motion.div>
-
-          {/* RIGHT: CONTAINED VISUAL */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.2 }}
-            className="relative flex justify-end"
-          >
-            <div className="relative w-full max-w-[680px] h-[520px] rounded-[28px] overflow-hidden border border-white/10 shadow-2xl glass-panel-institutional p-2">
-               <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-[#0A0C12]">
-                  <DashboardMockup />
-               </div>
-               
-               {/* FLOATING UI PANEL (Institutional Size) */}
-               <motion.div 
-                 animate={{ y: [0, -10, 0] }}
-                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                 className="absolute -bottom-8 -left-8 w-[340px] glass-panel-institutional p-6"
-               >
-                  <div className="flex items-center gap-4 mb-4">
-                     <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                     <span className="text-[10px] font-black uppercase tracking-widest text-white/50">Live Operations Monitor</span>
-                  </div>
-                  <div className="space-y-4">
-                     <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                        <div className="h-full w-[84%] bg-brand-gold/60" />
-                     </div>
-                     <div className="flex justify-between items-end">
-                        <div className="text-[20px] font-bold text-white tracking-tighter">84.2%</div>
-                        <div className="text-[10px] font-black text-white/20 uppercase tracking-widest">Efficiency Sync</div>
-                     </div>
-                  </div>
-               </motion.div>
             </div>
           </motion.div>
 
@@ -102,6 +53,7 @@ export function HeroInstitutional() {
     </section>
   );
 }
+
 
 export function PlatformOverview() {
   const capabilities = [
