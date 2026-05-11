@@ -7,7 +7,7 @@ import { DashboardMockup } from "./dashboard-mockup";
 
 export function HeroInstitutional() {
   return (
-    <section className="relative min-h-[80vh] flex items-center pt-20 pb-12 overflow-hidden bg-[#05070B]">
+    <section className="relative min-h-[80vh] flex items-center pt-20 pb-12 overflow-hidden bg-brand-dark">
       
       {/* 1. MASTER BACKGROUND IMAGE LAYER (Crisp & Clear) */}
       <div className="absolute inset-0 z-0">
@@ -20,9 +20,9 @@ export function HeroInstitutional() {
         />
         
         {/* 2. REFINED CINEMATIC OVERLAYS (Light Touch) */}
-        <div className="absolute inset-0 bg-[#05070B]/50" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#05070B] via-[#05070B]/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#05070B] via-transparent to-transparent opacity-95" />
+        <div className="absolute inset-0 bg-brand-dark/50" />
+        <div className="absolute inset-0 bg-linear-to-r from-brand-dark via-brand-dark/60 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-brand-dark via-transparent to-transparent opacity-95" />
         <div className="absolute inset-0 shadow-[inset_0_0_200px_rgba(0,0,0,0.8)]" />
       </div>
 
@@ -41,7 +41,7 @@ export function HeroInstitutional() {
               <span className="text-[10px] font-black uppercase tracking-[0.5em] text-brand-gold">Enterprise Programme Operating System</span>
             </div>
 
-            <h1 className="mb-6 max-w-[540px]">
+            <h1 className="mb-6 max-w-135">
               Run structured <br />
               programmes with <br />
               <span className="text-gold-highlight">operational clarity.</span>
@@ -52,7 +52,7 @@ export function HeroInstitutional() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-6 mb-12">
-              <button className="btn-cinematic-gold w-full sm:w-auto h-[54px]">
+              <button className="btn-cinematic-gold w-full sm:w-auto h-13.5">
                 Initialize Infrastructure
               </button>
               <button className="flex items-center gap-4 text-[13px] font-black text-white/40 hover:text-white transition-colors group uppercase tracking-[0.3em]">
@@ -72,15 +72,15 @@ export function HeroInstitutional() {
           </motion.div>
 
           {/* RIGHT: Layered Cinematic Visual (Scaled for presence) */}
-          <div className="relative lg:h-[600px] flex items-start pt-12 justify-end">
+          <div className="relative lg:h-150 flex items-start pt-12 justify-end">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, x: 60 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 1.5, delay: 0.2 }}
-              className="relative w-full aspect-[4/3] rounded-[48px] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.6)] group"
+              className="relative w-full aspect-4/3 rounded-[48px] overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.6)] group"
             >
                {/* Environment Blending for Cards */}
-               <div className="absolute inset-0 bg-gradient-to-t from-[#05070B] via-transparent to-transparent opacity-50 z-10" />
+               <div className="absolute inset-0 bg-linear-to-t from-brand-dark via-transparent to-transparent opacity-50 z-10" />
                
                {/* Floating UI Panel - Scaled up */}
                <motion.div 
@@ -92,7 +92,7 @@ export function HeroInstitutional() {
                </motion.div>
 
                {/* Activity Overlay - Scaled and refined */}
-               <div className="absolute bottom-12 left-12 right-12 z-20 space-y-4 bg-[#05070B]/30 backdrop-blur-xl p-6 rounded-[24px] border border-white/10">
+               <div className="absolute bottom-12 left-12 right-12 z-20 space-y-4 bg-brand-dark/30 backdrop-blur-xl p-6 rounded-3xl border border-white/10">
                   <div className="flex items-center gap-3">
                      <div className="w-2 h-2 rounded-full bg-brand-gold shadow-[0_0_15px_#F5B942]" />
                      <span className="text-[10px] font-black tracking-[0.4em] text-white/60 uppercase">Live Programme Delivery</span>
@@ -122,16 +122,16 @@ export function PlatformOverview() {
   ];
 
   return (
-    <section className="relative bg-[#05070B] py-[120px] overflow-hidden border-t border-white/5">
+    <section className="relative bg-brand-dark py-30 overflow-hidden border-t border-white/5">
       {/* Subtle gold accent and background atmosphere */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent" />
-      <div className="absolute top-1/4 -right-64 w-[1200px] h-[1200px] bg-brand-gold/[0.02] blur-[220px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-brand-gold/10 to-transparent" />
+      <div className="absolute top-1/4 -right-64 w-300 h-300 bg-brand-gold/2 blur-[220px] rounded-full pointer-events-none" />
 
-      <div className="container-custom max-w-[1280px] mx-auto px-6 relative z-10">
+      <div className="container-custom max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           {/* LEFT: Realistic Operational Dashboard Visual */}
           <div className="flex justify-center items-center">
-            <div className="w-full max-w-[540px]">
+            <div className="w-full max-w-135">
               <DashboardMockup />
             </div>
           </div>
@@ -151,7 +151,7 @@ export function PlatformOverview() {
             <div className="mt-12 space-y-6">
               {capabilities.map((item, i) => (
                 <div key={i} className="flex items-start gap-6 py-6 border-b border-white/10 last:border-b-0">
-                  <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-white/4 border border-white/10 flex items-center justify-center shrink-0">
                     <item.icon className="w-6 h-6 text-brand-gold/80" />
                   </div>
                   <div className="flex-1">
@@ -162,7 +162,7 @@ export function PlatformOverview() {
               ))}
             </div>
         }
-            <button className="mt-14 btn-cinematic-gold h-[56px] px-12 text-[16px] font-bold group">
+            <button className="mt-14 btn-cinematic-gold h-14 px-12 text-[16px] font-bold group">
               Start Building <ArrowRight className="ml-4 w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </button>
           </div>
@@ -184,9 +184,9 @@ export function OperationalControlCenter() {
   ];
 
   return (
-    <section className="section-gap relative bg-[#05070B]">
+    <section className="section-gap relative bg-brand-dark">
       {/* Immersive Depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(245,185,66,0.04),transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(245,185,66,0.04),transparent_60%)]" />
 
       <div className="container-custom relative z-10">
         
@@ -199,7 +199,7 @@ export function OperationalControlCenter() {
 
         {/* INTEGRATED LIFECYCLE FLOW: Elegant Horizontal Line (Scaled Down) */}
         <div className="mb-32 relative py-12 px-10 glass-panel border-white/5 overflow-hidden">
-           <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-y-1/2" />
+            <div className="absolute top-1/2 left-0 w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent -translate-y-1/2" />
            <div className="grid grid-cols-2 md:grid-cols-6 gap-12 relative z-10">
               {workflow.map((step, i) => (
                 <motion.div 
@@ -210,7 +210,7 @@ export function OperationalControlCenter() {
                   transition={{ delay: i * 0.1 }}
                   className="flex flex-col items-center group text-center"
                 >
-                  <div className="w-20 h-20 rounded-[28px] bg-[#05070B] border border-white/5 flex items-center justify-center mb-6 group-hover:border-brand-gold/40 transition-all shadow-[0_20px_40px_rgba(0,0,0,0.8)] relative z-10">
+                    <div className="w-20 h-20 rounded-[28px] bg-brand-dark border border-white/5 flex items-center justify-center mb-6 group-hover:border-brand-gold/40 transition-all shadow-[0_20px_40px_rgba(0,0,0,0.8)] relative z-10">
                      <step.icon className="w-7 h-7 text-white/20 group-hover:text-brand-gold transition-colors" />
                      {i < 5 && (
                         <div className="absolute top-1/2 -right-8 w-8 h-px bg-brand-gold/20 hidden md:block" />
@@ -230,7 +230,7 @@ export function OperationalControlCenter() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5 }}
-            className="lg:col-span-7 relative h-[650px] rounded-[56px] overflow-hidden border border-white/10 group shadow-[0_60px_120px_rgba(0,0,0,0.7)]"
+                className="lg:col-span-7 relative h-162.5 rounded-[56px] overflow-hidden border border-white/10 group shadow-[0_60px_120px_rgba(0,0,0,0.7)]"
           >
              <Image 
                src="/ops_workspace_oversight_v3_1778383297044.png" 
@@ -238,17 +238,17 @@ export function OperationalControlCenter() {
                fill 
                className="object-cover image-cinematic transition-transform duration-1000 group-hover:scale-105"
              />
-             <div className="absolute inset-0 bg-gradient-to-t from-[#05070B] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-linear-to-t from-brand-dark via-transparent to-transparent opacity-80" />
              
              {/* Integrated UI Overlays */}
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[480px]">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-120">
                 <DashboardMockup small />
              </div>
 
              <div className="absolute bottom-12 left-12 flex items-center gap-6">
                 <div className="flex -space-x-3">
                    {[1,2,3,4].map(i => (
-                     <div key={i} className="w-10 h-10 rounded-full border-2 border-[#05070B] overflow-hidden bg-brand-dark/80 shadow-xl">
+                      <div key={i} className="w-10 h-10 rounded-full border-2 border-brand-dark overflow-hidden bg-brand-dark/80 shadow-xl">
                         <Image src={`/exec-avatar-${i}.png`} alt="Team member" width={40} height={40} className="opacity-60 grayscale" />
                      </div>
                    ))}
@@ -260,7 +260,7 @@ export function OperationalControlCenter() {
           {/* RIGHT: Refined Editorial Content (Span 5) (Scaled Down) */}
           <div className="lg:col-span-5 space-y-20 pt-12">
              <div>
-                <h3 className="mb-8 leading-none tracking-[-0.05em]">Total Visibility. <br /><span className="text-gold-highlight">Absolute Control.</span></h3>
+                <h3 className="mb-8 leading-none tracking-tighter">Total Visibility. <br /><span className="text-gold-highlight">Absolute Control.</span></h3>
                 <p className="text-[17px] leading-relaxed text-white/40 font-medium mb-12">Deploy multi-track programmes with high-fidelity telemetry, monitoring complex participant networks through a unified institutional layer.</p>
                 
                 <div className="space-y-3">
@@ -280,7 +280,7 @@ export function OperationalControlCenter() {
                 </div>
              </div>
 
-             <button className="btn-cinematic-gold h-[60px] w-full text-[14px]">
+                <button className="btn-cinematic-gold h-15 w-full text-[14px]">
                 Initialize Infrastructure
              </button>
           </div>
