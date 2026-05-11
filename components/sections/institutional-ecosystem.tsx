@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, Activity, Globe, Users, Database, Workflow, Sparkles } from "lucide-react";
 
-import { DashboardMockup } from "./dashboard-mockup";
 
 export function HeroInstitutional() {
   const metrics = [
@@ -59,41 +58,25 @@ export function HeroInstitutional() {
           </motion.div>
         </div>
 
-        {/* RIGHT: VISUAL AREA */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.2 }}
-          className="relative flex justify-end mt-12"
-        >
-          {/* Main Dashboard Visual */}
-          <div className="dashboard-container">
-             <div className="bg-[#0A0C12] rounded-[26px] overflow-hidden">
-                <DashboardMockup />
-             </div>
-          </div>
-
-          {/* SINGLE FLOATING GLASS CARD */}
-          <motion.div 
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="glass-card-floating"
+        {/* RIGHT: VISUAL AREA (Minimal Cinematic Indicators) */}
+        <div className="relative h-[500px] flex items-center justify-end">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+            className="relative"
           >
-             <div className="flex items-center gap-3 mb-4">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-[10px] font-black uppercase tracking-widest text-white/50">Live Operations</span>
-             </div>
-             <div className="space-y-4">
-                <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                   <div className="h-full w-[84%] bg-brand-gold/60" />
-                </div>
-                <div className="flex justify-between items-end">
-                   <div className="text-[20px] font-bold text-white tracking-tighter">84.2%</div>
-                   <div className="text-[10px] font-black text-white/20 uppercase tracking-widest">Efficiency</div>
-                </div>
-             </div>
+            {/* Subtle Operational Sync Indicator */}
+            <div className="glass-panel-institutional p-5 border border-white/10 rounded-2xl backdrop-blur-xl bg-white/[0.02] flex items-center gap-4">
+               <div className="w-2 h-2 rounded-full bg-brand-gold animate-pulse shadow-[0_0_10px_#F5B942]" />
+               <div className="flex flex-col">
+                  <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">Operational Sync</span>
+                  <span className="text-[13px] font-bold text-white">Live Programme Telemetry</span>
+               </div>
+            </div>
           </motion.div>
-        </motion.div>
+        </div>
+
 
       </div>
     </section>
