@@ -123,7 +123,7 @@ export function OperationalLifecycle() {
 
     const interval = setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % stages.length);
-    }, 5000); // 5 seconds per stage
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
@@ -133,10 +133,10 @@ export function OperationalLifecycle() {
     setActiveIdx(idx);
     setIsAutoPlaying(false);
     
-    // Resume auto-play after 10 seconds of inactivity
+    // Resume auto-play after 12 seconds of inactivity
     const timeout = setTimeout(() => {
       setIsAutoPlaying(true);
-    }, 10000);
+    }, 12000);
 
     return () => clearTimeout(timeout);
   }, []);
@@ -154,30 +154,33 @@ export function OperationalLifecycle() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-[1fr_400px] gap-24 items-center">
-          {/* LEFT: INTERACTIVE STACK */}
-          <div className="relative h-[600px] flex items-center justify-center">
-             <div className="relative w-full max-w-[500px] aspect-[4/5]">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-24 items-center">
+          {/* LEFT: 3D ORBITAL CAROUSEL */}
+          <div 
+            className="relative h-[640px] flex items-center justify-center"
+            style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
+            onMouseEnter={() => setIsAutoPlaying(false)}
+            onMouseLeave={() => setIsAutoPlaying(true)}
+          >
+             <div className="relative w-full max-w-[440px] aspect-[4/5]" style={{ transformStyle: "preserve-3d" }}>
                 {stages.map((stage, i) => {
-                  const isActive = activeIdx === i;
-                  
-                  // Calculate offsets for stacked look
-                  let xOffset = (i - activeIdx) * 15;
-                  let yOffset = (i - activeIdx) * -10;
-                  let rotate = (i - activeIdx) * 2;
-                  let scale = 1 - Math.abs(i - activeIdx) * 0.05;
-                  let zIndex = stages.length - Math.abs(i - activeIdx);
-                  
-                  if (isActive) {
-                    xOffset = 0;
-                    yOffset = 0;
-                    rotate = 0;
-                    scale = 1.02; // Slightly enlarge when active
-                    zIndex = stages.length + 10;
-                  }
+                  // Calculate shortest distance in circular array
+                  let diff = i - activeIdx;
+                  if (diff > stages.length / 2) diff -= stages.length;
+                  if (diff < -stages.length / 2) diff += stages.length;
 
-                  // Hide cards that are too far back
-                  const isVisible = Math.abs(i - activeIdx) <= 3;
+                  const absDiff = Math.abs(diff);
+                  const isActive = absDiff === 0;
+                  
+                  // Cinematic 3D Transform Logic
+                  const xOffset = diff * 160;
+                  const zOffset = absDiff * -220;
+                  const rotateY = diff * -35;
+                  const scale = 1 - absDiff * 0.12;
+                  const opacity = Math.max(0, 1 - absDiff * 0.35);
+                  const blur = absDiff * 1.5;
+                  const brightness = 1 - absDiff * 0.4;
+                  const zIndex = stages.length - absDiff;
 
                   return (
                     <motion.div
@@ -186,46 +189,65 @@ export function OperationalLifecycle() {
                       initial={false}
                       animate={{
                         x: xOffset,
-                        y: yOffset,
-                        rotate: rotate,
+                        z: zOffset,
+                        rotateY: rotateY,
                         scale: scale,
+                        opacity: opacity,
                         zIndex: zIndex,
-                        opacity: isVisible ? 1 : 0,
-                        pointerEvents: isVisible && !isActive ? "auto" : isActive ? "none" : "none"
                       }}
-                      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ 
+                        duration: 1.2, 
+                        ease: [0.16, 1, 0.3, 1],
+                        opacity: { duration: 0.8 }
+                      }}
                       className={cn(
-                        "absolute inset-0 cursor-pointer group"
+                        "absolute inset-0 cursor-pointer group select-none",
+                        isActive ? "pointer-events-none" : "pointer-events-auto"
                       )}
+                      style={{ 
+                        transformStyle: "preserve-3d",
+                        backfaceVisibility: "hidden"
+                      }}
                     >
-                       <div className={cn(
-                         "relative w-full h-full rounded-[32px] overflow-hidden border transition-all duration-700",
-                         isActive 
-                           ? "border-brand-gold/50 shadow-[0_40px_100px_rgba(245,185,66,0.15)]" 
-                           : "border-white/10 shadow-2xl grayscale-[0.5] opacity-40 hover:opacity-100 hover:grayscale-0"
-                       )}>
+                       <motion.div 
+                         animate={{ 
+                           filter: `blur(${blur}px) brightness(${brightness})`,
+                           boxShadow: isActive 
+                             ? "0 40px 100px rgba(245,185,66,0.18), 0 0 40px rgba(245,185,66,0.1)" 
+                             : "0 20px 50px rgba(0,0,0,0.5)"
+                         }}
+                         className={cn(
+                           "relative w-full h-full rounded-[36px] overflow-hidden border transition-colors duration-1000",
+                           isActive ? "border-brand-gold/50" : "border-white/10 grayscale-[0.4]"
+                         )}
+                       >
                           <Image 
                             src={stage.image} 
                             alt={stage.title}
                             fill
                             className="object-cover"
+                            priority={isActive}
                           />
+                          
+                          {/* Ambient Lighting Overlays */}
                           <div className={cn(
-                            "absolute inset-0 transition-opacity duration-700",
-                            isActive ? "bg-gradient-to-t from-[#050816] via-transparent to-transparent opacity-80" : "bg-[#050816]/60"
+                            "absolute inset-0 transition-opacity duration-1000",
+                            isActive ? "bg-gradient-to-t from-[#050816] via-transparent to-transparent opacity-90" : "bg-[#050816]/70"
                           )} />
+
+                          <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                           
                           <div className="absolute bottom-10 left-10 right-10">
                              <div className="flex items-center gap-3 mb-4">
                                 <div className={cn(
-                                  "w-8 h-8 rounded-lg backdrop-blur-md border flex items-center justify-center transition-colors duration-700",
-                                  isActive ? "bg-brand-gold/20 border-brand-gold/40" : "bg-white/5 border-white/10"
+                                  "w-9 h-9 rounded-xl backdrop-blur-xl border flex items-center justify-center transition-all duration-1000",
+                                  isActive ? "bg-brand-gold/20 border-brand-gold/40 shadow-[0_0_20px_rgba(245,185,66,0.2)]" : "bg-white/5 border-white/10"
                                 )}>
-                                   <stage.icon className={cn("w-4 h-4 transition-colors", isActive ? "text-brand-gold" : "text-white/40")} />
+                                   <stage.icon className={cn("w-4 h-4 transition-colors duration-1000", isActive ? "text-brand-gold" : "text-white/30")} />
                                 </div>
-                                <span className={cn("text-[10px] font-black tracking-widest uppercase transition-colors", isActive ? "text-white/60" : "text-white/20")}>{stage.label}</span>
+                                <span className={cn("text-[10px] font-black tracking-[0.2em] uppercase transition-colors duration-1000", isActive ? "text-white/60" : "text-white/20")}>{stage.label}</span>
                              </div>
-                             <h3 className={cn("text-[24px] font-bold transition-colors leading-tight", isActive ? "text-white" : "text-white/20")}>{stage.title}</h3>
+                             <h3 className={cn("text-[26px] font-bold transition-all duration-1000 leading-tight tracking-tight", isActive ? "text-white translate-y-0" : "text-white/20 translate-y-2")}>{stage.title}</h3>
                           </div>
                        </div>
                     </motion.div>
@@ -234,44 +256,44 @@ export function OperationalLifecycle() {
              </div>
           </div>
 
-          {/* RIGHT: CONTENT PANEL */}
+          {/* RIGHT: CONTENT PANEL (Spatially Orchestrated) */}
           <div className="space-y-12">
              <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIdx}
-                  initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                  initial={{ opacity: 0, y: 30, filter: "blur(15px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="space-y-10"
+                  exit={{ opacity: 0, y: -30, filter: "blur(15px)" }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="space-y-12"
                 >
                    <div>
-                      <h3 className="text-[32px] font-bold text-white mb-6 leading-tight">{stages[activeIdx].title}</h3>
-                      <p className="text-[17px] leading-relaxed text-white/60 mb-10">
+                      <h3 className="text-[42px] font-bold text-white mb-8 leading-[1.1] tracking-tighter">{stages[activeIdx].title}</h3>
+                      <p className="text-[19px] leading-relaxed text-white/50 mb-12 max-w-[420px]">
                         {stages[activeIdx].description}
                       </p>
                       
-                      <div className="space-y-4">
+                      <div className="space-y-6">
                          {stages[activeIdx].capabilities.map((cap, i) => (
-                           <div key={i} className="flex items-center gap-4 group">
-                              <div className="w-5 h-5 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center shrink-0">
-                                 <Check className="w-3 h-3 text-brand-gold" />
+                           <div key={i} className="flex items-center gap-5 group">
+                              <div className="w-6 h-6 rounded-full bg-brand-gold/5 border border-brand-gold/20 flex items-center justify-center shrink-0 group-hover:bg-brand-gold/20 group-hover:border-brand-gold/40 transition-all">
+                                 <Check className="w-3.5 h-3.5 text-brand-gold" />
                               </div>
-                              <span className="text-[15px] font-bold text-white/40 group-hover:text-white transition-colors">{cap}</span>
+                              <span className="text-[16px] font-bold text-white/30 group-hover:text-white transition-colors duration-500">{cap}</span>
                            </div>
                          ))}
                       </div>
                    </div>
 
-                   <div className="flex items-center gap-4 pt-10 border-t border-white/5">
-                      <div className="flex gap-1.5">
+                   <div className="flex items-center gap-4 pt-12 border-t border-white/5">
+                      <div className="flex gap-2">
                          {stages.map((_, i) => (
                            <button 
                              key={i}
                              onClick={() => handleStageClick(i)}
                              className={cn(
-                               "h-1.5 rounded-full transition-all duration-500",
-                               activeIdx === i ? "w-8 bg-brand-gold" : "w-1.5 bg-white/10 hover:bg-white/30"
+                               "h-1.5 rounded-full transition-all duration-700",
+                               activeIdx === i ? "w-10 bg-brand-gold shadow-[0_0_15px_rgba(245,185,66,0.4)]" : "w-2 bg-white/10 hover:bg-white/30"
                              )}
                            />
                          ))}
@@ -285,4 +307,5 @@ export function OperationalLifecycle() {
     </section>
   );
 }
+
 
