@@ -182,3 +182,33 @@ h3 {
     rgba(4, 6, 12, 0.88)
   );
 }
+
+/* INSTITUTIONAL HERO SYSTEM */
+.hero-section-institutional {
+  min-height: 760px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  background-image: 
+    linear-gradient(to bottom, rgba(4,6,12,0.78), rgba(4,6,12,0.88)), 
+    url('/hero background.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hero-section-institutional::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at center, rgba(255,190,60,0.06), transparent 55%), 
+    linear-gradient(to right, rgba(4,6,12,0.92), rgba(4,6,12,0.45), rgba(4,6,12,0.88));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+

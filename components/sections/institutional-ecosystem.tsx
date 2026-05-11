@@ -6,9 +6,9 @@ import { ArrowRight, Activity, Globe, Users, Database, Workflow, Sparkles } from
 
 export function HeroInstitutional() {
   return (
-    <section className="relative min-h-[700px] flex items-center pt-32 pb-24 overflow-hidden bg-[#050816] border-b border-white/5">
+    <section className="hero-section-institutional flex items-center pt-32 pb-24 border-b border-white/5">
       
-      <div className="container-custom relative z-10 w-full">
+      <div className="container-custom w-full hero-content">
         <div className="max-w-[800px] mx-auto text-center">
           
           {/* CONTENT */}
@@ -17,6 +17,7 @@ export function HeroInstitutional() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
+
             <span className="eyebrow mx-auto">HUMAN COORDINATION • INSTITUTIONAL OS</span>
 
             <h1 className="mb-8 mx-auto text-balance">
@@ -43,7 +44,7 @@ export function HeroInstitutional() {
                   <span className="font-black italic text-[18px] tracking-tighter">ALTSCHOOL</span>
                   <span className="font-black italic text-[16px] tracking-tighter">INGRESSIVE</span>
                   <span className="font-black italic text-[17px] tracking-tighter">TALENTQL</span>
-                  <span className="font-black italic text-[15px] tracking-tighter">TECHSTARS</span>
+                  <span className="font-black italic text-[13px] tracking-tighter">TECHSTARS</span>
                </div>
             </div>
           </motion.div>
@@ -53,6 +54,7 @@ export function HeroInstitutional() {
     </section>
   );
 }
+
 
 
 export function PlatformOverview() {
@@ -93,7 +95,7 @@ export function PlatformOverview() {
           <div className="flex justify-center lg:justify-end">
              <div className="relative w-full max-w-[560px] h-[420px] rounded-[26px] overflow-hidden border border-white/10 shadow-2xl">
                 <Image 
-                  src="/hero-bg-institutional.png" 
+                  src="/section-2-bg.png" 
                   alt="Platform" 
                   fill 
                   className="object-cover opacity-60"
@@ -129,7 +131,7 @@ export function OperationalControlCenter() {
           <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
              <div className="relative w-full max-w-[560px] h-[420px] rounded-[26px] overflow-hidden border border-white/10 shadow-2xl">
                 <Image 
-                  src="/hero-bg-institutional.png" 
+                  src="/section-3-bg.png" 
                   alt="Operations" 
                   fill 
                   className="object-cover opacity-60 grayscale scale-110"
@@ -171,3 +173,4 @@ export function OperationalControlCenter() {
     </section>
   );
 }
+
