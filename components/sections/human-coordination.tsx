@@ -134,19 +134,16 @@ export function HumanCoordination() {
                     initial={{ opacity: 0, x: 50, y: 20 }}
                     whileInView={{ opacity: 1, x: 0, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ 
-                      delay: i * 0.2, 
-                      duration: 0.8,
-                      ease: [0.16, 1, 0.3, 1]
-                    }}
                     animate={{ 
                       y: [0, i % 2 === 0 ? -10 : 10, 0],
                       x: [0, i % 2 === 0 ? 5 : -5, 0]
                     }}
                     transition={{ 
-                      y: { duration: 5 + i, repeat: Infinity, ease: "easeInOut" },
-                      x: { duration: 7 + i, repeat: Infinity, ease: "easeInOut" },
-                      delay: i * 0.2
+                      delay: i * 0.2, 
+                      duration: 0.8,
+                      ease: [0.16, 1, 0.3, 1],
+                      y: { duration: 5 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 },
+                      x: { duration: 7 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }
                     }}
                     className={cn(
                       "group relative p-6 rounded-[28px] border border-white/10 backdrop-blur-2xl bg-[#080B14]/80 shadow-[0_30px_60px_rgba(0,0,0,0.5)] overflow-hidden",
