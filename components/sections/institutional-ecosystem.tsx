@@ -14,9 +14,9 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="hero-section-institutional flex items-center pt-32 pb-24 border-b border-white/5 overflow-hidden">
+    <section className="hero-section-institutional flex items-center pt-28 pb-20 border-b border-white/5 overflow-hidden">
       
-      <div className="max-w-[1380px] mx-auto px-[56px] w-full grid grid-cols-[0.95fr_1.05fr] gap-[48px] items-center relative z-[2]">
+      <div className="max-w-[1280px] mx-auto px-[48px] w-full grid grid-cols-[0.95fr_1.05fr] gap-[40px] items-center relative z-[2]">
         
         {/* LEFT: CONTENT AREA */}
         <div className="hero-content mt-[-50px]">
@@ -83,24 +83,24 @@ export function PlatformOverview() {
   return (
     <section className="section-gap relative bg-[#050816] border-b border-white/5">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-[72px] items-center">
+        <div className="grid lg:grid-cols-2 gap-[60px] items-center">
           
           {/* LEFT: Content */}
           <div>
             <span className="eyebrow">CORE INFRASTRUCTURE</span>
-            <h2 className="mb-8 max-w-[520px]">
+            <h2 className="mb-6 max-w-[480px]">
               Built for <span className="text-brand-gold">institutional</span> delivery.
             </h2>
-            <p className="text-editorial mb-12 max-w-[520px]">
+            <p className="text-editorial mb-10 max-w-[480px]">
               Our infrastructure is designed for high-stakes programme coordination, providing the stability and visibility required by global organisations.
             </p>
             
             <div className="grid sm:grid-cols-2 gap-4">
               {capabilities.map((cap, i) => (
                 <div key={i} className="card-institutional">
-                  <cap.icon className="w-6 h-6 text-brand-gold/60 mb-4" />
-                  <h4 className="text-[16px] font-bold text-white mb-2">{cap.title}</h4>
-                  <p className="text-[12px] text-white/30 leading-relaxed">{cap.desc}</p>
+                  <cap.icon className="w-5 h-5 text-brand-gold/60 mb-4" />
+                  <h4 className="text-[15px] font-bold text-white mb-2">{cap.title}</h4>
+                  <p className="text-[11px] text-white/30 leading-relaxed">{cap.desc}</p>
                 </div>
               ))}
             </div>
@@ -108,7 +108,7 @@ export function PlatformOverview() {
 
           {/* RIGHT: Contained Image */}
           <div className="flex justify-center lg:justify-end">
-             <div className="relative w-full max-w-[560px] h-[420px] rounded-[26px] overflow-hidden border border-white/10 shadow-2xl">
+             <div className="relative w-full max-w-[520px] h-[380px] rounded-[22px] overflow-hidden border border-white/10 shadow-2xl">
                 <Image 
                   src="/section-2-bg.png" 
                   alt="Platform" 
@@ -140,11 +140,11 @@ export function OperationalControlCenter() {
   return (
     <section className="section-gap relative bg-[#050816] border-b border-white/5">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-[72px] items-center">
+        <div className="grid lg:grid-cols-2 gap-[60px] items-center">
           
           {/* LEFT: Contained Image (Visual First) */}
           <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
-             <div className="relative w-full max-w-[560px] h-[420px] rounded-[26px] overflow-hidden border border-white/10 shadow-2xl">
+             <div className="relative w-full max-w-[520px] h-[380px] rounded-[22px] overflow-hidden border border-white/10 shadow-2xl">
                 <Image 
                   src="/section-3-bg.png" 
                   alt="Operations" 
@@ -158,25 +158,25 @@ export function OperationalControlCenter() {
           {/* RIGHT: Narrative */}
           <div className="order-1 lg:order-2">
             <span className="eyebrow">COMMAND & CONTROL</span>
-            <h2 className="mb-8 max-w-[520px]">
+            <h2 className="mb-6 max-w-[480px]">
               Complete <span className="text-brand-gold">operational</span> orchestration.
             </h2>
-            <p className="text-editorial mb-10 max-w-[520px]">
+            <p className="text-editorial mb-8 max-w-[480px]">
               Manage the entire lifecycle of your programme from one dashboard. Coordinate trainers, monitor engagement, and analyze delivery health in real-time.
             </p>
             
-            <div className="space-y-6">
+            <div className="space-y-4">
                {[
                  { t: "Live Session Monitoring", d: "Track attendance and engagement as it happens." },
                  { t: "Automated Resource Sync", d: "Sync materials and assets across all cohorts." }
                ].map((item, i) => (
-                 <div key={i} className="flex gap-6 p-6 rounded-2xl bg-white/[0.02] border border-white/5">
-                    <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center shrink-0">
-                       <Sparkles className="w-4 h-4 text-brand-gold" />
+                 <div key={i} className="flex gap-5 p-5 rounded-xl bg-white/[0.02] border border-white/5">
+                    <div className="w-9 h-9 rounded-lg bg-brand-gold/10 flex items-center justify-center shrink-0">
+                       <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
                     </div>
                     <div>
-                       <h4 className="text-[17px] font-bold text-white mb-1">{item.t}</h4>
-                       <p className="text-[13px] text-white/30">{item.d}</p>
+                       <h4 className="text-[16px] font-bold text-white mb-1">{item.t}</h4>
+                       <p className="text-[12px] text-white/30">{item.d}</p>
                     </div>
                  </div>
                ))}

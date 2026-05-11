@@ -144,25 +144,25 @@ export function OperationalLifecycle() {
   return (
     <section className="section-gap bg-[#050816] relative overflow-hidden">
       <div className="container-custom">
-        <div className="mb-24">
+        <div className="mb-16">
           <span className="eyebrow">OPERATIONAL LIFECYCLE</span>
-          <h2 className="max-w-[720px] mt-4 mb-6">
+          <h2 className="max-w-[620px] mt-4 mb-4">
             The lifecycle of <span className="text-brand-gold">structured programme delivery.</span>
           </h2>
-          <p className="text-editorial max-w-[640px]">
+          <p className="text-editorial max-w-[580px]">
             OYEN GRID brings programme coordination, participant management, communication and operational intelligence into one continuous institutional workflow.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-24 items-center">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
           {/* LEFT: 3D ORBITAL CAROUSEL */}
           <div 
-            className="relative h-[640px] flex items-center justify-center"
-            style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
+            className="relative h-[540px] flex items-center justify-center"
+            style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
-             <div className="relative w-full max-w-[440px] aspect-[4/5]" style={{ transformStyle: "preserve-3d" }}>
+             <div className="relative w-full max-w-[380px] aspect-[4/5]" style={{ transformStyle: "preserve-3d" }}>
                 {stages.map((stage, i) => {
                   // Calculate shortest distance in circular array
                   let diff = i - activeIdx;
@@ -173,8 +173,8 @@ export function OperationalLifecycle() {
                   const isActive = absDiff === 0;
                   
                   // Cinematic 3D Transform Logic
-                  const xOffset = diff * 160;
-                  const zOffset = absDiff * -220;
+                  const xOffset = diff * 140;
+                  const zOffset = absDiff * -180;
                   const rotateY = diff * -35;
                   const scale = 1 - absDiff * 0.12;
                   const opacity = Math.max(0, 1 - absDiff * 0.35);
@@ -217,7 +217,7 @@ export function OperationalLifecycle() {
                              : "0 20px 50px rgba(0,0,0,0.5)"
                          }}
                          className={cn(
-                           "relative w-full h-full rounded-[36px] overflow-hidden border transition-colors duration-1000",
+                           "relative w-full h-full rounded-[28px] overflow-hidden border transition-colors duration-1000",
                            isActive ? "border-brand-gold/50" : "border-white/10 grayscale-[0.4]"
                          )}
                        >
@@ -237,17 +237,17 @@ export function OperationalLifecycle() {
 
                           <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                           
-                          <div className="absolute bottom-10 left-10 right-10">
-                             <div className="flex items-center gap-3 mb-4">
+                          <div className="absolute bottom-8 left-8 right-8">
+                             <div className="flex items-center gap-3 mb-3">
                                 <div className={cn(
-                                  "w-9 h-9 rounded-xl backdrop-blur-xl border flex items-center justify-center transition-all duration-1000",
+                                  "w-8 h-8 rounded-lg backdrop-blur-xl border flex items-center justify-center transition-all duration-1000",
                                   isActive ? "bg-brand-gold/20 border-brand-gold/40 shadow-[0_0_20px_rgba(245,185,66,0.2)]" : "bg-white/5 border-white/10"
                                 )}>
-                                   <stage.icon className={cn("w-4 h-4 transition-colors duration-1000", isActive ? "text-brand-gold" : "text-white/30")} />
+                                   <stage.icon className={cn("w-3.5 h-3.5 transition-colors duration-1000", isActive ? "text-brand-gold" : "text-white/30")} />
                                 </div>
-                                <span className={cn("text-[10px] font-black tracking-[0.2em] uppercase transition-colors duration-1000", isActive ? "text-white/60" : "text-white/20")}>{stage.label}</span>
+                                <span className={cn("text-[9px] font-black tracking-[0.2em] uppercase transition-colors duration-1000", isActive ? "text-white/60" : "text-white/20")}>{stage.label}</span>
                              </div>
-                             <h3 className={cn("text-[26px] font-bold transition-all duration-1000 leading-tight tracking-tight", isActive ? "text-white translate-y-0" : "text-white/20 translate-y-2")}>{stage.title}</h3>
+                             <h3 className={cn("text-[22px] font-bold transition-all duration-1000 leading-tight tracking-tight", isActive ? "text-white translate-y-0" : "text-white/20 translate-y-2")}>{stage.title}</h3>
                           </div>
                        </motion.div>
                     </motion.div>
@@ -268,18 +268,18 @@ export function OperationalLifecycle() {
                   className="space-y-12"
                 >
                    <div>
-                      <h3 className="text-[42px] font-bold text-white mb-8 leading-[1.1] tracking-tighter">{stages[activeIdx].title}</h3>
-                      <p className="text-[19px] leading-relaxed text-white/50 mb-12 max-w-[420px]">
+                      <h3 className="text-[34px] font-bold text-white mb-6 leading-[1.1] tracking-tighter">{stages[activeIdx].title}</h3>
+                      <p className="text-[16px] leading-relaxed text-white/50 mb-10 max-w-[380px]">
                         {stages[activeIdx].description}
                       </p>
                       
-                      <div className="space-y-6">
+                      <div className="space-y-5">
                          {stages[activeIdx].capabilities.map((cap, i) => (
-                           <div key={i} className="flex items-center gap-5 group">
-                              <div className="w-6 h-6 rounded-full bg-brand-gold/5 border border-brand-gold/20 flex items-center justify-center shrink-0 group-hover:bg-brand-gold/20 group-hover:border-brand-gold/40 transition-all">
-                                 <Check className="w-3.5 h-3.5 text-brand-gold" />
+                           <div key={i} className="flex items-center gap-4 group">
+                              <div className="w-5 h-5 rounded-full bg-brand-gold/5 border border-brand-gold/20 flex items-center justify-center shrink-0 group-hover:bg-brand-gold/20 group-hover:border-brand-gold/40 transition-all">
+                                 <Check className="w-3 h-3 text-brand-gold" />
                               </div>
-                              <span className="text-[16px] font-bold text-white/30 group-hover:text-white transition-colors duration-500">{cap}</span>
+                              <span className="text-[15px] font-bold text-white/30 group-hover:text-white transition-colors duration-500">{cap}</span>
                            </div>
                          ))}
                       </div>

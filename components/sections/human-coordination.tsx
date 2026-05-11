@@ -61,7 +61,7 @@ const floatingCards = [
 
 export function HumanCoordination() {
   return (
-    <section className="relative h-auto min-h-[640px] lg:h-[720px] bg-[#050816] overflow-hidden border-b border-white/5 flex items-center">
+    <section className="relative h-auto min-h-[580px] lg:h-[620px] bg-[#050816] overflow-hidden border-b border-white/5 flex items-center">
       
       {/* FULL-WIDTH CINEMATIC BACKGROUND IMAGE */}
       <div className="absolute top-0 right-0 w-full lg:w-[65%] h-full z-0 overflow-hidden">
@@ -96,12 +96,12 @@ export function HumanCoordination() {
                 </span>
               </div>
 
-              <h2 className="text-[44px] md:text-[60px] font-bold text-white leading-[1] tracking-tighter max-w-[800px]">
+              <h2 className="text-[38px] md:text-[52px] font-bold text-white leading-[1] tracking-tighter max-w-[700px]">
                 Human coordination powered by <br />
                 <span className="text-brand-gold italic font-serif">operational intelligence.</span>
               </h2>
 
-              <p className="text-[18px] leading-relaxed text-white/50 max-w-[620px] font-medium">
+              <p className="text-[16px] leading-relaxed text-white/50 max-w-[560px] font-medium">
                 Connect participants, trainers and coordinators through intelligent communication, AI assistance and real-time insights that drive better decisions and outcomes.
               </p>
 
@@ -131,7 +131,7 @@ export function HumanCoordination() {
 
           {/* RIGHT: FLOATING OPERATIONAL NOTIFICATION STACK */}
           <div className="relative flex justify-center lg:justify-end py-12 lg:py-0">
-             <div className="relative w-full max-w-[420px] space-y-4">
+             <div className="relative w-full max-w-[380px] space-y-3.5">
                 {floatingCards.map((card, i) => (
                   <motion.div
                     key={i}
@@ -148,7 +148,7 @@ export function HumanCoordination() {
                       opacity: { duration: 0.8, delay: i * 0.15 }
                     }}
                     className={cn(
-                      "group relative p-5 rounded-[24px] border border-white/10 backdrop-blur-2xl bg-[#080B14]/70 shadow-[0_30px_60px_rgba(0,0,0,0.6)] overflow-hidden",
+                      "group relative p-4 rounded-[20px] border border-white/10 backdrop-blur-2xl bg-[#080B14]/70 shadow-[0_30px_60px_rgba(0,0,0,0.6)] overflow-hidden",
                       i === 1 && "ml-8",
                       i === 2 && "ml-2",
                       i === 3 && "ml-14"
@@ -156,11 +156,11 @@ export function HumanCoordination() {
                   >
                     <div className="flex items-start gap-4">
                       <div className={cn(
-                        "w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border",
+                        "w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border",
                         card.color === "brand-gold" ? "bg-brand-gold/10 border-brand-gold/20" : "bg-emerald-500/10 border-emerald-500/20"
                       )}>
                         <card.icon className={cn(
-                          "w-4 h-4",
+                          "w-3.5 h-3.5",
                           card.color === "brand-gold" ? "text-brand-gold" : "text-emerald-500"
                         )} />
                       </div>
@@ -177,7 +177,7 @@ export function HumanCoordination() {
                              </div>
                            )}
                         </div>
-                        <p className="text-[13px] font-bold text-white leading-tight group-hover:text-brand-gold transition-colors duration-500">
+                        <p className="text-[12px] font-bold text-white leading-tight group-hover:text-brand-gold transition-colors duration-500">
                           {card.msg}
                         </p>
                       </div>

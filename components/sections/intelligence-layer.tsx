@@ -15,25 +15,25 @@ export function IntelligenceLayer() {
   return (
     <section className="section-gap relative bg-[#050816] border-b border-white/5">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-[72px] items-center">
+        <div className="grid lg:grid-cols-2 gap-[60px] items-center">
           
           {/* LEFT: CONTENT AREA */}
           <div>
             <span className="eyebrow">INTELLIGENCE LAYER</span>
-            <h2 className="mb-8 max-w-[520px]">
+            <h2 className="mb-6 max-w-[480px]">
               Human coordination powered by <span className="text-brand-gold">intelligence.</span>
             </h2>
 
-            <p className="text-editorial mb-12 max-w-[520px]">
+            <p className="text-editorial mb-10 max-w-[480px]">
               OYEN GRID helps organisations coordinate trainers, participants, and programme operations through structured communication and intelligent automation.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4">
               {capabilities.map((item, i) => (
                 <div key={i} className="card-institutional">
-                  <item.icon className="w-6 h-6 text-brand-gold/60 mb-4" />
-                  <h4 className="text-[16px] font-bold text-white mb-2">{item.title}</h4>
-                  <p className="text-[12px] text-white/30 leading-relaxed">{item.desc}</p>
+                  <item.icon className="w-5 h-5 text-brand-gold/60 mb-4" />
+                  <h4 className="text-[15px] font-bold text-white mb-2">{item.title}</h4>
+                  <p className="text-[11px] text-white/30 leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -41,7 +41,7 @@ export function IntelligenceLayer() {
 
           {/* RIGHT: CONTAINED CINEMATIC IMAGE */}
           <div className="flex justify-center lg:justify-end">
-             <div className="relative w-full max-w-[560px] h-[420px] rounded-[26px] overflow-hidden border border-white/10 shadow-2xl bg-[#0A0C12]">
+             <div className="relative w-full max-w-[520px] h-[380px] rounded-[22px] overflow-hidden border border-white/10 shadow-2xl bg-[#0A0C12]">
                 <Image
                   src="/section-2-bg.png"
                   alt="Human Collaboration"
@@ -56,13 +56,13 @@ export function IntelligenceLayer() {
                   viewport={{ once: true }}
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-8 right-8 w-[280px] glass-panel-institutional p-5"
+                  className="absolute bottom-6 right-6 w-[240px] glass-panel-institutional p-4"
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <Zap className="w-4 h-4 text-brand-gold" />
-                    <span className="text-[10px] font-black uppercase tracking-widest text-white/50">AI Assistant</span>
+                  <div className="flex items-center gap-3 mb-2">
+                    <Zap className="w-3.5 h-3.5 text-brand-gold" />
+                    <span className="text-[9px] font-black uppercase tracking-widest text-white/50">AI Assistant</span>
                   </div>
-                  <p className="text-[12px] text-white/80 font-medium">Cohort engagement levels have increased by 18% this week.</p>
+                  <p className="text-[11px] text-white/80 font-medium leading-relaxed">Cohort engagement levels have increased by 18% this week.</p>
                 </motion.div>
              </div>
           </div>
