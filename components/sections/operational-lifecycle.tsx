@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Settings, Users, Workflow, Activity, MessageSquare, BarChart3, Cpu, FileText, Check } from "lucide-react";
@@ -115,6 +113,31 @@ const stages = [
 
 export function OperationalLifecycle() {
   const [activeIdx, setActiveIdx] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Auto-rotation logic
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % stages.length);
+    }, 5000); // 5 seconds per stage
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
+  // Handle manual interaction
+  const handleStageClick = useCallback((idx: number) => {
+    setActiveIdx(idx);
+    setIsAutoPlaying(false);
+    
+    // Resume auto-play after 10 seconds of inactivity
+    const timeout = setTimeout(() => {
+      setIsAutoPlaying(true);
+    }, 10000);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <section className="section-gap bg-[#050816] relative overflow-hidden">
@@ -147,7 +170,7 @@ export function OperationalLifecycle() {
                     xOffset = 0;
                     yOffset = 0;
                     rotate = 0;
-                    scale = 1;
+                    scale = 1.02; // Slightly enlarge when active
                     zIndex = stages.length + 10;
                   }
 
@@ -157,7 +180,7 @@ export function OperationalLifecycle() {
                   return (
                     <motion.div
                       key={stage.id}
-                      onClick={() => setActiveIdx(i)}
+                      onClick={() => handleStageClick(i)}
                       initial={false}
                       animate={{
                         x: xOffset,
@@ -168,14 +191,16 @@ export function OperationalLifecycle() {
                         opacity: isVisible ? 1 : 0,
                         pointerEvents: isVisible && !isActive ? "auto" : isActive ? "none" : "none"
                       }}
-                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                       className={cn(
                         "absolute inset-0 cursor-pointer group"
                       )}
                     >
                        <div className={cn(
-                         "relative w-full h-full rounded-[32px] overflow-hidden border transition-all duration-500",
-                         isActive ? "border-brand-gold/40 shadow-[0_40px_100px_rgba(0,0,0,0.6)]" : "border-white/10 shadow-2xl grayscale-[0.5] opacity-40 hover:opacity-100 hover:grayscale-0"
+                         "relative w-full h-full rounded-[32px] overflow-hidden border transition-all duration-700",
+                         isActive 
+                           ? "border-brand-gold/50 shadow-[0_40px_100px_rgba(245,185,66,0.15)]" 
+                           : "border-white/10 shadow-2xl grayscale-[0.5] opacity-40 hover:opacity-100 hover:grayscale-0"
                        )}>
                           <Image 
                             src={stage.image} 
@@ -183,16 +208,22 @@ export function OperationalLifecycle() {
                             fill
                             className="object-cover"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent opacity-80" />
+                          <div className={cn(
+                            "absolute inset-0 transition-opacity duration-700",
+                            isActive ? "bg-gradient-to-t from-[#050816] via-transparent to-transparent opacity-80" : "bg-[#050816]/60"
+                          )} />
                           
                           <div className="absolute bottom-10 left-10 right-10">
                              <div className="flex items-center gap-3 mb-4">
-                                <div className="w-8 h-8 rounded-lg bg-brand-gold/10 backdrop-blur-md border border-brand-gold/20 flex items-center justify-center">
-                                   <stage.icon className="w-4 h-4 text-brand-gold" />
+                                <div className={cn(
+                                  "w-8 h-8 rounded-lg backdrop-blur-md border flex items-center justify-center transition-colors duration-700",
+                                  isActive ? "bg-brand-gold/20 border-brand-gold/40" : "bg-white/5 border-white/10"
+                                )}>
+                                   <stage.icon className={cn("w-4 h-4 transition-colors", isActive ? "text-brand-gold" : "text-white/40")} />
                                 </div>
-                                <span className="text-[10px] font-black tracking-widest text-white/40 uppercase">{stage.label}</span>
+                                <span className={cn("text-[10px] font-black tracking-widest uppercase transition-colors", isActive ? "text-white/60" : "text-white/20")}>{stage.label}</span>
                              </div>
-                             <h3 className="text-[24px] font-bold text-white leading-tight">{stage.title}</h3>
+                             <h3 className={cn("text-[24px] font-bold transition-colors leading-tight", isActive ? "text-white" : "text-white/20")}>{stage.title}</h3>
                           </div>
                        </div>
                     </motion.div>
@@ -206,10 +237,10 @@ export function OperationalLifecycle() {
              <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIdx}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.4 }}
+                  initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className="space-y-10"
                 >
                    <div>
@@ -235,7 +266,7 @@ export function OperationalLifecycle() {
                          {stages.map((_, i) => (
                            <button 
                              key={i}
-                             onClick={() => setActiveIdx(i)}
+                             onClick={() => handleStageClick(i)}
                              className={cn(
                                "h-1.5 rounded-full transition-all duration-500",
                                activeIdx === i ? "w-8 bg-brand-gold" : "w-1.5 bg-white/10 hover:bg-white/30"
@@ -252,3 +283,4 @@ export function OperationalLifecycle() {
     </section>
   );
 }
+
