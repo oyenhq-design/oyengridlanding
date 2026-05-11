@@ -144,9 +144,8 @@ export function HumanCoordination() {
                     }}
                     transition={{ 
                       y: { duration: 6 + i, repeat: Infinity, ease: "easeInOut" },
-                      x: { duration: 8 + i, repeat: Infinity, ease: "easeInOut" },
-                      opacity: { duration: 0.8, delay: i * 0.15 },
-                      x: { duration: 1, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }
+                      x: { duration: 8 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.15 },
+                      opacity: { duration: 0.8, delay: i * 0.15 }
                     }}
                     className={cn(
                       "group relative p-5 rounded-[24px] border border-white/10 backdrop-blur-2xl bg-[#080B14]/70 shadow-[0_30px_60px_rgba(0,0,0,0.6)] overflow-hidden",
