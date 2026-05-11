@@ -1,8 +1,9 @@
 import { Header, AnnouncementBar } from "@/components/layout/header";
-import { HeroInstitutional, PlatformOverview, OperationalControlCenter } from "@/components/sections/institutional-ecosystem";
+import { HeroInstitutional, PlatformOverview } from "@/components/sections/institutional-ecosystem";
 import { OperationalLifecycle } from "@/components/sections/operational-lifecycle";
 import { OperationalInfrastructure } from "@/components/sections/operational-infrastructure";
 import { HumanCoordination } from "@/components/sections/human-coordination";
+import { OperationalIntelligence } from "@/components/sections/operational-intelligence";
 import { ScaleStructure } from "@/components/sections/scale-structure";
 import { IntelligenceLayer } from "@/components/sections/intelligence-layer";
 import { TrustOutcomes, FinalAuthorisation } from "@/components/sections/institutional-validation";
@@ -32,8 +33,8 @@ export default function Home() {
           {/* NEW: HUMAN COORDINATION: Intelligent Communications & Live Sync */}
           <HumanCoordination />
 
-          {/* 4. OPERATIONAL SYSTEM: Orchestration & Lifecycle */}
-          <OperationalControlCenter />
+          {/* 4. OPERATIONAL SYSTEM: Operational Intelligence & Telemetry */}
+          <OperationalIntelligence />
 
           {/* 5. INSTITUTIONAL SCALE: Architectural Infrastructure & Global Sync */}
           <ScaleStructure />
