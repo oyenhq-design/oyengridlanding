@@ -1,7 +1,7 @@
 import { Header, AnnouncementBar } from "@/components/layout/header";
 import { HeroInstitutional, PlatformOverview, OperationalControlCenter } from "@/components/sections/institutional-ecosystem";
 import { OperationalLifecycle } from "@/components/sections/operational-lifecycle";
-import { PowerfulCapabilities } from "@/components/sections/powerful-capabilities";
+import { OperationalInfrastructure } from "@/components/sections/operational-infrastructure";
 import { ScaleStructure } from "@/components/sections/scale-structure";
 import { IntelligenceLayer } from "@/components/sections/intelligence-layer";
 import { TrustOutcomes, FinalAuthorisation } from "@/components/sections/institutional-validation";
@@ -25,8 +25,8 @@ export default function Home() {
           {/* NEW: OPERATIONAL LIFECYCLE: Interactive Programme Flow */}
           <OperationalLifecycle />
 
-          {/* NEW: POWERFUL CAPABILITIES: Institutional Features Grid */}
-          <PowerfulCapabilities />
+          {/* NEW: OPERATIONAL INFRASTRUCTURE: Command Center & System Capabilities */}
+          <OperationalInfrastructure />
 
           {/* 3. PLATFORM OVERVIEW: Built for Structured Delivery */}
           <PlatformOverview />
