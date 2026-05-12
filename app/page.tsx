@@ -6,7 +6,7 @@ import { HumanCoordination } from "@/components/sections/human-coordination";
 import { OperationalIntelligence } from "@/components/sections/operational-intelligence";
 import { ScaleStructure } from "@/components/sections/scale-structure";
 import { IntelligenceLayer } from "@/components/sections/intelligence-layer";
-import { InstitutionalImpact } from "@/components/sections/institutional-impact";
+import { InstitutionalImpactCinematic } from "@/components/sections/institutional-impact-cinematic";
 import { FinalAuthorisation } from "@/components/sections/institutional-validation";
 import { FooterPremium } from "@/components/layout/footer";
 import { Chatbot } from "@/components/layout/chatbot";
@@ -44,7 +44,7 @@ export default function Home() {
           <IntelligenceLayer />
 
           {/* 7. TRUST & IMPACT: Measurable Outcomes & Executive Validation */}
-          <InstitutionalImpact />
+          <InstitutionalImpactCinematic />
 
           {/* 8. FINAL AUTHORISATION: Immersive Closing */}
           <FinalAuthorisation />
