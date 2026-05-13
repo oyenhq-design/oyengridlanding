@@ -5,7 +5,7 @@ import { OperationalInfrastructure } from "@/components/sections/operational-inf
 import { HumanCoordination } from "@/components/sections/human-coordination";
 import { OperationalIntelligence } from "@/components/sections/operational-intelligence";
 import { ScaleStructure } from "@/components/sections/scale-structure";
-import { IntelligenceLayer } from "@/components/sections/intelligence-layer";
+
 import { InstitutionalImpactCinematic } from "@/components/sections/institutional-impact-cinematic";
 import { FinalAuthorisation } from "@/components/sections/institutional-validation";
 import { FooterPremium } from "@/components/layout/footer";
@@ -39,10 +39,7 @@ export default function Home() {
 
           {/* 5. INSTITUTIONAL SCALE: Architectural Infrastructure & Global Sync */}
           <ScaleStructure />
-
-          {/* 6. INTELLIGENCE LAYER: Human Coordination Powered by Intelligence */}
-          <IntelligenceLayer />
-
+          
           {/* 7. TRUST & IMPACT: Measurable Outcomes & Executive Validation */}
           <InstitutionalImpactCinematic />
 

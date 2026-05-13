@@ -22,7 +22,7 @@ export function ScaleStructure() {
   const containerRef = useRef(null);
   
   return (
-    <section ref={containerRef} className="py-28 bg-[#020408] relative overflow-hidden border-b border-white/5">
+    <section ref={containerRef} className="py-[90px] bg-[#020408] relative overflow-hidden border-b border-white/5">
       
       {/* 1. CINEMATIC ATMOSPHERE & DEPTH */}
       <div className="absolute inset-0 z-0 pointer-events-none">
