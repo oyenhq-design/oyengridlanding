@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { 
   Activity, Brain, Clock, Globe, Layers, FileCheck, 
@@ -8,7 +8,7 @@ import {
   ArrowUpRight, ShieldCheck, Zap, Globe2, ChevronRight, CheckCircle2,
   AlertCircle, BarChart3, TrendingUp, Search, Radio, Wifi, Shield,
   Lock, Target, Info, Terminal, Database, LineChart, Bell, Maximize2,
-  PlayCircle, FileText, Settings, Share2, Power, Hand
+  PlayCircle, FileText, Settings, Share2, Power, Hand, Sparkles
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -39,7 +39,7 @@ export function InstitutionalCommandCenter() {
 
       <main className="relative z-10 max-w-[1700px] mx-auto grid grid-cols-12 gap-6">
         
-        {/* LEFT PANEL (col-span-3) */}
+        {/* LEFT PANEL */}
         <section className="col-span-12 lg:col-span-3 flex flex-col justify-between space-y-12">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
@@ -96,7 +96,7 @@ export function InstitutionalCommandCenter() {
           </div>
         </section>
 
-        {/* CENTER PANEL (col-span-6) */}
+        {/* CENTER PANEL */}
         <section className="col-span-12 lg:col-span-6 space-y-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -130,69 +130,115 @@ export function InstitutionalCommandCenter() {
               </div>
             </div>
 
-            {/* VIDEO SECTION */}
+            {/* VIDEO SECTION: ENHANCED HYBRID INTERFACE */}
             <div className="grid grid-cols-12 gap-5 p-5">
               <div className="col-span-12 xl:col-span-9 relative rounded-[28px] overflow-hidden h-[580px] bg-black group/video shadow-2xl">
+                {/* Speaking Border Animation */}
+                <motion.div 
+                   animate={{ opacity: [0.3, 0.6, 0.3] }}
+                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                   className="absolute inset-0 border-[3px] border-[#f5b82e]/20 rounded-[28px] pointer-events-none z-10" 
+                />
+                <motion.div 
+                   animate={{ opacity: [0, 0.8, 0] }}
+                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                   className="absolute -inset-[2px] border-[1px] border-[#f5b82e] rounded-[30px] pointer-events-none z-10 blur-[1px]" 
+                />
+
                 <Image 
                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1400&auto=format&fit=crop" 
                    alt="Presenter" 
                    fill 
                    className="object-cover opacity-90 transition-transform duration-[30s] group-hover/video:scale-105" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+                
+                {/* Cinematic Glass Overlay & Vignette */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-black/40 z-20" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] z-20 pointer-events-none" />
 
-                <div className="absolute top-6 left-6 p-4 rounded-2xl bg-black/40 backdrop-blur-xl border border-white/10 flex items-center gap-4 shadow-2xl">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
-                     <Users className="w-4.5 h-4.5 text-white/40" />
+                {/* HUD Top-Left: Speaker Info */}
+                <div className="absolute top-6 left-6 p-4 rounded-2xl bg-black/40 backdrop-blur-xl border border-white/10 flex items-center gap-4 shadow-2xl z-30">
+                  <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center relative">
+                     <div className="absolute inset-0 bg-brand-gold/20 animate-ping rounded-xl" />
+                     <Mic className="w-4.5 h-4.5 text-brand-gold relative z-10" />
                   </div>
                   <div>
-                    <div className="text-[9px] text-white/20 font-black uppercase tracking-[0.2em] mb-1">Speaking</div>
-                    <div className="font-bold text-[13px]">Daniel Okafor</div>
+                    <div className="text-[9px] text-white/40 font-black uppercase tracking-[0.2em] mb-1 flex items-center gap-2">
+                       Speaking
+                       <div className="flex gap-0.5">
+                          {[1,2,3].map(i => <motion.div key={i} animate={{ height: [2, 8, 2] }} transition={{ duration: 0.5, repeat: Infinity, delay: i * 0.1 }} className="w-0.5 bg-brand-gold" />)}
+                       </div>
+                    </div>
+                    <div className="font-bold text-[13px] tracking-tight text-white/90">Daniel Okafor</div>
                   </div>
                 </div>
 
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 p-4 rounded-[22px] bg-[#0C1018]/95 backdrop-blur-[40px] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.8)]">
-                  {[
-                    { icon: Mic, label: 'Mute', active: true },
-                    { icon: Video, label: 'Video', active: true },
-                    { icon: Monitor, label: 'Share' },
-                    { icon: Users, label: 'Participants' },
-                    { icon: MessageSquare, label: 'Chat' },
-                    { icon: Smile, label: 'Reactions' }
-                  ].map((item) => (
-                    <button
-                      key={item.label}
-                      className={cn(
-                        "w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group/btn",
-                        item.active ? "bg-white/10 text-white border border-white/10" : "bg-transparent text-white/30 hover:bg-white/5 hover:text-white"
-                      )}
-                    >
-                      <item.icon className="w-5 h-5" />
-                    </button>
-                  ))}
+                {/* AI Intelligence Badge (Top-Right) */}
+                <div className="absolute top-6 right-6 z-30">
+                   <div className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-[#0b1220]/60 backdrop-blur-xl border border-brand-gold/20 shadow-2xl group/ai cursor-pointer hover:border-brand-gold/40 transition-all">
+                      <div className="w-5 h-5 rounded-lg bg-brand-gold/10 flex items-center justify-center">
+                         <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+                      </div>
+                      <div className="text-[10px] font-black text-white/80 uppercase tracking-widest">
+                         AI Insight: <span className="text-brand-gold">Alignment 98%</span>
+                      </div>
+                      <ChevronRight className="w-3 h-3 text-white/20 group-hover/ai:translate-x-1 transition-transform" />
+                   </div>
+                </div>
+
+                {/* REFINED CONTROL BAR (Zoom + Linear Style) */}
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2.5 p-3.5 rounded-[22px] bg-[#0C1018]/80 backdrop-blur-[50px] border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.9)] z-40 transition-all hover:bg-[#0C1018]/90">
+                  <div className="flex items-center gap-1.5 px-2">
+                    <ControlBtn icon={Mic} label="Mute" active />
+                    <ControlBtn icon={Video} label="Video" active />
+                  </div>
+                  <div className="w-px h-8 bg-white/10 mx-1" />
+                  <div className="flex items-center gap-1.5 px-2">
+                    <ControlBtn icon={Monitor} label="Share" />
+                    <ControlBtn icon={Users} label="People" count={48} />
+                    <ControlBtn icon={MessageSquare} label="Chat" count={12} active />
+                    <ControlBtn icon={Smile} label="Emoji" />
+                  </div>
+                  <div className="w-px h-8 bg-white/10 mx-1" />
+                  <ControlBtn icon={MoreHorizontal} label="Options" />
                   <div className="w-px h-8 bg-white/10 mx-2" />
-                  <button className="h-12 px-8 rounded-xl bg-red-600/10 text-red-500 text-[11px] font-black uppercase tracking-widest border border-red-500/20 hover:bg-red-600 hover:text-white transition-all shadow-xl">
-                     End Session
+                  <button className="h-11 px-7 rounded-xl bg-red-500/10 text-red-500 text-[10px] font-black uppercase tracking-widest border border-red-500/20 hover:bg-red-500 hover:text-white transition-all shadow-lg active:scale-95">
+                     End Sync
                   </button>
                 </div>
               </div>
 
-              {/* PARTICIPANTS */}
-              <div className="col-span-12 xl:col-span-3 flex xl:flex-col gap-4 overflow-x-auto pb-4 xl:pb-0">
+              {/* PARTICIPANTS: STATUS RINGS & HOVER ENHANCEMENTS */}
+              <div className="col-span-12 xl:col-span-3 flex xl:flex-col gap-4 overflow-x-auto pb-4 xl:pb-0 z-30">
                 {[
-                  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop',
-                  'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop',
-                  'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600&auto=format&fit=crop',
-                  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop'
-                ].map((img, index) => (
+                  { img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop', status: 'speaking' },
+                  { img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop', status: 'online' },
+                  { img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600&auto=format&fit=crop', status: 'online' },
+                  { img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop', status: 'online' }
+                ].map((p, index) => (
                   <div
                     key={index}
-                    className="h-[134px] w-full min-w-[140px] rounded-[22px] overflow-hidden relative border border-white/5 group/p shadow-xl"
+                    className="h-[134px] w-full min-w-[140px] rounded-[22px] overflow-hidden relative border border-white/5 group/p shadow-xl transition-all duration-500 hover:scale-[1.03] hover:border-white/20 cursor-pointer"
                   >
-                    <Image src={img} alt="Participant" fill className="object-cover grayscale opacity-60 group-hover/p:grayscale-0 group-hover/p:opacity-100 transition-all duration-700" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-2.5 right-2.5">
-                       <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                    {/* Status Ring */}
+                    {p.status === 'speaking' && (
+                       <motion.div 
+                          animate={{ opacity: [0.4, 1, 0.4] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                          className="absolute inset-0 border-2 border-brand-gold/40 rounded-[22px] z-10" 
+                       />
+                    )}
+
+                    <Image src={p.img} alt="Participant" fill className="object-cover grayscale opacity-60 group-hover/p:grayscale-0 group-hover/p:opacity-100 transition-all duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+                    
+                    {/* Status Dot */}
+                    <div className="absolute bottom-3 right-3 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10">
+                       <div className={cn(
+                          "w-1.5 h-1.5 rounded-full shadow-[0_0_8px_currentColor]",
+                          p.status === 'speaking' ? "text-brand-gold" : "text-emerald-500"
+                       )} />
+                       <span className="text-[7px] font-black text-white/40 uppercase tracking-widest">{p.status}</span>
                     </div>
                   </div>
                 ))}
@@ -302,7 +348,7 @@ export function InstitutionalCommandCenter() {
           </div>
         </section>
 
-        {/* RIGHT SIDEBAR (col-span-3) */}
+        {/* RIGHT SIDEBAR */}
         <section className="col-span-12 lg:col-span-3 space-y-6">
           {/* HEALTH */}
           <motion.div 
@@ -448,6 +494,28 @@ export function InstitutionalCommandCenter() {
       </main>
     </div>
   )
+}
+
+function ControlBtn({ icon: Icon, label, count, active = false }: { icon: any, label: string, count?: number, active?: boolean }) {
+  return (
+    <button className="flex flex-col items-center gap-1.5 group cursor-pointer relative">
+       <div className={cn(
+         "w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 relative",
+         active ? "bg-brand-gold/10 text-brand-gold border border-brand-gold/20 shadow-lg" : "bg-white/5 text-white/40 border border-white/5 group-hover:bg-white/10 group-hover:text-white group-hover:border-white/10"
+       )}>
+          <Icon className="w-4.5 h-4.5" />
+          {count !== undefined && (
+            <div className="absolute -top-1 -right-1 min-w-[16px] h-[16px] px-1 rounded-md bg-brand-gold text-black text-[9px] font-black flex items-center justify-center shadow-lg">
+               {count}
+            </div>
+          )}
+       </div>
+       <span className="text-[8px] font-black text-white/20 group-hover:text-white/40 uppercase tracking-widest transition-colors">{label}</span>
+       
+       {/* Active Glow */}
+       {active && <div className="absolute -inset-1 bg-brand-gold/5 blur-md rounded-xl -z-10" />}
+    </button>
+  );
 }
 
 function HealthItem({ label, val, color }: { label: string, val: string, color?: string }) {
