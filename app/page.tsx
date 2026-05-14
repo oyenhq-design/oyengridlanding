@@ -2,12 +2,13 @@ import { Header, AnnouncementBar } from "@/components/layout/header";
 import { HeroInstitutional, PlatformOverview } from "@/components/sections/institutional-ecosystem";
 import { OperationalLifecycle } from "@/components/sections/operational-lifecycle";
 import { OperationalInfrastructure } from "@/components/sections/operational-infrastructure";
+import { InstitutionalCommandCenter } from "@/components/sections/institutional-command";
 import { HumanCoordination } from "@/components/sections/human-coordination";
 import { OperationalIntelligence } from "@/components/sections/operational-intelligence";
 import { ScaleStructure } from "@/components/sections/scale-structure";
 
 import { InstitutionalImpactCinematic } from "@/components/sections/institutional-impact-cinematic";
-import { FinalAuthorisation } from "@/components/sections/institutional-validation";
+import { FinalCTA } from "@/components/sections/final-cta";
 import { FooterPremium } from "@/components/layout/footer";
 import { Chatbot } from "@/components/layout/chatbot";
 import { SearchSystem } from "@/components/layout/search-system";
@@ -31,6 +32,9 @@ export default function Home() {
           {/* NEW: OPERATIONAL INFRASTRUCTURE: Command Center & System Capabilities */}
           <OperationalInfrastructure />
 
+          {/* NEW: INSTITUTIONAL COMMAND CENTER: Cinematic Dashboard & Operational Intelligence */}
+          <InstitutionalCommandCenter />
+
           {/* NEW: HUMAN COORDINATION: Intelligent Communications & Live Sync */}
           <HumanCoordination />
 
@@ -44,7 +48,7 @@ export default function Home() {
           <InstitutionalImpactCinematic />
 
           {/* 8. FINAL AUTHORISATION: Immersive Closing */}
-          <FinalAuthorisation />
+          <FinalCTA />
 
           {/* 9. INSTITUTIONAL FOOTER */}
           <FooterPremium />
