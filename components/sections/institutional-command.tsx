@@ -130,7 +130,7 @@ export function InstitutionalCommandCenter() {
               </div>
             </div>
 
-            {/* VIDEO SECTION: ENHANCED HYBRID INTERFACE */}
+            {/* VIDEO SECTION */}
             <div className="grid grid-cols-12 gap-5 p-5">
               <div className="col-span-12 xl:col-span-9 relative rounded-[28px] overflow-hidden h-[580px] bg-black group/video shadow-2xl">
                 {/* Speaking Border Animation */}
@@ -138,11 +138,6 @@ export function InstitutionalCommandCenter() {
                    animate={{ opacity: [0.3, 0.6, 0.3] }}
                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                    className="absolute inset-0 border-[3px] border-[#f5b82e]/20 rounded-[28px] pointer-events-none z-10" 
-                />
-                <motion.div 
-                   animate={{ opacity: [0, 0.8, 0] }}
-                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                   className="absolute -inset-[2px] border-[1px] border-[#f5b82e] rounded-[30px] pointer-events-none z-10 blur-[1px]" 
                 />
 
                 <Image 
@@ -154,92 +149,60 @@ export function InstitutionalCommandCenter() {
                 
                 {/* Cinematic Glass Overlay & Vignette */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-transparent to-black/40 z-20" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] z-20 pointer-events-none" />
 
                 {/* HUD Top-Left: Speaker Info */}
                 <div className="absolute top-6 left-6 p-4 rounded-2xl bg-black/40 backdrop-blur-xl border border-white/10 flex items-center gap-4 shadow-2xl z-30">
-                  <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center relative">
-                     <div className="absolute inset-0 bg-brand-gold/20 animate-ping rounded-xl" />
-                     <Mic className="w-4.5 h-4.5 text-brand-gold relative z-10" />
+                  <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center">
+                     <Mic className="w-4.5 h-4.5 text-brand-gold" />
                   </div>
                   <div>
-                    <div className="text-[9px] text-white/40 font-black uppercase tracking-[0.2em] mb-1 flex items-center gap-2">
-                       Speaking
-                       <div className="flex gap-0.5">
-                          {[1,2,3].map(i => <motion.div key={i} animate={{ height: [2, 8, 2] }} transition={{ duration: 0.5, repeat: Infinity, delay: i * 0.1 }} className="w-0.5 bg-brand-gold" />)}
-                       </div>
-                    </div>
-                    <div className="font-bold text-[13px] tracking-tight text-white/90">Daniel Okafor</div>
+                    <div className="text-[9px] text-white/40 font-black uppercase tracking-[0.2em] mb-1">Speaking</div>
+                    <div className="font-bold text-[13px] tracking-tight">Daniel Okafor</div>
                   </div>
                 </div>
 
                 {/* AI Intelligence Badge (Top-Right) */}
                 <div className="absolute top-6 right-6 z-30">
-                   <div className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-[#0b1220]/60 backdrop-blur-xl border border-brand-gold/20 shadow-2xl group/ai cursor-pointer hover:border-brand-gold/40 transition-all">
-                      <div className="w-5 h-5 rounded-lg bg-brand-gold/10 flex items-center justify-center">
-                         <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                      </div>
+                   <div className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-[#0b1220]/60 backdrop-blur-xl border border-brand-gold/20 shadow-2xl">
+                      <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
                       <div className="text-[10px] font-black text-white/80 uppercase tracking-widest">
                          AI Insight: <span className="text-brand-gold">Alignment 98%</span>
                       </div>
-                      <ChevronRight className="w-3 h-3 text-white/20 group-hover/ai:translate-x-1 transition-transform" />
                    </div>
                 </div>
 
-                {/* REFINED CONTROL BAR (Zoom + Linear Style) */}
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2.5 p-3.5 rounded-[22px] bg-[#0C1018]/80 backdrop-blur-[50px] border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.9)] z-40 transition-all hover:bg-[#0C1018]/90">
-                  <div className="flex items-center gap-1.5 px-2">
-                    <ControlBtn icon={Mic} label="Mute" active />
-                    <ControlBtn icon={Video} label="Video" active />
-                  </div>
+                {/* REFINED CONTROL BAR */}
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3.5 p-3.5 rounded-[22px] bg-[#0C1018]/80 backdrop-blur-[40px] border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.9)] z-40 transition-all hover:bg-[#0C1018]/90">
+                  <ControlBtn icon={Mic} label="Mute" active />
+                  <ControlBtn icon={Video} label="Video" active />
                   <div className="w-px h-8 bg-white/10 mx-1" />
-                  <div className="flex items-center gap-1.5 px-2">
-                    <ControlBtn icon={Monitor} label="Share" />
-                    <ControlBtn icon={Users} label="People" count={48} />
-                    <ControlBtn icon={MessageSquare} label="Chat" count={12} active />
-                    <ControlBtn icon={Smile} label="Emoji" />
-                  </div>
+                  <ControlBtn icon={Monitor} label="Share" />
+                  <ControlBtn icon={Users} label="People" count={48} />
+                  <ControlBtn icon={MessageSquare} label="Chat" count={12} active />
+                  <ControlBtn icon={Smile} label="Emoji" />
                   <div className="w-px h-8 bg-white/10 mx-1" />
                   <ControlBtn icon={MoreHorizontal} label="Options" />
                   <div className="w-px h-8 bg-white/10 mx-2" />
-                  <button className="h-11 px-7 rounded-xl bg-red-500/10 text-red-500 text-[10px] font-black uppercase tracking-widest border border-red-500/20 hover:bg-red-500 hover:text-white transition-all shadow-lg active:scale-95">
+                  <button className="h-11 px-7 rounded-xl bg-red-500/10 text-red-500 text-[10px] font-black uppercase tracking-widest border border-red-500/20 hover:bg-red-500 hover:text-white transition-all shadow-xl">
                      End Sync
                   </button>
                 </div>
               </div>
 
-              {/* PARTICIPANTS: STATUS RINGS & HOVER ENHANCEMENTS */}
+              {/* PARTICIPANTS */}
               <div className="col-span-12 xl:col-span-3 flex xl:flex-col gap-4 overflow-x-auto pb-4 xl:pb-0 z-30">
                 {[
-                  { img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop', status: 'speaking' },
-                  { img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop', status: 'online' },
-                  { img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600&auto=format&fit=crop', status: 'online' },
-                  { img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop', status: 'online' }
-                ].map((p, index) => (
+                  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop',
+                  'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop',
+                  'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600&auto=format&fit=crop',
+                  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop'
+                ].map((img, index) => (
                   <div
                     key={index}
-                    className="h-[134px] w-full min-w-[140px] rounded-[22px] overflow-hidden relative border border-white/5 group/p shadow-xl transition-all duration-500 hover:scale-[1.03] hover:border-white/20 cursor-pointer"
+                    className="h-[134px] w-full min-w-[140px] rounded-[22px] overflow-hidden relative border border-white/5 group/p shadow-xl transition-all duration-500 hover:scale-[1.03]"
                   >
-                    {/* Status Ring */}
-                    {p.status === 'speaking' && (
-                       <motion.div 
-                          animate={{ opacity: [0.4, 1, 0.4] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                          className="absolute inset-0 border-2 border-brand-gold/40 rounded-[22px] z-10" 
-                       />
-                    )}
-
-                    <Image src={p.img} alt="Participant" fill className="object-cover grayscale opacity-60 group-hover/p:grayscale-0 group-hover/p:opacity-100 transition-all duration-700" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
-                    
-                    {/* Status Dot */}
-                    <div className="absolute bottom-3 right-3 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10">
-                       <div className={cn(
-                          "w-1.5 h-1.5 rounded-full shadow-[0_0_8px_currentColor]",
-                          p.status === 'speaking' ? "text-brand-gold" : "text-emerald-500"
-                       )} />
-                       <span className="text-[7px] font-black text-white/40 uppercase tracking-widest">{p.status}</span>
-                    </div>
+                    <Image src={img} alt="Participant" fill className="object-cover grayscale opacity-60 group-hover/p:grayscale-0 group-hover/p:opacity-100 transition-all duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   </div>
                 ))}
               </div>
@@ -348,26 +311,37 @@ export function InstitutionalCommandCenter() {
           </div>
         </section>
 
-        {/* RIGHT SIDEBAR */}
+        {/* RIGHT SIDEBAR: UPGRADED AI COMMAND INTELLIGENCE */}
         <section className="col-span-12 lg:col-span-3 space-y-6">
-          {/* HEALTH */}
+          {/* HEALTH INTELLIGENCE */}
           <motion.div 
              initial={{ opacity: 0, x: 20 }}
              whileInView={{ opacity: 1, x: 0 }}
              viewport={{ once: true }}
              transition={{ duration: 0.8 }}
-             className="rounded-[32px] border border-white/10 bg-[#0b1220]/60 p-8 backdrop-blur-3xl shadow-2xl"
+             className="rounded-[32px] border border-white/10 bg-[#0b1220]/80 p-8 backdrop-blur-3xl shadow-2xl relative overflow-hidden group/health"
           >
-            <div className="flex items-center justify-between mb-8">
-              <div className="flex items-center gap-3">
-                 <Activity className="w-5 h-5 text-brand-gold" />
-                 <h3 className="text-xl font-bold tracking-tight">Operational Intelligence</h3>
-              </div>
-              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10b981]" />
+            {/* Subtle Pulse Background */}
+            <div className="absolute top-0 right-0 p-6 opacity-[0.05] group-hover/health:opacity-[0.12] transition-opacity">
+               <Activity className="w-20 h-20 text-brand-gold" />
             </div>
 
-            <div className="flex items-center gap-8">
+            <div className="flex items-center justify-between mb-8 relative z-10">
+              <div className="flex items-center gap-3">
+                 <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center">
+                    <Activity className="w-5 h-5 text-brand-gold" />
+                 </div>
+                 <h3 className="text-xl font-bold tracking-tight">Command Intel</h3>
+              </div>
+              <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10b981]" />
+                 <span className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">Active</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-8 relative z-10">
               <div className="relative h-28 w-28 shrink-0 flex items-center justify-center">
+                {/* Animated Progress Ring */}
                 <svg className="w-full h-full -rotate-90">
                    <circle cx="56" cy="56" r="48" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="8" />
                    <motion.circle 
@@ -376,115 +350,157 @@ export function InstitutionalCommandCenter() {
                       initial={{ strokeDashoffset: 301 }}
                       whileInView={{ strokeDashoffset: 24 }}
                       transition={{ duration: 1.5, ease: "easeOut" }}
-                      className="shadow-[0_0_15px_#f5b82e]" 
+                      className="drop-shadow-[0_0_12px_rgba(245,184,46,0.4)]" 
                    />
                 </svg>
+                {/* Secondary Pulse Ring */}
+                <motion.div 
+                   animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.3, 0.1] }}
+                   transition={{ duration: 3, repeat: Infinity }}
+                   className="absolute inset-0 border border-brand-gold/20 rounded-full" 
+                />
+                
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                   <span className="text-[22px] font-black text-white leading-none">92%</span>
-                   <span className="text-[8px] font-black text-brand-gold uppercase tracking-widest mt-1">Excellent</span>
+                   <span className="text-[24px] font-black text-white leading-none tracking-tighter">92%</span>
+                   <span className="text-[8px] font-black text-brand-gold uppercase tracking-[0.2em] mt-1.5">Optimal</span>
                 </div>
               </div>
 
               <div className="flex-1 space-y-4">
-                <HealthItem label="Engagement" val="High" color="text-emerald-500" />
-                <HealthItem label="Attendance" val="98%" />
-                <HealthItem label="Response" val="94%" />
+                <HealthItem label="Engagement" val="Peak" color="text-emerald-500" glowing />
+                <HealthItem label="Attendance" val="98.2%" glowing />
+                <HealthItem label="Sync_Rate" val="94.8%" glowing />
               </div>
             </div>
           </motion.div>
 
-          {/* AI FACILITATOR */}
+          {/* AI FACILITATOR: FUTURISTIC REFINEMENT */}
           <motion.div 
              initial={{ opacity: 0, x: 20 }}
              whileInView={{ opacity: 1, x: 0 }}
              viewport={{ once: true }}
              transition={{ duration: 0.8, delay: 0.1 }}
-             className="rounded-[32px] border border-white/10 bg-[#0b1220]/60 p-8 backdrop-blur-3xl shadow-2xl"
+             className="rounded-[32px] border border-white/10 bg-[#0b1220]/80 p-8 backdrop-blur-3xl shadow-2xl relative overflow-hidden group/ai"
           >
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
-                 <Brain className="w-5 h-5 text-brand-gold" />
-                 <h3 className="text-xl font-bold tracking-tight">AI Assistant</h3>
+                 <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center">
+                    <Brain className="w-5 h-5 text-brand-gold" />
+                 </div>
+                 <h3 className="text-xl font-bold tracking-tight">AI Facilitator</h3>
               </div>
-              <span className="text-white/20 text-[10px] font-mono tracking-widest">09:42 AM</span>
+              <div className="flex items-center gap-2">
+                 <div className="flex gap-0.5">
+                    {[1,2,3].map(i => <motion.div key={i} animate={{ opacity: [0.2, 1, 0.2] }} transition={{ duration: 0.6, repeat: Infinity, delay: i * 0.2 }} className="w-1 h-1 rounded-full bg-brand-gold/40" />)}
+                 </div>
+                 <span className="text-white/20 text-[9px] font-mono tracking-widest">ANALYZING</span>
+              </div>
             </div>
 
-            <div className="rounded-2xl border border-brand-gold/20 bg-brand-gold/5 p-6 space-y-6">
-              <p className="font-bold leading-relaxed text-[14px] text-white/80 italic">
-                "12 participants have not interacted for 18 minutes. Engagement drift detected."
-              </p>
+            <div className="rounded-2xl border border-brand-gold/20 bg-brand-gold/5 p-6 space-y-6 relative group-hover/ai:border-brand-gold/40 transition-colors">
+              {/* Scanline Animation */}
+              <motion.div 
+                 animate={{ top: ['0%', '100%', '0%'] }}
+                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                 className="absolute inset-x-0 h-px bg-brand-gold/20 z-0 pointer-events-none" 
+              />
+              
+              <div className="relative z-10">
+                 <div className="flex items-center gap-2 mb-3">
+                    <AlertCircle className="w-3.5 h-3.5 text-brand-gold" />
+                    <span className="text-[10px] font-black text-brand-gold uppercase tracking-widest">Drift Detected</span>
+                 </div>
+                 <p className="font-bold leading-relaxed text-[14px] text-white/90 italic">
+                   "Participation delta exceeding 18% in Cluster_04. Response latency increasing."
+                 </p>
+              </div>
 
-              <div className="flex items-center justify-between gap-4">
-                <button className="flex-1 bg-[#f5b82e] hover:bg-[#ffc93c] text-black h-11 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all shadow-lg shadow-brand-gold/10">
-                  Launch Poll
+              <div className="flex items-center justify-between gap-4 relative z-10">
+                <button className="flex-1 bg-[#f5b82e] hover:bg-[#ffc93c] text-black h-11 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all shadow-[0_0_20px_rgba(245,184,46,0.2)] hover:shadow-[0_0_30px_rgba(245,184,46,0.4)]">
+                  Launch Protocol
                 </button>
-                <div className="text-emerald-500 text-[9px] font-black uppercase tracking-[0.2em] text-right">
-                   94%<br/>Confidence
+                <div className="text-right">
+                   <div className="text-emerald-500 text-[11px] font-black leading-none">94%</div>
+                   <div className="text-white/20 text-[7px] font-black uppercase tracking-widest mt-1">Confidence</div>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* DECISION LAYER */}
+          {/* DECISION LAYER: REALTIME INTERACTIONS */}
           <motion.div 
              initial={{ opacity: 0, x: 20 }}
              whileInView={{ opacity: 1, x: 0 }}
              viewport={{ once: true }}
              transition={{ duration: 0.8, delay: 0.2 }}
-             className="rounded-[32px] border border-white/10 bg-[#0b1220]/60 p-8 backdrop-blur-3xl shadow-2xl"
+             className="rounded-[32px] border border-white/10 bg-[#0b1220]/80 p-8 backdrop-blur-3xl shadow-2xl group/decision"
           >
-            <div className="flex items-center gap-3 mb-6">
-               <Layers className="w-5 h-5 text-brand-gold" />
+            <div className="flex items-center gap-3 mb-8">
+               <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center">
+                  <Layers className="w-5 h-5 text-brand-gold" />
+               </div>
                <h3 className="text-xl font-bold tracking-tight">Decision Layer</h3>
             </div>
 
-            <div className="rounded-2xl border border-white/5 p-6 bg-white/[0.02] space-y-6">
+            <div className="rounded-2xl border border-white/5 p-6 bg-white/[0.02] space-y-6 hover:bg-white/[0.04] transition-all duration-500 group-hover/decision:border-white/10">
               <p className="font-bold leading-relaxed text-[14px] text-white/80">
-                Extend breakout discussion by 8 minutes for deeper alignment.
+                Extend synchronization sequence by 8m to ensure institutional alignment.
               </p>
 
               <div className="flex gap-3">
-                <button className="flex-1 bg-[#f5b82e] hover:bg-[#ffc93c] text-black h-11 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all">
-                  Apply
+                <button className="flex-[1.5] bg-[#f5b82e] hover:bg-[#ffc93c] text-black h-11 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all shadow-lg active:scale-95">
+                  Approve_Action
                 </button>
-                <button className="flex-1 border border-white/10 text-white/40 hover:text-white h-11 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all">
+                <button className="flex-1 border border-white/10 text-white/40 hover:text-white h-11 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all hover:bg-white/5">
                   Dismiss
                 </button>
               </div>
             </div>
           </motion.div>
 
-          {/* OUTPUTS */}
+          {/* LIVE OUTPUTS: PULSE INDICATORS */}
           <motion.div 
              initial={{ opacity: 0, x: 20 }}
              whileInView={{ opacity: 1, x: 0 }}
              viewport={{ once: true }}
              transition={{ duration: 0.8, delay: 0.3 }}
-             className="rounded-[32px] border border-white/10 bg-[#0b1220]/60 p-8 backdrop-blur-3xl shadow-2xl"
+             className="rounded-[32px] border border-white/10 bg-[#0b1220]/80 p-8 backdrop-blur-3xl shadow-2xl"
           >
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
-                 <FileCheck className="w-5 h-5 text-brand-gold" />
-                 <h3 className="text-xl font-bold tracking-tight">Live Outputs</h3>
+                 <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center">
+                    <FileCheck className="w-5 h-5 text-brand-gold" />
+                 </div>
+                 <h3 className="text-xl font-bold tracking-tight">Live Artifacts</h3>
               </div>
-              <div className="text-white/20 text-[9px] font-black uppercase tracking-widest">Auto-Sync</div>
+              <div className="flex items-center gap-2">
+                 <motion.div 
+                    animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.6, 0.3] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="w-2 h-2 rounded-full bg-brand-gold/40" 
+                 />
+                 <span className="text-white/20 text-[8px] font-black uppercase tracking-[0.3em]">ORCHESTRATING</span>
+              </div>
             </div>
 
             <div className="space-y-3">
               {[
-                'Summary Report',
-                'Action Items',
-                'Attendance Log',
-                'Compliance Record'
+                { label: 'Summary Protocol', icon: FileText },
+                { label: 'Action Matrix', icon: Target },
+                { label: 'Attendance Audit', icon: ShieldCheck },
+                { label: 'Compliance Record', icon: Lock }
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.02] p-4 group hover:border-brand-gold/20 transition-all cursor-pointer"
+                  className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.01] p-4 group/item hover:bg-white/[0.04] hover:border-brand-gold/20 transition-all cursor-pointer overflow-hidden relative"
                 >
-                  <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{item}</span>
-                  <div className="flex items-center gap-2">
-                     <span className="text-[9px] text-white/20 font-black uppercase tracking-widest">Updated</span>
-                     <CheckCircle2 className="w-3 h-3 text-emerald-500 opacity-40" />
+                  <div className="flex items-center gap-4 relative z-10">
+                     <item.icon className="w-4 h-4 text-white/20 group-hover/item:text-brand-gold transition-colors" />
+                     <span className="text-[13px] font-bold text-white/60 group-hover/item:text-white transition-colors">{item.label}</span>
+                  </div>
+                  <div className="flex items-center gap-2 relative z-10">
+                     <span className="text-[8px] text-white/20 font-black uppercase tracking-widest opacity-0 group-hover/item:opacity-100 transition-opacity">Ready</span>
+                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 opacity-20 group-hover/item:opacity-60 transition-all" />
                   </div>
                 </div>
               ))}
@@ -511,18 +527,19 @@ function ControlBtn({ icon: Icon, label, count, active = false }: { icon: any, l
           )}
        </div>
        <span className="text-[8px] font-black text-white/20 group-hover:text-white/40 uppercase tracking-widest transition-colors">{label}</span>
-       
-       {/* Active Glow */}
        {active && <div className="absolute -inset-1 bg-brand-gold/5 blur-md rounded-xl -z-10" />}
     </button>
   );
 }
 
-function HealthItem({ label, val, color }: { label: string, val: string, color?: string }) {
+function HealthItem({ label, val, color, glowing = false }: { label: string, val: string, color?: string, glowing?: boolean }) {
   return (
     <div className="flex items-center justify-between group">
        <span className="text-[10px] text-white/20 font-black uppercase tracking-[0.2em] group-hover:text-white/40 transition-colors">{label}</span>
-       <span className={cn("text-[12px] font-bold", color ? color : "text-white")}>{val}</span>
+       <div className="flex items-center gap-2">
+          {glowing && <div className={cn("w-1 h-1 rounded-full animate-pulse", color ? color : "bg-brand-gold")} />}
+          <span className={cn("text-[12px] font-bold tracking-tight", color ? color : "text-white/90")}>{val}</span>
+       </div>
     </div>
   );
 }
