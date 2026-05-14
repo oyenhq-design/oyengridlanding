@@ -8,399 +8,453 @@ import {
   ArrowUpRight, ShieldCheck, Zap, Globe2, ChevronRight, CheckCircle2,
   AlertCircle, BarChart3, TrendingUp, Search, Radio, Wifi, Shield,
   Lock, Target, Info, Terminal, Database, LineChart, Bell, Maximize2,
-  PlayCircle, FileText, Settings, Share2
+  PlayCircle, FileText, Settings, Share2, Power, Hand
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const features = [
-  { title: "Operational Health Engine", desc: "Live infrastructure monitoring.", icon: Activity },
-  { title: "AI Facilitator Assistant", desc: "Intelligence-driven moderation.", icon: Brain },
-  { title: "Live Delivery Timeline", desc: "Programme tracking milestones.", icon: Clock },
-  { title: "Coordination Map", desc: "Global participant distribution.", icon: Globe },
-  { title: "Decision Layer", desc: "AI-driven operational logic.", icon: Layers },
-  { title: "Structured Outputs", desc: "Automated institutional records.", icon: FileCheck },
+  { title: 'Operational Health Engine', text: 'Live monitoring of engagement, attendance quality, and delivery risk.' },
+  { title: 'AI Facilitator Assistant', text: 'Real-time insights, smart summaries, and action recommendations.' },
+  { title: 'Live Delivery Timeline', text: 'Track every moment, action, and interaction as it happens.' },
+  { title: 'Coordination Map', text: 'Visualize connected teams, regions, and operational dependencies.' },
+  { title: 'Decision Layer', text: 'AI-powered recommendations to keep programmes on track.' },
+  { title: 'Structured Outputs', text: 'Automated reports, actions, attendance, and compliance logs.' }
 ];
 
 const metrics = [
-  { label: "Active Participants", val: "1,240+", icon: Users },
-  { label: "System Uptime", val: "99.995%", icon: ShieldCheck },
-  { label: "Average Sync", val: "0.8ms", icon: Zap },
-  { label: "Countries Connected", val: "140+", icon: Globe2 },
+  ['1,240+', 'Active Participants'],
+  ['99.995%', 'System Uptime'],
+  ['0.8ms', 'Average Sync'],
+  ['140+', 'Countries Connected']
 ];
 
 export function InstitutionalCommandCenter() {
   return (
-    <section className="bg-[#050816] relative py-[110px] overflow-hidden">
-      
-      {/* 1. ATMOSPHERIC BACKGROUND SYSTEM */}
+    <div className="relative min-h-screen bg-[#050816] text-white overflow-hidden py-12 px-6">
+      {/* Premium Background System */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <Image 
-          src="/institutional-atmosphere.png" 
-          alt="Atmosphere" 
-          fill 
-          className="object-cover opacity-[0.05] blur-[2px]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050816] via-transparent to-[#050816]" />
+         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,184,46,0.08),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(0,150,255,0.08),transparent_40%)]" />
+         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, white 0.5px, transparent 0.5px)", backgroundSize: "40px 40px" }} />
+      </div>
+
+      <main className="relative z-10 max-w-[1700px] mx-auto grid grid-cols-12 gap-6">
         
-        {/* Subtle World-Grid & Faint Glow */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, white 0.5px, transparent 0.5px)", backgroundSize: "40px 40px" }} />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-[radial-gradient(circle_at_top,rgba(255,190,40,0.08),transparent_38%)]" />
-      </div>
+        {/* LEFT PANEL (col-span-3) */}
+        <section className="col-span-12 lg:col-span-3 flex flex-col justify-between space-y-12">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <p className="text-[#f5b82e] tracking-[0.3em] uppercase text-[10px] font-black mb-8">
+              Live Operation Command
+            </p>
 
-      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr_320px] gap-[22px] items-start">
-          
-          {/* LEFT PANEL: INFORMATION & FEATURE LIST */}
-          <div className="flex flex-col gap-10">
-            <div>
-              <span className="text-[11px] font-black text-brand-gold uppercase tracking-[0.4em] mb-4 block">
-                LIVE OPERATION COMMAND
-              </span>
-              <h2 className="text-[44px] font-bold text-white leading-[0.95] tracking-[-0.05em] mb-8">
-                Built for intelligent <br /> programme <span className="text-brand-gold">delivery.</span>
-              </h2>
-              <p className="text-[14px] text-white/40 leading-relaxed font-medium">
-                OYEN GRID orchestrates every layer of programme operations with real-time intelligence, AI guidance, and institutional control.
-              </p>
-            </div>
+            <h1 className="text-5xl xl:text-6xl font-bold leading-[1.05] tracking-tight mb-8">
+              Built for intelligent <span className="text-[#f5b82e]">programme delivery.</span>
+            </h1>
 
-            <div className="space-y-3.5">
-              {features.map((feature, i) => (
-                <div key={i} className="h-[76px] px-5 py-4 rounded-[18px] bg-[#0C1018]/88 border border-white/5 flex items-center gap-4 group hover:border-brand-gold/20 transition-all duration-500 shadow-xl">
-                  <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center shrink-0">
-                    <feature.icon className="w-4.5 h-4.5 text-brand-gold" />
+            <p className="text-white/40 text-lg leading-relaxed max-w-md mb-12">
+              OYEN GRID goes beyond meetings. Orchestrate live operations with real-time intelligence,
+              AI guidance, and institutional control.
+            </p>
+
+            <div className="space-y-4">
+              {features.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group flex gap-4 p-4 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all duration-500 shadow-xl"
+                >
+                  <div className="h-12 w-12 shrink-0 rounded-xl bg-[#f5b82e]/10 border border-[#f5b82e]/20 flex items-center justify-center text-[#f5b82e] group-hover:scale-110 transition-transform">
+                    <Zap className="w-5 h-5" />
                   </div>
+
                   <div className="min-w-0">
-                    <h3 className="text-[13px] font-bold text-white/90 mb-0.5 truncate">{feature.title}</h3>
-                    <p className="text-[10px] text-white/20 font-black uppercase tracking-widest truncate">{feature.desc}</p>
+                    <h3 className="font-bold text-white text-[15px]">{item.title}</h3>
+                    <p className="text-white/30 text-[12px] leading-relaxed mt-1 line-clamp-2">{item.text}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
+          </motion.div>
 
-            <div className="flex flex-col gap-4 mt-2">
-              <button className="h-14 rounded-2xl bg-brand-gold text-black font-black text-[13px] uppercase tracking-wider flex items-center justify-center gap-2 hover:brightness-110 transition-all shadow-xl shadow-brand-gold/10">
-                Explore Live Command
-                <ArrowUpRight className="w-4.5 h-4.5" />
-              </button>
-              <button className="h-14 rounded-2xl bg-white/[0.04] border border-white/5 text-[12px] font-black uppercase tracking-widest text-white/60 hover:text-white transition-all">
-                See it in action
-              </button>
-            </div>
+          <div className="flex items-center gap-6 pb-6">
+            <button className="bg-[#f5b82e] hover:bg-[#ffc93c] text-black px-8 py-4 rounded-2xl font-black uppercase text-[12px] tracking-widest transition-all shadow-xl shadow-brand-gold/10">
+              Explore Live Command
+            </button>
+            <button className="text-white/40 hover:text-white transition-all font-black uppercase text-[11px] tracking-widest flex items-center gap-2 group">
+              <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/30 transition-all">
+                 <PlayCircle className="w-4 h-4" />
+              </div>
+              See it in action
+            </button>
           </div>
+        </section>
 
-          {/* CENTER COMMAND INTERFACE: THE HERO DASHBOARD */}
-          <div className="flex flex-col gap-[22px]">
-            <div className="h-[760px] rounded-[26px] bg-[#0A0E18] border border-white/10 overflow-hidden flex flex-col shadow-[0_60px_120px_rgba(0,0,0,0.8)] relative group">
-              
-              {/* TOP BAR: SESSION TELEMETRY */}
-              <div className="h-[60px] border-b border-white/5 px-8 flex items-center justify-between bg-white/[0.03] backdrop-blur-xl z-20">
-                <div className="flex items-center gap-6">
-                  <div className="flex items-center gap-3">
-                    <Settings className="w-4 h-4 text-white/40" />
-                    <span className="text-[13px] font-bold text-white tracking-tight">Leadership Alignment Session</span>
-                  </div>
-                  <div className="flex items-center gap-2.5 px-3 py-1 rounded-md bg-brand-gold/10 border border-brand-gold/20">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
-                    <span className="text-[10px] font-black text-brand-gold uppercase tracking-widest">LIVE</span>
-                  </div>
-                  <div className="flex items-center gap-2.5 text-white/30 text-[11px] font-mono tracking-widest">
-                    <Clock className="w-4 h-4" />
-                    <span>01:24:58</span>
-                  </div>
-                  <div className="h-4 w-px bg-white/10" />
-                  <div className="flex items-center gap-2.5 text-emerald-500 text-[10px] font-black uppercase tracking-widest">
-                    <Wifi className="w-4 h-4" />
-                    <span>Excellent Connection</span>
-                  </div>
+        {/* CENTER PANEL (col-span-6) */}
+        <section className="col-span-12 lg:col-span-6 space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="rounded-[32px] border border-white/10 bg-[#0b1220]/60 backdrop-blur-3xl overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.8)]"
+          >
+            {/* HEADER */}
+            <div className="flex items-center justify-between px-8 py-6 border-b border-white/5 bg-white/[0.02]">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                   <Monitor className="w-4.5 h-4.5 text-white/40" />
                 </div>
-                <div className="flex items-center gap-6">
-                   <div className="flex items-center gap-2 text-white/40">
-                      <Users className="w-4.5 h-4.5" />
-                      <span className="text-[12px] font-bold">48</span>
-                   </div>
-                   <Bell className="w-4.5 h-4.5 text-white/40 hover:text-white transition-colors" />
-                   <Maximize2 className="w-4.5 h-4.5 text-white/40 hover:text-white transition-colors" />
+                <h2 className="font-bold text-lg tracking-tight">Leadership Alignment Session</h2>
+                <div className="flex items-center gap-2.5 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20">
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                  <span className="text-[10px] font-black text-red-500 uppercase tracking-widest">Live</span>
                 </div>
               </div>
 
-              {/* MAIN CONTENT AREA: CINEMATIC SESSION */}
-              <div className="flex-1 flex p-5 gap-5 overflow-hidden relative">
-                {/* LARGE PRESENTER VIDEO */}
-                <div className="flex-1 relative rounded-[22px] overflow-hidden border border-white/10 bg-black/60 shadow-inner group/video">
-                   <Image 
-                     src="/institutional-leader-v2.png" 
-                     alt="Presenter" 
-                     fill 
-                     className="object-cover opacity-90 transition-transform duration-[30s] group-hover/video:scale-105"
-                   />
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                   <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: "url('/operational-map.png')", backgroundSize: 'cover' }} />
-                   
-                   {/* FLOATING HUD: Facilitator Info */}
-                   <div className="absolute top-6 left-6 p-4 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10 flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
-                         <div className="w-2 h-2 rounded-full bg-brand-gold shadow-[0_0_8px_#F5B942]" />
-                      </div>
-                      <div>
-                         <div className="text-[10px] text-white/30 font-black uppercase tracking-widest leading-none mb-1.5">Facilitator</div>
-                         <div className="text-[13px] font-bold text-white tracking-tight flex items-center gap-2">
-                           Daniel Okafor
-                           <ArrowUpRight className="w-3 h-3 text-brand-gold opacity-60" />
-                         </div>
-                      </div>
-                   </div>
-
-                   {/* LIVE CONTROLS ROW */}
-                   <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 p-4 rounded-[22px] bg-[#0C1018]/95 backdrop-blur-[40px] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.8)] z-30">
-                      <ControlBtn icon={Mic} active />
-                      <ControlBtn icon={Video} active />
-                      <ControlBtn icon={Monitor} />
-                      <div className="w-px h-10 bg-white/10 mx-2" />
-                      <ControlBtn icon={Users} count={48} />
-                      <ControlBtn icon={MessageSquare} count={12} active />
-                      <ControlBtn icon={Smile} />
-                      <ControlBtn icon={MoreHorizontal} />
-                      <div className="w-px h-10 bg-white/10 mx-2" />
-                      <button className="h-12 px-8 rounded-xl bg-red-600/10 text-red-500 text-[11px] font-black uppercase tracking-widest border border-red-500/20 hover:bg-red-600 hover:text-white transition-all shadow-xl">
-                        End Sync
-                      </button>
-                   </div>
+              <div className="flex items-center gap-6 text-[12px] font-black uppercase tracking-widest">
+                <div className="flex items-center gap-2 text-white/30">
+                   <Clock className="w-4 h-4" />
+                   <span className="font-mono">01:24:58</span>
                 </div>
-
-                {/* STACKED PARTICIPANT COLUMN */}
-                <div className="w-[200px] flex flex-col gap-3.5">
-                   {[1, 2, 3, 4].map(p => (
-                     <div key={p} className="h-[104px] rounded-[20px] bg-white/[0.03] border border-white/5 overflow-hidden relative group">
-                        <Image src="/institutional-participants.png" alt="Node" fill className="object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                        <div className="absolute bottom-3 left-3.5 right-3.5 flex items-center justify-between">
-                           <div className="min-w-0">
-                              <div className="text-[8px] text-white/30 font-black uppercase tracking-widest leading-none mb-1">Institutional Node</div>
-                              <div className="text-[11px] font-bold text-white truncate">Partner Cluster {p}</div>
-                           </div>
-                           <div className="w-2 h-2 rounded-full bg-emerald-500/60 shadow-[0_0_8px_rgba(16,185,129,0.3)]" />
-                        </div>
-                     </div>
-                   ))}
+                <div className="flex items-center gap-2 text-emerald-500">
+                   <Wifi className="w-4 h-4" />
+                   <span>Excellent Connection</span>
                 </div>
               </div>
-
-              {/* LOWER PANELS: TIMELINE & MAP */}
-              <div className="h-[220px] border-t border-white/5 p-5 grid grid-cols-2 gap-5 bg-white/[0.01] backdrop-blur-2xl">
-                 {/* Live Delivery Timeline */}
-                 <div className="rounded-[24px] bg-[#080B14]/80 border border-white/5 p-5 flex flex-col shadow-inner overflow-hidden">
-                    <div className="flex items-center justify-between mb-5">
-                       <div className="flex items-center gap-2.5">
-                          <Clock className="w-4 h-4 text-brand-gold" />
-                          <span className="text-[11px] font-black text-white uppercase tracking-[0.3em]">Operational Timeline</span>
-                       </div>
-                       <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
-                          <span className="text-[10px] font-mono text-brand-gold/60">PHASE_03_SYNC</span>
-                       </div>
-                    </div>
-                    <div className="space-y-4">
-                       <TimelineStep label="Strategic Protocol Alignment" time="01:21 PM" status="complete" />
-                       <TimelineStep label="AI Facilitation Logic Sync" time="01:18 PM" status="active" />
-                       <TimelineStep label="Governance Verification" time="01:15 PM" status="pending" />
-                    </div>
-                 </div>
-
-                 {/* Coordination Map */}
-                 <div className="rounded-[24px] bg-[#080B14]/80 border border-white/5 relative overflow-hidden group/map shadow-inner">
-                    <Image src="/operational-map.png" alt="Map" fill className="object-cover opacity-[0.15] grayscale transition-all duration-1000 group-hover/map:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E18] via-transparent to-transparent" />
-                    <div className="absolute top-5 left-6 flex items-center gap-3">
-                       <Globe className="w-4 h-4 text-brand-gold" />
-                       <span className="text-[11px] font-black text-white uppercase tracking-[0.3em]">Global Coordination</span>
-                    </div>
-                    <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between">
-                       <div className="flex -space-x-3">
-                          {[1,2,3,4,5].map(i => <div key={i} className="w-7 h-7 rounded-full bg-brand-gold/20 border-2 border-[#0A0E18] backdrop-blur-md shadow-xl" />)}
-                       </div>
-                       <div className="text-right">
-                          <div className="text-[12px] font-bold text-white tracking-tight leading-none mb-1">1,240 Nodes Connected</div>
-                          <div className="text-[9px] font-black text-brand-gold/40 uppercase tracking-widest">Live Regional Sync</div>
-                       </div>
-                    </div>
-                 </div>
-              </div>
             </div>
 
-            {/* BOTTOM METRICS ROW: 4 EQUAL CARDS */}
-            <div className="grid grid-cols-4 gap-5">
-              {metrics.map((m, i) => (
-                <div key={i} className="h-[110px] rounded-[18px] bg-[#0C1018]/92 border border-white/5 p-5 flex flex-col justify-between group hover:border-brand-gold/30 transition-all duration-500 shadow-xl">
-                   <div className="w-9 h-9 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center group-hover:border-brand-gold/20 transition-all">
-                      <m.icon className="w-4.5 h-4.5 text-white/30 group-hover:text-brand-gold transition-colors" />
-                   </div>
-                   <div>
-                      <div className="text-[22px] font-bold text-white tracking-tighter leading-none mb-1">{m.val}</div>
-                      <div className="text-[10px] font-black text-white/20 uppercase tracking-widest">{m.label}</div>
-                   </div>
+            {/* VIDEO SECTION */}
+            <div className="grid grid-cols-12 gap-5 p-5">
+              <div className="col-span-12 xl:col-span-9 relative rounded-[28px] overflow-hidden h-[580px] bg-black group/video shadow-2xl">
+                <Image 
+                   src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1400&auto=format&fit=crop" 
+                   alt="Presenter" 
+                   fill 
+                   className="object-cover opacity-90 transition-transform duration-[30s] group-hover/video:scale-105" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+
+                <div className="absolute top-6 left-6 p-4 rounded-2xl bg-black/40 backdrop-blur-xl border border-white/10 flex items-center gap-4 shadow-2xl">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                     <Users className="w-4.5 h-4.5 text-white/40" />
+                  </div>
+                  <div>
+                    <div className="text-[9px] text-white/20 font-black uppercase tracking-[0.2em] mb-1">Speaking</div>
+                    <div className="font-bold text-[13px]">Daniel Okafor</div>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
 
-          {/* RIGHT SIDEBAR: INTELLIGENCE PANELS */}
-          <div className="flex flex-col gap-[22px]">
-            {/* OPERATIONAL HEALTH */}
-            <div className="p-6 rounded-[28px] bg-[#0A0E18] border border-white/5 space-y-6 shadow-2xl relative group/health overflow-hidden">
-               <div className="absolute top-0 right-0 p-5 opacity-[0.03] group-hover/health:opacity-[0.08] transition-opacity">
-                  <Activity className="w-16 h-16 text-white" />
-               </div>
-               <div className="flex items-center gap-3 relative z-10">
-                  <Activity className="w-4.5 h-4.5 text-brand-gold" />
-                  <span className="text-[11px] font-black text-white uppercase tracking-[0.3em]">Operational Health</span>
-               </div>
-               <div className="flex items-center gap-8 relative z-10">
-                  <div className="relative w-24 h-24 flex items-center justify-center">
-                     <svg className="w-full h-full -rotate-90">
-                        <circle cx="48" cy="48" r="42" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="8" />
-                        <motion.circle 
-                           cx="48" cy="48" r="42" fill="none" stroke="#F5B942" strokeWidth="8" 
-                           strokeDasharray="264" 
-                           initial={{ strokeDashoffset: 264 }}
-                           whileInView={{ strokeDashoffset: 40 }}
-                           transition={{ duration: 1.5, ease: "easeOut" }}
-                           className="shadow-[0_0_15px_rgba(245,185,66,0.3)]" 
-                        />
-                     </svg>
-                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <span className="text-[20px] font-bold text-white tracking-tighter">94%</span>
-                        <span className="text-[8px] text-brand-gold font-black uppercase tracking-widest">Health</span>
-                     </div>
-                  </div>
-                  <div className="flex-1 space-y-3">
-                     <HealthStatSmall label="Engagement" val="Optimal" color="text-emerald-500" />
-                     <HealthStatSmall label="Attendance" val="98.2%" />
-                     <HealthStatSmall label="Sync Latency" val="12ms" />
-                  </div>
-               </div>
-            </div>
-
-            {/* AI FACILITATOR ASSISTANT */}
-            <div className="p-6 rounded-[28px] bg-[#0A0E18] border border-white/5 space-y-5 shadow-2xl relative">
-               <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                     <Brain className="w-4.5 h-4.5 text-brand-gold" />
-                     <span className="text-[11px] font-black text-white uppercase tracking-[0.3em]">AI Facilitator Assistant</span>
-                  </div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
-               </div>
-               <div className="p-4 rounded-xl bg-brand-gold/5 border border-brand-gold/10 space-y-4">
-                  <div className="text-[12px] text-white/70 leading-relaxed font-medium italic">
-                    "Engagement drift detected in Cluster_04. Suggest initializing interactive protocol B to maintain momentum."
-                  </div>
-                  <button className="w-full h-11 rounded-xl bg-brand-gold text-black text-[11px] font-black uppercase tracking-widest hover:brightness-110 transition-all shadow-lg shadow-brand-gold/10">
-                     Apply Recommendation
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 p-4 rounded-[22px] bg-[#0C1018]/95 backdrop-blur-[40px] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.8)]">
+                  {[
+                    { icon: Mic, label: 'Mute', active: true },
+                    { icon: Video, label: 'Video', active: true },
+                    { icon: Monitor, label: 'Share' },
+                    { icon: Users, label: 'Participants' },
+                    { icon: MessageSquare, label: 'Chat' },
+                    { icon: Smile, label: 'Reactions' }
+                  ].map((item) => (
+                    <button
+                      key={item.label}
+                      className={cn(
+                        "w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group/btn",
+                        item.active ? "bg-white/10 text-white border border-white/10" : "bg-transparent text-white/30 hover:bg-white/5 hover:text-white"
+                      )}
+                    >
+                      <item.icon className="w-5 h-5" />
+                    </button>
+                  ))}
+                  <div className="w-px h-8 bg-white/10 mx-2" />
+                  <button className="h-12 px-8 rounded-xl bg-red-600/10 text-red-500 text-[11px] font-black uppercase tracking-widest border border-red-500/20 hover:bg-red-600 hover:text-white transition-all shadow-xl">
+                     End Session
                   </button>
-               </div>
-               <div className="space-y-3 pt-1">
-                  <div className="flex items-center justify-between text-[10px] font-black text-white/20 uppercase tracking-widest">AI Confidence Index</div>
-                  <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                     <div className="h-full w-[98%] bg-brand-gold" />
-                  </div>
-               </div>
-            </div>
+                </div>
+              </div>
 
-            {/* DECISION LAYER */}
-            <div className="p-6 rounded-[28px] bg-[#0A0E18] border border-white/5 space-y-5 shadow-2xl">
-               <div className="flex items-center gap-3">
-                  <Layers className="w-4.5 h-4.5 text-brand-gold" />
-                  <span className="text-[11px] font-black text-white uppercase tracking-[0.3em]">Decision Matrix</span>
-               </div>
-               <div className="space-y-4">
-                  <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 group hover:border-brand-gold/20 transition-all duration-500 shadow-inner">
-                     <div className="text-[10px] text-white/30 font-black uppercase tracking-widest mb-2">Protocol Action</div>
-                     <div className="text-[14px] font-bold text-white mb-4 leading-tight">Re-route Sync Cluster 04 to Primary Infrastructure</div>
-                     <div className="flex gap-2.5">
-                        <button className="flex-1 h-9 rounded-lg bg-brand-gold text-black text-[10px] font-black uppercase tracking-widest hover:brightness-110">Approve</button>
-                        <button className="flex-1 h-9 rounded-lg bg-white/5 text-white/40 text-[10px] font-black uppercase tracking-widest hover:text-white transition-colors">Dismiss</button>
-                     </div>
+              {/* PARTICIPANTS */}
+              <div className="col-span-12 xl:col-span-3 flex xl:flex-col gap-4 overflow-x-auto pb-4 xl:pb-0">
+                {[
+                  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop',
+                  'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop',
+                  'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600&auto=format&fit=crop',
+                  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop'
+                ].map((img, index) => (
+                  <div
+                    key={index}
+                    className="h-[134px] w-full min-w-[140px] rounded-[22px] overflow-hidden relative border border-white/5 group/p shadow-xl"
+                  >
+                    <Image src={img} alt="Participant" fill className="object-cover grayscale opacity-60 group-hover/p:grayscale-0 group-hover/p:opacity-100 transition-all duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-2.5 right-2.5">
+                       <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                    </div>
                   </div>
-               </div>
+                ))}
+              </div>
             </div>
+          </motion.div>
 
-            {/* LIVE OUTPUTS */}
-            <div className="p-6 rounded-[28px] bg-[#0A0E18] border border-white/5 space-y-5 shadow-2xl">
-               <div className="flex items-center gap-3">
-                  <FileCheck className="w-4.5 h-4.5 text-brand-gold" />
-                  <span className="text-[11px] font-black text-white uppercase tracking-[0.3em]">Institutional Outputs</span>
-               </div>
-               <div className="space-y-3">
-                  <OutputLine label="Operational Sync Log" time="2m ago" />
-                  <OutputLine label="Compliance Audit" time="5m ago" />
-                  <OutputLine label="Attendance Record" time="12m ago" />
-               </div>
-               <button className="w-full text-center text-brand-gold/40 text-[10px] font-black uppercase tracking-[0.3em] hover:text-brand-gold transition-colors pt-3">
-                  View full logs
-               </button>
-            </div>
+          {/* LOWER GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* TIMELINE */}
+            <motion.div 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.8, delay: 0.2 }}
+               className="rounded-[32px] border border-white/10 bg-[#0b1220]/60 p-8 backdrop-blur-3xl shadow-2xl"
+            >
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-3">
+                   <Clock className="w-5 h-5 text-brand-gold" />
+                   <h3 className="text-xl font-bold tracking-tight">Live Delivery Timeline</h3>
+                </div>
+                <div className="flex items-center gap-2 px-2 py-0.5 rounded-md bg-red-500/10 border border-red-500/20">
+                   <span className="text-[9px] font-black text-red-500 uppercase tracking-widest">Live</span>
+                </div>
+              </div>
+
+              <div className="flex gap-2.5 mb-10">
+                {[20, 20, 20, 20, 10, 10].map((w, i) => (
+                  <div
+                    key={i}
+                    style={{ width: `${w}%` }}
+                    className={cn(
+                      "h-1.5 rounded-full",
+                      i < 4 ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.3)]' : 'bg-brand-gold shadow-[0_0_8px_rgba(245,184,46,0.3)]'
+                    )}
+                  />
+                ))}
+              </div>
+
+              <div className="space-y-6">
+                {[
+                  { label: 'Breakout session started', time: '09:20' },
+                  { label: 'AI insight generated', time: '09:21' },
+                  { label: 'Action item created', time: '09:22' },
+                  { label: 'Engagement drift detected', time: '09:23' }
+                ].map((event, i) => (
+                  <div key={i} className="flex items-center justify-between group cursor-pointer">
+                    <div className="flex items-center gap-4">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/40 group-hover:bg-brand-gold transition-all" />
+                      <div>
+                        <p className="font-bold text-white/80 group-hover:text-white transition-colors text-[14px]">{event.label}</p>
+                        <p className="text-white/20 text-[11px] font-mono tracking-tighter mt-0.5">{event.time}</p>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-white/10 group-hover:text-brand-gold transition-all" />
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* MAP */}
+            <motion.div 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.8, delay: 0.3 }}
+               className="rounded-[32px] border border-white/10 bg-[#0b1220]/60 p-8 backdrop-blur-3xl shadow-2xl relative overflow-hidden group/map"
+            >
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-3">
+                   <Globe className="w-5 h-5 text-brand-gold" />
+                   <h3 className="text-xl font-bold tracking-tight">Coordination Map</h3>
+                </div>
+                <button className="text-[11px] font-black text-brand-gold uppercase tracking-widest hover:underline">View Full Map</button>
+              </div>
+
+              <div className="h-[280px] rounded-2xl border border-white/5 bg-black/40 relative overflow-hidden shadow-inner">
+                <Image 
+                   src="/operational-map.png" 
+                   alt="Map" 
+                   fill 
+                   className="object-cover opacity-[0.15] grayscale group-hover/map:grayscale-0 group-hover/map:opacity-30 transition-all duration-1000" 
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                   <div className="text-[11px] font-black text-white/20 uppercase tracking-[0.4em]">Global Sync Visualization</div>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
-        </div>
-      </div>
-    </section>
-  );
-}
+          {/* STATS */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {metrics.map(([value, label], i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="rounded-3xl border border-white/10 bg-[#0b1220]/60 p-6 backdrop-blur-3xl shadow-xl hover:border-brand-gold/30 transition-all duration-500 group"
+              >
+                <h4 className="text-3xl font-black mb-1 group-hover:text-brand-gold transition-colors">{value}</h4>
+                <p className="text-white/30 text-[11px] font-black uppercase tracking-widest">{label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
 
-function ControlBtn({ icon: Icon, count, active = false }: { icon: any, count?: number, active?: boolean }) {
-  return (
-    <button className={cn(
-      "w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 relative group",
-      active ? "bg-white/10 text-white border border-white/10 shadow-lg" : "bg-transparent text-white/30 hover:bg-white/5 hover:text-white"
-    )}>
-      <Icon className="w-5 h-5" />
-      {count !== undefined && (
-        <div className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-md bg-brand-gold text-black text-[9px] font-black flex items-center justify-center shadow-lg">
-           {count}
-        </div>
-      )}
-    </button>
-  );
-}
+        {/* RIGHT SIDEBAR (col-span-3) */}
+        <section className="col-span-12 lg:col-span-3 space-y-6">
+          {/* HEALTH */}
+          <motion.div 
+             initial={{ opacity: 0, x: 20 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.8 }}
+             className="rounded-[32px] border border-white/10 bg-[#0b1220]/60 p-8 backdrop-blur-3xl shadow-2xl"
+          >
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center gap-3">
+                 <Activity className="w-5 h-5 text-brand-gold" />
+                 <h3 className="text-xl font-bold tracking-tight">Operational Intelligence</h3>
+              </div>
+              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_#10b981]" />
+            </div>
 
-function TimelineStep({ label, time, status }: { label: string, time: string, status: "complete" | "active" | "pending" }) {
-  return (
-    <div className="flex items-center gap-4 group/step">
-       <div className="text-[10px] font-mono text-white/20 w-12">{time}</div>
-       <div className="relative flex flex-col items-center">
-          <div className={cn(
-            "w-2 h-2 rounded-full z-10 transition-all duration-500",
-            status === "complete" ? "bg-brand-gold" : status === "active" ? "bg-brand-gold shadow-[0_0_10px_#F5B942]" : "bg-white/10"
-          )} />
-          <div className="absolute top-2 w-px h-8 bg-white/5" />
-       </div>
-       <div className="flex-1">
-          <div className={cn(
-            "text-[12px] font-bold group-hover/step:text-brand-gold transition-colors",
-            status === "pending" ? "text-white/20" : "text-white/80"
-          )}>{label}</div>
-       </div>
+            <div className="flex items-center gap-8">
+              <div className="relative h-28 w-28 shrink-0 flex items-center justify-center">
+                <svg className="w-full h-full -rotate-90">
+                   <circle cx="56" cy="56" r="48" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="8" />
+                   <motion.circle 
+                      cx="56" cy="56" r="48" fill="none" stroke="#f5b82e" strokeWidth="8" 
+                      strokeDasharray="301" 
+                      initial={{ strokeDashoffset: 301 }}
+                      whileInView={{ strokeDashoffset: 24 }}
+                      transition={{ duration: 1.5, ease: "easeOut" }}
+                      className="shadow-[0_0_15px_#f5b82e]" 
+                   />
+                </svg>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                   <span className="text-[22px] font-black text-white leading-none">92%</span>
+                   <span className="text-[8px] font-black text-brand-gold uppercase tracking-widest mt-1">Excellent</span>
+                </div>
+              </div>
+
+              <div className="flex-1 space-y-4">
+                <HealthItem label="Engagement" val="High" color="text-emerald-500" />
+                <HealthItem label="Attendance" val="98%" />
+                <HealthItem label="Response" val="94%" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* AI FACILITATOR */}
+          <motion.div 
+             initial={{ opacity: 0, x: 20 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.8, delay: 0.1 }}
+             className="rounded-[32px] border border-white/10 bg-[#0b1220]/60 p-8 backdrop-blur-3xl shadow-2xl"
+          >
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                 <Brain className="w-5 h-5 text-brand-gold" />
+                 <h3 className="text-xl font-bold tracking-tight">AI Assistant</h3>
+              </div>
+              <span className="text-white/20 text-[10px] font-mono tracking-widest">09:42 AM</span>
+            </div>
+
+            <div className="rounded-2xl border border-brand-gold/20 bg-brand-gold/5 p-6 space-y-6">
+              <p className="font-bold leading-relaxed text-[14px] text-white/80 italic">
+                "12 participants have not interacted for 18 minutes. Engagement drift detected."
+              </p>
+
+              <div className="flex items-center justify-between gap-4">
+                <button className="flex-1 bg-[#f5b82e] hover:bg-[#ffc93c] text-black h-11 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all shadow-lg shadow-brand-gold/10">
+                  Launch Poll
+                </button>
+                <div className="text-emerald-500 text-[9px] font-black uppercase tracking-[0.2em] text-right">
+                   94%<br/>Confidence
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* DECISION LAYER */}
+          <motion.div 
+             initial={{ opacity: 0, x: 20 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.8, delay: 0.2 }}
+             className="rounded-[32px] border border-white/10 bg-[#0b1220]/60 p-8 backdrop-blur-3xl shadow-2xl"
+          >
+            <div className="flex items-center gap-3 mb-6">
+               <Layers className="w-5 h-5 text-brand-gold" />
+               <h3 className="text-xl font-bold tracking-tight">Decision Layer</h3>
+            </div>
+
+            <div className="rounded-2xl border border-white/5 p-6 bg-white/[0.02] space-y-6">
+              <p className="font-bold leading-relaxed text-[14px] text-white/80">
+                Extend breakout discussion by 8 minutes for deeper alignment.
+              </p>
+
+              <div className="flex gap-3">
+                <button className="flex-1 bg-[#f5b82e] hover:bg-[#ffc93c] text-black h-11 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all">
+                  Apply
+                </button>
+                <button className="flex-1 border border-white/10 text-white/40 hover:text-white h-11 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all">
+                  Dismiss
+                </button>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* OUTPUTS */}
+          <motion.div 
+             initial={{ opacity: 0, x: 20 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.8, delay: 0.3 }}
+             className="rounded-[32px] border border-white/10 bg-[#0b1220]/60 p-8 backdrop-blur-3xl shadow-2xl"
+          >
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center gap-3">
+                 <FileCheck className="w-5 h-5 text-brand-gold" />
+                 <h3 className="text-xl font-bold tracking-tight">Live Outputs</h3>
+              </div>
+              <div className="text-white/20 text-[9px] font-black uppercase tracking-widest">Auto-Sync</div>
+            </div>
+
+            <div className="space-y-3">
+              {[
+                'Summary Report',
+                'Action Items',
+                'Attendance Log',
+                'Compliance Record'
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.02] p-4 group hover:border-brand-gold/20 transition-all cursor-pointer"
+                >
+                  <span className="text-[13px] font-bold text-white/70 group-hover:text-white transition-colors">{item}</span>
+                  <div className="flex items-center gap-2">
+                     <span className="text-[9px] text-white/20 font-black uppercase tracking-widest">Updated</span>
+                     <CheckCircle2 className="w-3 h-3 text-emerald-500 opacity-40" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </section>
+      </main>
     </div>
-  );
+  )
 }
 
-function HealthStatSmall({ label, val, color }: { label: string, val: string, color?: string }) {
+function HealthItem({ label, val, color }: { label: string, val: string, color?: string }) {
   return (
     <div className="flex items-center justify-between group">
-       <span className="text-[10px] text-white/30 font-black uppercase tracking-widest group-hover:text-white/50 transition-colors">{label}</span>
-       <span className={cn("text-[11px] font-bold", color ? color : "text-white")}>{val}</span>
-    </div>
-  );
-}
-
-function OutputLine({ label, time }: { label: string, time: string }) {
-  return (
-    <div className="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-gold/20 transition-all duration-500 group">
-       <div className="flex items-center gap-3">
-          <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/40 group-hover:bg-brand-gold transition-all" />
-          <span className="text-[11px] font-bold text-white/70 group-hover:text-white transition-colors">{label}</span>
-       </div>
-       <span className="text-[10px] text-white/20 font-mono tracking-tighter">{time}</span>
+       <span className="text-[10px] text-white/20 font-black uppercase tracking-[0.2em] group-hover:text-white/40 transition-colors">{label}</span>
+       <span className={cn("text-[12px] font-bold", color ? color : "text-white")}>{val}</span>
     </div>
   );
 }
