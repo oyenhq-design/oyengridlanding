@@ -43,7 +43,7 @@ export function InstitutionalImpactCinematic() {
   return (
     <section 
       ref={containerRef}
-      className="py-32 bg-[#05070B] relative overflow-hidden"
+      className="py-[120px] bg-[#05070B] relative overflow-hidden"
     >
       {/* 1. CINEMATIC BACKGROUND SYSTEM */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -75,20 +75,21 @@ export function InstitutionalImpactCinematic() {
         </div>
       </div>
 
-      <div className="container-custom max-w-[1240px] relative z-10">
-        <div className="grid lg:grid-cols-[1fr_0.8fr] gap-12 items-stretch">
+      <div className="max-w-[1440px] mx-auto px-10 relative z-10">
+        <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-14 items-center">
           
           {/* LEFT SIDE: PREMIUM TESTIMONIAL PANEL */}
           <div className="relative">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="p-10 md:p-12 rounded-[22px] bg-white/[0.01] border border-white/10 backdrop-blur-3xl relative overflow-hidden group/testimonial flex flex-col justify-center h-full min-h-[420px]"
+              className="relative"
             >
+              <div className="relative h-[400px] p-10 rounded-[32px] bg-[#0A0E18]/92 backdrop-blur-xl border border-white/[0.06] shadow-[0_32px_80px_rgba(0,0,0,0.45)] overflow-hidden flex flex-col justify-between">
+                
                 {/* Minimal Header */}
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-brand-gold/5 border border-brand-gold/10 flex items-center justify-center">
                       <Quote className="w-4 h-4 text-brand-gold" />
@@ -103,10 +104,8 @@ export function InstitutionalImpactCinematic() {
                   </div>
                 </div>
 
-                <blockquote className="relative z-10 mb-10">
-                  <p className="text-[22px] md:text-[28px] font-bold text-white leading-relaxed tracking-tight italic">
-                    &quot;The OYEN GRID system has fundamentally redefined our ability to coordinate global delivery. We&apos;ve moved from operational fragmentation to a single unified command center.&quot;
-                  </p>
+                <blockquote className="text-[34px] font-bold leading-[1.2] text-white tracking-tight max-w-[500px]">
+                  “OYEN GRID enables us to orchestrate complex fellowship programmes with absolute precision at <span className="text-brand-gold">global scale</span>.”
                 </blockquote>
 
                 {/* Profile Area - Compact */}
@@ -116,8 +115,8 @@ export function InstitutionalImpactCinematic() {
                       <Image src="/exec-avatar-1.png" alt="Dr. Amina Yusuf" fill className="object-cover grayscale" />
                     </div>
                     <div>
-                      <div className="text-[15px] font-bold text-white tracking-tight leading-none">Dr. Amina Yusuf</div>
-                      <div className="text-[10px] font-bold text-brand-gold uppercase tracking-widest mt-1">Director, AltSchool Africa</div>
+                      <div className="text-[14px] font-bold text-white tracking-tight leading-none">Dr. Amina Yusuf</div>
+                      <div className="text-[9px] font-bold text-brand-gold uppercase tracking-widest mt-1">Director, AltSchool Africa</div>
                     </div>
                   </div>
 
@@ -126,20 +125,21 @@ export function InstitutionalImpactCinematic() {
                     <span className="text-[8px] font-bold text-white uppercase tracking-widest">ID: OG-7721-INT</span>
                   </div>
                 </div>
+              </div>
             </motion.div>
           </div>
 
           {/* RIGHT SIDE: METRICS GRID */}
-          <div className="grid grid-cols-2 gap-4">
-             {metrics.map((m, i) => (
-               <motion.div
-                 key={i}
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                 transition={{ delay: 0.2 + (i * 0.1) }}
-                 className="p-6 rounded-[18px] bg-white/[0.01] border border-white/5 backdrop-blur-xl flex flex-col justify-between group/mcard hover:bg-white/[0.03] transition-all"
-               >
+          <div className="grid grid-cols-2 gap-[18px]">
+            {metrics.map((m, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group relative h-[185px] p-8 rounded-[26px] bg-[#0C1018]/90 border border-white/[0.05] hover:translate-y-[-3px] transition-all duration-300 overflow-hidden"
+              >
                 {/* Enterprise Detail: Subtle Graph Accent */}
                 <div className="absolute bottom-0 left-0 w-full h-12 opacity-[0.03] pointer-events-none group-hover:opacity-[0.06] transition-opacity">
                   <svg className="w-full h-full" preserveAspectRatio="none">
@@ -168,7 +168,7 @@ export function InstitutionalImpactCinematic() {
 
                   <div className="flex items-baseline gap-1">
                     <span className={cn(
-                      "text-[32px] font-extrabold leading-none tracking-tighter",
+                      "text-[52px] font-extrabold leading-none tracking-tighter",
                       (m.val.startsWith('+') || m.val === "99.9%") ? "text-brand-gold" : "text-white"
                     )}>
                       {m.val}

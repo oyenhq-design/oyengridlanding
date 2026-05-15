@@ -51,88 +51,85 @@ export function OperationalInfrastructure() {
   return (
     <section className="py-32 bg-[#050816] relative overflow-hidden border-b border-white/5">
       
-      {/* 1. CINEMATIC BACKGROUND SYSTEM */}
+      {/* REFINED AMBIENT GLOW */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(245,185,66,0.03)_0%,transparent_100%)]" />
-        <div className="absolute top-0 right-0 w-full h-full opacity-[0.02]" style={{ backgroundImage: "radial-gradient(circle, white 0.5px, transparent 0.5px)", backgroundSize: "32px 32px" }} />
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-brand-gold/[0.02] blur-[140px] rounded-full" />
+         <div className="absolute inset-0 opacity-[0.012]" style={{ backgroundImage: "radial-gradient(circle, white 0.5px, transparent 0.5px)", backgroundSize: "32px 32px" }} />
       </div>
 
-      <div className="container-custom max-w-[1240px] px-6 mx-auto relative z-10">
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
+      <div className="container-custom relative z-10">
+        
+        {/* HEADER - REFINED & COMPACT */}
+        <div className="text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center gap-3 mb-4"
+          >
+             <div className="w-1 h-1 rounded-full bg-brand-gold/40" />
+             <span className="eyebrow tracking-[0.4em] text-brand-gold/80 font-black uppercase text-[10px]">Operational Infrastructure</span>
+             <div className="w-1 h-1 rounded-full bg-brand-gold/40" />
+          </motion.div>
           
-          {/* LEFT SIDE: STRATEGIC NARRATIVE (40%) */}
-          <div className="lg:col-span-5 space-y-12">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-1.5 h-1.5 rounded-full bg-brand-gold shadow-[0_0_8px_#f5b82e]" />
-                <span className="text-brand-gold/80 tracking-[0.4em] uppercase text-[10px] font-black">
-                  Core Infrastructure Layer
-                </span>
-              </div>
-              <h2 className="text-[32px] md:text-[46px] font-bold text-white mb-6 leading-[1.05] tracking-tighter">
-                Everything needed to <br />
-                coordinate <span className="text-brand-gold italic font-serif">institutional ops.</span>
-              </h2>
-              <p className="text-[15px] text-white/40 leading-relaxed font-medium max-w-[440px]">
-                OYEN GRID unifies programme delivery, participant coordination, and operational intelligence into one connected infrastructure layer designed for global scale.
-              </p>
-            </div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-[40px] md:text-[50px] font-bold text-white max-w-[960px] mx-auto leading-[1.05] tracking-tighter mb-8"
+          >
+            Everything needed to coordinate <br className="hidden md:block" />
+            <span className="text-brand-gold">institutional programme operations.</span>
+          </motion.h2>
 
-            {/* STRATEGIC KPIs */}
-            <div className="grid grid-cols-2 gap-4">
-               {[
-                 { label: "Operational Depth", val: "L-04", status: "VERIFIED" },
-                 { label: "Sync Precision", val: "99.9%", status: "NOMINAL" }
-               ].map((kpi, i) => (
-                 <div key={i} className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
-                    <div className="text-[8px] font-black text-white/20 uppercase tracking-widest">{kpi.label}</div>
-                    <div className="text-[20px] font-bold text-white tracking-tighter">{kpi.val}</div>
-                    <div className="flex items-center gap-1.5 pt-2">
-                       <div className="w-1 h-1 rounded-full bg-brand-gold/40" />
-                       <span className="text-[7px] font-black text-brand-gold uppercase tracking-widest">{kpi.status}</span>
-                    </div>
-                 </div>
-               ))}
-            </div>
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-[17px] leading-relaxed text-white/40 max-w-[720px] mx-auto font-medium"
+          >
+            OYEN GRID unifies programme delivery, participant coordination, communication, analytics and operational intelligence into one connected infrastructure layer.
+          </motion.p>
+        </div>
 
-          {/* RIGHT SIDE: MODULAR OPERATIONAL MATRIX (60%) */}
-          <div className="lg:col-span-7">
-             <div className="grid grid-cols-2 gap-4">
-                {capabilities.map((cap, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    className={cn(
-                      "group p-6 rounded-[24px] bg-[#0b1220]/40 border border-white/5 backdrop-blur-3xl transition-all duration-700 hover:bg-[#0b1220]/60 hover:border-brand-gold/30 hover:shadow-3xl",
-                      i % 2 === 1 ? "lg:mt-8" : ""
-                    )}
-                  >
-                     <div className="flex items-center justify-between mb-8">
-                        <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-brand-gold/10 group-hover:border-brand-gold/30 transition-all duration-700">
-                           <cap.icon className="w-5 h-5 text-white/30 group-hover:text-brand-gold transition-colors duration-700" />
-                        </div>
-                        <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                           {[1, 2, 3].map(j => <div key={j} className="w-1 h-1 rounded-full bg-brand-gold/30" />)}
-                        </div>
-                     </div>
-                     
-                     <h3 className="text-[16px] font-bold text-white mb-2 tracking-tight group-hover:text-brand-gold transition-colors duration-500">{cap.title}</h3>
-                     <p className="text-[12px] text-white/30 leading-relaxed group-hover:text-white/50 transition-colors duration-700 mb-6">{cap.desc}</p>
-                     
-                     {/* Technical Metadata Strip */}
-                     <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-                        <span className="text-[8px] font-black text-white/10 uppercase tracking-widest group-hover:text-white/20 transition-colors">Infrastructure Ready</span>
-                        <ChevronRight className="w-3 h-3 text-white/10 group-hover:text-brand-gold transition-all group-hover:translate-x-1" />
-                     </div>
-                  </motion.div>
-                ))}
-             </div>
-          </div>
+        {/* 6-COLUMN REBALANCED GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 items-start">
+           {capabilities.map((cap, i) => (
+             <motion.div
+               key={i}
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+               whileHover={{ y: -5 }}
+               className={cn(
+                 "group relative p-7 rounded-[24px] bg-white/[0.01] border border-white/5 backdrop-blur-xl transition-all duration-700 hover:bg-white/[0.03] hover:border-brand-gold/30 hover:shadow-[0_40px_80px_rgba(0,0,0,0.6)] min-h-[290px] flex flex-col",
+                 cap.offset
+               )}
+             >
+                <div className="w-12 h-12 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center mb-8 group-hover:border-brand-gold/20 group-hover:bg-brand-gold/5 transition-all duration-700 shadow-inner relative overflow-hidden shrink-0">
+                   <cap.icon className="w-6 h-6 text-brand-gold/30 group-hover:text-brand-gold transition-colors duration-700 relative z-10" />
+                   <div className="absolute inset-0 bg-brand-gold/10 blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-700" />
+                </div>
+                
+                <h3 className="text-[18px] font-bold text-white mb-3 tracking-tight group-hover:text-brand-gold transition-colors duration-500 leading-tight">{cap.title}</h3>
+                
+                <p className="text-[13px] leading-relaxed text-white/30 group-hover:text-white/50 transition-colors duration-700 mb-6">
+                  {cap.desc}
+                </p>
 
+                {/* Vertical Architectural Detail */}
+                <div className="mt-auto pt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-1 group-hover:translate-y-0">
+                   <div className="w-3 h-[1px] bg-brand-gold/30" />
+                   <span className="text-[8px] font-black text-brand-gold uppercase tracking-[0.2em]">Institutional Ready</span>
+                </div>
+
+                {/* Subtler Bloom Effect */}
+                <div className="absolute inset-0 rounded-[20px] bg-gradient-to-br from-brand-gold/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
+             </motion.div>
+           ))}
         </div>
       </div>
     </section>

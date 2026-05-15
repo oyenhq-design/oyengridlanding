@@ -1,12 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Activity, ShieldCheck, Sparkles } from "lucide-react";
+import { 
+  Shield, Globe, BarChart3, Check, Zap, 
+  Activity, ShieldCheck, Lock, Database, Search,
+  ArrowUpRight, RefreshCw, Cpu, Server, Network,
+  Radio, Activity as Pulse, Hexagon
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function OperationalIntelligence() {
   return (
-    <section className="py-32 bg-[#050816] relative overflow-hidden border-b border-white/5">
+    <section className="py-32 bg-[#020408] relative overflow-hidden border-b border-white/5">
       
       {/* 1. GLOBAL COMMAND CENTER ATMOSPHERE */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -44,187 +49,267 @@ export function OperationalIntelligence() {
         </svg>
       </div>
 
-      <div className="container-custom max-w-[1240px] relative z-10">
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
+      <div className="container-custom relative z-10">
+        <div className="grid lg:grid-cols-3 gap-8 items-stretch">
           
-          {/* LEFT SIDE: Narrative & KPIs (40%) */}
-          <div className="lg:col-span-5 space-y-10">
-            <div>
-              <span className="text-[10px] font-black text-brand-gold uppercase tracking-[0.3em] block mb-4">Intelligence Layer</span>
-              <h2 className="text-[32px] md:text-[42px] font-bold text-white mb-6 leading-[1.05] tracking-tighter">
-                Institutional performance <br />
-                <span className="text-brand-gold italic font-serif">visualized in real-time.</span>
-              </h2>
-              <p className="text-[15px] text-white/40 leading-relaxed font-medium">
-                Transform raw programme delivery data into actionable institutional intelligence. Monitor participant drift, session impact, and operational throughput through one unified telemetry layer.
-              </p>
-            </div>
-
-            {/* KPI ROWS */}
-            <div className="space-y-4">
-              {[
-                { label: "Session Intelligence", value: "94.8", unit: "AQI", trend: "+2.4%" },
-                { label: "Operational Health", value: "NOMINAL", unit: "STAT", trend: "Stable" },
-                { label: "Delivery Stability", value: "99.995", unit: "UP", trend: "0.8ms" }
-              ].map((kpi, i) => (
-                <div key={i} className="p-4 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between group hover:bg-white/[0.05] transition-all">
-                   <div className="space-y-1">
-                      <div className="text-[8px] font-black text-white/30 uppercase tracking-widest">{kpi.label}</div>
-                      <div className="text-[16px] font-bold text-white tracking-tight">{kpi.value} <span className="text-[10px] text-brand-gold/40">{kpi.unit}</span></div>
-                   </div>
-                   <div className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">{kpi.trend}</div>
+          {/* CARD 1 — LIVE OPERATIONS ANALYTICS */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="group relative p-8 rounded-[28px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-brand-gold/40 flex flex-col min-h-[420px] overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.7)]"
+          >
+            {/* Command Header */}
+            <div className="flex justify-between items-start mb-6 relative z-30">
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-brand-gold shadow-[0_0_10px_rgba(245,185,66,0.8)] animate-pulse" />
+                  <h3 className="text-[15px] font-black uppercase tracking-[0.22em] text-white/90">Live Operations Analytics</h3>
                 </div>
-              ))}
+                <p className="text-[11px] text-white/30 font-bold uppercase tracking-widest">Real-time institutional performance intelligence</p>
+              </div>
+              <div className="flex gap-2">
+                 <div className="px-2 py-0.5 rounded bg-brand-gold/10 border border-brand-gold/30 flex items-center gap-1.5">
+                    <div className="w-1 h-1 rounded-full bg-brand-gold" />
+                    <span className="text-[8px] font-black text-brand-gold uppercase tracking-widest">Live Sync</span>
+                 </div>
+              </div>
             </div>
 
-            {/* Credibility Indicators */}
-            <div className="pt-6 border-t border-white/5 flex items-center gap-8">
-               <div className="space-y-1">
-                  <div className="text-[14px] font-bold text-white/80">ISO 27001</div>
-                  <div className="text-[8px] font-black text-white/20 uppercase tracking-widest">Certified</div>
+            {/* Dashboard Visual Area — The Wall */}
+            <div className="relative flex-1 bg-black/40 rounded-xl border border-white/5 overflow-hidden p-4 group-hover:bg-black/60 transition-all duration-700">
+               {/* Internal Matrix Detail */}
+               <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "16px 16px" }} />
+               
+               {/* Programme Activity Waveform */}
+               <div className="absolute inset-x-0 top-6 h-12 opacity-40">
+                  <svg className="w-full h-full" viewBox="0 0 400 40">
+                    <motion.path 
+                      animate={{ d: [
+                        "M0 20 Q50 5 100 20 T200 20 T300 20 T400 20",
+                        "M0 20 Q50 35 100 20 T200 20 T300 20 T400 20",
+                        "M0 20 Q50 5 100 20 T200 20 T300 20 T400 20"
+                      ]}}
+                      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                      d="M0 20 Q50 5 100 20 T200 20 T300 20 T400 20" 
+                      fill="none" 
+                      stroke="#F5B942" 
+                      strokeWidth="1" 
+                    />
+                  </svg>
                </div>
-               <div className="space-y-1">
-                  <div className="text-[14px] font-bold text-white/80">SOC 2 TYPE II</div>
-                  <div className="text-[8px] font-black text-white/20 uppercase tracking-widest">Compliant</div>
-               </div>
-            </div>
-          </div>
 
-          {/* RIGHT SIDE: PREMIUM ANALYTICS PANEL (60%) */}
-          <div className="lg:col-span-7">
-            <motion.div 
-               initial={{ opacity: 0, scale: 0.98 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               viewport={{ once: true }}
-               transition={{ duration: 1.2 }}
-               className="relative p-1 rounded-[32px] bg-gradient-to-br from-white/10 via-transparent to-white/5 shadow-3xl"
-            >
-               <div className="rounded-[30px] bg-[#080B14] overflow-hidden border border-white/5 relative">
-                  {/* Internal Grid Header */}
-                  <div className="px-8 py-5 border-b border-white/5 flex items-center justify-between bg-white/[0.01]">
-                     <div className="flex items-center gap-3">
-                        <Activity className="w-4 h-4 text-brand-gold" />
-                        <h3 className="text-[12px] font-black uppercase tracking-[0.2em] text-white/80">Institutional Intelligence Center</h3>
-                     </div>
-                     <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-2">
-                           <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]" />
-                           <span className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Processing</span>
-                        </div>
-                     </div>
+               {/* Central Analytics Cluster */}
+               <div className="mt-14 grid grid-cols-2 gap-6">
+                  {[
+                    { l: "Operational Score", v: "98.2", unit: "%" },
+                    { l: "Participant Flow", v: "12,402", unit: "SYNC" }
+                  ].map((stat, i) => (
+                    <div key={i} className="space-y-1.5">
+                       <div className="text-[24px] font-bold text-white tracking-tighter flex items-baseline gap-1.5">
+                          {stat.v} <span className="text-[9px] text-brand-gold/40">{stat.unit}</span>
+                       </div>
+                       <div className="text-[8px] font-black text-white/20 uppercase tracking-widest">{stat.l}</div>
+                    </div>
+                  ))}
+               </div>
+
+               {/* Live Attendance Pulse Graph */}
+               <div className="absolute bottom-4 inset-x-4 h-16 flex items-end justify-between gap-1">
+                  {[30, 60, 40, 80, 50, 70, 90, 65, 85, 45, 75, 55].map((h, i) => (
+                    <div key={i} className="flex-1 relative group/bar">
+                       <motion.div 
+                         initial={{ height: 0 }}
+                         whileInView={{ height: `${h}%` }}
+                         transition={{ delay: 0.5 + (i * 0.04), duration: 2, ease: [0.16, 1, 0.3, 1] }}
+                         className="w-full bg-gradient-to-t from-brand-gold/5 via-brand-gold/20 to-brand-gold/60 rounded-t-[1px]"
+                       />
+                       <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-gold opacity-0 group-hover:opacity-100 shadow-[0_0_10px_#F5B942]" />
+                    </div>
+                  ))}
+               </div>
+
+               {/* Floating Operational Chip */}
+               <motion.div 
+                 animate={{ y: [0, -4, 0] }}
+                 transition={{ duration: 5, repeat: Infinity }}
+                 className="absolute top-4 right-4 px-2 py-1 rounded bg-black/80 border border-brand-gold/20 backdrop-blur-md flex items-center gap-2"
+               >
+                  <Pulse className="w-2.5 h-2.5 text-brand-gold" />
+                  <span className="text-[8px] font-black text-brand-gold uppercase tracking-widest">AI Monitoring Active</span>
+               </motion.div>
+            </div>
+
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+          </motion.div>
+
+          {/* CARD 2 — GOVERNANCE MATRIX */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="group relative p-8 rounded-[28px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-emerald-500/40 flex flex-col min-h-[420px] overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.7)]"
+          >
+            {/* Command Header */}
+            <div className="flex justify-between items-start mb-6 relative z-30">
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-pulse" />
+                  <h3 className="text-[15px] font-black uppercase tracking-[0.22em] text-white/90">Governance Matrix</h3>
+                </div>
+                <p className="text-[11px] text-white/30 font-bold uppercase tracking-widest">Security, compliance and institutional control systems</p>
+              </div>
+              <div className="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 flex items-center gap-1.5">
+                 <ShieldCheck className="w-2.5 h-2.5 text-emerald-500" />
+                 <span className="text-[8px] font-black text-emerald-500 uppercase tracking-widest">Secure</span>
+              </div>
+            </div>
+
+            {/* Matrix Operational Area */}
+            <div className="relative flex-1 bg-black/40 rounded-xl border border-white/5 overflow-hidden flex flex-col group-hover:bg-black/60 transition-all duration-700">
+               {/* Holographic Core Visual */}
+               <div className="h-40 relative flex items-center justify-center pointer-events-none">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.05),transparent_70%)]" />
+                  
+                  <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-[30px] border border-dashed border-emerald-500/10 rounded-full"
+                  />
+                  
+                  <div className="relative z-10 w-20 h-20 flex items-center justify-center">
+                     <motion.div 
+                        animate={{ scale: [1, 1.05, 1], opacity: [0.6, 1, 0.6] }}
+                        transition={{ duration: 4, repeat: Infinity }}
+                        className="absolute inset-0 bg-emerald-500/10 rounded-xl blur-2xl"
+                     />
+                     <Hexagon className="w-10 h-10 text-emerald-500/60" strokeWidth={1} />
+                     <Lock className="absolute w-4 h-4 text-emerald-500" />
                   </div>
 
-                  {/* Complex Analytics Content */}
-                  <div className="p-8 grid grid-cols-12 gap-8">
+                  {/* Operational Integrity Indicators */}
+                  <div className="absolute inset-x-8 bottom-4 flex justify-between">
+                     {["VERIFIED", "ENCRYPTED"].map((t, i) => (
+                       <div key={i} className="flex items-center gap-1.5">
+                          <div className="w-1 h-1 rounded-full bg-emerald-500" />
+                          <span className="text-[7px] font-black text-white/40 uppercase tracking-widest">{t}</span>
+                       </div>
+                     ))}
+                  </div>
+               </div>
+
+               {/* Governance Grid List */}
+               <div className="p-4 pt-0 space-y-2">
+                  {[
+                    "Role-based governance",
+                    "End-to-end encryption",
+                    "Audit infrastructure"
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 p-2 rounded bg-white/[0.02] border border-white/5 group-hover:border-emerald-500/20 transition-all">
+                       <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/40" />
+                       <span className="text-[9px] font-bold text-white/50 group-hover:text-white/80">{item}</span>
+                    </div>
+                  ))}
+               </div>
+            </div>
+
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+          </motion.div>
+
+          {/* CARD 3 — GLOBAL SCALE NETWORK */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="group relative p-8 rounded-[28px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-blue-500/40 flex flex-col min-h-[420px] overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.7)]"
+          >
+            {/* Command Header */}
+            <div className="flex justify-between items-start mb-6 relative z-30">
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse" />
+                  <h3 className="text-[15px] font-black uppercase tracking-[0.22em] text-white/90">Global Scale Network</h3>
+                </div>
+                <p className="text-[11px] text-white/30 font-bold uppercase tracking-widest">Distributed institutional operations infrastructure</p>
+              </div>
+              <div className="px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/30 flex items-center gap-1.5">
+                 <RefreshCw className="w-2.5 h-2.5 text-blue-500 animate-spin-slow" />
+                 <span className="text-[8px] font-black text-blue-500 uppercase tracking-widest">Global Sync</span>
+              </div>
+            </div>
+
+            {/* Infrastructure Map Visual */}
+            <div className="relative flex-1 bg-black/40 rounded-xl border border-white/5 overflow-hidden flex flex-col group-hover:bg-black/60 transition-all duration-700">
+               <div className="h-44 relative flex items-center justify-center p-4">
+                  {/* Digital World Map Background Dots */}
+                  <div className="absolute inset-0 opacity-[0.08]" style={{ backgroundImage: "radial-gradient(circle, white 0.5px, transparent 0.5px)", backgroundSize: "12px 12px" }} />
+                  
+                  {/* Global Pulse Visualization */}
+                  <motion.div 
+                    animate={{ scale: [1, 1.4, 1], opacity: [0.1, 0.3, 0.1] }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                    className="absolute w-40 h-40 rounded-full border border-blue-500/40"
+                  />
+
+                  {/* Connected Hubs (SVG Paths) */}
+                  <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 200">
+                     {[
+                       { d: "M100 80 Q200 40 300 100", delay: 0 },
+                       { d: "M100 80 Q150 140 250 80", delay: 1 },
+                       { d: "M300 100 Q200 160 100 80", delay: 2 }
+                     ].map((line, i) => (
+                       <motion.path 
+                         key={i}
+                         initial={{ pathLength: 0, opacity: 0 }}
+                         animate={{ pathLength: 1, opacity: 1 }}
+                         transition={{ duration: 2, delay: line.delay, repeat: Infinity }}
+                         d={line.d} 
+                         fill="none" 
+                         stroke="rgba(59,130,246,0.2)" 
+                         strokeWidth="0.5" 
+                       />
+                     ))}
                      
-                     {/* Main Graph Area (8 Cols) */}
-                     <div className="col-span-8 space-y-6">
-                        <div className="p-6 rounded-2xl bg-black/40 border border-white/5 relative overflow-hidden h-[240px]">
-                           <div className="flex items-center justify-between mb-8">
-                              <div>
-                                 <div className="text-[9px] font-black text-white/20 uppercase tracking-widest">Global Attendance Flow</div>
-                                 <div className="text-[20px] font-bold text-white tracking-tight">12,402 <span className="text-[10px] text-brand-gold">SYNCED</span></div>
-                              </div>
-                              <div className="flex gap-2">
-                                 {[1, 2, 3].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full bg-brand-gold/20" />)}
-                              </div>
-                           </div>
-                           
-                           {/* SVG Live Line Chart */}
-                           <div className="absolute inset-x-0 bottom-0 h-32 px-6">
-                              <svg className="w-full h-full" viewBox="0 0 400 100" preserveAspectRatio="none">
-                                 <motion.path 
-                                    initial={{ pathLength: 0 }}
-                                    animate={{ pathLength: 1 }}
-                                    transition={{ duration: 4, repeat: Infinity }}
-                                    d="M0 80 Q50 20 100 60 T200 40 T300 70 T400 30" 
-                                    fill="none" 
-                                    stroke="url(#lineGradient)" 
-                                    strokeWidth="2" 
-                                 />
-                                 <defs>
-                                    <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
-                                       <stop offset="0%" stopColor="#f5b82e" stopOpacity="0.2" />
-                                       <stop offset="50%" stopColor="#f5b82e" stopOpacity="1" />
-                                       <stop offset="100%" stopColor="#f5b82e" stopOpacity="0.5" />
-                                    </linearGradient>
-                                 </defs>
-                              </svg>
-                           </div>
-                        </div>
-
-                        {/* Secondary Metrics Row */}
-                        <div className="grid grid-cols-2 gap-6">
-                           <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 space-y-3">
-                              <div className="text-[8px] font-black text-white/20 uppercase tracking-widest">Engagement Matrix</div>
-                              <div className="grid grid-cols-6 gap-1 h-8 items-end">
-                                 {[40, 70, 50, 90, 60, 80].map((h, i) => (
-                                    <motion.div key={i} animate={{ height: [`${h}%`, `${h+10}%`, `${h}%`] }} transition={{ repeat: Infinity, duration: 2, delay: i*0.2 }} className="bg-brand-gold/40 rounded-t-[1px]" />
-                                 ))}
-                              </div>
-                           </div>
-                           <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 space-y-3">
-                              <div className="text-[8px] font-black text-white/20 uppercase tracking-widest">Delivery Integrity</div>
-                              <div className="flex items-center gap-4">
-                                 <div className="text-[24px] font-bold text-emerald-500 tracking-tighter">99.8%</div>
-                                 <ShieldCheck className="w-6 h-6 text-emerald-500/30" />
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-
-                     {/* Sidebar Analytics Area (4 Cols) */}
-                     <div className="col-span-4 space-y-6">
-                        {/* Operational Health Circle */}
-                        <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center text-center space-y-4">
-                           <div className="relative w-24 h-24 flex items-center justify-center">
-                              <svg className="w-full h-full -rotate-90">
-                                 <circle cx="48" cy="48" r="44" fill="none" stroke="rgba(245,184,46,0.1)" strokeWidth="4" />
-                                 <motion.circle cx="48" cy="48" r="44" fill="none" stroke="#f5b82e" strokeWidth="4" strokeDasharray="276" initial={{ strokeDashoffset: 276 }} animate={{ strokeDashoffset: 40 }} transition={{ duration: 2 }} />
-                              </svg>
-                              <div className="absolute text-[18px] font-bold text-white">94%</div>
-                           </div>
-                           <div className="text-[9px] font-black text-white/30 uppercase tracking-[0.2em]">Health Score</div>
-                        </div>
-
-                        {/* AI Monitoring Logs */}
-                        <div className="p-5 rounded-2xl bg-brand-gold/[0.02] border border-brand-gold/10 space-y-4">
-                           <div className="flex items-center gap-2">
-                              <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                              <span className="text-[8px] font-black text-brand-gold uppercase tracking-widest">AI MONITORING</span>
-                           </div>
-                           <div className="space-y-3">
-                              {[
-                                "Attendance nominal across APAC",
-                                "Engagement drift in EMEA-A",
-                                "Regional sync optimized"
-                              ].map((log, i) => (
-                                <div key={i} className="flex gap-2 items-start">
-                                   <div className="w-1 h-1 rounded-full bg-brand-gold mt-1" />
-                                   <div className="text-[10px] text-white/50 leading-tight font-medium">{log}</div>
-                                </div>
-                              ))}
-                           </div>
-                        </div>
-                     </div>
-
+                     {/* Glowing Hub Nodes */}
+                     {[
+                       { x: 100, y: 80 }, { x: 300, y: 100 }, { x: 250, y: 80 }
+                     ].map((node, i) => (
+                       <g key={i}>
+                          <circle cx={node.x} cy={node.y} r="2" fill="#3B82F6" className="shadow-[0_0_10px_#3B82F6]" />
+                          <circle cx={node.x} cy={node.y} r="6" fill="rgba(59,130,246,0.1)" />
+                       </g>
+                     ))}
+                  </svg>
+                  
+                  {/* Telemetry Labels (Layered) */}
+                  <div className="absolute top-4 left-4 space-y-1">
+                     <div className="text-[7px] font-black text-blue-400 uppercase tracking-widest">Latency_Opt_01</div>
+                     <div className="text-[12px] font-bold text-white">0.8ms</div>
                   </div>
-
-                  {/* Heatmap Footer Strip */}
-                  <div className="px-8 py-4 border-t border-white/5 bg-black/40 flex items-center justify-between">
-                     <div className="flex items-center gap-6">
-                        <div className="text-[8px] font-black text-white/20 uppercase tracking-widest">Coordination Map</div>
-                        <div className="flex gap-1">
-                           {Array.from({ length: 24 }).map((_, i) => (
-                             <div key={i} className={cn("w-2 h-2 rounded-[1px]", i % 5 === 0 ? "bg-brand-gold/60" : "bg-brand-gold/10")} />
-                           ))}
-                        </div>
-                     </div>
-                     <div className="text-[9px] font-black text-white/40 uppercase tracking-widest">Live Updates Available</div>
+                  <div className="absolute bottom-4 right-4 text-right">
+                     <div className="text-[7px] font-black text-white/20 uppercase tracking-widest">Infrastructure Health</div>
+                     <div className="text-[10px] font-bold text-emerald-400">NOMINAL</div>
                   </div>
                </div>
-            </motion.div>
-          </div>
+
+               {/* Metrics Strip */}
+               <div className="mt-auto px-4 pb-4 grid grid-cols-2 gap-4 border-t border-white/5 pt-4">
+                  {[
+                    { l: "Global Regions", v: "42" },
+                    { l: "System Uptime", v: "99.995%" }
+                  ].map((m, i) => (
+                    <div key={i} className="space-y-0.5">
+                       <div className="text-[14px] font-bold text-white tracking-tighter">{m.v}</div>
+                       <div className="text-[7px] font-black text-white/20 uppercase tracking-widest">{m.l}</div>
+                    </div>
+                  ))}
+               </div>
+            </div>
+
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+          </motion.div>
 
         </div>
       </div>

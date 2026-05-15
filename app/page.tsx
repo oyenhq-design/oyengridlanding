@@ -26,9 +26,6 @@ export default function Home() {
           {/* 2. HERO: Institutional Infrastructure & Human Coordination */}
           <HeroInstitutional />
 
-          {/* STRATEGIC OVERVIEW: Platform Architecture */}
-          <PlatformOverview />
-
           {/* NEW: OPERATIONAL LIFECYCLE: Interactive Programme Flow */}
           <OperationalLifecycle />
 
