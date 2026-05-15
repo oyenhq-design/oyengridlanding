@@ -1,6 +1,5 @@
 import { Header, AnnouncementBar } from "@/components/layout/header";
-import { InstitutionalDashboardHero } from "@/components/sections/institutional-dashboard-hero";
-import { PlatformOverview } from "@/components/sections/institutional-ecosystem";
+import { HeroInstitutional, PlatformOverview } from "@/components/sections/institutional-ecosystem";
 import { OperationalLifecycle } from "@/components/sections/operational-lifecycle";
 import { OperationalInfrastructure } from "@/components/sections/operational-infrastructure";
 import { InstitutionalCommandCenter } from "@/components/sections/institutional-command";
@@ -24,8 +23,11 @@ export default function Home() {
       
       <div className="relative">
         <div className="relative z-10">
-          {/* 2. HERO: Institutional Dashboard & Operational Command */}
-          <InstitutionalDashboardHero />
+          {/* 2. HERO: Institutional Infrastructure & Human Coordination */}
+          <HeroInstitutional />
+
+          {/* STRATEGIC OVERVIEW: Platform Architecture */}
+          <PlatformOverview />
 
           {/* NEW: OPERATIONAL LIFECYCLE: Interactive Programme Flow */}
           <OperationalLifecycle />

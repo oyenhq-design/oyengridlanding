@@ -117,7 +117,7 @@ export function AnnouncementBar() {
       >
         <div className="flex items-center gap-6 mx-auto">
           <span className="text-[14px] text-white/70 font-medium tracking-tight">
-            AI note-taking across platforms that's secure, personalized, and under your control.
+            AI note-taking across platforms that&apos;s secure, personalized, and under your control.
           </span>
           
           <button className="h-[32px] px-5 rounded-lg bg-gradient-to-r from-[#F5B942] to-[#D89B2B] text-black text-[12px] font-black transition-all hover:scale-[1.03] hover:shadow-[0_0_15px_rgba(245,185,66,0.3)]">

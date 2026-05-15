@@ -43,7 +43,7 @@ export function InstitutionalImpactCinematic() {
   return (
     <section 
       ref={containerRef}
-      className="py-[120px] bg-[#05070B] relative overflow-hidden"
+      className="py-32 bg-[#05070B] relative overflow-hidden"
     >
       {/* 1. CINEMATIC BACKGROUND SYSTEM */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -105,7 +105,7 @@ export function InstitutionalImpactCinematic() {
 
                 <blockquote className="relative z-10 mb-10">
                   <p className="text-[22px] md:text-[28px] font-bold text-white leading-relaxed tracking-tight italic">
-                    "The OYEN GRID system has fundamentally redefined our ability to coordinate global delivery. We've moved from operational fragmentation to a single unified command center."
+                    &quot;The OYEN GRID system has fundamentally redefined our ability to coordinate global delivery. We&apos;ve moved from operational fragmentation to a single unified command center.&quot;
                   </p>
                 </blockquote>
 
