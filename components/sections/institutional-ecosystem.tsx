@@ -14,12 +14,12 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="hero-section-institutional flex items-center pt-36 pb-28 border-b border-white/5 overflow-hidden">
+    <section className="hero-section-institutional flex items-center pt-28 pb-20 border-b border-white/5 overflow-hidden">
       
-      <div className="max-w-[1440px] mx-auto px-[60px] w-full grid grid-cols-[1fr_1.1fr] gap-[60px] items-center relative z-[2]">
+      <div className="max-w-[1280px] mx-auto px-[48px] w-full grid grid-cols-[0.95fr_1.05fr] gap-[40px] items-center relative z-[2]">
         
         {/* LEFT: CONTENT AREA */}
-        <div className="hero-content mt-[-40px]">
+        <div className="hero-content mt-[-50px]">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -37,12 +37,12 @@ export function HeroInstitutional() {
               OYEN GRID helps organisations coordinate trainers, participants, and programme operations through one unified system of intelligence and real-time visibility.
             </p>
 
-            <div className="flex flex-wrap items-center gap-5 mt-14">
-              <button className="btn-institutional-primary px-[40px] h-[60px]">
+            <div className="flex flex-wrap items-center gap-4 mt-12">
+              <button className="btn-institutional-primary px-[30px] h-[54px]">
                 Initialize Infrastructure
               </button>
-              <button className="btn-institutional-secondary group px-[40px] h-[60px]">
-                Talk to Architects <ArrowRight className="ml-3 w-4.5 h-4.5 group-hover:translate-x-1 transition-transform" />
+              <button className="btn-institutional-secondary group px-[30px] h-[54px]">
+                Talk to Architects <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
 
@@ -59,7 +59,7 @@ export function HeroInstitutional() {
         </div>
 
         {/* RIGHT: VISUAL AREA (Focus on Background) */}
-        <div className="relative h-[620px]" />
+        <div className="relative h-[500px]" />
 
 
 
@@ -88,10 +88,10 @@ export function PlatformOverview() {
           {/* LEFT: Content */}
           <div>
             <span className="eyebrow">CORE INFRASTRUCTURE</span>
-            <h2 className="mb-6 max-w-[540px]">
+            <h2 className="mb-6 max-w-[480px]">
               Built for <span className="text-brand-gold">institutional</span> delivery.
             </h2>
-            <p className="text-editorial mb-10 max-w-[540px]">
+            <p className="text-editorial mb-10 max-w-[480px]">
               Our infrastructure is designed for high-stakes programme coordination, providing the stability and visibility required by global organisations.
             </p>
             
@@ -99,8 +99,8 @@ export function PlatformOverview() {
               {capabilities.map((cap, i) => (
                 <div key={i} className="card-institutional">
                   <cap.icon className="w-5 h-5 text-brand-gold/60 mb-4" />
-                  <h4 className="text-[17px] font-bold text-white mb-2">{cap.title}</h4>
-                  <p className="text-[13px] text-white/30 leading-relaxed">{cap.desc}</p>
+                  <h4 className="text-[15px] font-bold text-white mb-2">{cap.title}</h4>
+                  <p className="text-[11px] text-white/30 leading-relaxed">{cap.desc}</p>
                 </div>
               ))}
             </div>
@@ -108,7 +108,7 @@ export function PlatformOverview() {
 
           {/* RIGHT: Contained Image */}
           <div className="flex justify-center lg:justify-end">
-             <div className="relative w-full max-w-[700px] h-[520px] rounded-[32px] overflow-hidden border border-white/10 shadow-2xl">
+             <div className="relative w-full max-w-[520px] h-[380px] rounded-[22px] overflow-hidden border border-white/10 shadow-2xl">
                 <Image 
                   src="/section-2-bg.png" 
                   alt="Platform" 
@@ -144,7 +144,7 @@ export function OperationalControlCenter() {
           
           {/* LEFT: Contained Image (Visual First) */}
           <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
-             <div className="relative w-full max-w-[700px] h-[520px] rounded-[32px] overflow-hidden border border-white/10 shadow-2xl">
+             <div className="relative w-full max-w-[520px] h-[380px] rounded-[22px] overflow-hidden border border-white/10 shadow-2xl">
                 <Image 
                   src="/section-3-bg.png" 
                   alt="Operations" 
@@ -158,10 +158,10 @@ export function OperationalControlCenter() {
           {/* RIGHT: Narrative */}
           <div className="order-1 lg:order-2">
             <span className="eyebrow">COMMAND & CONTROL</span>
-            <h2 className="mb-6 max-w-[540px]">
+            <h2 className="mb-6 max-w-[480px]">
               Complete <span className="text-brand-gold">operational</span> orchestration.
             </h2>
-            <p className="text-editorial mb-8 max-w-[540px]">
+            <p className="text-editorial mb-8 max-w-[480px]">
               Manage the entire lifecycle of your programme from one dashboard. Coordinate trainers, monitor engagement, and analyze delivery health in real-time.
             </p>
             
@@ -175,8 +175,8 @@ export function OperationalControlCenter() {
                        <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
                     </div>
                     <div>
-                       <h4 className="text-[18px] font-bold text-white mb-1">{item.t}</h4>
-                       <p className="text-[14px] text-white/30">{item.d}</p>
+                       <h4 className="text-[16px] font-bold text-white mb-1">{item.t}</h4>
+                       <p className="text-[12px] text-white/30">{item.d}</p>
                     </div>
                  </div>
                ))}

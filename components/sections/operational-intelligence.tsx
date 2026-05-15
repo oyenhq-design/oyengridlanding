@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 export function OperationalIntelligence() {
   return (
-    <section className="py-32 bg-[#020408] relative overflow-hidden border-b border-white/5">
+    <section className="py-24 bg-[#020408] relative overflow-hidden border-b border-white/5">
       
       {/* 1. GLOBAL COMMAND CENTER ATMOSPHERE */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -50,23 +50,23 @@ export function OperationalIntelligence() {
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-3 gap-8 items-stretch">
+        <div className="grid lg:grid-cols-3 gap-6 items-stretch">
           
           {/* CARD 1 — LIVE OPERATIONS ANALYTICS */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="group relative p-8 rounded-[28px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-brand-gold/40 flex flex-col min-h-[420px] overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.7)]"
+            className="group relative p-6 rounded-[24px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-brand-gold/40 flex flex-col min-h-[360px] overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.6)]"
           >
             {/* Command Header */}
             <div className="flex justify-between items-start mb-6 relative z-30">
               <div className="space-y-1.5">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-brand-gold shadow-[0_0_10px_rgba(245,185,66,0.8)] animate-pulse" />
-                  <h3 className="text-[15px] font-black uppercase tracking-[0.22em] text-white/90">Live Operations Analytics</h3>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-brand-gold shadow-[0_0_8px_rgba(245,185,66,0.8)] animate-pulse" />
+                  <h3 className="text-[13px] font-black uppercase tracking-[0.2em] text-white/90">Live Operations Analytics</h3>
                 </div>
-                <p className="text-[11px] text-white/30 font-bold uppercase tracking-widest">Real-time institutional performance intelligence</p>
+                <p className="text-[10px] text-white/30 font-bold uppercase tracking-widest">Real-time institutional performance intelligence</p>
               </div>
               <div className="flex gap-2">
                  <div className="px-2 py-0.5 rounded bg-brand-gold/10 border border-brand-gold/30 flex items-center gap-1.5">
@@ -100,16 +100,16 @@ export function OperationalIntelligence() {
                </div>
 
                {/* Central Analytics Cluster */}
-               <div className="mt-14 grid grid-cols-2 gap-6">
+               <div className="mt-12 grid grid-cols-2 gap-4">
                   {[
                     { l: "Operational Score", v: "98.2", unit: "%" },
                     { l: "Participant Flow", v: "12,402", unit: "SYNC" }
                   ].map((stat, i) => (
-                    <div key={i} className="space-y-1.5">
-                       <div className="text-[24px] font-bold text-white tracking-tighter flex items-baseline gap-1.5">
-                          {stat.v} <span className="text-[9px] text-brand-gold/40">{stat.unit}</span>
+                    <div key={i} className="space-y-1">
+                       <div className="text-[20px] font-bold text-white tracking-tighter flex items-baseline gap-1">
+                          {stat.v} <span className="text-[8px] text-brand-gold/40">{stat.unit}</span>
                        </div>
-                       <div className="text-[8px] font-black text-white/20 uppercase tracking-widest">{stat.l}</div>
+                       <div className="text-[7px] font-black text-white/20 uppercase tracking-widest">{stat.l}</div>
                     </div>
                   ))}
                </div>
@@ -149,16 +149,16 @@ export function OperationalIntelligence() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="group relative p-8 rounded-[28px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-emerald-500/40 flex flex-col min-h-[420px] overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.7)]"
+            className="group relative p-6 rounded-[24px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-emerald-500/40 flex flex-col min-h-[360px] overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.6)]"
           >
             {/* Command Header */}
             <div className="flex justify-between items-start mb-6 relative z-30">
               <div className="space-y-1.5">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-pulse" />
-                  <h3 className="text-[15px] font-black uppercase tracking-[0.22em] text-white/90">Governance Matrix</h3>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse" />
+                  <h3 className="text-[13px] font-black uppercase tracking-[0.2em] text-white/90">Governance Matrix</h3>
                 </div>
-                <p className="text-[11px] text-white/30 font-bold uppercase tracking-widest">Security, compliance and institutional control systems</p>
+                <p className="text-[10px] text-white/30 font-bold uppercase tracking-widest">Security, compliance and institutional control systems</p>
               </div>
               <div className="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 flex items-center gap-1.5">
                  <ShieldCheck className="w-2.5 h-2.5 text-emerald-500" />
@@ -223,16 +223,16 @@ export function OperationalIntelligence() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="group relative p-8 rounded-[28px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-blue-500/40 flex flex-col min-h-[420px] overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.7)]"
+            className="group relative p-6 rounded-[24px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-blue-500/40 flex flex-col min-h-[360px] overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.6)]"
           >
             {/* Command Header */}
             <div className="flex justify-between items-start mb-6 relative z-30">
               <div className="space-y-1.5">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse" />
-                  <h3 className="text-[15px] font-black uppercase tracking-[0.22em] text-white/90">Global Scale Network</h3>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)] animate-pulse" />
+                  <h3 className="text-[13px] font-black uppercase tracking-[0.2em] text-white/90">Global Scale Network</h3>
                 </div>
-                <p className="text-[11px] text-white/30 font-bold uppercase tracking-widest">Distributed institutional operations infrastructure</p>
+                <p className="text-[10px] text-white/30 font-bold uppercase tracking-widest">Distributed institutional operations infrastructure</p>
               </div>
               <div className="px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/30 flex items-center gap-1.5">
                  <RefreshCw className="w-2.5 h-2.5 text-blue-500 animate-spin-slow" />

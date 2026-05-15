@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export function FinalCTA() {
   return (
-    <section className="relative py-64 md:py-80 bg-[#050816] overflow-hidden border-t border-white/5">
+    <section className="relative py-48 md:py-64 bg-[#050816] overflow-hidden border-t border-white/5">
       
       {/* CINEMATIC BACKGROUND SYSTEM */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -39,23 +39,23 @@ export function FinalCTA() {
             </div>
           </div>
 
-          <h2 className="text-white mb-10 text-[56px] md:text-[104px] leading-[0.88] tracking-[-0.055em] font-bold">
+          <h2 className="text-white mb-10 text-[48px] md:text-[88px] leading-[0.92] tracking-[-0.05em] font-bold">
             Ready to orchestrate your <br className="hidden md:block" />
             <span className="text-brand-gold italic font-semibold">entire ecosystem?</span>
           </h2>
           
-          <p className="text-[19px] md:text-[23px] text-white/40 mb-16 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-[17px] md:text-[20px] text-white/40 mb-16 max-w-2xl mx-auto leading-relaxed font-medium">
             One platform. Every capability. Infinite institutional impact. Transition your programme operations to the world's most structured operating system.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-10 mb-28">
-            <button className="group h-20 px-16 rounded-2xl bg-brand-gold text-black font-black text-[17px] uppercase tracking-wider flex items-center gap-4 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_25px_60px_rgba(245,185,66,0.25)]">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-24">
+            <button className="group h-16 px-12 rounded-2xl bg-brand-gold text-black font-black text-[15px] uppercase tracking-wider flex items-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_20px_50px_rgba(245,185,66,0.2)]">
               Deploy Institutional Grid
-              <ArrowUpRight className="w-6 h-6 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
-            <button className="h-20 px-16 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-xl text-white font-bold text-[17px] hover:bg-white/[0.05] transition-all flex items-center gap-4">
+            <button className="h-16 px-12 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-xl text-white font-bold text-[15px] hover:bg-white/[0.05] transition-all flex items-center gap-3">
               Consult Solutions Architecture
-              <ChevronRight className="w-5 h-5 text-white/40" />
+              <ChevronRight className="w-4 h-4 text-white/40" />
             </button>
           </div>
 

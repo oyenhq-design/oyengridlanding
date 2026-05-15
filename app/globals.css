@@ -25,11 +25,11 @@ body {
 }
 
 .container-custom {
-  max-width: 1400px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 @media (max-width: 1024px) {
@@ -47,8 +47,8 @@ body {
 }
 
 .section-gap {
-  padding-top: 110px;
-  padding-bottom: 110px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .section-divider {
@@ -58,10 +58,10 @@ body {
 }
 
 h1 {
-  font-size: 68px;
+  font-size: 58px;
   font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 0.92;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
   color: white;
 }
 
@@ -74,10 +74,10 @@ h1 {
 }
 
 h2 {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   color: white;
 }
 
@@ -86,28 +86,28 @@ h2 {
 }
 
 h3 {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.2;
   color: white;
 }
 
 .text-editorial {
-  font-size: 17px;
-  line-height: 1.68;
+  font-size: 15px;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
   font-weight: 400;
 }
 
 .eyebrow {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.24em;
   color: rgba(245, 185, 66, 0.6);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   display: block;
 }
 
@@ -120,11 +120,11 @@ h3 {
 }
 
 .card-institutional {
-  height: 170px;
-  padding: 24px;
+  height: 150px;
+  padding: 20px;
   background: rgba(12, 16, 26, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 18px;
+  border-radius: 16px;
   transition: transform 0.3s ease;
 }
 
@@ -133,13 +133,13 @@ h3 {
 }
 
 .btn-institutional-primary {
-  height: 56px;
-  padding: 0 32px;
-  border-radius: 14px;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 12px;
   background: var(--brand-gold);
   color: black;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,15 +147,15 @@ h3 {
 }
 
 .btn-institutional-secondary {
-  height: 56px;
-  padding: 0 32px;
-  border-radius: 14px;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   color: white;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,11 +185,11 @@ h3 {
 
 /* INSTITUTIONAL HERO SYSTEM (RE-STRUCTURED) */
 .hero-section-institutional {
-  min-height: 840px;
+  min-height: 720px;
   position: relative;
   isolation: isolate;
   background-image: 
-    linear-gradient(to right, rgba(5,8,16,0.82) 15%, rgba(5,8,16,0.45) 45%, rgba(5,8,16,0.6) 100%), 
+    linear-gradient(to right, rgba(5,8,16,0.78) 12%, rgba(5,8,16,0.42) 42%, rgba(5,8,16,0.55) 100%), 
     url('/hero background.png');
   background-size: cover;
   background-position: center center;
@@ -216,43 +216,43 @@ h3 {
 }
 
 .hero-headline {
-  font-size: clamp(52px, 5.2vw, 78px);
-  line-height: 0.92;
+  font-size: clamp(44px, 4.4vw, 62px);
+  line-height: 0.95;
   font-weight: 800;
-  letter-spacing: -0.055em;
-  max-width: 720px;
+  letter-spacing: -0.05em;
+  max-width: 540px;
   color: white;
 }
 
 .hero-paragraph {
-  font-size: 18px;
-  line-height: 1.72;
-  max-width: 560px;
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 500px;
   color: rgba(255,255,255,0.7);
-  margin-top: 32px;
+  margin-top: 24px;
 }
 
 .hero-metrics-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 48px;
-  margin-top: 64px;
+  gap: 36px;
+  margin-top: 48px;
 }
 
 .hero-metric-item .number {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 700;
   color: white;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .hero-metric-item .label {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 900;
   text-transform: uppercase;
-  color: rgba(245, 185, 66, 0.45);
-  letter-spacing: 0.18em;
+  color: rgba(245, 185, 66, 0.4);
+  letter-spacing: 0.15em;
 }
 
 .glass-card-floating {
@@ -270,9 +270,9 @@ h3 {
 }
 
 .dashboard-container {
-  width: 740px;
-  border-radius: 36px;
+  width: 620px;
+  border-radius: 30px;
   overflow: hidden;
-  box-shadow: 0 50px 140px rgba(0,0,0,0.7), 0 0 160px rgba(255,180,40,0.1);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.6), 0 0 140px rgba(255,180,40,0.08);
 }
 

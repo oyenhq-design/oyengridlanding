@@ -61,7 +61,7 @@ const floatingCards = [
 
 export function HumanCoordination() {
   return (
-    <section className="relative h-auto min-h-[680px] lg:h-[740px] bg-[#050816] overflow-hidden border-b border-white/5 flex items-center">
+    <section className="relative h-auto min-h-[580px] lg:h-[620px] bg-[#050816] overflow-hidden border-b border-white/5 flex items-center">
       
       {/* FULL-WIDTH CINEMATIC BACKGROUND IMAGE */}
       <div className="absolute top-0 right-0 w-full lg:w-[65%] h-full z-0 overflow-hidden">
@@ -96,12 +96,12 @@ export function HumanCoordination() {
                 </span>
               </div>
 
-              <h2 className="text-[46px] md:text-[64px] font-bold text-white leading-[0.95] tracking-tighter max-w-[800px]">
+              <h2 className="text-[38px] md:text-[52px] font-bold text-white leading-[1] tracking-tighter max-w-[700px]">
                 Human coordination powered by <br />
                 <span className="text-brand-gold italic font-serif">operational intelligence.</span>
               </h2>
 
-              <p className="text-[18px] leading-relaxed text-white/50 max-w-[620px] font-medium">
+              <p className="text-[16px] leading-relaxed text-white/50 max-w-[560px] font-medium">
                 Connect participants, trainers and coordinators through intelligent communication, AI assistance and real-time insights that drive better decisions and outcomes.
               </p>
 
@@ -114,14 +114,14 @@ export function HumanCoordination() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 * i }}
-                    className="group relative p-6 rounded-[24px] bg-white/[0.02] border border-white/5 backdrop-blur-md transition-all duration-500 hover:bg-white/[0.05] hover:border-brand-gold/30 hover:shadow-[0_30px_60px_rgba(0,0,0,0.5)] min-h-[170px] flex flex-col justify-between"
+                    className="group relative p-5 rounded-[20px] bg-white/[0.02] border border-white/5 backdrop-blur-md transition-all duration-500 hover:bg-white/[0.05] hover:border-brand-gold/30 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] min-h-[140px] flex flex-col justify-between"
                   >
                     <div className="w-8 h-8 rounded-lg bg-brand-gold/5 border border-brand-gold/10 flex items-center justify-center mb-3 group-hover:border-brand-gold/30 transition-all duration-500">
                       <feature.icon className="w-4 h-4 text-brand-gold/40 group-hover:text-brand-gold transition-colors" />
                     </div>
                     <div>
-                       <h4 className="text-[17px] font-bold text-white mb-2 group-hover:text-brand-gold transition-colors">{feature.title}</h4>
-                       <p className="text-[13px] text-white/30 leading-snug group-hover:text-white/50 transition-colors line-clamp-2">{feature.desc}</p>
+                       <h4 className="text-[14px] font-bold text-white mb-1.5 group-hover:text-brand-gold transition-colors">{feature.title}</h4>
+                       <p className="text-[11px] text-white/30 leading-snug group-hover:text-white/50 transition-colors line-clamp-2">{feature.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -131,7 +131,7 @@ export function HumanCoordination() {
 
           {/* RIGHT: FLOATING OPERATIONAL NOTIFICATION STACK */}
           <div className="relative flex justify-center lg:justify-end py-12 lg:py-0">
-             <div className="relative w-full max-w-[440px] space-y-4.5">
+             <div className="relative w-full max-w-[380px] space-y-3.5">
                 {floatingCards.map((card, i) => (
                   <motion.div
                     key={i}
@@ -148,10 +148,10 @@ export function HumanCoordination() {
                       opacity: { duration: 0.8, delay: i * 0.15 }
                     }}
                     className={cn(
-                      "group relative p-5 rounded-[24px] border border-white/10 backdrop-blur-2xl bg-[#080B14]/70 shadow-[0_40px_80px_rgba(0,0,0,0.7)] overflow-hidden",
-                      i === 1 && "ml-10",
-                      i === 2 && "ml-4",
-                      i === 3 && "ml-18"
+                      "group relative p-4 rounded-[20px] border border-white/10 backdrop-blur-2xl bg-[#080B14]/70 shadow-[0_30px_60px_rgba(0,0,0,0.6)] overflow-hidden",
+                      i === 1 && "ml-8",
+                      i === 2 && "ml-2",
+                      i === 3 && "ml-14"
                     )}
                   >
                     <div className="flex items-start gap-4">
@@ -177,7 +177,7 @@ export function HumanCoordination() {
                              </div>
                            )}
                         </div>
-                        <p className="text-[14px] font-bold text-white leading-tight group-hover:text-brand-gold transition-colors duration-500">
+                        <p className="text-[12px] font-bold text-white leading-tight group-hover:text-brand-gold transition-colors duration-500">
                           {card.msg}
                         </p>
                       </div>
