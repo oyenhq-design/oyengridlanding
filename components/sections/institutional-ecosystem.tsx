@@ -14,12 +14,12 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="hero-section-institutional flex items-center pt-36 pb-28 border-b border-white/5 overflow-hidden">
+    <section className="hero-section-institutional flex items-center pt-28 pb-20 border-b border-white/5 overflow-hidden">
       
-      <div className="max-w-[1440px] mx-auto px-[64px] w-full grid grid-cols-[0.95fr_1.05fr] gap-[60px] items-center relative z-[2]">
+      <div className="max-w-[1240px] mx-auto px-10 w-full grid grid-cols-[0.95fr_1.05fr] gap-10 items-center relative z-[2]">
         
         {/* LEFT: CONTENT AREA */}
-        <div className="hero-content mt-[-50px]">
+        <div className="hero-content mt-[-20px]">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -37,11 +37,11 @@ export function HeroInstitutional() {
               OYEN GRID helps organisations coordinate trainers, participants, and programme operations through one unified system of intelligence and real-time visibility.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 mt-12">
-              <button className="btn-institutional-primary px-[30px] h-[54px]">
+            <div className="flex flex-wrap items-center gap-4 mt-10">
+              <button className="btn-institutional-primary px-[28px] h-[48px]">
                 Initialize Infrastructure
               </button>
-              <button className="btn-institutional-secondary group px-[30px] h-[54px]">
+              <button className="btn-institutional-secondary group px-[28px] h-[48px]">
                 Talk to Architects <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -83,7 +83,7 @@ export function PlatformOverview() {
   return (
     <section className="section-gap relative bg-[#050816] border-b border-white/5">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-[60px] items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* LEFT: Content */}
           <div>
@@ -108,7 +108,7 @@ export function PlatformOverview() {
 
           {/* RIGHT: Contained Image */}
           <div className="flex justify-center lg:justify-end">
-             <div className="relative w-full max-w-[520px] h-[380px] rounded-[22px] overflow-hidden border border-white/10 shadow-2xl">
+             <div className="relative w-full max-w-[480px] h-[320px] rounded-[18px] overflow-hidden border border-white/10 shadow-2xl">
                 <Image 
                   src="/section-2-bg.png" 
                   alt="Platform" 
@@ -140,11 +140,11 @@ export function OperationalControlCenter() {
   return (
     <section className="section-gap relative bg-[#050816] border-b border-white/5">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-[60px] items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* LEFT: Contained Image (Visual First) */}
           <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
-             <div className="relative w-full max-w-[520px] h-[380px] rounded-[22px] overflow-hidden border border-white/10 shadow-2xl">
+             <div className="relative w-full max-w-[480px] h-[320px] rounded-[18px] overflow-hidden border border-white/10 shadow-2xl">
                 <Image 
                   src="/section-3-bg.png" 
                   alt="Operations" 
@@ -170,13 +170,13 @@ export function OperationalControlCenter() {
                  { t: "Live Session Monitoring", d: "Track attendance and engagement as it happens." },
                  { t: "Automated Resource Sync", d: "Sync materials and assets across all cohorts." }
                ].map((item, i) => (
-                 <div key={i} className="flex gap-5 p-5 rounded-xl bg-white/[0.02] border border-white/5">
-                    <div className="w-9 h-9 rounded-lg bg-brand-gold/10 flex items-center justify-center shrink-0">
-                       <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+                 <div key={i} className="flex gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                    <div className="w-8 h-8 rounded-lg bg-brand-gold/10 flex items-center justify-center shrink-0">
+                       <Sparkles className="w-3 h-3 text-brand-gold" />
                     </div>
                     <div>
-                       <h4 className="text-[16px] font-bold text-white mb-1">{item.t}</h4>
-                       <p className="text-[12px] text-white/30">{item.d}</p>
+                       <h4 className="text-[14px] font-bold text-white mb-1">{item.t}</h4>
+                       <p className="text-[11px] text-white/30">{item.d}</p>
                     </div>
                  </div>
                ))}

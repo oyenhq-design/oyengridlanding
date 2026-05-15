@@ -22,7 +22,7 @@ export function ScaleStructure() {
   const containerRef = useRef(null);
   
   return (
-    <section ref={containerRef} className="py-[120px] bg-[#020408] relative overflow-hidden border-b border-white/5">
+    <section className="py-20 bg-[#050816] relative overflow-hidden border-b border-white/5">
       
       {/* 1. CINEMATIC ATMOSPHERE & DEPTH */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -37,14 +37,14 @@ export function ScaleStructure() {
         <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-10 bg-[length:100%_2px,3px_100%]" />
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="container-custom max-w-[1240px] relative z-10">
         
         {/* TOP METRICS STRIP: INTEGRATED TELEMETRY BAR */}
         <div className="mb-32 relative group">
            <div className="absolute inset-x-0 bottom-0 h-px bg-white/5" />
            <div className="flex flex-wrap lg:flex-nowrap justify-between gap-px bg-white/[0.02] rounded-xl border border-white/5 backdrop-blur-md overflow-hidden shadow-2xl">
               {topMetrics.map((m, i) => (
-                <div key={i} className="flex-1 min-w-[200px] relative p-8 lg:p-10 group hover:bg-white/[0.03] transition-all duration-700">
+                <div key={i} className="flex-1 min-w-[200px] h-full flex flex-col justify-center px-6 border-r border-white/5 last:border-0 group-hover:bg-white/[0.01] transition-all">
                    <div className="space-y-1 relative z-10">
                       <div className="flex items-center justify-between mb-3">
                          <div className="flex items-center gap-1.5">
@@ -68,16 +68,18 @@ export function ScaleStructure() {
           {/* LEFT SIDE: INFRASTRUCTURE CONTEXT (40%) */}
           <div className="space-y-16">
             <div className="space-y-8">
-              <div className="flex items-center gap-4">
-                 <div className="h-[2px] w-12 bg-brand-gold/40" />
+              <div className="flex flex-wrap items-center gap-6">
+                 <button className="btn-institutional-primary px-10 h-14">
+                    Deploy Institutional Grid
+                 </button>
                  <span className="text-[12px] font-black text-brand-gold uppercase tracking-[0.5em]">Global Infrastructure</span>
               </div>
-              <h2 className="text-[56px] lg:text-[68px] font-bold text-white leading-[1] tracking-tighter max-w-[640px]">
-                Scalable architecture for <br />
-                <span className="text-brand-gold italic font-serif">institutional sync.</span>
+              <h2 className="text-[32px] md:text-[42px] font-bold text-white mb-6 leading-[1.05] tracking-tighter">
+                A structure built <br className="hidden md:block" />
+                <span className="text-brand-gold italic font-serif">for global scale.</span>
               </h2>
-              <p className="text-[18px] text-white/40 leading-relaxed max-w-[540px]">
-                OYEN GRID operates resilient multi-region infrastructure engineered for real-time institutional coordination, synchronized delivery and operational continuity at scale.
+              <p className="text-[14px] text-white/40 leading-relaxed mb-10 max-w-[480px] font-medium">
+                OYEN GRID architecture provides the massive throughput required for international programmes, ensuring synchronization across thousands of concurrent nodes and participants.
               </p>
             </div>
 
@@ -99,17 +101,7 @@ export function ScaleStructure() {
                    color: "blue-500"
                  }
                ].map((card, i) => (
-                 <motion.div 
-                   key={i}
-                   whileHover={{ x: 10, y: -2 }}
-                   className="relative p-6 rounded-2xl bg-white/[0.01] border border-white/5 backdrop-blur-3xl group cursor-pointer overflow-hidden transition-all duration-700 hover:border-white/10 hover:shadow-[0_0_30px_rgba(245,185,66,0.05)]"
-                 >
-                    {/* Module Atmospheric Layers */}
-                    <div className="absolute top-0 right-0 p-4 opacity-[0.05]">
-                       <Terminal className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-1000" />
-
+                 <div key={i} className="p-4 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between group/metric hover:bg-white/[0.04] transition-all">
                     <div className="flex gap-6 items-center relative z-10">
                        <div className={cn(
                          "w-12 h-12 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-all duration-700",
@@ -129,15 +121,8 @@ export function ScaleStructure() {
                              {card.d}
                           </p>
                        </div>
-                       <ChevronRight className="w-4 h-4 text-white/10 group-hover:text-brand-gold group-hover:translate-x-1 transition-all" />
                     </div>
-                    
-                    {/* Telemetry Dots */}
-                    <div className="absolute top-2 right-12 flex gap-1">
-                       <div className="w-0.5 h-0.5 rounded-full bg-white/10" />
-                       <div className="w-0.5 h-0.5 rounded-full bg-white/10" />
-                    </div>
-                 </motion.div>
+                 </div>
                ))}
             </div>
           </div>
@@ -145,7 +130,7 @@ export function ScaleStructure() {
           {/* RIGHT SIDE: ADVANCED INFRASTRUCTURE VISUALIZATION (60%) */}
           <div className="relative">
             {/* The Main Operational Display */}
-            <div className="relative p-1 rounded-[40px] bg-gradient-to-br from-white/10 via-transparent to-white/5 shadow-[0_40px_120px_rgba(0,0,0,0.8)] overflow-hidden group">
+            <div className="lg:col-span-1 h-full rounded-[18px] border border-white/5 bg-black/40 relative overflow-hidden group/vis">
                <div className="relative p-16 lg:p-20 rounded-[39px] bg-[#05070B] border border-white/5 backdrop-blur-3xl overflow-hidden min-h-[660px] flex flex-col">
                   
                   {/* Visual Depth & Grid Layers */}

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export function FinalCTA() {
   return (
-    <section className="relative py-64 md:py-80 bg-[#050816] overflow-hidden border-t border-white/5">
+    <section className="relative py-40 md:py-48 bg-[#050816] overflow-hidden border-t border-white/5">
       
       {/* CINEMATIC BACKGROUND SYSTEM */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -23,7 +23,7 @@ export function FinalCTA() {
         <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-blue-500/5 blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-8 relative z-10 text-center">
+      <div className="max-w-[1240px] mx-auto px-6 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,21 +39,21 @@ export function FinalCTA() {
             </div>
           </div>
 
-          <h2 className="text-white mb-10 text-[56px] md:text-[100px] leading-[0.9] tracking-[-0.05em] font-bold">
+          <h2 className="text-white mb-8 text-[42px] md:text-[68px] leading-[0.95] tracking-[-0.05em] font-bold">
             Ready to orchestrate your <br className="hidden md:block" />
             <span className="text-brand-gold italic font-semibold">entire ecosystem?</span>
           </h2>
           
-          <p className="text-[20px] md:text-[24px] text-white/40 mb-20 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-[16px] md:text-[18px] text-white/40 mb-14 max-w-2xl mx-auto leading-relaxed font-medium">
             One platform. Every capability. Infinite institutional impact. Transition your programme operations to the world's most structured operating system.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-32">
-            <button className="group h-20 px-14 rounded-2xl bg-brand-gold text-black font-black text-[17px] uppercase tracking-wider flex items-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_20px_50px_rgba(245,185,66,0.2)]">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20">
+            <button className="group h-14 px-10 rounded-xl bg-brand-gold text-black font-black text-[14px] uppercase tracking-wider flex items-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_20px_50px_rgba(245,185,66,0.2)]">
               Deploy Institutional Grid
               <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
-            <button className="h-20 px-14 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-xl text-white font-bold text-[17px] hover:bg-white/[0.05] transition-all flex items-center gap-3">
+            <button className="h-14 px-10 rounded-xl border border-white/10 bg-white/[0.02] backdrop-blur-xl text-white font-bold text-[14px] hover:bg-white/[0.05] transition-all flex items-center gap-3">
               Consult Solutions Architecture
               <ChevronRight className="w-4 h-4 text-white/40" />
             </button>

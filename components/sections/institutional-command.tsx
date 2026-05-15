@@ -30,7 +30,7 @@ const metrics = [
 
 export function InstitutionalCommandCenter() {
   return (
-    <div className="relative min-h-screen bg-[#050816] text-white overflow-hidden py-16 px-8 lg:py-32">
+    <div className="relative min-h-[620px] bg-[#050816] text-white overflow-hidden py-10 px-6 lg:py-20">
       
       {/* 1. PREMIUM BACKGROUND SYSTEM: DO NOT REDESIGN, ONLY ENHANCE VISUAL FIDELITY */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -69,7 +69,7 @@ export function InstitutionalCommandCenter() {
          />
       </div>
 
-      <main className="relative z-10 max-w-[1820px] mx-auto grid grid-cols-12 gap-8">
+      <div className="container-custom max-w-[1240px] px-6 mx-auto grid grid-cols-12 gap-6">
         
         {/* LEFT PANEL: PRESERVE EXACT STRUCTURE, ADD POLISH */}
         <section className="col-span-12 lg:col-span-3 flex flex-col justify-between space-y-12">
@@ -99,9 +99,8 @@ export function InstitutionalCommandCenter() {
               </span>
             </h1>
 
-            <p className="text-white/40 text-xl leading-relaxed max-w-lg mb-14 font-medium">
-              OYEN GRID goes beyond meetings. Orchestrate live operations with real-time intelligence,
-              AI guidance, and institutional control.
+            <p className="text-[14px] text-white/40 mb-10 leading-relaxed font-medium">
+              OYEN GRID provides the orchestration layer for complex institutional delivery, unifying every module, cohort and participant into one live operational intelligence center.
             </p>
 
             <div className="space-y-4">
@@ -171,21 +170,10 @@ export function InstitutionalCommandCenter() {
                   <span className="text-[10px] font-black text-red-500 uppercase tracking-widest">Live</span>
                 </div>
               </div>
-
-              <div className="hidden sm:flex items-center gap-8 text-[12px] font-black uppercase tracking-widest">
-                <div className="flex items-center gap-2.5 text-white/30">
-                   <Clock className="w-4.5 h-4.5" />
-                   <span className="font-mono tracking-tighter">01:24:58</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-emerald-500">
-                   <Wifi className="w-4.5 h-4.5" />
-                   <span>Secured Connection</span>
-                </div>
-              </div>
             </div>
 
             {/* VIDEO SECTION: ENHANCED FIDELITY */}
-            <div className="grid grid-cols-12 gap-5 p-5">
+            <div className="grid lg:grid-cols-[300px_1fr_300px] gap-6 items-start">
               <div className="col-span-12 xl:col-span-9 relative rounded-[32px] overflow-hidden h-[680px] bg-black group/video shadow-2xl">
                 {/* Speaking Border Animation: Final Polish */}
                 <motion.div 
@@ -226,9 +214,9 @@ export function InstitutionalCommandCenter() {
                       <div className="w-6 h-6 rounded-lg bg-brand-gold/10 flex items-center justify-center shadow-[0_0_15px_rgba(245,185,46,0.2)]">
                          <Sparkles className="w-4 h-4 text-brand-gold" />
                       </div>
-                      <div className="text-[11px] font-black text-white/80 uppercase tracking-[0.15em]">
-                         AI INSIGHT: <span className="text-brand-gold">ALIGNMENT 98%</span>
-                      </div>
+                      <h2 className="text-[36px] font-bold text-white mb-6 leading-[1.05] tracking-tighter">
+              Built for intelligent <span className="text-brand-gold italic font-serif">programme delivery.</span>
+            </h2>
                       <ChevronRight className="w-3.5 h-3.5 text-white/20 group-hover/ai:translate-x-1 transition-transform" />
                    </motion.div>
                 </div>
@@ -258,42 +246,6 @@ export function InstitutionalCommandCenter() {
                   </motion.button>
                 </div>
               </div>
-
-              {/* PARTICIPANTS STACK: STATUS RINGS & POLISH */}
-              <div className="col-span-12 xl:col-span-3 flex xl:flex-col gap-5 overflow-x-auto pb-4 xl:pb-0 z-30 scrollbar-hide">
-                {[
-                  { img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop', status: 'speaking' },
-                  { img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop', status: 'online' },
-                  { img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600&auto=format&fit=crop', status: 'online' },
-                  { img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop', status: 'online' }
-                ].map((p, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.04, y: -5 }}
-                    className="h-[152px] w-full min-w-[160px] rounded-[24px] overflow-hidden relative border border-white/5 group/p shadow-2xl transition-all duration-700 cursor-pointer"
-                  >
-                    {/* Active Speaker Ring */}
-                    {p.status === 'speaking' && (
-                       <motion.div 
-                          animate={{ opacity: [0.3, 1, 0.3], scale: [1, 1.02, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                          className="absolute inset-0 border-2 border-brand-gold/40 rounded-[24px] z-10" 
-                       />
-                    )}
-
-                    <Image src={p.img} alt="Node" fill className="object-cover grayscale opacity-50 group-hover/p:grayscale-0 group-hover/p:opacity-100 transition-all duration-1000" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-90" />
-                    
-                    <div className="absolute bottom-4 right-4 flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-xl border border-white/10">
-                       <div className={cn(
-                          "w-1.5 h-1.5 rounded-full",
-                          p.status === 'speaking' ? "bg-brand-gold shadow-[0_0_10px_#f5b82e]" : "bg-emerald-500 shadow-[0_0_10px_#10b981]"
-                       )} />
-                       <span className="text-[8px] font-black text-white/50 uppercase tracking-widest">{p.status}</span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
             </div>
           </motion.div>
 
@@ -318,22 +270,6 @@ export function InstitutionalCommandCenter() {
                    </div>
                    <h3 className="text-2xl font-bold tracking-tight">Live Delivery Timeline</h3>
                 </div>
-                <div className="px-3 py-1.5 rounded-lg bg-red-500/5 border border-red-500/10">
-                   <span className="text-[10px] font-black text-red-500 uppercase tracking-widest">REALTIME</span>
-                </div>
-              </div>
-
-              <div className="flex gap-3 mb-12">
-                {[20, 20, 20, 20, 10, 10].map((w, i) => (
-                  <div
-                    key={i}
-                    style={{ width: `${w}%` }}
-                    className={cn(
-                      "h-2 rounded-full transition-all duration-1000",
-                      i < 4 ? 'bg-emerald-500/60 shadow-[0_0_12px_rgba(16,185,129,0.3)]' : 'bg-brand-gold/40'
-                    )}
-                  />
-                ))}
               </div>
 
               <div className="space-y-7">
@@ -345,7 +281,7 @@ export function InstitutionalCommandCenter() {
                 ].map((event, i) => (
                   <div key={i} className="flex items-center justify-between group/event cursor-pointer">
                     <div className="flex items-center gap-5">
-                      <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center group-hover/event:bg-brand-gold/10 group-hover/event:border-brand-gold/20 transition-all">
+                      <div key={i} className="h-[110px] rounded-2xl bg-white/[0.02] border border-white/5 p-4 flex flex-col justify-between group/node">
                          <event.icon className="w-4 h-4 text-white/20 group-hover/event:text-brand-gold transition-colors" />
                       </div>
                       <div>
@@ -353,7 +289,6 @@ export function InstitutionalCommandCenter() {
                         <p className="text-white/20 text-[11px] font-mono tracking-tighter mt-1">{event.time} UTC</p>
                       </div>
                     </div>
-                    <ArrowUpRight className="w-4 h-4 text-white/10 group-hover/event:text-brand-gold group-hover/event:translate-x-1 group-hover/event:-translate-y-1 transition-all" />
                   </div>
                 ))}
               </div>
@@ -367,6 +302,12 @@ export function InstitutionalCommandCenter() {
                transition={{ duration: 1.2, delay: 0.4 }}
                className="rounded-[36px] border border-white/10 bg-[#0b1220]/60 p-10 backdrop-blur-3xl shadow-3xl relative overflow-hidden group/map"
             >
+              <div className="lg:col-span-1 space-y-4">
+             {/* METRIC 1 — OPERATIONAL HEALTH */}
+             <motion.div
+               whileHover={{ y: -2 }}
+               className="p-5 rounded-[22px] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative overflow-hidden group"
+             >
               <div className="flex items-center justify-between mb-10">
                 <div className="flex items-center gap-4">
                    <div className="w-11 h-11 rounded-xl bg-blue-500/5 border border-blue-500/10 flex items-center justify-center">
@@ -374,33 +315,9 @@ export function InstitutionalCommandCenter() {
                    </div>
                    <h3 className="text-2xl font-bold tracking-tight">Coordination Map</h3>
                 </div>
-                <button className="text-[11px] font-black text-white/30 uppercase tracking-[0.2em] hover:text-brand-gold transition-all">Regional View</button>
               </div>
-
-              <div className="h-[300px] rounded-3xl border border-white/5 bg-black/40 relative overflow-hidden shadow-inner flex items-center justify-center group/map-inner">
-                <Image 
-                   src="/operational-map.png" 
-                   alt="Map" 
-                   fill 
-                   className="object-cover opacity-[0.15] grayscale group-hover/map:scale-105 transition-all duration-1000" 
-                />
-                
-                {/* Simulated Map Points */}
-                <motion.div 
-                   animate={{ opacity: [0.2, 1, 0.2] }}
-                   transition={{ duration: 4, repeat: Infinity }}
-                   className="absolute top-1/4 left-1/3 w-2.5 h-2.5 rounded-full bg-brand-gold shadow-[0_0_15px_#f5b82e] z-10" 
-                />
-                <motion.div 
-                   animate={{ opacity: [0.2, 0.8, 0.2] }}
-                   transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-                   className="absolute bottom-1/3 right-1/4 w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_15px_#60a5fa] z-10" 
-                />
-                
-                <div className="absolute inset-0 flex items-center justify-center">
-                   <div className="text-[12px] font-black text-white/10 uppercase tracking-[0.5em] text-center px-12">Institutional Coordinate System Active</div>
-                </div>
-              </div>
+            </motion.div>
+            </div>
             </motion.div>
           </div>
 
@@ -428,172 +345,11 @@ export function InstitutionalCommandCenter() {
 
         {/* RIGHT SIDEBAR: PRESERVE EXACT STRUCTURE, ENHANCE FIDELITY & RESPONSIVENESS */}
         <section className="col-span-12 lg:col-span-3 space-y-6">
-          {/* HEALTH INTELLIGENCE */}
-          <motion.div 
-             initial={{ opacity: 0, x: 30 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-             className="rounded-[36px] border border-white/10 bg-[#0b1220]/80 p-10 backdrop-blur-3xl shadow-3xl relative overflow-hidden group/intel"
-          >
-            <div className="absolute -top-12 -right-12 w-48 h-48 bg-brand-gold/5 rounded-full blur-[80px]" />
-
-            <div className="flex items-center justify-between mb-10 relative z-10">
-              <div className="flex items-center gap-4">
-                 <div className="w-11 h-11 rounded-xl bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center shadow-[0_0_20px_rgba(245,184,46,0.1)]">
-                    <Activity className="w-5 h-5 text-brand-gold" />
-                 </div>
-                 <h3 className="text-2xl font-bold tracking-tight">Command Intel</h3>
-              </div>
-              <motion.div 
-                 animate={{ opacity: [0.4, 1, 0.4] }}
-                 transition={{ duration: 2, repeat: Infinity }}
-                 className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20"
-              >
-                 <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_#10b981]" />
-                 <span className="text-[10px] font-black text-emerald-500 uppercase tracking-[0.15em]">OPTIMAL</span>
-              </motion.div>
-            </div>
-
-            <div className="flex flex-col xl:flex-row items-center gap-10 relative z-10">
-              <div className="relative h-32 w-32 shrink-0 flex items-center justify-center">
-                <svg className="w-full h-full -rotate-90">
-                   <circle cx="64" cy="64" r="56" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="10" />
-                   <motion.circle 
-                      cx="64" cy="64" r="56" fill="none" stroke="#f5b82e" strokeWidth="10" 
-                      strokeDasharray="351" 
-                      initial={{ strokeDashoffset: 351 }}
-                      whileInView={{ strokeDashoffset: 28 }}
-                      transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-                      className="drop-shadow-[0_0_20px_rgba(245,184,46,0.5)]" 
-                   />
-                </svg>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                   <span className="text-[32px] font-black text-white leading-none tracking-tighter">92%</span>
-                   <span className="text-[9px] font-black text-brand-gold uppercase tracking-[0.2em] mt-2">Health</span>
-                </div>
-              </div>
-
-              <div className="flex-1 w-full space-y-5">
-                <HealthItem label="Engagement" val="Peak" color="text-emerald-500" glowing />
-                <HealthItem label="Attendance" val="98.4%" glowing />
-                <HealthItem label="Coordination" val="0.2s" glowing />
-              </div>
-            </div>
-          </motion.div>
-
-          {/* AI FACILITATOR: PRESERVE STRUCTURE, ADD NEON POLISH */}
-          <motion.div 
-             initial={{ opacity: 0, x: 30 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-             className="rounded-[36px] border border-white/10 bg-[#0b1220]/80 p-10 backdrop-blur-3xl shadow-3xl relative overflow-hidden group/ai"
-          >
-            <div className="flex items-center justify-between mb-8">
-              <div className="flex items-center gap-4">
-                 <div className="w-11 h-11 rounded-xl bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center">
-                    <Brain className="w-5 h-5 text-brand-gold" />
-                 </div>
-                 <h3 className="text-2xl font-bold tracking-tight">AI Facilitator</h3>
-              </div>
-              <span className="text-white/20 text-[11px] font-mono tracking-widest uppercase">Analyzing_04</span>
-            </div>
-
-            <div className="rounded-2xl border border-brand-gold/20 bg-brand-gold/5 p-8 space-y-8 relative overflow-hidden">
-               {/* Cyber Scanning Animation */}
-               <motion.div 
-                  animate={{ y: [-100, 200] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-x-0 h-px bg-brand-gold/20 z-0 opacity-40" 
-               />
-               
-               <p className="font-bold leading-relaxed text-[16px] text-white/90 italic relative z-10">
-                "12 participants in Cluster_04 have not interacted for 18m. Suggest immediate protocol deployment."
-               </p>
-
-               <div className="flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10">
-                <motion.button 
-                   whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(245,184,46,0.3)" }}
-                   whileTap={{ scale: 0.95 }}
-                   className="w-full sm:w-auto bg-[#f5b82e] text-black px-8 h-12 rounded-xl font-black uppercase text-[11px] tracking-widest transition-all"
-                >
-                  Apply Protocol
-                </motion.button>
-                <div className="text-right shrink-0">
-                   <div className="text-emerald-500 text-[16px] font-black leading-none tracking-tighter">94%</div>
-                   <div className="text-white/30 text-[8px] font-black uppercase tracking-widest mt-1.5">Confidence</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* DECISION LAYER: REFINED BUTTONS */}
-          <motion.div 
-             initial={{ opacity: 0, x: 30 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-             className="rounded-[36px] border border-white/10 bg-[#0b1220]/80 p-10 backdrop-blur-3xl shadow-3xl group/decision"
-          >
-            <div className="flex items-center gap-4 mb-8">
-               <div className="w-11 h-11 rounded-xl bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center">
-                  <Layers className="w-5 h-5 text-brand-gold" />
-               </div>
-               <h3 className="text-2xl font-bold tracking-tight">Decision Layer</h3>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 p-8 bg-white/[0.03] space-y-8 backdrop-blur-md hover:bg-white/[0.05] transition-all">
-              <p className="font-bold leading-relaxed text-[15px] text-white/80">
-                Extend breakout sequence by 8m to resolve institutional alignment drift.
-              </p>
-
-              <div className="flex gap-4">
-                <motion.button 
-                   whileHover={{ scale: 1.05 }}
-                   whileTap={{ scale: 0.95 }}
-                   className="flex-1 bg-[#f5b82e] text-black h-12 rounded-xl font-black uppercase text-[11px] tracking-widest transition-all"
-                >
-                  Approve
-                </motion.button>
-                <motion.button 
-                   whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.08)" }}
-                   whileTap={{ scale: 0.95 }}
-                   className="flex-1 border border-white/10 text-white/40 h-12 rounded-xl font-black uppercase text-[11px] tracking-widest transition-all"
-                >
-                  Dismiss
-                </motion.button>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* OUTPUTS: ANIMATED STATUS */}
-          <motion.div 
-             initial={{ opacity: 0, x: 30 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-             className="rounded-[36px] border border-white/10 bg-[#0b1220]/80 p-10 backdrop-blur-3xl shadow-3xl"
-          >
-            <div className="flex items-center justify-between mb-10">
-              <div className="flex items-center gap-4">
-                 <div className="w-11 h-11 rounded-xl bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center">
-                    <FileCheck className="w-5 h-5 text-brand-gold" />
-                 </div>
-                 <h3 className="text-2xl font-bold tracking-tight">Live Outputs</h3>
-              </div>
-              <div className="text-white/20 text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
-                 <motion.div animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1.5 }} className="w-2 h-2 rounded-full bg-brand-gold/40" />
-                 AUTO-SYNC
-              </div>
-            </div>
-
-            <div className="space-y-4">
+          <div className="space-y-4">
               {[
-                { label: 'Summary Protocol', icon: FileText },
-                { label: 'Action Matrix', icon: Target },
-                { label: 'Attendance Audit', icon: ShieldCheck },
-                { label: 'Compliance Record', icon: Lock }
+                { label: "Real-time sync protocol", active: true },
+                { label: "End-to-end security architecture", active: true },
+                { label: "Multi-region orchestration", active: true }
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -601,11 +357,11 @@ export function InstitutionalCommandCenter() {
                   className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.02] p-5 group cursor-pointer transition-all duration-500"
                 >
                   <div className="flex items-center gap-5">
-                     <item.icon className="w-4.5 h-4.5 text-white/20 group-hover:text-brand-gold transition-colors" />
+                     <Zap className="w-4 h-4 text-white/20 group-hover:text-brand-gold transition-colors" />
                      <span className="text-[14px] font-bold text-white/60 group-hover:text-white transition-colors tracking-tight">{item.label}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                     <span className="text-[10px] text-white/20 font-black uppercase tracking-widest hidden sm:inline">Finalizing</span>
+                     <span className="text-[10px] text-white/20 font-black uppercase tracking-widest hidden sm:inline">Active</span>
                      <div className="w-4 h-4 rounded-full border border-emerald-500/20 flex items-center justify-center">
                         <CheckCircle2 className="w-3 h-3 text-emerald-500/60" />
                      </div>
@@ -613,9 +369,8 @@ export function InstitutionalCommandCenter() {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
         </section>
-      </main>
+      </div>
     </div>
   )
 }

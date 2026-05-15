@@ -144,7 +144,7 @@ export function OperationalLifecycle() {
   return (
     <section className="section-gap bg-[#050816] relative overflow-hidden">
       <div className="container-custom">
-        <div className="mb-24">
+        <div className="mb-12">
           <span className="eyebrow">OPERATIONAL LIFECYCLE</span>
           <h2 className="max-w-[620px] mt-4 mb-4">
             The lifecycle of <span className="text-brand-gold">structured programme delivery.</span>
@@ -154,15 +154,15 @@ export function OperationalLifecycle() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-24 items-center">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
           {/* LEFT: 3D ORBITAL CAROUSEL */}
           <div 
-            className="relative h-[620px] flex items-center justify-center"
+            className="relative h-[460px] flex items-center justify-center"
             style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
-             <div className="relative w-full max-w-[420px] aspect-[4/5]" style={{ transformStyle: "preserve-3d" }}>
+             <div className="relative w-full max-w-[340px] aspect-[4/5]" style={{ transformStyle: "preserve-3d" }}>
                 {stages.map((stage, i) => {
                   // Calculate shortest distance in circular array
                   let diff = i - activeIdx;
@@ -265,21 +265,21 @@ export function OperationalLifecycle() {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: -30, filter: "blur(15px)" }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="space-y-12"
+                  className="space-y-10"
                 >
                    <div>
-                      <h3 className="text-[34px] font-bold text-white mb-6 leading-[1.1] tracking-tighter">{stages[activeIdx].title}</h3>
-                      <p className="text-[16px] leading-relaxed text-white/50 mb-10 max-w-[380px]">
+                      <h3 className="text-[32px] font-bold text-white mb-6 leading-[1.05] tracking-tighter">{stages[activeIdx].title}</h3>
+                      <p className="text-[15px] leading-relaxed text-white/50 mb-10 max-w-[360px]">
                         {stages[activeIdx].description}
                       </p>
                       
-                      <div className="space-y-5">
+                      <div className="space-y-4">
                          {stages[activeIdx].capabilities.map((cap, i) => (
                            <div key={i} className="flex items-center gap-4 group">
                               <div className="w-5 h-5 rounded-full bg-brand-gold/5 border border-brand-gold/20 flex items-center justify-center shrink-0 group-hover:bg-brand-gold/20 group-hover:border-brand-gold/40 transition-all">
                                  <Check className="w-3 h-3 text-brand-gold" />
                               </div>
-                              <span className="text-[17px] font-bold text-white/30 group-hover:text-white transition-colors duration-500">{cap}</span>
+                              <span className="text-[14px] font-bold text-white/30 group-hover:text-white transition-colors duration-500">{cap}</span>
                            </div>
                          ))}
                       </div>
