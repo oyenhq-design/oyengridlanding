@@ -30,7 +30,7 @@ const metrics = [
 
 export function InstitutionalCommandCenter() {
   return (
-    <div className="relative min-h-screen bg-[#050816] text-white overflow-hidden py-12 px-6 lg:py-24">
+    <div className="relative min-h-screen bg-[#050816] text-white overflow-hidden py-16 px-8 lg:py-32">
       
       {/* 1. PREMIUM BACKGROUND SYSTEM: DO NOT REDESIGN, ONLY ENHANCE VISUAL FIDELITY */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -69,7 +69,7 @@ export function InstitutionalCommandCenter() {
          />
       </div>
 
-      <main className="relative z-10 max-w-[1700px] mx-auto grid grid-cols-12 gap-6">
+      <main className="relative z-10 max-w-[1820px] mx-auto grid grid-cols-12 gap-8">
         
         {/* LEFT PANEL: PRESERVE EXACT STRUCTURE, ADD POLISH */}
         <section className="col-span-12 lg:col-span-3 flex flex-col justify-between space-y-12">
@@ -86,7 +86,7 @@ export function InstitutionalCommandCenter() {
                </p>
             </div>
 
-            <h1 className="text-5xl xl:text-7xl font-bold leading-[1] tracking-tighter mb-8">
+            <h1 className="text-6xl xl:text-[5.5rem] font-bold leading-[0.95] tracking-tighter mb-10">
               Built for intelligent <br /> 
               <span className="text-[#f5b82e] relative inline-block">
                  programme delivery.
@@ -99,7 +99,7 @@ export function InstitutionalCommandCenter() {
               </span>
             </h1>
 
-            <p className="text-white/40 text-lg leading-relaxed max-w-md mb-12 font-medium">
+            <p className="text-white/40 text-xl leading-relaxed max-w-lg mb-14 font-medium">
               OYEN GRID goes beyond meetings. Orchestrate live operations with real-time intelligence,
               AI guidance, and institutional control.
             </p>
@@ -114,13 +114,13 @@ export function InstitutionalCommandCenter() {
                   transition={{ delay: 0.1 + index * 0.1, duration: 0.8 }}
                   className="group flex gap-4 p-4 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/10 transition-all duration-500 shadow-2xl backdrop-blur-sm cursor-pointer"
                 >
-                  <div className="h-12 w-12 shrink-0 rounded-xl bg-brand-gold/5 border border-brand-gold/10 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold/10 group-hover:border-brand-gold/30 transition-all duration-500">
-                    <item.icon className="w-5 h-5" />
+                  <div className="h-14 w-14 shrink-0 rounded-xl bg-brand-gold/5 border border-brand-gold/10 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold/10 group-hover:border-brand-gold/30 transition-all duration-500">
+                    <item.icon className="w-6 h-6" />
                   </div>
 
                   <div className="min-w-0">
-                    <h3 className="font-bold text-white text-[15px] tracking-tight group-hover:text-brand-gold transition-colors">{item.title}</h3>
-                    <p className="text-white/20 text-[12px] leading-relaxed mt-1 line-clamp-2 group-hover:text-white/30 transition-colors">{item.text}</p>
+                    <h3 className="font-bold text-white text-[18px] tracking-tight group-hover:text-brand-gold transition-colors">{item.title}</h3>
+                    <p className="text-white/20 text-[14px] leading-relaxed mt-1.5 line-clamp-2 group-hover:text-white/30 transition-colors">{item.text}</p>
                   </div>
                 </motion.div>
               ))}
@@ -186,7 +186,7 @@ export function InstitutionalCommandCenter() {
 
             {/* VIDEO SECTION: ENHANCED FIDELITY */}
             <div className="grid grid-cols-12 gap-5 p-5">
-              <div className="col-span-12 xl:col-span-9 relative rounded-[32px] overflow-hidden h-[600px] bg-black group/video shadow-2xl">
+              <div className="col-span-12 xl:col-span-9 relative rounded-[32px] overflow-hidden h-[680px] bg-black group/video shadow-2xl">
                 {/* Speaking Border Animation: Final Polish */}
                 <motion.div 
                    animate={{ opacity: [0.2, 0.5, 0.2] }}
@@ -270,7 +270,7 @@ export function InstitutionalCommandCenter() {
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.04, y: -5 }}
-                    className="h-[134px] w-full min-w-[150px] rounded-[24px] overflow-hidden relative border border-white/5 group/p shadow-2xl transition-all duration-700 cursor-pointer"
+                    className="h-[152px] w-full min-w-[160px] rounded-[24px] overflow-hidden relative border border-white/5 group/p shadow-2xl transition-all duration-700 cursor-pointer"
                   >
                     {/* Active Speaker Ring */}
                     {p.status === 'speaking' && (
@@ -414,13 +414,13 @@ export function InstitutionalCommandCenter() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 + i * 0.1, duration: 0.8 }}
                 whileHover={{ y: -8, border: "rgba(245,184,46,0.3)" }}
-                className="rounded-[28px] border border-white/10 bg-[#0b1220]/70 p-8 backdrop-blur-3xl shadow-2xl transition-all duration-500 group"
+                className="rounded-[28px] border border-white/10 bg-[#0b1220]/70 p-10 backdrop-blur-3xl shadow-2xl transition-all duration-500 group"
               >
                 <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center mb-6 group-hover:bg-brand-gold/10 group-hover:border-brand-gold/20 transition-all">
                    <m.icon className="w-5 h-5 text-white/20 group-hover:text-brand-gold transition-colors" />
                 </div>
-                <h4 className="text-4xl font-black mb-2 tracking-tighter group-hover:text-brand-gold transition-colors">{m.val}</h4>
-                <p className="text-white/30 text-[11px] font-black uppercase tracking-[0.2em]">{m.label}</p>
+                <h4 className="text-5xl font-black mb-3 tracking-tighter group-hover:text-brand-gold transition-colors">{m.val}</h4>
+                <p className="text-white/30 text-[12px] font-black uppercase tracking-[0.2em]">{m.label}</p>
               </motion.div>
             ))}
           </div>

@@ -43,7 +43,7 @@ export function InstitutionalImpactCinematic() {
   return (
     <section 
       ref={containerRef}
-      className="py-[90px] bg-[#05070B] relative overflow-hidden"
+      className="py-[120px] bg-[#05070B] relative overflow-hidden"
     >
       {/* 1. CINEMATIC BACKGROUND SYSTEM */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -75,8 +75,8 @@ export function InstitutionalImpactCinematic() {
         </div>
       </div>
 
-      <div className="max-w-[1220px] mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 items-center">
+      <div className="max-w-[1360px] mx-auto px-8 relative z-10">
+        <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-16 items-center">
           
           {/* LEFT SIDE: PREMIUM TESTIMONIAL PANEL */}
           <div className="relative">
@@ -86,7 +86,7 @@ export function InstitutionalImpactCinematic() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative h-[340px] p-8 rounded-[28px] bg-[#0A0E18]/92 backdrop-blur-xl border border-white/[0.06] shadow-[0_24px_60px_rgba(0,0,0,0.38)] overflow-hidden flex flex-col justify-between">
+              <div className="relative h-[380px] p-10 rounded-[32px] bg-[#0A0E18]/92 backdrop-blur-xl border border-white/[0.06] shadow-[0_24px_60px_rgba(0,0,0,0.38)] overflow-hidden flex flex-col justify-between">
                 
                 {/* Minimal Header */}
                 <div className="flex items-center justify-between">
@@ -104,7 +104,7 @@ export function InstitutionalImpactCinematic() {
                   </div>
                 </div>
 
-                <blockquote className="text-[28px] font-bold leading-[1.25] text-white tracking-tight max-w-[420px]">
+                <blockquote className="text-[34px] font-bold leading-[1.2] text-white tracking-tight max-w-[520px]">
                   “OYEN GRID enables us to orchestrate complex fellowship programmes with absolute precision at <span className="text-brand-gold">global scale</span>.”
                 </blockquote>
 
@@ -138,7 +138,7 @@ export function InstitutionalImpactCinematic() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative h-[155px] p-6 rounded-[22px] bg-[#0C1018]/90 border border-white/[0.05] hover:translate-y-[-2px] transition-all duration-300 overflow-hidden"
+                className="group relative h-[175px] p-8 rounded-[24px] bg-[#0C1018]/90 border border-white/[0.05] hover:translate-y-[-2px] transition-all duration-300 overflow-hidden"
               >
                 {/* Enterprise Detail: Subtle Graph Accent */}
                 <div className="absolute bottom-0 left-0 w-full h-12 opacity-[0.03] pointer-events-none group-hover:opacity-[0.06] transition-opacity">
@@ -168,7 +168,7 @@ export function InstitutionalImpactCinematic() {
 
                   <div className="flex items-baseline gap-1">
                     <span className={cn(
-                      "text-[42px] font-extrabold leading-none tracking-tighter",
+                      "text-[50px] font-extrabold leading-none tracking-tighter",
                       (m.val.startsWith('+') || m.val === "99.9%") ? "text-brand-gold" : "text-white"
                     )}>
                       {m.val}

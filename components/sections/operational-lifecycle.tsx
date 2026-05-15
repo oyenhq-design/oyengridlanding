@@ -144,7 +144,7 @@ export function OperationalLifecycle() {
   return (
     <section className="section-gap bg-[#050816] relative overflow-hidden">
       <div className="container-custom">
-        <div className="mb-16">
+        <div className="mb-24">
           <span className="eyebrow">OPERATIONAL LIFECYCLE</span>
           <h2 className="max-w-[620px] mt-4 mb-4">
             The lifecycle of <span className="text-brand-gold">structured programme delivery.</span>
@@ -154,15 +154,15 @@ export function OperationalLifecycle() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-24 items-center">
           {/* LEFT: 3D ORBITAL CAROUSEL */}
           <div 
-            className="relative h-[540px] flex items-center justify-center"
+            className="relative h-[620px] flex items-center justify-center"
             style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
-             <div className="relative w-full max-w-[380px] aspect-[4/5]" style={{ transformStyle: "preserve-3d" }}>
+             <div className="relative w-full max-w-[420px] aspect-[4/5]" style={{ transformStyle: "preserve-3d" }}>
                 {stages.map((stage, i) => {
                   // Calculate shortest distance in circular array
                   let diff = i - activeIdx;
@@ -279,7 +279,7 @@ export function OperationalLifecycle() {
                               <div className="w-5 h-5 rounded-full bg-brand-gold/5 border border-brand-gold/20 flex items-center justify-center shrink-0 group-hover:bg-brand-gold/20 group-hover:border-brand-gold/40 transition-all">
                                  <Check className="w-3 h-3 text-brand-gold" />
                               </div>
-                              <span className="text-[15px] font-bold text-white/30 group-hover:text-white transition-colors duration-500">{cap}</span>
+                              <span className="text-[17px] font-bold text-white/30 group-hover:text-white transition-colors duration-500">{cap}</span>
                            </div>
                          ))}
                       </div>

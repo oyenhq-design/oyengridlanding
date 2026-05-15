@@ -49,7 +49,7 @@ const capabilities = [
 
 export function OperationalInfrastructure() {
   return (
-    <section className="py-20 bg-[#050816] relative overflow-hidden border-b border-white/5">
+    <section className="py-32 bg-[#050816] relative overflow-hidden border-b border-white/5">
       
       {/* REFINED AMBIENT GLOW */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -60,7 +60,7 @@ export function OperationalInfrastructure() {
       <div className="container-custom relative z-10">
         
         {/* HEADER - REFINED & COMPACT */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-24">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -77,7 +77,7 @@ export function OperationalInfrastructure() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[32px] md:text-[38px] font-bold text-white max-w-[840px] mx-auto leading-[1.08] tracking-tighter mb-6"
+            className="text-[38px] md:text-[46px] font-bold text-white max-w-[940px] mx-auto leading-[1.05] tracking-tighter mb-8"
           >
             Everything needed to coordinate <br className="hidden md:block" />
             <span className="text-brand-gold">institutional programme operations.</span>
@@ -88,7 +88,7 @@ export function OperationalInfrastructure() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-[14px] leading-relaxed text-white/40 max-w-[620px] mx-auto font-medium"
+            className="text-[16px] leading-relaxed text-white/40 max-w-[680px] mx-auto font-medium"
           >
             OYEN GRID unifies programme delivery, participant coordination, communication, analytics and operational intelligence into one connected infrastructure layer.
           </motion.p>
@@ -116,7 +116,7 @@ export function OperationalInfrastructure() {
                 
                 <h3 className="text-[15px] font-bold text-white mb-2.5 tracking-tight group-hover:text-brand-gold transition-colors duration-500 leading-tight">{cap.title}</h3>
                 
-                <p className="text-[11.5px] leading-relaxed text-white/30 group-hover:text-white/50 transition-colors duration-700 mb-5">
+                <p className="text-[13px] leading-relaxed text-white/30 group-hover:text-white/50 transition-colors duration-700 mb-6">
                   {cap.desc}
                 </p>
 

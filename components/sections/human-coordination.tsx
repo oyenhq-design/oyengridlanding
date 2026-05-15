@@ -61,7 +61,7 @@ const floatingCards = [
 
 export function HumanCoordination() {
   return (
-    <section className="relative h-auto min-h-[580px] lg:h-[620px] bg-[#050816] overflow-hidden border-b border-white/5 flex items-center">
+    <section className="relative h-auto min-h-[660px] lg:h-[720px] bg-[#050816] overflow-hidden border-b border-white/5 flex items-center">
       
       {/* FULL-WIDTH CINEMATIC BACKGROUND IMAGE */}
       <div className="absolute top-0 right-0 w-full lg:w-[65%] h-full z-0 overflow-hidden">
@@ -77,7 +77,7 @@ export function HumanCoordination() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-[#050816]/20" />
       </div>
 
-      <div className="w-full px-6 lg:px-[80px] relative z-10">
+      <div className="w-full px-8 lg:px-[100px] relative z-10">
         <div className="max-w-[1800px] mx-auto grid lg:grid-cols-[1fr_0.8fr] gap-12 items-center">
           
           {/* LEFT: TEXT & 4-CARD ROW */}
@@ -96,12 +96,12 @@ export function HumanCoordination() {
                 </span>
               </div>
 
-              <h2 className="text-[38px] md:text-[52px] font-bold text-white leading-[1] tracking-tighter max-w-[700px]">
+              <h2 className="text-[44px] md:text-[62px] font-bold text-white leading-[0.95] tracking-tighter max-w-[800px]">
                 Human coordination powered by <br />
                 <span className="text-brand-gold italic font-serif">operational intelligence.</span>
               </h2>
 
-              <p className="text-[16px] leading-relaxed text-white/50 max-w-[560px] font-medium">
+              <p className="text-[18px] leading-relaxed text-white/50 max-w-[620px] font-medium">
                 Connect participants, trainers and coordinators through intelligent communication, AI assistance and real-time insights that drive better decisions and outcomes.
               </p>
 
@@ -120,8 +120,8 @@ export function HumanCoordination() {
                       <feature.icon className="w-4 h-4 text-brand-gold/40 group-hover:text-brand-gold transition-colors" />
                     </div>
                     <div>
-                       <h4 className="text-[14px] font-bold text-white mb-1.5 group-hover:text-brand-gold transition-colors">{feature.title}</h4>
-                       <p className="text-[11px] text-white/30 leading-snug group-hover:text-white/50 transition-colors line-clamp-2">{feature.desc}</p>
+                       <h4 className="text-[16px] font-bold text-white mb-2 group-hover:text-brand-gold transition-colors">{feature.title}</h4>
+                       <p className="text-[13px] text-white/30 leading-snug group-hover:text-white/50 transition-colors line-clamp-2">{feature.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -131,7 +131,7 @@ export function HumanCoordination() {
 
           {/* RIGHT: FLOATING OPERATIONAL NOTIFICATION STACK */}
           <div className="relative flex justify-center lg:justify-end py-12 lg:py-0">
-             <div className="relative w-full max-w-[380px] space-y-3.5">
+             <div className="relative w-full max-w-[440px] space-y-4">
                 {floatingCards.map((card, i) => (
                   <motion.div
                     key={i}
@@ -177,7 +177,7 @@ export function HumanCoordination() {
                              </div>
                            )}
                         </div>
-                        <p className="text-[12px] font-bold text-white leading-tight group-hover:text-brand-gold transition-colors duration-500">
+                        <p className="text-[14px] font-bold text-white leading-tight group-hover:text-brand-gold transition-colors duration-500">
                           {card.msg}
                         </p>
                       </div>

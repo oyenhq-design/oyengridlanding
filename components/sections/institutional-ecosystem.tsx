@@ -14,9 +14,9 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="hero-section-institutional flex items-center pt-28 pb-20 border-b border-white/5 overflow-hidden">
+    <section className="hero-section-institutional flex items-center pt-36 pb-28 border-b border-white/5 overflow-hidden">
       
-      <div className="max-w-[1280px] mx-auto px-[48px] w-full grid grid-cols-[0.95fr_1.05fr] gap-[40px] items-center relative z-[2]">
+      <div className="max-w-[1440px] mx-auto px-[64px] w-full grid grid-cols-[0.95fr_1.05fr] gap-[60px] items-center relative z-[2]">
         
         {/* LEFT: CONTENT AREA */}
         <div className="hero-content mt-[-50px]">
