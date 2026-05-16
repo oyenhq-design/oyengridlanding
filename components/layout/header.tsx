@@ -6,7 +6,7 @@ import {
   Search, ChevronDown, Grid, X, LayoutGrid, Cpu, Network, Database, 
   Shield, ArrowRight, Menu, Activity, Target, Zap, Globe, 
   Users, BarChart3, Settings, Lock, FileCheck, Layers, Boxes,
-  Bot, LineChart, Server, Workflow, ArrowUpRight
+  Bot, LineChart, Server, Workflow, ArrowUpRight, Radio
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -43,10 +43,10 @@ const navigationData = [
   {
     label: "Solutions",
     items: [
-      { title: "Global Sync", desc: "Zero-latency coordination grid.", icon: Globe },
-      { title: "Coordination Grid", desc: "Distributed institutional nodes.", icon: Network },
-      { title: "Automation Layer", desc: "Low-code operational workflows.", icon: Zap },
-      { title: "Institutional Nodes", desc: "Decentralized control points.", icon: Server },
+      { title: "Programme Operations", desc: "Coordinate live cohorts, facilitators, schedules and institutional workflows in real time.", icon: Radio },
+      { title: "Delivery Infrastructure", desc: "Manage structured programme execution across distributed operational environments.", icon: Network },
+      { title: "Participant Systems", desc: "Centralize onboarding, attendance, engagement and participant lifecycle visibility.", icon: Users },
+      { title: "Operational Intelligence", desc: "Monitor telemetry, analytics, reporting and AI-assisted operational insights.", icon: Activity },
     ]
   },
   {
@@ -158,7 +158,7 @@ export function Header() {
           </div>
         </div>
 
-        {/* MEGA MENU DROPDOWN: REFINED GLASSMORPHISM PASS */}
+        {/* MEGA MENU DROPDOWN: PREMIUM REALISM PASS */}
         <AnimatePresence>
           {activeMenu && (
             <motion.div
@@ -166,37 +166,42 @@ export function Header() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.99 }}
               onMouseLeave={() => setActiveMenu(null)}
-              className="absolute top-[calc(100%-4px)] left-8 right-8 bg-[#0A0E1A]/88 backdrop-blur-[40px] border border-white/10 rounded-[24px] shadow-[0_40px_120px_rgba(0,0,0,0.8),inset_0_0_80px_rgba(245,184,46,0.02)] p-6 grid grid-cols-2 lg:grid-cols-4 gap-3 z-[110] overflow-hidden"
+              className="absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 w-[calc(100%-120px)] max-w-[1200px] bg-[rgba(3,8,20,0.58)] backdrop-blur-[22px] border border-white/10 rounded-[28px] shadow-[0_40px_100px_rgba(0,0,0,0.6)] p-6 grid grid-cols-2 lg:grid-cols-4 gap-4 z-[110] overflow-hidden"
             >
-              {/* Internal Atmosphere Gradients */}
+              {/* Top Edge Highlight */}
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
+              
+              {/* Center Radial Glow */}
               <div className="absolute inset-0 pointer-events-none">
-                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(245,184,46,0.05),transparent_70%)] opacity-50" />
-                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(245,184,46,0.03),transparent_70%)] opacity-60" />
               </div>
 
               {navigationData.find(m => m.label === activeMenu)?.items.map((item, i) => (
                 <Link 
                   key={item.title} 
                   href="#"
-                  className="p-4 rounded-xl hover:bg-white/[0.03] border border-transparent hover:border-white/10 transition-all group relative z-10"
+                  className="p-4 rounded-xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all group relative z-10 hover:-translate-y-0.5"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center mb-3 group-hover:bg-[#f5b82e]/10 group-hover:border-[#f5b82e]/30 group-hover:shadow-[0_0_20px_rgba(245,184,46,0.1)] transition-all">
-                    <item.icon className="w-4 h-4 text-white/40 group-hover:text-[#f5b82e] group-hover:scale-110 transition-all" />
+                  <div className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/5 flex items-center justify-center mb-3.5 group-hover:bg-[#f5b82e]/10 group-hover:border-[#f5b82e]/30 group-hover:shadow-[0_0_20px_rgba(245,184,46,0.1)] transition-all">
+                    <item.icon className="w-4.5 h-4.5 text-white/40 group-hover:text-[#f5b82e] transition-colors" />
                   </div>
-                  <h4 className="text-[12.5px] font-bold text-white mb-0.5 tracking-tight group-hover:text-[#f5b82e] transition-colors">{item.title}</h4>
-                  <p className="text-[11px] text-white/40 leading-snug font-medium group-hover:text-white/60 transition-colors">{item.desc}</p>
+                  <h4 className="text-[13px] font-bold text-white mb-1 tracking-tight group-hover:text-[#f5b82e] transition-colors">{item.title}</h4>
+                  <p className="text-[11px] text-white/30 leading-relaxed font-medium group-hover:text-white/50 transition-colors">{item.desc}</p>
+                  
+                  {/* Hover Accent Line */}
+                  <div className="absolute bottom-2 left-4 right-4 h-px bg-gradient-to-r from-transparent via-[#f5b82e]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               ))}
               
-              {/* Promotional Bottom Strip */}
-              <div className="lg:col-span-4 mt-3 pt-4 border-t border-white/5 flex items-center justify-between relative z-10">
-                <div className="flex items-center gap-2.5">
-                   <div className="w-1 h-1 rounded-full bg-[#f5b82e] animate-pulse shadow-[0_0_8px_#f5b82e]" />
-                   <span className="text-[9px] font-black text-white/20 uppercase tracking-[0.25em]">Operational Synchronization Active</span>
+              {/* Redesigned Bottom Status Bar */}
+              <div className="lg:col-span-4 mt-4 pt-5 border-t border-white/5 flex items-center justify-between relative z-10 px-2">
+                <div className="flex items-center gap-3">
+                   <div className="w-1.5 h-1.5 rounded-full bg-[#f5b82e] animate-pulse shadow-[0_0_10px_#f5b82e]" />
+                   <span className="text-[10px] font-black text-white/20 uppercase tracking-[0.3em]">LIVE INFRASTRUCTURE STATUS</span>
                 </div>
-                <Link href="#" className="flex items-center gap-2 group/link px-3 py-1.5 rounded-lg hover:bg-white/[0.03] transition-all">
-                   <span className="text-[10px] font-black text-[#f5b82e] uppercase tracking-widest group-hover/link:mr-1 transition-all">System Architecture</span>
-                   <ArrowUpRight className="w-2.5 h-2.5 text-[#f5b82e] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                <Link href="#" className="flex items-center gap-2 group/link px-4 py-2 rounded-xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all">
+                   <span className="text-[11px] font-black text-[#f5b82e] uppercase tracking-widest">VIEW SYSTEM ARCHITECTURE</span>
+                   <ArrowUpRight className="w-3 h-3 text-[#f5b82e] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                 </Link>
               </div>
             </motion.div>
