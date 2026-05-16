@@ -105,7 +105,7 @@ export function Header() {
             <span className="font-bold text-white text-[15px] tracking-tight uppercase">OYEN GRID</span>
           </Link>
 
-          {/* DESKTOP NAVIGATION - ZOOM-LEVEL SPACING */}
+          {/* DESKTOP NAVIGATION */}
           <nav className="hidden lg:flex items-center gap-1 h-full">
             {navigationData.map((menu) => (
               <div 
@@ -128,7 +128,7 @@ export function Header() {
           </nav>
         </div>
 
-        {/* RIGHT: SEARCH & CTAs - ZOOM-LEVEL SCALE */}
+        {/* RIGHT: UTILITIES */}
         <div className="flex items-center gap-4">
           <div className="hidden lg:flex items-center gap-4 pr-4 border-r border-white/5 h-8">
              <button 
@@ -158,7 +158,7 @@ export function Header() {
           </div>
         </div>
 
-        {/* MEGA MENU DROPDOWN - REFINED DENSITY */}
+        {/* MEGA MENU DROPDOWN */}
         <AnimatePresence>
           {activeMenu && (
             <motion.div
@@ -182,7 +182,6 @@ export function Header() {
                 </Link>
               ))}
               
-              {/* Promotional Sidebar for Dropdown */}
               <div className="lg:col-span-4 mt-3 pt-4 border-t border-white/5 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                    <div className="w-1 h-1 rounded-full bg-[#f5b82e] animate-pulse" />
@@ -233,10 +232,6 @@ export function Header() {
                 </div>
               ))}
             </div>
-            <div className="p-8 border-t border-white/5 space-y-4">
-              <button className="w-full h-12 rounded-lg bg-gradient-to-r from-[#f5b82e] to-[#d49a20] text-black font-black uppercase tracking-widest text-[11px]">Get Started</button>
-              <button className="w-full h-12 rounded-lg bg-white/5 text-white font-bold uppercase tracking-widest text-[11px]">Contact Sales</button>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -254,31 +249,38 @@ export function AnnouncementBar() {
       <motion.div 
         initial={{ opacity: 0, y: -16, scale: 0.99 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        className="h-[40px] bg-[rgba(10,14,24,0.7)] backdrop-blur-[24px] border border-white/10 rounded-[16px] px-5 flex items-center justify-between w-full max-w-[1450px] shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden group relative"
+        className="h-[38px] bg-[rgba(10,14,24,0.7)] backdrop-blur-[32px] border border-white/10 rounded-full px-6 flex items-center justify-between w-full max-w-[1080px] shadow-[0_20px_40px_rgba(0,0,0,0.5),inset_0_0_20px_rgba(245,184,46,0.02)] overflow-hidden group relative"
       >
-        {/* Indicator Dot */}
+        {/* Soft Ambient Glow Bleed */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(245,184,46,0.03),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+
+        {/* LEFT: Pulsing Indicator */}
         <div className="flex items-center shrink-0 relative z-10">
-           <div className="w-1.5 h-1.5 rounded-full bg-[#f5b82e] shadow-[0_0_10px_#f5b82e] animate-pulse" />
+           <div className="relative flex items-center justify-center">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#f5b82e] shadow-[0_0_10px_#f5b82e] relative z-10" />
+              <div className="absolute inset-0 w-3 h-3 rounded-full bg-[#f5b82e]/40 animate-ping" />
+              <div className="absolute inset-0 w-4 h-4 rounded-full bg-[#f5b82e]/20 blur-[2px] animate-pulse" />
+           </div>
         </div>
 
-        {/* Centered Announcement Text */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-           <span className="text-[11px] text-white/60 font-bold tracking-tight uppercase pointer-events-auto">
-              Operational infrastructure for structured programme delivery.
+        {/* CENTER: Operational Message */}
+        <div className="flex-1 flex justify-center relative z-10">
+           <span className="text-[10.5px] text-white/60 font-bold tracking-widest uppercase">
+              Operational infrastructure for institutional delivery.
            </span>
         </div>
         
-        {/* Right Section: Button & Close */}
-        <div className="flex items-center gap-4 relative z-10">
-          <button className="flex items-center gap-1.5 group/btn px-3 py-1 rounded-md bg-[#f5b82e]/10 border border-[#f5b82e]/20 hover:bg-[#f5b82e]/20 transition-all">
-             <span className="text-[9px] font-black text-[#f5b82e] uppercase tracking-[0.1em]">Explore Operations</span>
-             <ArrowRightIcon className="w-2.5 h-2.5 text-[#f5b82e]" />
+        {/* RIGHT: Compact CTA & Close */}
+        <div className="flex items-center gap-5 relative z-10">
+          <button className="flex items-center gap-1.5 group/btn px-3 h-[24px] rounded-lg bg-[#f5b82e]/5 border border-[#f5b82e]/10 hover:bg-[#f5b82e]/10 hover:border-[#f5b82e]/30 transition-all shadow-[0_0_15px_rgba(245,184,46,0.05)]">
+             <span className="text-[8.5px] font-black text-[#f5b82e] uppercase tracking-[0.12em]">Explore Infrastructure</span>
+             <ArrowRightIcon className="w-2.5 h-2.5 text-[#f5b82e] group-hover/btn:translate-x-0.5 transition-transform" />
           </button>
           
           <div className="h-3 w-px bg-white/10" />
           
-          <button onClick={() => setIsVisible(false)} className="text-white/10 hover:text-white transition-colors p-1">
-            <X className="w-3.5 h-3.5" />
+          <button onClick={() => setIsVisible(false)} className="text-white/20 hover:text-white transition-colors p-1 group/close">
+            <X className="w-3 h-3 group-hover/close:rotate-90 transition-transform" />
           </button>
         </div>
       </motion.div>
