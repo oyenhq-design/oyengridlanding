@@ -6,7 +6,7 @@ import {
   Search, ChevronDown, Grid, X, LayoutGrid, Cpu, Network, Database, 
   Shield, ArrowRight, Menu, Activity, Target, Zap, Globe, 
   Users, BarChart3, Settings, Lock, FileCheck, Layers, Boxes,
-  Bot, LineChart, Server, Workflow, ArrowUpRight, Radio
+  Bot, LineChart, Server, Workflow, ArrowUpRight, Radio, Brain, BookOpen, GraduationCap, ClipboardCheck, Briefcase, Building2, Terminal
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -15,49 +15,70 @@ import { useSearch } from "@/context/search-context";
 const navigationData = [
   {
     label: "Operations",
+    status: "LIVE DELIVERY INFRASTRUCTURE ACTIVE",
+    cta: "Explore Operations",
     items: [
-      { title: "Live Command", desc: "Real-time institutional orchestration.", icon: Activity },
-      { title: "Programme Coordination", desc: "Global delivery synchronization.", icon: Workflow },
-      { title: "Institutional Delivery", desc: "Automated infrastructure rollout.", icon: Target },
-      { title: "Monitoring Systems", desc: "Advanced telemetry and health.", icon: BarChart3 },
+      { title: "Live Session Infrastructure", desc: "HD conferencing, moderation and structured operational delivery.", icon: Radio },
+      { title: "Attendance Intelligence", desc: "Automated participation tracking and session telemetry systems.", icon: Activity },
+      { title: "Operational Monitoring", desc: "Real-time oversight across facilitators, cohorts and delivery systems.", icon: Target },
+      { title: "AI Facilitation", desc: "AI-assisted moderation, summaries and engagement visibility.", icon: Bot },
     ]
   },
   {
     label: "Programmes",
+    status: "STRUCTURED PROGRAMME DELIVERY SYSTEM",
+    cta: "View Programme Architecture",
     items: [
-      { title: "Fellowships", desc: "Elite institutional training paths.", icon: Users },
-      { title: "Workforce Operations", desc: "Scalable human infrastructure.", icon: Boxes },
-      { title: "Cohort Systems", desc: "Group-based delivery frameworks.", icon: Layers },
-      { title: "Training Infrastructure", desc: "Modular learning environments.", icon: Database },
+      { title: "Cohort Management", desc: "Manage participant groups, programme schedules and delivery pipelines.", icon: Boxes },
+      { title: "Curriculum Systems", desc: "Structure modules, milestones and institutional learning paths.", icon: BookOpen },
+      { title: "Assessments & Certifications", desc: "Track evaluations, grading and programme completion systems.", icon: GraduationCap },
+      { title: "Programme Analytics", desc: "Monitor delivery effectiveness and operational outcomes.", icon: LineChart },
     ]
   },
   {
     label: "Intelligence",
+    status: "LIVE INFRASTRUCTURE STATUS",
+    cta: "View System Architecture",
     items: [
-      { title: "Operational AI", desc: "Autonomous facilitation engine.", icon: Bot },
-      { title: "Decision Layer", desc: "Data-driven institutional logic.", icon: Brain },
-      { title: "Predictive Insights", desc: "Future-state operational modeling.", icon: LineChart },
-      { title: "Analytics Engine", desc: "Deep telemetry and reporting.", icon: Activity },
+      { title: "Operational AI", desc: "Autonomous facilitation and intelligent operational assistance.", icon: Bot },
+      { title: "Decision Layer", desc: "Data-driven institutional intelligence and operational reasoning.", icon: Brain },
+      { title: "Predictive Insights", desc: "Future-state operational modeling and coordination forecasting.", icon: LineChart },
+      { title: "Analytics Engine", desc: "Deep telemetry, reporting and institutional performance visibility.", icon: Activity },
     ]
   },
   {
     label: "Solutions",
+    status: "STRUCTURED DELIVERY SYSTEMS FOR MODERN INSTITUTIONS",
+    cta: "Explore Solutions",
     items: [
-      { title: "Programme Operations", desc: "Coordinate live cohorts, facilitators, schedules and institutional workflows in real time.", icon: Radio },
-      { title: "Delivery Infrastructure", desc: "Manage structured programme execution across distributed operational environments.", icon: Network },
-      { title: "Participant Systems", desc: "Centralize onboarding, attendance, engagement and participant lifecycle visibility.", icon: Users },
-      { title: "Operational Intelligence", desc: "Monitor telemetry, analytics, reporting and AI-assisted operational insights.", icon: Activity },
+      { title: "Training & Bootcamps", desc: "Structured programme delivery for academies and technical training systems.", icon: GraduationCap },
+      { title: "NGOs & Fellowships", desc: "Coordinate distributed cohorts, facilitators and operational workflows.", icon: Users },
+      { title: "Corporate Learning", desc: "Enterprise workforce onboarding and institutional training operations.", icon: Briefcase },
+      { title: "Government Initiatives", desc: "Infrastructure for national-scale programme coordination systems.", icon: Building2 },
     ]
   },
   {
     label: "Enterprise",
+    status: "ENTERPRISE DEPLOYMENT NETWORK VERIFIED",
+    cta: "Contact Enterprise Team",
     items: [
-      { title: "Governance", desc: "System-wide oversight protocols.", icon: Shield },
-      { title: "Security", desc: "Military-grade data protection.", icon: Lock },
-      { title: "Compliance", desc: "Regulatory alignment automation.", icon: FileCheck },
-      { title: "Integrations", desc: "Unified ecosystem connectivity.", icon: LinkIcon },
+      { title: "Government Operations", desc: "Infrastructure for national and institutional programme delivery.", icon: Building2 },
+      { title: "Enterprise Workforce Systems", desc: "Operational coordination for large-scale workforce programmes.", icon: Workflow },
+      { title: "Institutional Deployment", desc: "Custom enterprise delivery environments and governance systems.", icon: Target },
+      { title: "Dedicated Infrastructure", desc: "Private operational architecture and enterprise deployment systems.", icon: Shield },
     ]
   },
+  {
+    label: "Infrastructure",
+    status: "ENTERPRISE INFRASTRUCTURE STATUS: STABLE",
+    cta: "View Infrastructure",
+    items: [
+      { title: "Multi-Region Infrastructure", desc: "Distributed operational systems with resilient deployment architecture.", icon: Globe },
+      { title: "Governance & Compliance", desc: "Enterprise-grade security, permissions and institutional governance.", icon: Lock },
+      { title: "White-Label Deployment", desc: "Deploy branded operational environments for organizations.", icon: Layers },
+      { title: "API & Integrations", desc: "Connect institutional systems with operational infrastructure.", icon: Terminal },
+    ]
+  }
 ];
 
 export function Header() {
@@ -158,7 +179,7 @@ export function Header() {
           </div>
         </div>
 
-        {/* MEGA MENU DROPDOWN: PREMIUM REALISM PASS */}
+        {/* MEGA MENU DROPDOWN: STANDARDIZED PREMIUM PASS */}
         <AnimatePresence>
           {activeMenu && (
             <motion.div
@@ -171,9 +192,9 @@ export function Header() {
               {/* Top Edge Highlight */}
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
               
-              {/* Center Radial Glow */}
+              {/* Center Radial Glow Bloom */}
               <div className="absolute inset-0 pointer-events-none">
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(245,184,46,0.03),transparent_70%)] opacity-60" />
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(245,184,46,0.04),transparent_70%)] opacity-60" />
               </div>
 
               {navigationData.find(m => m.label === activeMenu)?.items.map((item, i) => (
@@ -193,14 +214,18 @@ export function Header() {
                 </Link>
               ))}
               
-              {/* Redesigned Bottom Status Bar */}
+              {/* Standardized Bottom Status Bar */}
               <div className="lg:col-span-4 mt-4 pt-5 border-t border-white/5 flex items-center justify-between relative z-10 px-2">
                 <div className="flex items-center gap-3">
                    <div className="w-1.5 h-1.5 rounded-full bg-[#f5b82e] animate-pulse shadow-[0_0_10px_#f5b82e]" />
-                   <span className="text-[10px] font-black text-white/20 uppercase tracking-[0.3em]">LIVE INFRASTRUCTURE STATUS</span>
+                   <span className="text-[10px] font-black text-white/20 uppercase tracking-[0.3em]">
+                     {navigationData.find(m => m.label === activeMenu)?.status}
+                   </span>
                 </div>
                 <Link href="#" className="flex items-center gap-2 group/link px-4 py-2 rounded-xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all">
-                   <span className="text-[11px] font-black text-[#f5b82e] uppercase tracking-widest">VIEW SYSTEM ARCHITECTURE</span>
+                   <span className="text-[11px] font-black text-[#f5b82e] uppercase tracking-widest">
+                     {navigationData.find(m => m.label === activeMenu)?.cta}
+                   </span>
                    <ArrowUpRight className="w-3 h-3 text-[#f5b82e] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                 </Link>
               </div>
@@ -309,15 +334,6 @@ function LinkIcon({ className }: { className?: string }) {
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
       <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-    </svg>
-  );
-}
-
-function Brain({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.54Z" />
-      <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.54Z" />
     </svg>
   );
 }
