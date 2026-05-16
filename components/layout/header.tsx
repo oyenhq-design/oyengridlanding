@@ -6,7 +6,7 @@ import {
   Search, ChevronDown, Grid, X, LayoutGrid, Cpu, Network, Database, 
   Shield, ArrowRight, Menu, Activity, Target, Zap, Globe, 
   Users, BarChart3, Settings, Lock, FileCheck, Layers, Boxes,
-  Bot, LineChart, Server, Workflow
+  Bot, LineChart, Server, Workflow, ArrowUpRight
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -89,23 +89,24 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-[100] transition-all duration-700",
         scrolled 
-          ? "bg-[rgba(4,8,22,0.85)] backdrop-blur-[24px] h-[64px] border-b border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.5)]" 
-          : "bg-transparent h-[84px]"
+          ? "bg-[rgba(4,8,22,0.88)] backdrop-blur-[24px] h-[60px] border-b border-white/5 shadow-2xl" 
+          : "bg-transparent h-[76px]"
       )}
     >
       <div className="max-w-[1450px] mx-auto h-full flex items-center justify-between px-8 relative z-10">
         
         {/* LEFT: LOGO & PRIMARY NAV */}
-        <div className="flex items-center gap-12 h-full">
-          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#f5b82e] to-[#d49a20] rounded-[10px] flex items-center justify-center shadow-[0_8px_20px_rgba(245,184,46,0.25)] group-hover:scale-110 transition-transform duration-500 relative">
-               <div className="w-3.5 h-3.5 border-[1.5px] border-black rotate-45" />
+        <div className="flex items-center gap-10 h-full">
+          <Link href="/" className="flex items-center gap-2 group shrink-0">
+            <div className="w-7 h-7 bg-gradient-to-br from-[#f5b82e] to-[#d49a20] rounded-[8px] flex items-center justify-center shadow-[0_4px_12px_rgba(245,184,46,0.2)] group-hover:scale-105 transition-transform duration-500 relative overflow-hidden">
+               <div className="w-3 h-3 border-[1.5px] border-black rotate-45" />
+               <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-            <span className="font-bold text-white text-[17px] tracking-[-0.03em] uppercase">OYEN GRID</span>
+            <span className="font-bold text-white text-[15px] tracking-tight uppercase">OYEN GRID</span>
           </Link>
 
-          {/* DESKTOP NAVIGATION */}
-          <nav className="hidden lg:flex items-center gap-2 h-full">
+          {/* DESKTOP NAVIGATION - ZOOM-LEVEL SPACING */}
+          <nav className="hidden lg:flex items-center gap-1 h-full">
             {navigationData.map((menu) => (
               <div 
                 key={menu.label} 
@@ -113,83 +114,83 @@ export function Header() {
                 onMouseEnter={() => setActiveMenu(menu.label)}
               >
                 <button className={cn(
-                  "text-[12px] font-bold tracking-[0.1em] uppercase h-10 px-4 rounded-xl flex items-center gap-2 transition-all group",
-                  activeMenu === menu.label ? "text-[#f5b82e] bg-white/[0.05]" : "text-white/40 hover:text-white"
+                  "text-[11px] font-bold tracking-wider uppercase h-8 px-3 rounded-lg flex items-center gap-1.5 transition-all group",
+                  activeMenu === menu.label ? "text-[#f5b82e] bg-white/[0.04]" : "text-white/50 hover:text-white"
                 )}>
                   {menu.label}
-                  <ChevronDown className={cn("w-3 h-3 transition-transform duration-300", activeMenu === menu.label && "rotate-180")} />
+                  <ChevronDown className={cn("w-2.5 h-2.5 transition-transform duration-300 opacity-30 group-hover:opacity-100", activeMenu === menu.label && "rotate-180")} />
                 </button>
               </div>
             ))}
-            <Link href="#" className="text-[12px] font-bold text-white/40 hover:text-white tracking-[0.1em] uppercase px-4 h-10 flex items-center">
+            <Link href="#" className="text-[11px] font-bold text-white/50 hover:text-white tracking-wider uppercase px-3 h-8 flex items-center">
               Pricing
             </Link>
           </nav>
         </div>
 
-        {/* RIGHT: SEARCH & CTAs */}
+        {/* RIGHT: SEARCH & CTAs - ZOOM-LEVEL SCALE */}
         <div className="flex items-center gap-4">
-          <div className="hidden lg:flex items-center gap-4 pr-4 border-r border-white/10 h-10">
+          <div className="hidden lg:flex items-center gap-4 pr-4 border-r border-white/5 h-8">
              <button 
                onClick={openSearch}
-               className="text-white/30 hover:text-[#f5b82e] transition-all p-2 hover:bg-white/5 rounded-lg"
+               className="text-white/30 hover:text-[#f5b82e] transition-all p-1.5 hover:bg-white/5 rounded-md active:scale-90"
              >
-                <Search className="w-4.5 h-4.5" />
+                <Search className="w-4 h-4" />
              </button>
-             <Link href="#" className="text-[12px] font-bold text-white/40 hover:text-white transition-all tracking-[0.1em] uppercase h-[38px] px-5 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center hover:bg-white/[0.05] hover:border-white/10 shadow-lg">
+             <Link href="#" className="text-[11px] font-bold text-white/40 hover:text-white transition-all tracking-wider uppercase h-[32px] px-4 rounded-lg bg-white/[0.02] border border-white/5 flex items-center justify-center hover:bg-white/[0.05] hover:border-white/10 shadow-lg">
                 Contact Sales
              </Link>
           </div>
           
           <div className="flex items-center gap-3">
-            <button className="h-[40px] px-6 rounded-xl bg-gradient-to-br from-[#f5b82e] via-[#f5b82e] to-[#d49a20] text-black text-[11px] font-black uppercase tracking-widest transition-all hover:shadow-[0_12px_24px_rgba(245,184,46,0.3)] hover:scale-[1.03] active:scale-[0.98] shadow-xl">
+            <button className="h-[32px] px-5 rounded-lg bg-gradient-to-br from-[#f5b82e] via-[#f5b82e] to-[#d49a20] text-black text-[10px] font-black uppercase tracking-widest transition-all hover:shadow-[0_8px_20px_rgba(245,184,46,0.3)] hover:scale-[1.02] active:scale-[0.98] shadow-xl">
               Get Started
             </button>
-            <button className="hidden lg:flex p-2 text-white/15 hover:text-[#f5b82e] transition-colors">
-               <LayoutGrid className="w-4.5 h-4.5" />
+            <button className="hidden lg:flex p-1.5 text-white/15 hover:text-[#f5b82e] transition-colors group">
+               <LayoutGrid className="w-4 h-4 group-hover:rotate-90 transition-transform duration-500" />
             </button>
             <button 
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden p-2 text-white/40 hover:text-white"
+              className="lg:hidden p-1.5 text-white/40 hover:text-white"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        {/* MEGA MENU DROPDOWN */}
+        {/* MEGA MENU DROPDOWN - REFINED DENSITY */}
         <AnimatePresence>
           {activeMenu && (
             <motion.div
-              initial={{ opacity: 0, y: 10, scale: 0.98 }}
+              initial={{ opacity: 0, y: 8, scale: 0.99 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 10, scale: 0.98 }}
+              exit={{ opacity: 0, y: 8, scale: 0.99 }}
               onMouseLeave={() => setActiveMenu(null)}
-              className="absolute top-[calc(100%-8px)] left-8 right-8 bg-[#0A0E1A]/95 backdrop-blur-[32px] border border-white/10 rounded-[32px] shadow-[0_40px_100px_rgba(0,0,0,0.8)] p-8 grid grid-cols-2 lg:grid-cols-4 gap-4 z-[110]"
+              className="absolute top-[calc(100%-4px)] left-8 right-8 bg-[#0A0E1A]/98 backdrop-blur-[32px] border border-white/10 rounded-[24px] shadow-[0_30px_80px_rgba(0,0,0,0.8)] p-6 grid grid-cols-2 lg:grid-cols-4 gap-3 z-[110]"
             >
               {navigationData.find(m => m.label === activeMenu)?.items.map((item, i) => (
                 <Link 
                   key={item.title} 
                   href="#"
-                  className="p-5 rounded-2xl hover:bg-white/[0.03] border border-transparent hover:border-white/10 transition-all group"
+                  className="p-4 rounded-xl hover:bg-white/[0.02] border border-transparent hover:border-white/5 transition-all group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center mb-4 group-hover:bg-[#f5b82e]/10 group-hover:border-[#f5b82e]/20 transition-all">
-                    <item.icon className="w-5 h-5 text-white/40 group-hover:text-[#f5b82e] transition-colors" />
+                  <div className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:bg-[#f5b82e]/10 group-hover:border-[#f5b82e]/20 transition-all">
+                    <item.icon className="w-4 h-4 text-white/30 group-hover:text-[#f5b82e] transition-colors" />
                   </div>
-                  <h4 className="text-[14px] font-bold text-white mb-1 tracking-tight group-hover:text-[#f5b82e] transition-colors">{item.title}</h4>
-                  <p className="text-[12px] text-white/30 leading-snug group-hover:text-white/40 transition-colors">{item.desc}</p>
+                  <h4 className="text-[12px] font-bold text-white mb-0.5 tracking-tight group-hover:text-[#f5b82e] transition-colors">{item.title}</h4>
+                  <p className="text-[11px] text-white/30 leading-snug font-medium group-hover:text-white/40 transition-colors">{item.desc}</p>
                 </Link>
               ))}
               
               {/* Promotional Sidebar for Dropdown */}
-              <div className="lg:col-span-4 mt-4 pt-6 border-t border-white/5 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                   <div className="w-1.5 h-1.5 rounded-full bg-[#f5b82e] animate-pulse" />
-                   <span className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em]">Live Operational Sync v4.2 Enabled</span>
+              <div className="lg:col-span-4 mt-3 pt-4 border-t border-white/5 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                   <div className="w-1 h-1 rounded-full bg-[#f5b82e] animate-pulse" />
+                   <span className="text-[9px] font-bold text-white/20 uppercase tracking-[0.2em]">Operational Sync v4.2 Status: Active</span>
                 </div>
-                <Link href="#" className="flex items-center gap-2 group/link">
-                   <span className="text-[11px] font-black text-[#f5b82e] uppercase tracking-widest">Explore Documentation</span>
-                   <ArrowRight className="w-3 h-3 text-[#f5b82e] group-hover/link:translate-x-1 transition-transform" />
+                <Link href="#" className="flex items-center gap-1.5 group/link">
+                   <span className="text-[10px] font-black text-[#f5b82e] uppercase tracking-widest">System Documentation</span>
+                   <ArrowUpRight className="w-2.5 h-2.5 text-[#f5b82e] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                 </Link>
               </div>
             </motion.div>
@@ -206,8 +207,8 @@ export function Header() {
             exit={{ x: "100%" }}
             className="fixed inset-0 z-[200] bg-[#040816] flex flex-col"
           >
-            <div className="h-[84px] flex items-center justify-between px-8 border-b border-white/5">
-              <span className="font-bold text-white uppercase tracking-tight">OYEN GRID</span>
+            <div className="h-[64px] flex items-center justify-between px-8 border-b border-white/5">
+              <span className="font-bold text-white uppercase tracking-tight text-[15px]">OYEN GRID</span>
               <button onClick={() => setMobileMenuOpen(false)} className="p-2 text-white/40">
                 <X className="w-6 h-6" />
               </button>
@@ -215,16 +216,16 @@ export function Header() {
             <div className="flex-1 overflow-y-auto p-8 space-y-8">
               {navigationData.map((menu) => (
                 <div key={menu.label} className="space-y-4">
-                  <h3 className="text-[12px] font-black text-[#f5b82e] uppercase tracking-[0.4em]">{menu.label}</h3>
+                  <h3 className="text-[11px] font-black text-[#f5b82e] uppercase tracking-[0.4em]">{menu.label}</h3>
                   <div className="grid gap-6 pl-2">
                     {menu.items.map((item) => (
                       <Link key={item.title} href="#" className="flex items-start gap-4 group">
-                        <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
-                          <item.icon className="w-4 h-4 text-white/40" />
+                        <div className="w-7 h-7 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
+                          <item.icon className="w-3.5 h-3.5 text-white/40" />
                         </div>
                         <div>
-                          <div className="text-[14px] font-bold text-white group-hover:text-[#f5b82e] transition-colors">{item.title}</div>
-                          <div className="text-[12px] text-white/30">{item.desc}</div>
+                          <div className="text-[13px] font-bold text-white group-hover:text-[#f5b82e] transition-colors">{item.title}</div>
+                          <div className="text-[11px] text-white/30">{item.desc}</div>
                         </div>
                       </Link>
                     ))}
@@ -233,8 +234,8 @@ export function Header() {
               ))}
             </div>
             <div className="p-8 border-t border-white/5 space-y-4">
-              <button className="w-full h-14 rounded-xl bg-gradient-to-r from-[#f5b82e] to-[#d49a20] text-black font-black uppercase tracking-widest">Get Started</button>
-              <button className="w-full h-14 rounded-xl bg-white/5 text-white font-bold uppercase tracking-widest">Contact Sales</button>
+              <button className="w-full h-12 rounded-lg bg-gradient-to-r from-[#f5b82e] to-[#d49a20] text-black font-black uppercase tracking-widest text-[11px]">Get Started</button>
+              <button className="w-full h-12 rounded-lg bg-white/5 text-white font-bold uppercase tracking-widest text-[11px]">Contact Sales</button>
             </div>
           </motion.div>
         )}
@@ -249,35 +250,37 @@ export function AnnouncementBar() {
   if (!isVisible) return null;
 
   return (
-    <div className="pt-[84px] px-8 flex justify-center relative z-[60]">
+    <div className="pt-[76px] px-8 flex justify-center relative z-[60]">
       <motion.div 
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="h-[48px] bg-[rgba(10,14,24,0.65)] backdrop-blur-[24px] border border-white/10 rounded-[20px] px-6 flex items-center justify-between w-full max-w-[1450px] shadow-[0_30px_60px_rgba(0,0,0,0.5)] overflow-hidden group"
+        initial={{ opacity: 0, y: -16, scale: 0.99 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        className="h-[40px] bg-[rgba(10,14,24,0.7)] backdrop-blur-[24px] border border-white/10 rounded-[16px] px-5 flex items-center justify-between w-full max-w-[1450px] shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden group relative"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(245,184,46,0.04),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+        {/* Indicator Dot */}
+        <div className="flex items-center shrink-0 relative z-10">
+           <div className="w-1.5 h-1.5 rounded-full bg-[#f5b82e] shadow-[0_0_10px_#f5b82e] animate-pulse" />
+        </div>
 
-        <div className="flex items-center gap-8 mx-auto relative z-10">
-          <div className="flex items-center gap-3">
-             <div className="w-1.5 h-1.5 rounded-full bg-[#f5b82e] shadow-[0_0_12px_#f5b82e] animate-pulse" />
-             <span className="text-[12px] text-white/60 font-bold tracking-tight uppercase">
-                Operational infrastructure for structured programme delivery.
-             </span>
-          </div>
+        {/* Centered Announcement Text */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+           <span className="text-[11px] text-white/60 font-bold tracking-tight uppercase pointer-events-auto">
+              Operational infrastructure for structured programme delivery.
+           </span>
+        </div>
+        
+        {/* Right Section: Button & Close */}
+        <div className="flex items-center gap-4 relative z-10">
+          <button className="flex items-center gap-1.5 group/btn px-3 py-1 rounded-md bg-[#f5b82e]/10 border border-[#f5b82e]/20 hover:bg-[#f5b82e]/20 transition-all">
+             <span className="text-[9px] font-black text-[#f5b82e] uppercase tracking-[0.1em]">Explore Operations</span>
+             <ArrowRightIcon className="w-2.5 h-2.5 text-[#f5b82e]" />
+          </button>
           
           <div className="h-3 w-px bg-white/10" />
           
-          <button className="flex items-center gap-2 group/btn">
-             <span className="text-[11px] font-black text-[#f5b82e] uppercase tracking-[0.15em] group-hover/btn:tracking-[0.2em] transition-all">Explore Operations</span>
-             <motion.div animate={{ x: [0, 3, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                <ArrowRightIcon className="w-3.5 h-3.5 text-[#f5b82e]" />
-             </motion.div>
+          <button onClick={() => setIsVisible(false)} className="text-white/10 hover:text-white transition-colors p-1">
+            <X className="w-3.5 h-3.5" />
           </button>
         </div>
-
-        <button onClick={() => setIsVisible(false)} className="text-white/10 hover:text-white transition-colors relative z-10 p-2">
-          <X className="w-3.5 h-3.5" />
-        </button>
       </motion.div>
     </div>
   );
@@ -285,7 +288,7 @@ export function AnnouncementBar() {
 
 function ArrowRightIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
       <path d="M5 12h14M12 5l7 7-7 7" />
     </svg>
   );
@@ -293,7 +296,7 @@ function ArrowRightIcon({ className }: { className?: string }) {
 
 function LinkIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
       <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
     </svg>
@@ -302,7 +305,7 @@ function LinkIcon({ className }: { className?: string }) {
 
 function Brain({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.54Z" />
       <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.54Z" />
     </svg>
