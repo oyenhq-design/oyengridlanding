@@ -158,7 +158,7 @@ export function Header() {
           </div>
         </div>
 
-        {/* MEGA MENU DROPDOWN */}
+        {/* MEGA MENU DROPDOWN: REFINED GLASSMORPHISM PASS */}
         <AnimatePresence>
           {activeMenu && (
             <motion.div
@@ -166,29 +166,36 @@ export function Header() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.99 }}
               onMouseLeave={() => setActiveMenu(null)}
-              className="absolute top-[calc(100%-4px)] left-8 right-8 bg-[#0A0E1A]/98 backdrop-blur-[32px] border border-white/10 rounded-[24px] shadow-[0_30px_80px_rgba(0,0,0,0.8)] p-6 grid grid-cols-2 lg:grid-cols-4 gap-3 z-[110]"
+              className="absolute top-[calc(100%-4px)] left-8 right-8 bg-[#0A0E1A]/88 backdrop-blur-[40px] border border-white/10 rounded-[24px] shadow-[0_40px_120px_rgba(0,0,0,0.8),inset_0_0_80px_rgba(245,184,46,0.02)] p-6 grid grid-cols-2 lg:grid-cols-4 gap-3 z-[110] overflow-hidden"
             >
+              {/* Internal Atmosphere Gradients */}
+              <div className="absolute inset-0 pointer-events-none">
+                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(245,184,46,0.05),transparent_70%)] opacity-50" />
+                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
+              </div>
+
               {navigationData.find(m => m.label === activeMenu)?.items.map((item, i) => (
                 <Link 
                   key={item.title} 
                   href="#"
-                  className="p-4 rounded-xl hover:bg-white/[0.02] border border-transparent hover:border-white/5 transition-all group"
+                  className="p-4 rounded-xl hover:bg-white/[0.03] border border-transparent hover:border-white/10 transition-all group relative z-10"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/5 flex items-center justify-center mb-3 group-hover:bg-[#f5b82e]/10 group-hover:border-[#f5b82e]/20 transition-all">
-                    <item.icon className="w-4 h-4 text-white/30 group-hover:text-[#f5b82e] transition-colors" />
+                  <div className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center mb-3 group-hover:bg-[#f5b82e]/10 group-hover:border-[#f5b82e]/30 group-hover:shadow-[0_0_20px_rgba(245,184,46,0.1)] transition-all">
+                    <item.icon className="w-4 h-4 text-white/40 group-hover:text-[#f5b82e] group-hover:scale-110 transition-all" />
                   </div>
-                  <h4 className="text-[12px] font-bold text-white mb-0.5 tracking-tight group-hover:text-[#f5b82e] transition-colors">{item.title}</h4>
-                  <p className="text-[11px] text-white/30 leading-snug font-medium group-hover:text-white/40 transition-colors">{item.desc}</p>
+                  <h4 className="text-[12.5px] font-bold text-white mb-0.5 tracking-tight group-hover:text-[#f5b82e] transition-colors">{item.title}</h4>
+                  <p className="text-[11px] text-white/40 leading-snug font-medium group-hover:text-white/60 transition-colors">{item.desc}</p>
                 </Link>
               ))}
               
-              <div className="lg:col-span-4 mt-3 pt-4 border-t border-white/5 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                   <div className="w-1 h-1 rounded-full bg-[#f5b82e] animate-pulse" />
-                   <span className="text-[9px] font-bold text-white/20 uppercase tracking-[0.2em]">Operational Sync v4.2 Status: Active</span>
+              {/* Promotional Bottom Strip */}
+              <div className="lg:col-span-4 mt-3 pt-4 border-t border-white/5 flex items-center justify-between relative z-10">
+                <div className="flex items-center gap-2.5">
+                   <div className="w-1 h-1 rounded-full bg-[#f5b82e] animate-pulse shadow-[0_0_8px_#f5b82e]" />
+                   <span className="text-[9px] font-black text-white/20 uppercase tracking-[0.25em]">Operational Synchronization Active</span>
                 </div>
-                <Link href="#" className="flex items-center gap-1.5 group/link">
-                   <span className="text-[10px] font-black text-[#f5b82e] uppercase tracking-widest">System Documentation</span>
+                <Link href="#" className="flex items-center gap-2 group/link px-3 py-1.5 rounded-lg hover:bg-white/[0.03] transition-all">
+                   <span className="text-[10px] font-black text-[#f5b82e] uppercase tracking-widest group-hover/link:mr-1 transition-all">System Architecture</span>
                    <ArrowUpRight className="w-2.5 h-2.5 text-[#f5b82e] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                 </Link>
               </div>
@@ -251,10 +258,8 @@ export function AnnouncementBar() {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         className="h-[38px] bg-[rgba(10,14,24,0.7)] backdrop-blur-[32px] border border-white/10 rounded-full px-6 flex items-center justify-between w-full max-w-[1080px] shadow-[0_20px_40px_rgba(0,0,0,0.5),inset_0_0_20px_rgba(245,184,46,0.02)] overflow-hidden group relative"
       >
-        {/* Soft Ambient Glow Bleed */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(245,184,46,0.03),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
 
-        {/* LEFT: Pulsing Indicator */}
         <div className="flex items-center shrink-0 relative z-10">
            <div className="relative flex items-center justify-center">
               <div className="w-1.5 h-1.5 rounded-full bg-[#f5b82e] shadow-[0_0_10px_#f5b82e] relative z-10" />
@@ -263,14 +268,12 @@ export function AnnouncementBar() {
            </div>
         </div>
 
-        {/* CENTER: Operational Message */}
         <div className="flex-1 flex justify-center relative z-10">
            <span className="text-[10.5px] text-white/60 font-bold tracking-widest uppercase">
               Operational infrastructure for institutional delivery.
            </span>
         </div>
         
-        {/* RIGHT: Compact CTA & Close */}
         <div className="flex items-center gap-5 relative z-10">
           <button className="flex items-center gap-1.5 group/btn px-3 h-[24px] rounded-lg bg-[#f5b82e]/5 border border-[#f5b82e]/10 hover:bg-[#f5b82e]/10 hover:border-[#f5b82e]/30 transition-all shadow-[0_0_15px_rgba(245,184,46,0.05)]">
              <span className="text-[8.5px] font-black text-[#f5b82e] uppercase tracking-[0.12em]">Explore Infrastructure</span>
