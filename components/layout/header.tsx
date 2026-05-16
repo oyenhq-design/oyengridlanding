@@ -17,66 +17,72 @@ const navigationData = [
     label: "Operations",
     status: "LIVE DELIVERY INFRASTRUCTURE ACTIVE",
     cta: "Explore Operations",
+    href: "/operations",
     items: [
-      { title: "Live Session Infrastructure", desc: "HD conferencing, moderation and structured operational delivery.", icon: Radio },
-      { title: "Attendance Intelligence", desc: "Automated participation tracking and session telemetry systems.", icon: Activity },
-      { title: "Operational Monitoring", desc: "Real-time oversight across facilitators, cohorts and delivery systems.", icon: Target },
-      { title: "AI Facilitation", desc: "AI-assisted moderation, summaries and engagement visibility.", icon: Bot },
+      { title: "Live Session Infrastructure", desc: "HD conferencing, moderation and structured operational delivery.", icon: Radio, href: "/operations/live-session-infrastructure" },
+      { title: "Attendance Intelligence", desc: "Automated participation tracking and session telemetry systems.", icon: Activity, href: "/operations/attendance-intelligence" },
+      { title: "Operational Monitoring", desc: "Real-time oversight across facilitators, cohorts and delivery systems.", icon: Target, href: "/operations/operational-monitoring" },
+      { title: "AI Facilitation", desc: "AI-assisted moderation, summaries and engagement visibility.", icon: Bot, href: "/operations/ai-facilitation" },
     ]
   },
   {
     label: "Programmes",
     status: "STRUCTURED PROGRAMME DELIVERY SYSTEM",
     cta: "View Programme Architecture",
+    href: "/programmes",
     items: [
-      { title: "Cohort Management", desc: "Manage participant groups, programme schedules and delivery pipelines.", icon: Boxes },
-      { title: "Curriculum Systems", desc: "Structure modules, milestones and institutional learning paths.", icon: BookOpen },
-      { title: "Assessments & Certifications", desc: "Track evaluations, grading and programme completion systems.", icon: GraduationCap },
-      { title: "Programme Analytics", desc: "Monitor delivery effectiveness and operational outcomes.", icon: LineChart },
+      { title: "Cohort Management", desc: "Manage participant groups, programme schedules and delivery pipelines.", icon: Boxes, href: "/programmes/cohort-management" },
+      { title: "Curriculum Systems", desc: "Structure modules, milestones and institutional learning paths.", icon: BookOpen, href: "/programmes/curriculum-architecture" },
+      { title: "Assessments & Certifications", desc: "Track evaluations, grading and programme completion systems.", icon: GraduationCap, href: "/programmes/delivery-workflows" },
+      { title: "Programme Analytics", desc: "Monitor delivery effectiveness and operational outcomes.", icon: LineChart, href: "/programmes/participant-operations" },
     ]
   },
   {
     label: "Intelligence",
     status: "LIVE INFRASTRUCTURE STATUS",
     cta: "View System Architecture",
+    href: "/intelligence",
     items: [
-      { title: "Operational AI", desc: "Autonomous facilitation and intelligent operational assistance.", icon: Bot },
-      { title: "Decision Layer", desc: "Data-driven institutional intelligence and operational reasoning.", icon: Brain },
-      { title: "Predictive Insights", desc: "Future-state operational modeling and coordination forecasting.", icon: LineChart },
-      { title: "Analytics Engine", desc: "Deep telemetry, reporting and institutional performance visibility.", icon: Activity },
+      { title: "Operational AI", desc: "Autonomous facilitation and intelligent operational assistance.", icon: Bot, href: "/intelligence/operational-ai" },
+      { title: "Decision Layer", desc: "Data-driven institutional intelligence and operational reasoning.", icon: Brain, href: "/intelligence/decision-layer" },
+      { title: "Predictive Insights", desc: "Future-state operational modeling and coordination forecasting.", icon: LineChart, href: "/intelligence/predictive-insights" },
+      { title: "Analytics Engine", desc: "Deep telemetry, reporting and institutional performance visibility.", icon: Activity, href: "/intelligence/analytics-engine" },
     ]
   },
   {
     label: "Solutions",
     status: "STRUCTURED DELIVERY SYSTEMS FOR MODERN INSTITUTIONS",
     cta: "Explore Solutions",
+    href: "/solutions",
     items: [
-      { title: "Training & Bootcamps", desc: "Structured programme delivery for academies and technical training systems.", icon: GraduationCap },
-      { title: "NGOs & Fellowships", desc: "Coordinate distributed cohorts, facilitators and operational workflows.", icon: Users },
-      { title: "Corporate Learning", desc: "Enterprise workforce onboarding and institutional training operations.", icon: Briefcase },
-      { title: "Government Initiatives", desc: "Infrastructure for national-scale programme coordination systems.", icon: Building2 },
+      { title: "Global Sync", desc: "Structured programme delivery for academies and technical training systems.", icon: Globe, href: "/solutions/global-sync" },
+      { title: "Coordination Grid", desc: "Coordinate distributed cohorts, facilitators and operational workflows.", icon: Network, href: "/solutions/coordination-grid" },
+      { title: "Automation Layer", desc: "Enterprise workforce onboarding and institutional training operations.", icon: Zap, href: "/solutions/automation-layer" },
+      { title: "Institutional Nodes", desc: "Infrastructure for national-scale programme coordination systems.", icon: Building2, href: "/solutions/institutional-nodes" },
     ]
   },
   {
     label: "Enterprise",
     status: "ENTERPRISE DEPLOYMENT NETWORK VERIFIED",
     cta: "Contact Enterprise Team",
+    href: "/enterprise",
     items: [
-      { title: "Government Operations", desc: "Infrastructure for national and institutional programme delivery.", icon: Building2 },
-      { title: "Enterprise Workforce Systems", desc: "Operational coordination for large-scale workforce programmes.", icon: Workflow },
-      { title: "Institutional Deployment", desc: "Custom enterprise delivery environments and governance systems.", icon: Target },
-      { title: "Dedicated Infrastructure", desc: "Private operational architecture and enterprise deployment systems.", icon: Shield },
+      { title: "Governance", desc: "Infrastructure for national and institutional programme delivery.", icon: Shield, href: "/enterprise/governance" },
+      { title: "Security & Compliance", desc: "Operational coordination for large-scale workforce programmes.", icon: Lock, href: "/enterprise/security-compliance" },
+      { title: "White-Label Infrastructure", desc: "Custom enterprise delivery environments and governance systems.", icon: Layers, href: "/enterprise/white-label-infrastructure" },
+      { title: "Global Deployment", desc: "Private operational architecture and enterprise deployment systems.", icon: Globe, href: "/enterprise/global-deployment" },
     ]
   },
   {
     label: "Infrastructure",
     status: "ENTERPRISE INFRASTRUCTURE STATUS: STABLE",
     cta: "View Infrastructure",
+    href: "/infrastructure",
     items: [
-      { title: "Multi-Region Infrastructure", desc: "Distributed operational systems with resilient deployment architecture.", icon: Globe },
-      { title: "Governance & Compliance", desc: "Enterprise-grade security, permissions and institutional governance.", icon: Lock },
-      { title: "White-Label Deployment", desc: "Deploy branded operational environments for organizations.", icon: Layers },
-      { title: "API & Integrations", desc: "Connect institutional systems with operational infrastructure.", icon: Terminal },
+      { title: "Multi-Region Systems", desc: "Distributed operational systems with resilient deployment architecture.", icon: Globe, href: "/infrastructure/multi-region-systems" },
+      { title: "Network Telemetry", desc: "Enterprise-grade security, permissions and institutional governance.", icon: Activity, href: "/infrastructure/network-telemetry" },
+      { title: "Distributed Delivery", desc: "Deploy branded operational environments for organizations.", icon: Network, href: "/infrastructure/distributed-delivery" },
+      { title: "Institutional Architecture", desc: "Connect institutional systems with operational infrastructure.", icon: Building2, href: "/infrastructure/institutional-architecture" },
     ]
   }
 ];
@@ -159,7 +165,7 @@ export function Header() {
                 </button>
               </div>
             ))}
-            <Link href="#" className="text-[10px] font-black text-white/70 hover:text-white/95 tracking-[0.06em] uppercase h-8 flex items-center px-2 transition-colors duration-500">
+            <Link href="/pricing" className="text-[10px] font-black text-white/70 hover:text-white/95 tracking-[0.06em] uppercase h-8 flex items-center px-2 transition-colors duration-500">
               Pricing
             </Link>
           </nav>
@@ -175,7 +181,7 @@ export function Header() {
                 <Search className="w-3 h-3 stroke-[1.5] group-hover:drop-shadow-[0_0_8px_rgba(232,184,74,0.4)] transition-all" />
              </button>
              
-             <Link href="#" className="text-[9.5px] font-black text-white/80 hover:text-white transition-all duration-500 tracking-widest uppercase h-[28px] px-3.5 rounded-lg bg-white/[0.03] border border-white/8 flex items-center justify-center hover:bg-white/[0.06] hover:border-[#E8B84A]/20 hover:shadow-[0_0_15px_rgba(232,184,74,0.05)] active:scale-[0.98]">
+             <Link href="/enterprise-sales" className="text-[9.5px] font-black text-white/80 hover:text-white transition-all duration-500 tracking-widest uppercase h-[28px] px-3.5 rounded-lg bg-white/[0.03] border border-white/8 flex items-center justify-center hover:bg-white/[0.06] hover:border-[#E8B84A]/20 hover:shadow-[0_0_15px_rgba(232,184,74,0.05)] active:scale-[0.98]">
                 Enterprise Sales
              </Link>
           </div>
@@ -220,7 +226,8 @@ export function Header() {
               {navigationData.find(m => m.label === activeMenu)?.items.map((item, i) => (
                 <Link 
                   key={item.title} 
-                  href="#"
+                  href={item.href}
+                  onClick={() => setActiveMenu(null)}
                   className="p-4 rounded-xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-500 group relative z-10 hover:-translate-y-0.5"
                 >
                   <div className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/5 flex items-center justify-center mb-3.5 group-hover:bg-[#E8B84A]/10 group-hover:border-[#E8B84A]/30 group-hover:shadow-[0_0_20px_rgba(232,184,74,0.1)] transition-all duration-500">
@@ -240,7 +247,11 @@ export function Header() {
                      {navigationData.find(m => m.label === activeMenu)?.status}
                    </span>
                 </div>
-                <Link href="#" className="flex items-center gap-2 group/link px-4 py-2 rounded-xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-500">
+                <Link 
+                  href={navigationData.find(m => m.label === activeMenu)?.href || "#"} 
+                  onClick={() => setActiveMenu(null)}
+                  className="flex items-center gap-2 group/link px-4 py-2 rounded-xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-500"
+                >
                    <span className="text-[11px] font-black text-[#E8B84A] uppercase tracking-widest">
                      {navigationData.find(m => m.label === activeMenu)?.cta}
                    </span>
@@ -273,7 +284,7 @@ export function Header() {
                   <h3 className="text-[11px] font-black text-[#E8B84A] uppercase tracking-[0.4em]">{menu.label}</h3>
                   <div className="grid gap-6 pl-2">
                     {menu.items.map((item) => (
-                      <Link key={item.title} href="#" className="flex items-start gap-4 group">
+                      <Link key={item.title} href={item.href} onClick={() => setMobileMenuOpen(false)} className="flex items-start gap-4 group">
                         <div className="w-7 h-7 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
                           <item.icon className="w-3.5 h-3.5 text-white/40" />
                         </div>
