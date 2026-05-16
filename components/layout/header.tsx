@@ -41,7 +41,7 @@ const navigationData = [
     ]
   },
   {
-    label: "Infrastructure",
+    label: "Solutions",
     items: [
       { title: "Global Sync", desc: "Zero-latency coordination grid.", icon: Globe },
       { title: "Coordination Grid", desc: "Distributed institutional nodes.", icon: Network },
