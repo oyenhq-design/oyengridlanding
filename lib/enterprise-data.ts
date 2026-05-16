@@ -1,4 +1,4 @@
-import { Activity, Cpu, Network, Database, Shield, Zap, Globe, Users, BarChart3, Settings, Lock, FileCheck, Layers, Boxes, Bot, LineChart, Server, Workflow, Radio, Brain, BookOpen, GraduationCap, Building2, Terminal } from "lucide-react";
+import { Activity, Cpu, Network, Database, Shield, Zap, Globe, Users, BarChart3, Settings, Lock, FileCheck, Layers, Boxes, Bot, LineChart, Server, Workflow, Radio, Brain, BookOpen, GraduationCap, Building2, Terminal, Target } from "lucide-react";
 
 export const enterpriseData: Record<string, any> = {
   "operations/live-session-infrastructure": {
