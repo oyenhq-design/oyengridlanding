@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Search, ChevronDown, Grid, X, Sparkles } from "lucide-react";
+import { Search, ChevronDown, Grid, X, LayoutGrid, Cpu, Network, Database, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useSearch } from "@/context/search-context";
@@ -18,83 +18,87 @@ export function Header() {
   }, []);
 
   const navItems = [
-    { label: "Products", hasDropdown: true },
-    { label: "AI", hasDropdown: false, hasIcon: true },
-    { label: "Solutions", hasDropdown: true },
+    { label: "Operations", hasDropdown: true },
+    { label: "Programmes", hasDropdown: true },
+    { label: "Intelligence", hasDropdown: false },
+    { label: "Infrastructure", hasDropdown: true },
+    { label: "Enterprise", hasDropdown: false },
     { label: "Pricing", hasDropdown: false }
   ];
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 right-0 z-[100] transition-all duration-500",
+      "fixed top-0 left-0 right-0 z-[100] transition-all duration-700",
       scrolled 
-        ? "bg-[rgba(4,6,12,0.72)] backdrop-blur-[18px] h-[74px] border-b border-white/5 shadow-2xl" 
-        : "bg-transparent h-[88px]"
+        ? "bg-[rgba(4,8,22,0.8)] backdrop-blur-[24px] h-[72px] border-b border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.5)]" 
+        : "bg-transparent h-[96px]"
     )}>
 
-      {/* Cinematic Gradient Background */}
+      {/* Cinematic Ambient Glow */}
       <div className={cn(
-        "absolute inset-0 z-0 transition-opacity duration-500",
+        "absolute inset-0 z-0 transition-opacity duration-700 pointer-events-none",
         scrolled ? "opacity-100" : "opacity-0"
       )}>
-        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(10,15,25,0.96)] to-[rgba(5,7,11,0.92)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(245,185,66,0.03),transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-full bg-[radial-gradient(circle_at_50%_0%,rgba(245,184,46,0.05),transparent_70%)]" />
       </div>
 
-      <div className="max-w-[1280px] mx-auto h-full flex items-center justify-between px-6 relative z-10">
+      <div className="max-w-[1450px] mx-auto h-full flex items-center justify-between px-10 relative z-10">
         
-        {/* LEFT SECTION */}
-        <div className="flex items-center gap-12">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-brand-gold rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(245,185,66,0.2)]">
-               <div className="w-3.5 h-3.5 border-2 border-black rotate-45" />
+        {/* LEFT SECTION: BRAND IDENTITY */}
+        <div className="flex items-center gap-16">
+          <Link href="/" className="flex items-center gap-3.5 group">
+            <div className="w-9 h-9 bg-gradient-to-br from-[#f5b82e] to-[#d49a20] rounded-xl flex items-center justify-center shadow-[0_10px_25px_rgba(245,184,46,0.25)] group-hover:scale-110 transition-transform duration-500">
+               <div className="w-4 h-4 border-2 border-black rotate-45 relative">
+                  <div className="absolute inset-0 bg-black/20 animate-pulse" />
+               </div>
             </div>
-            <span className="font-bold text-white text-[17px] tracking-tight">OYEN GRID</span>
+            <span className="font-bold text-white text-[19px] tracking-[-0.03em] uppercase">OYEN GRID</span>
           </Link>
 
-          {/* CENTER NAVIGATION: Exact Zoom-style density but Premium Dark */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* CENTER NAVIGATION: Operational Pillars */}
+          <nav className="hidden lg:flex items-center gap-10">
             {navItems.map((item) => (
               <Link 
                 key={item.label} 
                 href="#" 
-                className="text-[13.5px] font-medium text-white/90 hover:text-brand-gold transition-all flex items-center gap-1.5 group tracking-tight"
+                className="text-[13px] font-bold text-white/40 hover:text-white transition-all flex items-center gap-1.5 group tracking-widest uppercase relative"
               >
-                {item.hasIcon && <Sparkles className="w-3.5 h-3.5 text-brand-gold fill-brand-gold/20" />}
                 {item.label}
                 {item.hasDropdown && (
-                  <ChevronDown className="w-3 h-3 text-white/30 group-hover:text-brand-gold transition-colors" />
+                  <ChevronDown className="w-3 h-3 text-white/10 group-hover:text-[#f5b82e] transition-colors" />
                 )}
+                {/* Hover Underline Effect */}
+                <motion.div 
+                  className="absolute -bottom-1 left-0 h-[1px] bg-[#f5b82e] opacity-0 group-hover:opacity-100 transition-opacity"
+                  initial={{ width: 0 }}
+                  whileHover={{ width: "100%" }}
+                />
               </Link>
             ))}
           </nav>
         </div>
 
-        {/* RIGHT SECTION */}
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-5 pr-6 border-r border-white/5">
+        {/* RIGHT SECTION: UTILITIES & CTAs */}
+        <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 pr-8 border-r border-white/10">
              <button 
                onClick={openSearch}
-               className="text-white/40 hover:text-brand-gold transition-all"
+               className="text-white/30 hover:text-[#f5b82e] transition-all p-2 hover:bg-white/5 rounded-lg"
              >
-                <Search className="w-[17px] h-[17px]" />
+                <Search className="w-[18px] h-[18px]" />
              </button>
-             <Link href="#" className="text-[13.5px] font-medium text-white/90 flex items-center gap-1.5 hover:text-brand-gold group">
-                Meet <ChevronDown className="w-3 h-3 text-white/30 group-hover:text-brand-gold" />
+             <Link href="#" className="text-[13px] font-bold text-white/40 hover:text-white transition-all tracking-widest uppercase py-2 px-6 rounded-xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-white/10">
+                Contact Sales
              </Link>
-             <Link href="#" className="text-[13.5px] font-medium text-white/70 hover:text-white transition-colors">Sign In</Link>
-             <Link href="#" className="text-[13.5px] font-medium text-white/70 hover:text-white transition-colors">Support</Link>
           </div>
           
-          <div className="flex items-center gap-4">
-            <button className="h-[38px] px-5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-white text-[13px] font-bold transition-all hover:bg-white/[0.08] hover:border-brand-gold/30 hover:text-brand-gold">
-              Contact Sales
+          <div className="flex items-center gap-6">
+            <button className="h-[46px] px-8 rounded-xl bg-gradient-to-br from-[#f5b82e] to-[#d49a20] text-black text-[12px] font-black uppercase tracking-widest transition-all hover:shadow-[0_15px_30px_rgba(245,184,46,0.3)] hover:scale-[1.03] active:scale-[0.98]">
+              Get Started
             </button>
-            <button className="h-[38px] px-5 rounded-lg bg-brand-gold text-brand-dark text-[13px] font-black transition-all hover:shadow-[0_0_20px_rgba(245,185,66,0.4)] hover:scale-[1.02]">
-              Sign Up Free
-            </button>
-            <button className="p-2 text-white/30 hover:text-brand-gold transition-colors">
-               <Grid className="w-4 h-4" />
+            <button className="p-2 text-white/20 hover:text-[#f5b82e] transition-colors group">
+               <LayoutGrid className="w-5 h-5 group-hover:rotate-90 transition-transform duration-500" />
             </button>
           </div>
         </div>
@@ -109,29 +113,59 @@ export function AnnouncementBar() {
   if (!isVisible) return null;
 
   return (
-    <div className="pt-[88px] px-4 md:px-10 flex justify-center relative z-[60]">
+    <div className="pt-[96px] px-10 flex justify-center relative z-[60]">
       <motion.div 
-        initial={{ opacity: 0, y: -10 }}
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="h-[48px] bg-[#0E1424] border border-white/[0.06] rounded-[14px] px-5 flex items-center justify-between w-full max-w-[1280px] shadow-2xl"
+        className="h-[52px] bg-[rgba(10,14,24,0.6)] backdrop-blur-[24px] border border-white/10 rounded-[18px] px-6 flex items-center justify-between w-full max-w-[1450px] shadow-[0_30px_60px_rgba(0,0,0,0.4)] overflow-hidden group"
       >
-        <div className="flex items-center gap-6 mx-auto">
-          <span className="text-[14px] text-white/70 font-medium tracking-tight">
-            AI note-taking across platforms that's secure, personalized, and under your control.
-          </span>
+        {/* Subtle Inner Glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(245,184,46,0.05),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+        <div className="flex items-center gap-8 mx-auto relative z-10">
+          <div className="flex items-center gap-3">
+             <div className="w-2 h-2 rounded-full bg-[#f5b82e] shadow-[0_0_10px_#f5b82e] animate-pulse" />
+             <span className="text-[13px] text-white/60 font-bold tracking-tight uppercase">
+                Operational infrastructure for structured programme delivery.
+             </span>
+          </div>
           
-          <button className="h-[32px] px-5 rounded-lg bg-gradient-to-r from-[#F5B942] to-[#D89B2B] text-black text-[12px] font-black transition-all hover:scale-[1.03] hover:shadow-[0_0_15px_rgba(245,185,66,0.3)]">
-            Explore My Notes
+          <div className="h-4 w-px bg-white/10" />
+          
+          <button className="flex items-center gap-2 group/btn">
+             <span className="text-[12px] font-black text-[#f5b82e] uppercase tracking-widest">Explore Operations</span>
+             <motion.div
+               animate={{ x: [0, 4, 0] }}
+               transition={{ duration: 1.5, repeat: Infinity }}
+             >
+                <ArrowRight className="w-3.5 h-3.5 text-[#f5b82e]" />
+             </motion.div>
           </button>
         </div>
 
         <button 
           onClick={() => setIsVisible(false)}
-          className="text-white/20 hover:text-white transition-colors"
+          className="text-white/20 hover:text-white transition-colors relative z-10 p-2"
         >
           <X className="w-4 h-4" />
         </button>
       </motion.div>
     </div>
+  );
+}
+
+function ArrowRight({ className }: { className?: string }) {
+  return (
+    <svg 
+      className={className} 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="3" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
   );
 }
