@@ -8,304 +8,232 @@ import {
   ArrowUpRight, ShieldCheck, Zap, Globe2, ChevronRight, CheckCircle2,
   AlertCircle, BarChart3, TrendingUp, Search, Radio, Wifi, 
   Bell, Share2, PhoneOff, Settings, Info, Shield, Target, Play,
-  Download, FileText, FileSpreadsheet, Lock
+  Cpu, Network, Database, Lock
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const features = [
-  { title: "Operational Health Engine", icon: Activity },
-  { title: "AI Facilitation Assistant", icon: Brain },
-  { title: "Decision Intelligence", icon: Target },
-  { title: "Coordination Infrastructure", icon: Globe },
-];
-
 export function InstitutionalCommandCenter() {
   return (
-    <section className="bg-[#050816] relative py-16 overflow-hidden min-h-[900px] flex items-center">
+    <section className="bg-[#050816] relative py-24 lg:py-32 overflow-hidden min-h-[1000px] flex items-center">
       
-      {/* 1. CINEMATIC ATMOSPHERE */}
+      {/* 1. CINEMATIC ATMOSPHERE & LIGHTING */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <Image 
-          src="/institutional-atmosphere.png" 
-          alt="Atmosphere" 
-          fill 
-          className="object-cover opacity-[0.12] blur-[2px]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050816] via-transparent to-[#050816]" />
+        {/* Core Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-[radial-gradient(circle,rgba(245,184,46,0.05),transparent_70%)]" />
         
-        {/* Futuristic Grid & Lighting */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, white 0.5px, transparent 0.5px)", backgroundSize: "40px 40px" }} />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(circle_at_top,rgba(245,184,46,0.1),transparent_70%)]" />
-        <div className="absolute bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(245,184,46,0.03),transparent_60%)]" />
+        {/* Secondary Blue Accents */}
+        <div className="absolute top-[20%] right-[10%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(91,231,196,0.02),transparent_60%)]" />
+        
+        {/* Tech Grid System */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, white 0.5px, transparent 0.5px)", backgroundSize: "64px 64px" }} />
+        
+        {/* Moving Data Streams (Visual Texture) */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "100% 4px" }} />
       </div>
 
-      <div className="max-w-[1450px] mx-auto px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-[28fr_47fr_25fr] gap-8 items-stretch">
+      <div className="max-w-[1440px] mx-auto px-10 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_2fr] gap-20 items-center">
           
-          {/* LEFT COLUMN: INFORMATION & FEATURES (28%) */}
-          <div className="flex flex-col h-full justify-center">
-            <div className="mb-10">
-              <motion.span 
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                className="text-[10px] font-black text-[#f5b82e] uppercase tracking-[0.45em] mb-4 block"
-              >
-                LIVE OPERATION COMMAND
-              </motion.span>
-              <h2 className="text-[42px] font-bold text-white leading-[1.05] tracking-[-0.05em] mb-6">
-                Built for intelligent <br /> programme <span className="text-[#f5b82e] italic">delivery.</span>
+          {/* LEFT: CINEMATIC NARRATIVE */}
+          <div className="flex flex-col max-w-[500px]">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="mb-12"
+            >
+              <span className="text-[11px] font-black text-[#f5b82e] uppercase tracking-[0.5em] mb-6 block">
+                GLOBAL AI COMMAND
+              </span>
+              <h2 className="text-[64px] font-bold text-white leading-[0.9] tracking-[-0.06em] mb-10">
+                Built for <br /> intelligent <br /> 
+                <span className="text-[#f5b82e] italic relative">
+                  delivery.
+                  <div className="absolute -bottom-2 left-0 w-full h-[1px] bg-gradient-to-r from-[#f5b82e] to-transparent opacity-30" />
+                </span>
               </h2>
-              <p className="text-[14px] text-white/40 leading-relaxed font-medium max-w-[320px]">
-                OYEN GRID orchestrates global institutional programme operations with real-time intelligence and autonomous control.
+              <p className="text-[18px] text-white/40 leading-relaxed font-medium">
+                OYEN GRID is the operating system for institutional programme coordination—orchestrating global infrastructure with autonomous intelligence.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="space-y-2.5 mb-10">
-              {features.map((feature, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  className="h-[52px] px-4 rounded-[18px] flex items-center gap-4 bg-gradient-to-r from-white/[0.02] to-transparent border border-white/[0.05] hover:border-[#f5b82e]/30 hover:bg-white/[0.04] transition-all duration-500 group cursor-pointer"
-                >
-                  <div className="w-8 h-8 rounded-xl bg-[#f5b82e]/10 text-[#f5b82e] flex items-center justify-center shrink-0">
-                    <feature.icon className="w-4 h-4" />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="text-[12px] font-bold text-white/80 group-hover:text-white transition-colors tracking-tight">{feature.title}</h3>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="flex items-center gap-4">
-              <button className="h-12 px-8 rounded-2xl bg-[#f5b82e] text-black font-black text-[11px] uppercase tracking-widest flex items-center justify-center gap-2.5 hover:brightness-110 transition-all shadow-[0_15px_30px_rgba(245,184,46,0.15)] active:scale-[0.98]">
-                INITIALIZE PLATFORM
-              </button>
-              <button className="h-12 px-8 rounded-2xl bg-white/[0.02] border border-white/[0.1] text-white/60 font-black text-[11px] uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-white/[0.06] hover:text-white transition-all">
-                WATCH INFRASTRUCTURE
-              </button>
+            <div className="flex flex-col gap-8">
+              <div className="grid grid-cols-2 gap-x-12 gap-y-8">
+                 <SimpleFeature icon={Cpu} label="AI Orchestration" />
+                 <SimpleFeature icon={Network} label="Global Sync" />
+                 <SimpleFeature icon={Database} label="Knowledge Layer" />
+                 <SimpleFeature icon={Shield} label="Governance" />
+              </div>
+              
+              <div className="pt-10 flex items-center gap-8">
+                 <button className="h-16 px-10 rounded-2xl bg-[#f5b82e] text-black font-black text-[13px] uppercase tracking-widest hover:brightness-110 transition-all shadow-[0_20px_60px_rgba(245,184,46,0.2)] active:scale-95">
+                    Initialize Protocol
+                 </button>
+                 <button className="group flex items-center gap-3 text-white/40 hover:text-white transition-colors">
+                    <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#f5b82e] transition-colors">
+                       <Play className="w-4 h-4 fill-white/20 group-hover:fill-[#f5b82e]" />
+                    </div>
+                    <span className="text-[12px] font-black uppercase tracking-widest">System Preview</span>
+                 </button>
+              </div>
             </div>
           </div>
 
-          {/* CENTER COLUMN: MAIN FUTURISTIC DASHBOARD (47%) */}
-          <div className="flex flex-col gap-6">
+          {/* CENTER: DOMINANT COMMAND INTERFACE (CINEMATIC) */}
+          <div className="relative h-[700px] flex items-center justify-center">
+            {/* 1. THE CORE ORCHESTRATOR */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="rounded-[30px] bg-[#0A0E18]/80 backdrop-blur-3xl border border-white/10 overflow-hidden flex flex-col shadow-[0_40px_100px_rgba(0,0,0,0.6)] relative"
+              initial={{ opacity: 0, scale: 0.9, rotateX: 20 }}
+              whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="relative w-full aspect-[4/3] max-w-[800px] rounded-[48px] bg-[#0A0E18]/60 backdrop-blur-3xl border border-white/10 shadow-[0_80px_160px_rgba(0,0,0,0.8),inset_0_0_100px_rgba(245,184,46,0.02)] overflow-hidden flex flex-col group"
             >
+              {/* Internal Holographic Grid */}
+              <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: "linear-gradient(rgba(245,184,46,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(245,184,46,0.2) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
               
-              {/* TOP BAR */}
-              <div className="h-[52px] border-b border-white/[0.08] px-8 flex items-center justify-between bg-white/[0.02]">
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-2 text-[#f5b82e]/60">
-                    <Radio className="w-3.5 h-3.5" />
-                    <span className="text-[11px] font-bold tracking-tight">Programme Sync • CL04</span>
-                  </div>
-                  <div className="flex items-center gap-2 px-2 py-1 rounded-md bg-red-500/10 border border-red-500/20">
-                    <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_#ef4444]" />
-                    <span className="text-[8px] font-black text-red-500 uppercase tracking-widest">LIVE</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-6">
-                  <div className="flex items-center gap-2 text-white/20">
-                    <Clock className="w-3.5 h-3.5" />
-                    <span className="text-[11px] font-mono tracking-widest">01:24:58</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-white/20">
-                    <Wifi className="w-3.5 h-3.5" />
-                    <span className="text-[11px] font-mono uppercase">Connected</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-white/20">
-                    <Users className="w-3.5 h-3.5" />
-                    <span className="text-[11px] font-mono">1,240</span>
-                  </div>
-                  <Bell className="w-4 h-4 text-white/30 cursor-pointer" />
-                </div>
+              {/* Top Operational Bar */}
+              <div className="h-[64px] border-b border-white/[0.08] px-10 flex items-center justify-between bg-white/[0.02]">
+                 <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-2.5">
+                       <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_#10b981]" />
+                       <span className="text-[11px] font-black text-white/40 uppercase tracking-[0.3em]">SYSTEM_STABLE</span>
+                    </div>
+                    <div className="h-4 w-px bg-white/10" />
+                    <span className="text-[12px] font-bold text-white/70">ORCHESTRATION_CLUSTER_04</span>
+                 </div>
+                 <div className="flex items-center gap-6">
+                    <div className="text-[12px] font-mono text-white/30 tracking-widest">LATENCY: 0.04ms</div>
+                    <Settings className="w-4 h-4 text-white/20" />
+                 </div>
               </div>
 
-              {/* MAIN PANEL: VIDEO & NODES */}
-              <div className="h-[360px] flex p-4 gap-4 bg-black/40 relative">
-                {/* Facilitator Video Panel */}
-                <div className="flex-1 relative rounded-[24px] overflow-hidden border border-white/[0.08] bg-[#0D1018] group/video">
-                  <Image 
-                    src="/institutional-leader-v2.png" 
-                    alt="Facilitator" 
-                    fill 
-                    className="object-cover opacity-90 transition-transform duration-[30s] group-hover/video:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent" />
-                  
-                  {/* Overlay Label */}
-                  <div className="absolute top-5 left-6 px-3 py-1.5 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#f5b82e] shadow-[0_0_10px_#f5b82e]" />
-                    <span className="text-[9px] font-black text-white uppercase tracking-[0.2em]">OPERATIONAL FACILITATOR</span>
-                  </div>
-
-                  <div className="absolute bottom-6 left-8">
-                    <div className="text-[18px] font-bold text-white tracking-tighter leading-tight mb-1">Director of Institutional Operations</div>
-                    <div className="text-[10px] font-black text-[#f5b82e]/50 uppercase tracking-[0.3em]">OYEN GRID LIVE SYSTEM</div>
-                  </div>
-                </div>
-
-                {/* Participant Node Cards (Stacked Right) */}
-                <div className="w-[180px] flex flex-col gap-2 overflow-hidden">
-                  {[1, 2, 3, 4].map(p => (
+              {/* Central Visualization: Global Infrastructure Map */}
+              <div className="flex-1 relative">
+                 <Image 
+                   src="/operational-map.png" 
+                   alt="Global Sync" 
+                   fill 
+                   className="object-cover opacity-[0.15] grayscale transition-transform duration-[60s] group-hover:scale-110"
+                 />
+                 {/* Floating Orchestration HUDs */}
+                 <div className="absolute inset-0 flex items-center justify-center">
                     <motion.div 
-                      key={p} 
-                      whileHover={{ x: -4, backgroundColor: "rgba(255,255,255,0.06)" }}
-                      className="h-[64px] rounded-[18px] bg-white/[0.02] border border-white/[0.05] p-3 flex items-center gap-3 transition-all duration-300"
+                      animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
+                      transition={{ duration: 4, repeat: Infinity }}
+                      className="w-[400px] h-[400px] rounded-full border border-[#f5b82e]/20 flex items-center justify-center"
                     >
-                      <div className="w-9 h-9 rounded-xl bg-white/5 overflow-hidden relative grayscale opacity-30">
-                        <Image src="/institutional-participants.png" alt="Node" fill className="object-cover" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="text-[11px] font-bold text-white/80 truncate">Node Cluster {p}</div>
-                        <div className="flex items-center gap-1.5 mt-0.5">
-                          <div className="w-1 h-1 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.3)] animate-pulse" />
-                          <span className="text-[8px] text-white/20 font-black uppercase tracking-widest">ACTIVE</span>
-                        </div>
-                      </div>
+                       <div className="w-[300px] h-[300px] rounded-full border border-[#f5b82e]/10 flex items-center justify-center">
+                          <div className="w-[200px] h-[200px] rounded-full border border-[#f5b82e]/5" />
+                       </div>
                     </motion.div>
-                  ))}
-                </div>
+                 </div>
+
+                 {/* Core Intelligence Overlay */}
+                 <div className="absolute bottom-12 left-12 right-12 flex items-end justify-between">
+                    <div className="space-y-4">
+                       <div className="text-[11px] font-black text-white/20 uppercase tracking-[0.4em]">Autonomous Facilitator</div>
+                       <div className="flex items-center gap-6">
+                          <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 overflow-hidden relative">
+                             <Image src="/institutional-leader-v2.png" alt="Facilitator" fill className="object-cover opacity-60" />
+                          </div>
+                          <div>
+                             <div className="text-[18px] font-bold text-white mb-1">Director of Systems</div>
+                             <div className="flex items-center gap-2">
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#f5b82e]" />
+                                <span className="text-[10px] font-black text-[#f5b82e]/60 uppercase tracking-widest">Operational Core</span>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                    <div className="text-right space-y-2">
+                       <div className="text-[32px] font-bold text-white tracking-tighter">1,240+</div>
+                       <div className="text-[11px] font-black text-white/20 uppercase tracking-[0.2em]">Live Nodes Connected</div>
+                    </div>
+                 </div>
               </div>
 
-              {/* BOTTOM CONTROL BAR */}
-              <div className="h-[60px] border-t border-white/[0.08] px-8 flex items-center justify-between bg-white/[0.01] backdrop-blur-2xl">
-                <div className="flex items-center gap-3">
-                  <ControlBtn icon={Mic} active />
-                  <ControlBtn icon={Video} active />
-                  <ControlBtn icon={Share2} />
-                  <div className="h-6 w-px bg-white/10 mx-1" />
-                  <ControlBtn icon={Users} />
-                  <ControlBtn icon={MessageSquare} />
-                  <ControlBtn icon={Smile} />
-                  <ControlBtn icon={Settings} />
-                </div>
-                <button className="h-9 px-6 rounded-xl bg-red-500/10 text-red-500 text-[10px] font-black uppercase tracking-widest border border-red-500/20 hover:bg-red-500 hover:text-white transition-all shadow-lg active:scale-95">
-                  END SYNC
-                </button>
+              {/* Bottom Navigation System */}
+              <div className="h-[72px] border-t border-white/[0.08] px-10 flex items-center gap-10 bg-black/40">
+                 <NavBtn icon={Activity} label="Monitoring" active />
+                 <NavBtn icon={Brain} label="Intelligence" />
+                 <NavBtn icon={Globe} label="Network" />
+                 <NavBtn icon={Lock} label="Security" />
+                 <div className="ml-auto flex items-center gap-4">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">Secure_Protocol_Active</span>
+                 </div>
               </div>
             </motion.div>
 
-            {/* BOTTOM ANALYTICS (3 Cards) */}
-            <div className="grid grid-cols-3 gap-6 h-[180px]">
-              {/* Delivery Timeline */}
-              <div className="rounded-[24px] bg-[#0A0E18]/60 backdrop-blur-xl border border-white/5 p-5 flex flex-col justify-between shadow-2xl relative overflow-hidden group/timeline">
-                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#f5b82e]/20 to-transparent" />
-                <div className="flex items-center gap-3 mb-4">
-                  <Clock className="w-4 h-4 text-[#f5b82e]" />
-                  <span className="text-[11px] font-black text-white/60 uppercase tracking-[0.2em]">Delivery Timeline</span>
-                </div>
-                <div className="space-y-4">
-                  <TimelineItem label="Protocol_A" status="complete" />
-                  <TimelineItem label="Operational_Sync" status="active" />
-                  <TimelineItem label="Sync_Output" status="pending" />
-                </div>
-              </div>
-
-              {/* Session Health */}
-              <div className="rounded-[24px] bg-[#0A0E18]/60 backdrop-blur-xl border border-white/5 p-5 flex flex-col justify-between shadow-2xl group/progress">
-                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#f5b82e]/20 to-transparent" />
-                <div className="flex items-center gap-3 mb-2">
-                  <Activity className="w-4 h-4 text-[#f5b82e]" />
-                  <span className="text-[11px] font-black text-white/60 uppercase tracking-[0.2em]">Session Health</span>
-                </div>
-                <div className="flex items-center gap-5 pt-1">
-                  <div className="relative w-16 h-16 flex items-center justify-center">
-                    <svg className="w-full h-full -rotate-90">
-                      <circle cx="32" cy="32" r="28" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="6" />
-                      <circle cx="32" cy="32" r="28" fill="none" stroke="#f5b82e" strokeWidth="6" strokeDasharray="176" strokeDashoffset="44" className="drop-shadow-[0_0_8px_#f5b82e]" />
-                    </svg>
-                    <span className="absolute text-[13px] font-bold text-white">75%</span>
-                  </div>
-                  <div className="flex-1 space-y-1.5">
-                    <div className="text-[9px] text-white/30 font-black uppercase tracking-widest">Active_Node</div>
-                    <div className="text-[12px] font-bold text-white leading-tight">Module 04: SCALE</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Coordination Map */}
-              <div className="rounded-[24px] bg-[#0A0E18]/60 backdrop-blur-xl border border-white/5 relative overflow-hidden group/map shadow-2xl">
-                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#f5b82e]/20 to-transparent" />
-                <Image src="/operational-map.png" alt="Map" fill className="object-cover opacity-[0.2] grayscale" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E18] via-transparent to-transparent" />
-                <div className="absolute top-5 left-6 flex items-center gap-3">
-                  <Globe className="w-4 h-4 text-[#f5b82e]" />
-                  <span className="text-[11px] font-black text-white/60 uppercase tracking-[0.2em]">Coordination Map</span>
-                </div>
-                <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between">
-                   <div className="flex -space-x-1.5">
-                      {[1,2,3].map(i => <div key={i} className="w-5 h-5 rounded-full bg-[#f5b82e]/30 border border-[#0A0E18]" />)}
-                   </div>
-                   <div className="text-[9px] font-mono text-[#f5b82e] tracking-widest">142_NODES</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT COLUMN: INTELLIGENCE CARDS (25%) */}
-          <div className="flex flex-col gap-6">
-            {/* Card 1: Operational Intelligence */}
-            <div className="p-6 rounded-[24px] bg-[#0A0E18] border border-white/10 space-y-5 shadow-2xl relative overflow-hidden">
-               <div className="flex items-center justify-between relative z-10">
+            {/* 2. FLOATING INTELLIGENCE CARDS (Absolute Positioned around core) */}
+            
+            {/* Card: Intelligence Stream */}
+            <motion.div 
+              initial={{ opacity: 0, x: 40, y: -40 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="absolute top-[10%] -right-10 w-[280px] p-6 rounded-[24px] bg-[#0A0E18]/40 backdrop-blur-2xl border border-white/10 shadow-2xl space-y-4"
+            >
+               <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-3">
-                     <ShieldCheck className="w-4 h-4 text-[#f5b82e]" />
-                     <span className="text-[11px] font-black text-white/60 uppercase tracking-[0.3em]">Operational Intel</span>
+                     <Brain className="w-4 h-4 text-[#f5b82e]" />
+                     <span className="text-[10px] font-black text-white/60 uppercase tracking-[0.3em]">AI Stream</span>
                   </div>
-                  <span className="text-[24px] font-bold text-white tracking-tighter">94%</span>
+                  <div className="px-2 py-0.5 rounded bg-[#f5b82e]/10 text-[#f5b82e] text-[8px] font-black uppercase">Active</div>
                </div>
-               <div className="grid grid-cols-2 gap-3 relative z-10">
-                  <HealthStat label="Engagement" val="88%" />
-                  <HealthStat label="Attendance" val="94%" />
-                  <HealthStat label="Response" val="92%" />
-                  <HealthStat label="Latency" val="12ms" />
+               <div className="text-[12px] text-white/50 leading-relaxed font-medium italic">
+                  "Network synchronization at 99.8%. Orchestrating next delivery sequence in Cluster 04."
                </div>
-            </div>
+               <div className="pt-2 border-t border-white/5 flex items-center justify-between">
+                  <span className="text-[10px] text-white/20 font-bold uppercase tracking-widest">Confidence</span>
+                  <span className="text-[10px] text-[#f5b82e] font-bold">98%</span>
+               </div>
+            </motion.div>
 
-            {/* Card 2: AI Facilitator */}
-            <div className="p-6 rounded-[24px] bg-[#0A0E18] border border-white/10 space-y-4 shadow-2xl">
-               <div className="flex items-center gap-3">
-                  <Brain className="w-4.5 h-4.5 text-[#f5b82e]" />
-                  <span className="text-[11px] font-black text-white/60 uppercase tracking-[0.3em]">AI Facilitator</span>
+            {/* Card: Operational Health */}
+            <motion.div 
+              initial={{ opacity: 0, x: -40, y: 40 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="absolute -bottom-10 -left-10 w-[240px] p-6 rounded-[24px] bg-[#0A0E18]/40 backdrop-blur-2xl border border-white/10 shadow-2xl space-y-4"
+            >
+               <div className="flex items-center gap-3 mb-2">
+                  <Activity className="w-4 h-4 text-[#f5b82e]" />
+                  <span className="text-[10px] font-black text-white/60 uppercase tracking-[0.3em]">System Health</span>
                </div>
-               <div className="p-4 rounded-xl bg-[#f5b82e]/5 border border-[#f5b82e]/10 text-[12px] text-white/70 leading-relaxed font-medium italic">
-                  "Engagement drop detected in Cluster_04. Initiating alignment protocol B."
+               <div className="flex items-end gap-3">
+                  <div className="text-[32px] font-bold text-white tracking-tighter leading-none">94.8%</div>
+                  <TrendingUp className="w-4 h-4 text-emerald-500 mb-1" />
                </div>
-               <button className="w-full h-10 rounded-xl bg-[#f5b82e] text-black text-[11px] font-black uppercase tracking-widest hover:brightness-110 transition-all shadow-xl active:scale-95">
-                  EXECUTE PROTOCOL
-               </button>
-            </div>
+               <div className="space-y-1.5">
+                  <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                     <div className="h-full w-[94.8%] bg-[#f5b82e]" />
+                  </div>
+                  <div className="text-[9px] text-white/20 font-bold uppercase tracking-widest">Uptime Performance</div>
+               </div>
+            </motion.div>
 
-            {/* Card 3: Decision Layer */}
-            <div className="p-6 rounded-[24px] bg-[#0A0E18] border border-white/10 space-y-4 shadow-2xl">
-               <div className="flex items-center gap-3">
-                  <Layers className="w-4.5 h-4.5 text-[#f5b82e]" />
-                  <span className="text-[11px] font-black text-white/60 uppercase tracking-[0.3em]">Decision Layer</span>
+            {/* Card: Live Sync Nodes */}
+            <motion.div 
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="absolute -bottom-16 right-20 w-[320px] p-6 rounded-[32px] bg-[#0A0E18]/40 backdrop-blur-2xl border border-white/10 shadow-2xl"
+            >
+               <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                     <Radio className="w-4 h-4 text-[#f5b82e]" />
+                     <span className="text-[10px] font-black text-white/60 uppercase tracking-[0.3em]">Live Node Sync</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-[#f5b82e]/60">0.04ms</span>
                </div>
-               <div className="space-y-2.5">
-                  <StatusRow label="Engagement Protocol" status="LIVE" />
-                  <StatusRow label="Institutional Alignment" status="HIGH" />
-                  <StatusRow label="Sync Infrastructure" status="LIVE" />
+               <div className="flex gap-2">
+                  {[1,2,3,4,5,6].map(i => (
+                    <div key={i} className="flex-1 h-8 rounded-lg bg-white/[0.03] border border-white/5 flex items-center justify-center">
+                       <div className="w-1.5 h-1.5 rounded-full bg-[#f5b82e] animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />
+                    </div>
+                  ))}
                </div>
-            </div>
-
-            {/* Card 4: Live Outputs */}
-            <div className="p-6 rounded-[24px] bg-[#0A0E18] border border-white/10 space-y-4 shadow-2xl">
-               <div className="flex items-center gap-3">
-                  <FileCheck className="w-4.5 h-4.5 text-[#f5b82e]" />
-                  <span className="text-[11px] font-black text-white/60 uppercase tracking-[0.3em]">Live Outputs</span>
-               </div>
-               <div className="space-y-2">
-                  <FileRow label="Session_Sync_Report.pdf" icon={FileText} />
-                  <FileRow label="Institutional_Audit.csv" icon={FileSpreadsheet} />
-                  <FileRow label="Governance_Log_04.pdf" icon={Lock} />
-               </div>
-            </div>
+            </motion.div>
           </div>
 
         </div>
@@ -314,70 +242,25 @@ export function InstitutionalCommandCenter() {
   );
 }
 
-function ControlBtn({ icon: Icon, active = false }: { icon: any, active?: boolean }) {
+function SimpleFeature({ icon: Icon, label }: { icon: any, label: string }) {
   return (
-    <button className={cn(
-      "w-[36px] h-[36px] rounded-full flex items-center justify-center transition-all duration-300 relative group",
-      active ? "bg-white/10 text-white border border-white/10 shadow-lg" : "bg-transparent text-white/20 hover:bg-white/5 hover:text-white"
-    )}>
-      <Icon className="w-4 h-4" />
-      {active && <div className="absolute top-0 right-0 w-1.5 h-1.5 rounded-full bg-[#f5b82e]/60 blur-[1px]" />}
-    </button>
-  );
-}
-
-function TimelineItem({ label, status }: { label: string, status: "complete" | "active" | "pending" }) {
-  return (
-    <div className="flex items-center gap-3">
-      <div className={cn(
-        "w-1.5 h-1.5 rounded-full shrink-0 transition-all duration-500 relative",
-        status === "complete" ? "bg-[#f5b82e]" : status === "active" ? "bg-[#f5b82e] shadow-[0_0_8px_#f5b82e] animate-pulse" : "bg-white/10"
-      )}>
-        {status === "active" && <div className="absolute inset-0 bg-[#f5b82e] animate-ping opacity-30 rounded-full" />}
+    <div className="flex items-center gap-4 group cursor-default">
+      <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center group-hover:border-[#f5b82e] transition-colors duration-500">
+         <Icon className="w-4.5 h-4.5 text-white/30 group-hover:text-[#f5b82e] transition-colors" />
       </div>
-      <span className={cn(
-        "text-[10px] font-bold tracking-tight uppercase",
-        status === "active" ? "text-white" : "text-white/30"
-      )}>{label}</span>
+      <span className="text-[13px] font-bold text-white/50 group-hover:text-white transition-colors tracking-tight">{label}</span>
     </div>
   );
 }
 
-function HealthStat({ label, val }: { label: string, val: string }) {
+function NavBtn({ icon: Icon, label, active = false }: { icon: any, label: string, active?: boolean }) {
   return (
-    <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
-      <div className="text-[9px] text-white/20 font-black uppercase tracking-widest mb-1">{label}</div>
-      <div className="text-[13px] font-bold text-white">{val}</div>
-    </div>
-  );
-}
-
-function StatusRow({ label, status }: { label: string, status: "LIVE" | "HIGH" }) {
-  return (
-    <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.02] border border-white/5">
-       <span className="text-[10px] font-bold text-white/50">{label}</span>
-       <div className="flex items-center gap-1.5">
-          <div className={cn(
-            "w-1 h-1 rounded-full",
-            status === "LIVE" ? "bg-emerald-500 animate-pulse" : "bg-orange-500"
-          )} />
-          <span className={cn(
-            "text-[9px] font-black tracking-widest",
-            status === "LIVE" ? "text-emerald-500" : "text-orange-500"
-          )}>{status}</span>
-       </div>
-    </div>
-  );
-}
-
-function FileRow({ label, icon: Icon }: { label: string, icon: any }) {
-  return (
-    <div className="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.02] border border-white/5 group hover:border-[#f5b82e]/40 hover:bg-white/[0.04] transition-all cursor-pointer">
-       <div className="flex items-center gap-2.5">
-          <Icon className="w-3.5 h-3.5 text-white/20 group-hover:text-[#f5b82e] transition-colors" />
-          <span className="text-[10px] font-bold text-white/40 group-hover:text-white transition-colors truncate max-w-[120px]">{label}</span>
-       </div>
-       <Download className="w-3 h-3 text-white/10 group-hover:text-[#f5b82e] transition-all" />
+    <div className={cn(
+      "flex items-center gap-3 cursor-pointer group transition-all",
+      active ? "opacity-100" : "opacity-30 hover:opacity-100"
+    )}>
+       <Icon className={cn("w-4 h-4", active ? "text-[#f5b82e]" : "text-white")} />
+       <span className="text-[10px] font-black uppercase tracking-[0.2em]">{label}</span>
     </div>
   );
 }
