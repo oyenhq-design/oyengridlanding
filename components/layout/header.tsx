@@ -110,24 +110,24 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-[100] transition-all duration-700",
         scrolled 
-          ? "bg-[rgba(4,8,22,0.88)] backdrop-blur-[24px] h-[60px] border-b border-white/5 shadow-2xl" 
-          : "bg-transparent h-[76px]"
+          ? "bg-[rgba(4,8,22,0.82)] backdrop-blur-[32px] h-[56px] border-b border-white/5 shadow-2xl" 
+          : "bg-transparent h-[70px]"
       )}
     >
-      <div className="max-w-[1450px] mx-auto h-full flex items-center justify-between px-8 relative z-10">
+      <div className="max-w-[1400px] mx-auto h-full flex items-center justify-between px-8 relative z-10">
         
-        {/* LEFT: LOGO & PRIMARY NAV */}
-        <div className="flex items-center gap-10 h-full">
+        {/* LEFT: LOGO & PRIMARY NAV - ARCHITECTURAL GROUPING */}
+        <div className="flex items-center gap-8 h-full">
           <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <div className="w-7 h-7 bg-gradient-to-br from-[#f5b82e] to-[#d49a20] rounded-[8px] flex items-center justify-center shadow-[0_4px_12px_rgba(245,184,46,0.2)] group-hover:scale-105 transition-transform duration-500 relative overflow-hidden">
-               <div className="w-3 h-3 border-[1.5px] border-black rotate-45" />
+            <div className="w-5.5 h-5.5 bg-gradient-to-br from-[#f5b82e] to-[#d49a20] rounded-[6px] flex items-center justify-center shadow-[0_4px_12px_rgba(245,184,46,0.2)] group-hover:scale-105 transition-transform duration-500 relative overflow-hidden">
+               <div className="w-2 h-2 border-[1.5px] border-black rotate-45" />
                <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-            <span className="font-bold text-white text-[15px] tracking-tight uppercase">OYEN GRID</span>
+            <span className="font-bold text-white text-[13px] tracking-tight uppercase">OYEN GRID</span>
           </Link>
 
-          {/* DESKTOP NAVIGATION */}
-          <nav className="hidden lg:flex items-center gap-1 h-full">
+          {/* CONNECTED NAVIGATION RHYTHM */}
+          <nav className="hidden lg:flex items-center gap-[28px] h-full">
             {navigationData.map((menu) => (
               <div 
                 key={menu.label} 
@@ -135,40 +135,45 @@ export function Header() {
                 onMouseEnter={() => setActiveMenu(menu.label)}
               >
                 <button className={cn(
-                  "text-[11px] font-bold tracking-wider uppercase h-8 px-3 rounded-lg flex items-center gap-1.5 transition-all group",
-                  activeMenu === menu.label ? "text-[#f5b82e] bg-white/[0.04]" : "text-white/50 hover:text-white"
+                  "text-[10px] font-black tracking-[0.06em] uppercase h-8 flex items-center gap-1 transition-all group",
+                  activeMenu === menu.label ? "text-[#f5b82e]" : "text-white/30 hover:text-white"
                 )}>
                   {menu.label}
-                  <ChevronDown className={cn("w-2.5 h-2.5 transition-transform duration-300 opacity-30 group-hover:opacity-100", activeMenu === menu.label && "rotate-180")} />
+                  <ChevronDown className={cn("w-1.5 h-1.5 transition-transform duration-300 opacity-10 group-hover:opacity-50", activeMenu === menu.label && "rotate-180 text-[#f5b82e] opacity-100")} />
                 </button>
               </div>
             ))}
-            <Link href="#" className="text-[11px] font-bold text-white/50 hover:text-white tracking-wider uppercase px-3 h-8 flex items-center">
+            <Link href="#" className="text-[10px] font-black text-white/30 hover:text-white tracking-[0.06em] uppercase h-8 flex items-center">
               Pricing
             </Link>
           </nav>
         </div>
 
-        {/* RIGHT: UTILITIES */}
-        <div className="flex items-center gap-4">
-          <div className="hidden lg:flex items-center gap-4 pr-4 border-r border-white/5 h-8">
+        {/* RIGHT: STRUCTURED UTILITIES - ARCHITECTURAL SEQUENCE */}
+        <div className="flex items-center gap-5">
+          <div className="hidden lg:flex items-center gap-5 pr-5 h-8">
              <button 
                onClick={openSearch}
-               className="text-white/30 hover:text-[#f5b82e] transition-all p-1.5 hover:bg-white/5 rounded-md active:scale-90"
+               className="text-white/20 hover:text-[#f5b82e] transition-all p-1.5 hover:bg-white/5 rounded-lg active:scale-90 group"
              >
-                <Search className="w-4 h-4" />
+                <Search className="w-3 h-3 stroke-[1.5] group-hover:drop-shadow-[0_0_8px_rgba(245,184,46,0.2)] transition-all" />
              </button>
-             <Link href="#" className="text-[11px] font-bold text-white/40 hover:text-white transition-all tracking-wider uppercase h-[32px] px-4 rounded-lg bg-white/[0.02] border border-white/5 flex items-center justify-center hover:bg-white/[0.05] hover:border-white/10 shadow-lg">
-                Contact Sales
+             
+             <Link href="#" className="text-[9.5px] font-black text-white/30 hover:text-white transition-all tracking-widest uppercase h-[28px] px-3.5 rounded-lg bg-white/[0.02] border border-white/5 flex items-center justify-center hover:bg-white/[0.05] hover:border-white/10 active:scale-[0.98]">
+                Enterprise Sales
              </Link>
           </div>
           
+          <div className="hidden lg:block w-px h-3.5 bg-white/10" />
+          
           <div className="flex items-center gap-3">
-            <button className="h-[32px] px-5 rounded-lg bg-gradient-to-br from-[#f5b82e] via-[#f5b82e] to-[#d49a20] text-black text-[10px] font-black uppercase tracking-widest transition-all hover:shadow-[0_8px_20px_rgba(245,184,46,0.3)] hover:scale-[1.02] active:scale-[0.98] shadow-xl">
-              Get Started
+            <button className="h-[28px] px-4 rounded-lg bg-gradient-to-br from-[#f5b82e] via-[#f5b82e] to-[#d49a20] text-black text-[9px] font-black uppercase tracking-[0.08em] transition-all hover:shadow-[0_8px_20px_rgba(245,184,46,0.2)] hover:scale-[1.02] active:scale-[0.98] shadow-xl relative overflow-hidden group">
+              <span className="relative z-10">Get Started</span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
             </button>
-            <button className="hidden lg:flex p-1.5 text-white/15 hover:text-[#f5b82e] transition-colors group">
-               <LayoutGrid className="w-4 h-4 group-hover:rotate-90 transition-transform duration-500" />
+            
+            <button className="hidden lg:flex p-1.5 text-white/5 hover:text-[#f5b82e] transition-colors group">
+               <LayoutGrid className="w-3.5 h-3.5 group-hover:rotate-90 transition-transform duration-500" />
             </button>
             <button 
               onClick={() => setMobileMenuOpen(true)}
@@ -179,7 +184,7 @@ export function Header() {
           </div>
         </div>
 
-        {/* MEGA MENU DROPDOWN: STANDARDIZED PREMIUM PASS */}
+        {/* MEGA MENU DROPDOWN */}
         <AnimatePresence>
           {activeMenu && (
             <motion.div
@@ -187,14 +192,12 @@ export function Header() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.99 }}
               onMouseLeave={() => setActiveMenu(null)}
-              className="absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 w-[calc(100%-120px)] max-w-[1200px] bg-[rgba(3,8,20,0.58)] backdrop-blur-[22px] border border-white/10 rounded-[28px] shadow-[0_40px_100px_rgba(0,0,0,0.6)] p-6 grid grid-cols-2 lg:grid-cols-4 gap-4 z-[110] overflow-hidden"
+              className="absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 w-[calc(100%-120px)] max-w-[1150px] bg-[rgba(3,8,20,0.58)] backdrop-blur-[22px] border border-white/10 rounded-[28px] shadow-[0_40px_100px_rgba(0,0,0,0.6)] p-6 grid grid-cols-2 lg:grid-cols-4 gap-4 z-[110] overflow-hidden"
             >
-              {/* Top Edge Highlight */}
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
               
-              {/* Center Radial Glow Bloom */}
               <div className="absolute inset-0 pointer-events-none">
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(245,184,46,0.04),transparent_70%)] opacity-60" />
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(245,184,46,0.03),transparent_70%)] opacity-60" />
               </div>
 
               {navigationData.find(m => m.label === activeMenu)?.items.map((item, i) => (
@@ -209,12 +212,10 @@ export function Header() {
                   <h4 className="text-[13px] font-bold text-white mb-1 tracking-tight group-hover:text-[#f5b82e] transition-colors">{item.title}</h4>
                   <p className="text-[11px] text-white/30 leading-relaxed font-medium group-hover:text-white/50 transition-colors">{item.desc}</p>
                   
-                  {/* Hover Accent Line */}
                   <div className="absolute bottom-2 left-4 right-4 h-px bg-gradient-to-r from-transparent via-[#f5b82e]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               ))}
               
-              {/* Standardized Bottom Status Bar */}
               <div className="lg:col-span-4 mt-4 pt-5 border-t border-white/5 flex items-center justify-between relative z-10 px-2">
                 <div className="flex items-center gap-3">
                    <div className="w-1.5 h-1.5 rounded-full bg-[#f5b82e] animate-pulse shadow-[0_0_10px_#f5b82e]" />
