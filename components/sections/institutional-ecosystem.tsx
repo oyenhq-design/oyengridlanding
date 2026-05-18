@@ -14,7 +14,7 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="hero-section-institutional flex items-center pt-28 pb-20 border-b border-white/5 overflow-hidden">
+    <section className="hero-section-institutional flex items-center pt-20 pb-16 border-b border-white/5 overflow-hidden">
       
       <div className="max-w-[1280px] mx-auto px-[48px] w-full grid grid-cols-[0.95fr_1.05fr] gap-[40px] items-center relative z-[2]">
         
@@ -37,12 +37,12 @@ export function HeroInstitutional() {
               OYEN GRID helps organisations coordinate trainers, participants, and programme operations through one unified system of intelligence and real-time visibility.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 mt-12">
-              <button className="btn-institutional-primary px-[30px] h-[54px]">
+            <div className="flex flex-wrap items-center gap-4 mt-8">
+              <button className="btn-institutional-primary px-[24px]">
                 Initialize Infrastructure
               </button>
-              <button className="btn-institutional-secondary group px-[30px] h-[54px]">
-                Talk to Architects <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <button className="btn-institutional-secondary group px-[24px]">
+                Talk to Architects <ArrowRight className="ml-2 w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
 
@@ -98,9 +98,9 @@ export function PlatformOverview() {
             <div className="grid sm:grid-cols-2 gap-4">
               {capabilities.map((cap, i) => (
                 <div key={i} className="card-institutional">
-                  <cap.icon className="w-5 h-5 text-brand-gold/60 mb-4" />
-                  <h4 className="text-[15px] font-bold text-white mb-2">{cap.title}</h4>
-                  <p className="text-[11px] text-white/30 leading-relaxed">{cap.desc}</p>
+                  <cap.icon className="w-4.5 h-4.5 text-brand-gold/60 mb-3" />
+                  <h4 className="text-[14px] font-bold text-white mb-1.5">{cap.title}</h4>
+                  <p className="text-[10px] text-white/40 leading-relaxed">{cap.desc}</p>
                 </div>
               ))}
             </div>
@@ -108,7 +108,7 @@ export function PlatformOverview() {
 
           {/* RIGHT: Contained Image */}
           <div className="flex justify-center lg:justify-end">
-             <div className="relative w-full max-w-[520px] h-[380px] rounded-[22px] overflow-hidden border border-white/10 shadow-2xl">
+             <div className="relative w-full max-w-[460px] h-[340px] rounded-[20px] overflow-hidden border border-white/10 shadow-2xl">
                 <Image 
                   src="/section-2-bg.png" 
                   alt="Platform" 
@@ -118,13 +118,13 @@ export function PlatformOverview() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#050816] via-transparent to-transparent" />
                 
                 {/* Floating Detail */}
-                <div className="absolute top-8 left-8 glass-panel-institutional p-4 flex items-center gap-4">
-                   <div className="w-8 h-8 rounded-lg bg-brand-gold/10 flex items-center justify-center">
-                      <Activity className="w-4 h-4 text-brand-gold" />
+                <div className="absolute top-6 left-6 glass-panel-institutional p-3.5 flex items-center gap-3">
+                   <div className="w-7 h-7 rounded-[6px] bg-brand-gold/10 flex items-center justify-center">
+                      <Activity className="w-3.5 h-3.5 text-brand-gold" />
                    </div>
                    <div>
-                      <div className="text-[10px] font-black text-white/40 uppercase tracking-widest">Active Sync</div>
-                      <div className="text-[14px] font-bold text-white">99.9% Uptime</div>
+                      <div className="text-[9px] font-black text-white/40 uppercase tracking-widest">Active Sync</div>
+                      <div className="text-[13px] font-bold text-white">99.9% Uptime</div>
                    </div>
                 </div>
              </div>
@@ -144,7 +144,7 @@ export function OperationalControlCenter() {
           
           {/* LEFT: Contained Image (Visual First) */}
           <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
-             <div className="relative w-full max-w-[520px] h-[380px] rounded-[22px] overflow-hidden border border-white/10 shadow-2xl">
+             <div className="relative w-full max-w-[460px] h-[340px] rounded-[20px] overflow-hidden border border-white/10 shadow-2xl">
                 <Image 
                   src="/section-3-bg.png" 
                   alt="Operations" 

@@ -79,7 +79,7 @@ export function FooterPremium() {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-[#02040A] to-[#010205] relative overflow-hidden pt-32 pb-12 border-t border-white/[0.04]">
+    <footer className="bg-gradient-to-b from-[#02040A] to-[#010205] relative overflow-hidden pt-24 pb-10 border-t border-white/[0.04]">
       {/* AMBIENT BACKGROUND LAYER */}
       <div className="absolute inset-0 pointer-events-none">
          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.02),transparent_70%)] opacity-80" />
@@ -90,7 +90,7 @@ export function FooterPremium() {
       <div className="max-w-[1400px] mx-auto px-8 relative z-10">
         
         {/* LAYER 1 — BRAND + PLATFORM STATEMENT */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 mb-20 pb-16 border-b border-white/[0.04]">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 mb-16 pb-12 border-b border-white/[0.04]">
           <Link href="/" className="flex items-center gap-3 group shrink-0 relative">
              <div className="absolute -inset-3 bg-[#E8B84A]/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
              <div className="w-7 h-7 bg-gradient-to-br from-[#E8B84A] via-[#D9A63A] to-[#F0C96A] rounded-[8px] flex items-center justify-center shadow-[0_4px_20px_rgba(232,184,74,0.25)] group-hover:scale-105 transition-all duration-500 relative overflow-hidden">
@@ -100,19 +100,19 @@ export function FooterPremium() {
              <span className="font-bold text-white text-[16px] tracking-tight uppercase relative z-10 drop-shadow-sm">OYEN GRID</span>
           </Link>
 
-          <p className="text-[15px] lg:text-[16px] text-white/50 max-w-2xl leading-[1.8] font-medium lg:text-right tracking-wide">
+          <p className="text-[14px] text-white/50 max-w-2xl leading-[1.8] font-medium lg:text-right tracking-wide">
             OYEN GRID is operational infrastructure for structured programme delivery, institutional coordination and intelligent execution at scale.
           </p>
         </div>
 
         {/* LAYER 2 — ENTERPRISE NAVIGATION GRID */}
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-12 gap-y-16 mb-28">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-12 gap-y-16 mb-20">
           {footerLinks.map((col, i) => (
             <div key={i} className="flex flex-col">
-              <h4 className="text-[10px] font-black text-[#E8B84A]/60 uppercase tracking-[0.25em] mb-8">
+              <h4 className="text-[10px] font-black text-[#E8B84A]/60 uppercase tracking-[0.25em] mb-6">
                 {col.title}
               </h4>
-              <ul className="space-y-4 lg:space-y-5">
+              <ul className="space-y-3 lg:space-y-4">
                 {col.links.map((link, j) => (
                   <li key={j}>
                      <Link 
@@ -130,7 +130,7 @@ export function FooterPremium() {
         </div>
 
         {/* LAYER 3 — INFRASTRUCTURE STATUS STRIP */}
-        <div className="pt-8 border-t border-white/[0.03] mb-12 relative group/strip">
+        <div className="pt-8 border-t border-white/[0.03] mb-10 relative group/strip">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#E8B84A]/[0.015] to-transparent opacity-0 group-hover/strip:opacity-100 transition-opacity duration-1000 blur-2xl pointer-events-none" />
           
           <div className="flex flex-wrap items-center justify-center lg:justify-between gap-y-6 gap-x-4 bg-white/[0.01] border border-white/[0.02] rounded-[20px] py-5 px-8 relative overflow-hidden backdrop-blur-md">

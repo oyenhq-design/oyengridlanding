@@ -43,7 +43,7 @@ export function InstitutionalImpactCinematic() {
   return (
     <section 
       ref={containerRef}
-      className="py-[90px] bg-[#05070B] relative overflow-hidden"
+      className="py-[72px] bg-[#05070B] relative overflow-hidden"
     >
       {/* 1. CINEMATIC BACKGROUND SYSTEM */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -86,7 +86,7 @@ export function InstitutionalImpactCinematic() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative h-[340px] p-8 rounded-[28px] bg-[#0A0E18]/92 backdrop-blur-xl border border-white/[0.06] shadow-[0_24px_60px_rgba(0,0,0,0.38)] overflow-hidden flex flex-col justify-between">
+              <div className="relative h-[300px] p-6 rounded-[24px] bg-[#0A0E18]/92 backdrop-blur-xl border border-white/[0.06] shadow-[0_20px_40px_rgba(0,0,0,0.38)] overflow-hidden flex flex-col justify-between">
                 
                 {/* Minimal Header */}
                 <div className="flex items-center justify-between">
@@ -104,7 +104,7 @@ export function InstitutionalImpactCinematic() {
                   </div>
                 </div>
 
-                <blockquote className="text-[28px] font-bold leading-[1.25] text-white tracking-tight max-w-[420px]">
+                <blockquote className="text-[24px] font-bold leading-[1.3] text-white tracking-tight max-w-[420px]">
                   “OYEN GRID enables us to orchestrate complex fellowship programmes with absolute precision at <span className="text-brand-gold">global scale</span>.”
                 </blockquote>
 
@@ -138,7 +138,7 @@ export function InstitutionalImpactCinematic() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative h-[155px] p-6 rounded-[22px] bg-[#0C1018]/90 border border-white/[0.05] hover:translate-y-[-2px] transition-all duration-300 overflow-hidden"
+                className="group relative h-[140px] p-5 rounded-[20px] bg-[#0C1018]/90 border border-white/[0.05] hover:translate-y-[-2px] transition-all duration-300 overflow-hidden"
               >
                 {/* Enterprise Detail: Subtle Graph Accent */}
                 <div className="absolute bottom-0 left-0 w-full h-12 opacity-[0.03] pointer-events-none group-hover:opacity-[0.06] transition-opacity">
@@ -155,7 +155,7 @@ export function InstitutionalImpactCinematic() {
                           "w-1.5 h-1.5 rounded-full",
                           m.val.startsWith('+') || m.val === "99.9%" ? "bg-brand-gold shadow-[0_0_8px_rgba(245,185,66,0.4)]" : "bg-white/20"
                         )} />
-                        <span className="text-[12px] font-bold text-white/50 uppercase tracking-[0.12em]">{m.label}</span>
+                        <span className="text-[11px] font-bold text-white/50 uppercase tracking-[0.12em]">{m.label}</span>
                       </div>
                       <div className="h-px w-8 bg-white/[0.08]" />
                     </div>
@@ -168,7 +168,7 @@ export function InstitutionalImpactCinematic() {
 
                   <div className="flex items-baseline gap-1">
                     <span className={cn(
-                      "text-[42px] font-extrabold leading-none tracking-tighter",
+                      "text-[36px] font-extrabold leading-none tracking-tighter",
                       (m.val.startsWith('+') || m.val === "99.9%") ? "text-brand-gold" : "text-white"
                     )}>
                       {m.val}

@@ -61,10 +61,10 @@ const floatingCards = [
 
 export function HumanCoordination() {
   return (
-    <section className="relative h-auto min-h-[580px] lg:h-[620px] bg-[#050816] overflow-hidden border-b border-white/5 flex items-center">
+    <section className="relative h-auto min-h-[480px] lg:h-[540px] bg-[#050816] overflow-hidden border-b border-white/5 flex items-center">
       
       {/* FULL-WIDTH CINEMATIC BACKGROUND IMAGE */}
-      <div className="absolute top-0 right-0 w-full lg:w-[65%] h-full z-0 overflow-hidden">
+      <div className="absolute top-0 right-0 w-full lg:w-[55%] h-full z-0 overflow-hidden">
         <Image
           src="/section-2-background.png"
           alt="Intelligence Infrastructure"
@@ -96,12 +96,12 @@ export function HumanCoordination() {
                 </span>
               </div>
 
-              <h2 className="text-[38px] md:text-[52px] font-bold text-white leading-[1] tracking-tighter max-w-[700px]">
+              <h2 className="text-[32px] md:text-[44px] font-bold text-white leading-[1.05] tracking-tighter max-w-[600px]">
                 Human coordination powered by <br />
                 <span className="text-brand-gold italic font-serif">operational intelligence.</span>
               </h2>
 
-              <p className="text-[16px] leading-relaxed text-white/50 max-w-[560px] font-medium">
+              <p className="text-[14px] leading-relaxed text-white/50 max-w-[480px] font-medium">
                 Connect participants, trainers and coordinators through intelligent communication, AI assistance and real-time insights that drive better decisions and outcomes.
               </p>
 
@@ -110,18 +110,18 @@ export function HumanCoordination() {
                 {features.map((feature, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 * i }}
-                    className="group relative p-5 rounded-[20px] bg-white/[0.02] border border-white/5 backdrop-blur-md transition-all duration-500 hover:bg-white/[0.05] hover:border-brand-gold/30 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] min-h-[140px] flex flex-col justify-between"
+                    className="group relative p-4 rounded-[16px] bg-white/[0.02] border border-white/5 backdrop-blur-md transition-all duration-500 hover:bg-white/[0.05] hover:border-brand-gold/30 hover:shadow-[0_15px_30px_rgba(0,0,0,0.4)] min-h-[120px] flex flex-col justify-between"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-brand-gold/5 border border-brand-gold/10 flex items-center justify-center mb-3 group-hover:border-brand-gold/30 transition-all duration-500">
-                      <feature.icon className="w-4 h-4 text-brand-gold/40 group-hover:text-brand-gold transition-colors" />
+                    <div className="w-7 h-7 rounded-[6px] bg-brand-gold/5 border border-brand-gold/10 flex items-center justify-center mb-2.5 group-hover:border-brand-gold/30 transition-all duration-500">
+                      <feature.icon className="w-3.5 h-3.5 text-brand-gold/40 group-hover:text-brand-gold transition-colors" />
                     </div>
                     <div>
-                       <h4 className="text-[14px] font-bold text-white mb-1.5 group-hover:text-brand-gold transition-colors">{feature.title}</h4>
-                       <p className="text-[11px] text-white/30 leading-snug group-hover:text-white/50 transition-colors line-clamp-2">{feature.desc}</p>
+                       <h4 className="text-[13px] font-bold text-white mb-1 group-hover:text-brand-gold transition-colors">{feature.title}</h4>
+                       <p className="text-[10px] text-white/30 leading-snug group-hover:text-white/50 transition-colors line-clamp-2">{feature.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -131,7 +131,7 @@ export function HumanCoordination() {
 
           {/* RIGHT: FLOATING OPERATIONAL NOTIFICATION STACK */}
           <div className="relative flex justify-center lg:justify-end py-12 lg:py-0">
-             <div className="relative w-full max-w-[380px] space-y-3.5">
+             <div className="relative w-full max-w-[340px] space-y-2.5">
                 {floatingCards.map((card, i) => (
                   <motion.div
                     key={i}
@@ -148,7 +148,7 @@ export function HumanCoordination() {
                       opacity: { duration: 0.8, delay: i * 0.15 }
                     }}
                     className={cn(
-                      "group relative p-4 rounded-[20px] border border-white/10 backdrop-blur-2xl bg-[#080B14]/70 shadow-[0_30px_60px_rgba(0,0,0,0.6)] overflow-hidden",
+                      "group relative p-3 rounded-[16px] border border-white/10 backdrop-blur-2xl bg-[#080B14]/70 shadow-[0_20px_40px_rgba(0,0,0,0.6)] overflow-hidden",
                       i === 1 && "ml-8",
                       i === 2 && "ml-2",
                       i === 3 && "ml-14"
@@ -165,19 +165,19 @@ export function HumanCoordination() {
                         )} />
                       </div>
                       
-                      <div className="flex-1 space-y-1.5">
+                      <div className="flex-1 space-y-1">
                         <div className="flex items-center justify-between">
-                           <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/30">
+                           <span className="text-[8px] font-black uppercase tracking-[0.2em] text-white/30">
                               {card.type}
                            </span>
                            {card.status && (
-                             <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                             <div className="flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
                                 <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
-                                <span className="text-[7px] font-black text-emerald-500 uppercase tracking-widest">{card.status}</span>
+                                <span className="text-[6px] font-black text-emerald-500 uppercase tracking-widest">{card.status}</span>
                              </div>
                            )}
                         </div>
-                        <p className="text-[12px] font-bold text-white leading-tight group-hover:text-brand-gold transition-colors duration-500">
+                        <p className="text-[11px] font-bold text-white leading-tight group-hover:text-brand-gold transition-colors duration-500">
                           {card.msg}
                         </p>
                       </div>

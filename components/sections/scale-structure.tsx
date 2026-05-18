@@ -22,7 +22,7 @@ export function ScaleStructure() {
   const containerRef = useRef(null);
   
   return (
-    <section ref={containerRef} className="py-[90px] bg-[#020408] relative overflow-hidden border-b border-white/5">
+    <section ref={containerRef} className="py-[72px] bg-[#020408] relative overflow-hidden border-b border-white/5">
       
       {/* 1. CINEMATIC ATMOSPHERE & DEPTH */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -40,11 +40,11 @@ export function ScaleStructure() {
       <div className="container-custom relative z-10">
         
         {/* TOP METRICS STRIP: INTEGRATED TELEMETRY BAR */}
-        <div className="mb-24 relative group">
+        <div className="mb-16 relative group">
            <div className="absolute inset-x-0 bottom-0 h-px bg-white/5" />
            <div className="flex flex-wrap lg:flex-nowrap justify-between gap-px bg-white/[0.02] rounded-xl border border-white/5 backdrop-blur-md overflow-hidden shadow-2xl">
               {topMetrics.map((m, i) => (
-                <div key={i} className="flex-1 min-w-[200px] relative p-6 lg:p-8 group hover:bg-white/[0.03] transition-all duration-700">
+                <div key={i} className="flex-1 min-w-[200px] relative p-5 lg:p-6 group hover:bg-white/[0.03] transition-all duration-700">
                    <div className="space-y-1 relative z-10">
                       <div className="flex items-center justify-between mb-3">
                          <div className="flex items-center gap-1.5">
@@ -53,8 +53,8 @@ export function ScaleStructure() {
                          </div>
                          <Activity className="w-3 h-3 text-white/5 group-hover:text-brand-gold/20 transition-colors" />
                       </div>
-                      <div className="text-[28px] lg:text-[34px] font-bold text-white tracking-tighter leading-none group-hover:text-brand-gold transition-colors duration-700">{m.val}</div>
-                      <div className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em]">{m.label}</div>
+                      <div className="text-[24px] lg:text-[28px] font-bold text-white tracking-tighter leading-none group-hover:text-brand-gold transition-colors duration-700">{m.val}</div>
+                      <div className="text-[9px] font-black text-white/30 uppercase tracking-[0.3em]">{m.label}</div>
                    </div>
                    {/* Background Shimmer */}
                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.02] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
@@ -63,20 +63,20 @@ export function ScaleStructure() {
            </div>
         </div>
 
-        <div className="grid lg:grid-cols-[0.4fr_0.6fr] gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-[0.4fr_0.6fr] gap-12 lg:gap-16 items-center">
           
           {/* LEFT SIDE: INFRASTRUCTURE CONTEXT (40%) */}
-          <div className="space-y-16">
-            <div className="space-y-8">
+          <div className="space-y-12">
+            <div className="space-y-6">
               <div className="flex items-center gap-4">
                  <div className="h-[2px] w-12 bg-brand-gold/40" />
                  <span className="text-[12px] font-black text-brand-gold uppercase tracking-[0.5em]">Global Infrastructure</span>
               </div>
-              <h2 className="text-[48px] lg:text-[58px] font-bold text-white leading-[1.02] tracking-tighter max-w-[540px]">
+              <h2 className="text-[40px] lg:text-[48px] font-bold text-white leading-[1.02] tracking-tighter max-w-[480px]">
                 Scalable architecture for <br />
                 <span className="text-brand-gold italic font-serif">institutional sync.</span>
               </h2>
-              <p className="text-[16px] text-white/40 leading-relaxed max-w-[480px]">
+              <p className="text-[14px] text-white/40 leading-relaxed max-w-[440px]">
                 OYEN GRID operates resilient multi-region infrastructure engineered for real-time institutional coordination, synchronized delivery and operational continuity at scale.
               </p>
             </div>
@@ -146,7 +146,7 @@ export function ScaleStructure() {
           <div className="relative">
             {/* The Main Operational Display */}
             <div className="relative p-1 rounded-[40px] bg-gradient-to-br from-white/10 via-transparent to-white/5 shadow-[0_40px_120px_rgba(0,0,0,0.8)] overflow-hidden group">
-               <div className="relative p-12 lg:p-16 rounded-[39px] bg-[#05070B] border border-white/5 backdrop-blur-3xl overflow-hidden min-h-[580px] flex flex-col">
+               <div className="relative p-8 lg:p-10 rounded-[39px] bg-[#05070B] border border-white/5 backdrop-blur-3xl overflow-hidden min-h-[480px] flex flex-col">
                   
                   {/* Visual Depth & Grid Layers */}
                   <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, white 0.5px, transparent 0.5px)", backgroundSize: "32px 32px" }} />
@@ -224,14 +224,14 @@ export function ScaleStructure() {
                      </svg>
 
                      {/* Integrated Telemetry Layers */}
-                     <div className="grid grid-cols-2 gap-12 relative z-10">
-                        <div className="space-y-10">
+                     <div className="grid grid-cols-2 gap-10 relative z-10 mt-8">
+                        <div className="space-y-8">
                            <div className="space-y-3">
                               <div className="flex items-center gap-3">
                                  <Radio className="w-3.5 h-3.5 text-brand-gold animate-pulse shadow-[0_0_10px_#F5B942]" />
                                  <span className="text-[10px] font-black text-white/40 uppercase tracking-[0.4em]">Live node monitoring</span>
                               </div>
-                              <div className="text-[44px] font-bold text-white tracking-tighter leading-none">STABLE</div>
+                              <div className="text-[36px] font-bold text-white tracking-tighter leading-none">STABLE</div>
                               <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest flex items-center gap-2">
                                  <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
                                  Orchestration Nominal
@@ -264,7 +264,7 @@ export function ScaleStructure() {
                         </div>
 
                         {/* Floating Operational Micro-Panels */}
-                        <div className="flex flex-col justify-end items-end gap-6">
+                        <div className="flex flex-col justify-end items-end gap-5">
                            <motion.div 
                               whileHover={{ scale: 1.05 }}
                               animate={{ y: [0, -8, 0] }}
@@ -275,8 +275,8 @@ export function ScaleStructure() {
                                  <RefreshCw className="w-4 h-4 text-brand-gold animate-spin-slow" />
                                  <span className="text-[9px] font-black text-white/50 uppercase tracking-[0.2em]">Institutional Sync</span>
                               </div>
-                              <div className="space-y-1">
-                                 <div className="text-[24px] font-bold text-white tracking-tighter">0.8ms</div>
+                              <div className="space-y-0.5">
+                                 <div className="text-[20px] font-bold text-white tracking-tighter">0.8ms</div>
                                  <div className="text-[7px] font-black text-white/20 uppercase tracking-widest">Average Node Latency</div>
                               </div>
                               {/* Pulse Line Visual */}
@@ -302,7 +302,7 @@ export function ScaleStructure() {
                   </div>
 
                   {/* Bottom Operational Trace */}
-                  <div className="mt-12 flex justify-between items-center text-[8px] font-black text-white/10 uppercase tracking-[0.6em] relative z-10 pt-6 border-t border-white/5">
+                  <div className="mt-10 flex justify-between items-center text-[8px] font-black text-white/10 uppercase tracking-[0.6em] relative z-10 pt-5 border-t border-white/5">
                      <span className="flex items-center gap-2">
                         <div className="w-1 h-1 rounded-full bg-brand-gold/20" />
                         Infrastructure_L4_Stable

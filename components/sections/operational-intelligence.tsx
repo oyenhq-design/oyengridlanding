@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 export function OperationalIntelligence() {
   return (
-    <section className="py-24 bg-[#020408] relative overflow-hidden border-b border-white/5">
+    <section className="py-16 bg-[#020408] relative overflow-hidden border-b border-white/5">
       
       {/* 1. GLOBAL COMMAND CENTER ATMOSPHERE */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -50,17 +50,17 @@ export function OperationalIntelligence() {
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-3 gap-6 items-stretch">
+        <div className="grid lg:grid-cols-3 gap-5 items-stretch">
           
           {/* CARD 1 — LIVE OPERATIONS ANALYTICS */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="group relative p-6 rounded-[24px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-brand-gold/40 flex flex-col min-h-[360px] overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.6)]"
+            className="group relative p-5 rounded-[20px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-brand-gold/40 flex flex-col min-h-[320px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
           >
             {/* Command Header */}
-            <div className="flex justify-between items-start mb-6 relative z-30">
+            <div className="flex justify-between items-start mb-5 relative z-30">
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-brand-gold shadow-[0_0_8px_rgba(245,185,66,0.8)] animate-pulse" />
@@ -77,7 +77,7 @@ export function OperationalIntelligence() {
             </div>
 
             {/* Dashboard Visual Area — The Wall */}
-            <div className="relative flex-1 bg-black/40 rounded-xl border border-white/5 overflow-hidden p-4 group-hover:bg-black/60 transition-all duration-700">
+            <div className="relative flex-1 bg-black/40 rounded-[14px] border border-white/5 overflow-hidden p-3.5 group-hover:bg-black/60 transition-all duration-700">
                {/* Internal Matrix Detail */}
                <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "16px 16px" }} />
                
@@ -149,10 +149,10 @@ export function OperationalIntelligence() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="group relative p-6 rounded-[24px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-emerald-500/40 flex flex-col min-h-[360px] overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.6)]"
+            className="group relative p-5 rounded-[20px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-emerald-500/40 flex flex-col min-h-[320px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
           >
             {/* Command Header */}
-            <div className="flex justify-between items-start mb-6 relative z-30">
+            <div className="flex justify-between items-start mb-5 relative z-30">
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse" />
@@ -167,9 +167,9 @@ export function OperationalIntelligence() {
             </div>
 
             {/* Matrix Operational Area */}
-            <div className="relative flex-1 bg-black/40 rounded-xl border border-white/5 overflow-hidden flex flex-col group-hover:bg-black/60 transition-all duration-700">
+            <div className="relative flex-1 bg-black/40 rounded-[14px] border border-white/5 overflow-hidden flex flex-col group-hover:bg-black/60 transition-all duration-700">
                {/* Holographic Core Visual */}
-               <div className="h-40 relative flex items-center justify-center pointer-events-none">
+               <div className="h-32 relative flex items-center justify-center pointer-events-none">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.05),transparent_70%)]" />
                   
                   <motion.div 
@@ -200,7 +200,7 @@ export function OperationalIntelligence() {
                </div>
 
                {/* Governance Grid List */}
-               <div className="p-4 pt-0 space-y-2">
+               <div className="p-3.5 pt-0 space-y-1.5">
                   {[
                     "Role-based governance",
                     "End-to-end encryption",
@@ -223,10 +223,10 @@ export function OperationalIntelligence() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="group relative p-6 rounded-[24px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-blue-500/40 flex flex-col min-h-[360px] overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.6)]"
+            className="group relative p-5 rounded-[20px] bg-[#080B14]/60 border border-white/5 backdrop-blur-[40px] transition-all duration-700 hover:border-blue-500/40 flex flex-col min-h-[320px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
           >
             {/* Command Header */}
-            <div className="flex justify-between items-start mb-6 relative z-30">
+            <div className="flex justify-between items-start mb-5 relative z-30">
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)] animate-pulse" />
@@ -241,8 +241,8 @@ export function OperationalIntelligence() {
             </div>
 
             {/* Infrastructure Map Visual */}
-            <div className="relative flex-1 bg-black/40 rounded-xl border border-white/5 overflow-hidden flex flex-col group-hover:bg-black/60 transition-all duration-700">
-               <div className="h-44 relative flex items-center justify-center p-4">
+            <div className="relative flex-1 bg-black/40 rounded-[14px] border border-white/5 overflow-hidden flex flex-col group-hover:bg-black/60 transition-all duration-700">
+               <div className="h-36 relative flex items-center justify-center p-3.5">
                   {/* Digital World Map Background Dots */}
                   <div className="absolute inset-0 opacity-[0.08]" style={{ backgroundImage: "radial-gradient(circle, white 0.5px, transparent 0.5px)", backgroundSize: "12px 12px" }} />
                   
@@ -295,7 +295,7 @@ export function OperationalIntelligence() {
                </div>
 
                {/* Metrics Strip */}
-               <div className="mt-auto px-4 pb-4 grid grid-cols-2 gap-4 border-t border-white/5 pt-4">
+               <div className="mt-auto px-3.5 pb-3.5 grid grid-cols-2 gap-4 border-t border-white/5 pt-3.5">
                   {[
                     { l: "Global Regions", v: "42" },
                     { l: "System Uptime", v: "99.995%" }
