@@ -9,6 +9,7 @@ import { ScaleStructure } from "@/components/sections/scale-structure";
 
 import { InstitutionalImpactCinematic } from "@/components/sections/institutional-impact-cinematic";
 import { ConnectedEcosystem } from "@/components/sections/connected-ecosystem";
+import { EnterpriseTrust } from "@/components/sections/enterprise-trust";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { FooterPremium } from "@/components/layout/footer";
 import { Chatbot } from "@/components/layout/chatbot";
@@ -51,7 +52,10 @@ export default function Home() {
           {/* 8. CONNECTED ECOSYSTEM: System Architecture & Data Flow */}
           <ConnectedEcosystem />
 
-          {/* 9. FINAL AUTHORISATION: Immersive Closing */}
+          {/* 9. ENTERPRISE TRUST: Infrastructure Signals */}
+          <EnterpriseTrust />
+
+          {/* 10. FINAL AUTHORISATION: Immersive Closing */}
           <FinalCTA />
 
           {/* 9. INSTITUTIONAL FOOTER */}
