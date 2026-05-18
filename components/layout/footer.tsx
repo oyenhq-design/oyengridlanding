@@ -11,31 +11,7 @@ export function FooterPremium() {
         "Programme Infrastructure",
         "Live Operations",
         "Participant Systems",
-        "Communication Layer",
-        "Operational Intelligence",
         "Analytics Engine"
-      ]
-    },
-    {
-      title: "Enterprise",
-      links: [
-        "Governance & Compliance",
-        "Enterprise Deployment",
-        "Security Architecture",
-        "Multi-Region Infrastructure",
-        "Institutional Controls",
-        "White-Label Systems"
-      ]
-    },
-    {
-      title: "Resources",
-      links: [
-        "Documentation",
-        "API Reference",
-        "Infrastructure Status",
-        "Support Center",
-        "Case Studies",
-        "System Updates"
       ]
     },
     {
@@ -44,20 +20,25 @@ export function FooterPremium() {
         "NGOs & Fellowships",
         "Enterprise Training",
         "Government Programmes",
-        "Workforce Coordination",
-        "Academies & Bootcamps",
-        "Institutional Delivery"
+        "Workforce Coordination"
       ]
     },
     {
-      title: "Company",
+      title: "Enterprise",
       links: [
-        "About OYEN GRID",
-        "Careers",
-        "Partnerships",
-        "Contact Sales",
-        "Terms",
-        "Privacy"
+        "Governance & Compliance",
+        "Multi-Region Infrastructure",
+        "Security Architecture",
+        "White-Label Deployment"
+      ]
+    },
+    {
+      title: "Resources",
+      links: [
+        "Documentation",
+        "API Reference",
+        "Support Center",
+        "System Updates"
       ]
     }
   ];
@@ -66,61 +47,70 @@ export function FooterPremium() {
     "SOC2 Ready",
     "99.99% Uptime",
     "Multi-Region Infrastructure",
-    "Enterprise Encryption",
-    "AI-Assisted Operations",
-    "Operational Telemetry Active"
+    "Enterprise Encryption"
   ];
 
-  const metrics = [
-    "12M+ Participants Coordinated",
-    "480K+ Secure Cohorts",
-    "42 Active Infrastructure Nodes",
-    "0.8ms Global Sync Latency"
+  const bottomLinks = [
+    "Privacy",
+    "Terms",
+    "Security",
+    "Infrastructure Status"
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-[#02040A] to-[#010205] relative overflow-hidden pt-24 pb-10 border-t border-white/[0.04]">
+    <footer className="bg-gradient-to-b from-[#02040A] to-[#010205] relative overflow-hidden pt-20 pb-8 border-t border-white/[0.05]">
       {/* AMBIENT BACKGROUND LAYER */}
       <div className="absolute inset-0 pointer-events-none">
-         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.02),transparent_70%)] opacity-80" />
+         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(244,185,66,0.02),transparent_70%)] opacity-80" />
          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1200px] h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(4,8,22,0.8),transparent_80%)] opacity-50" />
-         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.015] mix-blend-overlay" />
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-8 relative z-10">
+      <div className="max-w-[1200px] mx-auto px-8 relative z-10 flex flex-col">
         
-        {/* LAYER 1 — BRAND + PLATFORM STATEMENT */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 mb-16 pb-12 border-b border-white/[0.04]">
-          <Link href="/" className="flex items-center gap-3 group shrink-0 relative">
-             <div className="absolute -inset-3 bg-[#E8B84A]/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-             <div className="w-7 h-7 bg-gradient-to-br from-[#E8B84A] via-[#D9A63A] to-[#F0C96A] rounded-[8px] flex items-center justify-center shadow-[0_4px_20px_rgba(232,184,74,0.25)] group-hover:scale-105 transition-all duration-500 relative overflow-hidden">
-                <div className="w-3 h-3 border-[1.5px] border-black rotate-45 relative z-10" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-             </div>
-             <span className="font-bold text-white text-[16px] tracking-tight uppercase relative z-10 drop-shadow-sm">OYEN GRID</span>
-          </Link>
+        {/* 1. TOP BRAND ROW */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-white/[0.05] mb-12">
+          {/* Left Side */}
+          <div className="flex flex-col gap-4">
+            <Link href="/" className="flex items-center gap-3 group shrink-0 relative">
+               <div className="absolute -inset-3 bg-[#f4b942]/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+               <div className="w-6 h-6 bg-gradient-to-br from-[#f4b942] to-[#c7912b] rounded-[6px] flex items-center justify-center shadow-[0_4px_20px_rgba(244,185,66,0.25)] group-hover:scale-105 transition-all duration-500 relative overflow-hidden">
+                  <div className="w-2.5 h-2.5 border-[1.5px] border-black rotate-45 relative z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+               </div>
+               <span className="font-bold text-white text-[15px] tracking-tight uppercase relative z-10 drop-shadow-sm">OYEN GRID</span>
+            </Link>
+            <p className="text-[13px] text-white/50 max-w-[400px] leading-relaxed font-light">
+              Operational infrastructure for institutional coordination and intelligent programme delivery.
+            </p>
+          </div>
 
-          <p className="text-[14px] text-white/50 max-w-2xl leading-[1.8] font-medium lg:text-right tracking-wide">
-            OYEN GRID is operational infrastructure for structured programme delivery, institutional coordination and intelligent execution at scale.
-          </p>
+          {/* Right Side */}
+          <div className="flex items-center gap-3 bg-white/[0.02] border border-white/[0.05] px-4 py-2 rounded-full">
+            <div className="relative flex items-center justify-center">
+              <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-[0_0_12px_#10b981] relative z-10" />
+              <div className="absolute inset-0 w-4 h-4 rounded-full bg-[#10b981]/20 animate-ping" />
+            </div>
+            <span className="text-[11px] font-medium text-white/70 uppercase tracking-widest">
+              System Status: <span className="text-[#10b981]">Operational</span>
+            </span>
+          </div>
         </div>
 
-        {/* LAYER 2 — ENTERPRISE NAVIGATION GRID */}
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-12 gap-y-16 mb-20">
+        {/* 2. MAIN FOOTER GRID */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-16 mb-20">
           {footerLinks.map((col, i) => (
             <div key={i} className="flex flex-col">
-              <h4 className="text-[10px] font-black text-[#E8B84A]/60 uppercase tracking-[0.25em] mb-6">
+              <h4 className="text-[11px] font-bold text-[#f4b942] uppercase tracking-[0.2em] mb-6">
                 {col.title}
               </h4>
-              <ul className="space-y-3 lg:space-y-4">
+              <ul className="space-y-4">
                 {col.links.map((link, j) => (
                   <li key={j}>
                      <Link 
                        href="#" 
-                       className="text-[13px] text-white/40 hover:text-white transition-all duration-300 font-medium inline-block hover:-translate-y-0.5 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.3)] relative group"
+                       className="text-[13px] text-white/40 hover:text-[#f4b942] transition-colors duration-300 font-light block"
                      >
-                       <span className="relative z-10">{link}</span>
-                       <div className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-[#E8B84A]/40 to-transparent group-hover:w-full transition-all duration-500" />
+                       {link}
                      </Link>
                   </li>
                 ))}
@@ -129,57 +119,52 @@ export function FooterPremium() {
           ))}
         </div>
 
-        {/* LAYER 3 — INFRASTRUCTURE STATUS STRIP */}
-        <div className="pt-8 border-t border-white/[0.03] mb-10 relative group/strip">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#E8B84A]/[0.015] to-transparent opacity-0 group-hover/strip:opacity-100 transition-opacity duration-1000 blur-2xl pointer-events-none" />
-          
-          <div className="flex flex-wrap items-center justify-center lg:justify-between gap-y-6 gap-x-4 bg-white/[0.01] border border-white/[0.02] rounded-[20px] py-5 px-8 relative overflow-hidden backdrop-blur-md">
-             <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-50" />
-             
+        {/* 3. INFRASTRUCTURE STRIP */}
+        <div className="flex justify-center mb-16">
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 bg-black/40 border border-white/[0.05] rounded-full py-3 px-6 backdrop-blur-md">
              {statusItems.map((item, i) => (
                <div key={i} className="flex items-center gap-3">
-                  <div className="relative flex items-center justify-center">
-                     <div className="w-1.5 h-1.5 rounded-full bg-[#E8B84A]/80 shadow-[0_0_8px_rgba(232,184,74,0.4)] relative z-10" />
-                     <div className="absolute inset-0 w-3 h-3 rounded-full bg-[#E8B84A]/20 animate-ping" />
-                  </div>
-                  <span className="text-[10px] font-bold text-white/40 uppercase tracking-[0.15em]">{item}</span>
+                  <span className="text-[11px] font-medium text-white/40 uppercase tracking-[0.15em]">{item}</span>
                   {i !== statusItems.length - 1 && (
-                    <div className="hidden lg:block w-px h-3 bg-white/[0.05] ml-4" />
+                    <div className="w-1 h-1 rounded-full bg-[#f4b942]/50" />
                   )}
                </div>
              ))}
           </div>
         </div>
 
-        {/* LAYER 4 — BOTTOM INFRASTRUCTURE BAR */}
-        <div className="flex flex-col xl:flex-row items-center justify-between gap-8 pt-8 border-t border-white/[0.03] relative z-10">
-          
-          {/* Copyright */}
-          <div className="text-[11px] font-bold text-white/30 tracking-widest uppercase text-center xl:text-left">
+        {/* 4. BOTTOM BAR */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-white/[0.05]">
+          {/* Left */}
+          <div className="text-[11px] font-medium text-white/30 uppercase tracking-widest">
             © 2025 OYEN GRID. All rights reserved.
           </div>
 
-          {/* Operational Metrics */}
-          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-3">
-             {metrics.map((metric, i) => (
-               <div key={i} className="flex items-center gap-3">
-                 <span className="text-[10px] font-black text-white/40 hover:text-[#E8B84A]/80 transition-colors duration-500 uppercase tracking-widest bg-white/[0.02] hover:bg-[#E8B84A]/[0.03] px-3 py-1.5 rounded-lg border border-white/[0.03] hover:border-[#E8B84A]/20 cursor-default">
-                   {metric}
-                 </span>
-               </div>
+          {/* Center */}
+          <div className="flex flex-wrap items-center justify-center gap-4">
+             {bottomLinks.map((link, i) => (
+                <div key={i} className="flex items-center gap-4">
+                  <Link href="#" className="text-[11px] font-medium text-white/40 hover:text-white transition-colors uppercase tracking-widest">
+                    {link}
+                  </Link>
+                  {i !== bottomLinks.length - 1 && (
+                    <span className="text-white/20 text-[10px]">•</span>
+                  )}
+                </div>
              ))}
           </div>
 
-          {/* Infrastructure Status */}
-          <div className="flex items-center gap-2.5 bg-black/20 px-4 py-2 rounded-full border border-white/[0.02]">
-            <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-[0_0_12px_rgba(16,185,129,0.5)] animate-pulse" />
-            <span className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em]">
-              INFRASTRUCTURE STATUS — <span className="text-[#10b981] drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]">OPERATIONAL</span>
+          {/* Right */}
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
+            <span className="text-[11px] font-medium text-white/40 uppercase tracking-widest">
+              Operational
             </span>
           </div>
-          
         </div>
+
       </div>
     </footer>
   );
 }
+
