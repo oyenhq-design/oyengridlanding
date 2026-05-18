@@ -1,61 +1,127 @@
 "use client";
 
-import { Shield, Cpu } from "lucide-react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export function FooterPremium() {
-  const columnGroups = [
+  const footerLinks = [
     {
       title: "Platform",
-      links: ["Infrastructure", "Governance", "Coordination", "Intelligence", "Analytics"]
+      links: [
+        "Programme Infrastructure",
+        "Live Operations",
+        "Participant Systems",
+        "Communication Layer",
+        "Operational Intelligence",
+        "Analytics Engine"
+      ]
+    },
+    {
+      title: "Enterprise",
+      links: [
+        "Governance & Compliance",
+        "Enterprise Deployment",
+        "Security Architecture",
+        "Multi-Region Infrastructure",
+        "Institutional Controls",
+        "White-Label Systems"
+      ]
+    },
+    {
+      title: "Resources",
+      links: [
+        "Documentation",
+        "API Reference",
+        "Infrastructure Status",
+        "Support Center",
+        "Case Studies",
+        "System Updates"
+      ]
     },
     {
       title: "Solutions",
-      links: ["Government", "Corporate", "NGOs", "Academies", "Foundations"]
-    },
-    {
-      title: "Security",
-      links: ["Compliance", "Privacy Protocol", "Trust Center", "Infrastructure", "L4 Status"]
+      links: [
+        "NGOs & Fellowships",
+        "Enterprise Training",
+        "Government Programmes",
+        "Workforce Coordination",
+        "Academies & Bootcamps",
+        "Institutional Delivery"
+      ]
     },
     {
       title: "Company",
-      links: ["Mission", "Leadership", "Newsroom", "Careers", "Contact"]
-    },
-    {
-      title: "Legal",
-      links: ["Terms", "Privacy", "Cookies", "Security", "SLA"]
+      links: [
+        "About OYEN GRID",
+        "Careers",
+        "Partnerships",
+        "Contact Sales",
+        "Terms",
+        "Privacy"
+      ]
     }
   ];
 
+  const statusItems = [
+    "SOC2 Ready",
+    "99.99% Uptime",
+    "Multi-Region Infrastructure",
+    "Enterprise Encryption",
+    "AI-Assisted Operations",
+    "Operational Telemetry Active"
+  ];
+
+  const metrics = [
+    "12M+ Participants Coordinated",
+    "480K+ Secure Cohorts",
+    "42 Active Infrastructure Nodes",
+    "0.8ms Global Sync Latency"
+  ];
+
   return (
-    <footer className="bg-[#050816] pt-[72px] pb-[48px] border-t border-white/5 relative overflow-hidden">
-      <div className="container-custom relative z-10">
+    <footer className="bg-gradient-to-b from-[#02040A] to-[#010205] relative overflow-hidden pt-32 pb-12 border-t border-white/[0.04]">
+      {/* AMBIENT BACKGROUND LAYER */}
+      <div className="absolute inset-0 pointer-events-none">
+         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.02),transparent_70%)] opacity-80" />
+         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1200px] h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(4,8,22,0.8),transparent_80%)] opacity-50" />
+         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.015] mix-blend-overlay" />
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-8 relative z-10">
         
-        {/* BRAND & MISSION */}
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20 pb-20 border-b border-white/5">
-           <div className="flex items-center gap-4 group">
-             <div className="w-10 h-10 rounded-lg bg-brand-gold flex items-center justify-center">
-               <Shield className="w-6 h-6 text-[#050816]" />
+        {/* LAYER 1 — BRAND + PLATFORM STATEMENT */}
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 mb-20 pb-16 border-b border-white/[0.04]">
+          <Link href="/" className="flex items-center gap-3 group shrink-0 relative">
+             <div className="absolute -inset-3 bg-[#E8B84A]/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+             <div className="w-7 h-7 bg-gradient-to-br from-[#E8B84A] via-[#D9A63A] to-[#F0C96A] rounded-[8px] flex items-center justify-center shadow-[0_4px_20px_rgba(232,184,74,0.25)] group-hover:scale-105 transition-all duration-500 relative overflow-hidden">
+                <div className="w-3 h-3 border-[1.5px] border-black rotate-45 relative z-10" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
              </div>
-             <span className="text-[22px] font-black tracking-tight text-white uppercase">OYEN GRID</span>
-           </div>
-           <p className="text-[15px] text-white/30 max-w-xl leading-relaxed font-medium">
-             The operating system for mission-critical institutional programme delivery. <br />
-             Architecting the infrastructure of coordination at global scale.
-           </p>
+             <span className="font-bold text-white text-[16px] tracking-tight uppercase relative z-10 drop-shadow-sm">OYEN GRID</span>
+          </Link>
+
+          <p className="text-[15px] lg:text-[16px] text-white/50 max-w-2xl leading-[1.8] font-medium lg:text-right tracking-wide">
+            OYEN GRID is operational infrastructure for structured programme delivery, institutional coordination and intelligent execution at scale.
+          </p>
         </div>
 
-        {/* 5-COLUMN NAVIGATION */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 mb-20">
-          {columnGroups.map((col, i) => (
-            <div key={i}>
-              <h5 className="text-[11px] font-black text-white uppercase tracking-[0.4em] mb-8 opacity-40">{col.title}</h5>
-              <ul className="space-y-4">
+        {/* LAYER 2 — ENTERPRISE NAVIGATION GRID */}
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-12 gap-y-16 mb-28">
+          {footerLinks.map((col, i) => (
+            <div key={i} className="flex flex-col">
+              <h4 className="text-[10px] font-black text-[#E8B84A]/60 uppercase tracking-[0.25em] mb-8">
+                {col.title}
+              </h4>
+              <ul className="space-y-4 lg:space-y-5">
                 {col.links.map((link, j) => (
                   <li key={j}>
-                    <Link href="#" className="text-[14px] text-white/30 hover:text-brand-gold transition-colors font-medium">
-                      {link}
-                    </Link>
+                     <Link 
+                       href="#" 
+                       className="text-[13px] text-white/40 hover:text-white transition-all duration-300 font-medium inline-block hover:-translate-y-0.5 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.3)] relative group"
+                     >
+                       <span className="relative z-10">{link}</span>
+                       <div className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-[#E8B84A]/40 to-transparent group-hover:w-full transition-all duration-500" />
+                     </Link>
                   </li>
                 ))}
               </ul>
@@ -63,23 +129,55 @@ export function FooterPremium() {
           ))}
         </div>
 
-        {/* BOTTOM TELEMETRY */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-white/20">
-           <div className="flex flex-wrap items-center justify-center md:justify-start gap-8">
-              <span>© 2024 OYEN GRID SYSTEM</span>
-              <div className="flex items-center gap-3">
-                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/40" />
-                 <span>System Nominal</span>
-              </div>
-           </div>
-           
-           <div className="flex items-center gap-8">
-              <Link href="#" className="hover:text-white transition-colors">Privacy Architecture</Link>
-              <div className="flex items-center gap-3">
-                 <Cpu className="w-4 h-4 opacity-50" />
-                 <span>L4_AUTHORIZED</span>
-              </div>
-           </div>
+        {/* LAYER 3 — INFRASTRUCTURE STATUS STRIP */}
+        <div className="pt-8 border-t border-white/[0.03] mb-12 relative group/strip">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#E8B84A]/[0.015] to-transparent opacity-0 group-hover/strip:opacity-100 transition-opacity duration-1000 blur-2xl pointer-events-none" />
+          
+          <div className="flex flex-wrap items-center justify-center lg:justify-between gap-y-6 gap-x-4 bg-white/[0.01] border border-white/[0.02] rounded-[20px] py-5 px-8 relative overflow-hidden backdrop-blur-md">
+             <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-50" />
+             
+             {statusItems.map((item, i) => (
+               <div key={i} className="flex items-center gap-3">
+                  <div className="relative flex items-center justify-center">
+                     <div className="w-1.5 h-1.5 rounded-full bg-[#E8B84A]/80 shadow-[0_0_8px_rgba(232,184,74,0.4)] relative z-10" />
+                     <div className="absolute inset-0 w-3 h-3 rounded-full bg-[#E8B84A]/20 animate-ping" />
+                  </div>
+                  <span className="text-[10px] font-bold text-white/40 uppercase tracking-[0.15em]">{item}</span>
+                  {i !== statusItems.length - 1 && (
+                    <div className="hidden lg:block w-px h-3 bg-white/[0.05] ml-4" />
+                  )}
+               </div>
+             ))}
+          </div>
+        </div>
+
+        {/* LAYER 4 — BOTTOM INFRASTRUCTURE BAR */}
+        <div className="flex flex-col xl:flex-row items-center justify-between gap-8 pt-8 border-t border-white/[0.03] relative z-10">
+          
+          {/* Copyright */}
+          <div className="text-[11px] font-bold text-white/30 tracking-widest uppercase text-center xl:text-left">
+            © 2025 OYEN GRID. All rights reserved.
+          </div>
+
+          {/* Operational Metrics */}
+          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-3">
+             {metrics.map((metric, i) => (
+               <div key={i} className="flex items-center gap-3">
+                 <span className="text-[10px] font-black text-white/40 hover:text-[#E8B84A]/80 transition-colors duration-500 uppercase tracking-widest bg-white/[0.02] hover:bg-[#E8B84A]/[0.03] px-3 py-1.5 rounded-lg border border-white/[0.03] hover:border-[#E8B84A]/20 cursor-default">
+                   {metric}
+                 </span>
+               </div>
+             ))}
+          </div>
+
+          {/* Infrastructure Status */}
+          <div className="flex items-center gap-2.5 bg-black/20 px-4 py-2 rounded-full border border-white/[0.02]">
+            <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-[0_0_12px_rgba(16,185,129,0.5)] animate-pulse" />
+            <span className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em]">
+              INFRASTRUCTURE STATUS — <span className="text-[#10b981] drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]">OPERATIONAL</span>
+            </span>
+          </div>
+          
         </div>
       </div>
     </footer>
