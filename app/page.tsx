@@ -8,6 +8,7 @@ import { OperationalIntelligence } from "@/components/sections/operational-intel
 import { ScaleStructure } from "@/components/sections/scale-structure";
 
 import { InstitutionalImpactCinematic } from "@/components/sections/institutional-impact-cinematic";
+import { ConnectedEcosystem } from "@/components/sections/connected-ecosystem";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { FooterPremium } from "@/components/layout/footer";
 import { Chatbot } from "@/components/layout/chatbot";
@@ -47,7 +48,10 @@ export default function Home() {
           {/* 7. TRUST & IMPACT: Measurable Outcomes & Executive Validation */}
           <InstitutionalImpactCinematic />
 
-          {/* 8. FINAL AUTHORISATION: Immersive Closing */}
+          {/* 8. CONNECTED ECOSYSTEM: System Architecture & Data Flow */}
+          <ConnectedEcosystem />
+
+          {/* 9. FINAL AUTHORISATION: Immersive Closing */}
           <FinalCTA />
 
           {/* 9. INSTITUTIONAL FOOTER */}
