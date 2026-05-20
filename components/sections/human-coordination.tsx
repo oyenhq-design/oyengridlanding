@@ -131,7 +131,7 @@ export function HumanCoordination() {
 
           {/* RIGHT: FLOATING OPERATIONAL NOTIFICATION STACK */}
           <div className="relative flex justify-center lg:justify-end py-12 lg:py-0">
-             <div className="relative w-full max-w-[340px] space-y-2.5">
+             <div className="relative w-full max-w-[340px] space-y-2.5 mt-[75px]">
                 {floatingCards.map((card, i) => (
                   <motion.div
                     key={i}
