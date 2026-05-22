@@ -2,6 +2,7 @@ import { Header, AnnouncementBar } from "@/components/layout/header";
 import { HeroInstitutional, PlatformOverview } from "@/components/sections/institutional-ecosystem";
 import { OperationalLifecycle } from "@/components/sections/operational-lifecycle";
 import { OperationalInfrastructure } from "@/components/sections/operational-infrastructure";
+import { WorkflowIntelligence } from "@/components/sections/workflow-intelligence";
 import { InstitutionalCommandCenter } from "@/components/sections/institutional-command";
 import { HumanCoordination } from "@/components/sections/human-coordination";
 import { OperationalIntelligence } from "@/components/sections/operational-intelligence";
@@ -33,6 +34,9 @@ export default function Home() {
 
           {/* NEW: OPERATIONAL INFRASTRUCTURE: Command Center & System Capabilities */}
           <OperationalInfrastructure />
+
+          {/* NEW: CINEMATIC WORKFLOW INTELLIGENCE: Core AI & Continuous Execution Loop */}
+          <WorkflowIntelligence />
 
           {/* NEW: INSTITUTIONAL COMMAND CENTER: Cinematic Dashboard & Operational Intelligence */}
           <InstitutionalCommandCenter />
