@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Globe, Shield, Zap, Activity, Cpu, Network, Database } from "lucide-react";
+import { ArrowRight, CheckCircle2, Globe, Shield, Zap, Activity, Cpu, Network, Database, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -12,7 +12,7 @@ interface EnterprisePageTemplateProps {
   focusAreas: {
     title: string;
     desc: string;
-    icon: any;
+    icon: LucideIcon;
   }[];
   metrics: {
     label: string;

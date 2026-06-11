@@ -5,7 +5,7 @@ import {
   Shield, Globe, BarChart3, Check, Zap, 
   Activity, ShieldCheck, Lock, Database, Search,
   ArrowUpRight, RefreshCw, Cpu, Server, Network,
-  Radio, Activity as Pulse, Hexagon
+  Radio, Hexagon
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -135,7 +135,7 @@ export function OperationalIntelligence() {
                  transition={{ duration: 5, repeat: Infinity }}
                  className="absolute top-4 right-4 px-2 py-1 rounded bg-black/80 border border-brand-gold/20 backdrop-blur-md flex items-center gap-2"
                >
-                  <Pulse className="w-2.5 h-2.5 text-brand-gold" />
+                  <Activity className="w-2.5 h-2.5 text-brand-gold" />
                   <span className="text-[8px] font-black text-brand-gold uppercase tracking-widest">AI Monitoring Active</span>
                </motion.div>
             </div>

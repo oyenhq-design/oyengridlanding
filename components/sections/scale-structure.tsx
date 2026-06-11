@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { 
   Globe, Shield, Activity, 
   Cpu, Zap, Database, Network, 
@@ -20,7 +20,15 @@ const topMetrics = [
 
 export function ScaleStructure() {
   const containerRef = useRef(null);
-  
+  const [syncTime, setSyncTime] = useState("");
+
+  useEffect(() => {
+    const tick = () => setSyncTime(new Date().toLocaleTimeString());
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section ref={containerRef} className="py-[72px] bg-[#020408] relative overflow-hidden border-b border-white/5">
       
@@ -307,7 +315,7 @@ export function ScaleStructure() {
                         <div className="w-1 h-1 rounded-full bg-brand-gold/20" />
                         Infrastructure_L4_Stable
                      </span>
-                     <span>SYNC_OPTIMIZED :: {new Date().toLocaleTimeString()}</span>
+                     <span>SYNC_OPTIMIZED :: {syncTime || "--:--:--"}</span>
                      <span className="flex items-center gap-2">
                         <Terminal className="w-3 h-3" />
                         ROOT_ACCESS_GRANTED

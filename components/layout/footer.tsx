@@ -184,7 +184,7 @@ export function FooterPremium() {
         {/* ── BOTTOM BAR ── */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-5 border-t border-white/[0.05]">
           <span className="text-[10.5px] text-white/25 font-light tracking-wide">
-            © 2025 OYEN GRID. All rights reserved.
+          © {new Date().getFullYear()} OYEN GRID. All rights reserved.
           </span>
 
           <div className="flex items-center gap-5">

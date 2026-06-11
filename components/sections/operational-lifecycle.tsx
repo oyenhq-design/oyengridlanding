@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Settings, Users, Workflow, Activity, MessageSquare, BarChart3, Cpu, FileText, Check } from "lucide-react";
@@ -116,6 +116,7 @@ const stages = [
 export function OperationalLifecycle() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Auto-rotation logic
   useEffect(() => {
@@ -128,17 +129,22 @@ export function OperationalLifecycle() {
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
-  // Handle manual interaction
+  // Cleanup resume timer on unmount
+  useEffect(() => {
+    return () => {
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    };
+  }, []);
+
+  // Handle manual interaction — clears any pending resume before setting a fresh one
   const handleStageClick = useCallback((idx: number) => {
     setActiveIdx(idx);
     setIsAutoPlaying(false);
     
-    // Resume auto-play after 12 seconds of inactivity
-    const timeout = setTimeout(() => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
       setIsAutoPlaying(true);
     }, 12000);
-
-    return () => clearTimeout(timeout);
   }, []);
 
   return (

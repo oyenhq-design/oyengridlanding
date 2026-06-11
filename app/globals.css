@@ -190,7 +190,7 @@ h3 {
   isolation: isolate;
   background-image: 
     linear-gradient(to right, rgba(5,8,16,0.78) 12%, rgba(5,8,16,0.42) 42%, rgba(5,8,16,0.55) 100%), 
-    url('/hero background.png');
+    url('/hero%20background.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

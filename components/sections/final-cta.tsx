@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Globe, ShieldCheck, Zap, Cpu, Terminal, ChevronRight, Activity } from "lucide-react";
+import { ArrowUpRight, Globe, ShieldCheck, Zap, Cpu, Terminal, ChevronRight, Activity, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function FinalCTA() {
@@ -78,7 +78,7 @@ export function FinalCTA() {
   );
 }
 
-function TelemetryItem({ icon: Icon, label, val }: { icon: any, label: string, val: string }) {
+function TelemetryItem({ icon: Icon, label, val }: { icon: LucideIcon, label: string, val: string }) {
   return (
     <div className="flex flex-col items-center gap-2">
       <div className="w-8 h-8 rounded-lg bg-white/[0.02] border border-white/5 flex items-center justify-center mb-1">

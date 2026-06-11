@@ -189,11 +189,11 @@ export function Header() {
           <div className="hidden lg:block w-px h-3.5 bg-white/10" />
           
           <div className="flex items-center gap-3">
-            <button className="h-[28px] px-4 rounded-lg bg-gradient-to-br from-[#D9A63A] via-[#E8B84A] to-[#F0C96A] text-black text-[9px] font-black uppercase tracking-[0.08em] transition-all duration-500 hover:shadow-[0_8px_25px_rgba(232,184,74,0.35)] hover:scale-[1.02] active:scale-[0.98] shadow-xl relative overflow-hidden group">
+            <Link href="/pricing" className="h-[28px] px-4 rounded-lg bg-gradient-to-br from-[#D9A63A] via-[#E8B84A] to-[#F0C96A] text-black text-[9px] font-black uppercase tracking-[0.08em] transition-all duration-500 hover:shadow-[0_8px_25px_rgba(232,184,74,0.35)] hover:scale-[1.02] active:scale-[0.98] shadow-xl relative overflow-hidden group flex items-center justify-center">
               <span className="relative z-10">Get Started</span>
               <div className="absolute inset-0 bg-white/30 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
               <div className="absolute top-0 left-0 w-full h-1/2 bg-white/10 -skew-y-12" />
-            </button>
+            </Link>
             
             <button className="hidden lg:flex p-1.5 text-white/5 hover:text-[#E8B84A] transition-colors duration-500 group">
                <LayoutGrid className="w-3.5 h-3.5 group-hover:rotate-90 transition-transform duration-500" />
@@ -335,10 +335,10 @@ export function AnnouncementBar() {
         </div>
         
         <div className="flex items-center gap-5 relative z-10">
-          <button className="flex items-center gap-1.5 group/btn px-3 h-[24px] rounded-lg bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] hover:border-[#E8B84A]/30 transition-all duration-500 shadow-[0_0_15px_rgba(232,184,74,0.05)]">
+          <Link href="/infrastructure" className="flex items-center gap-1.5 group/btn px-3 h-[24px] rounded-lg bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] hover:border-[#E8B84A]/30 transition-all duration-500 shadow-[0_0_15px_rgba(232,184,74,0.05)]">
              <span className="text-[8.5px] font-black text-[#E8B84A] uppercase tracking-[0.12em]">Explore Infrastructure</span>
              <ArrowRightIcon className="w-2.5 h-2.5 text-[#E8B84A] group-hover/btn:translate-x-0.5 transition-transform" />
-          </button>
+          </Link>
           
           <div className="h-3 w-px bg-white/10" />
           
@@ -359,11 +359,3 @@ function ArrowRightIcon({ className }: { className?: string }) {
   );
 }
 
-function LinkIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-    </svg>
-  );
-}
