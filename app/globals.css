@@ -293,172 +293,258 @@ h3 {
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   MILK MODE (LIGHT THEME OVERRIDES)
-   Sophisticated executive-grade "Milk + Ash" experience
+   ENTERPRISE LIGHT THEME (STRIPE & LINEAR INSPIRED)
+   Clean, modern, minimal technology platform styling
 ══════════════════════════════════════════════════════════════════ */
 html:not(.dark) {
-  --background: #FAFAF7; /* Primary Light Background: Ivory */
-  --foreground: #162033; /* Primary Text: Navy */
+  --background: #FFFFFF;
+  --foreground: #0F172A; /* Slate Navy */
   --brand-gold: #F5B942; /* Gold Accent */
-  --brand-dark: #F7F4EE; /* Secondary Surface: Cream */
-  --glass-bg: #FFFFFF; /* White Content Surface */
-  --glass-border: rgba(28, 35, 49, 0.06); /* Borders */
-  --text-muted: #5B6472; /* Secondary Text: Ash */
+  --brand-dark: #F8FAFC; /* Light Gray Alternate Surface */
+  --glass-bg: #FFFFFF;
+  --glass-border: #E2E8F0;
+  --text-muted: #475569;
 }
 
-/* Base body background override */
-html:not(.dark) .bg-\[\#05070B\] {
-  background-color: #FAFAF7 !important; /* Ivory background for layout main */
+/* Global body/main layout backgrounds in Light Mode */
+html:not(.dark) .bg-\[\#05070B\],
+html:not(.dark) main {
+  background-color: #FFFFFF !important;
 }
 
-/* Light section backgrounds - Milk + Ash daylight rhythm */
-html:not(.dark) .theme-light-section {
-  background-color: #FAFAF7 !important;
-}
-html:not(.dark) .theme-light-section.hero-section-institutional {
+/* Section Background Rhythm: Alternating White & Light Gray (#F8FAFC) */
+html:not(.dark) .hero-section-institutional {
   background-image: none !important;
-  background: linear-gradient(180deg, #F7F4EE, #FAFAF7) !important;
-  border-bottom: 1px solid rgba(28, 35, 49, 0.06) !important;
+  background: #FFFFFF !important;
+  border-bottom: 1px solid #E2E8F0 !important;
 }
-html:not(.dark) .theme-light-section.bg-\[\#050816\] {
-  background-color: #FFFFFF !important; /* White content surface for OperationalInfrastructure */
+html:not(.dark) .theme-navy-section.section-gap {
+  background-color: #F8FAFC !important; /* Section 2: Lifecycle */
 }
-html:not(.dark) .theme-light-section.bg-\[\#020408\] {
-  background-color: #FAFAF7 !important; /* Ivory for ScaleStructure */
+html:not(.dark) .theme-light-section.py-16 {
+  background-color: #FFFFFF !important; /* Section 3: Infrastructure */
 }
-html:not(.dark) .theme-light-section.bg-\[\#02040A\] {
-  background-color: #FFFFFF !important; /* White content surface for ConnectedEcosystem */
+html:not(.dark) .theme-navy-section.min-h-\[900px\],
+html:not(.dark) .theme-navy-section.lg\:min-h-\[1050px\] {
+  background-color: #F8FAFC !important; /* Section 4: Command Center */
+}
+html:not(.dark) .theme-navy-section.h-auto {
+  background-color: #FFFFFF !important; /* Section 5: Human Coordination */
+}
+html:not(.dark) .theme-navy-section.py-16.bg-\[\#020408\] {
+  background-color: #F8FAFC !important; /* Section 6: Telemetry Matrix */
+}
+html:not(.dark) .theme-light-section.py-\[72px\] {
+  background-color: #FFFFFF !important; /* Section 7: Scale Structure */
+}
+html:not(.dark) .theme-navy-section.py-\[72px\] {
+  background-color: #F8FAFC !important; /* Section 8: Impact Cinematic */
+}
+html:not(.dark) .theme-light-section.py-20.bg-\[\#02040A\] {
+  background-color: #FFFFFF !important; /* Section 9: Ecosystem */
 }
 html:not(.dark) .theme-light-section.enterprise-trust-section {
-  background-color: #FAFAF7 !important; /* Ivory for EnterpriseTrust */
+  background-color: #F8FAFC !important; /* Section 10: Enterprise Trust */
 }
-html:not(.dark) .theme-light-section.py-32.bg-\[\#050816\] {
-  background-color: #F7F4EE !important; /* Warm Cream surface for FinalCTA */
-}
-
-/* ── Navy Rhythm Sections in Light Mode ── */
-html:not(.dark) .theme-navy-section {
-  background-color: #081225 !important; /* OYEN Navy background in daylight */
-  border-color: rgba(255, 255, 255, 0.06) !important;
-}
-html:not(.dark) .theme-navy-section.bg-\[\#020408\] {
-  background-color: #0D1B34 !important; /* Secondary Navy for OperationalIntelligence */
+html:not(.dark) .theme-light-section.py-32 {
+  background-color: #FFFFFF !important; /* Section 11: Final CTA */
 }
 
-/* Text color overrides inside light sections */
-html:not(.dark) .theme-light-section h1,
-html:not(.dark) .theme-light-section h2,
-html:not(.dark) .theme-light-section h3,
-html:not(.dark) .theme-light-section h4,
-html:not(.dark) .theme-light-section .text-white {
-  color: #162033 !important; /* Primary Navy Text */
+/* Primary and secondary text overrides for all sections in light mode */
+html:not(.dark) .text-white,
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) h5,
+html:not(.dark) h6 {
+  color: #0F172A !important;
 }
-html:not(.dark) .theme-light-section p,
-html:not(.dark) .theme-light-section .text-white\/30,
-html:not(.dark) .theme-light-section .text-white\/35,
-html:not(.dark) .theme-light-section .text-white\/38,
-html:not(.dark) .theme-light-section .text-white\/40,
-html:not(.dark) .theme-light-section .text-white\/45,
-html:not(.dark) .theme-light-section .text-white\/50,
-html:not(.dark) .theme-light-section .text-white\/60,
-html:not(.dark) .theme-light-section .text-white\/70,
-html:not(.dark) .theme-light-section .text-white\/80 {
-  color: #5B6472 !important; /* Secondary Ash Text */
+
+html:not(.dark) p,
+html:not(.dark) .text-editorial,
+html:not(.dark) .text-white\/30,
+html:not(.dark) .text-white\/35,
+html:not(.dark) .text-white\/38,
+html:not(.dark) .text-white\/40,
+html:not(.dark) .text-white\/45,
+html:not(.dark) .text-white\/50,
+html:not(.dark) .text-white\/60,
+html:not(.dark) .text-white\/70,
+html:not(.dark) .text-white\/80 {
+  color: #475569 !important;
 }
-html:not(.dark) .theme-light-section .text-white\/20,
-html:not(.dark) .theme-light-section .text-white\/22 {
-  color: rgba(22, 32, 51, 0.2) !important;
-}
-html:not(.dark) .theme-light-section .text-editorial {
-  color: #5B6472 !important;
+
+html:not(.dark) .text-white\/20,
+html:not(.dark) .text-white\/22 {
+  color: #64748B !important;
 }
 
 /* Border overrides inside light sections */
-html:not(.dark) .theme-light-section .border-white\/5,
-html:not(.dark) .theme-light-section .border-white\/10,
-html:not(.dark) .theme-light-section .border-white\/\[0\.12\],
-html:not(.dark) .theme-light-section .border-white\/\[0\.08\],
-html:not(.dark) .theme-light-section .border-white\/\[0\.07\],
-html:not(.dark) .theme-light-section .border-white\/\[0\.06\],
-html:not(.dark) .theme-light-section .border-white\/\[0\.05\],
-html:not(.dark) .theme-light-section .border-white\/8,
-html:not(.dark) .theme-light-section .divide-white\/5,
-html:not(.dark) .theme-light-section .divide-white\/10 {
-  border-color: rgba(28, 35, 49, 0.06) !important;
+html:not(.dark) .border-white\/5,
+html:not(.dark) .border-white\/10,
+html:not(.dark) .border-white\/\[0\.03\],
+html:not(.dark) .border-white\/\[0\.04\],
+html:not(.dark) .border-white\/\[0\.05\],
+html:not(.dark) .border-white\/\[0\.06\],
+html:not(.dark) .border-white\/\[0\.07\],
+html:not(.dark) .border-white\/\[0\.08\],
+html:not(.dark) .border-white\/\[0\.12\],
+html:not(.dark) .divide-white\/5,
+html:not(.dark) .divide-white\/10,
+html:not(.dark) .border-white\/8,
+html:not(.dark) .border-white\/15,
+html:not(.dark) .border-white\/20,
+html:not(.dark) .border-white\/25,
+html:not(.dark) .border-white\/30,
+html:not(.dark) .border-white\/45,
+html:not(.dark) .border-b.border-white\/5,
+html:not(.dark) .border-t.border-white\/5 {
+  border-color: #E2E8F0 !important;
 }
 
 /* Card styling inside light sections - premium, soft borders and drop shadows */
-html:not(.dark) .theme-light-section .card-institutional,
-html:not(.dark) .theme-light-section .bg-white\/\[0\.01\],
-html:not(.dark) .theme-light-section .bg-white\/\[0\.02\],
-html:not(.dark) .theme-light-section .bg-white\/\[0\.03\],
-html:not(.dark) .theme-light-section .bg-white\/\[0\.04\],
-html:not(.dark) .theme-light-section .bg-white\/\[0\.05\],
-html:not(.dark) .theme-light-section .bg-white\/\[0\.06\],
-html:not(.dark) .theme-light-section .bg-white\/\[0\.07\],
-html:not(.dark) .theme-light-section .bg-white\/5,
-html:not(.dark) .theme-light-section .bg-white\/10,
-html:not(.dark) .theme-light-section .bg-gradient-to-br.from-\[\#040816\]\/80 {
-  background-color: #FFFFFF !important; /* White Content Surface */
+html:not(.dark) .card-institutional,
+html:not(.dark) .bg-white\/\[0\.01\],
+html:not(.dark) .bg-white\/\[0\.02\],
+html:not(.dark) .bg-white\/\[0\.03\],
+html:not(.dark) .bg-white\/\[0\.04\],
+html:not(.dark) .bg-white\/\[0\.05\],
+html:not(.dark) .bg-white\/\[0\.06\],
+html:not(.dark) .bg-white\/\[0\.07\],
+html:not(.dark) .bg-white\/5,
+html:not(.dark) .bg-white\/10,
+html:not(.dark) .bg-gradient-to-br.from-\[\#040816\]\/80 {
+  background-color: #FFFFFF !important;
   background-image: none !important;
-  border: 1px solid rgba(28, 35, 49, 0.06) !important;
-  box-shadow: 0 4px 20px rgba(28, 35, 49, 0.03) !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
   border-radius: 16px !important;
 }
 
-/* Specific Section Adjustments for rhythmic blending */
-html:not(.dark) section {
-  border-color: rgba(28, 35, 49, 0.05) !important;
+/* Hover effects for cards */
+html:not(.dark) .card-institutional:hover,
+html:not(.dark) .bg-white\/\[0\.01\]:hover,
+html:not(.dark) .bg-white\/\[0\.02\]:hover,
+html:not(.dark) .bg-white\/\[0\.03\]:hover,
+html:not(.dark) .bg-white\/\[0\.04\]:hover,
+html:not(.dark) .bg-white\/\[0\.05\]:hover,
+html:not(.dark) .bg-white\/\[0\.06\]:hover,
+html:not(.dark) .bg-white\/\[0\.07\]:hover {
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+  border-color: #CBD5E1 !important;
+  transform: translateY(-2px) !important;
 }
 
-/* Gold branding accents preserved but warm/restrained */
-html:not(.dark) .theme-light-section .text-\[\#E8B84A\],
-html:not(.dark) .theme-light-section .text-brand-gold {
+/* Gold branding accents preserved but clean */
+html:not(.dark) .text-\[\#E8B84A\],
+html:not(.dark) .text-brand-gold {
   color: #F5B942 !important;
 }
 
 /* Header capsule and buttons */
+html:not(.dark) header {
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
 html:not(.dark) header.bg-\[\#050B1A\] {
-  background-color: #FAF9F6 !important; /* Cream */
+  background-color: #FFFFFF !important;
 }
 html:not(.dark) header .bg-\[\#050B1A\]\/90 {
-  background-color: rgba(250, 249, 246, 0.9) !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+}
+html:not(.dark) header.shadow-\[0_12px_40px_rgba\(0\,0\,0\,0\.55\)\] {
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04) !important;
 }
 
-/* Toggle capsule adjustments for Milk Mode */
+/* Navigation links */
+html:not(.dark) header nav a,
+html:not(.dark) header nav button {
+  color: #475569 !important;
+}
+html:not(.dark) header nav a:hover,
+html:not(.dark) header nav button:hover,
+html:not(.dark) header nav button.text-\[\#E8B84A\] {
+  color: #0F172A !important;
+}
+
+/* Announcement Bar */
+html:not(.dark) .relative.pt-\[94px\] > div {
+  background-color: #F8FAFC !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+html:not(.dark) .relative.pt-\[94px\] span {
+  color: #475569 !important;
+}
+html:not(.dark) .relative.pt-\[94px\] a {
+  color: #F5B942 !important;
+}
+html:not(.dark) .relative.pt-\[94px\] a:hover {
+  color: #D97706 !important;
+}
+
+/* Mega Menu Dropdown */
+html:not(.dark) [class*="absolute top-[94px]"] {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08) !important;
+}
+html:not(.dark) [class*="absolute top-[94px]"] a {
+  border-color: transparent !important;
+}
+html:not(.dark) [class*="absolute top-[94px]"] a:hover {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+}
+html:not(.dark) [class*="absolute top-[94px]"] h4 {
+  color: #0F172A !important;
+}
+html:not(.dark) [class*="absolute top-[94px]"] p {
+  color: #64748B !important;
+}
+html:not(.dark) [class*="absolute top-[94px]"] span {
+  color: #64748B !important;
+}
+
+/* Toggle capsule adjustments for daylight mode */
 html:not(.dark) .theme-toggle-capsule {
-  background-color: rgba(28, 35, 49, 0.04) !important;
-  border-color: rgba(28, 35, 49, 0.08) !important;
+  background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
 }
 html:not(.dark) .theme-toggle-capsule button {
-  color: rgba(28, 35, 49, 0.4) !important;
+  color: #64748B !important;
 }
 html:not(.dark) .theme-toggle-capsule button.text-\[\#E8B84A\] {
   color: #F5B942 !important;
 }
 html:not(.dark) .theme-toggle-capsule button:hover {
-  color: rgba(28, 35, 49, 0.7) !important;
+  color: #0F172A !important;
 }
-html:not(.dark) .theme-toggle-capsule .bg-white\/\[0\.06\] {
-  background-color: #FCFBF8 !important;
-  border-color: rgba(28, 35, 49, 0.08) !important;
-}
-
-/* Secondary Buttons in Milk Mode */
-html:not(.dark) .theme-light-section .btn-institutional-secondary {
-  background: #FCFBF8 !important;
-  border-color: rgba(28, 35, 49, 0.08) !important;
-  color: #162033 !important;
-}
-html:not(.dark) .theme-light-section .btn-institutional-secondary:hover {
-  background: #FAF9F6 !important;
+html:not(.dark) .theme-toggle-capsule div[class*="bg-white"] {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08) !important;
 }
 
-/* Hero Section adjustments - Milk Mode Frame with Premium Navy border */
-html:not(.dark) .hero-section-institutional {
-  background-image: none !important;
-  background: linear-gradient(180deg, #F7F4EE, #FAFAF7) !important;
+/* Primary/Secondary Buttons in daylight mode */
+html:not(.dark) .btn-institutional-secondary {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05) !important;
 }
+html:not(.dark) .btn-institutional-secondary:hover {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+}
+html:not(.dark) .btn-institutional-primary {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 3px rgba(245, 185, 66, 0.2) !important;
+}
+
+/* Hero Section adjustments - daylight mockup visual border frame */
 html:not(.dark) .hero-section-institutional::before {
   background: radial-gradient(circle at 72% 45%, rgba(200, 155, 43, 0.06), transparent 42%) !important;
 }
@@ -467,23 +553,23 @@ html:not(.dark) .hero-section-institutional .hero-content + div {
   background-size: cover !important;
   background-position: center !important;
   border-radius: 20px !important;
-  border: 6px solid #081225 !important; /* Subtle navy framing element */
-  box-shadow: 0 12px 36px rgba(28, 35, 49, 0.08) !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.04) !important;
   transform: scale(0.96) !important;
 }
 html:not(.dark) .hero-metric-item .number {
-  color: #162033 !important;
+  color: #0F172A !important;
 }
 html:not(.dark) .hero-metric-item .label {
-  color: #5B6472 !important;
+  color: #64748B !important;
 }
 html:not(.dark) .glass-card-floating {
-  background: #FCFBF8 !important;
-  border-color: rgba(28, 35, 49, 0.06) !important;
-  box-shadow: 0 12px 30px rgba(28, 35, 49, 0.05) !important;
+  background: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04) !important;
 }
 html:not(.dark) .glass-card-floating .text-white {
-  color: #162033 !important;
+  color: #0F172A !important;
 }
 
 /* Replacing neon/bright white glows with warm gold radial accents */
@@ -498,25 +584,54 @@ html:not(.dark) .to-transparent {
   --tw-gradient-from: rgba(200, 155, 43, 0.08) !important;
 }
 
-/* Keep-dark component wrappers */
+/* Disable dark background details/scanlines in Light Mode */
+html:not(.dark) [class*="bg-[linear-gradient(rgba(18"],
+html:not(.dark) [class*="bg-gradient-to-b from-transparent via-brand-gold"],
+html:not(.dark) .bg-cinematic,
+html:not(.dark) .cinematic-overlay,
+html:not(.dark) [class*="opacity-[0.02] bg-[linear-gradient"] {
+  display: none !important;
+}
+html:not(.dark) .absolute.inset-0.z-0.pointer-events-none > [class*="bg-blue-500"],
+html:not(.dark) .absolute.inset-0.z-0.pointer-events-none > [class*="bg-purple-500"],
+html:not(.dark) .absolute.inset-0.z-0.pointer-events-none > [class*="bg-cyan-500"],
+html:not(.dark) .absolute.inset-0.z-0.pointer-events-none > [class*="bg-brand-gold"],
+html:not(.dark) .absolute.inset-0.z-0.pointer-events-none > [class*="blur-"] {
+  display: none !important;
+}
+
+/* Refined light dashboards: clean white surfaces, borders, slate/navy text, soft accents */
 html:not(.dark) .keep-dark {
-  background-color: #081225 !important; /* OYEN Navy background */
-  color: #ffffff !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
 }
-html:not(.dark) .keep-dark.bg-\[\#010205\] {
-  background-color: #0D1B34 !important; /* Secondary Navy for Telemetry */
+html:not(.dark) .keep-dark .bg-\[\#05070B\],
+html:not(.dark) .keep-dark .bg-\[\#010205\],
+html:not(.dark) .keep-dark .bg-black\/40,
+html:not(.dark) .keep-dark .bg-black\/60,
+html:not(.dark) .keep-dark .bg-slate-950\/45,
+html:not(.dark) .keep-dark .bg-slate-950\/40,
+html:not(.dark) .keep-dark .bg-slate-950\/85,
+html:not(.dark) .keep-dark .bg-\[\#0c1020\]\/90,
+html:not(.dark) .keep-dark .bg-\[\#080B14\]\/70,
+html:not(.dark) .keep-dark .bg-\[\#0a0e1c\]\/45 {
+  background-color: #F8FAFC !important;
+  background-image: none !important;
 }
-html:not(.dark) .keep-dark * {
-  color: inherit;
+html:not(.dark) .keep-dark .text-white,
+html:not(.dark) .keep-dark h1,
+html:not(.dark) .keep-dark h2,
+html:not(.dark) .keep-dark h3,
+html:not(.dark) .keep-dark h4,
+html:not(.dark) .keep-dark h5,
+html:not(.dark) .keep-dark h6,
+html:not(.dark) .keep-dark span.text-white {
+  color: #0F172A !important;
 }
-html:not(.dark) .keep-dark .text-white {
-  color: #ffffff !important;
-}
-html:not(.dark) .keep-dark .text-white\/20,
-html:not(.dark) .keep-dark .text-white\/22 {
-  color: rgba(255, 255, 255, 0.2) !important;
-}
+html:not(.dark) .keep-dark p,
 html:not(.dark) .keep-dark .text-white\/30,
 html:not(.dark) .keep-dark .text-white\/35,
 html:not(.dark) .keep-dark .text-white\/38,
@@ -526,7 +641,11 @@ html:not(.dark) .keep-dark .text-white\/50,
 html:not(.dark) .keep-dark .text-white\/60,
 html:not(.dark) .keep-dark .text-white\/70,
 html:not(.dark) .keep-dark .text-white\/80 {
-  color: rgba(255, 255, 255, 0.5) !important;
+  color: #475569 !important;
+}
+html:not(.dark) .keep-dark .text-white\/20,
+html:not(.dark) .keep-dark .text-white\/22 {
+  color: #64748B !important;
 }
 html:not(.dark) .keep-dark .border-white\/5,
 html:not(.dark) .keep-dark .border-white\/10,
@@ -535,34 +654,48 @@ html:not(.dark) .keep-dark .border-white\/\[0\.08\],
 html:not(.dark) .keep-dark .border-white\/\[0\.07\],
 html:not(.dark) .keep-dark .border-white\/\[0\.06\],
 html:not(.dark) .keep-dark .border-white\/\[0\.05\],
-html:not(.dark) .keep-dark .border-white\/8 {
-  border-color: rgba(255, 255, 255, 0.08) !important;
-}
-html:not(.dark) .keep-dark .bg-white\/\[0\.01\],
-html:not(.dark) .keep-dark .bg-white\/\[0\.02\],
-html:not(.dark) .keep-dark .bg-white\/\[0\.03\],
-html:not(.dark) .keep-dark .bg-white\/\[0\.04\],
-html:not(.dark) .keep-dark .bg-white\/\[0\.05\],
-html:not(.dark) .keep-dark .bg-white\/\[0\.06\],
-html:not(.dark) .keep-dark .bg-white\/\[0\.07\],
-html:not(.dark) .keep-dark .bg-white\/5,
-html:not(.dark) .keep-dark .bg-white\/10 {
-  background-color: rgba(255, 255, 255, 0.03) !important;
+html:not(.dark) .keep-dark .border-white\/8,
+html:not(.dark) .keep-dark .divide-white\/5,
+html:not(.dark) .keep-dark .divide-white\/10 {
+  border-color: #E2E8F0 !important;
 }
 
-/* Footer styling: warm landing paper E9E5DD */
-html:not(.dark) footer {
-  background-color: #E9E5DD !important;
+/* Diagram loop paths muted to soft slate lines in daylight mode */
+html:not(.dark) svg path[stroke="url(#infinity-gradient-cc)"] {
+  stroke: #081225 !important;
+  stroke-opacity: 0.15 !important;
 }
+html:not(.dark) svg path[stroke="url(#infinity-gradient-cc)"][strokeWidth="15"] {
+  stroke-width: 4px !important;
+  filter: none !important;
+}
+html:not(.dark) .border-cyan-500\/20,
+html:not(.dark) .border-cyan-500\/30,
+html:not(.dark) .border-purple-500\/10,
+html:not(.dark) .border-brand-gold\/20,
+html:not(.dark) .border-brand-gold\/25,
+html:not(.dark) .border-brand-gold\/30,
+html:not(.dark) .border-brand-gold\/45 {
+  border-color: #E2E8F0 !important;
+}
+html:not(.dark) .bg-brand-gold\/15, 
+html:not(.dark) .bg-emerald-500\/10, 
+html:not(.dark) .bg-\[\#E8B84A\]\/\[0\.05\] {
+  background-color: rgba(245, 185, 66, 0.08) !important;
+}
+
+/* Footer styling: Light Gray #F8FAFC with a top border #E2E8F0 */
+html:not(.dark) footer,
 html:not(.dark) footer.bg-\[\#050B1A\] {
-  background-color: #E9E5DD !important;
+  background-color: #F8FAFC !important;
+  border-top: 1px solid #E2E8F0 !important;
 }
 html:not(.dark) footer .from-\[\#030710\] {
-  --tw-gradient-from: #E9E5DD !important;
-  background-color: #E9E5DD !important;
+  --tw-gradient-from: #F8FAFC !important;
+  background-color: #F8FAFC !important;
 }
 html:not(.dark) footer .h-px {
-  background-color: rgba(28, 35, 49, 0.08) !important;
+  background-color: #E2E8F0 !important;
 }
 html:not(.dark) footer h1,
 html:not(.dark) footer h2,
@@ -572,24 +705,31 @@ html:not(.dark) footer h5,
 html:not(.dark) footer a,
 html:not(.dark) footer p,
 html:not(.dark) footer span {
-  color: #162033 !important;
+  color: #475569 !important;
 }
 html:not(.dark) footer a:hover {
-  color: #F5B942 !important;
+  color: #0F172A !important;
 }
 html:not(.dark) footer .text-white\/30,
 html:not(.dark) footer .text-white\/40,
 html:not(.dark) footer .text-white\/50,
 html:not(.dark) footer .text-white\/60 {
-  color: #5B6472 !important;
+  color: #64748B !important;
 }
 
-/* Chatbot & inputs */
+/* Decorative authorising corner layout lines */
+html:not(.dark) .border-white {
+  border-color: #E2E8F0 !important;
+}
+html:not(.dark) .bg-white {
+  background-color: #E2E8F0 !important;
+}
+
 html:not(.dark) input, 
 html:not(.dark) textarea {
-  color: #162033 !important;
+  color: #0F172A !important;
   background-color: #FFFFFF !important;
-  border-color: rgba(28, 35, 49, 0.1) !important;
+  border-color: #E2E8F0 !important;
 }
 html:not(.dark) .bg-emerald-500\/10 {
   background-color: rgba(16, 185, 129, 0.08) !important;

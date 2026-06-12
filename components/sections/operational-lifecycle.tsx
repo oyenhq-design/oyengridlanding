@@ -148,7 +148,7 @@ export function OperationalLifecycle() {
   }, []);
 
   return (
-    <section className="section-gap bg-[#050816] relative overflow-hidden">
+    <section className="section-gap bg-[#050816] theme-navy-section relative overflow-hidden">
       <div className="container-custom">
         <div className="mb-16">
           <span className="eyebrow">OPERATIONAL LIFECYCLE</span>

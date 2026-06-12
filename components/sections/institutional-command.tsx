@@ -42,7 +42,7 @@ const particles = [
 
 export function InstitutionalCommandCenter() {
   return (
-    <section className="py-24 md:py-28 lg:py-32 min-h-[900px] lg:min-h-[1050px] bg-[#050816] relative overflow-hidden border-b border-white/5 flex flex-col justify-between selection:bg-brand-gold selection:text-black">
+    <section className="py-24 md:py-28 lg:py-32 min-h-[900px] lg:min-h-[1050px] bg-[#050816] theme-navy-section relative overflow-hidden border-b border-white/5 flex flex-col justify-between selection:bg-brand-gold selection:text-black">
       
       {/* ── Background Atmosphere & Cinematic Grid ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">

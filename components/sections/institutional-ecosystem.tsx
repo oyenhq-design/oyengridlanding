@@ -14,7 +14,7 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="hero-section-institutional flex items-center pt-20 pb-16 border-b border-white/5 overflow-hidden">
+    <section className="hero-section-institutional theme-light-section flex items-center pt-20 pb-16 border-b border-white/5 overflow-hidden">
       
       <div className="max-w-[1280px] mx-auto px-[48px] w-full grid grid-cols-[0.95fr_1.05fr] gap-[40px] items-center relative z-[2]">
         

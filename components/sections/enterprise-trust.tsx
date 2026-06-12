@@ -29,7 +29,7 @@ const trustCards = [
 
 export function EnterpriseTrust() {
   return (
-    <section className="relative py-20 bg-[#02040A] overflow-hidden">
+    <section className="relative py-20 bg-[#02040A] theme-light-section enterprise-trust-section overflow-hidden">
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse,rgba(232,184,74,0.015),transparent_70%)] opacity-60" />
@@ -103,7 +103,7 @@ export function EnterpriseTrust() {
             transition={{ duration: 0.8 }}
             className="flex-1 w-full flex justify-end"
           >
-             <div className="relative w-full max-w-[500px] rounded-[24px] bg-[#010205] border border-white/[0.06] shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col p-10 lg:p-14 group">
+             <div className="keep-dark relative w-full max-w-[500px] rounded-[24px] bg-[#010205] border border-white/[0.06] shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col p-10 lg:p-14 group">
                 {/* Visuals */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,185,129,0.06),transparent_60%)] pointer-events-none" />
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "32px 32px" }} />

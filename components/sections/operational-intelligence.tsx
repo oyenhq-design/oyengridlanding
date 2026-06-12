@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 export function OperationalIntelligence() {
   return (
-    <section className="py-16 bg-[#020408] relative overflow-hidden border-b border-white/5">
+    <section className="py-16 bg-[#020408] theme-navy-section relative overflow-hidden border-b border-white/5">
       
       {/* 1. GLOBAL COMMAND CENTER ATMOSPHERE */}
       <div className="absolute inset-0 z-0 pointer-events-none">

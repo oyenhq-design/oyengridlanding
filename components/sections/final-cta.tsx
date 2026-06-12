@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export function FinalCTA() {
   return (
-    <section className="relative py-32 md:py-48 bg-[#050816] overflow-hidden border-t border-white/5">
+    <section className="relative py-32 md:py-48 bg-[#050816] theme-light-section overflow-hidden border-t border-white/5">
       
       {/* CINEMATIC BACKGROUND SYSTEM */}
       <div className="absolute inset-0 z-0 pointer-events-none">

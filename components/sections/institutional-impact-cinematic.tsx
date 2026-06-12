@@ -43,7 +43,7 @@ export function InstitutionalImpactCinematic() {
   return (
     <section 
       ref={containerRef}
-      className="py-[72px] bg-[#05070B] relative overflow-hidden"
+      className="py-[72px] bg-[#05070B] theme-navy-section relative overflow-hidden"
     >
       {/* 1. CINEMATIC BACKGROUND SYSTEM */}
       <div className="absolute inset-0 z-0 pointer-events-none">

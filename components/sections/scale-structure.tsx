@@ -30,7 +30,7 @@ export function ScaleStructure() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-[72px] bg-[#020408] relative overflow-hidden border-b border-white/5">
+    <section ref={containerRef} className="py-[72px] bg-[#020408] theme-light-section relative overflow-hidden border-b border-white/5">
       
       {/* 1. CINEMATIC ATMOSPHERE & DEPTH */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -151,7 +151,7 @@ export function ScaleStructure() {
           </div>
 
           {/* RIGHT SIDE: ADVANCED INFRASTRUCTURE VISUALIZATION (60%) */}
-          <div className="relative">
+          <div className="relative keep-dark">
             {/* The Main Operational Display */}
             <div className="relative p-1 rounded-[40px] bg-gradient-to-br from-white/10 via-transparent to-white/5 shadow-[0_40px_120px_rgba(0,0,0,0.8)] overflow-hidden group">
                <div className="relative p-8 lg:p-10 rounded-[39px] bg-[#05070B] border border-white/5 backdrop-blur-3xl overflow-hidden min-h-[480px] flex flex-col">

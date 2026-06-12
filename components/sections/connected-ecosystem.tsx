@@ -57,7 +57,7 @@ const bottomStrip = [
 
 export function ConnectedEcosystem() {
   return (
-    <section className="relative py-20 lg:py-28 bg-[#02040A] overflow-hidden">
+    <section className="relative py-20 lg:py-28 bg-[#02040A] theme-light-section overflow-hidden">
       {/* Cinematic Background Atmosphere */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] bg-[radial-gradient(ellipse,rgba(232,184,74,0.02),transparent_70%)] opacity-70" />
@@ -140,7 +140,7 @@ export function ConnectedEcosystem() {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.5, ease: "easeOut" }}
-              className="absolute inset-[85px] lg:inset-[100px] rounded-full bg-gradient-to-b from-[#040816] to-[#010205] border border-[#E8B84A]/20 shadow-[0_0_60px_rgba(232,184,74,0.1),inset_0_0_40px_rgba(232,184,74,0.05)] backdrop-blur-2xl flex flex-col items-center justify-center text-center group"
+              className="keep-dark absolute inset-[85px] lg:inset-[100px] rounded-full bg-gradient-to-b from-[#040816] to-[#010205] border border-[#E8B84A]/20 shadow-[0_0_60px_rgba(232,184,74,0.1),inset_0_0_40px_rgba(232,184,74,0.05)] backdrop-blur-2xl flex flex-col items-center justify-center text-center group"
             >
                {/* Internal Operational Waveforms */}
                <div className="absolute inset-0 rounded-full overflow-hidden opacity-30 flex items-center justify-center pointer-events-none">

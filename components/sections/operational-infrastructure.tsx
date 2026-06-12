@@ -49,7 +49,7 @@ const capabilities = [
 
 export function OperationalInfrastructure() {
   return (
-    <section className="py-16 bg-[#050816] relative overflow-hidden border-b border-white/5">
+    <section className="py-16 bg-[#050816] theme-light-section relative overflow-hidden border-b border-white/5">
       
       {/* REFINED AMBIENT GLOW */}
       <div className="absolute inset-0 z-0 pointer-events-none">

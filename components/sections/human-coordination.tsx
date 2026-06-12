@@ -61,7 +61,7 @@ const floatingCards = [
 
 export function HumanCoordination() {
   return (
-    <section className="relative h-auto min-h-[480px] lg:h-[540px] bg-[#050816] overflow-hidden border-b border-white/5 flex items-center">
+    <section className="relative h-auto min-h-[480px] lg:h-[540px] bg-[#050816] theme-navy-section overflow-hidden border-b border-white/5 flex items-center">
       
       {/* FULL-WIDTH CINEMATIC BACKGROUND IMAGE */}
       <div className="absolute top-0 right-0 w-full lg:w-[55%] h-full z-0 overflow-hidden">
