@@ -473,6 +473,61 @@ const VALID_SOLUTIONS: SolutionType[] = ["bootcamps", "events", "education", "en
 
 // ─── INNER COMPONENT (uses useSearchParams — must be inside Suspense) ─────────
 
+const colorClasses: Record<SolutionType, { text: string; bg: string; border: string; borderActive: string; bgSolid: string }> = {
+  bootcamps: {
+    text: "text-[#D4A017] dark:text-[#E8B84A]",
+    bg: "bg-[#D4A017]/10 dark:bg-[#E8B84A]/10",
+    border: "border-[#D4A017]/20 dark:border-[#E8B84A]/20",
+    borderActive: "border-[#D4A017] dark:border-[#E8B84A]/40",
+    bgSolid: "bg-[#D4A017] dark:bg-[#E8B84A]",
+  },
+  events: {
+    text: "text-[#059669] dark:text-[#34d399]",
+    bg: "bg-[#059669]/10 dark:bg-[#34d399]/10",
+    border: "border-[#059669]/20 dark:border-[#34d399]/20",
+    borderActive: "border-[#059669] dark:border-[#34d399]/40",
+    bgSolid: "bg-[#059669] dark:bg-[#34d399]",
+  },
+  education: {
+    text: "text-[#2563eb] dark:text-[#60a5fa]",
+    bg: "bg-[#2563eb]/10 dark:bg-[#60a5fa]/10",
+    border: "border-[#2563eb]/20 dark:border-[#60a5fa]/20",
+    borderActive: "border-[#2563eb] dark:border-[#60a5fa]/40",
+    bgSolid: "bg-[#2563eb] dark:bg-[#60a5fa]",
+  },
+  enterprise: {
+    text: "text-[#7c3aed] dark:text-[#a78bfa]",
+    bg: "bg-[#7c3aed]/10 dark:bg-[#a78bfa]/10",
+    border: "border-[#7c3aed]/20 dark:border-[#a78bfa]/20",
+    borderActive: "border-[#7c3aed] dark:border-[#a78bfa]/40",
+    bgSolid: "bg-[#7c3aed] dark:bg-[#a78bfa]",
+  },
+};
+
+const getThemeColor = (color: string) => {
+  if (color === "#60a5fa") return "text-[#2563eb] dark:text-[#60a5fa]";
+  if (color === "#E8B84A") return "text-[#D4A017] dark:text-[#E8B84A]";
+  if (color === "#a78bfa") return "text-[#7c3aed] dark:text-[#a78bfa]";
+  if (color === "#34d399") return "text-[#059669] dark:text-[#34d399]";
+  return "text-[#6B7280] dark:text-white/40";
+};
+
+const getThemeBgColor = (color: string) => {
+  if (color === "#60a5fa") return "bg-[#2563eb]/10 dark:bg-[#60a5fa]/10";
+  if (color === "#E8B84A") return "bg-[#D4A017]/10 dark:bg-[#E8B84A]/10";
+  if (color === "#a78bfa") return "bg-[#7c3aed]/10 dark:bg-[#a78bfa]/10";
+  if (color === "#34d399") return "bg-[#059669]/10 dark:bg-[#34d399]/10";
+  return "bg-[#F3F4F6] dark:bg-white/[0.05]";
+};
+
+const getThemeBorderColor = (color: string) => {
+  if (color === "#60a5fa") return "border-[#2563eb]/20 dark:border-[#60a5fa]/20";
+  if (color === "#E8B84A") return "border-[#D4A017]/20 dark:border-[#E8B84A]/20";
+  if (color === "#a78bfa") return "border-[#7c3aed]/20 dark:border-[#a78bfa]/20";
+  if (color === "#34d399") return "border-[#059669]/20 dark:border-[#34d399]/20";
+  return "border-transparent";
+};
+
 function PricingContent() {
   const router = useRouter();
   const pathname = usePathname();
@@ -512,20 +567,20 @@ function PricingContent() {
   };
 
   return (
-    <main className="min-h-screen bg-white dark:bg-[#05070B] selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden transition-colors duration-300">
+    <main className="min-h-screen bg-[#F8F9FB] dark:bg-[#05070B] selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden transition-colors duration-300">
       <Header />
       <AnnouncementBar />
 
       {/* ════════════════════════════════════════════════════════════════
           1. HERO SECTION
       ════════════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-white dark:bg-[#050816] border-b border-slate-200 dark:border-white/[0.05]">
+      <section className="relative overflow-hidden bg-[#F8F9FB] dark:bg-[#050816] border-b border-[#E5E7EB] dark:border-white/[0.05]">
         <div className="absolute inset-0 pointer-events-none">
           <div
-            className="absolute inset-0 opacity-[0.018] dark:opacity-[0.035]"
+            className="absolute inset-0 opacity-[0.015] dark:opacity-[0.035]"
             style={{ backgroundImage: "radial-gradient(circle, #000 0.5px, transparent 0.5px)", backgroundSize: "36px 36px" }}
           />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.07),transparent_65%)] dark:opacity-100 opacity-40" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(212,160,23,0.05),transparent_65%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.07),transparent_65%)] dark:opacity-100 opacity-40" />
           <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-[radial-gradient(ellipse_at_top_right,rgba(96,165,250,0.04),transparent_60%)]" />
         </div>
 
@@ -540,58 +595,58 @@ function PricingContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#E8B84A]/8 border border-[#E8B84A]/20 dark:bg-[#E8B84A]/5 dark:border-[#E8B84A]/15 mb-8">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#B88918] dark:bg-[#E8B84A] animate-pulse" />
-              <span className="text-[10px] font-black text-[#9a6f0e] dark:text-[#E8B84A] tracking-[0.22em] uppercase">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#D4A017]/8 border border-[#D4A017]/20 dark:bg-[#E8B84A]/5 dark:border-[#E8B84A]/15 mb-8">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#D4A017] dark:bg-[#E8B84A] animate-pulse" />
+              <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.22em] uppercase">
                 Unified Operating System
               </span>
             </div>
 
-            <h1 className="text-[48px] md:text-[68px] lg:text-[78px] font-extrabold text-slate-900 dark:text-white leading-[0.95] tracking-[-0.05em] mb-6 max-w-4xl mx-auto">
+            <h1 className="text-[48px] md:text-[68px] lg:text-[78px] font-extrabold text-[#111827] dark:text-white leading-[0.95] tracking-[-0.05em] mb-6 max-w-4xl mx-auto">
               Simple pricing.{" "}
               <br className="hidden md:block" />
-              <span className="italic font-serif font-medium" style={{ color: "#B88918" }}>
+              <span className="italic font-serif font-medium" style={{ color: "#D4A017" }}>
                 Powerful operational
               </span>{" "}
-              <span className="italic font-serif font-medium" style={{ color: "#B88918" }}>
+              <span className="italic font-serif font-medium" style={{ color: "#D4A017" }}>
                 outcomes.
               </span>
             </h1>
 
-            <p className="text-[17px] md:text-[19px] text-slate-500 dark:text-white/55 leading-relaxed font-normal max-w-2xl mx-auto mb-10">
+            <p className="text-[17px] md:text-[19px] text-[#4B5563] dark:text-white/55 leading-relaxed font-normal max-w-2xl mx-auto mb-10">
               Choose the solution that matches your organization. Whether you&apos;re running bootcamps, managing educational institutions, hosting events, or coordinating enterprise operations,{" "}
-              <span className="text-slate-700 dark:text-white/80 font-medium">OYEN GRID scales with your needs.</span>
+              <span className="text-[#1F2937] dark:text-white/80 font-semibold">OYEN GRID scales with your needs.</span>
             </p>
 
-            <div className="flex items-center justify-center flex-wrap gap-x-6 gap-y-3 text-[11px] font-semibold text-slate-400 dark:text-white/25 tracking-widest uppercase mb-10">
+            <div className="flex items-center justify-center flex-wrap gap-x-6 gap-y-3 text-[11px] font-semibold text-[#6B7280] dark:text-white/45 tracking-widest uppercase mb-10">
               <span className="flex items-center gap-2">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#34d399]" /> Enterprise Ready
+                <ShieldCheck className="w-3.5 h-3.5 text-[#059669]" /> Enterprise Ready
               </span>
-              <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-white/10" />
+              <span className="w-1 h-1 rounded-full bg-[#D1D5DB] dark:bg-white/10" />
               <span className="flex items-center gap-2">
-                <Lock className="w-3.5 h-3.5 text-[#60a5fa]" /> SOC2 Compliant
+                <Lock className="w-3.5 h-3.5 text-[#2563eb]" /> SOC2 Compliant
               </span>
-              <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-white/10" />
+              <span className="w-1 h-1 rounded-full bg-[#D1D5DB] dark:bg-white/10" />
               <span className="flex items-center gap-2">
-                <Activity className="w-3.5 h-3.5 text-[#E8B84A]" /> 99.99% Uptime SLA
+                <Activity className="w-3.5 h-3.5 text-[#D4A017]" /> 99.99% Uptime SLA
               </span>
-              <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-white/10" />
+              <span className="w-1 h-1 rounded-full bg-[#D1D5DB] dark:bg-white/10" />
               <span className="flex items-center gap-2">
-                <Globe className="w-3.5 h-3.5 text-[#a78bfa]" /> Multi-Region Infrastructure
+                <Globe className="w-3.5 h-3.5 text-[#7c3aed]" /> Multi-Region Infrastructure
               </span>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 onClick={scrollToPlans}
-                className="group h-12 px-8 rounded-[13px] bg-[#E8B84A] text-black font-black text-[12px] uppercase tracking-wider flex items-center gap-2.5 hover:bg-[#FFCF68] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_8px_24px_rgba(232,184,74,0.18)] dark:shadow-[0_8px_24px_rgba(232,184,74,0.12)]"
+                className="group h-12 px-8 rounded-[13px] bg-[#D4A017] text-black font-black text-[12px] uppercase tracking-wider flex items-center gap-2.5 hover:bg-[#E5B228] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_8px_24px_rgba(212,160,23,0.18)] dark:shadow-[0_8px_24px_rgba(232,184,74,0.12)]"
               >
                 View Pricing Plans
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
               <Link
                 href="/pricing/enterprise"
-                className="h-12 px-8 rounded-[13px] border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.02] text-slate-900 dark:text-white font-bold text-[12px] hover:bg-slate-50 dark:hover:bg-white/[0.05] transition-all flex items-center gap-2 uppercase tracking-wider"
+                className="h-12 px-8 rounded-[13px] border border-[#E5E7EB] dark:border-white/10 bg-white dark:bg-white/[0.02] text-[#111827] dark:text-white font-bold text-[12px] hover:bg-[#F9FAFB] dark:hover:bg-white/[0.05] hover:border-[#D1D5DB] transition-all flex items-center gap-2 uppercase tracking-wider"
               >
                 Talk to Sales
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-50" />
@@ -604,7 +659,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           2. CHOOSE YOUR SOLUTION
       ════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-slate-50 dark:bg-[#020408] border-b border-slate-200 dark:border-white/[0.04]">
+      <section className="py-20 bg-[#F8F9FB] dark:bg-[#020408] border-b border-[#E5E7EB] dark:border-white/[0.04]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -613,13 +668,13 @@ function PricingContent() {
             transition={{ duration: 0.7 }}
             className="text-center mb-12"
           >
-            <span className="text-[10px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
+            <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
               Personalized View
             </span>
-            <h2 className="text-[28px] md:text-[36px] font-bold text-slate-900 dark:text-white tracking-tight mb-3">
+            <h2 className="text-[28px] md:text-[36px] font-bold text-[#111827] dark:text-white tracking-tight mb-3">
               Choose Your Solution
             </h2>
-            <p className="text-[14px] text-slate-500 dark:text-white/45 max-w-lg mx-auto">
+            <p className="text-[14.5px] text-[#4B5563] dark:text-white/45 max-w-lg mx-auto leading-relaxed">
               Select your organization type — pricing content and feature descriptions update instantly.
             </p>
           </motion.div>
@@ -637,43 +692,45 @@ function PricingContent() {
                   transition={{ duration: 0.5, delay: i * 0.07 }}
                   onClick={() => handleSelectSolution(sol.id)}
                   className={cn(
-                    "group relative p-6 rounded-[20px] border cursor-pointer transition-all duration-300 flex flex-col gap-4 overflow-hidden",
+                    "group relative p-6 rounded-2xl border cursor-pointer transition-all duration-300 flex flex-col gap-4 overflow-hidden",
                     isActive
-                      ? "bg-white dark:bg-white/[0.04] border-[#B88918] dark:border-[#E8B84A]/40 shadow-[0_6px_24px_rgba(184,137,24,0.08)] dark:shadow-[0_6px_30px_rgba(232,184,74,0.08)]"
-                      : "bg-white/60 dark:bg-white/[0.015] border-slate-200 dark:border-white/[0.05] hover:bg-white dark:hover:bg-white/[0.03] hover:border-slate-300 dark:hover:border-white/[0.1] hover:shadow-sm"
+                      ? `bg-white dark:bg-white/[0.04] ${colorClasses[sol.id].borderActive} shadow-[0_12px_32px_rgba(15,23,42,0.08)] dark:shadow-[0_6px_30px_rgba(232,184,74,0.08)] -translate-y-1`
+                      : "bg-white dark:bg-white/[0.015] border-[#E5E7EB] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:bg-white dark:hover:bg-white/[0.03] hover:border-[#E5E7EB]/80 dark:hover:border-white/[0.1] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-0.5"
                   )}
                 >
                   {isActive && (
                     <div
-                      className="absolute inset-0 pointer-events-none opacity-50"
+                      className="absolute inset-0 pointer-events-none opacity-50 dark:block hidden"
                       style={{ background: `radial-gradient(ellipse at top left, ${sol.bgGlow}, transparent 70%)` }}
                     />
                   )}
                   {isActive && (
                     <div
-                      className="absolute top-4 right-4 w-2 h-2 rounded-full animate-pulse"
-                      style={{ backgroundColor: sol.color }}
+                      className={cn("absolute top-4 right-4 w-2 h-2 rounded-full animate-pulse", colorClasses[sol.id].bgSolid)}
                     />
                   )}
 
                   <div
                     className={cn(
                       "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-300 relative z-10",
-                      isActive ? "border-current/20" : "bg-slate-100 dark:bg-white/[0.05] border-transparent text-slate-500 dark:text-white/40"
+                      isActive
+                        ? `${colorClasses[sol.id].text} ${colorClasses[sol.id].bg} ${colorClasses[sol.id].border}`
+                        : "bg-[#F3F4F6] dark:bg-white/[0.05] border-transparent text-[#6B7280] dark:text-white/40"
                     )}
-                    style={isActive ? { backgroundColor: `${sol.color}15`, borderColor: `${sol.color}25`, color: sol.color } : undefined}
                   >
                     <Icon className="w-5 h-5" />
                   </div>
 
                   <div className="relative z-10">
                     <h3
-                      className={cn("text-[15px] font-bold tracking-tight mb-2 transition-colors", isActive ? "" : "text-slate-900 dark:text-white")}
-                      style={isActive ? { color: sol.color } : undefined}
+                      className={cn(
+                        "text-[15px] font-bold tracking-tight mb-2 transition-colors",
+                        isActive ? colorClasses[sol.id].text : "text-[#111827] dark:text-white"
+                      )}
                     >
                       {sol.title}
                     </h3>
-                    <p className="text-[11.5px] text-slate-500 dark:text-white/35 leading-snug mb-3">
+                    <p className="text-[12px] text-[#4B5563] dark:text-white/35 leading-snug mb-3 font-normal">
                       {sol.tagline}
                     </p>
                     <div className="flex flex-wrap gap-1.5">
@@ -682,9 +739,10 @@ function PricingContent() {
                           key={a}
                           className={cn(
                             "text-[9.5px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border transition-all",
-                            isActive ? "border-current/20" : "bg-slate-100 dark:bg-white/[0.04] border-transparent text-slate-500 dark:text-white/25"
+                            isActive
+                              ? `${colorClasses[sol.id].text} ${colorClasses[sol.id].bg} ${colorClasses[sol.id].border}`
+                              : "bg-[#F3F4F6] dark:bg-white/[0.04] border-transparent text-[#6B7280] dark:text-white/25"
                           )}
-                          style={isActive ? { color: sol.color, backgroundColor: `${sol.color}10`, borderColor: `${sol.color}20` } : undefined}
                         >
                           {a}
                         </span>
@@ -706,12 +764,12 @@ function PricingContent() {
               transition={{ duration: 0.3 }}
               className="mt-8 flex items-center justify-center gap-3"
             >
-              <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: activeSolution.color }} />
-              <span className="text-[11px] font-semibold text-slate-500 dark:text-white/40 tracking-wider">
+              <div className={cn("w-1.5 h-1.5 rounded-full animate-pulse", colorClasses[activeSolution.id].bgSolid)} />
+              <span className="text-[12px] font-semibold text-[#6B7280] dark:text-white/40 tracking-wider">
                 Showing pricing for:{" "}
-                <span className="font-black text-slate-800 dark:text-white/75">{activeSolution.title}</span>
+                <span className="font-black text-[#111827] dark:text-white/75">{activeSolution.title}</span>
                 {isEnterprise && (
-                  <span className="ml-2 px-2 py-0.5 rounded-full bg-[#a78bfa]/10 border border-[#a78bfa]/20 text-[9px] font-black text-[#a78bfa] uppercase tracking-widest">
+                  <span className="ml-2 px-2 py-0.5 rounded-full bg-[#7c3aed]/10 border border-[#7c3aed]/20 text-[9px] font-black text-[#7c3aed] uppercase tracking-widest">
                     Coming Soon
                   </span>
                 )}
@@ -724,7 +782,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           3. PRICING PLANS  — or — ENTERPRISE COMING SOON
       ════════════════════════════════════════════════════════════════ */}
-      <section ref={plansRef} className="py-24 bg-white dark:bg-[#05070B] border-b border-slate-200 dark:border-white/[0.04]">
+      <section ref={plansRef} className="py-24 bg-[#F8F9FB] dark:bg-[#05070B] border-b border-[#E5E7EB] dark:border-white/[0.04]">
         <div className="max-w-[1200px] mx-auto px-6">
           <AnimatePresence mode="wait">
             {isEnterprise ? (
@@ -737,30 +795,30 @@ function PricingContent() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="text-center mb-16">
-                  <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#a78bfa]/8 border border-[#a78bfa]/20 dark:bg-[#a78bfa]/5 dark:border-[#a78bfa]/20 mb-6">
-                    <Clock className="w-3.5 h-3.5 text-[#a78bfa]" />
-                    <span className="text-[10px] font-black text-[#a78bfa] tracking-[0.22em] uppercase">
+                  <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#7c3aed]/8 border border-[#7c3aed]/20 dark:bg-[#7c3aed]/5 dark:border-[#7c3aed]/20 mb-6">
+                    <Clock className="w-3.5 h-3.5 text-[#7c3aed]" />
+                    <span className="text-[10px] font-black text-[#7c3aed] tracking-[0.22em] uppercase">
                       Coming Soon
                     </span>
                   </div>
-                  <h2 className="text-[30px] md:text-[42px] font-bold text-slate-900 dark:text-white tracking-tight mb-4">
+                  <h2 className="text-[30px] md:text-[42px] font-bold text-[#111827] dark:text-white tracking-tight mb-4">
                     Enterprise Operations
                   </h2>
-                  <p className="text-[15px] text-slate-500 dark:text-white/45 max-w-lg mx-auto">
+                  <p className="text-[15px] text-[#4B5563] dark:text-white/45 max-w-lg mx-auto leading-relaxed font-normal">
                     Built for large-scale internal operations, governance, and institutional coordination. Join the waitlist to be the first to know.
                   </p>
                 </div>
 
                 <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                   {/* Built For */}
-                  <div className="p-8 rounded-[22px] bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm">
-                    <h3 className="text-[11px] font-black text-[#a78bfa] tracking-[0.28em] uppercase mb-5">
+                  <div className="p-8 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#E5E7EB] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none">
+                    <h3 className="text-[11px] font-black text-[#7c3aed] tracking-[0.28em] uppercase mb-5">
                       Built For
                     </h3>
                     <ul className="space-y-3">
                       {enterpriseAudience.map((item) => (
-                        <li key={item} className="flex items-center gap-3 text-[14px] text-slate-700 dark:text-white/75 font-medium">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#a78bfa] shrink-0" />
+                        <li key={item} className="flex items-center gap-3 text-[14.5px] text-[#4B5563] dark:text-white/75 font-medium">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#7c3aed] shrink-0" />
                           {item}
                         </li>
                       ))}
@@ -768,14 +826,14 @@ function PricingContent() {
                   </div>
 
                   {/* Planned Features */}
-                  <div className="p-8 rounded-[22px] bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm">
-                    <h3 className="text-[11px] font-black text-[#a78bfa] tracking-[0.28em] uppercase mb-5">
+                  <div className="p-8 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#E5E7EB] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none">
+                    <h3 className="text-[11px] font-black text-[#7c3aed] tracking-[0.28em] uppercase mb-5">
                       Planned Features
                     </h3>
                     <ul className="space-y-3">
                       {enterprisePlannedFeatures.map((item) => (
-                        <li key={item} className="flex items-center gap-3 text-[14px] text-slate-700 dark:text-white/75 font-medium">
-                          <Check className="w-3.5 h-3.5 text-[#a78bfa] shrink-0" />
+                        <li key={item} className="flex items-center gap-3 text-[14.5px] text-[#4B5563] dark:text-white/75 font-medium">
+                          <Check className="w-3.5 h-3.5 text-[#7c3aed] shrink-0" />
                           {item}
                         </li>
                       ))}
@@ -785,10 +843,10 @@ function PricingContent() {
 
                 {/* Waitlist Form */}
                 <div className="max-w-[520px] mx-auto">
-                  <div className="p-8 rounded-[24px] bg-white dark:bg-white/[0.025] border border-[#a78bfa]/25 dark:border-[#a78bfa]/20 shadow-[0_8px_32px_rgba(167,139,250,0.08)]">
+                  <div className="p-8 rounded-2xl bg-white dark:bg-white/[0.025] border border-[#7c3aed]/20 dark:border-[#7c3aed]/20 shadow-[0_12px_32px_rgba(124,58,237,0.06)]">
                     <div className="text-center mb-6">
-                      <h3 className="text-[18px] font-bold text-slate-900 dark:text-white mb-2">Join the Waitlist</h3>
-                      <p className="text-[12.5px] text-slate-500 dark:text-white/40">
+                      <h3 className="text-[18px] font-bold text-[#111827] dark:text-white mb-2">Join the Waitlist</h3>
+                      <p className="text-[13px] text-[#6B7280] dark:text-white/40">
                         Get early access when Enterprise Operations launches.
                       </p>
                     </div>
@@ -797,13 +855,12 @@ function PricingContent() {
                       {waitlistSubmitted ? (
                         <motion.div
                           key="success"
-                          initial={{ opacity: 0, scale: 0.95 }}
                           animate={{ opacity: 1, scale: 1 }}
                           className="flex flex-col items-center gap-3 py-4"
                         >
-                          <CheckCircle2 className="w-10 h-10 text-[#a78bfa]" />
-                          <p className="text-[14px] font-bold text-slate-900 dark:text-white">You&apos;re on the list!</p>
-                          <p className="text-[12px] text-slate-500 dark:text-white/40 text-center">
+                          <CheckCircle2 className="w-10 h-10 text-[#7c3aed]" />
+                          <p className="text-[14.5px] font-bold text-[#111827] dark:text-white">You&apos;re on the list!</p>
+                          <p className="text-[13px] text-[#6B7280] dark:text-white/40 text-center">
                             We&apos;ll notify you as soon as Enterprise Operations is available.
                           </p>
                         </motion.div>
@@ -819,19 +876,19 @@ function PricingContent() {
                           className="flex flex-col gap-3"
                         >
                           <div className="relative">
-                            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 dark:text-white/25" />
+                            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B7280] dark:text-white/25" />
                             <input
                               type="email"
                               required
                               placeholder="Enter your work email"
                               value={waitlistEmail}
                               onChange={(e) => setWaitlistEmail(e.target.value)}
-                              className="w-full h-12 pl-10 pr-4 rounded-xl border border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-white/[0.03] text-[13px] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/25 focus:outline-none focus:border-[#a78bfa]/50 dark:focus:border-[#a78bfa]/40 transition-colors"
+                              className="w-full h-12 pl-10 pr-4 rounded-xl border border-[#E5E7EB] dark:border-white/[0.08] bg-[#F9FAFB] dark:bg-white/[0.03] text-[13px] text-[#111827] dark:text-white placeholder:text-[#9CA3AF] dark:placeholder:text-white/25 focus:outline-none focus:border-[#7c3aed]/50 dark:focus:border-[#7c3aed]/40 transition-colors"
                             />
                           </div>
                           <button
                             type="submit"
-                            className="w-full h-12 rounded-xl bg-[#a78bfa] text-white font-black text-[12px] uppercase tracking-wider hover:bg-[#c4b5fd] hover:scale-[1.01] active:scale-[0.99] transition-all shadow-[0_4px_16px_rgba(167,139,250,0.2)]"
+                            className="w-full h-12 rounded-xl bg-[#7c3aed] text-white font-black text-[12px] uppercase tracking-wider hover:bg-[#8b5cf6] hover:scale-[1.01] active:scale-[0.99] transition-all shadow-[0_4px_16px_rgba(124,58,237,0.2)]"
                           >
                             Join Waitlist
                           </button>
@@ -851,13 +908,13 @@ function PricingContent() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="text-center mb-16">
-                  <span className="text-[10px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
+                  <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
                     Plan Options
                   </span>
-                  <h2 className="text-[30px] md:text-[40px] font-bold text-slate-900 dark:text-white tracking-tight mb-3">
+                  <h2 className="text-[30px] md:text-[40px] font-bold text-[#111827] dark:text-white tracking-tight mb-3">
                     Flexible tiers for any scale
                   </h2>
-                  <p className="text-[14px] text-slate-500 dark:text-white/45">
+                  <p className="text-[14.5px] text-[#4B5563] dark:text-white/45">
                     Feature descriptions adapt to your selected solution.
                   </p>
                 </div>
@@ -867,6 +924,7 @@ function PricingContent() {
                     const meta = currentPricing[i];
                     const features = pricingData[selectedSolution][plan.key];
                     const isTalkToSales = meta.price === "Talk to Sales";
+                    const isMostPopular = plan.badge === "Most Popular";
 
                     return (
                       <motion.div
@@ -875,18 +933,21 @@ function PricingContent() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: i * 0.06 }}
                         className={cn(
-                          "relative rounded-[22px] border p-6 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
+                          "relative rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
                           plan.highlight
-                            ? "bg-white dark:bg-white/[0.025] border-[#B88918] dark:border-[#E8B84A]/35 shadow-[0_8px_32px_rgba(184,137,24,0.1)] dark:shadow-[0_12px_40px_rgba(232,184,74,0.08)] hover:border-[#B88918] dark:hover:border-[#E8B84A]/60"
-                            : "bg-white dark:bg-white/[0.015] border-slate-200 dark:border-white/[0.05] shadow-sm hover:border-slate-300 dark:hover:border-white/[0.12] hover:shadow-md"
+                            ? "bg-white dark:bg-white/[0.025] border-[#D4A017] dark:border-[#E8B84A]/35 shadow-[0_12px_32px_rgba(212,160,23,0.08)] dark:shadow-[0_12px_40px_rgba(232,184,74,0.08)] hover:border-[#D4A017] dark:hover:border-[#E8B84A]/60"
+                            : (isMostPopular
+                              ? "bg-white dark:bg-white/[0.02] border-[#D4A017]/40 dark:border-[#E8B84A]/20 shadow-[0_10px_28px_rgba(15,23,42,0.06)] dark:shadow-none hover:border-[#D4A017] dark:hover:border-[#E8B84A]/40"
+                              : "bg-white dark:bg-white/[0.015] border-[#E5E7EB] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:border-[#D1D5DB] dark:hover:border-white/[0.12] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)]"
+                            )
                         )}
                       >
                         {plan.highlight && (
-                          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(232,184,74,0.04),transparent_60%)] pointer-events-none" />
+                          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(212,160,23,0.03),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_top_left,rgba(232,184,74,0.04),transparent_60%)] pointer-events-none" />
                         )}
 
                         {plan.badge && (
-                          <div className="absolute top-4 right-5 px-2.5 py-0.5 rounded-full bg-[#E8B84A]/10 border border-[#E8B84A]/25 text-[8.5px] font-black text-[#B88918] dark:text-[#E8B84A] uppercase tracking-widest flex items-center gap-1">
+                          <div className="absolute top-4 right-5 px-2.5 py-0.5 rounded-full bg-[#D4A017]/10 border border-[#D4A017]/20 text-[8.5px] font-black text-[#D4A017] dark:text-[#E8B84A] uppercase tracking-widest flex items-center gap-1">
                             <Star className="w-2.5 h-2.5" />
                             {plan.badge}
                           </div>
@@ -895,7 +956,7 @@ function PricingContent() {
                         <div className="relative z-10">
                           <span className={cn(
                             "text-[10px] font-black uppercase tracking-widest",
-                            plan.highlight ? "text-[#B88918] dark:text-[#E8B84A]" : "text-slate-400 dark:text-white/30"
+                            plan.highlight ? "text-[#D4A017] dark:text-[#E8B84A]" : (isMostPopular ? "text-[#D4A017] dark:text-[#E8B84A]" : "text-[#6B7280] dark:text-white/30")
                           )}>
                             {plan.name}
                           </span>
@@ -911,13 +972,13 @@ function PricingContent() {
                               className="mt-4 mb-1 flex items-baseline gap-1"
                             >
                               <span className={cn(
-                                "font-extrabold tracking-tighter leading-none text-slate-900 dark:text-white",
+                                "font-extrabold tracking-tighter leading-none text-[#111827] dark:text-white",
                                 isTalkToSales ? "text-[22px]" : "text-[34px]"
                               )}>
                                 {meta.price}
                               </span>
                               {meta.period && (
-                                <span className="text-[12px] text-slate-400 dark:text-white/35 font-medium">
+                                <span className="text-[12px] text-[#6B7280] dark:text-white/35 font-medium">
                                   {meta.period}
                                 </span>
                               )}
@@ -931,15 +992,15 @@ function PricingContent() {
                               animate={{ opacity: 1 }}
                               exit={{ opacity: 0 }}
                               transition={{ duration: 0.25 }}
-                              className="text-[11.5px] text-slate-500 dark:text-white/38 leading-snug mb-6 font-normal"
+                              className="text-[12px] text-[#4B5563] dark:text-white/38 leading-snug mb-6 font-normal"
                             >
                               {meta.tagline}
                             </motion.p>
                           </AnimatePresence>
 
-                          <div className="h-px bg-slate-200 dark:bg-white/[0.06] mb-6" />
+                          <div className="h-px bg-[#E5E7EB] dark:bg-white/[0.06] mb-6" />
 
-                          <h4 className="text-[9.5px] font-black tracking-widest text-slate-400 dark:text-white/20 uppercase mb-4">
+                          <h4 className="text-[9.5px] font-black tracking-widest text-[#6B7280] dark:text-white/20 uppercase mb-4">
                             {plan.planLabel}
                           </h4>
 
@@ -954,10 +1015,10 @@ function PricingContent() {
                               className="space-y-3"
                             >
                               {features.map((feat, fi) => (
-                                <li key={fi} className="flex items-start gap-2.5 text-[12px] text-slate-600 dark:text-white/60 font-medium">
+                                <li key={fi} className="flex items-start gap-2.5 text-[12.5px] text-[#4B5563] dark:text-white/60 font-medium">
                                   <Check
                                     className="w-3.5 h-3.5 shrink-0 mt-0.5"
-                                    style={{ color: plan.highlight ? "#B88918" : "#64748b" }}
+                                    style={{ color: plan.highlight || isMostPopular ? "#D4A017" : "#6B7280" }}
                                   />
                                   <span>{feat}</span>
                                 </li>
@@ -966,14 +1027,17 @@ function PricingContent() {
                           </AnimatePresence>
                         </div>
 
-                        <div className="mt-8 pt-6 border-t border-slate-100 dark:border-white/[0.05] relative z-10">
+                        <div className="mt-8 pt-6 border-t border-[#E5E7EB] dark:border-white/[0.05] relative z-10">
                           <Link
                             href={plan.href}
                             className={cn(
                               "w-full h-11 rounded-xl flex items-center justify-center gap-2 text-[11.5px] font-black uppercase tracking-wider transition-all group/btn",
                               plan.highlight
-                                ? "bg-[#E8B84A] text-black hover:bg-[#FFCF68] shadow-[0_4px_16px_rgba(232,184,74,0.18)] hover:shadow-[0_6px_20px_rgba(232,184,74,0.25)] hover:scale-[1.02] active:scale-[0.98]"
-                                : "border border-slate-200 dark:border-white/[0.08] text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-white/[0.05] hover:border-slate-300 dark:hover:border-white/[0.15]"
+                                ? "bg-[#D4A017] text-black hover:bg-[#E5B228] shadow-[0_4px_16px_rgba(212,160,23,0.18)] hover:shadow-[0_6px_20px_rgba(212,160,23,0.25)] hover:scale-[1.02] active:scale-[0.98]"
+                                : (isMostPopular
+                                  ? "border border-[#D4A017] text-[#D4A017] hover:bg-[#D4A017]/5 hover:scale-[1.02] active:scale-[0.98]"
+                                  : "border border-[#E5E7EB] dark:border-white/[0.08] text-[#111827] dark:text-white hover:bg-[#F9FAFB] dark:hover:bg-white/[0.05] hover:border-[#D1D5DB] dark:hover:border-white/[0.15]"
+                                )
                             )}
                           >
                             {plan.cta}
@@ -1001,7 +1065,7 @@ function PricingContent() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="py-24 bg-slate-50 dark:bg-[#020408] border-b border-slate-200 dark:border-white/[0.04] overflow-hidden"
+            className="py-24 bg-[#F8F9FB] dark:bg-[#020408] border-b border-[#E5E7EB] dark:border-white/[0.04] overflow-hidden"
           >
             <div className="max-w-[1200px] mx-auto px-6">
               <motion.div
@@ -1011,13 +1075,13 @@ function PricingContent() {
                 transition={{ duration: 0.7 }}
                 className="text-center mb-16"
               >
-                <span className="text-[10px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
+                <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
                   Intelligence Allocation
                 </span>
-                <h2 className="text-[28px] md:text-[38px] font-bold text-slate-900 dark:text-white tracking-tight mb-3">
+                <h2 className="text-[28px] md:text-[38px] font-bold text-[#111827] dark:text-white tracking-tight mb-3">
                   AI Coordination Credits by Plan
                 </h2>
-                <p className="text-[14px] text-slate-500 dark:text-white/45 max-w-md mx-auto">
+                <p className="text-[14.5px] text-[#4B5563] dark:text-white/45 max-w-md mx-auto leading-relaxed">
                   Each plan unlocks a different tier of AI capabilities — from basic summaries to full operational intelligence.
                 </p>
               </motion.div>
@@ -1040,7 +1104,7 @@ function PricingContent() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: i * 0.07 }}
-                        className="relative p-6 rounded-[20px] bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-white/[0.12] transition-all group overflow-hidden"
+                        className="relative p-6 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#E5E7EB] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] dark:hover:shadow-none transition-all group overflow-hidden"
                       >
                         <div
                           className="absolute bottom-0 left-0 right-0 h-[3px] opacity-60"
@@ -1048,30 +1112,32 @@ function PricingContent() {
                         />
 
                         <div
-                          className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 border transition-all"
-                          style={{ backgroundColor: `${tier.color}12`, borderColor: `${tier.color}22`, color: tier.color }}
+                          className={cn(
+                            "w-10 h-10 rounded-xl flex items-center justify-center mb-4 border transition-all",
+                            getThemeColor(tier.color), getThemeBgColor(tier.color), getThemeBorderColor(tier.color)
+                          )}
                         >
                           <Icon className="w-5 h-5" />
                         </div>
 
-                        <div className="text-[9px] font-black uppercase tracking-[0.25em] mb-1" style={{ color: tier.color }}>
+                        <div className={cn("text-[10px] font-black uppercase tracking-[0.25em] mb-1", getThemeColor(tier.color))}>
                           {tier.plan}
                         </div>
-                        <h4 className="text-[14px] font-bold text-slate-900 dark:text-white tracking-tight mb-2">
+                        <h4 className="text-[14.5px] font-bold text-[#111827] dark:text-white tracking-tight mb-2">
                           {tier.title}
                         </h4>
-                        <p className="text-[11.5px] text-slate-500 dark:text-white/40 leading-snug mb-5">
+                        <p className="text-[12.5px] text-[#4B5563] dark:text-white/40 leading-snug mb-5">
                           {tier.desc}
                         </p>
 
                         <div className="mb-5">
                           <div className="flex items-center justify-between mb-2">
-                            <span className="text-[9.5px] font-bold text-slate-400 dark:text-white/30 uppercase tracking-wider">AI Level</span>
-                            <span className="text-[11px] font-black" style={{ color: tier.color }}>
+                            <span className="text-[9.5px] font-bold text-[#6B7280] dark:text-white/30 uppercase tracking-wider">AI Level</span>
+                            <span className={cn("text-[11px] font-black", getThemeColor(tier.color))}>
                               {tier.level === 100 ? "Max" : `${tier.level}%`}
                             </span>
                           </div>
-                          <div className="h-1.5 w-full bg-slate-200 dark:bg-white/[0.05] rounded-full overflow-hidden">
+                          <div className="h-1.5 w-full bg-[#E5E7EB] dark:bg-white/[0.05] rounded-full overflow-hidden">
                             <motion.div
                               className="h-full rounded-full"
                               style={{ backgroundColor: tier.color }}
@@ -1082,10 +1148,10 @@ function PricingContent() {
                           </div>
                         </div>
 
-                        <div className="space-y-2 pt-4 border-t border-slate-100 dark:border-white/[0.05]">
+                        <div className="space-y-2 pt-4 border-t border-[#E5E7EB] dark:border-white/[0.05]">
                           {tier.features.map((feat, fi) => (
-                            <div key={fi} className="flex items-center gap-2 text-[11px] text-slate-600 dark:text-white/55 font-medium">
-                              <div className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: tier.color }} />
+                            <div key={fi} className="flex items-center gap-2 text-[12px] text-[#4B5563] dark:text-white/55 font-medium">
+                              <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: tier.color }} />
                               <span>{feat}</span>
                             </div>
                           ))}
@@ -1111,7 +1177,7 @@ function PricingContent() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="py-24 bg-white dark:bg-[#05070B] border-b border-slate-200 dark:border-white/[0.04] overflow-hidden"
+            className="py-24 bg-[#F8F9FB] dark:bg-[#05070B] border-b border-[#E5E7EB] dark:border-white/[0.04] overflow-hidden"
           >
             <div className="max-w-[1200px] mx-auto px-6">
               <motion.div
@@ -1121,13 +1187,13 @@ function PricingContent() {
                 transition={{ duration: 0.7 }}
                 className="text-center mb-16"
               >
-                <span className="text-[10px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
+                <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
                   Comparison
                 </span>
-                <h2 className="text-[28px] md:text-[38px] font-bold text-slate-900 dark:text-white tracking-tight mb-3">
+                <h2 className="text-[28px] md:text-[38px] font-bold text-[#111827] dark:text-white tracking-tight mb-3">
                   Compare plan capabilities
                 </h2>
-                <p className="text-[14px] text-slate-500 dark:text-white/45">
+                <p className="text-[14.5px] text-[#4B5563] dark:text-white/45">
                   A full side-by-side overview to help you choose the right tier.
                 </p>
               </motion.div>
@@ -1137,7 +1203,7 @@ function PricingContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="w-full overflow-x-auto rounded-[20px] border border-slate-200 dark:border-white/[0.06] shadow-sm"
+                className="w-full overflow-x-auto rounded-2xl border border-[#E5E7EB] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none"
               >
                 <AnimatePresence mode="wait">
                   <motion.table
@@ -1149,30 +1215,30 @@ function PricingContent() {
                     className="w-full min-w-[750px] text-left border-collapse bg-white dark:bg-white/[0.01]"
                   >
                     <thead>
-                      <tr className="border-b border-slate-200 dark:border-white/[0.06] bg-slate-50 dark:bg-white/[0.02]">
-                        <th className="p-5 text-[11px] font-black text-slate-600 dark:text-white/50 tracking-widest uppercase w-[28%]">
+                      <tr className="border-b border-[#E5E7EB] dark:border-white/[0.06] bg-[#F9FAFB] dark:bg-white/[0.02]">
+                        <th className="p-6 text-[11px] font-black text-[#111827] dark:text-white/50 tracking-widest uppercase w-[28%]">
                           Capability
                         </th>
-                        <th className="p-5 text-[11px] font-black text-slate-600 dark:text-white/50 tracking-widest uppercase">Basic</th>
-                        <th className="p-5 text-[11px] font-black text-slate-600 dark:text-white/50 tracking-widest uppercase">Standard</th>
-                        <th className="p-5 text-[11px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-widest uppercase">★ Premium</th>
-                        <th className="p-5 text-[11px] font-black text-slate-600 dark:text-white/50 tracking-widest uppercase">Premium+</th>
+                        <th className="p-6 text-[11px] font-black text-[#111827] dark:text-white/50 tracking-widest uppercase">Basic</th>
+                        <th className="p-6 text-[11px] font-black text-[#111827] dark:text-white/50 tracking-widest uppercase">Standard</th>
+                        <th className="p-6 text-[11px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-widest uppercase bg-[#D4A017]/5 dark:bg-[#E8B84A]/5">★ Premium</th>
+                        <th className="p-6 text-[11px] font-black text-[#111827] dark:text-white/50 tracking-widest uppercase">Premium+</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-100 dark:divide-white/[0.04]">
+                    <tbody className="divide-y divide-[#E5E7EB] dark:divide-white/[0.04]">
                       {currentTable.map((row, i) => (
                         <motion.tr
                           key={`${selectedSolution}-row-${i}`}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.3, delay: i * 0.03 }}
-                          className="hover:bg-slate-50/50 dark:hover:bg-white/[0.012] transition-colors"
+                          className="hover:bg-[#F9FAFB] dark:hover:bg-white/[0.012] transition-colors"
                         >
-                          <td className="p-5 text-[13px] font-bold text-slate-900 dark:text-white">{row.feature}</td>
-                          <td className="p-5 text-[12px] text-slate-500 dark:text-white/50 font-medium">{row.basic}</td>
-                          <td className="p-5 text-[12px] text-slate-500 dark:text-white/50 font-medium">{row.standard}</td>
-                          <td className="p-5 text-[12px] text-slate-700 dark:text-white/75 font-semibold">{row.premium}</td>
-                          <td className="p-5 text-[12px] font-bold" style={{ color: "#B88918" }}>{row.plus}</td>
+                          <td className="p-6 text-[13.5px] font-bold text-[#111827] dark:text-white">{row.feature}</td>
+                          <td className="p-6 text-[13px] text-[#4B5563] dark:text-white/50 font-medium">{row.basic}</td>
+                          <td className="p-6 text-[13px] text-[#4B5563] dark:text-white/50 font-medium">{row.standard}</td>
+                          <td className="p-6 text-[13px] text-[#111827] dark:text-white font-semibold bg-[#D4A017]/5 dark:bg-[#E8B84A]/3">{row.premium}</td>
+                          <td className="p-6 text-[13px] font-bold text-[#D4A017] dark:text-[#E8B84A]">{row.plus}</td>
                         </motion.tr>
                       ))}
                     </tbody>
@@ -1187,7 +1253,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           6. ENTERPRISE BENEFITS
       ════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-slate-50 dark:bg-[#020408] border-b border-slate-200 dark:border-white/[0.04]">
+      <section className="py-24 bg-[#F8F9FB] dark:bg-[#020408] border-b border-[#E5E7EB] dark:border-white/[0.04]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -1196,13 +1262,13 @@ function PricingContent() {
             transition={{ duration: 0.7 }}
             className="text-center mb-16"
           >
-            <span className="text-[10px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
+            <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
               Institutional Grade
             </span>
-            <h2 className="text-[28px] md:text-[38px] font-bold text-slate-900 dark:text-white tracking-tight mb-3">
+            <h2 className="text-[28px] md:text-[38px] font-bold text-[#111827] dark:text-white tracking-tight mb-3">
               Enterprise Infrastructure
             </h2>
-            <p className="text-[14px] text-slate-500 dark:text-white/45 max-w-md mx-auto">
+            <p className="text-[14.5px] text-[#4B5563] dark:text-white/45 max-w-md mx-auto leading-relaxed">
               Built to meet the standards of the world&apos;s most demanding organizations.
             </p>
           </motion.div>
@@ -1217,22 +1283,24 @@ function PricingContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.07 }}
-                  className="relative p-7 rounded-[20px] bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.05] shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-white/[0.12] transition-all group overflow-hidden"
+                  className="relative p-7 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#E5E7EB] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.08)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(15,23,42,0.12)] dark:hover:shadow-none transition-all group overflow-hidden"
                 >
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{ background: `radial-gradient(ellipse at top left, ${item.color}08, transparent 65%)` }}
                   />
                   <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 border transition-all duration-300"
-                    style={{ backgroundColor: `${item.color}10`, borderColor: `${item.color}20`, color: item.color }}
+                    className={cn(
+                      "w-11 h-11 rounded-xl flex items-center justify-center mb-5 border transition-all duration-300",
+                      getThemeColor(item.color), getThemeBgColor(item.color), getThemeBorderColor(item.color)
+                    )}
                   >
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-[15px] font-bold text-slate-900 dark:text-white tracking-tight mb-2 relative z-10">
+                  <h3 className="text-[15.5px] font-bold text-[#111827] dark:text-white tracking-tight mb-2 relative z-10">
                     {item.title}
                   </h3>
-                  <p className="text-[12.5px] text-slate-500 dark:text-white/40 leading-relaxed relative z-10">
+                  <p className="text-[13px] text-[#4B5563] dark:text-white/40 leading-relaxed relative z-10 font-normal">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -1245,7 +1313,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           7. FAQ SECTION
       ════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-white dark:bg-[#05070B] border-b border-slate-200 dark:border-white/[0.04]">
+      <section className="py-24 bg-[#F8F9FB] dark:bg-[#05070B] border-b border-[#E5E7EB] dark:border-white/[0.04]">
         <div className="max-w-[820px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -1254,10 +1322,10 @@ function PricingContent() {
             transition={{ duration: 0.7 }}
             className="text-center mb-16"
           >
-            <span className="text-[10px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
+            <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
               FAQ
             </span>
-            <h2 className="text-[28px] md:text-[38px] font-bold text-slate-900 dark:text-white tracking-tight">
+            <h2 className="text-[28px] md:text-[38px] font-bold text-[#111827] dark:text-white tracking-tight">
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -1273,10 +1341,10 @@ function PricingContent() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: i * 0.06 }}
                   className={cn(
-                    "rounded-[16px] border overflow-hidden transition-all duration-300",
+                    "rounded-2xl border overflow-hidden transition-all duration-300",
                     isOpen
-                      ? "bg-white dark:bg-white/[0.025] border-[#B88918]/30 dark:border-[#E8B84A]/25 shadow-[0_4px_16px_rgba(184,137,24,0.05)]"
-                      : "bg-white dark:bg-white/[0.015] border-slate-200 dark:border-white/[0.05] shadow-sm hover:border-slate-300 dark:hover:border-white/[0.1]"
+                      ? "bg-white dark:bg-white/[0.025] border-[#D4A017]/40 dark:border-[#E8B84A]/25 shadow-[0_4px_16px_rgba(212,160,23,0.05)]"
+                      : "bg-white dark:bg-white/[0.015] border-[#E5E7EB] dark:border-white/[0.05] shadow-sm hover:border-[#D1D5DB] dark:hover:border-white/[0.1] hover:bg-[#F9FAFB] dark:hover:bg-white/[0.01]"
                   )}
                 >
                   <button
@@ -1286,17 +1354,17 @@ function PricingContent() {
                     aria-expanded={isOpen}
                   >
                     <span className={cn(
-                      "text-[14px] font-bold tracking-tight transition-colors pr-4",
+                      "text-[14.5px] font-bold tracking-tight transition-colors pr-4",
                       isOpen
-                        ? "text-[#B88918] dark:text-[#E8B84A]"
-                        : "text-slate-900 dark:text-white group-hover:text-[#B88918] dark:group-hover:text-[#E8B84A]"
+                        ? "text-[#D4A017] dark:text-[#E8B84A]"
+                        : "text-[#111827] dark:text-white group-hover:text-[#D4A017] dark:group-hover:text-[#E8B84A]"
                     )}>
                       {faq.q}
                     </span>
                     <ChevronDown
                       className={cn(
                         "w-4 h-4 transition-all duration-300 shrink-0",
-                        isOpen ? "rotate-180 text-[#B88918] dark:text-[#E8B84A]" : "text-slate-400 dark:text-white/25"
+                        isOpen ? "rotate-180 text-[#D4A017] dark:text-[#E8B84A]" : "text-[#9CA3AF] dark:text-white/25"
                       )}
                     />
                   </button>
@@ -1310,7 +1378,7 @@ function PricingContent() {
                         transition={{ duration: 0.32, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 pt-1 text-[13.5px] text-slate-500 dark:text-white/48 leading-relaxed border-t border-slate-100 dark:border-white/[0.05]">
+                        <div className="px-6 pb-6 pt-1 text-[13.5px] text-[#4B5563] dark:text-white/48 leading-relaxed border-t border-[#E5E7EB] dark:border-white/[0.05] font-normal">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -1326,14 +1394,14 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           8. FINAL CTA
       ════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-32 overflow-hidden bg-[#050816] dark:bg-[#020306] border-b border-white/[0.04]">
+      <section className="relative py-32 overflow-hidden bg-[#F8F9FB] dark:bg-[#020306] border-b border-[#E5E7EB] dark:border-white/[0.04]">
         <div className="absolute inset-0 pointer-events-none">
           <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{ backgroundImage: "radial-gradient(circle, white 0.5px, transparent 0.5px)", backgroundSize: "40px 40px" }}
+            className="absolute inset-0 opacity-[0.012] dark:opacity-[0.03]"
+            style={{ backgroundImage: "radial-gradient(circle, #000 0.5px, transparent 0.5px)", backgroundSize: "40px 40px" }}
           />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(232,184,74,0.07),transparent_60%)]" />
-          <div className="absolute top-0 left-1/4 w-[500px] h-[400px] bg-[radial-gradient(circle,rgba(96,165,250,0.04),transparent_65%)] blur-[60px]" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(212,160,23,0.03),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_bottom,rgba(232,184,74,0.07),transparent_60%)]" />
+          <div className="absolute top-0 left-1/4 w-[500px] h-[400px] bg-[radial-gradient(circle,rgba(96,165,250,0.03),transparent_65%)] blur-[60px] dark:bg-[radial-gradient(circle,rgba(96,165,250,0.04),transparent_65%)]" />
         </div>
 
         <CornerDetail position="top-left" />
@@ -1349,14 +1417,14 @@ function PricingContent() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#E8B84A]/5 border border-[#E8B84A]/15 mb-10">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#E8B84A] animate-pulse" />
-              <span className="text-[9.5px] font-black text-[#E8B84A] tracking-[0.22em] uppercase">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#D4A017]/5 border border-[#D4A017]/15 dark:bg-[#E8B84A]/5 dark:border-[#E8B84A]/15 mb-10">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#D4A017] dark:bg-[#E8B84A] animate-pulse" />
+              <span className="text-[9.5px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.22em] uppercase">
                 Deployment Protocol Ready
               </span>
             </div>
 
-            <h2 className="text-[42px] md:text-[62px] font-extrabold text-white leading-[0.95] tracking-[-0.05em] mb-8">
+            <h2 className="text-[42px] md:text-[62px] font-extrabold text-[#111827] dark:text-white leading-[0.95] tracking-[-0.05em] mb-8">
               Ready to coordinate your{" "}
               <br className="hidden md:block" />
               <span className="text-[#E8B84A] italic font-serif font-medium">

@@ -97,7 +97,7 @@ const fadeUp = {
 
 export function FooterPremium() {
   return (
-    <footer className="relative bg-[#050B1A] overflow-hidden">
+    <footer className="relative bg-[#F8F9FB] dark:bg-[#050B1A] border-t border-[#E5E7EB] dark:border-transparent overflow-hidden">
 
       {/* ══════════════════════════════════════════════════════════════════
           BACKGROUND SYSTEM — radial gold line pattern + ambient glows
@@ -106,17 +106,17 @@ export function FooterPremium() {
 
         {/* Radial gold line grid — fades from center outward */}
         <svg
-          className="absolute inset-0 w-full h-full opacity-[0.045]"
+          className="absolute inset-0 w-full h-full opacity-[0.015] dark:opacity-[0.045]"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="xMidYMid slice"
         >
           <defs>
             <radialGradient id="rgFade" cx="50%" cy="40%" r="55%">
-              <stop offset="0%"   stopColor="#F5B942" stopOpacity="1" />
-              <stop offset="100%" stopColor="#F5B942" stopOpacity="0" />
+              <stop offset="0%"   stopColor="#D4A017" stopOpacity="1" />
+              <stop offset="100%" stopColor="#D4A017" stopOpacity="0" />
             </radialGradient>
             <pattern id="lineGrid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#F5B942" strokeWidth="0.5" />
+              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#D4A017" strokeWidth="0.5" />
             </pattern>
             <mask id="radialMask">
               <rect width="100%" height="100%" fill="url(#rgFade)" />
@@ -126,22 +126,22 @@ export function FooterPremium() {
         </svg>
 
         {/* Soft diagonal gold line top-right */}
-        <svg className="absolute top-0 right-0 w-[600px] h-[300px] opacity-[0.06]" aria-hidden>
+        <svg className="absolute top-0 right-0 w-[600px] h-[300px] opacity-[0.015] dark:opacity-[0.06]" aria-hidden>
           {[0,1,2,3,4,5].map((i) => (
             <line
               key={i}
               x1={600 - i * 80} y1="0"
               x2={600}          y2={i * 50}
-              stroke="#F5B942" strokeWidth="0.5"
+              stroke="#D4A017" strokeWidth="0.5"
             />
           ))}
         </svg>
 
         {/* Ambient glow behind CTA */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(245,185,66,0.07),transparent_65%)]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(212,160,23,0.03),transparent_65%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(245,185,66,0.07),transparent_65%)]" />
 
         {/* Deep vignette bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[#030710] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[#030710] to-transparent dark:block hidden" />
       </div>
 
       {/* ══════════════════════════════════════════════════════════════════
@@ -156,9 +156,9 @@ export function FooterPremium() {
         >
           {/* Gold pill badge */}
           <motion.div variants={fadeUp}>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#F5B942]/20 bg-[#F5B942]/[0.06] backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#F5B942] shadow-[0_0_8px_#F5B942] animate-pulse" />
-              <span className="text-[10px] font-black text-[#F5B942] tracking-[0.28em] uppercase">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4A017]/20 dark:border-[#F5B942]/20 bg-[#D4A017]/[0.06] dark:bg-[#F5B942]/[0.06] backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4A017] dark:bg-[#F5B942] shadow-[0_0_8px_rgba(212,160,23,0.5)] dark:shadow-[0_0_8px_#F5B942] animate-pulse" />
+              <span className="text-[10px] font-black text-[#D4A017] dark:text-[#F5B942] tracking-[0.28em] uppercase">
                 Ready to Transform
               </span>
             </span>
@@ -167,11 +167,11 @@ export function FooterPremium() {
           {/* Headline */}
           <motion.h2
             variants={fadeUp}
-            className="text-[38px] sm:text-[52px] md:text-[60px] font-bold text-white leading-[1.04] tracking-[-0.04em]"
+            className="text-[38px] sm:text-[52px] md:text-[60px] font-bold text-[#111827] dark:text-white leading-[1.04] tracking-[-0.04em]"
           >
             Ready to orchestrate your{" "}
             <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5B942] via-[#FFCF68] to-[#E8A830]">
+            <span className="text-[#D4A017] dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-[#F5B942] dark:via-[#FFCF68] dark:to-[#E8A830]">
               entire ecosystem?
             </span>
           </motion.h2>
@@ -179,7 +179,7 @@ export function FooterPremium() {
           {/* Supporting text */}
           <motion.p
             variants={fadeUp}
-            className="text-[16px] text-white/45 leading-relaxed max-w-[520px] font-light"
+            className="text-[16px] text-[#4B5563] dark:text-white/45 leading-relaxed max-w-[520px] font-normal"
           >
             Join leading organizations driving impact at scale through intelligent programme operations.
           </motion.p>
@@ -192,7 +192,7 @@ export function FooterPremium() {
             {/* Primary — gold */}
             <Link
               href="/enterprise-sales"
-              className="group inline-flex items-center gap-2 h-[52px] px-8 rounded-[14px] bg-[#F5B942] text-black text-[13px] font-black uppercase tracking-[0.06em] transition-all duration-300 hover:bg-[#FFCF68] hover:shadow-[0_12px_40px_rgba(245,185,66,0.35)] hover:scale-[1.02] active:scale-[0.99] shadow-[0_4px_20px_rgba(245,185,66,0.2)]"
+              className="group inline-flex items-center gap-2 h-[52px] px-8 rounded-[14px] bg-[#D4A017] text-black text-[13px] font-black uppercase tracking-[0.06em] transition-all duration-300 hover:bg-[#E5B228] hover:shadow-[0_12px_40px_rgba(212,160,23,0.25)] dark:hover:shadow-[0_12px_40px_rgba(245,185,66,0.35)] hover:scale-[1.02] active:scale-[0.99] shadow-[0_4px_20px_rgba(212,160,23,0.2)]"
             >
               Book a Demo →
             </Link>
@@ -200,7 +200,7 @@ export function FooterPremium() {
             {/* Secondary — outlined */}
             <Link
               href="/enterprise-sales"
-              className="group inline-flex items-center gap-2 h-[52px] px-8 rounded-[14px] border border-white/[0.12] bg-white/[0.03] backdrop-blur-sm text-white text-[13px] font-bold uppercase tracking-[0.06em] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/20 hover:scale-[1.02] active:scale-[0.99]"
+              className="group inline-flex items-center gap-2 h-[52px] px-8 rounded-[14px] border border-[#E5E7EB] dark:border-white/[0.12] bg-white dark:bg-white/[0.03] backdrop-blur-sm text-[#111827] dark:text-white text-[13px] font-bold uppercase tracking-[0.06em] transition-all duration-300 hover:bg-[#F9FAFB] dark:hover:bg-white/[0.07] hover:border-[#D1D5DB] dark:hover:border-white/20 hover:scale-[1.02] active:scale-[0.99]"
             >
               Contact Sales →
             </Link>
@@ -212,7 +212,7 @@ export function FooterPremium() {
           DIVIDER
       ══════════════════════════════════════════════════════════════════ */}
       <div className="relative z-10 max-w-[1280px] mx-auto px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-[#E5E7EB] dark:via-white/[0.08] to-transparent" />
       </div>
 
       {/* ══════════════════════════════════════════════════════════════════
@@ -232,17 +232,17 @@ export function FooterPremium() {
 
             {/* Logo wordmark */}
             <Link href="/" className="flex items-center gap-2.5 group w-fit">
-              <div className="w-6 h-6 bg-gradient-to-br from-[#F5B942] via-[#E8A830] to-[#C9812A] rounded-[7px] flex items-center justify-center shadow-[0_4px_14px_rgba(245,185,66,0.25)] group-hover:scale-105 transition-transform duration-300 relative overflow-hidden">
+              <div className="w-6 h-6 bg-gradient-to-br from-[#D4A017] via-[#E5B228] to-[#C9812A] dark:from-[#F5B942] dark:via-[#E8A830] dark:to-[#C9812A] rounded-[7px] flex items-center justify-center shadow-[0_4px_14px_rgba(212,160,23,0.15)] dark:shadow-[0_4px_14px_rgba(245,185,66,0.25)] group-hover:scale-105 transition-transform duration-300 relative overflow-hidden">
                 <div className="w-2.5 h-2.5 border-[1.5px] border-black rotate-45 relative z-10" />
                 <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-              <span className="text-[14px] font-black text-white tracking-tight uppercase">
+              <span className="text-[14px] font-black text-[#111827] dark:text-white tracking-tight uppercase">
                 Coordinate
               </span>
             </Link>
 
             {/* Tagline */}
-            <p className="text-[12.5px] text-white/35 leading-[1.75] font-light max-w-[210px]">
+            <p className="text-[12.5px] text-[#6B7280] dark:text-white/35 leading-[1.75] font-normal max-w-[210px]">
               The operational platform for impactful programmes at scale.
             </p>
           </div>
@@ -250,7 +250,7 @@ export function FooterPremium() {
           {/* ── Columns 2–5: Nav ────────────────────────────────────── */}
           {navColumns.map((col) => (
             <div key={col.title} className="flex flex-col gap-4">
-              <h4 className="text-[9px] font-black text-[#F5B942]/70 uppercase tracking-[0.28em]">
+              <h4 className="text-[9.5px] font-black text-[#111827] dark:text-[#F5B942]/70 uppercase tracking-[0.28em]">
                 {col.title}
               </h4>
               <ul className="flex flex-col gap-3">
@@ -258,7 +258,7 @@ export function FooterPremium() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-[13px] text-white/38 hover:text-white/80 transition-colors duration-200 font-light leading-snug"
+                      className="text-[13px] text-[#6B7280] dark:text-white/38 hover:text-[#D4A017] dark:hover:text-white/80 transition-colors duration-200 font-normal leading-snug"
                     >
                       {link.label}
                     </Link>
@@ -272,7 +272,7 @@ export function FooterPremium() {
                       key={s.label}
                       href={s.href}
                       aria-label={s.label}
-                      className="w-9 h-9 rounded-full bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-white/30 hover:text-[#F5B942] hover:border-[#F5B942]/25 hover:bg-[#F5B942]/[0.06] hover:shadow-[0_0_16px_rgba(245,185,66,0.12)] transition-all duration-300"
+                      className="w-9 h-9 rounded-full bg-[#F3F4F6] dark:bg-white/[0.04] border border-[#E5E7EB] dark:border-white/[0.07] flex items-center justify-center text-[#6B7280] dark:text-white/30 hover:text-[#D4A017] dark:hover:text-[#F5B942] hover:border-[#D4A017]/25 dark:hover:border-[#F5B942]/25 hover:bg-[#D4A017]/[0.06] dark:hover:bg-[#F5B942]/[0.06] hover:shadow-[0_0_16px_rgba(212,160,23,0.12)] dark:hover:shadow-[0_0_16px_rgba(245,185,66,0.12)] transition-all duration-300"
                     >
                       {s.icon}
                     </Link>
@@ -289,9 +289,9 @@ export function FooterPremium() {
           BOTTOM BAR
       ══════════════════════════════════════════════════════════════════ */}
       <div className="relative z-10 max-w-[1280px] mx-auto px-8 pb-8">
-        <div className="h-px bg-white/[0.05] mb-7" />
+        <div className="h-px bg-[#E5E7EB] dark:bg-white/[0.05] mb-7" />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="text-[11px] text-white/22 font-light tracking-wide">
+          <span className="text-[11px] text-[#9CA3AF] dark:text-white/22 font-normal tracking-wide">
             © {new Date().getFullYear()} OYEN GRID. All rights reserved.
           </span>
           <div className="flex items-center gap-6">
@@ -299,7 +299,7 @@ export function FooterPremium() {
               <Link
                 key={item}
                 href="#"
-                className="text-[11px] text-white/22 hover:text-white/55 transition-colors duration-200 font-light"
+                className="text-[11px] text-[#9CA3AF] dark:text-white/22 hover:text-[#4B5563] dark:hover:text-white/55 transition-colors duration-200 font-normal"
               >
                 {item}
               </Link>
