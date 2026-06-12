@@ -1,19 +1,21 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback, Suspense } from "react";
 import Link from "next/link";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Header, AnnouncementBar } from "@/components/layout/header";
 import { FooterPremium } from "@/components/layout/footer";
 import {
   Check, ChevronDown, ArrowRight, ArrowUpRight,
-  Users, PlayCircle, Globe, Network, Lock, Layers, Zap,
-  Bot, ShieldCheck, Database, Activity, Star,
-  Building2, BookOpen, Cpu, BarChart3, Sparkles,
+  Users, PlayCircle, Globe, Lock, Layers, Zap,
+  Bot, ShieldCheck, Activity, Star,
+  BookOpen, Cpu, BarChart3, Sparkles,
+  Mail, Clock, CheckCircle2,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-// ─── TYPES ──────────────────────────────────────────────────────────────────
+// ─── TYPES ───────────────────────────────────────────────────────────────────
 
 type SolutionType = "bootcamps" | "events" | "education" | "enterprise";
 
@@ -22,6 +24,31 @@ interface PlanFeatures {
   standard: string[];
   premium: string[];
   premiumPlus: string[];
+}
+
+interface PlanMeta {
+  price: string;
+  period: string;
+  tagline: string;
+}
+
+interface AITier {
+  plan: string;
+  title: string;
+  desc: string;
+  features: string[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  icon: any;
+  level: number;
+  color: string;
+}
+
+interface TableRow {
+  feature: string;
+  basic: string;
+  standard: string;
+  premium: string;
+  plus: string;
 }
 
 // ─── SVG ICONS ───────────────────────────────────────────────────────────────
@@ -46,7 +73,7 @@ function NetworkIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-// ─── DATA ────────────────────────────────────────────────────────────────────
+// ─── SOLUTIONS LIST ───────────────────────────────────────────────────────────
 
 const solutionsList = [
   {
@@ -87,244 +114,308 @@ const solutionsList = [
   },
 ];
 
-const pricingData: Record<SolutionType, PlanFeatures> = {
-  bootcamps: {
-    basic: [
-      "Up to 3 Programmes",
-      "Up to 50 Participants",
-      "Live Sessions",
-      "Attendance Tracking",
-      "Resource Library",
-      "Assessments",
-      "Certificates",
-      "Programme Dashboard",
-      "AI Learning Assistant",
-    ],
-    standard: [
-      "Up to 10 Programmes",
-      "Up to 200 Participants",
-      "Session Recordings",
-      "Cohort Analytics",
-      "Participant Tracking",
-      "AI Session Summaries",
-      "Advanced Reports",
-      "Cohort Communication",
-    ],
-    premium: [
-      "Up to 25 Programmes",
-      "Up to 500 Participants",
-      "Executive Dashboards",
-      "Governance Controls",
-      "AI Operational Intelligence",
-      "Multi-Team Collaboration",
-    ],
-    premiumPlus: [
-      "Unlimited Programmes",
-      "Unlimited Participants",
-      "White Label Capabilities",
-      "API Access",
-      "Dedicated Infrastructure",
-      "Dedicated Support",
-    ],
-  },
-  events: {
-    basic: [
-      "Event Registration",
-      "Attendance Tracking",
-      "Live Streaming",
-      "Polls & Q&A",
-      "Basic Analytics",
-    ],
-    standard: [
-      "Session Recordings",
-      "Audience Analytics",
-      "AI Event Summaries",
-      "Engagement Reports",
-      "Multi-Speaker Support",
-    ],
-    premium: [
-      "Multi-Event Management",
-      "Executive Reporting",
-      "Sponsor Analytics",
-      "Operational Insights",
-      "Custom Branding",
-    ],
-    premiumPlus: [
-      "Unlimited Events",
-      "White Label Events",
-      "API Access",
-      "Dedicated Infrastructure",
-      "Dedicated Support",
-    ],
-  },
-  education: {
-    basic: [
-      "Student Management",
-      "Classes & Scheduling",
-      "Attendance Tracking",
-      "Assessments",
-      "Learning Resources",
-    ],
-    standard: [
-      "Faculty Management",
-      "Academic Analytics",
-      "Student Performance Tracking",
-      "AI Academic Summaries",
-      "Curriculum Tools",
-    ],
-    premium: [
-      "Institutional Reporting",
-      "Governance Controls",
-      "Department Coordination",
-      "Executive Dashboards",
-      "Multi-Campus Support",
-    ],
-    premiumPlus: [
-      "Enterprise Academic Deployment",
-      "Custom Integrations",
-      "API Access",
-      "Dedicated Infrastructure",
-      "Dedicated Support",
-    ],
-  },
-  enterprise: {
-    basic: [
-      "Team Management",
-      "Internal Communication",
-      "Attendance Tracking",
-      "Resource Library",
-      "Basic Dashboard",
-    ],
-    standard: [
-      "Department Coordination",
-      "Workflow Monitoring",
-      "Reporting Dashboards",
-      "AI Summaries",
-      "Role-Based Access",
-    ],
-    premium: [
-      "Governance Controls",
-      "Executive Dashboards",
-      "Operational Intelligence",
-      "Multi-Team Collaboration",
-      "Audit Logs",
-    ],
-    premiumPlus: [
-      "Enterprise Deployment",
-      "Custom Integrations",
-      "API Access",
-      "Dedicated Infrastructure",
-      "Dedicated Support",
-    ],
-  },
-};
+// ─── PLAN BASE CONFIG (static — styling, keys, CTAs) ─────────────────────────
 
-const plans = [
+const plansBase = [
   {
     key: "basic" as const,
     name: "Basic",
-    price: "₦25,000",
-    period: "/month",
-    tagline: "Coordinate core operational structures easily.",
     cta: "Get Started",
     href: "/pricing/basic",
     highlight: false,
+    badge: undefined as string | undefined,
     planLabel: "INCLUDED FEATURES",
   },
   {
     key: "standard" as const,
     name: "Standard",
-    price: "₦50,000",
-    period: "/month",
-    tagline: "Expand and coordinate distributed operations.",
     cta: "Get Started",
     href: "/pricing/standard",
     highlight: false,
+    badge: "Most Popular" as string | undefined,
     planLabel: "EVERYTHING IN BASIC PLUS",
   },
   {
     key: "premium" as const,
     name: "Premium",
-    price: "₦100,000",
-    period: "/month",
-    tagline: "Complete control, compliance, and automation.",
     cta: "Get Started",
     href: "/pricing/premium",
     highlight: true,
-    badge: "Most Popular",
+    badge: undefined as string | undefined,
     planLabel: "EVERYTHING IN STANDARD PLUS",
   },
   {
     key: "premiumPlus" as const,
     name: "Premium+",
-    price: "Talk to Sales",
-    period: "",
-    tagline: "Dedicated nodes for national and global-scale sync.",
     cta: "Talk to Architects",
     href: "/pricing/enterprise",
     highlight: false,
+    badge: undefined as string | undefined,
     planLabel: "ENTERPRISE READY",
   },
 ];
 
-const aiAllocation = [
-  {
-    plan: "Basic",
-    title: "Basic AI Allocation",
-    desc: "Provides core operational assistance for small teams getting started.",
-    features: ["Limited AI Credits", "Basic AI Summaries"],
-    icon: Bot,
-    level: 20,
-    color: "#94a3b8",
+// ─── PER-SOLUTION PLAN PRICING & TAGLINES ────────────────────────────────────
+
+const planPricing: Record<SolutionType, PlanMeta[]> = {
+  bootcamps: [
+    { price: "₦25,000", period: "/month", tagline: "Coordinate core operational structures easily." },
+    { price: "₦50,000", period: "/month", tagline: "Expand and coordinate distributed operations." },
+    { price: "₦100,000", period: "/month", tagline: "Complete control, compliance, and automation." },
+    { price: "Talk to Sales", period: "", tagline: "Dedicated nodes for national and global-scale sync." },
+  ],
+  events: [
+    { price: "₦15,000", period: "/month", tagline: "Launch events and track live attendance." },
+    { price: "₦35,000", period: "/month", tagline: "Engage audiences with interactive event tools." },
+    { price: "₦75,000", period: "/month", tagline: "Host multi-host events with full intelligence." },
+    { price: "Talk to Sales", period: "", tagline: "Enterprise-scale virtual conferences and events." },
+  ],
+  education: [
+    { price: "₦35,000", period: "/month", tagline: "Manage classes, students and academic tracking." },
+    { price: "₦75,000", period: "/month", tagline: "Add faculty management and academic analytics." },
+    { price: "₦150,000", period: "/month", tagline: "Institutional governance for all departments." },
+    { price: "Talk to Sales", period: "", tagline: "Campus-wide deployment for entire institutions." },
+  ],
+  enterprise: [
+    { price: "—", period: "", tagline: "" },
+    { price: "—", period: "", tagline: "" },
+    { price: "—", period: "", tagline: "" },
+    { price: "—", period: "", tagline: "" },
+  ],
+};
+
+// ─── PER-SOLUTION FEATURE LISTS ──────────────────────────────────────────────
+
+const pricingData: Record<SolutionType, PlanFeatures> = {
+  bootcamps: {
+    basic: [
+      "Up to 3 Programmes",
+      "Up to 50 Participants",
+      "10GB Storage",
+      "Programme Management",
+      "Participant Management",
+      "Live Sessions",
+      "Attendance Tracking",
+      "Resource Library",
+      "Assessments",
+      "Certificates",
+      "Announcements",
+      "Basic Analytics",
+      "Weekly Programme Summary",
+      "AI Assistant (limited)",
+    ],
+    standard: [
+      "Up to 10 Programmes",
+      "Up to 200 Participants",
+      "50GB Storage",
+      "Session Recordings",
+      "Cohort Management",
+      "Advanced Assessments",
+      "AI Session Summaries",
+      "Facilitator Dashboard",
+      "Advanced Analytics",
+      "Participant Performance Tracking",
+      "Programme Health Score",
+      "Certificate Verification",
+      "Operational Insights",
+    ],
+    premium: [
+      "Up to 25 Programmes",
+      "Up to 500 Participants",
+      "200GB Storage",
+      "Governance Controls",
+      "Executive Dashboard",
+      "Multi-Team Collaboration",
+      "Advanced Reporting",
+      "AI Operational Intelligence",
+      "Priority Support",
+      "Enhanced Permissions",
+    ],
+    premiumPlus: [
+      "Unlimited Programmes",
+      "Unlimited Participants",
+      "White Label",
+      "API Access",
+      "Dedicated Infrastructure",
+      "Dedicated Support",
+      "Custom Integrations",
+    ],
   },
-  {
-    plan: "Standard",
-    title: "Standard AI Allocation",
-    desc: "Unlocks contextual summaries and participant highlights.",
-    features: ["Expanded AI Usage", "Session Summaries", "Cohort Insights"],
-    icon: Sparkles,
-    level: 50,
-    color: "#60a5fa",
+
+  events: {
+    basic: [
+      "Event Registration",
+      "Event Dashboard",
+      "Attendance Reports",
+      "Resource Sharing",
+      "Session Recording",
+      "Basic Analytics",
+      "AI Assistant (limited)",
+    ],
+    standard: [
+      "Polls",
+      "Surveys",
+      "Q&A Management",
+      "Speaker Management",
+      "AI Event Summaries",
+      "Engagement Tracking",
+      "Advanced Analytics",
+    ],
+    premium: [
+      "Multi-Host Events",
+      "Event Intelligence Dashboard",
+      "Advanced Reporting",
+      "Enhanced Branding",
+      "AI Operational Insights",
+      "Priority Support",
+    ],
+    premiumPlus: [
+      "Virtual Conferences",
+      "Multi-Day Events",
+      "White Label",
+      "API Access",
+      "Dedicated Infrastructure",
+    ],
   },
-  {
-    plan: "Premium",
-    title: "Premium AI Allocation",
-    desc: "Engineered for institutional decision layer telemetry.",
-    features: ["Operational Intelligence", "Advanced Analytics", "Governance Insights"],
-    icon: Cpu,
-    level: 82,
-    color: "#E8B84A",
+
+  education: {
+    basic: [
+      "Class Management",
+      "Student Management",
+      "Attendance Tracking",
+      "Resource Library",
+      "Assessments",
+      "Academic Dashboard",
+      "Certificates",
+    ],
+    standard: [
+      "Faculty Management",
+      "Session Recordings",
+      "Academic Analytics",
+      "AI Study Assistant",
+      "Student Performance Tracking",
+      "Advanced Assessments",
+    ],
+    premium: [
+      "Multiple Departments",
+      "Institutional Governance",
+      "Institutional Analytics",
+      "Faculty Dashboards",
+      "Compliance Reporting",
+      "Executive Reporting",
+      "AI Institutional Intelligence",
+    ],
+    premiumPlus: [
+      "Campus-Wide Deployment",
+      "White Label",
+      "API Access",
+      "Dedicated Infrastructure",
+      "Custom Integrations",
+    ],
   },
-  {
-    plan: "Premium+",
-    title: "Enterprise AI Allocation",
-    desc: "Custom allocation configured for global high-stakes operations.",
-    features: ["Custom AI Allocation", "Dedicated AI Models", "Priority Inference"],
-    icon: BarChart3,
-    level: 100,
-    color: "#a78bfa",
+
+  // Not rendered — enterprise shows Coming Soon
+  enterprise: {
+    basic: [],
+    standard: [],
+    premium: [],
+    premiumPlus: [],
   },
+};
+
+// ─── PER-SOLUTION AI ALLOCATION ───────────────────────────────────────────────
+
+const aiAllocationData: Record<SolutionType, AITier[]> = {
+  bootcamps: [
+    { plan: "Basic", title: "Basic AI Allocation", desc: "Core assistance for small programme teams.", features: ["Limited AI Assistant", "Weekly AI Summary"], icon: Bot, level: 20, color: "#94a3b8" },
+    { plan: "Standard", title: "Standard AI Allocation", desc: "Session intelligence and cohort visibility.", features: ["AI Session Summaries", "Cohort Insights", "Performance Insights"], icon: Sparkles, level: 50, color: "#60a5fa" },
+    { plan: "Premium", title: "Premium AI Allocation", desc: "Operational intelligence for programme governance.", features: ["AI Operational Intelligence", "Programme Health Analysis", "Advanced Analytics"], icon: Cpu, level: 82, color: "#E8B84A" },
+    { plan: "Premium+", title: "Enterprise AI Allocation", desc: "Custom allocation for large-scale operations.", features: ["Custom AI Allocation", "Dedicated AI Resources"], icon: BarChart3, level: 100, color: "#a78bfa" },
+  ],
+  events: [
+    { plan: "Basic", title: "Basic AI Allocation", desc: "Lightweight AI for small event coordination.", features: ["Limited Event AI"], icon: Bot, level: 20, color: "#94a3b8" },
+    { plan: "Standard", title: "Standard AI Allocation", desc: "Event intelligence and audience visibility.", features: ["AI Event Summaries", "Audience Insights"], icon: Sparkles, level: 50, color: "#60a5fa" },
+    { plan: "Premium", title: "Premium AI Allocation", desc: "Full event operational intelligence.", features: ["Event Intelligence", "Operational Insights"], icon: Cpu, level: 82, color: "#E8B84A" },
+    { plan: "Premium+", title: "Enterprise AI Allocation", desc: "Custom AI allocation for conference-scale events.", features: ["Custom AI Allocation"], icon: BarChart3, level: 100, color: "#a78bfa" },
+  ],
+  education: [
+    { plan: "Basic", title: "Basic AI Allocation", desc: "Entry-level AI for academic coordination.", features: ["Limited Study Assistant"], icon: Bot, level: 20, color: "#94a3b8" },
+    { plan: "Standard", title: "Standard AI Allocation", desc: "Academic intelligence and student insights.", features: ["Academic Summaries", "Student Insights"], icon: Sparkles, level: 50, color: "#60a5fa" },
+    { plan: "Premium", title: "Premium AI Allocation", desc: "Institutional intelligence and governance insights.", features: ["Institutional Intelligence", "Governance Insights"], icon: Cpu, level: 82, color: "#E8B84A" },
+    { plan: "Premium+", title: "Enterprise AI Allocation", desc: "Custom allocation for campus-wide deployment.", features: ["Custom AI Allocation"], icon: BarChart3, level: 100, color: "#a78bfa" },
+  ],
+  // Unused — enterprise shows Coming Soon
+  enterprise: [
+    { plan: "Basic", title: "Basic AI", desc: "", features: [], icon: Bot, level: 20, color: "#94a3b8" },
+    { plan: "Standard", title: "Standard AI", desc: "", features: [], icon: Sparkles, level: 50, color: "#60a5fa" },
+    { plan: "Premium", title: "Premium AI", desc: "", features: [], icon: Cpu, level: 82, color: "#E8B84A" },
+    { plan: "Premium+", title: "Enterprise AI", desc: "", features: [], icon: BarChart3, level: 100, color: "#a78bfa" },
+  ],
+};
+
+// ─── PER-SOLUTION COMPARISON TABLES ──────────────────────────────────────────
+
+const comparisonTables: Record<SolutionType, TableRow[]> = {
+  bootcamps: [
+    { feature: "Programmes",   basic: "Up to 3",        standard: "Up to 10",       premium: "Up to 25",          plus: "Unlimited" },
+    { feature: "Participants", basic: "50 / group",      standard: "200 / group",    premium: "500 / group",       plus: "Unlimited" },
+    { feature: "Storage",      basic: "10 GB",           standard: "50 GB",          premium: "200 GB",            plus: "Unlimited" },
+    { feature: "AI Usage",     basic: "Limited",         standard: "Expanded",       premium: "Operational",       plus: "Custom Allocation" },
+    { feature: "Analytics",    basic: "Basic",           standard: "Advanced",       premium: "Executive",         plus: "Custom" },
+    { feature: "Governance",   basic: "Owner only",      standard: "Facilitator roles", premium: "Full Controls", plus: "Enterprise Grade" },
+    { feature: "Integrations", basic: "Basic",           standard: "Standard",       premium: "Advanced",          plus: "Custom API & Webhooks" },
+    { feature: "Support",      basic: "Email",           standard: "Priority Email", premium: "24/7 Slack",        plus: "Dedicated Architect" },
+  ],
+  events: [
+    { feature: "Programmes",   basic: "Up to 5",        standard: "Up to 20",       premium: "Up to 100",         plus: "Unlimited" },
+    { feature: "Participants", basic: "Up to 100",      standard: "Up to 500",      premium: "Up to 2,000",       plus: "Unlimited" },
+    { feature: "Storage",      basic: "5 GB",           standard: "20 GB",          premium: "100 GB",            plus: "Unlimited" },
+    { feature: "AI Usage",     basic: "Limited",        standard: "Expanded",       premium: "Operational",       plus: "Custom Allocation" },
+    { feature: "Analytics",    basic: "Basic",          standard: "Advanced",       premium: "Executive",         plus: "Custom" },
+    { feature: "Governance",   basic: "Basic",          standard: "Standard",       premium: "Full Controls",     plus: "Enterprise Grade" },
+    { feature: "Integrations", basic: "Basic",          standard: "Standard",       premium: "Advanced",          plus: "Custom API & Webhooks" },
+    { feature: "Support",      basic: "Email",          standard: "Priority Email", premium: "24/7 Slack",        plus: "Dedicated Architect" },
+  ],
+  education: [
+    { feature: "Programmes",   basic: "Up to 10",       standard: "Up to 50",       premium: "Unlimited",         plus: "Unlimited" },
+    { feature: "Participants", basic: "Up to 200",      standard: "Up to 1,000",    premium: "Unlimited",         plus: "Unlimited" },
+    { feature: "Storage",      basic: "20 GB",          standard: "100 GB",         premium: "500 GB",            plus: "Unlimited" },
+    { feature: "AI Usage",     basic: "Limited",        standard: "Expanded",       premium: "Institutional",     plus: "Custom Allocation" },
+    { feature: "Analytics",    basic: "Basic",          standard: "Academic",       premium: "Executive",         plus: "Custom" },
+    { feature: "Governance",   basic: "Basic",          standard: "Standard",       premium: "Institutional",     plus: "Enterprise Grade" },
+    { feature: "Integrations", basic: "Basic",          standard: "Standard",       premium: "Advanced",          plus: "Custom API & Webhooks" },
+    { feature: "Support",      basic: "Email",          standard: "Priority Email", premium: "24/7 Slack",        plus: "Dedicated Architect" },
+  ],
+  enterprise: [],
+};
+
+// ─── ENTERPRISE COMING SOON DATA ─────────────────────────────────────────────
+
+const enterpriseAudience = [
+  "NGOs",
+  "Corporate Training Teams",
+  "Internal Operations",
+  "Institutional Coordination",
 ];
 
-const comparisonTable = [
-  { feature: "Programmes", basic: "Up to 3", standard: "Up to 10", premium: "Up to 25", plus: "Unlimited" },
-  { feature: "Participants", basic: "50 / group", standard: "200 / group", premium: "500 / group", plus: "Unlimited" },
-  { feature: "Storage", basic: "10 GB", standard: "50 GB", premium: "200 GB", plus: "Dedicated / Unlimited" },
-  { feature: "AI Usage", basic: "Limited Credits", standard: "Expanded Credits", premium: "Operational Core", plus: "Custom Allocation" },
-  { feature: "Reports", basic: "Basic", standard: "Advanced PDF", premium: "Executive Custom", plus: "Verified Board Reports" },
-  { feature: "Dashboards", basic: "Core Overview", standard: "Cohort Dashboard", premium: "Cross-Team Intelligence", plus: "Custom White-Label Console" },
-  { feature: "Governance", basic: "Owner role only", standard: "Facilitator roles", premium: "Institutional Controls", plus: "SOC2 / Audit Logs" },
-  { feature: "Integrations", basic: "Zapier Core", standard: "Slack & Calendar", premium: "Database Integrations", plus: "Custom API & Webhooks" },
-  { feature: "Support", basic: "Email Support", standard: "Priority Email", premium: "24/7 Slack Connect", plus: "Dedicated Architect Node" },
+const enterprisePlannedFeatures = [
+  "Department Workspaces",
+  "Governance Systems",
+  "Workflow Automation",
+  "Internal Communication",
+  "Operational Intelligence",
+  "Enterprise Analytics",
 ];
+
+// ─── STATIC SECTIONS DATA ────────────────────────────────────────────────────
 
 const enterpriseBenefits = [
-  { title: "Secure & Reliable", desc: "Military-grade end-to-end encryption with 99.99% uptime SLA.", icon: Lock, color: "#34d399" },
-  { title: "Dedicated Support", desc: "Your own Solutions Architect available on-demand.", icon: Users, color: "#60a5fa" },
-  { title: "Governance & Compliance", desc: "Full SOC2, ISO, and audit log tracking systems.", icon: ShieldCheck, color: "#E8B84A" },
-  { title: "Scalable Infrastructure", desc: "Resilient multi-region nodes synced with low latency.", icon: Globe, color: "#a78bfa" },
-  { title: "API Access", desc: "Connect existing systems, CRM, and databases directly.", icon: Zap, color: "#f97316" },
-  { title: "White Label", desc: "Brand OYEN GRID as your own internal operational portal.", icon: Layers, color: "#34d399" },
+  { title: "Secure & Reliable",       desc: "Military-grade end-to-end encryption with 99.99% uptime SLA.", icon: Lock,       color: "#34d399" },
+  { title: "Dedicated Support",       desc: "Your own Solutions Architect available on-demand.",              icon: Users,      color: "#60a5fa" },
+  { title: "Governance & Compliance", desc: "Full SOC2, ISO, and audit log tracking systems.",                icon: ShieldCheck, color: "#E8B84A" },
+  { title: "Scalable Infrastructure", desc: "Resilient multi-region nodes synced with low latency.",          icon: Globe,      color: "#a78bfa" },
+  { title: "API Access",              desc: "Connect existing systems, CRM, and databases directly.",         icon: Zap,        color: "#f97316" },
+  { title: "White Label",             desc: "Brand OYEN GRID as your own internal operational portal.",       icon: Layers,     color: "#34d399" },
 ];
 
 const faqs = [
@@ -354,36 +445,67 @@ const faqs = [
   },
 ];
 
-// ─── CORNER DETAIL COMPONENT ─────────────────────────────────────────────────
+// ─── CORNER DETAIL ───────────────────────────────────────────────────────────
 
 function CornerDetail({ position }: { position: "top-left" | "top-right" | "bottom-left" | "bottom-right" }) {
   return (
     <div className={cn(
       "absolute w-20 h-20 pointer-events-none opacity-[0.06]",
-      position === "top-left" && "top-6 left-6 border-t border-l border-white",
-      position === "top-right" && "top-6 right-6 border-t border-r border-white",
-      position === "bottom-left" && "bottom-6 left-6 border-b border-l border-white",
+      position === "top-left"     && "top-6 left-6 border-t border-l border-white",
+      position === "top-right"    && "top-6 right-6 border-t border-r border-white",
+      position === "bottom-left"  && "bottom-6 left-6 border-b border-l border-white",
       position === "bottom-right" && "bottom-6 right-6 border-b border-r border-white",
     )}>
       <div className={cn(
         "absolute w-1.5 h-1.5 bg-white rounded-full",
-        position === "top-left" && "-top-0.5 -left-0.5",
-        position === "top-right" && "-top-0.5 -right-0.5",
-        position === "bottom-left" && "-bottom-0.5 -left-0.5",
+        position === "top-left"     && "-top-0.5 -left-0.5",
+        position === "top-right"    && "-top-0.5 -right-0.5",
+        position === "bottom-left"  && "-bottom-0.5 -left-0.5",
         position === "bottom-right" && "-bottom-0.5 -right-0.5",
       )} />
     </div>
   );
 }
 
-// ─── PAGE COMPONENT ──────────────────────────────────────────────────────────
+// ─── VALID SOLUTIONS ──────────────────────────────────────────────────────────
 
-export default function PricingPage() {
-  const [selectedSolution, setSelectedSolution] = useState<SolutionType>("bootcamps");
+const VALID_SOLUTIONS: SolutionType[] = ["bootcamps", "events", "education", "enterprise"];
+
+// ─── INNER COMPONENT (uses useSearchParams — must be inside Suspense) ─────────
+
+function PricingContent() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  // Read URL on mount to set initial solution
+  const urlSolution = searchParams.get("solution") as SolutionType | null;
+  const initialSolution: SolutionType =
+    urlSolution && VALID_SOLUTIONS.includes(urlSolution) ? urlSolution : "bootcamps";
+
+  const [selectedSolution, setSelectedSolution] = useState<SolutionType>(initialSolution);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [waitlistEmail, setWaitlistEmail] = useState("");
+  const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
   const plansRef = useRef<HTMLElement>(null);
 
+  const isEnterprise = selectedSolution === "enterprise";
   const activeSolution = solutionsList.find((s) => s.id === selectedSolution)!;
+  const currentPricing = planPricing[selectedSolution];
+  const currentAI = aiAllocationData[selectedSolution];
+  const currentTable = comparisonTables[selectedSolution];
+
+  // Update state + push URL param
+  const handleSelectSolution = useCallback(
+    (id: SolutionType) => {
+      setSelectedSolution(id);
+      setActiveFaq(null);
+      const params = new URLSearchParams(searchParams.toString());
+      params.set("solution", id);
+      router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    },
+    [router, pathname, searchParams],
+  );
 
   const scrollToPlans = () => {
     plansRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -398,16 +520,12 @@ export default function PricingPage() {
           1. HERO SECTION
       ════════════════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden bg-white dark:bg-[#050816] border-b border-slate-200 dark:border-white/[0.05]">
-        {/* Background System */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Dot Grid */}
           <div
             className="absolute inset-0 opacity-[0.018] dark:opacity-[0.035]"
             style={{ backgroundImage: "radial-gradient(circle, #000 0.5px, transparent 0.5px)", backgroundSize: "36px 36px" }}
           />
-          {/* Gold Glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.07),transparent_65%)] dark:opacity-100 opacity-40" />
-          {/* Right Accent */}
           <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-[radial-gradient(ellipse_at_top_right,rgba(96,165,250,0.04),transparent_60%)]" />
         </div>
 
@@ -422,7 +540,6 @@ export default function PricingPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* Status Badge */}
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#E8B84A]/8 border border-[#E8B84A]/20 dark:bg-[#E8B84A]/5 dark:border-[#E8B84A]/15 mb-8">
               <div className="w-1.5 h-1.5 rounded-full bg-[#B88918] dark:bg-[#E8B84A] animate-pulse" />
               <span className="text-[10px] font-black text-[#9a6f0e] dark:text-[#E8B84A] tracking-[0.22em] uppercase">
@@ -430,58 +547,40 @@ export default function PricingPage() {
               </span>
             </div>
 
-            {/* Headline */}
             <h1 className="text-[48px] md:text-[68px] lg:text-[78px] font-extrabold text-slate-900 dark:text-white leading-[0.95] tracking-[-0.05em] mb-6 max-w-4xl mx-auto">
               Simple pricing.{" "}
               <br className="hidden md:block" />
-              <span
-                className="italic font-serif font-medium"
-                style={{ color: "#B88918" }}
-              >
+              <span className="italic font-serif font-medium" style={{ color: "#B88918" }}>
                 Powerful operational
               </span>{" "}
-              <span
-                className="italic font-serif font-medium"
-                style={{ color: "#B88918" }}
-              >
+              <span className="italic font-serif font-medium" style={{ color: "#B88918" }}>
                 outcomes.
               </span>
             </h1>
 
-            {/* Sub-headline */}
             <p className="text-[17px] md:text-[19px] text-slate-500 dark:text-white/55 leading-relaxed font-normal max-w-2xl mx-auto mb-10">
-              Choose the solution that matches your organization.
-              Whether you&apos;re running bootcamps, managing educational institutions,
-              hosting events, or coordinating enterprise operations,{" "}
-              <span className="text-slate-700 dark:text-white/80 font-medium">
-                OYEN GRID scales with your needs.
-              </span>
+              Choose the solution that matches your organization. Whether you&apos;re running bootcamps, managing educational institutions, hosting events, or coordinating enterprise operations,{" "}
+              <span className="text-slate-700 dark:text-white/80 font-medium">OYEN GRID scales with your needs.</span>
             </p>
 
-            {/* Trust Indicators */}
             <div className="flex items-center justify-center flex-wrap gap-x-6 gap-y-3 text-[11px] font-semibold text-slate-400 dark:text-white/25 tracking-widest uppercase mb-10">
               <span className="flex items-center gap-2">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#34d399]" />
-                Enterprise Ready
+                <ShieldCheck className="w-3.5 h-3.5 text-[#34d399]" /> Enterprise Ready
               </span>
               <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-white/10" />
               <span className="flex items-center gap-2">
-                <Lock className="w-3.5 h-3.5 text-[#60a5fa]" />
-                SOC2 Compliant
+                <Lock className="w-3.5 h-3.5 text-[#60a5fa]" /> SOC2 Compliant
               </span>
               <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-white/10" />
               <span className="flex items-center gap-2">
-                <Activity className="w-3.5 h-3.5 text-[#E8B84A]" />
-                99.99% Uptime SLA
+                <Activity className="w-3.5 h-3.5 text-[#E8B84A]" /> 99.99% Uptime SLA
               </span>
               <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-white/10" />
               <span className="flex items-center gap-2">
-                <Globe className="w-3.5 h-3.5 text-[#a78bfa]" />
-                Multi-Region Infrastructure
+                <Globe className="w-3.5 h-3.5 text-[#a78bfa]" /> Multi-Region Infrastructure
               </span>
             </div>
 
-            {/* CTA Row */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 onClick={scrollToPlans}
@@ -536,7 +635,7 @@ export default function PricingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.07 }}
-                  onClick={() => setSelectedSolution(sol.id)}
+                  onClick={() => handleSelectSolution(sol.id)}
                   className={cn(
                     "group relative p-6 rounded-[20px] border cursor-pointer transition-all duration-300 flex flex-col gap-4 overflow-hidden",
                     isActive
@@ -544,15 +643,12 @@ export default function PricingPage() {
                       : "bg-white/60 dark:bg-white/[0.015] border-slate-200 dark:border-white/[0.05] hover:bg-white dark:hover:bg-white/[0.03] hover:border-slate-300 dark:hover:border-white/[0.1] hover:shadow-sm"
                   )}
                 >
-                  {/* Active Glow */}
                   {isActive && (
                     <div
                       className="absolute inset-0 pointer-events-none opacity-50"
                       style={{ background: `radial-gradient(ellipse at top left, ${sol.bgGlow}, transparent 70%)` }}
                     />
                   )}
-
-                  {/* Active dot */}
                   {isActive && (
                     <div
                       className="absolute top-4 right-4 w-2 h-2 rounded-full animate-pulse"
@@ -560,26 +656,19 @@ export default function PricingPage() {
                     />
                   )}
 
-                  {/* Icon */}
                   <div
                     className={cn(
                       "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-300 relative z-10",
-                      isActive
-                        ? "border-current/20"
-                        : "bg-slate-100 dark:bg-white/[0.05] border-transparent text-slate-500 dark:text-white/40"
+                      isActive ? "border-current/20" : "bg-slate-100 dark:bg-white/[0.05] border-transparent text-slate-500 dark:text-white/40"
                     )}
                     style={isActive ? { backgroundColor: `${sol.color}15`, borderColor: `${sol.color}25`, color: sol.color } : undefined}
                   >
                     <Icon className="w-5 h-5" />
                   </div>
 
-                  {/* Text */}
                   <div className="relative z-10">
                     <h3
-                      className={cn(
-                        "text-[15px] font-bold tracking-tight mb-2 transition-colors",
-                        isActive ? "" : "text-slate-900 dark:text-white"
-                      )}
+                      className={cn("text-[15px] font-bold tracking-tight mb-2 transition-colors", isActive ? "" : "text-slate-900 dark:text-white")}
                       style={isActive ? { color: sol.color } : undefined}
                     >
                       {sol.title}
@@ -587,17 +676,13 @@ export default function PricingPage() {
                     <p className="text-[11.5px] text-slate-500 dark:text-white/35 leading-snug mb-3">
                       {sol.tagline}
                     </p>
-
-                    {/* Audience tags */}
                     <div className="flex flex-wrap gap-1.5">
                       {sol.audience.map((a) => (
                         <span
                           key={a}
                           className={cn(
                             "text-[9.5px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border transition-all",
-                            isActive
-                              ? "border-current/20"
-                              : "bg-slate-100 dark:bg-white/[0.04] border-transparent text-slate-500 dark:text-white/25"
+                            isActive ? "border-current/20" : "bg-slate-100 dark:bg-white/[0.04] border-transparent text-slate-500 dark:text-white/25"
                           )}
                           style={isActive ? { color: sol.color, backgroundColor: `${sol.color}10`, borderColor: `${sol.color}20` } : undefined}
                         >
@@ -618,18 +703,18 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.35 }}
+              transition={{ duration: 0.3 }}
               className="mt-8 flex items-center justify-center gap-3"
             >
-              <div
-                className="w-1.5 h-1.5 rounded-full animate-pulse"
-                style={{ backgroundColor: activeSolution.color }}
-              />
+              <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: activeSolution.color }} />
               <span className="text-[11px] font-semibold text-slate-500 dark:text-white/40 tracking-wider">
                 Showing pricing for:{" "}
-                <span className="font-black text-slate-800 dark:text-white/75">
-                  {activeSolution.title}
-                </span>
+                <span className="font-black text-slate-800 dark:text-white/75">{activeSolution.title}</span>
+                {isEnterprise && (
+                  <span className="ml-2 px-2 py-0.5 rounded-full bg-[#a78bfa]/10 border border-[#a78bfa]/20 text-[9px] font-black text-[#a78bfa] uppercase tracking-widest">
+                    Coming Soon
+                  </span>
+                )}
               </span>
             </motion.div>
           </AnimatePresence>
@@ -637,305 +722,467 @@ export default function PricingPage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          3. PRICING PLANS
+          3. PRICING PLANS  — or — ENTERPRISE COMING SOON
       ════════════════════════════════════════════════════════════════ */}
       <section ref={plansRef} className="py-24 bg-white dark:bg-[#05070B] border-b border-slate-200 dark:border-white/[0.04]">
         <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="text-center mb-16"
-          >
-            <span className="text-[10px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
-              Plan Options
-            </span>
-            <h2 className="text-[30px] md:text-[40px] font-bold text-slate-900 dark:text-white tracking-tight mb-3">
-              Flexible tiers for any scale
-            </h2>
-            <p className="text-[14px] text-slate-500 dark:text-white/45">
-              Feature descriptions adapt to your selected solution. Pricing remains unified.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
-            {plans.map((plan, i) => {
-              const features = pricingData[selectedSolution][plan.key];
-              return (
-                <motion.div
-                  key={plan.key}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className={cn(
-                    "relative rounded-[22px] border p-6 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
-                    plan.highlight
-                      ? "bg-white dark:bg-white/[0.025] border-[#B88918] dark:border-[#E8B84A]/35 shadow-[0_8px_32px_rgba(184,137,24,0.1)] dark:shadow-[0_12px_40px_rgba(232,184,74,0.08)] hover:border-[#B88918] dark:hover:border-[#E8B84A]/60"
-                      : "bg-white dark:bg-white/[0.015] border-slate-200 dark:border-white/[0.05] shadow-sm hover:border-slate-300 dark:hover:border-white/[0.12] hover:shadow-md"
-                  )}
-                >
-                  {/* Premium Glow BG */}
-                  {plan.highlight && (
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(232,184,74,0.04),transparent_60%)] pointer-events-none" />
-                  )}
-
-                  {/* Recommended Badge */}
-                  {plan.badge && (
-                    <div className="absolute top-4 right-5 px-2.5 py-0.5 rounded-full bg-[#E8B84A]/10 border border-[#E8B84A]/25 text-[8.5px] font-black text-[#B88918] dark:text-[#E8B84A] uppercase tracking-widest flex items-center gap-1">
-                      <Star className="w-2.5 h-2.5" />
-                      {plan.badge}
-                    </div>
-                  )}
-
-                  <div className="relative z-10">
-                    {/* Plan Label */}
-                    <span className={cn(
-                      "text-[10px] font-black uppercase tracking-widest",
-                      plan.highlight ? "text-[#B88918] dark:text-[#E8B84A]" : "text-slate-400 dark:text-white/30"
-                    )}>
-                      {plan.name}
+          <AnimatePresence mode="wait">
+            {isEnterprise ? (
+              /* ─── ENTERPRISE COMING SOON ─────────────────────────────────── */
+              <motion.div
+                key="enterprise-coming-soon"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="text-center mb-16">
+                  <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#a78bfa]/8 border border-[#a78bfa]/20 dark:bg-[#a78bfa]/5 dark:border-[#a78bfa]/20 mb-6">
+                    <Clock className="w-3.5 h-3.5 text-[#a78bfa]" />
+                    <span className="text-[10px] font-black text-[#a78bfa] tracking-[0.22em] uppercase">
+                      Coming Soon
                     </span>
+                  </div>
+                  <h2 className="text-[30px] md:text-[42px] font-bold text-slate-900 dark:text-white tracking-tight mb-4">
+                    Enterprise Operations
+                  </h2>
+                  <p className="text-[15px] text-slate-500 dark:text-white/45 max-w-lg mx-auto">
+                    Built for large-scale internal operations, governance, and institutional coordination. Join the waitlist to be the first to know.
+                  </p>
+                </div>
 
-                    {/* Price */}
-                    <div className="mt-4 mb-1 flex items-baseline gap-1">
-                      <span className={cn(
-                        "font-extrabold tracking-tighter leading-none",
-                        plan.key === "premiumPlus" ? "text-[22px]" : "text-[34px]",
-                        "text-slate-900 dark:text-white"
-                      )}>
-                        {plan.price}
-                      </span>
-                      {plan.period && (
-                        <span className="text-[12px] text-slate-400 dark:text-white/35 font-medium">
-                          {plan.period}
-                        </span>
-                      )}
+                <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                  {/* Built For */}
+                  <div className="p-8 rounded-[22px] bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm">
+                    <h3 className="text-[11px] font-black text-[#a78bfa] tracking-[0.28em] uppercase mb-5">
+                      Built For
+                    </h3>
+                    <ul className="space-y-3">
+                      {enterpriseAudience.map((item) => (
+                        <li key={item} className="flex items-center gap-3 text-[14px] text-slate-700 dark:text-white/75 font-medium">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#a78bfa] shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Planned Features */}
+                  <div className="p-8 rounded-[22px] bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm">
+                    <h3 className="text-[11px] font-black text-[#a78bfa] tracking-[0.28em] uppercase mb-5">
+                      Planned Features
+                    </h3>
+                    <ul className="space-y-3">
+                      {enterprisePlannedFeatures.map((item) => (
+                        <li key={item} className="flex items-center gap-3 text-[14px] text-slate-700 dark:text-white/75 font-medium">
+                          <Check className="w-3.5 h-3.5 text-[#a78bfa] shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Waitlist Form */}
+                <div className="max-w-[520px] mx-auto">
+                  <div className="p-8 rounded-[24px] bg-white dark:bg-white/[0.025] border border-[#a78bfa]/25 dark:border-[#a78bfa]/20 shadow-[0_8px_32px_rgba(167,139,250,0.08)]">
+                    <div className="text-center mb-6">
+                      <h3 className="text-[18px] font-bold text-slate-900 dark:text-white mb-2">Join the Waitlist</h3>
+                      <p className="text-[12.5px] text-slate-500 dark:text-white/40">
+                        Get early access when Enterprise Operations launches.
+                      </p>
                     </div>
 
-                    <p className="text-[11.5px] text-slate-500 dark:text-white/38 leading-snug mb-6 font-normal">
-                      {plan.tagline}
-                    </p>
-
-                    <div className="h-px bg-slate-200 dark:bg-white/[0.06] mb-6" />
-
-                    {/* Features header */}
-                    <h4 className="text-[9.5px] font-black tracking-widest text-slate-400 dark:text-white/20 uppercase mb-4">
-                      {plan.planLabel}
-                    </h4>
-
-                    {/* Feature List - animated on solution change */}
                     <AnimatePresence mode="wait">
-                      <motion.ul
-                        key={`${plan.key}-${selectedSolution}`}
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -6 }}
-                        transition={{ duration: 0.28 }}
-                        className="space-y-3"
-                      >
-                        {features.map((feat, fi) => (
-                          <li key={fi} className="flex items-start gap-2.5 text-[12px] text-slate-600 dark:text-white/60 font-medium">
-                            <Check
-                              className="w-3.5 h-3.5 shrink-0 mt-0.5"
-                              style={{ color: plan.highlight ? "#B88918" : "#64748b" }}
+                      {waitlistSubmitted ? (
+                        <motion.div
+                          key="success"
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          className="flex flex-col items-center gap-3 py-4"
+                        >
+                          <CheckCircle2 className="w-10 h-10 text-[#a78bfa]" />
+                          <p className="text-[14px] font-bold text-slate-900 dark:text-white">You&apos;re on the list!</p>
+                          <p className="text-[12px] text-slate-500 dark:text-white/40 text-center">
+                            We&apos;ll notify you as soon as Enterprise Operations is available.
+                          </p>
+                        </motion.div>
+                      ) : (
+                        <motion.form
+                          key="form"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          onSubmit={(e) => {
+                            e.preventDefault();
+                            if (waitlistEmail.trim()) setWaitlistSubmitted(true);
+                          }}
+                          className="flex flex-col gap-3"
+                        >
+                          <div className="relative">
+                            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 dark:text-white/25" />
+                            <input
+                              type="email"
+                              required
+                              placeholder="Enter your work email"
+                              value={waitlistEmail}
+                              onChange={(e) => setWaitlistEmail(e.target.value)}
+                              className="w-full h-12 pl-10 pr-4 rounded-xl border border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-white/[0.03] text-[13px] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/25 focus:outline-none focus:border-[#a78bfa]/50 dark:focus:border-[#a78bfa]/40 transition-colors"
                             />
-                            <span>{feat}</span>
-                          </li>
-                        ))}
-                      </motion.ul>
+                          </div>
+                          <button
+                            type="submit"
+                            className="w-full h-12 rounded-xl bg-[#a78bfa] text-white font-black text-[12px] uppercase tracking-wider hover:bg-[#c4b5fd] hover:scale-[1.01] active:scale-[0.99] transition-all shadow-[0_4px_16px_rgba(167,139,250,0.2)]"
+                          >
+                            Join Waitlist
+                          </button>
+                        </motion.form>
+                      )}
                     </AnimatePresence>
                   </div>
-
-                  {/* CTA Button */}
-                  <div className="mt-8 pt-6 border-t border-slate-100 dark:border-white/[0.05] relative z-10">
-                    <Link
-                      href={plan.href}
-                      className={cn(
-                        "w-full h-11 rounded-xl flex items-center justify-center gap-2 text-[11.5px] font-black uppercase tracking-wider transition-all group/btn",
-                        plan.highlight
-                          ? "bg-[#E8B84A] text-black hover:bg-[#FFCF68] shadow-[0_4px_16px_rgba(232,184,74,0.18)] hover:shadow-[0_6px_20px_rgba(232,184,74,0.25)] hover:scale-[1.02] active:scale-[0.98]"
-                          : "border border-slate-200 dark:border-white/[0.08] text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-white/[0.05] hover:border-slate-300 dark:hover:border-white/[0.15]"
-                      )}
-                    >
-                      {plan.cta}
-                      <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform opacity-60" />
-                    </Link>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════════
-          4. AI ALLOCATION SECTION
-      ════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-slate-50 dark:bg-[#020408] border-b border-slate-200 dark:border-white/[0.04]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="text-center mb-16"
-          >
-            <span className="text-[10px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
-              Intelligence Allocation
-            </span>
-            <h2 className="text-[28px] md:text-[38px] font-bold text-slate-900 dark:text-white tracking-tight mb-3">
-              AI Coordination Credits by Plan
-            </h2>
-            <p className="text-[14px] text-slate-500 dark:text-white/45 max-w-md mx-auto">
-              Each plan unlocks a different tier of AI capabilities — from basic summaries to full operational intelligence.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {aiAllocation.map((tier, i) => {
-              const Icon = tier.icon;
-              return (
-                <motion.div
-                  key={tier.plan}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="relative p-6 rounded-[20px] bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-white/[0.12] transition-all group overflow-hidden"
-                >
-                  {/* Level bar background glow */}
-                  <div
-                    className="absolute bottom-0 left-0 right-0 h-[3px] opacity-60"
-                    style={{ backgroundColor: tier.color }}
-                  />
-
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 border transition-all"
-                    style={{ backgroundColor: `${tier.color}12`, borderColor: `${tier.color}22`, color: tier.color }}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </div>
-
-                  <div className="text-[9px] font-black uppercase tracking-[0.25em] mb-1" style={{ color: tier.color }}>
-                    {tier.plan}
-                  </div>
-                  <h4 className="text-[14px] font-bold text-slate-900 dark:text-white tracking-tight mb-2">
-                    {tier.title}
-                  </h4>
-                  <p className="text-[11.5px] text-slate-500 dark:text-white/40 leading-snug mb-5">
-                    {tier.desc}
+                </div>
+              </motion.div>
+            ) : (
+              /* ─── STANDARD PRICING PLANS ─────────────────────────────────── */
+              <motion.div
+                key={`plans-${selectedSolution}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="text-center mb-16">
+                  <span className="text-[10px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
+                    Plan Options
+                  </span>
+                  <h2 className="text-[30px] md:text-[40px] font-bold text-slate-900 dark:text-white tracking-tight mb-3">
+                    Flexible tiers for any scale
+                  </h2>
+                  <p className="text-[14px] text-slate-500 dark:text-white/45">
+                    Feature descriptions adapt to your selected solution.
                   </p>
+                </div>
 
-                  {/* AI Level Progress */}
-                  <div className="mb-5">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-[9.5px] font-bold text-slate-400 dark:text-white/30 uppercase tracking-wider">AI Level</span>
-                      <span className="text-[11px] font-black" style={{ color: tier.color }}>
-                        {tier.level === 100 ? "Max" : `${tier.level}%`}
-                      </span>
-                    </div>
-                    <div className="h-1.5 w-full bg-slate-200 dark:bg-white/[0.05] rounded-full overflow-hidden">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+                  {plansBase.map((plan, i) => {
+                    const meta = currentPricing[i];
+                    const features = pricingData[selectedSolution][plan.key];
+                    const isTalkToSales = meta.price === "Talk to Sales";
+
+                    return (
                       <motion.div
-                        className="h-full rounded-full"
-                        style={{ backgroundColor: tier.color }}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${tier.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.2, delay: i * 0.1, ease: "easeOut" }}
-                      />
-                    </div>
-                  </div>
+                        key={plan.key}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: i * 0.06 }}
+                        className={cn(
+                          "relative rounded-[22px] border p-6 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
+                          plan.highlight
+                            ? "bg-white dark:bg-white/[0.025] border-[#B88918] dark:border-[#E8B84A]/35 shadow-[0_8px_32px_rgba(184,137,24,0.1)] dark:shadow-[0_12px_40px_rgba(232,184,74,0.08)] hover:border-[#B88918] dark:hover:border-[#E8B84A]/60"
+                            : "bg-white dark:bg-white/[0.015] border-slate-200 dark:border-white/[0.05] shadow-sm hover:border-slate-300 dark:hover:border-white/[0.12] hover:shadow-md"
+                        )}
+                      >
+                        {plan.highlight && (
+                          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(232,184,74,0.04),transparent_60%)] pointer-events-none" />
+                        )}
 
-                  {/* Features */}
-                  <div className="space-y-2 pt-4 border-t border-slate-100 dark:border-white/[0.05]">
-                    {tier.features.map((feat, fi) => (
-                      <div key={fi} className="flex items-center gap-2 text-[11px] text-slate-600 dark:text-white/55 font-medium">
-                        <div className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: tier.color }} />
-                        <span>{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+                        {plan.badge && (
+                          <div className="absolute top-4 right-5 px-2.5 py-0.5 rounded-full bg-[#E8B84A]/10 border border-[#E8B84A]/25 text-[8.5px] font-black text-[#B88918] dark:text-[#E8B84A] uppercase tracking-widest flex items-center gap-1">
+                            <Star className="w-2.5 h-2.5" />
+                            {plan.badge}
+                          </div>
+                        )}
+
+                        <div className="relative z-10">
+                          <span className={cn(
+                            "text-[10px] font-black uppercase tracking-widest",
+                            plan.highlight ? "text-[#B88918] dark:text-[#E8B84A]" : "text-slate-400 dark:text-white/30"
+                          )}>
+                            {plan.name}
+                          </span>
+
+                          {/* Price — animated on solution change */}
+                          <AnimatePresence mode="wait">
+                            <motion.div
+                              key={`price-${plan.key}-${selectedSolution}`}
+                              initial={{ opacity: 0, y: 6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -6 }}
+                              transition={{ duration: 0.25 }}
+                              className="mt-4 mb-1 flex items-baseline gap-1"
+                            >
+                              <span className={cn(
+                                "font-extrabold tracking-tighter leading-none text-slate-900 dark:text-white",
+                                isTalkToSales ? "text-[22px]" : "text-[34px]"
+                              )}>
+                                {meta.price}
+                              </span>
+                              {meta.period && (
+                                <span className="text-[12px] text-slate-400 dark:text-white/35 font-medium">
+                                  {meta.period}
+                                </span>
+                              )}
+                            </motion.div>
+                          </AnimatePresence>
+
+                          <AnimatePresence mode="wait">
+                            <motion.p
+                              key={`tagline-${plan.key}-${selectedSolution}`}
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ duration: 0.25 }}
+                              className="text-[11.5px] text-slate-500 dark:text-white/38 leading-snug mb-6 font-normal"
+                            >
+                              {meta.tagline}
+                            </motion.p>
+                          </AnimatePresence>
+
+                          <div className="h-px bg-slate-200 dark:bg-white/[0.06] mb-6" />
+
+                          <h4 className="text-[9.5px] font-black tracking-widest text-slate-400 dark:text-white/20 uppercase mb-4">
+                            {plan.planLabel}
+                          </h4>
+
+                          {/* Feature list — animated on solution change */}
+                          <AnimatePresence mode="wait">
+                            <motion.ul
+                              key={`features-${plan.key}-${selectedSolution}`}
+                              initial={{ opacity: 0, y: 6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -6 }}
+                              transition={{ duration: 0.28 }}
+                              className="space-y-3"
+                            >
+                              {features.map((feat, fi) => (
+                                <li key={fi} className="flex items-start gap-2.5 text-[12px] text-slate-600 dark:text-white/60 font-medium">
+                                  <Check
+                                    className="w-3.5 h-3.5 shrink-0 mt-0.5"
+                                    style={{ color: plan.highlight ? "#B88918" : "#64748b" }}
+                                  />
+                                  <span>{feat}</span>
+                                </li>
+                              ))}
+                            </motion.ul>
+                          </AnimatePresence>
+                        </div>
+
+                        <div className="mt-8 pt-6 border-t border-slate-100 dark:border-white/[0.05] relative z-10">
+                          <Link
+                            href={plan.href}
+                            className={cn(
+                              "w-full h-11 rounded-xl flex items-center justify-center gap-2 text-[11.5px] font-black uppercase tracking-wider transition-all group/btn",
+                              plan.highlight
+                                ? "bg-[#E8B84A] text-black hover:bg-[#FFCF68] shadow-[0_4px_16px_rgba(232,184,74,0.18)] hover:shadow-[0_6px_20px_rgba(232,184,74,0.25)] hover:scale-[1.02] active:scale-[0.98]"
+                                : "border border-slate-200 dark:border-white/[0.08] text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-white/[0.05] hover:border-slate-300 dark:hover:border-white/[0.15]"
+                            )}
+                          >
+                            {plan.cta}
+                            <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform opacity-60" />
+                          </Link>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          5. PLAN COMPARISON TABLE
+          4. AI ALLOCATION — hidden for Enterprise
       ════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-white dark:bg-[#05070B] border-b border-slate-200 dark:border-white/[0.04]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="text-center mb-16"
+      <AnimatePresence>
+        {!isEnterprise && (
+          <motion.section
+            key="ai-section"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="py-24 bg-slate-50 dark:bg-[#020408] border-b border-slate-200 dark:border-white/[0.04] overflow-hidden"
           >
-            <span className="text-[10px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
-              Comparison
-            </span>
-            <h2 className="text-[28px] md:text-[38px] font-bold text-slate-900 dark:text-white tracking-tight mb-3">
-              Compare plan capabilities
-            </h2>
-            <p className="text-[14px] text-slate-500 dark:text-white/45">
-              A full side-by-side overview to help you choose the right tier.
-            </p>
-          </motion.div>
+            <div className="max-w-[1200px] mx-auto px-6">
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="text-center mb-16"
+              >
+                <span className="text-[10px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
+                  Intelligence Allocation
+                </span>
+                <h2 className="text-[28px] md:text-[38px] font-bold text-slate-900 dark:text-white tracking-tight mb-3">
+                  AI Coordination Credits by Plan
+                </h2>
+                <p className="text-[14px] text-slate-500 dark:text-white/45 max-w-md mx-auto">
+                  Each plan unlocks a different tier of AI capabilities — from basic summaries to full operational intelligence.
+                </p>
+              </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="w-full overflow-x-auto rounded-[20px] border border-slate-200 dark:border-white/[0.06] shadow-sm"
+              {/* Use solution as key so cards remount and bars re-animate */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`ai-grid-${selectedSolution}`}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.3 }}
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+                >
+                  {currentAI.map((tier, i) => {
+                    const Icon = tier.icon;
+                    return (
+                      <motion.div
+                        key={`${selectedSolution}-${tier.plan}`}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: i * 0.07 }}
+                        className="relative p-6 rounded-[20px] bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-white/[0.12] transition-all group overflow-hidden"
+                      >
+                        <div
+                          className="absolute bottom-0 left-0 right-0 h-[3px] opacity-60"
+                          style={{ backgroundColor: tier.color }}
+                        />
+
+                        <div
+                          className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 border transition-all"
+                          style={{ backgroundColor: `${tier.color}12`, borderColor: `${tier.color}22`, color: tier.color }}
+                        >
+                          <Icon className="w-5 h-5" />
+                        </div>
+
+                        <div className="text-[9px] font-black uppercase tracking-[0.25em] mb-1" style={{ color: tier.color }}>
+                          {tier.plan}
+                        </div>
+                        <h4 className="text-[14px] font-bold text-slate-900 dark:text-white tracking-tight mb-2">
+                          {tier.title}
+                        </h4>
+                        <p className="text-[11.5px] text-slate-500 dark:text-white/40 leading-snug mb-5">
+                          {tier.desc}
+                        </p>
+
+                        <div className="mb-5">
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-[9.5px] font-bold text-slate-400 dark:text-white/30 uppercase tracking-wider">AI Level</span>
+                            <span className="text-[11px] font-black" style={{ color: tier.color }}>
+                              {tier.level === 100 ? "Max" : `${tier.level}%`}
+                            </span>
+                          </div>
+                          <div className="h-1.5 w-full bg-slate-200 dark:bg-white/[0.05] rounded-full overflow-hidden">
+                            <motion.div
+                              className="h-full rounded-full"
+                              style={{ backgroundColor: tier.color }}
+                              initial={{ width: 0 }}
+                              animate={{ width: `${tier.level}%` }}
+                              transition={{ duration: 1.1, delay: i * 0.1, ease: "easeOut" }}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="space-y-2 pt-4 border-t border-slate-100 dark:border-white/[0.05]">
+                          {tier.features.map((feat, fi) => (
+                            <div key={fi} className="flex items-center gap-2 text-[11px] text-slate-600 dark:text-white/55 font-medium">
+                              <div className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: tier.color }} />
+                              <span>{feat}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </motion.section>
+        )}
+      </AnimatePresence>
+
+      {/* ════════════════════════════════════════════════════════════════
+          5. PLAN COMPARISON TABLE — hidden for Enterprise
+      ════════════════════════════════════════════════════════════════ */}
+      <AnimatePresence>
+        {!isEnterprise && (
+          <motion.section
+            key="table-section"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="py-24 bg-white dark:bg-[#05070B] border-b border-slate-200 dark:border-white/[0.04] overflow-hidden"
           >
-            <table className="w-full min-w-[750px] text-left border-collapse bg-white dark:bg-white/[0.01]">
-              <thead>
-                <tr className="border-b border-slate-200 dark:border-white/[0.06] bg-slate-50 dark:bg-white/[0.02]">
-                  <th className="p-5 text-[11px] font-black text-slate-600 dark:text-white/50 tracking-widest uppercase w-[28%]">
-                    Capability
-                  </th>
-                  <th className="p-5 text-[11px] font-black text-slate-600 dark:text-white/50 tracking-widest uppercase">
-                    Basic
-                  </th>
-                  <th className="p-5 text-[11px] font-black text-slate-600 dark:text-white/50 tracking-widest uppercase">
-                    Standard
-                  </th>
-                  <th className="p-5 text-[11px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-widest uppercase">
-                    ★ Premium
-                  </th>
-                  <th className="p-5 text-[11px] font-black text-slate-600 dark:text-white/50 tracking-widest uppercase">
-                    Premium+
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-white/[0.04]">
-                {comparisonTable.map((row, i) => (
-                  <motion.tr
-                    key={i}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.04 }}
-                    className="hover:bg-slate-50/50 dark:hover:bg-white/[0.012] transition-colors"
+            <div className="max-w-[1200px] mx-auto px-6">
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="text-center mb-16"
+              >
+                <span className="text-[10px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
+                  Comparison
+                </span>
+                <h2 className="text-[28px] md:text-[38px] font-bold text-slate-900 dark:text-white tracking-tight mb-3">
+                  Compare plan capabilities
+                </h2>
+                <p className="text-[14px] text-slate-500 dark:text-white/45">
+                  A full side-by-side overview to help you choose the right tier.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="w-full overflow-x-auto rounded-[20px] border border-slate-200 dark:border-white/[0.06] shadow-sm"
+              >
+                <AnimatePresence mode="wait">
+                  <motion.table
+                    key={`table-${selectedSolution}`}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full min-w-[750px] text-left border-collapse bg-white dark:bg-white/[0.01]"
                   >
-                    <td className="p-5 text-[13px] font-bold text-slate-900 dark:text-white">{row.feature}</td>
-                    <td className="p-5 text-[12px] text-slate-500 dark:text-white/50 font-medium">{row.basic}</td>
-                    <td className="p-5 text-[12px] text-slate-500 dark:text-white/50 font-medium">{row.standard}</td>
-                    <td className="p-5 text-[12px] text-slate-700 dark:text-white/75 font-semibold">{row.premium}</td>
-                    <td className="p-5 text-[12px] font-bold" style={{ color: "#B88918" }}>{row.plus}</td>
-                  </motion.tr>
-                ))}
-              </tbody>
-            </table>
-          </motion.div>
-        </div>
-      </section>
+                    <thead>
+                      <tr className="border-b border-slate-200 dark:border-white/[0.06] bg-slate-50 dark:bg-white/[0.02]">
+                        <th className="p-5 text-[11px] font-black text-slate-600 dark:text-white/50 tracking-widest uppercase w-[28%]">
+                          Capability
+                        </th>
+                        <th className="p-5 text-[11px] font-black text-slate-600 dark:text-white/50 tracking-widest uppercase">Basic</th>
+                        <th className="p-5 text-[11px] font-black text-slate-600 dark:text-white/50 tracking-widest uppercase">Standard</th>
+                        <th className="p-5 text-[11px] font-black text-[#B88918] dark:text-[#E8B84A] tracking-widest uppercase">★ Premium</th>
+                        <th className="p-5 text-[11px] font-black text-slate-600 dark:text-white/50 tracking-widest uppercase">Premium+</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 dark:divide-white/[0.04]">
+                      {currentTable.map((row, i) => (
+                        <motion.tr
+                          key={`${selectedSolution}-row-${i}`}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.3, delay: i * 0.03 }}
+                          className="hover:bg-slate-50/50 dark:hover:bg-white/[0.012] transition-colors"
+                        >
+                          <td className="p-5 text-[13px] font-bold text-slate-900 dark:text-white">{row.feature}</td>
+                          <td className="p-5 text-[12px] text-slate-500 dark:text-white/50 font-medium">{row.basic}</td>
+                          <td className="p-5 text-[12px] text-slate-500 dark:text-white/50 font-medium">{row.standard}</td>
+                          <td className="p-5 text-[12px] text-slate-700 dark:text-white/75 font-semibold">{row.premium}</td>
+                          <td className="p-5 text-[12px] font-bold" style={{ color: "#B88918" }}>{row.plus}</td>
+                        </motion.tr>
+                      ))}
+                    </tbody>
+                  </motion.table>
+                </AnimatePresence>
+              </motion.div>
+            </div>
+          </motion.section>
+        )}
+      </AnimatePresence>
 
       {/* ════════════════════════════════════════════════════════════════
           6. ENTERPRISE BENEFITS
@@ -956,7 +1203,7 @@ export default function PricingPage() {
               Enterprise Infrastructure
             </h2>
             <p className="text-[14px] text-slate-500 dark:text-white/45 max-w-md mx-auto">
-              Built to meet the standards of the world's most demanding organizations.
+              Built to meet the standards of the world&apos;s most demanding organizations.
             </p>
           </motion.div>
 
@@ -972,23 +1219,19 @@ export default function PricingPage() {
                   transition={{ duration: 0.5, delay: i * 0.07 }}
                   className="relative p-7 rounded-[20px] bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.05] shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-white/[0.12] transition-all group overflow-hidden"
                 >
-                  {/* Hover glow */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{ background: `radial-gradient(ellipse at top left, ${item.color}08, transparent 65%)` }}
                   />
-
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 border transition-all duration-300"
                     style={{ backgroundColor: `${item.color}10`, borderColor: `${item.color}20`, color: item.color }}
                   >
                     <Icon className="w-5 h-5" />
                   </div>
-
                   <h3 className="text-[15px] font-bold text-slate-900 dark:text-white tracking-tight mb-2 relative z-10">
                     {item.title}
                   </h3>
-
                   <p className="text-[12.5px] text-slate-500 dark:text-white/40 leading-relaxed relative z-10">
                     {item.desc}
                   </p>
@@ -1044,7 +1287,9 @@ export default function PricingPage() {
                   >
                     <span className={cn(
                       "text-[14px] font-bold tracking-tight transition-colors pr-4",
-                      isOpen ? "text-[#B88918] dark:text-[#E8B84A]" : "text-slate-900 dark:text-white group-hover:text-[#B88918] dark:group-hover:text-[#E8B84A]"
+                      isOpen
+                        ? "text-[#B88918] dark:text-[#E8B84A]"
+                        : "text-slate-900 dark:text-white group-hover:text-[#B88918] dark:group-hover:text-[#E8B84A]"
                     )}>
                       {faq.q}
                     </span>
@@ -1082,7 +1327,6 @@ export default function PricingPage() {
           8. FINAL CTA
       ════════════════════════════════════════════════════════════════ */}
       <section className="relative py-32 overflow-hidden bg-[#050816] dark:bg-[#020306] border-b border-white/[0.04]">
-        {/* Background system */}
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute inset-0 opacity-[0.03]"
@@ -1105,7 +1349,6 @@ export default function PricingPage() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-3xl mx-auto"
           >
-            {/* Status Badge */}
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#E8B84A]/5 border border-[#E8B84A]/15 mb-10">
               <div className="w-1.5 h-1.5 rounded-full bg-[#E8B84A] animate-pulse" />
               <span className="text-[9.5px] font-black text-[#E8B84A] tracking-[0.22em] uppercase">
@@ -1122,14 +1365,13 @@ export default function PricingPage() {
             </h2>
 
             <p className="text-[15px] md:text-[17px] text-white/45 leading-relaxed mb-12 max-w-xl mx-auto">
-              Join leading academies, event organizers, and institutions using
-              OYEN GRID for institutional sync and live operational coordination.
+              Join leading academies, event organizers, and institutions using OYEN GRID for institutional sync and live operational coordination.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
               <Link
                 href="/pricing/premium"
-                className="group h-13 px-10 rounded-[14px] bg-[#E8B84A] text-black font-black text-[13px] uppercase tracking-wider flex items-center gap-2.5 hover:bg-[#FFCF68] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_12px_32px_rgba(232,184,74,0.22)]"
+                className="group px-10 rounded-[14px] bg-[#E8B84A] text-black font-black text-[13px] uppercase tracking-wider flex items-center gap-2.5 hover:bg-[#FFCF68] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_12px_32px_rgba(232,184,74,0.22)]"
                 style={{ height: "52px" }}
               >
                 Start Free
@@ -1144,13 +1386,12 @@ export default function PricingPage() {
               </Link>
             </div>
 
-            {/* Telemetry Row */}
             <div className="mt-16 pt-10 border-t border-white/[0.05] grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
               {[
-                { icon: Globe, label: "Global Nodes", val: "SYNCED" },
-                { icon: ShieldCheck, label: "Security", val: "ACTIVE" },
-                { icon: Activity, label: "Latency", val: "0.8ms" },
-                { icon: Zap, label: "Status", val: "NOMINAL" },
+                { icon: Globe,       label: "Global Nodes", val: "SYNCED"  },
+                { icon: ShieldCheck, label: "Security",     val: "ACTIVE"  },
+                { icon: Activity,    label: "Latency",      val: "0.8ms"   },
+                { icon: Zap,         label: "Status",       val: "NOMINAL" },
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (
@@ -1170,5 +1411,17 @@ export default function PricingPage() {
 
       <FooterPremium />
     </main>
+  );
+}
+
+// ─── DEFAULT EXPORT — wraps PricingContent in Suspense ───────────────────────
+// Required: useSearchParams() in a statically-rendered page must sit inside a
+// Suspense boundary or the production build fails with CSR bailout error.
+
+export default function PricingPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white dark:bg-[#05070B]" />}>
+      <PricingContent />
+    </Suspense>
   );
 }
