@@ -192,19 +192,17 @@ export function FooterPremium() {
             {/* Primary — gold */}
             <Link
               href="/enterprise-sales"
-              className="group inline-flex items-center gap-2.5 h-[52px] px-8 rounded-[14px] bg-[#F5B942] text-black text-[13px] font-black uppercase tracking-[0.06em] transition-all duration-300 hover:bg-[#FFCF68] hover:shadow-[0_12px_40px_rgba(245,185,66,0.35)] hover:scale-[1.02] active:scale-[0.99] shadow-[0_4px_20px_rgba(245,185,66,0.2)]"
+              className="group inline-flex items-center gap-2 h-[52px] px-8 rounded-[14px] bg-[#F5B942] text-black text-[13px] font-black uppercase tracking-[0.06em] transition-all duration-300 hover:bg-[#FFCF68] hover:shadow-[0_12px_40px_rgba(245,185,66,0.35)] hover:scale-[1.02] active:scale-[0.99] shadow-[0_4px_20px_rgba(245,185,66,0.2)]"
             >
-              Book a Demo
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+              Book a Demo →
             </Link>
 
             {/* Secondary — outlined */}
             <Link
               href="/enterprise-sales"
-              className="group inline-flex items-center gap-2.5 h-[52px] px-8 rounded-[14px] border border-white/[0.12] bg-white/[0.03] backdrop-blur-sm text-white text-[13px] font-bold uppercase tracking-[0.06em] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/20 hover:scale-[1.02] active:scale-[0.99]"
+              className="group inline-flex items-center gap-2 h-[52px] px-8 rounded-[14px] border border-white/[0.12] bg-white/[0.03] backdrop-blur-sm text-white text-[13px] font-bold uppercase tracking-[0.06em] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/20 hover:scale-[1.02] active:scale-[0.99]"
             >
-              Contact Sales
-              <ArrowRight className="w-4 h-4 opacity-40 transition-all duration-300 group-hover:opacity-80 group-hover:translate-x-0.5" />
+              Contact Sales →
             </Link>
           </motion.div>
         </motion.div>
@@ -247,20 +245,6 @@ export function FooterPremium() {
             <p className="text-[12.5px] text-white/35 leading-[1.75] font-light max-w-[210px]">
               The operational platform for impactful programmes at scale.
             </p>
-
-            {/* Social icons */}
-            <div className="flex items-center gap-2.5 mt-1">
-              {socialLinks.map((s) => (
-                <Link
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  className="w-9 h-9 rounded-full bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-white/30 hover:text-[#F5B942] hover:border-[#F5B942]/25 hover:bg-[#F5B942]/[0.06] hover:shadow-[0_0_16px_rgba(245,185,66,0.12)] transition-all duration-300"
-                >
-                  {s.icon}
-                </Link>
-              ))}
-            </div>
           </div>
 
           {/* ── Columns 2–5: Nav ────────────────────────────────────── */}
@@ -281,6 +265,20 @@ export function FooterPremium() {
                   </li>
                 ))}
               </ul>
+              {col.title === "Company" && (
+                <div className="flex items-center gap-2 mt-2">
+                  {socialLinks.map((s) => (
+                    <Link
+                      key={s.label}
+                      href={s.href}
+                      aria-label={s.label}
+                      className="w-9 h-9 rounded-full bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-white/30 hover:text-[#F5B942] hover:border-[#F5B942]/25 hover:bg-[#F5B942]/[0.06] hover:shadow-[0_0_16px_rgba(245,185,66,0.12)] transition-all duration-300"
+                    >
+                      {s.icon}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
 
