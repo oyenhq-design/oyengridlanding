@@ -288,41 +288,24 @@ export function Header() {
   );
 }
 
-// ─── ROW 3: ANNOUNCEMENT BAR (Height: 40px) ───────────────────────────────────
+// ─── ROW 3: ANNOUNCEMENT BAR (Height: 40px base, py-6 padding) ──────────────
 
 export function AnnouncementBar() {
-  const [isVisible, setIsVisible] = useState(true);
-
-  if (!isVisible) return null;
-
   return (
     <div className="relative pt-[94px] w-full z-[60]">
-      <div className="h-[40px] bg-[#07111F]/95 backdrop-blur-md border-b border-white/5 flex items-center">
-        <div className="max-w-[1280px] w-full mx-auto px-8 flex items-center justify-between">
-          {/* Display text */}
-          <span className="text-[11px] text-white/60 font-medium tracking-wide">
-            Operational Infrastructure for Institutional Delivery
-          </span>
+      <div className="py-6 bg-[#07111F]/90 backdrop-blur-md border-b border-white/5 flex flex-col items-center justify-center gap-2 px-8">
+        {/* Announcement text */}
+        <span className="text-[13.5px] font-medium text-white/80 text-center tracking-wide leading-relaxed">
+          Operational Infrastructure for Institutional Delivery
+        </span>
 
-          {/* Right-aligned CTA */}
-          <div className="flex items-center gap-4">
-            <Link 
-              href="/infrastructure" 
-              className="text-[11px] font-bold text-[#E8B84A] hover:text-[#FFCF68] transition-colors"
-            >
-              Explore Infrastructure →
-            </Link>
-            
-            <div className="w-px h-3.5 bg-white/10" />
-
-            <button 
-              onClick={() => setIsVisible(false)} 
-              className="text-white/20 hover:text-white transition-colors p-1"
-            >
-              <X className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
+        {/* CTA directly underneath */}
+        <Link 
+          href="/infrastructure" 
+          className="text-[13.5px] font-semibold text-[#E8B84A] hover:text-[#FFCF68] transition-colors duration-200 text-center tracking-wide"
+        >
+          Explore Infrastructure →
+        </Link>
       </div>
     </div>
   );
