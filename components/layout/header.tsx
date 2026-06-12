@@ -102,7 +102,7 @@ export function Header() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
-  const [showHint, setShowHint] = useState(false);
+  const [pulseClass, setPulseClass] = useState("");
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -119,21 +119,17 @@ export function Header() {
       document.documentElement.classList.add("dark");
     }
 
-    // Onboarding hint checker
-    const hintSeen = localStorage.getItem("theme-hint-seen");
-    if (!hintSeen) {
+    // Pulse discoverability animation logic
+    const pulseSeen = localStorage.getItem("theme-pulse-seen");
+    if (!pulseSeen) {
+      setPulseClass("theme-toggle-pulse-first");
       const timer = setTimeout(() => {
-        setShowHint(true);
-      }, 1500);
-
-      const hideTimer = setTimeout(() => {
-        setShowHint(false);
-      }, 6500);
-
-      return () => {
-        clearTimeout(timer);
-        clearTimeout(hideTimer);
-      };
+        setPulseClass("theme-toggle-pulse-idle");
+        localStorage.setItem("theme-pulse-seen", "true");
+      }, 2500);
+      return () => clearTimeout(timer);
+    } else {
+      setPulseClass("theme-toggle-pulse-idle");
     }
   }, []);
 
@@ -141,8 +137,8 @@ export function Header() {
     const nextTheme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
     localStorage.setItem("theme", nextTheme);
-    localStorage.setItem("theme-hint-seen", "true");
-    setShowHint(false);
+    localStorage.setItem("theme-pulse-seen", "true");
+    setPulseClass("theme-toggle-pulse-idle");
 
     if (nextTheme === "light") {
       document.documentElement.classList.remove("dark");
@@ -196,43 +192,47 @@ export function Header() {
               Enterprise Sales
             </Link>
 
-            {/* Compact Segmented Theme Toggle */}
-            <div className="relative flex items-center">
-              <button 
-                onClick={toggleTheme}
-                aria-label="Toggle Theme"
-                className="w-8 h-8 rounded-full flex items-center justify-center bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/15 text-white/50 hover:text-[#E8B84A] transition-all duration-200"
-              >
-                {theme === "dark" ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
-                    <circle cx="12" cy="12" r="4"/>
-                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-                  </svg>
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
-                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-                  </svg>
+            {/* Premium Segmented Pill Theme Switch */}
+            <div 
+              className={cn(
+                "relative flex items-center bg-[#0a1228]/75 backdrop-blur-[12px] border border-white/[0.08] p-0.5 rounded-full h-[28px] w-[112px] select-none transition-all duration-300 theme-toggle-capsule cursor-pointer shadow-md",
+                pulseClass
+              )}
+            >
+              {/* Sliding Background Indicator */}
+              <motion.div
+                animate={{
+                  x: theme === "light" ? 0 : 54,
+                }}
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                className="absolute top-[2px] bottom-[2px] left-[2px] rounded-full bg-white/[0.06] border border-white/[0.1] w-[54px] pointer-events-none"
+              />
+
+              {/* Light Option Button */}
+              <button
+                onClick={() => {
+                  if (theme === "dark") toggleTheme();
+                }}
+                className={cn(
+                  "flex items-center justify-center gap-1.5 w-1/2 h-full rounded-full text-[9px] font-black uppercase tracking-wider relative z-10 transition-colors duration-250 cursor-pointer",
+                  theme === "light" ? "text-[#E8B84A]" : "text-white/40 hover:text-white/70"
                 )}
+              >
+                <span className="text-[10px]">☀</span> Light
               </button>
 
-              {/* Onboarding hint */}
-              <AnimatePresence>
-                {showHint && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 5 }}
-                    className="absolute top-[38px] right-0 bg-[#0A0C12] border border-[#E8B84A]/30 text-[#E8B84A] text-[9.5px] font-bold tracking-wider uppercase py-1.5 px-3 rounded-md shadow-xl backdrop-blur-md z-[120] whitespace-nowrap"
-                  >
-                    <span className="relative flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#E8B84A] animate-ping" />
-                      Try Light Mode
-                    </span>
-                    {/* Spotlight arrow pointing up */}
-                    <div className="absolute top-[-4.5px] right-3.5 w-2.5 h-2.5 rotate-45 bg-[#0A0C12] border-t border-l border-[#E8B84A]/30" />
-                  </motion.div>
+              {/* Dark Option Button */}
+              <button
+                onClick={() => {
+                  if (theme === "light") toggleTheme();
+                }}
+                className={cn(
+                  "flex items-center justify-center gap-1.5 w-1/2 h-full rounded-full text-[9px] font-black uppercase tracking-wider relative z-10 transition-colors duration-250 cursor-pointer",
+                  theme === "dark" ? "text-[#E8B84A]" : "text-white/40 hover:text-white/70"
                 )}
-              </AnimatePresence>
+              >
+                <span className="text-[10px]">🌙</span> Dark
+              </button>
             </div>
 
             <Link 
