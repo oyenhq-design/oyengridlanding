@@ -350,19 +350,38 @@ html:not(.dark) .theme-light-section.py-32 {
   background-color: #FFFFFF !important; /* Section 11: Final CTA */
 }
 
-/* Primary and secondary text overrides for all sections in light mode */
-html:not(.dark) .text-white,
+/* Confident, confident typography hierarchy and readability overrides in Light Mode */
 html:not(.dark) h1,
 html:not(.dark) h2,
+html:not(.dark) .hero-headline {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+
 html:not(.dark) h3,
 html:not(.dark) h4,
 html:not(.dark) h5,
 html:not(.dark) h6 {
+  color: #1E293B !important;
+  font-weight: 600 !important;
+}
+
+/* Card titles always primary slate */
+html:not(.dark) .card-institutional h4,
+html:not(.dark) [class*="card"] h4,
+html:not(.dark) [class*="card"] .text-white {
   color: #0F172A !important;
 }
 
+/* Body Text overrides */
 html:not(.dark) p,
 html:not(.dark) .text-editorial,
+html:not(.dark) .hero-paragraph {
+  color: #475569 !important;
+  font-weight: 450 !important; /* Premium semi-medium readability weight */
+}
+
+/* Muted text / Card descriptions / Secondary copy */
 html:not(.dark) .text-white\/30,
 html:not(.dark) .text-white\/35,
 html:not(.dark) .text-white\/38,
@@ -371,12 +390,38 @@ html:not(.dark) .text-white\/45,
 html:not(.dark) .text-white\/50,
 html:not(.dark) .text-white\/60,
 html:not(.dark) .text-white\/70,
-html:not(.dark) .text-white\/80 {
-  color: #475569 !important;
+html:not(.dark) .text-white\/80,
+html:not(.dark) .card-institutional p,
+html:not(.dark) [class*="card"] p,
+html:not(.dark) [class*="card"] [class*="text-white\/"] {
+  color: #64748B !important;
 }
 
+/* Accent elements / Borders / Sub-lines */
 html:not(.dark) .text-white\/20,
 html:not(.dark) .text-white\/22 {
+  color: #94A3B8 !important;
+}
+
+/* Section Labels / Eyebrows - daylight bronze/gold accent */
+html:not(.dark) .eyebrow,
+html:not(.dark) [class*="eyebrow"] {
+  color: #B88918 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3em !important;
+}
+
+/* Telemetry Metrics */
+html:not(.dark) .hero-metric-item .number,
+html:not(.dark) .number,
+html:not(.dark) [class*="metric"] [class*="number"] {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+
+html:not(.dark) .hero-metric-item .label,
+html:not(.dark) .label,
+html:not(.dark) [class*="metric"] .label {
   color: #64748B !important;
 }
 
