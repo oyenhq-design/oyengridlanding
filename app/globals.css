@@ -812,6 +812,21 @@ html:not(.dark) .text-emerald-400 {
   animation: theme-pulse-idle 5s ease-in-out infinite;
 }
 
+/* ─── Permanent Theme Indicator Arrow Slide ─── */
+@keyframes arrow-slide {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-3px, 3px);
+  }
+}
+
+.animate-arrow-slide {
+  display: inline-block;
+  animation: arrow-slide 3s ease-in-out infinite;
+}
+
 
 
 
