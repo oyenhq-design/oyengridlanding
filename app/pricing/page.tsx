@@ -567,20 +567,20 @@ function PricingContent() {
   };
 
   return (
-    <main className="min-h-screen bg-[#F8F9FB] dark:bg-[#05070B] selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden transition-colors duration-300">
+    <main className="min-h-screen bg-[#FAF9F6] dark:bg-[#05070B] selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden transition-colors duration-300">
       <Header />
       <AnnouncementBar />
 
       {/* ════════════════════════════════════════════════════════════════
           1. HERO SECTION
       ════════════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-[#F8F9FB] dark:bg-[#050816] border-b border-[#E5E7EB] dark:border-white/[0.05]">
+      <section className="relative overflow-hidden bg-[#FAF9F6] dark:bg-[#050816] border-b border-[#EBE9E1] dark:border-white/[0.05]">
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute inset-0 opacity-[0.015] dark:opacity-[0.035]"
             style={{ backgroundImage: "radial-gradient(circle, #000 0.5px, transparent 0.5px)", backgroundSize: "36px 36px" }}
           />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(212,160,23,0.05),transparent_65%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.07),transparent_65%)] dark:opacity-100 opacity-40" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(212,160,23,0.04),transparent_65%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.07),transparent_65%)] dark:opacity-100 opacity-40" />
           <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-[radial-gradient(ellipse_at_top_right,rgba(96,165,250,0.04),transparent_60%)]" />
         </div>
 
@@ -646,7 +646,7 @@ function PricingContent() {
               </button>
               <Link
                 href="/pricing/enterprise"
-                className="h-12 px-8 rounded-[13px] border border-[#E5E7EB] dark:border-white/10 bg-white dark:bg-white/[0.02] text-[#111827] dark:text-white font-bold text-[12px] hover:bg-[#F9FAFB] dark:hover:bg-white/[0.05] hover:border-[#D1D5DB] transition-all flex items-center gap-2 uppercase tracking-wider"
+                className="h-12 px-8 rounded-[13px] border border-[#EBE9E1] dark:border-white/10 bg-white dark:bg-white/[0.02] text-[#111827] dark:text-white font-bold text-[12px] hover:bg-[#F9FAFB] dark:hover:bg-white/[0.05] hover:border-[#D1D5DB] transition-all flex items-center gap-2 uppercase tracking-wider"
               >
                 Talk to Sales
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-50" />
@@ -659,7 +659,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           2. CHOOSE YOUR SOLUTION
       ════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-[#F8F9FB] dark:bg-[#020408] border-b border-[#E5E7EB] dark:border-white/[0.04]">
+      <section className="py-20 bg-[#FFFFFF] dark:bg-[#020408] border-b border-[#EBE9E1] dark:border-white/[0.04]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -695,7 +695,7 @@ function PricingContent() {
                     "group relative p-6 rounded-2xl border cursor-pointer transition-all duration-300 flex flex-col gap-4 overflow-hidden",
                     isActive
                       ? `bg-white dark:bg-white/[0.04] ${colorClasses[sol.id].borderActive} shadow-[0_12px_32px_rgba(15,23,42,0.08)] dark:shadow-[0_6px_30px_rgba(232,184,74,0.08)] -translate-y-1`
-                      : "bg-white dark:bg-white/[0.015] border-[#E5E7EB] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:bg-white dark:hover:bg-white/[0.03] hover:border-[#E5E7EB]/80 dark:hover:border-white/[0.1] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-0.5"
+                      : "bg-white dark:bg-white/[0.015] border-[#EBE9E1] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:bg-white dark:hover:bg-white/[0.03] hover:border-[#EBE9E1]/80 dark:hover:border-white/[0.1] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-0.5"
                   )}
                 >
                   {isActive && (
@@ -782,8 +782,12 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           3. PRICING PLANS  — or — ENTERPRISE COMING SOON
       ════════════════════════════════════════════════════════════════ */}
-      <section ref={plansRef} className="py-24 bg-[#F8F9FB] dark:bg-[#05070B] border-b border-[#E5E7EB] dark:border-white/[0.04]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section ref={plansRef} className="py-24 bg-[#FAF9F6] dark:bg-[#05070B] border-b border-[#EBE9E1] dark:border-white/[0.04] relative">
+        {/* Subtle radial glow for Operational Core Section */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(212,160,23,0.025),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.04),transparent_70%)]" />
+        </div>
+        <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <AnimatePresence mode="wait">
             {isEnterprise ? (
               /* ─── ENTERPRISE COMING SOON ─────────────────────────────────── */
@@ -811,7 +815,7 @@ function PricingContent() {
 
                 <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                   {/* Built For */}
-                  <div className="p-8 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#E5E7EB] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none">
+                  <div className="p-8 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#EBE9E1] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none">
                     <h3 className="text-[11px] font-black text-[#7c3aed] tracking-[0.28em] uppercase mb-5">
                       Built For
                     </h3>
@@ -826,7 +830,7 @@ function PricingContent() {
                   </div>
 
                   {/* Planned Features */}
-                  <div className="p-8 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#E5E7EB] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none">
+                  <div className="p-8 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#EBE9E1] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none">
                     <h3 className="text-[11px] font-black text-[#7c3aed] tracking-[0.28em] uppercase mb-5">
                       Planned Features
                     </h3>
@@ -883,7 +887,7 @@ function PricingContent() {
                               placeholder="Enter your work email"
                               value={waitlistEmail}
                               onChange={(e) => setWaitlistEmail(e.target.value)}
-                              className="w-full h-12 pl-10 pr-4 rounded-xl border border-[#E5E7EB] dark:border-white/[0.08] bg-[#F9FAFB] dark:bg-white/[0.03] text-[13px] text-[#111827] dark:text-white placeholder:text-[#9CA3AF] dark:placeholder:text-white/25 focus:outline-none focus:border-[#7c3aed]/50 dark:focus:border-[#7c3aed]/40 transition-colors"
+                              className="w-full h-12 pl-10 pr-4 rounded-xl border border-[#EBE9E1] dark:border-white/[0.08] bg-[#F9FAFB] dark:bg-white/[0.03] text-[13px] text-[#111827] dark:text-white placeholder:text-[#9CA3AF] dark:placeholder:text-white/25 focus:outline-none focus:border-[#7c3aed]/50 dark:focus:border-[#7c3aed]/40 transition-colors"
                             />
                           </div>
                           <button
@@ -938,7 +942,7 @@ function PricingContent() {
                             ? "bg-white dark:bg-white/[0.025] border-[#D4A017] dark:border-[#E8B84A]/35 shadow-[0_12px_32px_rgba(212,160,23,0.08)] dark:shadow-[0_12px_40px_rgba(232,184,74,0.08)] hover:border-[#D4A017] dark:hover:border-[#E8B84A]/60"
                             : (isMostPopular
                               ? "bg-white dark:bg-white/[0.02] border-[#D4A017]/40 dark:border-[#E8B84A]/20 shadow-[0_10px_28px_rgba(15,23,42,0.06)] dark:shadow-none hover:border-[#D4A017] dark:hover:border-[#E8B84A]/40"
-                              : "bg-white dark:bg-white/[0.015] border-[#E5E7EB] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:border-[#D1D5DB] dark:hover:border-white/[0.12] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)]"
+                              : "bg-white dark:bg-white/[0.015] border-[#EBE9E1] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:border-[#D1D5DB] dark:hover:border-white/[0.12] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)]"
                             )
                         )}
                       >
@@ -998,7 +1002,7 @@ function PricingContent() {
                             </motion.p>
                           </AnimatePresence>
 
-                          <div className="h-px bg-[#E5E7EB] dark:bg-white/[0.06] mb-6" />
+                          <div className="h-px bg-[#EBE9E1] dark:bg-white/[0.06] mb-6" />
 
                           <h4 className="text-[9.5px] font-black tracking-widest text-[#6B7280] dark:text-white/20 uppercase mb-4">
                             {plan.planLabel}
@@ -1027,7 +1031,7 @@ function PricingContent() {
                           </AnimatePresence>
                         </div>
 
-                        <div className="mt-8 pt-6 border-t border-[#E5E7EB] dark:border-white/[0.05] relative z-10">
+                        <div className="mt-8 pt-6 border-t border-[#EBE9E1] dark:border-white/[0.05] relative z-10">
                           <Link
                             href={plan.href}
                             className={cn(
@@ -1036,7 +1040,7 @@ function PricingContent() {
                                 ? "bg-[#D4A017] text-black hover:bg-[#E5B228] shadow-[0_4px_16px_rgba(212,160,23,0.18)] hover:shadow-[0_6px_20px_rgba(212,160,23,0.25)] hover:scale-[1.02] active:scale-[0.98]"
                                 : (isMostPopular
                                   ? "border border-[#D4A017] text-[#D4A017] hover:bg-[#D4A017]/5 hover:scale-[1.02] active:scale-[0.98]"
-                                  : "border border-[#E5E7EB] dark:border-white/[0.08] text-[#111827] dark:text-white hover:bg-[#F9FAFB] dark:hover:bg-white/[0.05] hover:border-[#D1D5DB] dark:hover:border-white/[0.15]"
+                                  : "border border-[#EBE9E1] dark:border-white/[0.08] text-[#111827] dark:text-white hover:bg-[#F9FAFB] dark:hover:bg-white/[0.05] hover:border-[#D1D5DB] dark:hover:border-white/[0.15]"
                                 )
                             )}
                           >
@@ -1065,7 +1069,7 @@ function PricingContent() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="py-24 bg-[#F8F9FB] dark:bg-[#020408] border-b border-[#E5E7EB] dark:border-white/[0.04] overflow-hidden"
+            className="py-24 bg-[#FFFFFF] dark:bg-[#020408] border-b border-[#EBE9E1] dark:border-white/[0.04] overflow-hidden"
           >
             <div className="max-w-[1200px] mx-auto px-6">
               <motion.div
@@ -1104,7 +1108,7 @@ function PricingContent() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: i * 0.07 }}
-                        className="relative p-6 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#E5E7EB] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] dark:hover:shadow-none transition-all group overflow-hidden"
+                        className="relative p-6 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#EBE9E1] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] dark:hover:shadow-none transition-all group overflow-hidden"
                       >
                         <div
                           className="absolute bottom-0 left-0 right-0 h-[3px] opacity-60"
@@ -1137,7 +1141,7 @@ function PricingContent() {
                               {tier.level === 100 ? "Max" : `${tier.level}%`}
                             </span>
                           </div>
-                          <div className="h-1.5 w-full bg-[#E5E7EB] dark:bg-white/[0.05] rounded-full overflow-hidden">
+                          <div className="h-1.5 w-full bg-[#EBE9E1] dark:bg-white/[0.05] rounded-full overflow-hidden">
                             <motion.div
                               className="h-full rounded-full"
                               style={{ backgroundColor: tier.color }}
@@ -1148,7 +1152,7 @@ function PricingContent() {
                           </div>
                         </div>
 
-                        <div className="space-y-2 pt-4 border-t border-[#E5E7EB] dark:border-white/[0.05]">
+                        <div className="space-y-2 pt-4 border-t border-[#EBE9E1] dark:border-white/[0.05]">
                           {tier.features.map((feat, fi) => (
                             <div key={fi} className="flex items-center gap-2 text-[12px] text-[#4B5563] dark:text-white/55 font-medium">
                               <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: tier.color }} />
@@ -1177,7 +1181,7 @@ function PricingContent() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="py-24 bg-[#F8F9FB] dark:bg-[#05070B] border-b border-[#E5E7EB] dark:border-white/[0.04] overflow-hidden"
+            className="py-24 bg-[#FAF9F6] dark:bg-[#05070B] border-b border-[#EBE9E1] dark:border-white/[0.04] overflow-hidden"
           >
             <div className="max-w-[1200px] mx-auto px-6">
               <motion.div
@@ -1203,7 +1207,7 @@ function PricingContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="w-full overflow-x-auto rounded-2xl border border-[#E5E7EB] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none"
+                className="w-full overflow-x-auto rounded-2xl border border-[#EBE9E1] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none"
               >
                 <AnimatePresence mode="wait">
                   <motion.table
@@ -1215,7 +1219,7 @@ function PricingContent() {
                     className="w-full min-w-[750px] text-left border-collapse bg-white dark:bg-white/[0.01]"
                   >
                     <thead>
-                      <tr className="border-b border-[#E5E7EB] dark:border-white/[0.06] bg-[#F9FAFB] dark:bg-white/[0.02]">
+                      <tr className="border-b border-[#EBE9E1] dark:border-white/[0.06] bg-[#F9FAFB] dark:bg-white/[0.02]">
                         <th className="p-6 text-[11px] font-black text-[#111827] dark:text-white/50 tracking-widest uppercase w-[28%]">
                           Capability
                         </th>
@@ -1225,7 +1229,7 @@ function PricingContent() {
                         <th className="p-6 text-[11px] font-black text-[#111827] dark:text-white/50 tracking-widest uppercase">Premium+</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-[#E5E7EB] dark:divide-white/[0.04]">
+                    <tbody className="divide-y divide-[#EBE9E1] dark:divide-white/[0.04]">
                       {currentTable.map((row, i) => (
                         <motion.tr
                           key={`${selectedSolution}-row-${i}`}
@@ -1253,8 +1257,12 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           6. ENTERPRISE BENEFITS
       ════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-[#F8F9FB] dark:bg-[#020408] border-b border-[#E5E7EB] dark:border-white/[0.04]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-24 bg-[#FFFFFF] dark:bg-[#020408] border-b border-[#EBE9E1] dark:border-white/[0.04] relative">
+        {/* Subtle radial glow for Institutional Coordination Section */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(212,160,23,0.025),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.04),transparent_70%)]" />
+        </div>
+        <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1283,7 +1291,7 @@ function PricingContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.07 }}
-                  className="relative p-7 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#E5E7EB] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.08)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(15,23,42,0.12)] dark:hover:shadow-none transition-all group overflow-hidden"
+                  className="relative p-7 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#EBE9E1] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.08)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(15,23,42,0.12)] dark:hover:shadow-none transition-all group overflow-hidden"
                 >
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -1313,7 +1321,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           7. FAQ SECTION
       ════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-[#F8F9FB] dark:bg-[#05070B] border-b border-[#E5E7EB] dark:border-white/[0.04]">
+      <section className="py-24 bg-[#FAF9F6] dark:bg-[#05070B] border-b border-[#EBE9E1] dark:border-white/[0.04]">
         <div className="max-w-[820px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -1344,7 +1352,7 @@ function PricingContent() {
                     "rounded-2xl border overflow-hidden transition-all duration-300",
                     isOpen
                       ? "bg-white dark:bg-white/[0.025] border-[#D4A017]/40 dark:border-[#E8B84A]/25 shadow-[0_4px_16px_rgba(212,160,23,0.05)]"
-                      : "bg-white dark:bg-white/[0.015] border-[#E5E7EB] dark:border-white/[0.05] shadow-sm hover:border-[#D1D5DB] dark:hover:border-white/[0.1] hover:bg-[#F9FAFB] dark:hover:bg-white/[0.01]"
+                      : "bg-white dark:bg-white/[0.015] border-[#EBE9E1] dark:border-white/[0.05] shadow-sm hover:border-[#D1D5DB] dark:hover:border-white/[0.1] hover:bg-[#F9FAFB] dark:hover:bg-white/[0.01]"
                   )}
                 >
                   <button
@@ -1378,7 +1386,7 @@ function PricingContent() {
                         transition={{ duration: 0.32, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 pt-1 text-[13.5px] text-[#4B5563] dark:text-white/48 leading-relaxed border-t border-[#E5E7EB] dark:border-white/[0.05] font-normal">
+                        <div className="px-6 pb-6 pt-1 text-[13.5px] text-[#4B5563] dark:text-white/48 leading-relaxed border-t border-[#EBE9E1] dark:border-white/[0.05] font-normal">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -1394,14 +1402,14 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           8. FINAL CTA
       ════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-32 overflow-hidden bg-[#F8F9FB] dark:bg-[#020306] border-b border-[#E5E7EB] dark:border-white/[0.04]">
+      <section className="relative py-32 overflow-hidden bg-[#FFFFFF] dark:bg-[#020306] border-b border-[#EBE9E1] dark:border-white/[0.04]">
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute inset-0 opacity-[0.012] dark:opacity-[0.03]"
-            style={{ backgroundImage: "radial-gradient(circle, #000 0.5px, transparent 0.5px)", backgroundSize: "40px 40px" }}
+            style={{ backgroundImage: "radial-gradient(circle, #D4A017 0.5px, transparent 0.5px)", backgroundSize: "40px 40px" }}
           />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(212,160,23,0.03),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_bottom,rgba(232,184,74,0.07),transparent_60%)]" />
-          <div className="absolute top-0 left-1/4 w-[500px] h-[400px] bg-[radial-gradient(circle,rgba(96,165,250,0.03),transparent_65%)] blur-[60px] dark:bg-[radial-gradient(circle,rgba(96,165,250,0.04),transparent_65%)]" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(212,160,23,0.025),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_bottom,rgba(232,184,74,0.07),transparent_60%)]" />
+          <div className="absolute top-0 left-1/4 w-[500px] h-[400px] bg-[radial-gradient(circle,rgba(96,165,250,0.02),transparent_65%)] blur-[60px] dark:bg-[radial-gradient(circle,rgba(96,165,250,0.04),transparent_65%)]" />
         </div>
 
         <CornerDetail position="top-left" />
@@ -1427,12 +1435,12 @@ function PricingContent() {
             <h2 className="text-[42px] md:text-[62px] font-extrabold text-[#111827] dark:text-white leading-[0.95] tracking-[-0.05em] mb-8">
               Ready to coordinate your{" "}
               <br className="hidden md:block" />
-              <span className="text-[#E8B84A] italic font-serif font-medium">
+              <span className="text-[#D4A017] dark:text-[#E8B84A] italic font-serif font-medium">
                 organization at scale?
               </span>
             </h2>
 
-            <p className="text-[15px] md:text-[17px] text-white/45 leading-relaxed mb-12 max-w-xl mx-auto">
+            <p className="text-[15px] md:text-[17px] text-[#4B5563] dark:text-white/45 leading-relaxed mb-12 max-w-xl mx-auto font-normal">
               Join leading academies, event organizers, and institutions using OYEN GRID for institutional sync and live operational coordination.
             </p>
 

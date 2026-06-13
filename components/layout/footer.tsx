@@ -97,7 +97,7 @@ const fadeUp = {
 
 export function FooterPremium() {
   return (
-    <footer className="relative bg-[#F8F9FB] dark:bg-[#050B1A] border-t border-[#E5E7EB] dark:border-transparent overflow-hidden">
+    <footer className="relative bg-[#FAF9F6] dark:bg-[#050B1A] border-t border-[#EBE9E1] dark:border-transparent overflow-hidden">
 
       {/* ══════════════════════════════════════════════════════════════════
           BACKGROUND SYSTEM — radial gold line pattern + ambient glows
@@ -200,7 +200,7 @@ export function FooterPremium() {
             {/* Secondary — outlined */}
             <Link
               href="/enterprise-sales"
-              className="group inline-flex items-center gap-2 h-[52px] px-8 rounded-[14px] border border-[#E5E7EB] dark:border-white/[0.12] bg-white dark:bg-white/[0.03] backdrop-blur-sm text-[#111827] dark:text-white text-[13px] font-bold uppercase tracking-[0.06em] transition-all duration-300 hover:bg-[#F9FAFB] dark:hover:bg-white/[0.07] hover:border-[#D1D5DB] dark:hover:border-white/20 hover:scale-[1.02] active:scale-[0.99]"
+              className="group inline-flex items-center gap-2 h-[52px] px-8 rounded-[14px] border border-[#EBE9E1] dark:border-white/[0.12] bg-white dark:bg-white/[0.03] backdrop-blur-sm text-[#111827] dark:text-white text-[13px] font-bold uppercase tracking-[0.06em] transition-all duration-300 hover:bg-[#F9FAFB] dark:hover:bg-white/[0.07] hover:border-[#D1D5DB] dark:hover:border-white/20 hover:scale-[1.02] active:scale-[0.99]"
             >
               Contact Sales →
             </Link>
@@ -212,7 +212,7 @@ export function FooterPremium() {
           DIVIDER
       ══════════════════════════════════════════════════════════════════ */}
       <div className="relative z-10 max-w-[1280px] mx-auto px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-[#E5E7EB] dark:via-white/[0.08] to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-[#EBE9E1] dark:via-white/[0.08] to-transparent" />
       </div>
 
       {/* ══════════════════════════════════════════════════════════════════
@@ -272,7 +272,7 @@ export function FooterPremium() {
                       key={s.label}
                       href={s.href}
                       aria-label={s.label}
-                      className="w-9 h-9 rounded-full bg-[#F3F4F6] dark:bg-white/[0.04] border border-[#E5E7EB] dark:border-white/[0.07] flex items-center justify-center text-[#6B7280] dark:text-white/30 hover:text-[#D4A017] dark:hover:text-[#F5B942] hover:border-[#D4A017]/25 dark:hover:border-[#F5B942]/25 hover:bg-[#D4A017]/[0.06] dark:hover:bg-[#F5B942]/[0.06] hover:shadow-[0_0_16px_rgba(212,160,23,0.12)] dark:hover:shadow-[0_0_16px_rgba(245,185,66,0.12)] transition-all duration-300"
+                      className="w-9 h-9 rounded-full bg-[#F3F4F6] dark:bg-white/[0.04] border border-[#EBE9E1] dark:border-white/[0.07] flex items-center justify-center text-[#6B7280] dark:text-white/30 hover:text-[#D4A017] dark:hover:text-[#F5B942] hover:border-[#D4A017]/25 dark:hover:border-[#F5B942]/25 hover:bg-[#D4A017]/[0.06] dark:hover:bg-[#F5B942]/[0.06] hover:shadow-[0_0_16px_rgba(212,160,23,0.12)] dark:hover:shadow-[0_0_16px_rgba(245,185,66,0.12)] transition-all duration-300"
                     >
                       {s.icon}
                     </Link>
@@ -289,7 +289,7 @@ export function FooterPremium() {
           BOTTOM BAR
       ══════════════════════════════════════════════════════════════════ */}
       <div className="relative z-10 max-w-[1280px] mx-auto px-8 pb-8">
-        <div className="h-px bg-[#E5E7EB] dark:bg-white/[0.05] mb-7" />
+        <div className="h-px bg-[#EBE9E1] dark:bg-white/[0.05] mb-7" />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           <span className="text-[11px] text-[#9CA3AF] dark:text-white/22 font-normal tracking-wide">
             © {new Date().getFullYear()} OYEN GRID. All rights reserved.
