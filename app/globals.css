@@ -17,14 +17,15 @@
 }
 
 html:not(.dark) {
-  --background: #F5F3EF; /* Primary Page Background: Milk */
-  --foreground: #1C2331; /* Primary Text: Charcoal Ash */
-  --brand-gold: #D97706; /* Accent Gold */
-  --brand-dark: #FAF9F6; /* Secondary Surface: Cream */
-  --glass-bg: rgba(252, 251, 248, 0.85); /* Card Background: Warm White */
-  --glass-border: rgba(28, 35, 49, 0.06); /* Borders */
-  --text-muted: #5B6472; /* Secondary Text: Ash Muted */
+  --background: #F8F6F1;
+  --foreground: #111827;
+  --brand-gold: #D4A017;
+  --brand-dark: #F3EEE4;
+  --glass-bg: #FFFFFF;
+  --glass-border: #E6E0D5;
+  --text-muted: #4B5563;
 }
+
 
 body {
   background-color: var(--background);
@@ -297,14 +298,15 @@ h3 {
    Clean, modern, minimal technology platform styling
 ══════════════════════════════════════════════════════════════════ */
 html:not(.dark) {
-  --background: #FFFFFF;
-  --foreground: #0F172A; /* Slate Navy */
-  --brand-gold: #F5B942; /* Gold Accent */
-  --brand-dark: #F8FAFC; /* Light Gray Alternate Surface */
+  --background: #F8F6F1;
+  --foreground: #111827;
+  --brand-gold: #D4A017;
+  --brand-dark: #F3EEE4;
   --glass-bg: #FFFFFF;
-  --glass-border: #E2E8F0;
-  --text-muted: #475569;
+  --glass-border: #E6E0D5;
+  --text-muted: #4B5563;
 }
+
 
 /* Global body/main layout backgrounds in Light Mode */
 html:not(.dark) .bg-\[\#05070B\],
@@ -351,80 +353,96 @@ html:not(.dark) .theme-light-section.py-32 {
 }
 
 
-/* Confident, confident typography hierarchy and readability overrides in Light Mode */
+/* Confident typography hierarchy and readability overrides in Light Mode */
 html:not(.dark) h1,
 html:not(.dark) h2,
 html:not(.dark) .hero-headline {
-  color: #0F172A !important;
-  font-weight: 700 !important;
+  color: #111827 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em !important;
 }
 
 html:not(.dark) h3,
 html:not(.dark) h4,
 html:not(.dark) h5,
 html:not(.dark) h6 {
-  color: #1E293B !important;
-  font-weight: 600 !important;
+  color: #1F2937 !important;
+  font-weight: 700 !important;
 }
 
 /* Card titles always primary slate */
 html:not(.dark) .card-institutional h4,
 html:not(.dark) [class*="card"] h4,
 html:not(.dark) [class*="card"] .text-white {
-  color: #0F172A !important;
+  color: #111827 !important;
 }
 
 /* Body Text overrides */
 html:not(.dark) p,
 html:not(.dark) .text-editorial,
 html:not(.dark) .hero-paragraph {
-  color: #475569 !important;
+  color: #374151 !important;
   font-weight: 450 !important; /* Premium semi-medium readability weight */
+  line-height: 1.625 !important;
 }
 
-/* Muted text / Card descriptions / Secondary copy */
-html:not(.dark) .text-white\/30,
-html:not(.dark) .text-white\/35,
-html:not(.dark) .text-white\/38,
+/* Supporting text / Card descriptions / Secondary copy */
 html:not(.dark) .text-white\/40,
 html:not(.dark) .text-white\/45,
 html:not(.dark) .text-white\/50,
+html:not(.dark) .text-white\/55,
 html:not(.dark) .text-white\/60,
 html:not(.dark) .text-white\/70,
+html:not(.dark) .text-white\/75,
 html:not(.dark) .text-white\/80,
+html:not(.dark) .text-white\/90,
 html:not(.dark) .card-institutional p,
 html:not(.dark) [class*="card"] p,
 html:not(.dark) [class*="card"] [class*="text-white\/"] {
-  color: #64748B !important;
+  color: #4B5563 !important;
 }
 
-/* Accent elements / Borders / Sub-lines */
+/* Muted text / Secondary copy / Accent elements */
+html:not(.dark) .text-white\/10,
+html:not(.dark) .text-white\/15,
 html:not(.dark) .text-white\/20,
-html:not(.dark) .text-white\/22 {
-  color: #94A3B8 !important;
+html:not(.dark) .text-white\/22,
+html:not(.dark) .text-white\/25,
+html:not(.dark) .text-white\/30,
+html:not(.dark) .text-white\/35,
+html:not(.dark) .text-white\/38 {
+  color: #6B7280 !important;
 }
 
 /* Section Labels / Eyebrows - daylight bronze/gold accent */
 html:not(.dark) .eyebrow,
 html:not(.dark) [class*="eyebrow"] {
-  color: #B88918 !important;
-  font-weight: 600 !important;
+  color: #D4A017 !important;
+  font-weight: 700 !important;
   letter-spacing: 0.3em !important;
 }
 
-/* Telemetry Metrics */
+/* Telemetry Metrics / Statistics */
 html:not(.dark) .hero-metric-item .number,
 html:not(.dark) .number,
 html:not(.dark) [class*="metric"] [class*="number"] {
-  color: #0F172A !important;
+  color: #111827 !important;
   font-weight: 700 !important;
 }
 
 html:not(.dark) .hero-metric-item .label,
 html:not(.dark) .label,
 html:not(.dark) [class*="metric"] .label {
-  color: #64748B !important;
+  color: #6B7280 !important;
 }
+
+/* Hover and active text states */
+html:not(.dark) [class*="hover:text-white"]:hover,
+html:not(.dark) [class*="group-hover:text-white"]:hover,
+html:not(.dark) .group:hover [class*="group-hover:text-white"] {
+  color: #111827 !important;
+}
+
 
 /* Border overrides inside light sections */
 html:not(.dark) .border-white\/5,
@@ -460,6 +478,11 @@ html:not(.dark) .bg-white\/\[0\.06\],
 html:not(.dark) .bg-white\/\[0\.07\],
 html:not(.dark) .bg-white\/5,
 html:not(.dark) .bg-white\/10,
+html:not(.dark) .bg-slate-950\/40,
+html:not(.dark) .bg-slate-950\/85,
+html:not(.dark) .bg-\[\#0c1020\]\/90,
+html:not(.dark) .bg-\[\#080B14\]\/70,
+html:not(.dark) .bg-\[\#0a0e1c\]\/45,
 html:not(.dark) .bg-gradient-to-br.from-\[\#040816\]\/80 {
   background-color: #FFFFFF !important;
   background-image: none !important;
@@ -476,11 +499,17 @@ html:not(.dark) .bg-white\/\[0\.03\]:hover,
 html:not(.dark) .bg-white\/\[0\.04\]:hover,
 html:not(.dark) .bg-white\/\[0\.05\]:hover,
 html:not(.dark) .bg-white\/\[0\.06\]:hover,
-html:not(.dark) .bg-white\/\[0\.07\]:hover {
+html:not(.dark) .bg-white\/\[0\.07\]:hover,
+html:not(.dark) .bg-slate-950\/40:hover,
+html:not(.dark) .bg-slate-950\/85:hover,
+html:not(.dark) .bg-\[\#0c1020\]\/90:hover,
+html:not(.dark) .bg-\[\#080B14\]\/70:hover,
+html:not(.dark) .bg-\[\#0a0e1c\]\/45:hover {
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
   border-color: #D1C9BC !important;
   transform: translateY(-2px) !important;
 }
+
 
 /* Gold branding accents preserved but clean */
 html:not(.dark) .text-\[\#E8B84A\],
@@ -747,21 +776,24 @@ html:not(.dark) footer h1,
 html:not(.dark) footer h2,
 html:not(.dark) footer h3,
 html:not(.dark) footer h4,
-html:not(.dark) footer h5,
+html:not(.dark) footer h5 {
+  color: #111827 !important;
+}
 html:not(.dark) footer a,
 html:not(.dark) footer p,
 html:not(.dark) footer span {
-  color: #475569 !important;
+  color: #4B5563 !important;
 }
 html:not(.dark) footer a:hover {
-  color: #0F172A !important;
+  color: #111827 !important;
 }
 html:not(.dark) footer .text-white\/30,
 html:not(.dark) footer .text-white\/40,
 html:not(.dark) footer .text-white\/50,
 html:not(.dark) footer .text-white\/60 {
-  color: #64748B !important;
+  color: #6B7280 !important;
 }
+
 
 /* Decorative authorising corner layout lines */
 html:not(.dark) .border-white {
