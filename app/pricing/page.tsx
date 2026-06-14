@@ -1214,10 +1214,10 @@ function PricingContent() {
                 <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
                   Comparison
                 </span>
-                <h2 className="text-[28px] md:text-[38px] font-black text-[#0F172A] dark:text-white tracking-tight mb-3">
+                <h2 className="text-[28px] md:text-[38px] font-black dark:font-bold text-[#0F172A] dark:text-white tracking-tight mb-3">
                   Compare plan capabilities
                 </h2>
-                <p className="text-[15px] text-[#475569] dark:text-white/60 font-semibold leading-relaxed">
+                <p className="text-[15px] text-[#475569] dark:text-white/60 font-semibold dark:font-medium leading-relaxed max-w-md mx-auto">
                   A full side-by-side overview to help you choose the right tier.
                 </p>
               </motion.div>
@@ -1227,7 +1227,7 @@ function PricingContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="w-full overflow-x-auto rounded-[24px] border border-[#D5CDBF] dark:border-white/[0.08] shadow-[0_12px_35px_rgba(0,0,0,0.06)] bg-[#EAE4D8] dark:bg-[#0D111A]"
+                className="w-full overflow-x-auto rounded-[24px] border border-[#D5CDBF] dark:border-white/[0.06] shadow-[0_12px_35px_rgba(0,0,0,0.06)] dark:shadow-none bg-[#EAE4D8] dark:bg-transparent"
               >
                 <AnimatePresence mode="wait">
                   <motion.table
@@ -1236,20 +1236,20 @@ function PricingContent() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.3 }}
-                    className="w-full min-w-[750px] text-left border-collapse bg-[#EAE4D8] dark:bg-[#0D111A]"
+                    className="w-full min-w-[750px] text-left border-collapse bg-[#EAE4D8] dark:bg-white/[0.01]"
                   >
                     <thead>
-                      <tr className="border-b border-[#C9BFB0] dark:border-white/[0.08] bg-[#E5DDD0] dark:bg-white/[0.03]">
-                        <th className="py-10 px-6 text-[13px] font-extrabold text-[#0F172A] dark:text-white tracking-wider uppercase w-[28%]">
+                      <tr className="border-b border-[#C9BFB0] dark:border-white/[0.06] bg-[#E5DDD0] dark:bg-white/[0.02]">
+                        <th className="py-10 px-6 dark:py-8 text-[13px] dark:text-[12px] font-extrabold dark:font-bold text-[#0F172A] dark:text-white tracking-wider dark:tracking-widest uppercase w-[28%]">
                           Capability
                         </th>
-                        <th className="py-10 px-6 text-[13px] font-extrabold text-[#0F172A] dark:text-white tracking-wider uppercase">Basic</th>
-                        <th className="py-10 px-6 text-[13px] font-extrabold text-[#0F172A] dark:text-white tracking-wider uppercase">Standard</th>
-                        <th className="py-10 px-6 text-[13px] font-extrabold text-[#C58E00] dark:text-[#E8B84A] tracking-wider uppercase bg-[#FFF2D4] dark:bg-[#E8B84A]/12 border-x border-[#EAD5AB] dark:border-[#E8B84A]/25">★ Premium</th>
-                        <th className="py-10 px-6 text-[13px] font-extrabold text-[#0F172A] dark:text-white tracking-wider uppercase">Premium+</th>
+                        <th className="py-10 px-6 dark:py-8 text-[13px] dark:text-[12px] font-extrabold dark:font-bold text-[#0F172A] dark:text-white tracking-wider dark:tracking-widest uppercase">Basic</th>
+                        <th className="py-10 px-6 dark:py-8 text-[13px] dark:text-[12px] font-extrabold dark:font-bold text-[#0F172A] dark:text-white tracking-wider dark:tracking-widest uppercase">Standard</th>
+                        <th className="py-10 px-6 dark:py-8 text-[13px] dark:text-[12px] font-extrabold dark:font-bold text-[#C58E00] dark:text-[#E8B84A] tracking-wider dark:tracking-widest uppercase bg-[#FFF2D4] dark:bg-[#E8B84A]/5 border-x border-[#EAD5AB] dark:border-transparent">★ Premium</th>
+                        <th className="py-10 px-6 dark:py-8 text-[13px] dark:text-[12px] font-extrabold dark:font-bold text-[#0F172A] dark:text-white tracking-wider dark:tracking-widest uppercase">Premium+</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-[#C9BFB0] dark:divide-white/[0.05]">
+                    <tbody className="divide-y divide-[#C9BFB0] dark:divide-white/[0.04]">
                       {currentTable.map((row, i) => (
                         <motion.tr
                           key={`${selectedSolution}-row-${i}`}
@@ -1258,15 +1258,15 @@ function PricingContent() {
                           transition={{ duration: 0.3, delay: i * 0.03 }}
                           className={cn(
                             "transition-colors",
-                            i % 2 === 1 ? "bg-[#E5DDD0] dark:bg-[#121620]" : "bg-[#EAE4D8] dark:bg-[#0D111A]",
-                            "hover:bg-[#E0D8C8] dark:hover:bg-white/[0.02]"
+                            i % 2 === 1 ? "bg-[#E5DDD0] dark:bg-white/[0.005]" : "bg-[#EAE4D8] dark:bg-transparent",
+                            "hover:bg-[#E0D8C8] dark:hover:bg-white/[0.012]"
                           )}
                         >
-                          <td className="py-10 px-6 text-[15px] font-black text-[#0F172A] dark:text-white">{row.feature}</td>
-                          <td className="py-10 px-6 text-[13.5px] text-[#334155] dark:text-slate-200 font-bold">{row.basic}</td>
-                          <td className="py-10 px-6 text-[13.5px] text-[#334155] dark:text-slate-200 font-bold">{row.standard}</td>
-                          <td className="py-10 px-6 text-[13.5px] text-[#C58E00] dark:text-[#E8B84A] font-black bg-[#FFF6E0] dark:bg-[#E8B84A]/6 border-x border-[#EAD5AB] dark:border-[#E8B84A]/15">{row.premium}</td>
-                          <td className="py-10 px-6 text-[13.5px] text-[#334155] dark:text-slate-200 font-bold">{row.plus}</td>
+                          <td className="py-10 px-6 dark:py-8 text-[15px] dark:text-[13.5px] font-black dark:font-bold text-[#0F172A] dark:text-white">{row.feature}</td>
+                          <td className="py-10 px-6 dark:py-8 text-[13.5px] dark:text-[13px] text-[#334155] dark:text-white/70 font-bold dark:font-medium">{row.basic}</td>
+                          <td className="py-10 px-6 dark:py-8 text-[13.5px] dark:text-[13px] text-[#334155] dark:text-white/70 font-bold dark:font-medium">{row.standard}</td>
+                          <td className="py-10 px-6 dark:py-8 text-[13.5px] dark:text-[13px] text-[#C58E00] dark:text-white font-black dark:font-semibold bg-[#FFF6E0] dark:bg-[#E8B84A]/3 border-x border-[#EAD5AB] dark:border-transparent">{row.premium}</td>
+                          <td className="py-10 px-6 dark:py-8 text-[13.5px] dark:text-[13px] text-[#334155] dark:text-[#E8B84A] font-bold dark:font-bold">{row.plus}</td>
                         </motion.tr>
                       ))}
                     </tbody>
