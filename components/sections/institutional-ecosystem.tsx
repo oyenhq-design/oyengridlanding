@@ -98,13 +98,13 @@ export function TopographicWave() {
 
 export function HeroInstitutional() {
   const trustLogos = [
-    { name: "AltSchool", icon: <circle cx="12" cy="12" r="7" fill="#888888" /> },
-    { name: "ZURI", icon: <path d="M6 6h12l-12 12h12" stroke="#888888" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /> },
-    { name: "INGRESSIVE FOR GOOD", icon: <path d="M6 18l6-6-6-6M13 18l6-6-6-6" stroke="#888888" strokeWidth="2.5" strokeLinecap="round" /> },
-    { name: "uLesson", icon: <path d="M8 5v14l11-7z" fill="#888888" /> },
-    { name: "TALENTQL", icon: <circle cx="12" cy="12" r="5" fill="none" stroke="#888888" strokeWidth="2.5" /> },
-    { name: "She Code Africa", icon: <path d="M8 17l-5-5 5-5M16 17l5-5-5-5" stroke="#888888" strokeWidth="2.5" strokeLinecap="round" /> },
-    { name: "GOMYCODE", icon: <rect x="5" y="5" width="14" height="14" rx="2" fill="none" stroke="#888888" strokeWidth="2.5" /> }
+    { name: "AltSchool", icon: <circle cx="12" cy="12" r="7" fill="currentColor" /> },
+    { name: "Zuri", icon: <path d="M6 6h12l-12 12h12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /> },
+    { name: "Ingressive for Good", icon: <path d="M6 18l6-6-6-6M13 18l6-6-6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" /> },
+    { name: "uLesson", icon: <path d="M8 5v14l11-7z" fill="currentColor" /> },
+    { name: "TalentQL", icon: <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" strokeWidth="2.5" /> },
+    { name: "She Code Africa", icon: <path d="M8 17l-5-5 5-5M16 17l5-5-5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" /> },
+    { name: "GomyCode", icon: <rect x="5" y="5" width="14" height="14" rx="2" fill="none" stroke="currentColor" strokeWidth="2.5" /> }
   ];
 
   return (
@@ -115,8 +115,8 @@ export function HeroInstitutional() {
         {/* Main Columns Grid */}
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center min-h-[500px]">
           
-          {/* LEFT: CONTENT AREA */}
-          <div className="hero-content flex flex-col justify-center text-left">
+          {/* LEFT: CONTENT AREA (Aligned upward for visual balance) */}
+          <div className="hero-content flex flex-col justify-center text-left lg:translate-y-[-24px]">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -128,9 +128,9 @@ export function HeroInstitutional() {
                 <span className="text-[#E2B84C]">Intelligence.</span>
               </h1>
 
-              {/* Subheadline */}
-              <p className="text-[16px] sm:text-[18.5px] text-white/50 font-normal leading-relaxed mt-6 max-w-[480px]">
-                The operating system for training programmes, cohorts, institutions and events.
+              {/* Subheadline (Softer white, improved line-height and spacing) */}
+              <p className="text-[16px] sm:text-[17.5px] text-white/60 font-medium leading-[1.6] mt-6 max-w-[480px] tracking-wide">
+                The unified platform for programme delivery, participant engagement, live operations, analytics and AI.
               </p>
 
               {/* Explore Search Input */}
@@ -151,23 +151,11 @@ export function HeroInstitutional() {
                   href="/pricing"
                   className="inline-flex items-center justify-center h-[46px] px-8 rounded-full bg-[#E2B84C] text-black text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#FFCF68] hover:shadow-[0_4px_16px_rgba(226,184,76,0.3)] hover:scale-[1.02]"
                 >
-                  Start Free Trial
+                  Get Started
                 </Link>
                 <button className="inline-flex items-center justify-center gap-2 h-[46px] px-8 rounded-full border border-white/20 hover:border-white/40 text-white text-[13px] font-bold uppercase tracking-wider transition-all duration-300 bg-transparent hover:bg-white/5">
                   Watch Demo <span className="text-[11px] leading-none ml-1">▷</span>
                 </button>
-              </div>
-
-              {/* Scroll Cue Mouse Indicator */}
-              <div className="flex flex-col items-center gap-2 mt-16 self-center lg:self-start lg:ml-[120px]">
-                <div className="w-[18px] h-[30px] rounded-full border-2 border-[#E2B84C]/50 flex items-start justify-center p-1">
-                  <motion.div 
-                    animate={{ y: [0, 6, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-1.5 h-1.5 bg-[#E2B84C] rounded-full"
-                  />
-                </div>
-                <span className="text-[9px] font-bold tracking-[0.18em] text-[#E2B84C]/70 uppercase">Scroll to explore</span>
               </div>
             </motion.div>
           </div>
@@ -186,19 +174,31 @@ export function HeroInstitutional() {
 
         </div>
 
-        {/* BOTTOM: PARTNERS TRUST BAR */}
-        <div className="mt-16 border border-white/5 rounded-2xl bg-[#070707]/90 px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_12px_40px_rgba(0,0,0,0.8)] backdrop-blur-md">
-          <span className="text-[9.5px] font-black tracking-[0.2em] text-[#E2B84C] uppercase select-none shrink-0">
+        {/* CENTERED SCROLL TO EXPLORE INDICATOR */}
+        <div className="flex flex-col items-center gap-2 mt-8 mb-4 w-full text-center">
+          <div className="w-[18px] h-[30px] rounded-full border-2 border-[#E2B84C]/50 flex items-start justify-center p-1">
+            <motion.div 
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="w-1.5 h-1.5 bg-[#E2B84C] rounded-full"
+            />
+          </div>
+          <span className="text-[9px] font-bold tracking-[0.18em] text-[#E2B84C]/70 uppercase">Scroll to explore</span>
+        </div>
+
+        {/* BOTTOM: REDESIGNED PREMIUM TRUST BAR */}
+        <div className="mt-10 border border-white/5 rounded-2xl bg-[#0a0a0a]/40 backdrop-blur-md px-10 py-6 flex flex-col gap-6 shadow-[0_12px_40px_rgba(0,0,0,0.8)]">
+          <span className="text-[9px] font-black tracking-[0.24em] text-[#E2B84C]/80 uppercase text-center select-none">
             Trusted by organisations
           </span>
-          <div className="hidden md:block h-6 w-px bg-white/10" />
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-10 gap-y-4 flex-1">
+          <div className="w-full h-px bg-white/5" />
+          <div className="flex flex-wrap items-center justify-between gap-x-12 gap-y-6 w-full px-4">
             {trustLogos.map((logo, index) => (
-              <div key={index} className="flex items-center gap-2 text-white/40 hover:text-white/80 transition-colors duration-300">
-                <svg className="w-4 h-4 text-white/30" viewBox="0 0 24 24" fill="none">
+              <div key={index} className="flex items-center gap-2.5 text-white/40 hover:text-white/80 transition-colors duration-300 select-none">
+                <svg className="w-4.5 h-4.5 shrink-0" viewBox="0 0 24 24" fill="none">
                   {logo.icon}
                 </svg>
-                <span className="text-[11.5px] font-bold uppercase tracking-wider">{logo.name}</span>
+                <span className="text-[12px] font-bold uppercase tracking-wider">{logo.name}</span>
               </div>
             ))}
           </div>
