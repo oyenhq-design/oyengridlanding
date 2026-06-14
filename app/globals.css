@@ -3,17 +3,17 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-brand-dark: #050816;
-  --color-brand-gold: #F5B942;
+  --color-brand-dark: #050505;
+  --color-brand-gold: #E2B84C;
   --font-sans: 'Inter', system-ui, sans-serif;
 }
 
 :root {
-  --background: #050816;
+  --background: #050505;
   --foreground: #ffffff;
-  --brand-gold: #F5B942;
-  --brand-dark: #050816;
-  --glass-bg: rgba(10, 12, 18, 0.78);
+  --brand-gold: #E2B84C;
+  --brand-dark: #050505;
+  --glass-bg: rgba(7, 7, 7, 0.78);
   --glass-border: rgba(255, 255, 255, 0.08);
   --text-muted: rgba(255, 255, 255, 0.7);
 }
@@ -1179,6 +1179,74 @@ html:not(.dark) .text-emerald-400 {
 
 .animate-floating-cursor {
   animation: floating-cursor-anim 4.2s ease-in-out infinite;
+}
+
+/* ─── Premium Dark Theme Overrides (Black + Gold + White) ─── */
+html.dark,
+html.dark body,
+html.dark main,
+html.dark .hero-section-institutional,
+html.dark [class*="bg-[#05070B]"],
+html.dark [class*="bg-[#050816]"],
+html.dark [class*="bg-[#050B1A]"],
+html.dark [class*="bg-[#010205]"],
+html.dark [class*="bg-black/"] {
+  background-color: #050505 !important;
+}
+
+html.dark [class*="bg-[#020408]"],
+html.dark [class*="bg-[#02040A]"],
+html.dark [class*="bg-[#07111F]/90"] {
+  background-color: #070707 !important;
+}
+
+html.dark .card-institutional,
+html.dark [class*="bg-[#0c1020]"],
+html.dark [class*="bg-[#080B14]"],
+html.dark [class*="bg-[#0a0e1c]"],
+html.dark [class*="bg-[#0c1018]"],
+html.dark [class*="bg-[#0A0D14]"],
+html.dark [class*="bg-[#0a0d14]"],
+html.dark [class*="bg-[#0A0E18]"],
+html.dark [class*="bg-[#0a0e18]"],
+html.dark [class*="bg-slate-950"] {
+  background-color: #0a0a0a !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Override all radial/ellipse gradients with OYEN gold in dark mode */
+html.dark [class*="bg-[radial-gradient"],
+html.dark [class*="bg-[radial-gradient(ellipse"],
+html.dark [class*="bg-[radial-gradient(circle"] {
+  background-image: radial-gradient(circle, rgba(226, 184, 76, 0.07), transparent 70%) !important;
+}
+
+/* Eliminate blue/purple/cyan accent vectors and blur backdrops in dark mode */
+html.dark [class*="bg-blue-"],
+html.dark [class*="bg-purple-"],
+html.dark [class*="bg-cyan-"],
+html.dark [class*="text-blue-"],
+html.dark [class*="text-purple-"],
+html.dark [class*="text-cyan-"],
+html.dark [class*="border-blue-"],
+html.dark [class*="border-purple-"],
+html.dark [class*="border-cyan-"] {
+  display: none !important;
+}
+
+/* Preserve gold accents mapping to the new premium E2B84C gold */
+html.dark .text-\[\#E8B84A\],
+html.dark .text-\[\#F5B942\] {
+  color: #E2B84C !important;
+}
+html.dark .bg-\[\#E8B84A\],
+html.dark .bg-\[\#F5B942\] {
+  background-color: #E2B84C !important;
+}
+
+/* Border styles for dark mode */
+html.dark [class*="border-white/"] {
+  border-color: rgba(255, 255, 255, 0.06) !important;
 }
 
 

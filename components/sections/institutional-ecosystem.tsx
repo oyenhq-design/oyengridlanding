@@ -2,66 +2,207 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, Activity, Globe, Users, Database, Workflow, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Activity, Globe, Users, Database, Workflow, Sparkles, Search } from "lucide-react";
 
+export function TopographicWave() {
+  const pathsCount = 18;
+  const centerX = 440;
+  const centerY = 300;
+
+  return (
+    <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+      {/* Subtle gold radial background glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(226,184,76,0.06),transparent_75%)] pointer-events-none" />
+      
+      <svg className="w-[115%] h-[115%] opacity-90 text-[#E2B84C]" viewBox="0 0 800 600" fill="none">
+        {Array.from({ length: pathsCount }).map((_, index) => {
+          const radius = 90 + index * 16;
+          const opacity = 0.95 - (index / pathsCount) * 0.78;
+          const strokeWidth = 1 + (index % 2) * 0.4;
+          
+          // Generate wavy concentric loop paths
+          const points = [];
+          const steps = 64;
+          for (let i = 0; i <= steps; i++) {
+            const theta = (i / steps) * 2 * Math.PI;
+            // Distortions to represent coordinates and network flow
+            const wave1 = Math.sin(theta * 2) * 20;
+            const wave2 = Math.cos(theta * 3) * 12;
+            const r = radius + wave1 + wave2;
+            const x = centerX + r * Math.cos(theta) * 1.25;
+            const y = centerY + r * Math.sin(theta) * 0.95;
+            points.push(`${i === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`);
+          }
+          const pathData = points.join(' ') + ' Z';
+          
+          return (
+            <motion.path
+              key={index}
+              d={pathData}
+              stroke="currentColor"
+              strokeWidth={strokeWidth}
+              strokeOpacity={opacity}
+              initial={{ pathLength: 0, rotate: 0 }}
+              animate={{ 
+                pathLength: 1,
+                rotate: [0, 360],
+              }}
+              transition={{
+                pathLength: { duration: 2.2 + index * 0.08, ease: "easeInOut" },
+                rotate: { duration: 75 + index * 4, repeat: Infinity, ease: "linear" }
+              }}
+              style={{ transformOrigin: "440px 300px" }}
+            />
+          );
+        })}
+      </svg>
+      
+      {/* Dynamic Gold Dust Particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {Array.from({ length: 22 }).map((_, i) => {
+          const size = Math.random() * 2 + 1;
+          const delay = Math.random() * 6;
+          const duration = Math.random() * 12 + 10;
+          const top = Math.random() * 100;
+          const left = Math.random() * 100;
+          return (
+            <motion.div
+              key={i}
+              className="absolute rounded-full bg-[#E2B84C]"
+              style={{
+                width: size,
+                height: size,
+                top: `${top}%`,
+                left: `${left}%`,
+                boxShadow: "0 0 6px rgba(226,184,76,0.8)",
+              }}
+              animate={{
+                y: [0, -50, 0],
+                x: [0, Math.random() * 24 - 12, 0],
+                opacity: [0, 0.75, 0],
+              }}
+              transition={{
+                duration,
+                repeat: Infinity,
+                delay,
+                ease: "easeInOut",
+              }}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export function HeroInstitutional() {
-  const metrics = [
-    { value: "1,240+", label: "Operations" },
-    { value: "99.995%", label: "Uptime" },
-    { value: "0.8ms", label: "Sync" },
-    { value: "140+", label: "Countries" }
+  const trustLogos = [
+    { name: "AltSchool", icon: <circle cx="12" cy="12" r="7" fill="#888888" /> },
+    { name: "ZURI", icon: <path d="M6 6h12l-12 12h12" stroke="#888888" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /> },
+    { name: "INGRESSIVE FOR GOOD", icon: <path d="M6 18l6-6-6-6M13 18l6-6-6-6" stroke="#888888" strokeWidth="2.5" strokeLinecap="round" /> },
+    { name: "uLesson", icon: <path d="M8 5v14l11-7z" fill="#888888" /> },
+    { name: "TALENTQL", icon: <circle cx="12" cy="12" r="5" fill="none" stroke="#888888" strokeWidth="2.5" /> },
+    { name: "She Code Africa", icon: <path d="M8 17l-5-5 5-5M16 17l5-5-5-5" stroke="#888888" strokeWidth="2.5" strokeLinecap="round" /> },
+    { name: "GOMYCODE", icon: <rect x="5" y="5" width="14" height="14" rx="2" fill="none" stroke="#888888" strokeWidth="2.5" /> }
   ];
 
   return (
-    <section className="hero-section-institutional theme-light-section flex items-center pt-20 pb-16 border-b border-white/5 overflow-hidden">
+    <section className="relative min-h-[720px] bg-[#050505] flex items-center pt-24 pb-16 overflow-hidden">
       
-      <div className="max-w-[1280px] mx-auto px-[48px] w-full grid grid-cols-[0.95fr_1.05fr] gap-[40px] items-center relative z-[2]">
+      <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
         
-        {/* LEFT: CONTENT AREA */}
-        <div className="hero-content mt-[-50px]">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="eyebrow">HUMAN COORDINATION • INSTITUTIONAL OS</span>
+        {/* Main Columns Grid */}
+        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center min-h-[500px]">
+          
+          {/* LEFT: CONTENT AREA */}
+          <div className="hero-content flex flex-col justify-center text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {/* Headline */}
+              <h1 className="text-[52px] sm:text-[68px] font-bold leading-[1.04] tracking-tight text-white select-none">
+                Programme <br />
+                <span className="text-[#E2B84C]">Intelligence.</span>
+              </h1>
 
-            <h1 className="hero-headline text-white mb-6">
-              Coordinate programmes <br />
-              with complete <br />
-              <span className="text-brand-gold">operational control.</span>
-            </h1>
+              {/* Subheadline */}
+              <p className="text-[16px] sm:text-[18.5px] text-white/50 font-normal leading-relaxed mt-6 max-w-[480px]">
+                The operating system for training programmes, cohorts, institutions and events.
+              </p>
 
-            <p className="hero-paragraph">
-              OYEN GRID helps organisations coordinate trainers, participants, and programme operations through one unified system of intelligence and real-time visibility.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 mt-8">
-              <button className="btn-institutional-primary px-[24px]">
-                Initialize Infrastructure
-              </button>
-              <button className="btn-institutional-secondary group px-[24px]">
-                Talk to Architects <ArrowRight className="ml-2 w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
-
-            {/* METRICS ROW */}
-            <div className="hero-metrics-row">
-              {metrics.map((m, i) => (
-                <div key={i} className="hero-metric-item">
-                   <div className="number">{m.value}</div>
-                   <div className="label">{m.label}</div>
+              {/* Explore Search Input */}
+              <div className="relative mt-8 max-w-[400px]">
+                <input 
+                  type="text" 
+                  placeholder="Explore OYEN GRID" 
+                  className="w-full h-[46px] pl-5 pr-12 rounded-full bg-[#070707] border border-white/10 text-white placeholder-white/30 text-[13px] focus:outline-none focus:border-[#E2B84C]/40 transition-colors"
+                />
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40">
+                  <Search className="w-4 h-4 text-white/30" />
                 </div>
-              ))}
-            </div>
-          </motion.div>
+              </div>
+
+              {/* CTA Action Buttons */}
+              <div className="flex flex-wrap items-center gap-4 mt-8">
+                <Link 
+                  href="/pricing"
+                  className="inline-flex items-center justify-center h-[46px] px-8 rounded-full bg-[#E2B84C] text-black text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#FFCF68] hover:shadow-[0_4px_16px_rgba(226,184,76,0.3)] hover:scale-[1.02]"
+                >
+                  Start Free Trial
+                </Link>
+                <button className="inline-flex items-center justify-center gap-2 h-[46px] px-8 rounded-full border border-white/20 hover:border-white/40 text-white text-[13px] font-bold uppercase tracking-wider transition-all duration-300 bg-transparent hover:bg-white/5">
+                  Watch Demo <span className="text-[11px] leading-none ml-1">▷</span>
+                </button>
+              </div>
+
+              {/* Scroll Cue Mouse Indicator */}
+              <div className="flex flex-col items-center gap-2 mt-16 self-center lg:self-start lg:ml-[120px]">
+                <div className="w-[18px] h-[30px] rounded-full border-2 border-[#E2B84C]/50 flex items-start justify-center p-1">
+                  <motion.div 
+                    animate={{ y: [0, 6, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-1.5 h-1.5 bg-[#E2B84C] rounded-full"
+                  />
+                </div>
+                <span className="text-[9px] font-bold tracking-[0.18em] text-[#E2B84C]/70 uppercase">Scroll to explore</span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* RIGHT: DYNAMIC VECTOR WAVE GRAPHIC */}
+          <div className="relative h-[480px] lg:h-[550px] flex items-center justify-center w-full">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full h-full"
+            >
+              <TopographicWave />
+            </motion.div>
+          </div>
+
         </div>
 
-        {/* RIGHT: VISUAL AREA (Focus on Background) */}
-        <div className="relative h-[500px]" />
-
-
+        {/* BOTTOM: PARTNERS TRUST BAR */}
+        <div className="mt-16 border border-white/5 rounded-2xl bg-[#070707]/90 px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_12px_40px_rgba(0,0,0,0.8)] backdrop-blur-md">
+          <span className="text-[9.5px] font-black tracking-[0.2em] text-[#E2B84C] uppercase select-none shrink-0">
+            Trusted by organisations
+          </span>
+          <div className="hidden md:block h-6 w-px bg-white/10" />
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-10 gap-y-4 flex-1">
+            {trustLogos.map((logo, index) => (
+              <div key={index} className="flex items-center gap-2 text-white/40 hover:text-white/80 transition-colors duration-300">
+                <svg className="w-4 h-4 text-white/30" viewBox="0 0 24 24" fill="none">
+                  {logo.icon}
+                </svg>
+                <span className="text-[11.5px] font-bold uppercase tracking-wider">{logo.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
       </div>
     </section>
