@@ -106,46 +106,11 @@ export function Header() {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Initial theme setup
-    const savedTheme = localStorage.getItem("theme") as "dark" | "light" | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      if (savedTheme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
-        document.documentElement.classList.add("dark");
-      }
-    } else {
-      document.documentElement.classList.add("dark");
-    }
-
-    // Pulse discoverability animation logic
-    const pulseSeen = localStorage.getItem("theme-pulse-seen");
-    if (!pulseSeen) {
-      setPulseClass("theme-toggle-pulse-first");
-      const timer = setTimeout(() => {
-        setPulseClass("theme-toggle-pulse-idle");
-        localStorage.setItem("theme-pulse-seen", "true");
-      }, 2500);
-      return () => clearTimeout(timer);
-    } else {
-      setPulseClass("theme-toggle-pulse-idle");
-    }
+    // Force dark theme strictly
+    setTheme("dark");
+    localStorage.setItem("theme", "dark");
+    document.documentElement.classList.add("dark");
   }, []);
-
-  const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-    localStorage.setItem("theme", nextTheme);
-    localStorage.setItem("theme-pulse-seen", "true");
-    setPulseClass("theme-toggle-pulse-idle");
-
-    if (nextTheme === "light") {
-      document.documentElement.classList.remove("dark");
-    } else {
-      document.documentElement.classList.add("dark");
-    }
-  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -217,65 +182,7 @@ export function Header() {
             Enterprise Sales
           </Link>
 
-          {/* Premium Segmented Pill Theme Switch */}
-          <div 
-            className={cn(
-              "relative flex items-center bg-[#0a1228]/75 backdrop-blur-[12px] border border-white/[0.08] p-0.5 rounded-full h-[28px] w-[112px] select-none transition-all duration-300 theme-toggle-capsule cursor-pointer shadow-md",
-              pulseClass
-            )}
-          >
-            {/* Floating modern cursor pointing up-right toward the switch */}
-            <div className="absolute left-[12px] bottom-[-18px] pointer-events-none select-none animate-floating-cursor z-30">
-              <svg 
-                viewBox="0 0 24 24" 
-                className="w-[24px] h-[24px] text-[#E2B84C]" 
-                fill="currentColor"
-              >
-                <path d="M4.5 3l7.2 16.2 2.5-6.5 6.5-2.5z" />
-              </svg>
-            </div>
-            {/* Sliding Background Indicator */}
-            <motion.div
-              animate={{
-                x: theme === "light" ? 0 : 54,
-              }}
-              transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              className="absolute top-[2px] bottom-[2px] left-[2px] rounded-full bg-white/[0.06] border border-white/[0.1] w-[54px] pointer-events-none"
-            />
 
-            {/* Light Option Button */}
-            <button
-              onClick={() => {
-                if (theme === "dark") toggleTheme();
-              }}
-              className={cn(
-                "flex items-center justify-center gap-1.5 w-1/2 h-full rounded-full text-[9px] font-black uppercase tracking-wider relative z-10 transition-colors duration-250 cursor-pointer",
-                theme === "light" ? "text-[#E2B84C]" : "text-white/40 hover:text-white/70"
-              )}
-            >
-              <span className="text-[10px]">☀</span> Light
-            </button>
-
-            {/* Dark Option Button */}
-            <button
-              onClick={() => {
-                if (theme === "light") toggleTheme();
-              }}
-              className={cn(
-                "flex items-center justify-center gap-1.5 w-1/2 h-full rounded-full text-[9px] font-black uppercase tracking-wider relative z-10 transition-colors duration-250 cursor-pointer",
-                theme === "dark" ? "text-[#E2B84C]" : "text-white/40 hover:text-white/70"
-              )}
-            >
-              <span className="text-[10px]">🌙</span> Dark
-            </button>
-          </div>
-
-          <Link 
-            href="/enterprise" 
-            className="hidden md:inline-flex items-center justify-center h-[28px] px-4 rounded-[6px] border border-[#E2B84C] text-[#E2B84C] text-[10.5px] font-black uppercase tracking-wider transition-all duration-300 hover:bg-[#E2B84C]/10 hover:shadow-[0_2px_8px_rgba(226,184,76,0.2)]"
-          >
-            Book a Demo
-          </Link>
 
           {/* Hamburger Menu (visible on all breakpoints to access solutions/infrastructure etc.) */}
           <button 
