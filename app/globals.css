@@ -1147,6 +1147,22 @@ html:not(.dark) .text-emerald-400 {
   animation: finger-bounce-horizontal 1.2s ease-in-out infinite;
 }
 
+@keyframes floating-cursor-anim {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+.animate-floating-cursor {
+  animation: floating-cursor-anim 3.5s ease-in-out infinite;
+}
+
+
 
 
 

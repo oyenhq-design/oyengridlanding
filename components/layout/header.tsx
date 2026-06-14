@@ -204,6 +204,16 @@ export function Header() {
                 pulseClass
               )}
             >
+              {/* Floating modern cursor pointing up-right toward the switch */}
+              <div className="absolute left-[-14px] bottom-[-28px] pointer-events-none select-none animate-floating-cursor z-30">
+                <svg 
+                  viewBox="0 0 24 24" 
+                  className="w-[18px] h-[18px] text-[#E8B84A] rotate-[90deg] drop-shadow-[0_0_6px_rgba(232,184,74,0.65)]" 
+                  fill="currentColor"
+                >
+                  <path d="M4.5 3l7.2 16.2 2.5-6.5 6.5-2.5z" />
+                </svg>
+              </div>
               {/* Sliding Background Indicator */}
               <motion.div
                 animate={{
