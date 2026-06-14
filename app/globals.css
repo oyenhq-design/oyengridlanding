@@ -309,8 +309,8 @@ html:not(.dark) {
 
 
 /* Global body/main layout backgrounds in Light Mode */
-html:not(.dark) .bg-\[\#05070B\],
-html:not(.dark) main {
+html:not(.dark) :not(.pricing-page-root) .bg-\[\#05070B\],
+html:not(.dark) main:not(.pricing-page-root) {
   background-color: #F8F6F1 !important;
 }
 
@@ -627,75 +627,75 @@ html:not(.dark) .pricing-card li svg path {
 
 
 /* Border overrides inside light sections */
-html:not(.dark) .border-white\/5,
-html:not(.dark) .border-white\/10,
-html:not(.dark) .border-white\/\[0\.03\],
-html:not(.dark) .border-white\/\[0\.04\],
-html:not(.dark) .border-white\/\[0\.05\],
-html:not(.dark) .border-white\/\[0\.06\],
-html:not(.dark) .border-white\/\[0\.07\],
-html:not(.dark) .border-white\/\[0\.08\],
-html:not(.dark) .border-white\/\[0\.12\],
-html:not(.dark) .divide-white\/5,
-html:not(.dark) .divide-white\/10,
-html:not(.dark) .border-white\/8,
-html:not(.dark) .border-white\/15,
-html:not(.dark) .border-white\/20,
-html:not(.dark) .border-white\/25,
-html:not(.dark) .border-white\/30,
-html:not(.dark) .border-white\/45,
-html:not(.dark) .border-b.border-white\/5,
-html:not(.dark) .border-t.border-white\/5,
-html:not(.dark) [class*="border-white/"],
-html:not(.dark) [class*="border-white\\["],
-html:not(.dark) [class*="border-white/["] {
+html:not(.dark) :not(.pricing-page-root) .border-white\/5,
+html:not(.dark) :not(.pricing-page-root) .border-white\/10,
+html:not(.dark) :not(.pricing-page-root) .border-white\/\[0\.03\],
+html:not(.dark) :not(.pricing-page-root) .border-white\/\[0\.04\],
+html:not(.dark) :not(.pricing-page-root) .border-white\/\[0\.05\],
+html:not(.dark) :not(.pricing-page-root) .border-white\/\[0\.06\],
+html:not(.dark) :not(.pricing-page-root) .border-white\/\[0\.07\],
+html:not(.dark) :not(.pricing-page-root) .border-white\/\[0\.08\],
+html:not(.dark) :not(.pricing-page-root) .border-white\/\[0\.12\],
+html:not(.dark) :not(.pricing-page-root) .divide-white\/5,
+html:not(.dark) :not(.pricing-page-root) .divide-white\/10,
+html:not(.dark) :not(.pricing-page-root) .border-white\/8,
+html:not(.dark) :not(.pricing-page-root) .border-white\/15,
+html:not(.dark) :not(.pricing-page-root) .border-white\/20,
+html:not(.dark) :not(.pricing-page-root) .border-white\/25,
+html:not(.dark) :not(.pricing-page-root) .border-white\/30,
+html:not(.dark) :not(.pricing-page-root) .border-white\/45,
+html:not(.dark) :not(.pricing-page-root) .border-b.border-white\/5,
+html:not(.dark) :not(.pricing-page-root) .border-t.border-white\/5,
+html:not(.dark) :not(.pricing-page-root) [class*="border-white/"],
+html:not(.dark) :not(.pricing-page-root) [class*="border-white\\["],
+html:not(.dark) :not(.pricing-page-root) [class*="border-white/["] {
   border-color: #E6E0D5 !important;
 }
 
 /* Card styling inside light sections - premium, soft borders and drop shadows */
-html:not(.dark) .card-institutional,
-html:not(.dark) .bg-white\/\[0\.01\],
-html:not(.dark) .bg-white\/\[0\.02\],
-html:not(.dark) .bg-white\/\[0\.03\],
-html:not(.dark) .bg-white\/\[0\.04\],
-html:not(.dark) .bg-white\/\[0\.05\],
-html:not(.dark) .bg-white\/\[0\.06\],
-html:not(.dark) .bg-white\/\[0\.07\],
-html:not(.dark) .bg-white\/5,
-html:not(.dark) .bg-white\/10,
-html:not(.dark) .bg-white\/15,
-html:not(.dark) .bg-white\/20,
-html:not(.dark) .bg-slate-950\/40,
-html:not(.dark) .bg-slate-950\/85,
-html:not(.dark) .bg-slate-950\/45,
-html:not(.dark) .bg-\[\#0c1020\]\/90,
-html:not(.dark) .bg-\[\#080B14\]\/70,
-html:not(.dark) .bg-\[\#0a0e1c\]\/45,
-html:not(.dark) [class*="bg-[#0"],
-html:not(.dark) [class*="bg-[#1"],
-html:not(.dark) [class*="bg-[#2a"],
-html:not(.dark) [class*="bg-[#2d"],
-html:not(.dark) [class*="bg-[#2e"],
-html:not(.dark) [class*="bg-[#2f"],
-html:not(.dark) [class*="bg-slate-9"],
-html:not(.dark) [class*="bg-zinc-9"],
-html:not(.dark) [class*="bg-neutral-9"],
-html:not(.dark) [class*="bg-gray-9"],
-html:not(.dark) [class*="bg-[#0c1020]"],
-html:not(.dark) [class*="bg-[#080B14]"],
-html:not(.dark) [class*="bg-[#0c1018]"],
-html:not(.dark) [class*="bg-[#0C1018]"],
-html:not(.dark) [class*="bg-[#0a0d14]"],
-html:not(.dark) [class*="bg-[#0A0D14]"],
-html:not(.dark) [class*="bg-[#0A0E18]"],
-html:not(.dark) [class*="bg-[#0a0e18]"],
-html:not(.dark) [class*="bg-white/\\["],
-html:not(.dark) [class*="bg-slate-950/40"],
-html:not(.dark) [class*="bg-slate-950/85"],
-html:not(.dark) [class*="bg-slate-950/45"],
-html:not(.dark) [class*="bg-\\[\\#0c1020\\]"],
-html:not(.dark) [class*="bg-\\[\\#080B14\\]"],
-html:not(.dark) .bg-gradient-to-br.from-\[\#040816\]\/80 {
+html:not(.dark) :not(.pricing-page-root) .card-institutional,
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.01\],
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.02\],
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.03\],
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.04\],
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.05\],
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.06\],
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.07\],
+html:not(.dark) :not(.pricing-page-root) .bg-white\/5,
+html:not(.dark) :not(.pricing-page-root) .bg-white\/10,
+html:not(.dark) :not(.pricing-page-root) .bg-white\/15,
+html:not(.dark) :not(.pricing-page-root) .bg-white\/20,
+html:not(.dark) :not(.pricing-page-root) .bg-slate-950\/40,
+html:not(.dark) :not(.pricing-page-root) .bg-slate-950\/85,
+html:not(.dark) :not(.pricing-page-root) .bg-slate-950\/45,
+html:not(.dark) :not(.pricing-page-root) .bg-\[\#0c1020\]\/90,
+html:not(.dark) :not(.pricing-page-root) .bg-\[\#080B14\]\/70,
+html:not(.dark) :not(.pricing-page-root) .bg-\[\#0a0e1c\]\/45,
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#0"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#1"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#2a"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#2d"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#2e"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#2f"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-slate-9"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-zinc-9"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-neutral-9"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-gray-9"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#0c1020]"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#080B14]"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#0c1018]"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#0C1018]"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#0a0d14]"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#0A0D14]"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#0A0E18]"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#0a0e18]"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-white/\\["],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-slate-950/40"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-slate-950/85"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-slate-950/45"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-\\[\\#0c1020\\]"],
+html:not(.dark) :not(.pricing-page-root) [class*="bg-\\[\\#080B14\\]"],
+html:not(.dark) :not(.pricing-page-root) .bg-gradient-to-br.from-\[\#040816\]\/80 {
   background-color: #FFFFFF !important;
   background-image: none !important;
   border: 1px solid #E6E0D5 !important;
@@ -704,26 +704,26 @@ html:not(.dark) .bg-gradient-to-br.from-\[\#040816\]\/80 {
 }
 
 /* Hover effects for cards */
-html:not(.dark) .card-institutional:hover,
-html:not(.dark) .bg-white\/\[0\.01\]:hover,
-html:not(.dark) .bg-white\/\[0\.02\]:hover,
-html:not(.dark) .bg-white\/\[0\.03\]:hover,
-html:not(.dark) .bg-white\/\[0\.04\]:hover,
-html:not(.dark) .bg-white\/\[0\.05\]:hover,
-html:not(.dark) .bg-white\/\[0\.06\]:hover,
-html:not(.dark) .bg-white\/\[0\.07\]:hover,
-html:not(.dark) .bg-slate-950\/40:hover,
-html:not(.dark) .bg-slate-950\/85:hover,
-html:not(.dark) .bg-\[\#0c1020\]\/90:hover,
-html:not(.dark) .bg-\[\#080B14\]\/70:hover,
-html:not(.dark) .bg-\[\#0a0e1c\]\/45:hover,
-html:not(.dark) [class*="bg-[#0"]:hover,
-html:not(.dark) [class*="bg-[#1"]:hover,
-html:not(.dark) [class*="bg-white/\\["].hover\:bg-white\/\\:hover,
-html:not(.dark) [class*="bg-slate-950/40"]:hover,
-html:not(.dark) [class*="bg-slate-950/85"]:hover,
-html:not(.dark) [class*="bg-\\[\\#0c1020\\]"]:hover,
-html:not(.dark) [class*="bg-\\[\\#080B14\\]"]:hover {
+html:not(.dark) :not(.pricing-page-root) .card-institutional:hover,
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.01\]:hover,
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.02\]:hover,
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.03\]:hover,
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.04\]:hover,
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.05\]:hover,
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.06\]:hover,
+html:not(.dark) :not(.pricing-page-root) .bg-white\/\[0\.07\]:hover,
+html:not(.dark) :not(.pricing-page-root) .bg-slate-950\/40:hover,
+html:not(.dark) :not(.pricing-page-root) .bg-slate-950\/85:hover,
+html:not(.dark) :not(.pricing-page-root) .bg-\[\#0c1020\]\/90:hover,
+html:not(.dark) :not(.pricing-page-root) .bg-\[\#080B14\]\/70:hover,
+html:not(.dark) :not(.pricing-page-root) .bg-\[\#0a0e1c\]\/45:hover,
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#0"]:hover,
+html:not(.dark) :not(.pricing-page-root) [class*="bg-[#1"]:hover,
+html:not(.dark) :not(.pricing-page-root) [class*="bg-white/\\["].hover\:bg-white\/\\:hover,
+html:not(.dark) :not(.pricing-page-root) [class*="bg-slate-950/40"]:hover,
+html:not(.dark) :not(.pricing-page-root) [class*="bg-slate-950/85"]:hover,
+html:not(.dark) :not(.pricing-page-root) [class*="bg-\\[\\#0c1020\\]"]:hover,
+html:not(.dark) :not(.pricing-page-root) [class*="bg-\\[\\#080B14\\]"]:hover {
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
   border-color: #D1C9BC !important;
   transform: translateY(-2px) !important;
@@ -982,18 +982,18 @@ html:not(.dark) .bg-\[\#E8B84A\]\/\[0\.05\] {
   background-color: rgba(245, 185, 66, 0.08) !important;
 }
 
-/* Footer styling: Warm Ivory #F8F6F1 with a top border #E6E0D5 */
+/* Footer styling: Warm Beige #F5F1E8 with a top border #E5DDD0 */
 html:not(.dark) footer,
 html:not(.dark) footer.bg-\[\#050B1A\] {
-  background-color: #F8F6F1 !important;
-  border-top: 1px solid #E6E0D5 !important;
+  background-color: #F5F1E8 !important;
+  border-top: 1px solid #E5DDD0 !important;
 }
 html:not(.dark) footer .from-\[\#030710\] {
-  --tw-gradient-from: #F8F6F1 !important;
-  background-color: #F8F6F1 !important;
+  --tw-gradient-from: #F5F1E8 !important;
+  background-color: #F5F1E8 !important;
 }
 html:not(.dark) footer .h-px {
-  background-color: #E6E0D5 !important;
+  background-color: #E5DDD0 !important;
 }
 html:not(.dark) footer h1,
 html:not(.dark) footer h2,
@@ -1008,7 +1008,7 @@ html:not(.dark) footer span {
   color: #4B5563 !important;
 }
 html:not(.dark) footer a:hover {
-  color: #111827 !important;
+  color: #D4A017 !important;
 }
 html:not(.dark) footer .text-white\/30,
 html:not(.dark) footer .text-white\/40,

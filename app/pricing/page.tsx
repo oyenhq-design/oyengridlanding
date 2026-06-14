@@ -570,20 +570,20 @@ function PricingContent() {
   };
 
   return (
-    <main className="min-h-screen bg-[#FAF9F6] dark:bg-[#05070B] selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden transition-colors duration-300">
+    <main className="pricing-page-root min-h-screen bg-[#FAFAF8] dark:bg-[#05070B] selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden transition-colors duration-300">
       <Header />
       <AnnouncementBar />
 
       {/* ════════════════════════════════════════════════════════════════
           1. HERO SECTION
       ════════════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-[#FAF9F6] dark:bg-[#050816] border-b border-[#EBE9E1] dark:border-white/[0.05]">
+      <section className="relative overflow-hidden bg-white dark:bg-[#050816] border-b border-[#E5DDD0] dark:border-white/[0.05]">
         <div className="absolute inset-0 pointer-events-none">
           <div
-            className="absolute inset-0 opacity-[0.015] dark:opacity-[0.035]"
+            className="absolute inset-0 opacity-[0.01] dark:opacity-[0.03]"
             style={{ backgroundImage: "radial-gradient(circle, #000 0.5px, transparent 0.5px)", backgroundSize: "36px 36px" }}
           />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(212,160,23,0.04),transparent_65%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.07),transparent_65%)] dark:opacity-100 opacity-40" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[radial-gradient(circle_at_center,rgba(212,160,23,0.08),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.07),transparent_65%)]" />
           <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-[radial-gradient(ellipse_at_top_right,rgba(96,165,250,0.04),transparent_60%)]" />
         </div>
 
@@ -662,7 +662,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           2. CHOOSE YOUR SOLUTION
       ════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-[#FFFFFF] dark:bg-[#020408] border-b border-[#EBE9E1] dark:border-white/[0.04]">
+      <section className="py-20 bg-[#F5F1E8] dark:bg-[#020408] border-b border-[#E5DDD0] dark:border-white/[0.04]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -695,10 +695,10 @@ function PricingContent() {
                   transition={{ duration: 0.5, delay: i * 0.07 }}
                   onClick={() => handleSelectSolution(sol.id)}
                   className={cn(
-                    "solution-card group relative p-6 rounded-2xl border cursor-pointer transition-all duration-300 flex flex-col gap-4 overflow-hidden",
+                    "solution-card group relative p-6 rounded-[20px] border cursor-pointer transition-all duration-300 flex flex-col gap-4 overflow-hidden",
                     isActive
-                      ? `active-solution-card bg-white dark:bg-white/[0.04] border-2 ${colorClasses[sol.id].borderActive} shadow-[0_16px_36px_rgba(15,23,42,0.12)] dark:shadow-[0_6px_30px_rgba(232,184,74,0.08)] -translate-y-1`
-                      : "bg-white dark:bg-white/[0.015] border-[#E5E7EB] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:bg-white dark:hover:bg-white/[0.03] hover:border-[#E5E7EB]/80 dark:hover:border-white/[0.1] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-0.5"
+                      ? `active-solution-card bg-white dark:bg-white/[0.04] border-2 border-[#D4A017] shadow-[0_20px_50px_rgba(212,160,23,0.15)] dark:shadow-[0_6px_30px_rgba(232,184,74,0.08)] -translate-y-1.5`
+                      : "bg-white dark:bg-white/[0.015] border-[#E5DDD0] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:bg-white dark:hover:bg-white/[0.03] hover:border-[#E5DDD0] dark:hover:border-white/[0.1] hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1.5"
                   )}
                 >
                   {isActive && (
@@ -927,6 +927,8 @@ function PricingContent() {
                     const features = pricingData[selectedSolution][plan.key];
                     const isTalkToSales = meta.price === "Talk to Sales";
                     const isMostPopular = plan.badge === "Most Popular";
+                    const isPremium = plan.key === "premium";
+                    const isPremiumPlus = plan.key === "premiumPlus";
 
                     return (
                       <motion.div
@@ -936,15 +938,15 @@ function PricingContent() {
                         transition={{ duration: 0.3, delay: i * 0.06 }}
                         className={cn(
                           "pricing-card relative rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
-                          plan.highlight
-                            ? "bg-white dark:bg-white/[0.025] border-[#D4A017] dark:border-[#E8B84A]/35 shadow-[0_12px_32px_rgba(212,160,23,0.08)] dark:shadow-[0_12px_40px_rgba(232,184,74,0.08)] hover:border-[#D4A017] dark:hover:border-[#E8B84A]/60"
-                            : (isMostPopular
-                              ? "bg-white dark:bg-white/[0.02] border-[#D4A017]/40 dark:border-[#E8B84A]/20 shadow-[0_10px_28px_rgba(15,23,42,0.06)] dark:shadow-none hover:border-[#D4A017] dark:hover:border-[#E8B84A]/40"
-                              : "bg-white dark:bg-white/[0.015] border-[#EBE9E1] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:border-[#D1D5DB] dark:hover:border-white/[0.12] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)]"
+                          isPremiumPlus
+                            ? "bg-[#07111F] text-white border-transparent shadow-[0_12px_32px_rgba(7,17,31,0.15)]"
+                            : (isPremium
+                              ? "bg-gradient-to-b from-[#FFFDF7] to-[#FDF6E3] dark:from-[#FFFDF7]/[0.02] dark:to-[#FDF6E3]/[0.02] border-[#D4A017] shadow-[0_12px_32px_rgba(212,160,23,0.08)] dark:shadow-[0_12px_40px_rgba(232,184,74,0.08)] hover:border-[#D4A017]"
+                              : "bg-white dark:bg-white/[0.015] border-[#E5DDD0] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:border-[#D1D5DB] dark:hover:border-white/[0.12] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)]"
                             )
                         )}
                       >
-                        {plan.highlight && (
+                        {isPremium && (
                           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(212,160,23,0.03),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_top_left,rgba(232,184,74,0.04),transparent_60%)] pointer-events-none" />
                         )}
 
@@ -956,7 +958,10 @@ function PricingContent() {
                         )}
 
                         <div className="relative z-10">
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#111827] dark:text-white">
+                          <span className={cn(
+                            "text-[10px] font-bold uppercase tracking-widest",
+                            isPremiumPlus ? "text-white/60" : "text-[#111827] dark:text-white"
+                          )}>
                             {plan.name}
                           </span>
 
@@ -972,13 +977,17 @@ function PricingContent() {
                               className="mt-4 mb-1 flex items-baseline gap-1"
                             >
                               <span className={cn(
-                                "font-extrabold tracking-tighter leading-none text-[#111827] dark:text-white",
+                                "font-extrabold tracking-tighter leading-none",
+                                isPremiumPlus ? "text-white" : "text-[#111827] dark:text-white",
                                 isTalkToSales ? "text-[22px]" : "text-[34px]"
                               )}>
                                 {meta.price}
                               </span>
                               {meta.period && (
-                                <span className="text-[12px] text-[#6B7280] dark:text-white/50 font-medium">
+                                <span className={cn(
+                                  "text-[12px] font-medium",
+                                  isPremiumPlus ? "text-white/50" : "text-[#6B7280] dark:text-white/50"
+                                )}>
                                   {meta.period}
                                 </span>
                               )}
@@ -992,16 +1001,25 @@ function PricingContent() {
                               animate={{ opacity: 1 }}
                               exit={{ opacity: 0 }}
                               transition={{ duration: 0.25 }}
-                              className="text-[12px] text-[#374151] dark:text-white/70 leading-[1.6] mb-6 font-medium"
+                              className={cn(
+                                "text-[12px] leading-[1.6] mb-6 font-medium",
+                                isPremiumPlus ? "text-white/70" : "text-[#374151] dark:text-white/70"
+                              )}
                             >
                               {meta.tagline}
                             </motion.p>
                           </AnimatePresence>
 
 
-                          <div className="h-px bg-[#EBE9E1] dark:bg-white/[0.06] mb-6" />
+                          <div className={cn(
+                            "h-px mb-6",
+                            isPremiumPlus ? "bg-white/10" : "bg-[#EBE9E1] dark:bg-white/[0.06]"
+                          )} />
 
-                          <h4 className="text-[9.5px] font-bold tracking-widest text-[#4B5563] dark:text-white/60 uppercase mb-4">
+                          <h4 className={cn(
+                            "text-[9.5px] font-bold tracking-widest uppercase mb-4",
+                            isPremiumPlus ? "text-white/55" : "text-[#4B5563] dark:text-white/60"
+                          )}>
                             {plan.planLabel}
                           </h4>
 
@@ -1016,7 +1034,10 @@ function PricingContent() {
                               className="space-y-3"
                             >
                               {features.map((feat, fi) => (
-                                <li key={fi} className="flex items-start gap-2.5 text-[12.5px] text-[#374151] dark:text-white/85 font-medium">
+                                <li key={fi} className={cn(
+                                  "flex items-start gap-2.5 text-[12.5px] font-medium",
+                                  isPremiumPlus ? "text-white/90" : "text-[#374151] dark:text-white/85"
+                                )}>
                                   <Check
                                     className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#D4A017] dark:text-[#E8B84A]"
                                   />
@@ -1027,15 +1048,18 @@ function PricingContent() {
                           </AnimatePresence>
                         </div>
 
-                        <div className="mt-8 pt-6 border-t border-[#EBE9E1] dark:border-white/[0.05] relative z-10">
+                        <div className={cn(
+                          "mt-8 pt-6 border-t relative z-10",
+                          isPremiumPlus ? "border-white/10" : "border-[#EBE9E1] dark:border-white/[0.05]"
+                        )}>
                           <Link
                             href={plan.href}
                             className={cn(
                               "w-full h-11 rounded-xl flex items-center justify-center gap-2 text-[11.5px] font-black uppercase tracking-wider transition-all group/btn",
-                              plan.highlight
-                                ? "bg-[#D4A017] text-black hover:bg-[#E5B228] shadow-[0_4px_16px_rgba(212,160,23,0.18)] hover:shadow-[0_6px_20px_rgba(212,160,23,0.25)] hover:scale-[1.02] active:scale-[0.98]"
-                                : (isMostPopular
-                                  ? "border border-[#D4A017] text-[#D4A017] hover:bg-[#D4A017]/5 hover:scale-[1.02] active:scale-[0.98]"
+                              isPremiumPlus
+                                ? "bg-white text-black hover:bg-white/90 shadow-[0_4px_16px_rgba(255,255,255,0.05)] hover:scale-[1.02] active:scale-[0.98]"
+                                : (isPremium
+                                  ? "bg-[#D4A017] text-black hover:bg-[#E5B228] shadow-[0_4px_16px_rgba(212,160,23,0.18)] hover:scale-[1.02] active:scale-[0.98]"
                                   : "border border-[#EBE9E1] dark:border-white/[0.08] text-[#111827] dark:text-white hover:bg-[#F9FAFB] dark:hover:bg-white/[0.05] hover:border-[#D1D5DB] dark:hover:border-white/[0.15]"
                                 )
                             )}
@@ -1065,7 +1089,7 @@ function PricingContent() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="py-24 bg-[#FFFFFF] dark:bg-[#020408] border-b border-[#EBE9E1] dark:border-white/[0.04] overflow-hidden"
+            className="py-24 bg-[#F6F7FB] dark:bg-[#020408] border-b border-[#E5DDD0] dark:border-white/[0.04] overflow-hidden"
           >
             <div className="max-w-[1200px] mx-auto px-6">
               <motion.div
@@ -1104,7 +1128,7 @@ function PricingContent() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: i * 0.07 }}
-                        className="relative p-6 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#EBE9E1] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] dark:hover:shadow-none transition-all group overflow-hidden"
+                        className="relative p-6 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#E5DDD0] dark:border-white/[0.06] shadow-[0_10px_30px_rgba(0,0,0,0.05)] dark:shadow-none hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] dark:hover:shadow-none transition-all group overflow-hidden"
                       >
                         <div
                           className="absolute bottom-0 left-0 right-0 h-[3px] opacity-60"
@@ -1126,7 +1150,7 @@ function PricingContent() {
                         <h4 className="text-[14.5px] font-bold text-[#111827] dark:text-white tracking-tight mb-2">
                           {tier.title}
                         </h4>
-                        <p className="text-[12.5px] text-[#374151] dark:text-white/70 leading-[1.6] mb-5 font-medium">
+                        <p className="text-[12.5px] text-[#4B5563] dark:text-white/70 leading-[1.6] mb-5 font-medium">
                           {tier.desc}
                         </p>
 
@@ -1177,7 +1201,7 @@ function PricingContent() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="py-24 bg-[#FAF9F6] dark:bg-[#05070B] border-b border-[#EBE9E1] dark:border-white/[0.04] overflow-hidden"
+            className="py-24 bg-white dark:bg-[#05070B] border-b border-[#E5DDD0] dark:border-white/[0.04] overflow-hidden"
           >
             <div className="max-w-[1200px] mx-auto px-6">
               <motion.div
@@ -1203,7 +1227,7 @@ function PricingContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="w-full overflow-x-auto rounded-2xl border border-[#D9D4C8] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none"
+                className="w-full overflow-x-auto rounded-[24px] border border-[#E5E7EB] dark:border-white/[0.06] shadow-[0_12px_35px_rgba(0,0,0,0.06)] dark:shadow-none bg-white"
               >
                 <AnimatePresence mode="wait">
                   <motion.table
@@ -1215,29 +1239,33 @@ function PricingContent() {
                     className="w-full min-w-[750px] text-left border-collapse bg-white dark:bg-white/[0.01]"
                   >
                     <thead>
-                      <tr className="border-b border-[#D9D4C8] dark:border-white/[0.06] bg-[#F9FAFB] dark:bg-white/[0.02]">
+                      <tr className="border-b border-[#E5E7EB] dark:border-white/[0.06] bg-[#F7F4ED] dark:bg-white/[0.02]">
                         <th className="py-8 px-6 text-[12px] font-bold text-[#111827] dark:text-white tracking-widest uppercase w-[28%]">
                           Capability
                         </th>
                         <th className="py-8 px-6 text-[12px] font-bold text-[#111827] dark:text-white tracking-widest uppercase">Basic</th>
                         <th className="py-8 px-6 text-[12px] font-bold text-[#111827] dark:text-white tracking-widest uppercase">Standard</th>
-                        <th className="py-8 px-6 text-[12px] font-bold text-[#D4A017] dark:text-[#E8B84A] tracking-widest uppercase bg-[#D4A017]/5 dark:bg-[#E8B84A]/5">★ Premium</th>
+                        <th className="py-8 px-6 text-[12px] font-bold text-[#D4A017] dark:text-[#E8B84A] tracking-widest uppercase bg-[#FFF8E8] dark:bg-[#E8B84A]/5">★ Premium</th>
                         <th className="py-8 px-6 text-[12px] font-bold text-[#111827] dark:text-white tracking-widest uppercase">Premium+</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-[#D9D4C8] dark:divide-white/[0.04]">
+                    <tbody className="divide-y divide-[#E5E7EB] dark:divide-white/[0.04]">
                       {currentTable.map((row, i) => (
                         <motion.tr
                           key={`${selectedSolution}-row-${i}`}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.3, delay: i * 0.03 }}
-                          className="hover:bg-[#F9FAFB] dark:hover:bg-white/[0.012] transition-colors"
+                          className={cn(
+                            "transition-colors",
+                            i % 2 === 1 ? "bg-[#FAFAF8] dark:bg-white/[0.005]" : "bg-white dark:bg-transparent",
+                            "hover:bg-[#F9FAFB] dark:hover:bg-white/[0.012]"
+                          )}
                         >
                           <td className="py-8 px-6 text-[13.5px] font-bold text-[#111827] dark:text-white">{row.feature}</td>
                           <td className="py-8 px-6 text-[13px] text-[#374151] dark:text-white/70 font-medium">{row.basic}</td>
                           <td className="py-8 px-6 text-[13px] text-[#374151] dark:text-white/70 font-medium">{row.standard}</td>
-                          <td className="py-8 px-6 text-[13px] text-[#111827] dark:text-white font-semibold bg-[#D4A017]/5 dark:bg-[#E8B84A]/3">{row.premium}</td>
+                          <td className="py-8 px-6 text-[13px] text-[#111827] dark:text-white font-semibold bg-[#FFF8E8] dark:bg-[#E8B84A]/3">{row.premium}</td>
                           <td className="py-8 px-6 text-[13px] font-bold text-[#D4A017] dark:text-[#E8B84A]">{row.plus}</td>
                         </motion.tr>
                       ))}
@@ -1253,10 +1281,10 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           6. ENTERPRISE BENEFITS
       ════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-[#FFFFFF] dark:bg-[#020408] border-b border-[#EBE9E1] dark:border-white/[0.04] relative">
+      <section className="py-24 bg-gradient-to-b from-[#07111F] to-[#0A1830] border-b border-transparent relative text-white">
         {/* Subtle radial glow for Institutional Coordination Section */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden>
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(212,160,23,0.025),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.04),transparent_70%)]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.015),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.04),transparent_70%)]" />
         </div>
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <motion.div
@@ -1269,10 +1297,10 @@ function PricingContent() {
             <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
               Institutional Grade
             </span>
-            <h2 className="text-[28px] md:text-[38px] font-bold text-[#1F2937] dark:text-white tracking-tight mb-3">
+            <h2 className="text-[28px] md:text-[38px] font-bold text-white tracking-tight mb-3">
               Enterprise Infrastructure
             </h2>
-            <p className="text-[14.5px] text-[#4B5563] dark:text-white/60 max-w-md mx-auto leading-[1.6] font-medium">
+            <p className="text-[14.5px] text-white/70 max-w-md mx-auto leading-[1.6] font-medium">
               Built to meet the standards of the world&apos;s most demanding organizations.
             </p>
           </motion.div>
@@ -1287,7 +1315,7 @@ function PricingContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.07 }}
-                  className="relative p-7 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#E6E0D5] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.08)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(15,23,42,0.12)] dark:hover:shadow-none transition-all group overflow-hidden"
+                  className="relative p-7 rounded-[20px] bg-white/5 border border-white/[0.08] hover:bg-white/[0.08] transition-all group overflow-hidden"
                 >
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -1301,10 +1329,10 @@ function PricingContent() {
                   >
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-[15.5px] font-bold text-[#111827] dark:text-white tracking-tight mb-2 relative z-10">
+                  <h3 className="text-[15.5px] font-bold text-white tracking-tight mb-2 relative z-10">
                     {item.title}
                   </h3>
-                  <p className="text-[13px] text-[#374151] dark:text-white/70 leading-[1.6] relative z-10 font-medium">
+                  <p className="text-[13px] text-white/70 leading-[1.6] relative z-10 font-medium">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -1317,7 +1345,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           7. FAQ SECTION
       ════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-[#FAF9F6] dark:bg-[#05070B] border-b border-[#EBE9E1] dark:border-white/[0.04]">
+      <section className="py-24 bg-[#F5F1E8] dark:bg-[#05070B] border-b border-[#E5DDD0] dark:border-white/[0.04]">
         <div className="max-w-[820px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -1348,7 +1376,7 @@ function PricingContent() {
                     "faq-item rounded-2xl border overflow-hidden transition-all duration-300",
                     isOpen
                       ? "bg-white dark:bg-white/[0.025] border-[#D4A017]/40 dark:border-[#E8B84A]/25 shadow-[0_4px_16px_rgba(212,160,23,0.05)]"
-                      : "bg-white dark:bg-white/[0.015] border-[#E5E7EB] dark:border-white/[0.05] shadow-sm hover:border-[#D1D5DB] dark:hover:border-white/[0.1] hover:bg-[#F9FAFB] dark:hover:bg-white/[0.01]"
+                      : "bg-white dark:bg-white/[0.015] border-[#E5DDD0] dark:border-white/[0.05] shadow-sm hover:border-[#D1D5DB] dark:hover:border-white/[0.1] hover:bg-[#FAFAF8] dark:hover:bg-white/[0.01]"
                   )}
                 >
                   <button
@@ -1382,7 +1410,7 @@ function PricingContent() {
                         transition={{ duration: 0.32, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 pt-1 text-[13.5px] text-[#4B5563] dark:text-white/70 leading-relaxed border-t border-[#E5E7EB] dark:border-white/[0.05] font-medium">
+                        <div className="px-6 pb-6 pt-1 text-[13.5px] text-[#374151] dark:text-white/70 leading-relaxed border-t border-[#E5DDD0] dark:border-white/[0.05] font-medium">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -1398,7 +1426,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           8. FINAL CTA
       ════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-32 overflow-hidden bg-[#FFFFFF] dark:bg-[#020306] border-b border-[#EBE9E1] dark:border-white/[0.04]">
+      <section className="relative py-32 overflow-hidden bg-gradient-to-b from-[#FFFDF8] to-[#F5F0E2] dark:from-[#020306] dark:to-[#07111F] border-b border-[#E5DDD0] dark:border-white/[0.04]">
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute inset-0 opacity-[0.012] dark:opacity-[0.03]"
