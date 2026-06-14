@@ -200,10 +200,10 @@ export function Header() {
               )}
             >
               {/* Floating modern cursor pointing up-right toward the switch */}
-              <div className="absolute left-[14px] bottom-[-32px] pointer-events-none select-none animate-floating-cursor z-30">
+              <div className="absolute left-[12px] bottom-[-18px] pointer-events-none select-none animate-floating-cursor z-30">
                 <svg 
                   viewBox="0 0 24 24" 
-                  className="w-[22px] h-[22px] text-[#E8B84A] dark:text-[#E8B84A]" 
+                  className="w-[24px] h-[24px] text-[#E8B84A] dark:text-[#E8B84A]" 
                   fill="currentColor"
                 >
                   <path d="M4.5 3l7.2 16.2 2.5-6.5 6.5-2.5z" />
