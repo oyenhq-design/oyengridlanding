@@ -192,11 +192,6 @@ export function Header() {
               Enterprise Sales
             </Link>
 
-            {/* Pointing hand indicator pointing right at the toggle */}
-            <div className="flex items-center gap-1 text-[#E8B84A] text-[10px] font-black tracking-[0.12em] uppercase whitespace-nowrap select-none">
-              Theme <span className="animate-finger-bounce-horizontal text-[14px] leading-none">👉</span>
-            </div>
-
             {/* Premium Segmented Pill Theme Switch */}
             <div 
               className={cn(
@@ -205,10 +200,10 @@ export function Header() {
               )}
             >
               {/* Floating modern cursor pointing up-right toward the switch */}
-              <div className="absolute left-[-14px] bottom-[-28px] pointer-events-none select-none animate-floating-cursor z-30">
+              <div className="absolute left-[14px] bottom-[-32px] pointer-events-none select-none animate-floating-cursor z-30">
                 <svg 
                   viewBox="0 0 24 24" 
-                  className="w-[18px] h-[18px] text-[#E8B84A] rotate-[90deg] drop-shadow-[0_0_6px_rgba(232,184,74,0.65)]" 
+                  className="w-[22px] h-[22px] text-[#E8B84A] dark:text-[#E8B84A]" 
                   fill="currentColor"
                 >
                   <path d="M4.5 3l7.2 16.2 2.5-6.5 6.5-2.5z" />
