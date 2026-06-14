@@ -692,7 +692,7 @@ function PricingContent() {
                   transition={{ duration: 0.5, delay: i * 0.07 }}
                   onClick={() => handleSelectSolution(sol.id)}
                   className={cn(
-                    "group relative p-6 rounded-2xl border cursor-pointer transition-all duration-300 flex flex-col gap-4 overflow-hidden",
+                    "solution-card group relative p-6 rounded-2xl border cursor-pointer transition-all duration-300 flex flex-col gap-4 overflow-hidden",
                     isActive
                       ? `bg-white dark:bg-white/[0.04] ${colorClasses[sol.id].borderActive} shadow-[0_12px_32px_rgba(15,23,42,0.08)] dark:shadow-[0_6px_30px_rgba(232,184,74,0.08)] -translate-y-1`
                       : "bg-white dark:bg-white/[0.015] border-[#EBE9E1] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:bg-white dark:hover:bg-white/[0.03] hover:border-[#EBE9E1]/80 dark:hover:border-white/[0.1] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-0.5"
@@ -937,7 +937,7 @@ function PricingContent() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: i * 0.06 }}
                         className={cn(
-                          "relative rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
+                          "pricing-card relative rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
                           plan.highlight
                             ? "bg-white dark:bg-white/[0.025] border-[#D4A017] dark:border-[#E8B84A]/35 shadow-[0_12px_32px_rgba(212,160,23,0.08)] dark:shadow-[0_12px_40px_rgba(232,184,74,0.08)] hover:border-[#D4A017] dark:hover:border-[#E8B84A]/60"
                             : (isMostPopular
@@ -958,12 +958,10 @@ function PricingContent() {
                         )}
 
                         <div className="relative z-10">
-                          <span className={cn(
-                            "text-[10px] font-black uppercase tracking-widest",
-                            plan.highlight ? "text-[#D4A017] dark:text-[#E8B84A]" : (isMostPopular ? "text-[#D4A017] dark:text-[#E8B84A]" : "text-[#6B7280] dark:text-white/30")
-                          )}>
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#111827] dark:text-white/30">
                             {plan.name}
                           </span>
+
 
                           {/* Price — animated on solution change */}
                           <AnimatePresence mode="wait">
@@ -996,11 +994,12 @@ function PricingContent() {
                               animate={{ opacity: 1 }}
                               exit={{ opacity: 0 }}
                               transition={{ duration: 0.25 }}
-                              className="text-[12px] text-[#4B5563] dark:text-white/38 leading-snug mb-6 font-normal"
+                              className="text-[12px] text-[#374151] dark:text-white/38 leading-snug mb-6 font-medium"
                             >
                               {meta.tagline}
                             </motion.p>
                           </AnimatePresence>
+
 
                           <div className="h-px bg-[#EBE9E1] dark:bg-white/[0.06] mb-6" />
 
@@ -1019,7 +1018,7 @@ function PricingContent() {
                               className="space-y-3"
                             >
                               {features.map((feat, fi) => (
-                                <li key={fi} className="flex items-start gap-2.5 text-[12.5px] text-[#4B5563] dark:text-white/60 font-medium">
+                                <li key={fi} className="flex items-start gap-2.5 text-[12.5px] text-[#374151] dark:text-white/60 font-medium">
                                   <Check
                                     className="w-3.5 h-3.5 shrink-0 mt-0.5"
                                     style={{ color: plan.highlight || isMostPopular ? "#D4A017" : "#6B7280" }}
@@ -1349,7 +1348,7 @@ function PricingContent() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: i * 0.06 }}
                   className={cn(
-                    "rounded-2xl border overflow-hidden transition-all duration-300",
+                    "faq-item rounded-2xl border overflow-hidden transition-all duration-300",
                     isOpen
                       ? "bg-white dark:bg-white/[0.025] border-[#D4A017]/40 dark:border-[#E8B84A]/25 shadow-[0_4px_16px_rgba(212,160,23,0.05)]"
                       : "bg-white dark:bg-white/[0.015] border-[#EBE9E1] dark:border-white/[0.05] shadow-sm hover:border-[#D1D5DB] dark:hover:border-white/[0.1] hover:bg-[#F9FAFB] dark:hover:bg-white/[0.01]"

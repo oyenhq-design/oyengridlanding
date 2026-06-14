@@ -353,95 +353,270 @@ html:not(.dark) .theme-light-section.py-32 {
 }
 
 
-/* Confident typography hierarchy and readability overrides in Light Mode */
+/* Readability-First Enterprise Typography System (Light Mode) */
+
+/* ─── HEADINGS ─── */
+/* Primary headings: #111827, font weight 800, strong visual presence */
 html:not(.dark) h1,
-html:not(.dark) h2,
-html:not(.dark) .hero-headline {
+html:not(.dark) .hero-headline,
+html:not(.dark) .text-5xl,
+html:not(.dark) .text-6xl,
+html:not(.dark) .text-7xl,
+html:not(.dark) .text-8xl,
+html:not(.dark) [class*="text-[4"],
+html:not(.dark) [class*="text-[52px]"],
+html:not(.dark) [class*="text-[62px]"],
+html:not(.dark) [class*="text-[68px]"],
+html:not(.dark) [class*="text-[78px]"] {
   color: #111827 !important;
   font-weight: 800 !important;
   letter-spacing: -0.04em !important;
+  opacity: 1 !important;
 }
 
+/* Secondary headings: #1F2937, font weight 700. Never use light gray. */
+html:not(.dark) h2,
 html:not(.dark) h3,
 html:not(.dark) h4,
 html:not(.dark) h5,
-html:not(.dark) h6 {
+html:not(.dark) h6,
+html:not(.dark) .text-2xl,
+html:not(.dark) .text-3xl,
+html:not(.dark) .text-4xl,
+html:not(.dark) [class*="text-[2"],
+html:not(.dark) [class*="text-[3"] {
   color: #1F2937 !important;
   font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  opacity: 1 !important;
 }
 
-/* Card titles always primary slate */
-html:not(.dark) .card-institutional h4,
-html:not(.dark) [class*="card"] h4,
-html:not(.dark) [class*="card"] .text-white {
-  color: #111827 !important;
+/* ─── GENERAL TEXT & OPACITY-BASED UTILITIES OVERRIDES ─── */
+/* Force absolute colors and weights. Avoid opacity-based text or low contrast. */
+html:not(.dark) .text-white {
+  color: #374151 !important; /* Default body text color for standard light elements */
+}
+html:not(.dark) h1.text-white,
+html:not(.dark) h2.text-white,
+html:not(.dark) h3.text-white,
+html:not(.dark) h4.text-white,
+html:not(.dark) h5.text-white,
+html:not(.dark) h6.text-white,
+html:not(.dark) .font-bold.text-white,
+html:not(.dark) .font-extrabold.text-white,
+html:not(.dark) .font-black.text-white,
+html:not(.dark) [class*="font-bold"].text-white,
+html:not(.dark) [class*="font-extrabold"].text-white,
+html:not(.dark) [class*="font-black"].text-white {
+  color: #111827 !important; /* Bold headers/numbers that had text-white should be dark gray */
 }
 
-/* Body Text overrides */
+/* Body Text overrides: #374151, font weight 500 */
 html:not(.dark) p,
 html:not(.dark) .text-editorial,
-html:not(.dark) .hero-paragraph {
-  color: #374151 !important;
-  font-weight: 450 !important; /* Premium semi-medium readability weight */
-  line-height: 1.625 !important;
-}
-
-/* Supporting text / Card descriptions / Secondary copy */
-html:not(.dark) .text-white\/40,
-html:not(.dark) .text-white\/45,
-html:not(.dark) .text-white\/50,
-html:not(.dark) .text-white\/55,
-html:not(.dark) .text-white\/60,
-html:not(.dark) .text-white\/70,
-html:not(.dark) .text-white\/75,
-html:not(.dark) .text-white\/80,
+html:not(.dark) .hero-paragraph,
+html:not(.dark) .text-base,
 html:not(.dark) .text-white\/90,
-html:not(.dark) .card-institutional p,
-html:not(.dark) [class*="card"] p,
-html:not(.dark) [class*="card"] [class*="text-white\/"] {
+html:not(.dark) .text-white\/85,
+html:not(.dark) .text-white\/80,
+html:not(.dark) .text-white\/75,
+html:not(.dark) .text-white\/70 {
+  color: #374151 !important;
+  font-weight: 500 !important;
+  line-height: 1.625 !important;
+  opacity: 1 !important;
+}
+
+/* Supporting text: #4B5563, font-weight 500 */
+html:not(.dark) .text-white\/60,
+html:not(.dark) .text-white\/55,
+html:not(.dark) .text-white\/50,
+html:not(.dark) .text-white\/45,
+html:not(.dark) .text-white\/40,
+html:not(.dark) .text-slate-300,
+html:not(.dark) .text-slate-400,
+html:not(.dark) .text-gray-300,
+html:not(.dark) .text-gray-400,
+html:not(.dark) .text-zinc-300,
+html:not(.dark) .text-zinc-400,
+html:not(.dark) .text-neutral-300,
+html:not(.dark) .text-neutral-400 {
   color: #4B5563 !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
 }
 
-/* Muted text / Secondary copy / Accent elements */
-html:not(.dark) .text-white\/10,
-html:not(.dark) .text-white\/15,
-html:not(.dark) .text-white\/20,
-html:not(.dark) .text-white\/22,
-html:not(.dark) .text-white\/25,
-html:not(.dark) .text-white\/30,
+/* Muted text: #6B7280 */
+html:not(.dark) .text-white\/38,
 html:not(.dark) .text-white\/35,
-html:not(.dark) .text-white\/38 {
+html:not(.dark) .text-white\/30,
+html:not(.dark) .text-white\/25,
+html:not(.dark) .text-white\/22,
+html:not(.dark) .text-white\/20,
+html:not(.dark) .text-white\/15,
+html:not(.dark) .text-white\/10,
+html:not(.dark) .text-slate-500,
+html:not(.dark) .text-slate-600,
+html:not(.dark) .text-gray-500,
+html:not(.dark) .text-gray-600,
+html:not(.dark) .text-zinc-500,
+html:not(.dark) .text-zinc-600,
+html:not(.dark) .text-neutral-500,
+html:not(.dark) .text-neutral-600 {
   color: #6B7280 !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
 }
 
-/* Section Labels / Eyebrows - daylight bronze/gold accent */
+/* Ban thin/light font weights in light mode to maximize legibility */
+html:not(.dark) .font-light,
+html:not(.dark) .font-thin,
+html:not(.dark) .font-extralight {
+  font-weight: 500 !important;
+}
+
+/* Section Labels / Eyebrows - highly readable bronze/gold accent */
 html:not(.dark) .eyebrow,
 html:not(.dark) [class*="eyebrow"] {
   color: #D4A017 !important;
-  font-weight: 700 !important;
+  font-weight: 750 !important;
   letter-spacing: 0.3em !important;
+  opacity: 1 !important;
 }
 
-/* Telemetry Metrics / Statistics */
-html:not(.dark) .hero-metric-item .number,
+/* Gold Accents high-readability mapping (No yellow text in light mode) */
+html:not(.dark) .text-\[\#E8B84A\],
+html:not(.dark) .text-brand-gold,
+html:not(.dark) .text-\[\#F5B942\],
+html:not(.dark) .text-brand-gold\/80,
+html:not(.dark) .text-brand-gold\/90,
+html:not(.dark) [class*="text-brand-gold"] {
+  color: #D4A017 !important;
+}
+
+/* ─── FEATURE LISTS ─── */
+/* All feature lists: #374151, font weight 500. Immediately readable. */
+html:not(.dark) ul,
+html:not(.dark) ol,
+html:not(.dark) li,
+html:not(.dark) li span,
+html:not(.dark) .feature-list,
+html:not(.dark) [class*="feature-list"] {
+  color: #374151 !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+}
+
+/* ─── STATISTICS / METRICS ─── */
+/* Numbers: #111827, font weight 800 */
 html:not(.dark) .number,
-html:not(.dark) [class*="metric"] [class*="number"] {
+html:not(.dark) [class*="number"],
+html:not(.dark) [class*="metric"] [class*="val"],
+html:not(.dark) [class*="metric"] [class*="text-[2"],
+html:not(.dark) [class*="metric"] [class*="text-[3"],
+html:not(.dark) [class*="metric"] [class*="text-[4"],
+html:not(.dark) .hero-metric-item .number,
+html:not(.dark) [class*="hero-metric"] [class*="number"] {
+  color: #111827 !important;
+  font-weight: 800 !important;
+  opacity: 1 !important;
+}
+/* Labels: #6B7280 */
+html:not(.dark) .label,
+html:not(.dark) [class*="label"],
+html:not(.dark) [class*="metric"] [class*="label"],
+html:not(.dark) [class*="metric"] [class*="text-[8px]"],
+html:not(.dark) [class*="metric"] [class*="text-[9px]"],
+html:not(.dark) .hero-metric-item .label,
+html:not(.dark) [class*="hero-metric"] [class*="label"] {
+  color: #6B7280 !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+}
+
+/* ─── PRICING CARDS ─── */
+/* Plan names: #111827, font weight 700 */
+html:not(.dark) .pricing-card span[class*="text-"],
+html:not(.dark) .pricing-card .plan-name {
   color: #111827 !important;
   font-weight: 700 !important;
 }
-
-html:not(.dark) .hero-metric-item .label,
-html:not(.dark) .label,
-html:not(.dark) [class*="metric"] .label {
-  color: #6B7280 !important;
-}
-
-/* Hover and active text states */
-html:not(.dark) [class*="hover:text-white"]:hover,
-html:not(.dark) [class*="group-hover:text-white"]:hover,
-html:not(.dark) .group:hover [class*="group-hover:text-white"] {
+/* Prices: #111827, font weight 800 */
+html:not(.dark) .pricing-card span[class*="font-extrabold"],
+html:not(.dark) .pricing-card [class*="text-[34px]"],
+html:not(.dark) .pricing-card [class*="text-[22px]"] {
   color: #111827 !important;
+  font-weight: 800 !important;
 }
+/* Descriptions: #374151 */
+html:not(.dark) .pricing-card p,
+html:not(.dark) .pricing-card [class*="tagline"] {
+  color: #374151 !important;
+  font-weight: 500 !important;
+}
+/* Features: #374151 */
+html:not(.dark) .pricing-card li,
+html:not(.dark) .pricing-card li span {
+  color: #374151 !important;
+  font-weight: 500 !important;
+}
+
+/* ─── SOLUTION CARDS ─── */
+/* Titles: #111827 */
+html:not(.dark) .solution-card h3,
+html:not(.dark) [class*="solution-card"] h3 {
+  color: #111827 !important;
+  font-weight: 700 !important;
+}
+/* Descriptions: #4B5563 */
+html:not(.dark) .solution-card p,
+html:not(.dark) [class*="solution-card"] p,
+html:not(.dark) [class*="solution-card"] .tagline {
+  color: #4B5563 !important;
+  font-weight: 500 !important;
+}
+/* Tags: #374151 */
+html:not(.dark) .solution-card span,
+html:not(.dark) [class*="solution-card"] span {
+  color: #374151 !important;
+  font-weight: 500 !important;
+  background-color: #F3EEE4 !important;
+  border-color: #E6E0D5 !important;
+}
+
+/* ─── FAQ ─── */
+/* Questions: #111827, font weight 600 */
+html:not(.dark) .faq-item button span,
+html:not(.dark) [class*="faq-item"] button span {
+  color: #111827 !important;
+  font-weight: 600 !important;
+}
+/* Answers: #4B5563 */
+html:not(.dark) .faq-item .px-6.pb-6,
+html:not(.dark) .faq-item [class*="pb-6"],
+html:not(.dark) [class*="faq-item"] [class*="pb-"] {
+  color: #4B5563 !important;
+  font-weight: 500 !important;
+}
+
+/* ─── GLOBAL OPACITY AND TEXT SAFEGUARDS ─── */
+/* Ensure all key typography tags have full opacity in light mode (no faded text) */
+html:not(.dark) h1, html:not(.dark) h2, html:not(.dark) h3, html:not(.dark) h4, html:not(.dark) h5, html:not(.dark) h6,
+html:not(.dark) p, html:not(.dark) span, html:not(.dark) a, html:not(.dark) button, html:not(.dark) li, html:not(.dark) td, html:not(.dark) th,
+html:not(.dark) label, html:not(.dark) input, html:not(.dark) textarea {
+  opacity: 1 !important;
+}
+
+/* Prevent opacity utilities on text tags */
+html:not(.dark) .opacity-40,
+html:not(.dark) .opacity-50,
+html:not(.dark) .opacity-60,
+html:not(.dark) .opacity-70,
+html:not(.dark) .opacity-80,
+html:not(.dark) .opacity-90 {
+  opacity: 1 !important;
+}
+
 
 
 /* Border overrides inside light sections */
@@ -463,7 +638,10 @@ html:not(.dark) .border-white\/25,
 html:not(.dark) .border-white\/30,
 html:not(.dark) .border-white\/45,
 html:not(.dark) .border-b.border-white\/5,
-html:not(.dark) .border-t.border-white\/5 {
+html:not(.dark) .border-t.border-white\/5,
+html:not(.dark) [class*="border-white/"],
+html:not(.dark) [class*="border-white\\["],
+html:not(.dark) [class*="border-white/["] {
   border-color: #E6E0D5 !important;
 }
 
@@ -478,11 +656,38 @@ html:not(.dark) .bg-white\/\[0\.06\],
 html:not(.dark) .bg-white\/\[0\.07\],
 html:not(.dark) .bg-white\/5,
 html:not(.dark) .bg-white\/10,
+html:not(.dark) .bg-white\/15,
+html:not(.dark) .bg-white\/20,
 html:not(.dark) .bg-slate-950\/40,
 html:not(.dark) .bg-slate-950\/85,
+html:not(.dark) .bg-slate-950\/45,
 html:not(.dark) .bg-\[\#0c1020\]\/90,
 html:not(.dark) .bg-\[\#080B14\]\/70,
 html:not(.dark) .bg-\[\#0a0e1c\]\/45,
+html:not(.dark) [class*="bg-[#0"],
+html:not(.dark) [class*="bg-[#1"],
+html:not(.dark) [class*="bg-[#2a"],
+html:not(.dark) [class*="bg-[#2d"],
+html:not(.dark) [class*="bg-[#2e"],
+html:not(.dark) [class*="bg-[#2f"],
+html:not(.dark) [class*="bg-slate-9"],
+html:not(.dark) [class*="bg-zinc-9"],
+html:not(.dark) [class*="bg-neutral-9"],
+html:not(.dark) [class*="bg-gray-9"],
+html:not(.dark) [class*="bg-[#0c1020]"],
+html:not(.dark) [class*="bg-[#080B14]"],
+html:not(.dark) [class*="bg-[#0c1018]"],
+html:not(.dark) [class*="bg-[#0C1018]"],
+html:not(.dark) [class*="bg-[#0a0d14]"],
+html:not(.dark) [class*="bg-[#0A0D14]"],
+html:not(.dark) [class*="bg-[#0A0E18]"],
+html:not(.dark) [class*="bg-[#0a0e18]"],
+html:not(.dark) [class*="bg-white/\\["],
+html:not(.dark) [class*="bg-slate-950/40"],
+html:not(.dark) [class*="bg-slate-950/85"],
+html:not(.dark) [class*="bg-slate-950/45"],
+html:not(.dark) [class*="bg-\\[\\#0c1020\\]"],
+html:not(.dark) [class*="bg-\\[\\#080B14\\]"],
 html:not(.dark) .bg-gradient-to-br.from-\[\#040816\]\/80 {
   background-color: #FFFFFF !important;
   background-image: none !important;
@@ -504,7 +709,14 @@ html:not(.dark) .bg-slate-950\/40:hover,
 html:not(.dark) .bg-slate-950\/85:hover,
 html:not(.dark) .bg-\[\#0c1020\]\/90:hover,
 html:not(.dark) .bg-\[\#080B14\]\/70:hover,
-html:not(.dark) .bg-\[\#0a0e1c\]\/45:hover {
+html:not(.dark) .bg-\[\#0a0e1c\]\/45:hover,
+html:not(.dark) [class*="bg-[#0"]:hover,
+html:not(.dark) [class*="bg-[#1"]:hover,
+html:not(.dark) [class*="bg-white/\\["].hover\:bg-white\/\\:hover,
+html:not(.dark) [class*="bg-slate-950/40"]:hover,
+html:not(.dark) [class*="bg-slate-950/85"]:hover,
+html:not(.dark) [class*="bg-\\[\\#0c1020\\]"]:hover,
+html:not(.dark) [class*="bg-\\[\\#080B14\\]"]:hover {
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
   border-color: #D1C9BC !important;
   transform: translateY(-2px) !important;
@@ -513,8 +725,12 @@ html:not(.dark) .bg-\[\#0a0e1c\]\/45:hover {
 
 /* Gold branding accents preserved but clean */
 html:not(.dark) .text-\[\#E8B84A\],
-html:not(.dark) .text-brand-gold {
-  color: #F5B942 !important;
+html:not(.dark) .text-brand-gold,
+html:not(.dark) .text-\[\#F5B942\],
+html:not(.dark) .text-brand-gold\/80,
+html:not(.dark) .text-brand-gold\/90,
+html:not(.dark) [class*="text-brand-gold"] {
+  color: #D4A017 !important;
 }
 
 /* Header capsule and buttons */
@@ -553,7 +769,7 @@ html:not(.dark) .relative.pt-\[94px\] span {
   color: #475569 !important;
 }
 html:not(.dark) .relative.pt-\[94px\] a {
-  color: #F5B942 !important;
+  color: #D4A017 !important;
 }
 html:not(.dark) .relative.pt-\[94px\] a:hover {
   color: #D97706 !important;
