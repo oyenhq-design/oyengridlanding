@@ -244,13 +244,6 @@ export function Header() {
                 <span className="text-[10px]">🌙</span> Dark
               </button>
             </div>
-
-            <Link 
-              href="/pricing" 
-              className="inline-flex items-center justify-center h-[24px] px-3.5 rounded-full bg-[#E8B84A] text-black text-[10px] font-black uppercase tracking-wider transition-all duration-300 hover:bg-[#FFCF68] hover:shadow-[0_4px_12px_rgba(232,184,74,0.3)] hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Get Started
-            </Link>
           </div>
         </div>
       </div>
