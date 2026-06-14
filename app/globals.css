@@ -575,10 +575,10 @@ html:not(.dark) [class*="solution-card"] .tagline {
   color: #4B5563 !important;
   font-weight: 500 !important;
 }
-/* Tags: #374151 */
+/* Tags: #4B5563 */
 html:not(.dark) .solution-card span,
 html:not(.dark) [class*="solution-card"] span {
-  color: #374151 !important;
+  color: #4B5563 !important;
   font-weight: 500 !important;
   background-color: #F3EEE4 !important;
   border-color: #E6E0D5 !important;
@@ -615,6 +615,13 @@ html:not(.dark) .opacity-70,
 html:not(.dark) .opacity-80,
 html:not(.dark) .opacity-90 {
   opacity: 1 !important;
+}
+
+/* Force pricing cards check icons to use readable OYEN Gold in light mode */
+html:not(.dark) .pricing-card li svg,
+html:not(.dark) .pricing-card li svg path {
+  color: #D4A017 !important;
+  stroke: #D4A017 !important;
 }
 
 

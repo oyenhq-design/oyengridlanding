@@ -509,6 +509,7 @@ const getThemeColor = (color: string) => {
   if (color === "#E8B84A") return "text-[#D4A017] dark:text-[#E8B84A]";
   if (color === "#a78bfa") return "text-[#7c3aed] dark:text-[#a78bfa]";
   if (color === "#34d399") return "text-[#059669] dark:text-[#34d399]";
+  if (color === "#f97316") return "text-[#ea580c] dark:text-[#f97316]";
   return "text-[#6B7280] dark:text-white/40";
 };
 
@@ -517,6 +518,7 @@ const getThemeBgColor = (color: string) => {
   if (color === "#E8B84A") return "bg-[#D4A017]/10 dark:bg-[#E8B84A]/10";
   if (color === "#a78bfa") return "bg-[#7c3aed]/10 dark:bg-[#a78bfa]/10";
   if (color === "#34d399") return "bg-[#059669]/10 dark:bg-[#34d399]/10";
+  if (color === "#f97316") return "bg-[#ea580c]/10 dark:bg-[#f97316]/10";
   return "bg-[#F3F4F6] dark:bg-white/[0.05]";
 };
 
@@ -525,6 +527,7 @@ const getThemeBorderColor = (color: string) => {
   if (color === "#E8B84A") return "border-[#D4A017]/20 dark:border-[#E8B84A]/20";
   if (color === "#a78bfa") return "border-[#7c3aed]/20 dark:border-[#a78bfa]/20";
   if (color === "#34d399") return "border-[#059669]/20 dark:border-[#34d399]/20";
+  if (color === "#f97316") return "border-[#ea580c]/20 dark:border-[#f97316]/20";
   return "border-transparent";
 };
 
@@ -613,9 +616,9 @@ function PricingContent() {
               </span>
             </h1>
 
-            <p className="text-[17px] md:text-[19px] text-[#4B5563] dark:text-white/55 leading-relaxed font-normal max-w-2xl mx-auto mb-10">
+            <p className="text-[17px] md:text-[19px] text-[#374151] dark:text-white/70 leading-[1.6] font-medium max-w-2xl mx-auto mb-10">
               Choose the solution that matches your organization. Whether you&apos;re running bootcamps, managing educational institutions, hosting events, or coordinating enterprise operations,{" "}
-              <span className="text-[#1F2937] dark:text-white/80 font-semibold">OYEN GRID scales with your needs.</span>
+              <span className="text-[#1F2937] dark:text-white/90 font-semibold">OYEN GRID scales with your needs.</span>
             </p>
 
             <div className="flex items-center justify-center flex-wrap gap-x-6 gap-y-3 text-[11px] font-semibold text-[#6B7280] dark:text-white/45 tracking-widest uppercase mb-10">
@@ -671,10 +674,10 @@ function PricingContent() {
             <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
               Personalized View
             </span>
-            <h2 className="text-[28px] md:text-[36px] font-bold text-[#111827] dark:text-white tracking-tight mb-3">
+            <h2 className="text-[28px] md:text-[36px] font-bold text-[#1F2937] dark:text-white tracking-tight mb-3">
               Choose Your Solution
             </h2>
-            <p className="text-[14.5px] text-[#4B5563] dark:text-white/45 max-w-lg mx-auto leading-relaxed">
+            <p className="text-[14.5px] text-[#374151] dark:text-white/70 max-w-lg mx-auto leading-[1.6] font-medium">
               Select your organization type — pricing content and feature descriptions update instantly.
             </p>
           </motion.div>
@@ -694,8 +697,8 @@ function PricingContent() {
                   className={cn(
                     "solution-card group relative p-6 rounded-2xl border cursor-pointer transition-all duration-300 flex flex-col gap-4 overflow-hidden",
                     isActive
-                      ? `bg-white dark:bg-white/[0.04] ${colorClasses[sol.id].borderActive} shadow-[0_12px_32px_rgba(15,23,42,0.08)] dark:shadow-[0_6px_30px_rgba(232,184,74,0.08)] -translate-y-1`
-                      : "bg-white dark:bg-white/[0.015] border-[#EBE9E1] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:bg-white dark:hover:bg-white/[0.03] hover:border-[#EBE9E1]/80 dark:hover:border-white/[0.1] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-0.5"
+                      ? `active-solution-card bg-white dark:bg-white/[0.04] border-2 ${colorClasses[sol.id].borderActive} shadow-[0_16px_36px_rgba(15,23,42,0.12)] dark:shadow-[0_6px_30px_rgba(232,184,74,0.08)] -translate-y-1`
+                      : "bg-white dark:bg-white/[0.015] border-[#E5E7EB] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:bg-white dark:hover:bg-white/[0.03] hover:border-[#E5E7EB]/80 dark:hover:border-white/[0.1] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-0.5"
                   )}
                 >
                   {isActive && (
@@ -722,15 +725,10 @@ function PricingContent() {
                   </div>
 
                   <div className="relative z-10">
-                    <h3
-                      className={cn(
-                        "text-[15px] font-bold tracking-tight mb-2 transition-colors",
-                        isActive ? colorClasses[sol.id].text : "text-[#111827] dark:text-white"
-                      )}
-                    >
+                    <h3 className="text-[15px] font-bold text-[#111827] dark:text-white tracking-tight mb-2 transition-colors">
                       {sol.title}
                     </h3>
-                    <p className="text-[12px] text-[#4B5563] dark:text-white/35 leading-snug mb-3 font-normal">
+                    <p className="text-[12px] text-[#374151] dark:text-white/70 leading-[1.6] mb-3 font-medium">
                       {sol.tagline}
                     </p>
                     <div className="flex flex-wrap gap-1.5">
@@ -738,10 +736,10 @@ function PricingContent() {
                         <span
                           key={a}
                           className={cn(
-                            "text-[9.5px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border transition-all",
+                            "text-[9.5px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full border transition-all",
                             isActive
-                              ? `${colorClasses[sol.id].text} ${colorClasses[sol.id].bg} ${colorClasses[sol.id].border}`
-                              : "bg-[#F3F4F6] dark:bg-white/[0.04] border-transparent text-[#6B7280] dark:text-white/25"
+                              ? `text-[#4B5563] dark:text-white/80 ${colorClasses[sol.id].bg} ${colorClasses[sol.id].border}`
+                              : "bg-[#F3F4F6] dark:bg-white/[0.04] border-transparent text-[#4B5563] dark:text-white/50"
                           )}
                         >
                           {a}
@@ -915,10 +913,10 @@ function PricingContent() {
                   <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
                     Plan Options
                   </span>
-                  <h2 className="text-[30px] md:text-[40px] font-bold text-[#111827] dark:text-white tracking-tight mb-3">
+                  <h2 className="text-[30px] md:text-[40px] font-bold text-[#1F2937] dark:text-white tracking-tight mb-3">
                     Flexible tiers for any scale
                   </h2>
-                  <p className="text-[14.5px] text-[#4B5563] dark:text-white/45">
+                  <p className="text-[14.5px] text-[#4B5563] dark:text-white/60 font-medium">
                     Feature descriptions adapt to your selected solution.
                   </p>
                 </div>
@@ -958,7 +956,7 @@ function PricingContent() {
                         )}
 
                         <div className="relative z-10">
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#111827] dark:text-white/30">
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#111827] dark:text-white">
                             {plan.name}
                           </span>
 
@@ -980,7 +978,7 @@ function PricingContent() {
                                 {meta.price}
                               </span>
                               {meta.period && (
-                                <span className="text-[12px] text-[#6B7280] dark:text-white/35 font-medium">
+                                <span className="text-[12px] text-[#6B7280] dark:text-white/50 font-medium">
                                   {meta.period}
                                 </span>
                               )}
@@ -994,7 +992,7 @@ function PricingContent() {
                               animate={{ opacity: 1 }}
                               exit={{ opacity: 0 }}
                               transition={{ duration: 0.25 }}
-                              className="text-[12px] text-[#374151] dark:text-white/38 leading-snug mb-6 font-medium"
+                              className="text-[12px] text-[#374151] dark:text-white/70 leading-[1.6] mb-6 font-medium"
                             >
                               {meta.tagline}
                             </motion.p>
@@ -1003,7 +1001,7 @@ function PricingContent() {
 
                           <div className="h-px bg-[#EBE9E1] dark:bg-white/[0.06] mb-6" />
 
-                          <h4 className="text-[9.5px] font-black tracking-widest text-[#6B7280] dark:text-white/20 uppercase mb-4">
+                          <h4 className="text-[9.5px] font-bold tracking-widest text-[#4B5563] dark:text-white/60 uppercase mb-4">
                             {plan.planLabel}
                           </h4>
 
@@ -1018,10 +1016,9 @@ function PricingContent() {
                               className="space-y-3"
                             >
                               {features.map((feat, fi) => (
-                                <li key={fi} className="flex items-start gap-2.5 text-[12.5px] text-[#374151] dark:text-white/60 font-medium">
+                                <li key={fi} className="flex items-start gap-2.5 text-[12.5px] text-[#374151] dark:text-white/85 font-medium">
                                   <Check
-                                    className="w-3.5 h-3.5 shrink-0 mt-0.5"
-                                    style={{ color: plan.highlight || isMostPopular ? "#D4A017" : "#6B7280" }}
+                                    className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#D4A017] dark:text-[#E8B84A]"
                                   />
                                   <span>{feat}</span>
                                 </li>
@@ -1081,10 +1078,10 @@ function PricingContent() {
                 <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
                   Intelligence Allocation
                 </span>
-                <h2 className="text-[28px] md:text-[38px] font-bold text-[#111827] dark:text-white tracking-tight mb-3">
+                <h2 className="text-[28px] md:text-[38px] font-bold text-[#1F2937] dark:text-white tracking-tight mb-3">
                   AI Coordination Credits by Plan
                 </h2>
-                <p className="text-[14.5px] text-[#4B5563] dark:text-white/45 max-w-md mx-auto leading-relaxed">
+                <p className="text-[14.5px] text-[#4B5563] dark:text-white/60 max-w-md mx-auto leading-[1.6] font-medium">
                   Each plan unlocks a different tier of AI capabilities — from basic summaries to full operational intelligence.
                 </p>
               </motion.div>
@@ -1129,14 +1126,14 @@ function PricingContent() {
                         <h4 className="text-[14.5px] font-bold text-[#111827] dark:text-white tracking-tight mb-2">
                           {tier.title}
                         </h4>
-                        <p className="text-[12.5px] text-[#4B5563] dark:text-white/40 leading-snug mb-5">
+                        <p className="text-[12.5px] text-[#374151] dark:text-white/70 leading-[1.6] mb-5 font-medium">
                           {tier.desc}
                         </p>
 
                         <div className="mb-5">
                           <div className="flex items-center justify-between mb-2">
-                            <span className="text-[9.5px] font-bold text-[#6B7280] dark:text-white/30 uppercase tracking-wider">AI Level</span>
-                            <span className={cn("text-[11px] font-black", getThemeColor(tier.color))}>
+                            <span className="text-[9.5px] font-bold text-[#4B5563] dark:text-white/60 uppercase tracking-wider">AI Level</span>
+                            <span className="text-[11px] font-extrabold text-[#111827] dark:text-white">
                               {tier.level === 100 ? "Max" : `${tier.level}%`}
                             </span>
                           </div>
@@ -1153,7 +1150,7 @@ function PricingContent() {
 
                         <div className="space-y-2 pt-4 border-t border-[#EBE9E1] dark:border-white/[0.05]">
                           {tier.features.map((feat, fi) => (
-                            <div key={fi} className="flex items-center gap-2 text-[12px] text-[#4B5563] dark:text-white/55 font-medium">
+                            <div key={fi} className="flex items-center gap-2 text-[12px] text-[#374151] dark:text-white/70 font-medium">
                               <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: tier.color }} />
                               <span>{feat}</span>
                             </div>
@@ -1193,10 +1190,10 @@ function PricingContent() {
                 <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
                   Comparison
                 </span>
-                <h2 className="text-[28px] md:text-[38px] font-bold text-[#111827] dark:text-white tracking-tight mb-3">
+                <h2 className="text-[28px] md:text-[38px] font-bold text-[#1F2937] dark:text-white tracking-tight mb-3">
                   Compare plan capabilities
                 </h2>
-                <p className="text-[14.5px] text-[#4B5563] dark:text-white/45">
+                <p className="text-[14.5px] text-[#4B5563] dark:text-white/60 font-medium">
                   A full side-by-side overview to help you choose the right tier.
                 </p>
               </motion.div>
@@ -1206,7 +1203,7 @@ function PricingContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="w-full overflow-x-auto rounded-2xl border border-[#EBE9E1] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none"
+                className="w-full overflow-x-auto rounded-2xl border border-[#D9D4C8] dark:border-white/[0.06] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none"
               >
                 <AnimatePresence mode="wait">
                   <motion.table
@@ -1218,17 +1215,17 @@ function PricingContent() {
                     className="w-full min-w-[750px] text-left border-collapse bg-white dark:bg-white/[0.01]"
                   >
                     <thead>
-                      <tr className="border-b border-[#EBE9E1] dark:border-white/[0.06] bg-[#F9FAFB] dark:bg-white/[0.02]">
-                        <th className="p-6 text-[11px] font-black text-[#111827] dark:text-white/50 tracking-widest uppercase w-[28%]">
+                      <tr className="border-b border-[#D9D4C8] dark:border-white/[0.06] bg-[#F9FAFB] dark:bg-white/[0.02]">
+                        <th className="py-8 px-6 text-[12px] font-bold text-[#111827] dark:text-white tracking-widest uppercase w-[28%]">
                           Capability
                         </th>
-                        <th className="p-6 text-[11px] font-black text-[#111827] dark:text-white/50 tracking-widest uppercase">Basic</th>
-                        <th className="p-6 text-[11px] font-black text-[#111827] dark:text-white/50 tracking-widest uppercase">Standard</th>
-                        <th className="p-6 text-[11px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-widest uppercase bg-[#D4A017]/5 dark:bg-[#E8B84A]/5">★ Premium</th>
-                        <th className="p-6 text-[11px] font-black text-[#111827] dark:text-white/50 tracking-widest uppercase">Premium+</th>
+                        <th className="py-8 px-6 text-[12px] font-bold text-[#111827] dark:text-white tracking-widest uppercase">Basic</th>
+                        <th className="py-8 px-6 text-[12px] font-bold text-[#111827] dark:text-white tracking-widest uppercase">Standard</th>
+                        <th className="py-8 px-6 text-[12px] font-bold text-[#D4A017] dark:text-[#E8B84A] tracking-widest uppercase bg-[#D4A017]/5 dark:bg-[#E8B84A]/5">★ Premium</th>
+                        <th className="py-8 px-6 text-[12px] font-bold text-[#111827] dark:text-white tracking-widest uppercase">Premium+</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-[#EBE9E1] dark:divide-white/[0.04]">
+                    <tbody className="divide-y divide-[#D9D4C8] dark:divide-white/[0.04]">
                       {currentTable.map((row, i) => (
                         <motion.tr
                           key={`${selectedSolution}-row-${i}`}
@@ -1237,11 +1234,11 @@ function PricingContent() {
                           transition={{ duration: 0.3, delay: i * 0.03 }}
                           className="hover:bg-[#F9FAFB] dark:hover:bg-white/[0.012] transition-colors"
                         >
-                          <td className="p-6 text-[13.5px] font-bold text-[#111827] dark:text-white">{row.feature}</td>
-                          <td className="p-6 text-[13px] text-[#4B5563] dark:text-white/50 font-medium">{row.basic}</td>
-                          <td className="p-6 text-[13px] text-[#4B5563] dark:text-white/50 font-medium">{row.standard}</td>
-                          <td className="p-6 text-[13px] text-[#111827] dark:text-white font-semibold bg-[#D4A017]/5 dark:bg-[#E8B84A]/3">{row.premium}</td>
-                          <td className="p-6 text-[13px] font-bold text-[#D4A017] dark:text-[#E8B84A]">{row.plus}</td>
+                          <td className="py-8 px-6 text-[13.5px] font-bold text-[#111827] dark:text-white">{row.feature}</td>
+                          <td className="py-8 px-6 text-[13px] text-[#374151] dark:text-white/70 font-medium">{row.basic}</td>
+                          <td className="py-8 px-6 text-[13px] text-[#374151] dark:text-white/70 font-medium">{row.standard}</td>
+                          <td className="py-8 px-6 text-[13px] text-[#111827] dark:text-white font-semibold bg-[#D4A017]/5 dark:bg-[#E8B84A]/3">{row.premium}</td>
+                          <td className="py-8 px-6 text-[13px] font-bold text-[#D4A017] dark:text-[#E8B84A]">{row.plus}</td>
                         </motion.tr>
                       ))}
                     </tbody>
@@ -1272,10 +1269,10 @@ function PricingContent() {
             <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
               Institutional Grade
             </span>
-            <h2 className="text-[28px] md:text-[38px] font-bold text-[#111827] dark:text-white tracking-tight mb-3">
+            <h2 className="text-[28px] md:text-[38px] font-bold text-[#1F2937] dark:text-white tracking-tight mb-3">
               Enterprise Infrastructure
             </h2>
-            <p className="text-[14.5px] text-[#4B5563] dark:text-white/45 max-w-md mx-auto leading-relaxed">
+            <p className="text-[14.5px] text-[#4B5563] dark:text-white/60 max-w-md mx-auto leading-[1.6] font-medium">
               Built to meet the standards of the world&apos;s most demanding organizations.
             </p>
           </motion.div>
@@ -1290,7 +1287,7 @@ function PricingContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.07 }}
-                  className="relative p-7 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#EBE9E1] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.08)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(15,23,42,0.12)] dark:hover:shadow-none transition-all group overflow-hidden"
+                  className="relative p-7 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#E6E0D5] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.08)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(15,23,42,0.12)] dark:hover:shadow-none transition-all group overflow-hidden"
                 >
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -1307,7 +1304,7 @@ function PricingContent() {
                   <h3 className="text-[15.5px] font-bold text-[#111827] dark:text-white tracking-tight mb-2 relative z-10">
                     {item.title}
                   </h3>
-                  <p className="text-[13px] text-[#4B5563] dark:text-white/40 leading-relaxed relative z-10 font-normal">
+                  <p className="text-[13px] text-[#374151] dark:text-white/70 leading-[1.6] relative z-10 font-medium">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -1332,7 +1329,7 @@ function PricingContent() {
             <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
               FAQ
             </span>
-            <h2 className="text-[28px] md:text-[38px] font-bold text-[#111827] dark:text-white tracking-tight">
+            <h2 className="text-[28px] md:text-[38px] font-bold text-[#1F2937] dark:text-white tracking-tight">
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -1351,7 +1348,7 @@ function PricingContent() {
                     "faq-item rounded-2xl border overflow-hidden transition-all duration-300",
                     isOpen
                       ? "bg-white dark:bg-white/[0.025] border-[#D4A017]/40 dark:border-[#E8B84A]/25 shadow-[0_4px_16px_rgba(212,160,23,0.05)]"
-                      : "bg-white dark:bg-white/[0.015] border-[#EBE9E1] dark:border-white/[0.05] shadow-sm hover:border-[#D1D5DB] dark:hover:border-white/[0.1] hover:bg-[#F9FAFB] dark:hover:bg-white/[0.01]"
+                      : "bg-white dark:bg-white/[0.015] border-[#E5E7EB] dark:border-white/[0.05] shadow-sm hover:border-[#D1D5DB] dark:hover:border-white/[0.1] hover:bg-[#F9FAFB] dark:hover:bg-white/[0.01]"
                   )}
                 >
                   <button
@@ -1361,9 +1358,9 @@ function PricingContent() {
                     aria-expanded={isOpen}
                   >
                     <span className={cn(
-                      "text-[14.5px] font-bold tracking-tight transition-colors pr-4",
+                      "text-[14.5px] font-semibold tracking-tight transition-colors pr-4",
                       isOpen
-                        ? "text-[#D4A017] dark:text-[#E8B84A]"
+                        ? "text-[#111827] dark:text-white"
                         : "text-[#111827] dark:text-white group-hover:text-[#D4A017] dark:group-hover:text-[#E8B84A]"
                     )}>
                       {faq.q}
@@ -1371,7 +1368,7 @@ function PricingContent() {
                     <ChevronDown
                       className={cn(
                         "w-4 h-4 transition-all duration-300 shrink-0",
-                        isOpen ? "rotate-180 text-[#D4A017] dark:text-[#E8B84A]" : "text-[#9CA3AF] dark:text-white/25"
+                        isOpen ? "rotate-180 text-[#D4A017] dark:text-[#E8B84A]" : "text-[#9CA3AF] dark:text-white/50"
                       )}
                     />
                   </button>
@@ -1385,7 +1382,7 @@ function PricingContent() {
                         transition={{ duration: 0.32, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 pt-1 text-[13.5px] text-[#4B5563] dark:text-white/48 leading-relaxed border-t border-[#EBE9E1] dark:border-white/[0.05] font-normal">
+                        <div className="px-6 pb-6 pt-1 text-[13.5px] text-[#4B5563] dark:text-white/70 leading-relaxed border-t border-[#E5E7EB] dark:border-white/[0.05] font-medium">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -1432,21 +1429,21 @@ function PricingContent() {
             </div>
 
             <h2 className="text-[42px] md:text-[62px] font-extrabold text-[#111827] dark:text-white leading-[0.95] tracking-[-0.05em] mb-8">
-              Ready to coordinate your{" "}
+              Ready to coordinate and{" "}
               <br className="hidden md:block" />
               <span className="text-[#D4A017] dark:text-[#E8B84A] italic font-serif font-medium">
-                organization at scale?
+                scale your entire ecosystem?
               </span>
             </h2>
 
-            <p className="text-[15px] md:text-[17px] text-[#4B5563] dark:text-white/45 leading-relaxed mb-12 max-w-xl mx-auto font-normal">
-              Join leading academies, event organizers, and institutions using OYEN GRID for institutional sync and live operational coordination.
+            <p className="text-[15px] md:text-[17px] text-[#374151] dark:text-white/70 leading-[1.6] mb-12 max-w-2xl mx-auto font-medium">
+              Join leading organizations using OYEN GRID to manage programmes, participants, learning, events, training, and institutional operations from one platform.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
               <Link
                 href="/pricing/premium"
-                className="group px-10 rounded-[14px] bg-[#E8B84A] text-black font-black text-[13px] uppercase tracking-wider flex items-center gap-2.5 hover:bg-[#FFCF68] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_12px_32px_rgba(232,184,74,0.22)]"
+                className="group px-10 rounded-[14px] bg-[#D4A017] text-black font-black text-[13px] uppercase tracking-wider flex items-center gap-2.5 hover:bg-[#E5B228] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_12px_32px_rgba(212,160,23,0.18)]"
                 style={{ height: "52px" }}
               >
                 Start Free
@@ -1454,28 +1451,28 @@ function PricingContent() {
               </Link>
               <Link
                 href="/pricing/enterprise"
-                className="h-[52px] px-10 rounded-[14px] border border-white/10 bg-white/[0.03] backdrop-blur-xl text-white font-bold text-[13px] hover:bg-white/[0.07] hover:border-white/20 transition-all flex items-center gap-2.5 uppercase tracking-wider"
+                className="h-[52px] px-10 rounded-[14px] border border-[#EBE9E1] dark:border-white/10 bg-white dark:bg-white/[0.03] text-[#111827] dark:text-white font-bold text-[13px] hover:bg-[#F9FAFB] dark:hover:bg-white/[0.07] hover:border-[#D1D5DB] transition-all flex items-center gap-2.5 uppercase tracking-wider"
               >
-                Talk to Sales
-                <ArrowUpRight className="w-3.5 h-3.5 opacity-50" />
+                Contact Sales
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
               </Link>
             </div>
 
-            <div className="mt-16 pt-10 border-t border-white/[0.05] grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+            <div className="mt-16 pt-10 border-t border-[#EBE9E1] dark:border-white/[0.05] grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
               {[
-                { icon: Globe,       label: "Global Nodes", val: "SYNCED"  },
-                { icon: ShieldCheck, label: "Security",     val: "ACTIVE"  },
-                { icon: Activity,    label: "Latency",      val: "0.8ms"   },
-                { icon: Zap,         label: "Status",       val: "NOMINAL" },
+                { icon: Users,       label: "Organizations",      val: "2,400+" },
+                { icon: Globe,       label: "Participants",       val: "6.4M+"  },
+                { icon: Clock,       label: "On-Time Delivery",   val: "98.6%"  },
+                { icon: ShieldCheck, label: "Countries",          val: "120+"   },
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (
                   <div key={i} className="flex flex-col items-center gap-2">
-                    <div className="w-9 h-9 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-center mb-1">
-                      <Icon className="w-4 h-4 text-white/20" />
+                    <div className="w-9 h-9 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center mb-1">
+                      <Icon className="w-4 h-4 text-[#4B5563] dark:text-white/40" />
                     </div>
-                    <span className="text-[9.5px] font-black text-white/30 uppercase tracking-[0.25em]">{item.label}</span>
-                    <span className="text-[12px] font-bold text-[#E8B84A] tracking-widest">{item.val}</span>
+                    <span className="text-[9.5px] font-semibold text-[#6B7280] dark:text-white/50 uppercase tracking-[0.25em]">{item.label}</span>
+                    <span className="text-[14px] font-extrabold text-[#111827] dark:text-white tracking-widest">{item.val}</span>
                   </div>
                 );
               })}
@@ -1484,7 +1481,7 @@ function PricingContent() {
         </div>
       </section>
 
-      <FooterPremium />
+      <FooterPremium hideCTA={true} />
     </main>
   );
 }

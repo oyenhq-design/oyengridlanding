@@ -59,7 +59,7 @@ export default function Home() {
           <FinalCTA />
 
           {/* 9. INSTITUTIONAL FOOTER */}
-          <FooterPremium />
+          <FooterPremium hideCTA={true} />
         </div>
       </div>
 

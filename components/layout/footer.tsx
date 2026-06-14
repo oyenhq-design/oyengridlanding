@@ -95,7 +95,11 @@ const fadeUp = {
 
 // ─── Component ─────────────────────────────────────────────────────────────
 
-export function FooterPremium() {
+interface FooterPremiumProps {
+  hideCTA?: boolean;
+}
+
+export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
   return (
     <footer className="relative bg-[#FAF9F6] dark:bg-[#050B1A] border-t border-[#EBE9E1] dark:border-transparent overflow-hidden">
 
@@ -147,66 +151,68 @@ export function FooterPremium() {
       {/* ══════════════════════════════════════════════════════════════════
           CTA SECTION
       ══════════════════════════════════════════════════════════════════ */}
-      <div className="relative z-10 pt-24 pb-20 px-6">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          className="max-w-[760px] mx-auto text-center flex flex-col items-center gap-7"
-        >
-          {/* Gold pill badge */}
-          <motion.div variants={fadeUp}>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4A017]/20 dark:border-[#F5B942]/20 bg-[#D4A017]/[0.06] dark:bg-[#F5B942]/[0.06] backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D4A017] dark:bg-[#F5B942] shadow-[0_0_8px_rgba(212,160,23,0.5)] dark:shadow-[0_0_8px_#F5B942] animate-pulse" />
-              <span className="text-[10px] font-black text-[#D4A017] dark:text-[#F5B942] tracking-[0.28em] uppercase">
-                Ready to Transform
-              </span>
-            </span>
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h2
-            variants={fadeUp}
-            className="text-[38px] sm:text-[52px] md:text-[60px] font-bold text-[#111827] dark:text-white leading-[1.04] tracking-[-0.04em]"
-          >
-            Ready to orchestrate your{" "}
-            <br className="hidden sm:block" />
-            <span className="text-[#D4A017] dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-[#F5B942] dark:via-[#FFCF68] dark:to-[#E8A830]">
-              entire ecosystem?
-            </span>
-          </motion.h2>
-
-          {/* Supporting text */}
-          <motion.p
-            variants={fadeUp}
-            className="text-[16px] text-[#4B5563] dark:text-white/45 leading-relaxed max-w-[520px] font-normal"
-          >
-            Join leading organizations driving impact at scale through intelligent programme operations.
-          </motion.p>
-
-          {/* CTA Buttons */}
+      {!hideCTA && (
+        <div className="relative z-10 pt-24 pb-20 px-6">
           <motion.div
-            variants={fadeUp}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            className="max-w-[760px] mx-auto text-center flex flex-col items-center gap-7"
           >
-            {/* Primary — gold */}
-            <Link
-              href="/enterprise-sales"
-              className="group inline-flex items-center gap-2 h-[52px] px-8 rounded-[14px] bg-[#D4A017] text-black text-[13px] font-black uppercase tracking-[0.06em] transition-all duration-300 hover:bg-[#E5B228] hover:shadow-[0_12px_40px_rgba(212,160,23,0.25)] dark:hover:shadow-[0_12px_40px_rgba(245,185,66,0.35)] hover:scale-[1.02] active:scale-[0.99] shadow-[0_4px_20px_rgba(212,160,23,0.2)]"
-            >
-              Book a Demo →
-            </Link>
+            {/* Gold pill badge */}
+            <motion.div variants={fadeUp}>
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4A017]/20 dark:border-[#F5B942]/20 bg-[#D4A017]/[0.06] dark:bg-[#F5B942]/[0.06] backdrop-blur-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4A017] dark:bg-[#F5B942] shadow-[0_0_8px_rgba(212,160,23,0.5)] dark:shadow-[0_0_8px_#F5B942] animate-pulse" />
+                <span className="text-[10px] font-black text-[#D4A017] dark:text-[#F5B942] tracking-[0.28em] uppercase">
+                  Ready to Transform
+                </span>
+              </span>
+            </motion.div>
 
-            {/* Secondary — outlined */}
-            <Link
-              href="/enterprise-sales"
-              className="group inline-flex items-center gap-2 h-[52px] px-8 rounded-[14px] border border-[#EBE9E1] dark:border-white/[0.12] bg-white dark:bg-white/[0.03] backdrop-blur-sm text-[#111827] dark:text-white text-[13px] font-bold uppercase tracking-[0.06em] transition-all duration-300 hover:bg-[#F9FAFB] dark:hover:bg-white/[0.07] hover:border-[#D1D5DB] dark:hover:border-white/20 hover:scale-[1.02] active:scale-[0.99]"
+            {/* Headline */}
+            <motion.h2
+              variants={fadeUp}
+              className="text-[38px] sm:text-[52px] md:text-[60px] font-bold text-[#111827] dark:text-white leading-[1.04] tracking-[-0.04em]"
             >
-              Contact Sales →
-            </Link>
+              Ready to orchestrate your{" "}
+              <br className="hidden sm:block" />
+              <span className="text-[#D4A017] dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-[#F5B942] dark:via-[#FFCF68] dark:to-[#E8A830]">
+                entire ecosystem?
+              </span>
+            </motion.h2>
+
+            {/* Supporting text */}
+            <motion.p
+              variants={fadeUp}
+              className="text-[16px] text-[#4B5563] dark:text-white/45 leading-relaxed max-w-[520px] font-normal"
+            >
+              Join leading organizations driving impact at scale through intelligent programme operations.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={fadeUp}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2"
+            >
+              {/* Primary — gold */}
+              <Link
+                href="/enterprise-sales"
+                className="group inline-flex items-center gap-2 h-[52px] px-8 rounded-[14px] bg-[#D4A017] text-black text-[13px] font-black uppercase tracking-[0.06em] transition-all duration-300 hover:bg-[#E5B228] hover:shadow-[0_12px_40px_rgba(212,160,23,0.25)] dark:hover:shadow-[0_12px_40px_rgba(245,185,66,0.35)] hover:scale-[1.02] active:scale-[0.99] shadow-[0_4px_20px_rgba(212,160,23,0.2)]"
+              >
+                Book a Demo →
+              </Link>
+
+              {/* Secondary — outlined */}
+              <Link
+                href="/enterprise-sales"
+                className="group inline-flex items-center gap-2 h-[52px] px-8 rounded-[14px] border border-[#EBE9E1] dark:border-white/[0.12] bg-white dark:bg-white/[0.03] backdrop-blur-sm text-[#111827] dark:text-white text-[13px] font-bold uppercase tracking-[0.06em] transition-all duration-300 hover:bg-[#F9FAFB] dark:hover:bg-white/[0.07] hover:border-[#D1D5DB] dark:hover:border-white/20 hover:scale-[1.02] active:scale-[0.99]"
+              >
+                Contact Sales →
+              </Link>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </div>
+        </div>
+      )}
 
       {/* ══════════════════════════════════════════════════════════════════
           DIVIDER
@@ -242,7 +248,7 @@ export function FooterPremium() {
             </Link>
 
             {/* Tagline */}
-            <p className="text-[12.5px] text-[#6B7280] dark:text-white/35 leading-[1.75] font-normal max-w-[210px]">
+            <p className="text-[12.5px] text-[#4B5563] dark:text-white/35 leading-[1.75] font-normal max-w-[210px]">
               The operational platform for impactful programmes at scale.
             </p>
           </div>
@@ -250,7 +256,7 @@ export function FooterPremium() {
           {/* ── Columns 2–5: Nav ────────────────────────────────────── */}
           {navColumns.map((col) => (
             <div key={col.title} className="flex flex-col gap-4">
-              <h4 className="text-[9.5px] font-black text-[#111827] dark:text-[#F5B942]/70 uppercase tracking-[0.28em]">
+              <h4 className="text-[9.5px] font-bold text-[#111827] dark:text-[#F5B942] uppercase tracking-[0.28em]">
                 {col.title}
               </h4>
               <ul className="flex flex-col gap-3">
@@ -258,7 +264,7 @@ export function FooterPremium() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-[13px] text-[#6B7280] dark:text-white/38 hover:text-[#D4A017] dark:hover:text-white/80 transition-colors duration-200 font-normal leading-snug"
+                      className="text-[13px] text-[#4B5563] dark:text-white/60 hover:text-[#D4A017] dark:hover:text-white transition-colors duration-200 font-medium leading-snug"
                     >
                       {link.label}
                     </Link>
@@ -299,7 +305,7 @@ export function FooterPremium() {
               <Link
                 key={item}
                 href="#"
-                className="text-[11px] text-[#9CA3AF] dark:text-white/22 hover:text-[#4B5563] dark:hover:text-white/55 transition-colors duration-200 font-normal"
+                className="text-[11px] text-[#6B7280] dark:text-white/40 hover:text-[#D4A017] dark:hover:text-white transition-colors duration-200 font-medium"
               >
                 {item}
               </Link>
