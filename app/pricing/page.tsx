@@ -1236,7 +1236,7 @@ function PricingContent() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.3 }}
-                    className="w-full min-w-[750px] text-left border-collapse bg-[#F7F4ED] dark:bg-white/[0.01]"
+                    className="pricing-table w-full min-w-[750px] text-left border-collapse bg-[#F7F4ED] dark:bg-white/[0.01]"
                   >
                     <thead>
                       <tr className="border-b border-black/[0.08] dark:border-white/[0.06] bg-[#E5DDD0] dark:bg-white/[0.02]">

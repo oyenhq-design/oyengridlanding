@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-brand-dark: #050816;
   --color-brand-gold: #F5B942;
@@ -623,6 +625,40 @@ html:not(.dark) .pricing-card li svg path {
   color: #D4A017 !important;
   stroke: #D4A017 !important;
 }
+
+/* Force pricing comparison table typography readability in light mode */
+html:not(.dark) .pricing-table th {
+  color: #1F2937 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+html:not(.dark) .pricing-table th:nth-child(4) {
+  color: #D4A017 !important;
+}
+html:not(.dark) .pricing-table td {
+  color: #4B5563 !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+}
+html:not(.dark) .pricing-table td:first-child {
+  color: #111827 !important;
+  font-weight: 600 !important;
+}
+html:not(.dark) .pricing-table td[class*="text-[#1F2937]"],
+html:not(.dark) .pricing-table td[class*="text-[#111827]"] {
+  color: #111827 !important;
+  font-weight: 600 !important;
+}
+html:not(.dark) .pricing-table td[class*="text-[#D4A017]"] {
+  color: #D4A017 !important;
+  font-weight: 700 !important;
+}
+html:not(.dark) .pricing-table tr,
+html:not(.dark) .pricing-table th,
+html:not(.dark) .pricing-table td {
+  border-color: #E6E0D5 !important;
+}
+
 
 
 
