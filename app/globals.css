@@ -1104,7 +1104,7 @@ html:not(.dark) .text-emerald-400 {
   animation: theme-pulse-idle 5s ease-in-out infinite;
 }
 
-/* ─── Permanent Theme Indicator Arrow Slide ─── */
+/* ─── Permanent Theme Indicator Arrow Slide & Finger Bounce ─── */
 @keyframes arrow-slide {
   0%, 100% {
     transform: translate(0, 0);
@@ -1118,6 +1118,35 @@ html:not(.dark) .text-emerald-400 {
   display: inline-block;
   animation: arrow-slide 3s ease-in-out infinite;
 }
+
+@keyframes finger-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+.animate-finger-bounce {
+  display: inline-block;
+  animation: finger-bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes finger-bounce-horizontal {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-finger-bounce-horizontal {
+  display: inline-block;
+  animation: finger-bounce-horizontal 1.2s ease-in-out infinite;
+}
+
 
 
 

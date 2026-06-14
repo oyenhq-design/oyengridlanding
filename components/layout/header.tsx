@@ -192,6 +192,11 @@ export function Header() {
               Enterprise Sales
             </Link>
 
+            {/* Pointing hand indicator pointing right at the toggle */}
+            <div className="flex items-center gap-1 text-[#E8B84A] text-[10px] font-black tracking-[0.12em] uppercase whitespace-nowrap select-none">
+              Theme <span className="animate-finger-bounce-horizontal text-[14px] leading-none">👉</span>
+            </div>
+
             {/* Premium Segmented Pill Theme Switch */}
             <div 
               className={cn(
@@ -199,10 +204,6 @@ export function Header() {
                 pulseClass
               )}
             >
-              {/* Permanent Theme Indicator Above Toggle */}
-              <div className="absolute top-[-20px] right-[6px] text-[#E8B84A] text-[11px] font-semibold tracking-[0.1em] uppercase whitespace-nowrap pointer-events-none select-none">
-                Theme <span className="animate-arrow-slide">↙</span>
-              </div>
               {/* Sliding Background Indicator */}
               <motion.div
                 animate={{
