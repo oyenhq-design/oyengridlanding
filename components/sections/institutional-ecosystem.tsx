@@ -104,6 +104,7 @@ export function HeroInstitutional() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const protocols = [
+    { title: "Pricing & Plans", category: "Pricing", href: "/pricing" },
     { title: "Bootcamps & Training", category: "Solutions", href: "/solutions/bootcamps-training" },
     { title: "Webinars & Events", category: "Solutions", href: "/solutions/webinars-events" },
     { title: "Education & Institutions", category: "Solutions", href: "/solutions/education" },
@@ -111,12 +112,28 @@ export function HeroInstitutional() {
     { title: "Programme Management", category: "Features", href: "/features/programme-management" },
     { title: "Participant Management", category: "Features", href: "/features/participant-management" },
     { title: "OYEN Live", category: "Features", href: "/features/oyen-live" },
-    { title: "Attendance Intelligence", category: "Features", href: "/features/attendance-intelligence" }
+    { title: "Attendance Intelligence", category: "Features", href: "/features/attendance-intelligence" },
+    { title: "Assessments & Submissions", category: "Features", href: "/features/assessments" },
+    { title: "Certificates & Verification", category: "Features", href: "/features/certificates" },
+    { title: "Resource Library", category: "Features", href: "/features/resource-library" },
+    { title: "Analytics & Reports", category: "Features", href: "/features/analytics" },
+    { title: "AI Assistant", category: "Features", href: "/features/ai-assistant" },
+    { title: "About Us", category: "Company", href: "/company/about" },
+    { title: "Careers", category: "Company", href: "/company/careers" },
+    { title: "Contact Us", category: "Company", href: "/company/contact" },
+    { title: "Enterprise Sales Consultation", category: "Company", href: "/company/enterprise-sales" },
+    { title: "Documentation & Guides", category: "Resources", href: "/resources/docs" },
+    { title: "Case Studies", category: "Resources", href: "/resources/case-studies" },
+    { title: "Blog & Insights", category: "Resources", href: "/resources/blog" },
+    { title: "Help Center & FAQs", category: "Resources", href: "/resources/help" }
   ];
 
   const filtered = query 
-    ? protocols.filter(p => p.title.toLowerCase().includes(query.toLowerCase()))
-    : protocols.slice(0, 3); // show first three on default focus
+    ? protocols.filter(p => 
+        p.title.toLowerCase().includes(query.toLowerCase()) || 
+        p.category.toLowerCase().includes(query.toLowerCase())
+      )
+    : [];
 
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
@@ -182,7 +199,7 @@ export function HeroInstitutional() {
                 </div>
 
                 {/* Dropdown Suggestions Panel */}
-                {isFocused && (
+                {isFocused && query.length > 0 && (
                   <div className="absolute top-[52px] left-0 right-0 bg-[#070707] border border-white/10 rounded-2xl p-2 shadow-2xl space-y-1 overflow-hidden">
                     {filtered.length > 0 ? (
                       filtered.map((item, idx) => (
