@@ -1,9 +1,10 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Activity, Globe, Users, Database, Workflow, Sparkles, Search } from "lucide-react";
+import { ArrowRight, Activity, Globe, Users, Database, Workflow, Sparkles, Search, ChevronRight } from "lucide-react";
 import { useSearch } from "@/context/search-context";
 
 export function TopographicWave() {
@@ -98,7 +99,35 @@ export function TopographicWave() {
 }
 
 export function HeroInstitutional() {
-  const { openSearch } = useSearch();
+  const [query, setQuery] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const protocols = [
+    { title: "Bootcamps & Training", category: "Solutions", href: "/solutions/bootcamps-training" },
+    { title: "Webinars & Events", category: "Solutions", href: "/solutions/webinars-events" },
+    { title: "Education & Institutions", category: "Solutions", href: "/solutions/education" },
+    { title: "Enterprise Operations", category: "Solutions", href: "/solutions/enterprise" },
+    { title: "Programme Management", category: "Features", href: "/features/programme-management" },
+    { title: "Participant Management", category: "Features", href: "/features/participant-management" },
+    { title: "OYEN Live", category: "Features", href: "/features/oyen-live" },
+    { title: "Attendance Intelligence", category: "Features", href: "/features/attendance-intelligence" }
+  ];
+
+  const filtered = query 
+    ? protocols.filter(p => p.title.toLowerCase().includes(query.toLowerCase()))
+    : protocols.slice(0, 3); // show first three on default focus
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setIsFocused(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
+
   const trustLogos = [
     { name: "AltSchool", icon: <circle cx="12" cy="12" r="7" fill="currentColor" /> },
     { name: "Zuri", icon: <path d="M6 6h12l-12 12h12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /> },
@@ -136,16 +165,45 @@ export function HeroInstitutional() {
               </p>
 
               {/* Explore Search Input */}
-              <div className="relative mt-8 max-w-[400px]">
+              <div ref={containerRef} className="relative mt-8 max-w-[400px] z-50">
                 <input 
                   type="text" 
-                  onClick={openSearch}
+                  value={query}
+                  onChange={(e) => {
+                    setQuery(e.target.value);
+                    setIsFocused(true);
+                  }}
+                  onFocus={() => setIsFocused(true)}
                   placeholder="Explore OYEN GRID" 
-                  className="w-full h-[46px] pl-5 pr-12 rounded-full bg-[#070707] border border-white/10 text-white placeholder-white/30 text-[13px] focus:outline-none focus:border-[#E2B84C]/40 transition-colors cursor-pointer"
+                  className="w-full h-[46px] pl-5 pr-12 rounded-full bg-[#070707] border border-white/10 text-white placeholder-white/30 text-[13px] focus:outline-none focus:border-[#E2B84C]/40 transition-colors"
                 />
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40">
                   <Search className="w-4 h-4 text-white/30" />
                 </div>
+
+                {/* Dropdown Suggestions Panel */}
+                {isFocused && (
+                  <div className="absolute top-[52px] left-0 right-0 bg-[#070707] border border-white/10 rounded-2xl p-2 shadow-2xl space-y-1 overflow-hidden">
+                    {filtered.length > 0 ? (
+                      filtered.map((item, idx) => (
+                        <Link 
+                          key={idx}
+                          href={item.href}
+                          onClick={() => setIsFocused(false)}
+                          className="flex items-center justify-between p-3 rounded-xl hover:bg-white/[0.03] transition-colors group text-left"
+                        >
+                          <div>
+                            <span className="text-xs font-bold block text-white group-hover:text-[#E2B84C] transition-colors">{item.title}</span>
+                            <span className="text-[9px] text-white/30 uppercase tracking-wider block">{item.category}</span>
+                          </div>
+                          <ChevronRight className="w-3.5 h-3.5 text-white/20 group-hover:text-[#E2B84C]/50 transition-all group-hover:translate-x-0.5" />
+                        </Link>
+                      ))
+                    ) : (
+                      <div className="p-3 text-[11px] text-white/30 italic text-center">No matching results found</div>
+                    )}
+                  </div>
+                )}
               </div>
 
               {/* CTA Action Buttons */}
