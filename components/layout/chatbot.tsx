@@ -758,80 +758,6 @@ export function Chatbot() {
                 </div>
               ))}
 
-              {/* First Screen Options layout */}
-              {messages.length === 1 && (
-                <div className="pt-1.5 pb-4 space-y-4">
-                  {/* Explore Solutions */}
-                  <div>
-                    <div className="text-[9px] font-bold text-white/20 uppercase tracking-[0.15em] mb-1.5">Explore Solutions</div>
-                    <div className="grid grid-cols-2 gap-1.5">
-                      {[
-                        { label: "🎓 Bootcamps & Training", q: "Tell me about bootcamps & training" },
-                        { label: "🎤 Webinars & Events", q: "Tell me about webinars & events" },
-                        { label: "🏫 Education & Institutions", q: "Tell me about education & institutions" },
-                        { label: "🏢 Enterprise Operations", q: "Tell me about enterprise operations" },
-                      ].map((item) => (
-                        <button
-                          key={item.label}
-                          onClick={() => handleSend(item.q)}
-                          className="text-[10px] text-left p-2 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-gold/30 hover:bg-white/[0.04] text-white/60 hover:text-white transition-all"
-                        >
-                          {item.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Popular Topics */}
-                  <div>
-                    <div className="text-[9px] font-bold text-white/20 uppercase tracking-[0.15em] mb-1.5">Popular Topics</div>
-                    <div className="grid grid-cols-2 gap-1.5">
-                      {[
-                        { label: "💳 Pricing & Plans", q: "Show me pricing plans" },
-                        { label: "⚡ Platform Features", q: "What are the platform features?" },
-                        { label: "🤖 AI Capabilities", q: "Tell me about AI capabilities" },
-                        { label: "📊 Analytics & Reporting", q: "Explain analytics & reporting" },
-                        { label: "🎥 OYEN Live", q: "What is OYEN Live?" },
-                        { label: "📅 Book a Demo", q: "I'd like to book a demo" },
-                      ].map((item) => (
-                        <button
-                          key={item.label}
-                          onClick={() => handleSend(item.q)}
-                          className="text-[10px] text-left p-2 rounded-xl bg-white/[0.02] border border-white/5 hover:border-brand-gold/30 hover:bg-white/[0.04] text-white/60 hover:text-white transition-all"
-                        >
-                          {item.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* What Would You Like To Achieve? */}
-                  <div>
-                    <div className="text-[9px] font-bold text-white/20 uppercase tracking-[0.15em] mb-1.5">What Would You Like To Achieve?</div>
-                    <div className="flex flex-col gap-1">
-                      {[
-                        { label: "○ Run a Training Programme", q: "How do I run a training programme?" },
-                        { label: "○ Launch a Fellowship", q: "How do I launch a fellowship?" },
-                        { label: "○ Host a Webinar", q: "How do I host a webinar?" },
-                        { label: "○ Manage Academic Programmes", q: "How do I manage academic programmes?" },
-                        { label: "○ Coordinate Multiple Cohorts", q: "How do I coordinate multiple cohorts?" },
-                        { label: "○ Explore Pricing", q: "Tell me about pricing plans" },
-                        { label: "○ Speak With Sales", q: "I want to speak with sales" },
-                      ].map((item) => (
-                        <button
-                          key={item.label}
-                          onClick={() => handleSend(item.q)}
-                          className="flex items-center justify-between text-[10px] text-left px-2.5 py-1.5 rounded-lg bg-white/[0.01] border border-white/5 hover:border-brand-gold/30 hover:bg-white/[0.03] text-white/50 hover:text-white transition-all"
-                        >
-                          <span>{item.label}</span>
-                          <ChevronRight className="w-3 h-3 text-white/20" />
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-
               {isTyping && (
                 <div className="bg-white/[0.03] border border-white/5 rounded-2xl p-3 max-w-[85%] text-[12px] text-white/40 self-start flex items-center gap-1 font-light">
                   <span className="w-1.5 h-1.5 bg-brand-gold/60 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
@@ -839,34 +765,6 @@ export function Chatbot() {
                   <span className="w-1.5 h-1.5 bg-brand-gold/60 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
                 </div>
               )}
-            </div>
-
-            {/* Persistent Availability Action Bar */}
-            <div className="px-4 py-1.5 bg-white/[0.02] border-t border-white/5 flex gap-1.5 overflow-x-auto scrollbar-none shrink-0">
-              <button 
-                onClick={() => handleSend("Talk to a Specialist")}
-                className="shrink-0 px-2 py-0.5 rounded bg-brand-gold/10 hover:bg-brand-gold/20 text-brand-gold text-[9px] font-bold transition-all border border-brand-gold/20"
-              >
-                👨💼 Talk to a Specialist
-              </button>
-              <button 
-                onClick={() => handleSend("Explore Pricing")}
-                className="shrink-0 px-2 py-0.5 rounded bg-white/5 hover:bg-white/10 text-white/60 hover:text-white text-[9px] transition-all"
-              >
-                💳 Pricing
-              </button>
-              <button 
-                onClick={() => handleSend("Book a Demo")}
-                className="shrink-0 px-2 py-0.5 rounded bg-white/5 hover:bg-white/10 text-white/60 hover:text-white text-[9px] transition-all"
-              >
-                📅 Demo
-              </button>
-              <button 
-                onClick={() => handleSend("Show Analytics")}
-                className="shrink-0 px-2 py-0.5 rounded bg-white/5 hover:bg-white/10 text-white/60 hover:text-white text-[9px] transition-all"
-              >
-                📊 Telemetry
-              </button>
             </div>
 
             {/* Input Area */}
