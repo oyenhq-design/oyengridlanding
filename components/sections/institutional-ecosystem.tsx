@@ -16,13 +16,13 @@ export function TopographicWave() {
     <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
       {/* Subtle gold radial background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(226,184,76,0.06),transparent_75%)] pointer-events-none" />
-      
+
       <svg className="w-[115%] h-[115%] opacity-90 text-[#E2B84C]" viewBox="0 0 800 600" fill="none">
         {Array.from({ length: pathsCount }).map((_, index) => {
           const radius = 90 + index * 16;
           const opacity = 0.95 - (index / pathsCount) * 0.78;
           const strokeWidth = 1 + (index % 2) * 0.4;
-          
+
           // Generate wavy concentric loop paths
           const points = [];
           const steps = 64;
@@ -37,7 +37,7 @@ export function TopographicWave() {
             points.push(`${i === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`);
           }
           const pathData = points.join(' ') + ' Z';
-          
+
           return (
             <motion.path
               key={index}
@@ -46,7 +46,7 @@ export function TopographicWave() {
               strokeWidth={strokeWidth}
               strokeOpacity={opacity}
               initial={{ pathLength: 0, rotate: 0 }}
-              animate={{ 
+              animate={{
                 pathLength: 1,
                 rotate: [0, 360],
               }}
@@ -59,7 +59,7 @@ export function TopographicWave() {
           );
         })}
       </svg>
-      
+
       {/* Dynamic Gold Dust Particles */}
       <div className="absolute inset-0 pointer-events-none">
         {Array.from({ length: 22 }).map((_, i) => {
@@ -128,11 +128,11 @@ export function HeroInstitutional() {
     { title: "Help Center & FAQs", category: "Resources", href: "/resources/help" }
   ];
 
-  const filtered = query 
-    ? protocols.filter(p => 
-        p.title.toLowerCase().includes(query.toLowerCase()) || 
-        p.category.toLowerCase().includes(query.toLowerCase())
-      )
+  const filtered = query
+    ? protocols.filter(p =>
+      p.title.toLowerCase().includes(query.toLowerCase()) ||
+      p.category.toLowerCase().includes(query.toLowerCase())
+    )
     : [];
 
   useEffect(() => {
@@ -157,12 +157,12 @@ export function HeroInstitutional() {
 
   return (
     <section className="relative min-h-[680px] bg-[#050505] flex items-center pt-8 pb-8 overflow-hidden">
-      
+
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
-        
+
         {/* Main Columns Grid */}
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center min-h-[500px] relative">
-          
+
           {/* LEFT: CONTENT AREA (Aligned upward for visual balance) */}
           <div className="hero-content flex flex-col justify-center text-left lg:translate-y-[-48px]">
             <motion.div
@@ -183,15 +183,15 @@ export function HeroInstitutional() {
 
               {/* Explore Search Input */}
               <div ref={containerRef} className="relative mt-8 max-w-[400px] z-50">
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   value={query}
                   onChange={(e) => {
                     setQuery(e.target.value);
                     setIsFocused(true);
                   }}
                   onFocus={() => setIsFocused(true)}
-                  placeholder="Explore OYEN GRID" 
+                  placeholder="Explore OYEN GRID"
                   className="w-full h-[46px] pl-5 pr-12 rounded-full bg-[#070707] border border-white/10 text-white placeholder-white/30 text-[13px] focus:outline-none focus:border-[#E2B84C]/40 transition-colors"
                 />
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40">
@@ -203,7 +203,7 @@ export function HeroInstitutional() {
                   <div className="absolute top-[52px] left-0 right-0 bg-[#070707] border border-white/10 rounded-2xl p-2 shadow-2xl space-y-1 overflow-hidden">
                     {filtered.length > 0 ? (
                       filtered.map((item, idx) => (
-                        <Link 
+                        <Link
                           key={idx}
                           href={item.href}
                           onClick={() => setIsFocused(false)}
@@ -225,7 +225,7 @@ export function HeroInstitutional() {
 
               {/* CTA Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 mt-8">
-                <Link 
+                <Link
                   href="/pricing"
                   className="inline-flex items-center justify-center h-[46px] px-8 rounded-full bg-[#E2B84C] text-black text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#FFCF68] hover:shadow-[0_4px_16px_rgba(226,184,76,0.3)] hover:scale-[1.02]"
                 >
@@ -253,7 +253,7 @@ export function HeroInstitutional() {
           {/* CENTERED SCROLL TO EXPLORE INDICATOR (Aligned with CTA buttons vertically) */}
           <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 bottom-[145px] flex-col items-center gap-2.5 z-30">
             <div className="w-[26px] h-[42px] rounded-full border border-[#E2B84C]/40 flex items-start justify-center p-2">
-              <motion.div 
+              <motion.div
                 animate={{ y: [0, 14, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 className="w-2 h-2 bg-[#E2B84C] rounded-full"
@@ -299,7 +299,7 @@ export function PlatformOverview() {
     <section className="section-gap relative bg-[#050816] border-b border-white/5">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-[60px] items-center">
-          
+
           {/* LEFT: Content */}
           <div>
             <span className="eyebrow">CORE INFRASTRUCTURE</span>
@@ -309,7 +309,7 @@ export function PlatformOverview() {
             <p className="text-editorial mb-10 max-w-[480px]">
               Our infrastructure is designed for high-stakes programme coordination, providing the stability and visibility required by global organisations.
             </p>
-            
+
             <div className="grid sm:grid-cols-2 gap-4">
               {capabilities.map((cap, i) => (
                 <div key={i} className="card-institutional">
@@ -323,26 +323,26 @@ export function PlatformOverview() {
 
           {/* RIGHT: Contained Image */}
           <div className="flex justify-center lg:justify-end">
-             <div className="relative w-full max-w-[460px] h-[340px] rounded-[20px] overflow-hidden border border-white/10 shadow-2xl">
-                <Image 
-                  src="/section-2-bg.png" 
-                  alt="Platform" 
-                  fill 
-                  className="object-cover opacity-60"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#050816] via-transparent to-transparent" />
-                
-                {/* Floating Detail */}
-                <div className="absolute top-6 left-6 glass-panel-institutional p-3.5 flex items-center gap-3">
-                   <div className="w-7 h-7 rounded-[6px] bg-brand-gold/10 flex items-center justify-center">
-                      <Activity className="w-3.5 h-3.5 text-brand-gold" />
-                   </div>
-                   <div>
-                      <div className="text-[9px] font-black text-white/40 uppercase tracking-widest">Active Sync</div>
-                      <div className="text-[13px] font-bold text-white">99.9% Uptime</div>
-                   </div>
+            <div className="relative w-full max-w-[460px] h-[340px] rounded-[20px] overflow-hidden border border-white/10 shadow-2xl">
+              <Image
+                src="/section-2-bg.png"
+                alt="Platform"
+                fill
+                className="object-cover opacity-60"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#050816] via-transparent to-transparent" />
+
+              {/* Floating Detail */}
+              <div className="absolute top-6 left-6 glass-panel-institutional p-3.5 flex items-center gap-3">
+                <div className="w-7 h-7 rounded-[6px] bg-brand-gold/10 flex items-center justify-center">
+                  <Activity className="w-3.5 h-3.5 text-brand-gold" />
                 </div>
-             </div>
+                <div>
+                  <div className="text-[9px] font-black text-white/40 uppercase tracking-widest">Active Sync</div>
+                  <div className="text-[13px] font-bold text-white">99.9% Uptime</div>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -356,18 +356,18 @@ export function OperationalControlCenter() {
     <section className="section-gap relative bg-[#050816] border-b border-white/5">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-[60px] items-center">
-          
+
           {/* LEFT: Contained Image (Visual First) */}
           <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
-             <div className="relative w-full max-w-[460px] h-[340px] rounded-[20px] overflow-hidden border border-white/10 shadow-2xl">
-                <Image 
-                  src="/section-3-bg.png" 
-                  alt="Operations" 
-                  fill 
-                  className="object-cover opacity-60 grayscale scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-bl from-[#050816]/80 via-transparent to-transparent" />
-             </div>
+            <div className="relative w-full max-w-[460px] h-[340px] rounded-[20px] overflow-hidden border border-white/10 shadow-2xl">
+              <Image
+                src="/section-3-bg.png"
+                alt="Operations"
+                fill
+                className="object-cover opacity-60 grayscale scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-bl from-[#050816]/80 via-transparent to-transparent" />
+            </div>
           </div>
 
           {/* RIGHT: Narrative */}
@@ -379,22 +379,22 @@ export function OperationalControlCenter() {
             <p className="text-editorial mb-8 max-w-[480px]">
               Manage the entire lifecycle of your programme from one dashboard. Coordinate trainers, monitor engagement, and analyze delivery health in real-time.
             </p>
-            
+
             <div className="space-y-4">
-               {[
-                 { t: "Live Session Monitoring", d: "Track attendance and engagement as it happens." },
-                 { t: "Automated Resource Sync", d: "Sync materials and assets across all cohorts." }
-               ].map((item, i) => (
-                 <div key={i} className="flex gap-5 p-5 rounded-xl bg-white/[0.02] border border-white/5">
-                    <div className="w-9 h-9 rounded-lg bg-brand-gold/10 flex items-center justify-center shrink-0">
-                       <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                    </div>
-                    <div>
-                       <h4 className="text-[16px] font-bold text-white mb-1">{item.t}</h4>
-                       <p className="text-[12px] text-white/30">{item.d}</p>
-                    </div>
-                 </div>
-               ))}
+              {[
+                { t: "Live Session Monitoring", d: "Track attendance and engagement as it happens." },
+                { t: "Automated Resource Sync", d: "Sync materials and assets across all cohorts." }
+              ].map((item, i) => (
+                <div key={i} className="flex gap-5 p-5 rounded-xl bg-white/[0.02] border border-white/5">
+                  <div className="w-9 h-9 rounded-lg bg-brand-gold/10 flex items-center justify-center shrink-0">
+                    <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+                  </div>
+                  <div>
+                    <h4 className="text-[16px] font-bold text-white mb-1">{item.t}</h4>
+                    <p className="text-[12px] text-white/30">{item.d}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
