@@ -155,10 +155,60 @@ export function Chatbot() {
     updateAnalytics("questionsAsked");
     extractSessionContext(query);
 
+    // Identity Questions check
+    if (q.includes("name") || q.includes("who are you") || q.includes("who am i speaking with") || q.includes("are you an ai") || q.includes("are you a real person")) {
+      return {
+        content: "My name is OYEN AI. I'm the official AI assistant for OYEN GRID.\n\nI help organizations explore solutions, understand platform capabilities, compare plans, and find the best setup for their programmes, events, or learning initiatives."
+      };
+    }
+
     // Warm Greetings check
     if (q === "hi" || q === "hello" || q === "hey" || q.startsWith("hi ") || q.startsWith("hello ") || q.startsWith("hey ") || q.includes("good morning") || q.includes("good afternoon") || q.includes("good evening")) {
       return {
-        content: "Hello and welcome to OYEN GRID.\n\nI'm OYEN AI, your programme operations assistant.\n\nI can help you explore solutions, compare plans, understand platform capabilities, and find the best setup for your organization.\n\nHow can I help today?"
+        content: "Hello and welcome to OYEN GRID.\n\nI'm OYEN AI, your programme operations assistant.\n\nHow can I assist you today?"
+      };
+    }
+
+    // How are you check
+    if (q.includes("how are you") || q.includes("how's your day") || q.includes("how are things")) {
+      return {
+        content: "Thank you for asking. I'm doing well and ready to help.\n\nHow can I assist you today?"
+      };
+    }
+
+    // What can you do check
+    if (q.includes("what can you do") || q.includes("how can you help me") || q.includes("what are your capabilities")) {
+      return {
+        content: "I can help you:\n\n• Explore OYEN GRID solutions\n• Compare pricing plans\n• Understand platform features\n• Learn about implementation options\n• Recommend the right solution\n• Schedule a demo\n• Connect with a specialist\n• Answer questions about programme delivery and operations",
+        widget: "success"
+      };
+    }
+
+    // Thank you check
+    if (q.includes("thank you") || q === "thanks" || q.startsWith("thanks ") || q.includes("appreciate it")) {
+      return {
+        content: "You're welcome. I'm glad I could help.\n\nIf you have any other questions about OYEN GRID, feel free to ask."
+      };
+    }
+
+    // Goodbye check
+    if (q === "bye" || q === "goodbye" || q.startsWith("bye ") || q.startsWith("goodbye ") || q.includes("see you later") || q.includes("talk later")) {
+      return {
+        content: "Thank you for visiting OYEN GRID.\n\nFeel free to return anytime if you need assistance. Have a wonderful day."
+      };
+    }
+
+    // Compliments check
+    if (q.includes("helpful") || q.includes("great job") || q.includes("smart") || q.includes("intelligent")) {
+      return {
+        content: "Thank you. I appreciate the feedback.\n\nMy goal is to make it easier for organizations to understand and succeed with OYEN GRID."
+      };
+    }
+
+    // Uncertain Users check
+    if (q.includes("where to start") || q.includes("looking around") || q.includes("exploring options") || q === "unsure") {
+      return {
+        content: "That's completely fine.\n\nTo point you in the right direction, could you tell me a little about your organization and what you're trying to achieve?\n\nFor example:\n\n• Training programmes\n• Webinars and events\n• Academic learning\n• Internal operations\n\nI'll help you identify the best fit."
       };
     }
 
