@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Activity, Globe, Users, Database, Workflow, Sparkles, Search } from "lucide-react";
+import { useSearch } from "@/context/search-context";
 
 export function TopographicWave() {
   const pathsCount = 18;
@@ -97,6 +98,7 @@ export function TopographicWave() {
 }
 
 export function HeroInstitutional() {
+  const { openSearch } = useSearch();
   const trustLogos = [
     { name: "AltSchool", icon: <circle cx="12" cy="12" r="7" fill="currentColor" /> },
     { name: "Zuri", icon: <path d="M6 6h12l-12 12h12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /> },
@@ -137,8 +139,9 @@ export function HeroInstitutional() {
               <div className="relative mt-8 max-w-[400px]">
                 <input 
                   type="text" 
+                  onClick={openSearch}
                   placeholder="Explore OYEN GRID" 
-                  className="w-full h-[46px] pl-5 pr-12 rounded-full bg-[#070707] border border-white/10 text-white placeholder-white/30 text-[13px] focus:outline-none focus:border-[#E2B84C]/40 transition-colors"
+                  className="w-full h-[46px] pl-5 pr-12 rounded-full bg-[#070707] border border-white/10 text-white placeholder-white/30 text-[13px] focus:outline-none focus:border-[#E2B84C]/40 transition-colors cursor-pointer"
                 />
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40">
                   <Search className="w-4 h-4 text-white/30" />
