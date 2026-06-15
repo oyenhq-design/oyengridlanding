@@ -421,6 +421,14 @@ export function Chatbot() {
       };
     }
 
+    // Plan Comparison Flow
+    if (q.includes("compare plan") || q.includes("compare pricing") || q.includes("plan differences") || q.includes("difference between plan") || q.includes("what is the difference between plans")) {
+      return {
+        content: "Here is a comparison of OYEN GRID plans across our delivery tiers:\n\n• **Basic** (₦15k - ₦35k/mo): Core program dashboards, registration forms, and basic participant directories.\n• **Standard** (₦35k - ₦75k/mo): Adds full cohort management, automated attendance tracking, and certificate distribution.\n• **Premium** (₦75k - ₦150k/mo): Adds advanced analytics reporting, custom branding, and AI session summaries.\n• **Premium+ / Enterprise** (Custom pricing): Dedicated cloud infrastructure, white-label portals, and API/integrations access.",
+        widget: "success"
+      };
+    }
+
     // Default flows
     if (q.includes("pricing") || q.includes("cost") || q.includes("how much")) {
       return {
@@ -478,22 +486,7 @@ export function Chatbot() {
         widget: result.widget,
       };
 
-      // If lead is High Intent, suggest Specialist CTA automatically
-      if (sessionContext.leadScore === "High" && result.widget !== "specialist-form" && result.widget !== "specialist-cta") {
-        setMessages((prev) => [
-          ...prev,
-          botMsg,
-          {
-            id: Math.random().toString(36).substring(7),
-            role: "assistant",
-            content: "💡 Based on your interests, we recommend speaking with an OYEN GRID Specialist for a tailored proposal.",
-            timestamp: new Date(),
-            widget: "specialist-cta",
-          }
-        ]);
-      } else {
-        setMessages((prev) => [...prev, botMsg]);
-      }
+      setMessages((prev) => [...prev, botMsg]);
       setIsTyping(false);
     }, 800);
   };
