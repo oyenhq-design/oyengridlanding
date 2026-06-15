@@ -173,7 +173,7 @@ export function HeroInstitutional() {
           </div>
 
           {/* CENTERED SCROLL TO EXPLORE INDICATOR (Aligned with CTA buttons vertically) */}
-          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 bottom-[130px] flex-col items-center gap-1.5 z-30">
+          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 bottom-[145px] flex-col items-center gap-1.5 z-30">
             <div className="w-[16px] h-[26px] rounded-full border border-[#E2B84C]/40 flex items-start justify-center p-1">
               <motion.div 
                 animate={{ y: [0, 5, 0] }}
