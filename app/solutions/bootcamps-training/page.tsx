@@ -20,7 +20,7 @@ export default function BootcampsTrainingPage() {
       
       <div className="min-h-screen bg-[#02040A] text-white pb-32 overflow-hidden relative font-sans selection:bg-[#E8B84A]/30 selection:text-white">
         
-        {/* Soft Ambient Cinematic Glow (Borderless Atmosphere) */}
+        {/* Soft Ambient Cinematic Glow */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[radial-gradient(circle_at_50%_-20%,rgba(232,184,74,0.05),transparent_70%)]" />
           <div className="absolute top-[35%] left-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(232,184,74,0.015),transparent_60%)]" />
@@ -50,8 +50,8 @@ export default function BootcampsTrainingPage() {
                   </span>
                 </h1>
                 
-                <p className="text-lg text-white/50 leading-relaxed max-w-[500px] font-medium">
-                  Manage programmes, participants, learning experiences, attendance, certificates, and outcomes from a single operational system.
+                <p className="text-lg text-white/50 leading-relaxed max-w-[520px] font-medium">
+                  A unified operating system for cohort delivery. Coordinate instructors, track real-time attendance, and issue certificates without stitching separate tools together.
                 </p>
                 
                 <div className="pt-4 flex items-center gap-6">
@@ -117,10 +117,10 @@ export default function BootcampsTrainingPage() {
 
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
                 {[
-                  { title: "Bootcamps", desc: "Structured intensive curriculum runs requiring automated attendance." },
-                  { title: "Training Organizations", desc: "Complex educational pathways spanning multiple chapters." },
-                  { title: "Fellowship Programmes", desc: "High-trust network delivery requiring unified coordinator oversight." },
-                  { title: "Workforce Development", desc: "Large-scale capacity programs focused on verifiable outcomes." }
+                  { title: "Bootcamps", desc: "Accelerate transition to employment with clean cohort scheduling, grading workflows, and automated certificates." },
+                  { title: "Training Organizations", desc: "Coordinate large-scale curriculum delivery, facilitator assignments, and student records without spreadsheet sprawl." },
+                  { title: "Fellowship Programmes", desc: "Run prestigious fellowships with built-in scheduling, community channels, and detailed participant analytics." },
+                  { title: "Workforce Development", desc: "Deliver funded or corporate initiatives with secure, audit-ready attendance logging and sponsor reporting." }
                 ].map((org, idx) => (
                   <div key={idx} className="space-y-4">
                     <h3 className="text-lg font-bold text-[#E8B84A]">{org.title}</h3>
@@ -144,7 +144,7 @@ export default function BootcampsTrainingPage() {
                   One Platform.<br />
                   <span className="bg-gradient-to-r from-white via-white to-white/40 bg-clip-text text-transparent">Complete Coordination.</span>
                 </h2>
-                <p className="text-white/40 text-sm leading-relaxed">
+                <p className="text-white/40 text-sm leading-relaxed font-medium">
                   Instead of layering disconnected tools, OYEN GRID unifies the entire programme delivery lifecycle under a single operational infrastructure.
                 </p>
               </div>
@@ -153,12 +153,12 @@ export default function BootcampsTrainingPage() {
               <div className="lg:col-span-7">
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                   {[
-                    { label: "Programmes", desc: "Milestones and blueprints" },
-                    { label: "Participants", desc: "Unified learner profiles" },
-                    { label: "Attendance", desc: "Automated tracking engine" },
-                    { label: "Resources", desc: "Embedded libraries and documents" },
-                    { label: "Assessments", desc: "Quizzes, tests and assignments" },
-                    { label: "Certificates", desc: "Verifiable digital credentials" }
+                    { label: "Programmes", desc: "Design reusable templates for lesson plans, session times, and milestones." },
+                    { label: "Participants", desc: "A single student profile tracking live attendance, grades, and files." },
+                    { label: "Attendance", desc: "Capture presence logs down to the second without manual roll calls." },
+                    { label: "Resources", desc: "Distribute lecture recordings, reading lists, and files inside the classroom." },
+                    { label: "Assessments", desc: "Collect project files, grade submissions, and provide feedback in one workspace." },
+                    { label: "Certificates", desc: "Automatically generate and issue secure credentials upon course completion." }
                   ].map((feat, idx) => (
                     <div key={idx} className="p-6 rounded-xl bg-white/[0.01] hover:bg-white/[0.02] transition-colors space-y-2">
                       <h4 className="text-xs font-black tracking-wider text-[#E8B84A] uppercase">{feat.label}</h4>
@@ -203,13 +203,13 @@ export default function BootcampsTrainingPage() {
                   Run Sessions Without Leaving OYEN GRID
                 </h2>
                 <p className="text-white/50 text-sm leading-relaxed">
-                  Deliver interactive learning experiences directly in your system. All active session components sync immediately to your participant registry.
+                  Host virtual lectures directly in the browser. Instructors don&apos;t need to generate meeting links, and the system automatically logs attendance minutes directly to the student registry.
                 </p>
                 <div className="grid grid-cols-2 gap-x-6 gap-y-4 text-xs font-bold text-white/40">
-                  <span>• Live Sessions</span>
-                  <span>• Chat</span>
-                  <span>• Attendance</span>
-                  <span>• Recordings</span>
+                  <span>• In-browser video</span>
+                  <span>• Session chat</span>
+                  <span>• Attendance audits</span>
+                  <span>• Cloud recordings</span>
                 </div>
               </div>
             </div>
@@ -232,16 +232,16 @@ export default function BootcampsTrainingPage() {
                 </h2>
                 
                 <p className="text-white/50 text-sm leading-relaxed">
-                  OYEN GRID embeds practical intelligence features built specifically for programme coordinators to evaluate milestones and assist cohorts.
+                  Automate the repetitive parts of running a cohort. Let OYEN handle transcriptions, student queries, and progress risk analysis.
                 </p>
               </div>
 
               {/* Minimal visual AI list */}
               <div className="lg:col-span-7 space-y-4">
                 {[
-                  { title: "Session Summaries", desc: "Auto-generated notes and transcripts post-delivery." },
-                  { title: "Learning Assistant", desc: "Contextual academic guide for cohort participants." },
-                  { title: "Programme Insights", desc: "Predictive engagement metrics scanning completion values." }
+                  { title: "Post-Session Summaries", desc: "Instantly convert live lectures into structured class notes, key questions, and transcripts." },
+                  { title: "24/7 Student Assistant", desc: "An AI tutor trained on your specific curriculum to answer participant questions instantly." },
+                  { title: "Completion Risk Detection", desc: "Automatically flags students who fall behind on attendance or milestones before they drop out." }
                 ].map((aiItem, idx) => (
                   <div key={idx} className="p-6 rounded-xl bg-white/[0.01] hover:bg-white/[0.02] transition-colors flex items-start gap-4">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#E8B84A] mt-2 flex-shrink-0" />
@@ -270,7 +270,7 @@ export default function BootcampsTrainingPage() {
                 Programme Delivery?
               </h2>
               <p className="text-white/50 text-sm leading-relaxed max-w-lg mx-auto">
-                Join organizations transforming how training programmes, fellowships, and workforce development initiatives are delivered.
+                Ditch the spreadsheets and disconnected meeting links. Build a professional delivery environment for your next cohort.
               </p>
               
               <div className="pt-4 flex items-center justify-center gap-6">
