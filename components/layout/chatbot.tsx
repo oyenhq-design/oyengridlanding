@@ -155,6 +155,43 @@ export function Chatbot() {
     updateAnalytics("questionsAsked");
     extractSessionContext(query);
 
+    // Warm Greetings check
+    if (q === "hi" || q === "hello" || q === "hey" || q.startsWith("hi ") || q.startsWith("hello ") || q.startsWith("hey ") || q.includes("good morning") || q.includes("good afternoon") || q.includes("good evening")) {
+      return {
+        content: "Hello and welcome to OYEN GRID.\n\nI'm OYEN AI, your programme operations assistant.\n\nI can help you explore solutions, compare plans, understand platform capabilities, and find the best setup for your organization.\n\nHow can I help today?"
+      };
+    }
+
+    // Platform description check
+    if (q.includes("what is oyen grid") || q.includes("tell me about your platform") || q.includes("what do you do") || q.includes("what is this website") || q.includes("what is the platform")) {
+      return {
+        content: "OYEN GRID is a Programme Operating System designed to help organizations manage programmes, participants, live sessions, attendance, assessments, certificates, analytics and AI-powered operational intelligence from one platform.\n\nWould you like to explore solutions, features, or pricing?",
+        widget: "success"
+      };
+    }
+
+    // Discovery / common challenge check
+    if (q.includes("attendance has become difficult") || q.includes("difficult to track") || q.includes("too many cohorts") || q.includes("hard to manage") || q.includes("tracking progress") || q.includes("struggle to track") || q.includes("attendance tracking issue") || q.includes("manage several training")) {
+      return {
+        content: "That is a common challenge for growing programme teams.\n\nTo help recommend the most suitable setup, could you share:\n\n• How many participants do you typically manage?\n• Do you run multiple cohorts?\n• Are your sessions virtual, physical, or hybrid?"
+      };
+    }
+
+    // Competitor check
+    if (q.includes("moodle") || q.includes("google classroom") || q.includes("zoom") || q.includes("teams") || q.includes("talentlms") || q.includes("thinkific") || q.includes("kajabi") || q.includes("compare to")) {
+      return {
+        content: "When comparing OYEN GRID to other platforms, here is the key difference:\n\n• **LMS systems (like Moodle, Google Classroom, TalentLMS, Thinkific, Kajabi)** focus primarily on content hosting. OYEN GRID focuses on **Programme Operations** — combining cohort management, live session delivery, attendance intelligence, assessments, and automated credential verification in one unified hub.\n• **Meeting Tools (like Zoom, Teams)** host calls but lack participant databases, automated attendance tracking, and programme performance reporting.\n\nOYEN GRID unifies all of these capabilities into a single operational system."
+      };
+    }
+
+    // Opinion / planning / suggestions check
+    if (q.includes("what would you do") || q.includes("what do you suggest") || q.includes("which approach") || q.includes("how to plan") || q.includes("structure a bootcamp") || q.includes("launch a fellowship") || q.includes("planning")) {
+      return {
+        content: "When planning a structured cohort-based program (like a bootcamp or fellowship), I recommend this checklist:\n\n1. **Phased Intake**: Set up program registration forms to capture participant metrics.\n2. **Cohort Structuring**: Group participants into cohorts with dedicated facilitators.\n3. **Live Sync Events**: Schedule live video training sessions with automated attendance capturing (leveraging OYEN Live).\n4. **Structured Assessments**: Run weekly checkpoints and assignment grading.\n5. **Completion Rules**: Automate the generation and distribution of completion credentials.\n\nOYEN GRID handles all 5 steps natively. Would you like to review features or schedule a demo?",
+        widget: "success"
+      };
+    }
+
     // Smart Escalation Check
     if (checkSmartEscalation(query)) {
       updateAnalytics("specialistRequests");
