@@ -536,23 +536,23 @@ export function Chatbot() {
             initial={{ opacity: 0, scale: 0.95, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
-            className="mb-4 w-[350px] h-[480px] flex flex-col bg-[#0A0A0B]/95 backdrop-blur-[60px] border border-brand-gold/10 rounded-[24px] overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.85)]"
+            className="mb-4 w-[340px] h-[480px] flex flex-col bg-[#0A0C10]/95 backdrop-blur-[40px] border border-white/5 rounded-[20px] overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.95)]"
           >
             {/* Header */}
-            <div className="px-4 py-3.5 border-b border-white/5 flex items-center justify-between bg-white/[0.01]">
-              <div className="flex items-center gap-2.5">
+            <div className="px-4 py-3 border-b border-white/5 flex items-center justify-between bg-white/[0.01]">
+              <div className="flex items-center gap-2">
                 <div className="relative">
-                  <div className="w-8 h-8 rounded-xl overflow-hidden border border-brand-gold/20 shadow-[0_0_15px_rgba(245,185,66,0.1)]">
+                  <div className="w-8 h-8 rounded-xl overflow-hidden border border-white/10">
                     <Image src="/oyen-ai-avatar.png" alt="OYEN AI" width={32} height={32} className="object-cover" />
                   </div>
-                  <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-500 rounded-full border-2 border-[#0A0A0B]" />
+                  <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-500 rounded-full border border-[#0A0C10]" />
                 </div>
                 <div>
-                  <div className="text-[12px] font-bold text-white tracking-tight">OYEN AI</div>
-                  <div className="text-[7px] font-black text-white/20 uppercase tracking-[0.15em]">Institutional Copilot</div>
+                  <div className="text-[12px] font-semibold text-white tracking-tight">OYEN AI</div>
+                  <div className="text-[7px] font-medium text-white/30 uppercase tracking-[0.1em]">Product Specialist</div>
                 </div>
               </div>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-0.5">
                 <button 
                   onClick={resetChat}
                   title="Reset Chat"
@@ -580,10 +580,10 @@ export function Chatbot() {
                   {msg.content && (
                     <div
                       className={cn(
-                        "flex flex-col gap-1 max-w-[85%] rounded-2xl px-3.5 py-3 text-[12px] leading-relaxed font-light border transition-all whitespace-pre-line",
+                        "flex flex-col gap-1 max-w-[85%] rounded-[16px] px-3.5 py-2.5 text-[12px] leading-relaxed font-light border transition-all whitespace-pre-line shadow-sm",
                         msg.role === "assistant"
-                          ? "bg-white/[0.03] border-white/5 text-white/80 self-start"
-                          : "bg-brand-gold/5 border-brand-gold/20 text-brand-gold self-end ml-auto"
+                          ? "bg-white/[0.02] border-white/5 text-white/80 rounded-tl-none self-start"
+                          : "bg-brand-gold/10 border-brand-gold/20 text-brand-gold rounded-tr-none self-end ml-auto"
                       )}
                     >
                       <p>{msg.content}</p>
@@ -860,7 +860,7 @@ export function Chatbot() {
                 e.preventDefault();
                 handleSend(input);
               }}
-              className="p-3 bg-[#0A0A0B] border-t border-white/5 shrink-0"
+              className="p-3 bg-[#0A0C10] border-t border-white/5 shrink-0"
             >
               <div className="relative">
                 <input 
@@ -905,7 +905,7 @@ export function Chatbot() {
           "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 group relative overflow-hidden",
           isOpen 
             ? "bg-white/[0.03] border border-white/10 text-white" 
-            : "bg-[#0A0A0B] border border-brand-gold/30 text-white shadow-[0_0_20px_rgba(245,185,66,0.05)]"
+            : "bg-[#0A0C10] border border-white/10 text-white shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
         )}
       >
         <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -914,10 +914,10 @@ export function Chatbot() {
           <X className="w-4 h-4" />
         ) : (
           <div className="relative shrink-0">
-            <div className="w-8 h-8 rounded-full overflow-hidden border border-brand-gold/20">
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10">
               <Image src="/oyen-ai-avatar.png" alt="OYEN AI" width={32} height={32} className="object-cover" />
             </div>
-            <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-500 rounded-full border border-[#0A0A0B]" />
+            <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-500 rounded-full border border-[#0A0C10]" />
           </div>
         )}
       </motion.button>
