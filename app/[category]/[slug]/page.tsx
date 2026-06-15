@@ -1,8 +1,10 @@
-import { EnterprisePageTemplate } from "@/components/layout/enterprise-page-template";
+import { PremiumPageTemplate } from "@/components/layout/premium-page-template";
 import { getPageData } from "@/lib/enterprise-data";
 import { Header, AnnouncementBar } from "@/components/layout/header";
 import { FooterPremium } from "@/components/layout/footer";
 import { Metadata } from "next";
+
+export const dynamic = "force-dynamic";
 
 interface PageProps {
   params: {
@@ -26,14 +28,7 @@ export default function EnterpriseRoute({ params }: PageProps) {
     <>
       <Header />
       <AnnouncementBar />
-      <EnterprisePageTemplate 
-        title={data.title}
-        subtitle={data.subtitle}
-        description={data.description}
-        focusAreas={data.focusAreas}
-        metrics={data.metrics}
-        category={data.category}
-      />
+      <PremiumPageTemplate data={data} slug={`${params.category}/${params.slug}`} />
       <FooterPremium hideCTA={false} />
     </>
   );
