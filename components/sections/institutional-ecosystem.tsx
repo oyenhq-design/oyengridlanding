@@ -113,7 +113,7 @@ export function HeroInstitutional() {
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
         
         {/* Main Columns Grid */}
-        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center min-h-[500px]">
+        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center min-h-[500px] relative">
           
           {/* LEFT: CONTENT AREA (Aligned upward for visual balance) */}
           <div className="hero-content flex flex-col justify-center text-left lg:translate-y-[-48px]">
@@ -172,6 +172,18 @@ export function HeroInstitutional() {
             </motion.div>
           </div>
 
+          {/* CENTERED SCROLL TO EXPLORE INDICATOR (Aligned with CTA buttons vertically) */}
+          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 bottom-[32px] flex-col items-center gap-1.5 z-30">
+            <div className="w-[16px] h-[26px] rounded-full border border-[#E2B84C]/40 flex items-start justify-center p-1">
+              <motion.div 
+                animate={{ y: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                className="w-1 h-1 bg-[#E2B84C] rounded-full"
+              />
+            </div>
+            <span className="text-[8px] font-bold tracking-[0.18em] text-[#E2B84C]/50 uppercase">Scroll</span>
+          </div>
+
         </div>
 
         {/* TOP: REDESIGNED PREMIUM TRUST BAR */}
@@ -190,18 +202,6 @@ export function HeroInstitutional() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* CENTERED SCROLL TO EXPLORE INDICATOR */}
-        <div className="flex flex-col items-center gap-1.5 mt-6 mb-2 w-full text-center">
-          <div className="w-[18px] h-[30px] rounded-full border-2 border-[#E2B84C]/50 flex items-start justify-center p-1">
-            <motion.div 
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-1.5 h-1.5 bg-[#E2B84C] rounded-full"
-            />
-          </div>
-          <span className="text-[9px] font-bold tracking-[0.18em] text-[#E2B84C]/70 uppercase">Scroll to explore</span>
         </div>
 
       </div>
