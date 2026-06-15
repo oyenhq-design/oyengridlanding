@@ -155,60 +155,153 @@ export function Chatbot() {
     updateAnalytics("questionsAsked");
     extractSessionContext(query);
 
-    // Identity Questions check
-    if (q.includes("name") || q.includes("who are you") || q.includes("who am i speaking with") || q.includes("are you an ai") || q.includes("are you a real person")) {
+    // Greetings
+    if (q === "hello") {
       return {
-        content: "My name is OYEN AI. I'm the official AI assistant for OYEN GRID.\n\nI help organizations explore solutions, understand platform capabilities, compare plans, and find the best setup for their programmes, events, or learning initiatives."
+        content: "Hello and welcome to OYEN GRID.\n\nI'm OYEN AI, here to help you explore solutions, features, pricing, and best practices for programme delivery.\n\nHow can I assist you today?"
       };
     }
-
-    // Warm Greetings check
+    if (q === "hi there") {
+      return {
+        content: "Hi there. It's great to have you here.\n\nHow may I help you today?"
+      };
+    }
+    if (q === "good morning") {
+      return {
+        content: "Good morning and welcome to OYEN GRID.\n\nI hope your day is off to a great start. How can I assist you today?"
+      };
+    }
     if (q === "hi" || q === "hello" || q === "hey" || q.startsWith("hi ") || q.startsWith("hello ") || q.startsWith("hey ") || q.includes("good morning") || q.includes("good afternoon") || q.includes("good evening")) {
       return {
         content: "Hello and welcome to OYEN GRID.\n\nI'm OYEN AI, your programme operations assistant.\n\nHow can I assist you today?"
       };
     }
 
-    // How are you check
-    if (q.includes("how are you") || q.includes("how's your day") || q.includes("how are things")) {
+    // Personal Questions
+    if (q.includes("what's your name") || q.includes("what is your name")) {
       return {
-        content: "Thank you for asking. I'm doing well and ready to help.\n\nHow can I assist you today?"
+        content: "My name is OYEN AI, the official AI assistant for OYEN GRID.\n\nI'm here to help organizations discover, evaluate and succeed with OYEN GRID."
+      };
+    }
+    if (q.includes("who created you")) {
+      return {
+        content: "I was created to assist visitors and customers of OYEN GRID by providing information, guidance and support."
+      };
+    }
+    if (q.includes("are you a real person") || q.includes("are you an ai") || q.includes("who are you") || q.includes("who am i speaking with")) {
+      return {
+        content: "I'm an AI assistant designed to help you quickly find information and guidance about OYEN GRID. If you'd prefer to speak with a human specialist, I can help arrange that as well."
       };
     }
 
-    // What can you do check
-    if (q.includes("what can you do") || q.includes("how can you help me") || q.includes("what are your capabilities")) {
+    // Small Talk
+    if (q.includes("how are you")) {
       return {
-        content: "I can help you:\n\n• Explore OYEN GRID solutions\n• Compare pricing plans\n• Understand platform features\n• Learn about implementation options\n• Recommend the right solution\n• Schedule a demo\n• Connect with a specialist\n• Answer questions about programme delivery and operations",
+        content: "Thank you for asking. I'm doing well and ready to assist. How can I help you today?"
+      };
+    }
+    if (q.includes("how's your day") || q.includes("how is your day")) {
+      return {
+        content: "My focus is always on helping visitors and customers, and I'm ready whenever you need assistance."
+      };
+    }
+    if (q.includes("nice to meet you")) {
+      return {
+        content: "Nice to meet you as well. I'm glad you're here. How can I assist you today?"
+      };
+    }
+
+    // Appreciation
+    if (q === "thank you") {
+      return {
+        content: "You're very welcome. I'm happy I could help."
+      };
+    }
+    if (q.includes("thanks a lot")) {
+      return {
+        content: "My pleasure. If there's anything else you'd like to explore, just let me know."
+      };
+    }
+    if (q.includes("thank you") || q === "thanks" || q.startsWith("thanks ") || q.includes("appreciate it") || q.includes("helpful") || q.includes("great job") || q.includes("smart") || q.includes("intelligent")) {
+      return {
+        content: "Thank you. I'm glad the information was useful."
+      };
+    }
+
+    // Uncertain Users
+    if (q.includes("not sure where to start") || q.includes("i don't know where to start") || q.includes("where do i start")) {
+      return {
+        content: "No problem.\n\nCould you tell me a little about what you're trying to achieve?\n\nFor example:\n\n• Running a training programme\n• Hosting webinars\n• Managing academic learning\n• Coordinating internal operations\n\nOnce I understand your goals, I can guide you."
+      };
+    }
+    if (q.includes("just exploring") || q.includes("looking around") || q.includes("exploring options") || q === "unsure") {
+      return {
+        content: "That's perfectly fine.\n\nMany organizations start by exploring solutions, features, or pricing before deciding what fits their needs."
+      };
+    }
+
+    // Decision Support
+    if (q.includes("which solution is best") || q.includes("what is the best option") || q.includes("what plan should")) {
+      return {
+        content: "The best solution depends on your organization and goals.\n\nCould you tell me:\n\n• What type of organization you run?\n• Approximately how many participants you manage?\n• Whether you're running programmes, events, or academic learning?\n\nI'll recommend the most suitable option."
+      };
+    }
+
+    // Comparison Questions
+    if (q.includes("why should i use oyen grid") || q.includes("why use oyen grid")) {
+      return {
+        content: "Organizations choose OYEN GRID because it centralizes programme operations into one platform.\n\nInstead of managing separate tools for meetings, attendance, assessments, resources and reporting, OYEN GRID brings everything together in a unified system."
+      };
+    }
+    if (q.includes("what makes oyen grid different") || q.includes("what makes you different") || q.includes("moodle") || q.includes("google classroom") || q.includes("zoom") || q.includes("teams") || q.includes("talentlms") || q.includes("thinkific") || q.includes("kajabi") || q.includes("compare to")) {
+      return {
+        content: "While many platforms focus on individual functions, OYEN GRID is designed as a complete programme operating system that combines programme management, participant management, live delivery, attendance intelligence, analytics and AI-powered insights."
+      };
+    }
+
+    // Concerns
+    if (q.includes("will this be difficult to use") || q.includes("difficult to use") || q.includes("is it hard")) {
+      return {
+        content: "Not at all.\n\nOYEN GRID is designed to simplify operations, not add complexity. Most organizations can begin managing programmes and participants with minimal onboarding."
+      };
+    }
+    if (q.includes("we already use zoom") || q.includes("already use zoom")) {
+      return {
+        content: "That's common.\n\nMany organizations initially use Zoom alongside other tools. OYEN GRID provides built-in live delivery while also centralizing attendance, participant tracking, assessments and reporting."
+      };
+    }
+
+    // Sales Conversations
+    if (q.includes("think we're interested") || q.includes("we are interested") || q.includes("im interested")) {
+      return {
+        content: "That's great to hear.\n\nWould you like to explore pricing, schedule a demo, or speak with a specialist to discuss your requirements?",
         widget: "success"
       };
     }
-
-    // Thank you check
-    if (q.includes("thank you") || q === "thanks" || q.startsWith("thanks ") || q.includes("appreciate it")) {
+    if (q.includes("want a custom setup") || q.includes("custom setup") || q.includes("custom deployment")) {
       return {
-        content: "You're welcome. I'm glad I could help.\n\nIf you have any other questions about OYEN GRID, feel free to ask."
+        content: "A custom deployment may be the best option for your organization.\n\nI can connect you with an OYEN GRID specialist to discuss infrastructure, integrations and implementation requirements.",
+        widget: "specialist-cta"
       };
     }
 
-    // Goodbye check
-    if (q === "bye" || q === "goodbye" || q.startsWith("bye ") || q.startsWith("goodbye ") || q.includes("see you later") || q.includes("talk later")) {
+    // Human Handoff
+    if (q.includes("can i speak with someone") || q.includes("speak with someone") || q.includes("talk to a human") || q.includes("contact support") || q.includes("speak with a representative")) {
       return {
-        content: "Thank you for visiting OYEN GRID.\n\nFeel free to return anytime if you need assistance. Have a wonderful day."
+        content: "Absolutely.\n\nOne of our specialists would be happy to assist.\n\nPlease share:\n\n• Name\n• Organization\n• Email Address\n• Phone Number\n\nand a team member will contact you.",
+        widget: "specialist-form"
       };
     }
 
-    // Compliments check
-    if (q.includes("helpful") || q.includes("great job") || q.includes("smart") || q.includes("intelligent")) {
+    // Ending Conversations
+    if (q === "bye" || q === "goodbye" || q.startsWith("bye ") || q.startsWith("goodbye ")) {
       return {
-        content: "Thank you. I appreciate the feedback.\n\nMy goal is to make it easier for organizations to understand and succeed with OYEN GRID."
+        content: "Thank you for visiting OYEN GRID.\n\nIf you need assistance in the future, I'll be here to help. Have a wonderful day."
       };
     }
-
-    // Uncertain Users check
-    if (q.includes("where to start") || q.includes("looking around") || q.includes("exploring options") || q === "unsure") {
+    if (q.includes("talk to you later") || q.includes("talk later") || q.includes("see you later")) {
       return {
-        content: "That's completely fine.\n\nTo point you in the right direction, could you tell me a little about your organization and what you're trying to achieve?\n\nFor example:\n\n• Training programmes\n• Webinars and events\n• Academic learning\n• Internal operations\n\nI'll help you identify the best fit."
+        content: "I look forward to it. Have a great day."
       };
     }
 
@@ -224,13 +317,6 @@ export function Chatbot() {
     if (q.includes("attendance has become difficult") || q.includes("difficult to track") || q.includes("too many cohorts") || q.includes("hard to manage") || q.includes("tracking progress") || q.includes("struggle to track") || q.includes("attendance tracking issue") || q.includes("manage several training")) {
       return {
         content: "That is a common challenge for growing programme teams.\n\nTo help recommend the most suitable setup, could you share:\n\n• How many participants do you typically manage?\n• Do you run multiple cohorts?\n• Are your sessions virtual, physical, or hybrid?"
-      };
-    }
-
-    // Competitor check
-    if (q.includes("moodle") || q.includes("google classroom") || q.includes("zoom") || q.includes("teams") || q.includes("talentlms") || q.includes("thinkific") || q.includes("kajabi") || q.includes("compare to")) {
-      return {
-        content: "When comparing OYEN GRID to other platforms, here is the key difference:\n\n• **LMS systems (like Moodle, Google Classroom, TalentLMS, Thinkific, Kajabi)** focus primarily on content hosting. OYEN GRID focuses on **Programme Operations** — combining cohort management, live session delivery, attendance intelligence, assessments, and automated credential verification in one unified hub.\n• **Meeting Tools (like Zoom, Teams)** host calls but lack participant databases, automated attendance tracking, and programme performance reporting.\n\nOYEN GRID unifies all of these capabilities into a single operational system."
       };
     }
 
