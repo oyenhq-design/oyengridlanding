@@ -1,22 +1,17 @@
 import { Header, AnnouncementBar } from "@/components/layout/header";
-import { HeroInstitutional, PlatformOverview } from "@/components/sections/institutional-ecosystem";
+import { HeroInstitutional } from "@/components/sections/institutional-ecosystem";
 import { OperationalLifecycle } from "@/components/sections/operational-lifecycle";
 import { OperationalInfrastructure } from "@/components/sections/operational-infrastructure";
-import { InstitutionalCommandCenter } from "@/components/sections/institutional-command";
 import { HumanCoordination } from "@/components/sections/human-coordination";
-import { OperationalIntelligence } from "@/components/sections/operational-intelligence";
 import { ScaleStructure } from "@/components/sections/scale-structure";
-
 import { InstitutionalImpactCinematic } from "@/components/sections/institutional-impact-cinematic";
-import { ConnectedEcosystem } from "@/components/sections/connected-ecosystem";
-import { EnterpriseTrust } from "@/components/sections/enterprise-trust";
 import { FinalCTA } from "@/components/sections/final-cta";
+
 import { FooterPremium } from "@/components/layout/footer";
 import { Chatbot } from "@/components/layout/chatbot";
 import { SearchSystem } from "@/components/layout/search-system";
 
 export default function Home() {
-  // Operational Lifecycle & Institutional Infrastructure
   return (
     <main className="min-h-screen bg-[#05070B] selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden">
       {/* 1. NAVIGATION & ANNOUNCEMENT */}
@@ -25,40 +20,28 @@ export default function Home() {
       
       <div className="relative">
         <div className="relative z-10">
-          {/* 2. HERO: Institutional Infrastructure & Human Coordination */}
+          {/* 2. HERO */}
           <HeroInstitutional />
 
-          {/* NEW: OPERATIONAL LIFECYCLE: Interactive Programme Flow */}
+          {/* 3. PROGRAMME LIFECYCLE */}
           <OperationalLifecycle />
 
-          {/* NEW: OPERATIONAL INFRASTRUCTURE: Command Center & System Capabilities */}
+          {/* 4. PLATFORM CAPABILITIES */}
           <OperationalInfrastructure />
 
-          {/* NEW: INSTITUTIONAL COMMAND CENTER: Cinematic Dashboard & Operational Intelligence */}
-          <InstitutionalCommandCenter />
-
-          {/* NEW: HUMAN COORDINATION: Intelligent Communications & Live Sync */}
+          {/* 5. AI SECTION */}
           <HumanCoordination />
 
-          {/* 4. OPERATIONAL SYSTEM: Operational Intelligence & Telemetry */}
-          <OperationalIntelligence />
-
-          {/* 5. INSTITUTIONAL SCALE: Architectural Infrastructure & Global Sync */}
+          {/* 6. INFRASTRUCTURE SECTION */}
           <ScaleStructure />
           
-          {/* 7. TRUST & IMPACT: Measurable Outcomes & Executive Validation */}
+          {/* 7. CUSTOMER TESTIMONIAL */}
           <InstitutionalImpactCinematic />
 
-          {/* 8. CONNECTED ECOSYSTEM: System Architecture & Data Flow */}
-          <ConnectedEcosystem />
-
-          {/* 9. ENTERPRISE TRUST: Infrastructure Signals */}
-          <EnterpriseTrust />
-
-          {/* 10. FINAL AUTHORISATION: Immersive Closing */}
+          {/* 8. FINAL CTA */}
           <FinalCTA />
 
-          {/* 9. INSTITUTIONAL FOOTER */}
+          {/* 9. FOOTER */}
           <FooterPremium hideCTA={true} />
         </div>
       </div>

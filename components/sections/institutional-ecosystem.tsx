@@ -178,7 +178,7 @@ export function HeroInstitutional() {
 
               {/* Subheadline (Softer white, improved line-height and spacing) */}
               <p className="text-[16px] sm:text-[17.5px] text-white/60 font-medium leading-[1.6] mt-6 max-w-[480px] tracking-wide">
-                The unified platform for programme delivery, participant engagement, live operations, analytics and AI.
+                The operating system for programme delivery, participant engagement, live operations, analytics and AI.
               </p>
 
               {/* Explore Search Input */}

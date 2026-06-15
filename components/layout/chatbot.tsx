@@ -142,9 +142,9 @@ export function Chatbot() {
   const checkSmartEscalation = (text: string): boolean => {
     const q = text.toLowerCase();
     const escalationKeywords = [
-      "enterprise deployment", "white-label", "api access", "custom integration", 
-      "dedicated infrastructure", "large-scale", "government project", "university", 
-      "ngo", "procurement", "security review", "compliance", "specialist", "human", 
+      "enterprise deployment", "white-label", "api access", "custom integration",
+      "dedicated infrastructure", "large-scale", "government project", "university",
+      "ngo", "procurement", "security review", "compliance", "specialist", "human",
       "speak with representative", "talk to support", "custom pricing"
     ];
     return escalationKeywords.some((kw) => q.includes(kw));
@@ -211,209 +211,20 @@ export function Chatbot() {
       };
     }
 
-    // Short Acknowledgements
-    if (q === "okay" || q === "ok") {
-      return {
-        content: "Great. Let me know how you'd like to proceed."
-      };
-    }
-    if (q === "alright") {
-      return {
-        content: "Perfect. What would you like to explore next?"
-      };
-    }
-    if (q === "cool") {
-      return {
-        content: "Glad to hear that. How else can I help?"
-      };
-    }
-    if (q === "nice") {
-      return {
-        content: "Happy you found that useful."
-      };
-    }
-    if (q === "interesting") {
-      return {
-        content: "It certainly is. Would you like me to explain it in more detail?"
-      };
-    }
-
-    // Ending Temporarily
-    if (q === "later then") {
-      return {
-        content: "No problem. I'll be here whenever you need assistance."
-      };
-    }
-    if (q === "talk later" || q.includes("talk to you later")) {
-      return {
-        content: "Of course. I'll be here when you're ready."
-      };
-    }
-    if (q === "catch you later") {
-      return {
-        content: "Looking forward to it. Have a great day."
-      };
-    }
-
-    // Thinking Responses
-    if (q === "let me think about it" || q.includes("think about it")) {
-      return {
-        content: "Absolutely. Take your time."
-      };
-    }
-    if (q === "i need some time" || q.includes("need some time")) {
-      return {
-        content: "Of course. There's no rush."
-      };
-    }
-    if (q === "i'm not sure" || q === "im not sure" || q === "i am not sure") {
-      return {
-        content: "That's completely understandable. What part would you like me to clarify?"
-      };
-    }
-
-    // Positive Reactions
-    if (q === "awesome") {
-      return {
-        content: "Glad you think so."
-      };
-    }
-    if (q === "that's helpful" || q === "thats helpful" || q === "helpful") {
-      return {
-        content: "I'm happy it helped."
-      };
-    }
-    if (q === "perfect") {
-      return {
-        content: "Great. Let me know if you'd like help with anything else."
-      };
-    }
-    if (q === "exactly") {
-      return {
-        content: "Glad we're on the same page."
-      };
-    }
-
-    // Hesitation
-    if (q === "maybe") {
-      return {
-        content: "That's perfectly fine. Would you like more information to help with the decision?"
-      };
-    }
-    if (q === "i don't know yet" || q === "i dont know yet" || q === "i don't know" || q === "i dont know") {
-      return {
-        content: "No worries. Exploring your options is often the best place to start."
-      };
-    }
-
-    // Price Concerns
-    if (q.includes("expensive") || q.includes("too costly") || q.includes("high price")) {
-      return {
-        content: "I understand pricing is an important consideration. The right plan often depends on your programme size, participant volume and operational needs."
-      };
-    }
-    if (q.includes("not sure it's worth it") || q.includes("not sure its worth it") || q.includes("worth the money")) {
-      return {
-        content: "That's a fair question. If you'd like, I can walk through the specific benefits and help determine whether it's a good fit for your organization."
-      };
-    }
-
-    // Surprise
-    if (q === "wow") {
-      return {
-        content: "Glad that caught your attention."
-      };
-    }
-    if (q === "seriously?" || q === "seriously") {
-      return {
-        content: "Yes. If you'd like, I can provide more details."
-      };
-    }
-
-    // Waiting
-    if (q === "hold on") {
-      return {
-        content: "Of course. Take your time."
-      };
-    }
-    if (q === "one sec") {
-      return {
-        content: "No problem."
-      };
-    }
-    if (q === "wait") {
-      return {
-        content: "Sure. I'm here."
-      };
-    }
-
-    // Checking Presence
-    if (q === "you there?" || q === "you there") {
-      return {
-        content: "Yes, I'm here and ready to help."
-      };
-    }
-    if (q === "still there?" || q === "still there") {
-      return {
-        content: "Absolutely."
-      };
-    }
-
-    // Gratitude
-    if (q === "thanks") {
-      return {
-        content: "You're welcome."
-      };
-    }
-    if (q === "thanks a lot") {
-      return {
-        content: "My pleasure."
-      };
-    }
-    if (q === "appreciate it") {
-      return {
-        content: "Happy to help."
-      };
-    }
+    // Appreciation
     if (q === "thank you") {
       return {
         content: "You're very welcome. I'm happy I could help."
       };
     }
-
-    // Good Night / Goodbye
-    if (q === "good night") {
+    if (q.includes("thanks a lot")) {
       return {
-        content: "Good night, and thank you for visiting OYEN GRID."
+        content: "My pleasure. If there's anything else you'd like to explore, just let me know."
       };
     }
-    if (q === "goodbye") {
+    if (q.includes("thank you") || q === "thanks" || q.startsWith("thanks ") || q.includes("appreciate it") || q.includes("helpful") || q.includes("great job") || q.includes("smart") || q.includes("intelligent")) {
       return {
-        content: "Thank you for your time. Have a wonderful day."
-      };
-    }
-
-    // Light Humor
-    if (q === "lol" || q === "lmao") {
-      return {
-        content: "😄 Glad we could share a moment."
-      };
-    }
-    if (q === "haha") {
-      return {
-        content: "Glad you're enjoying the conversation."
-      };
-    }
-
-    // Compliments
-    if (q === "you're smart" || q === "youre smart") {
-      return {
-        content: "Thank you. My goal is to provide useful and accurate guidance."
-      };
-    }
-    if (q === "you're good" || q === "youre good") {
-      return {
-        content: "That's kind of you to say. I'm glad I could help."
+        content: "Thank you. I'm glad the information was useful."
       };
     }
 
@@ -794,7 +605,7 @@ export function Chatbot() {
       ]);
       setIsTyping(false);
     }, 1000);
-  };  return (
+  }; return (
     <div className="fixed bottom-8 right-8 z-[200]">
       <AnimatePresence>
         {isOpen && (
@@ -819,14 +630,14 @@ export function Chatbot() {
                 </div>
               </div>
               <div className="flex items-center gap-0.5">
-                <button 
+                <button
                   onClick={resetChat}
                   title="Reset Chat"
                   className="w-7 h-7 rounded-lg hover:bg-white/5 flex items-center justify-center text-white/30 hover:text-white transition-all"
                 >
                   <RotateCcw className="w-3 h-3" />
                 </button>
-                <button 
+                <button
                   onClick={() => setIsOpen(false)}
                   className="w-7 h-7 rounded-lg hover:bg-white/5 flex items-center justify-center text-white/30 hover:text-white transition-all"
                 >
@@ -836,7 +647,7 @@ export function Chatbot() {
             </div>
 
             {/* Content Feed */}
-            <div 
+            <div
               ref={feedRef}
               className="flex-1 px-5 py-4 overflow-y-auto space-y-3.5 scrollbar-thin scrollbar-thumb-white/5 scrollbar-track-transparent"
             >
@@ -873,7 +684,7 @@ export function Chatbot() {
                       )}
 
                       {msg.widget === "demo" && (
-                        <InteractiveForm 
+                        <InteractiveForm
                           fields={[
                             { name: "name", label: "Full Name", placeholder: "e.g. Jane Doe", type: "text" },
                             { name: "organization", label: "Organization", placeholder: "e.g. Tech Academy", type: "text" },
@@ -888,7 +699,7 @@ export function Chatbot() {
                       )}
 
                       {msg.widget === "sales" && (
-                        <InteractiveForm 
+                        <InteractiveForm
                           fields={[
                             { name: "name", label: "Full Name", placeholder: "e.g. Robert Smith", type: "text" },
                             { name: "organization", label: "Organization", placeholder: "e.g. Global NGOs", type: "text" },
@@ -901,7 +712,7 @@ export function Chatbot() {
                       )}
 
                       {msg.widget === "waitlist" && (
-                        <InteractiveForm 
+                        <InteractiveForm
                           fields={[
                             { name: "name", label: "Full Name", placeholder: "e.g. Alex Carter", type: "text" },
                             { name: "organization", label: "Organization Name", placeholder: "e.g. Gov Training Institute", type: "text" },
@@ -942,7 +753,7 @@ export function Chatbot() {
                       )}
 
                       {msg.widget === "specialist-form" && (
-                        <InteractiveForm 
+                        <InteractiveForm
                           fields={[
                             { name: "name", label: "Full Name", placeholder: "e.g. John Doe", type: "text" },
                             { name: "organization", label: "Organization Name", placeholder: "e.g. University of Lagos", type: "text" },
@@ -1121,21 +932,21 @@ export function Chatbot() {
 
             {/* Input Area */}
             <div className="px-5 py-4 bg-transparent shrink-0">
-              <form 
+              <form
                 onSubmit={(e) => {
                   e.preventDefault();
                   handleSend(input);
                 }}
                 className="relative flex items-center bg-[#131722]/80 border border-white/5 focus-within:border-brand-gold/30 rounded-2xl px-4 py-2.5 transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.4)]"
               >
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask about pricing, features, solutions..."
                   className="flex-1 bg-transparent text-[12px] text-white placeholder:text-white/20 focus:outline-none font-light"
                 />
-                <button 
+                <button
                   type="submit"
                   disabled={!input.trim()}
                   className={cn(
@@ -1156,7 +967,7 @@ export function Chatbot() {
       {/* Trigger Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        animate={{ 
+        animate={{
           boxShadow: [
             "0 10px 30px rgba(0,0,0,0.5), 0 0 0px rgba(245,185,66,0)",
             "0 15px 35px rgba(0,0,0,0.6), 0 0 15px rgba(245,185,66,0.1)",
@@ -1168,13 +979,13 @@ export function Chatbot() {
         whileTap={{ scale: 0.95 }}
         className={cn(
           "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 group relative overflow-hidden",
-          isOpen 
-            ? "bg-[#06080C]/80 border border-white/10 text-white" 
+          isOpen
+            ? "bg-[#06080C]/80 border border-white/10 text-white"
             : "bg-[#06080C] border border-white/10 text-white shadow-[0_8px_30px_rgba(0,0,0,0.6),_0_0_20px_rgba(245,185,66,0.05)]"
         )}
       >
         <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        
+
         {isOpen ? (
           <X className="w-4 h-4" />
         ) : (
@@ -1197,13 +1008,13 @@ interface FormField {
   type: string;
 }
 
-function InteractiveForm({ 
-  fields, 
-  submitLabel, 
-  onSubmit 
-}: { 
-  fields: FormField[]; 
-  submitLabel: string; 
+function InteractiveForm({
+  fields,
+  submitLabel,
+  onSubmit
+}: {
+  fields: FormField[];
+  submitLabel: string;
   onSubmit: (data: Record<string, string>) => void;
 }) {
   const [formData, setFormData] = useState<Record<string, string>>({});

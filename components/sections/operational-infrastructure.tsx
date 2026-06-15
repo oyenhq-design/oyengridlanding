@@ -2,74 +2,70 @@
 
 import { motion } from "framer-motion";
 import { 
-  Users, Activity, PlayCircle, ShieldCheck, PieChart, 
-  Settings, Clock, FileText, Box, BarChart3, ChevronRight,
-  ClipboardCheck, LayoutGrid
+  Layers, Users, Activity, Box, FileText, Award, BarChart3
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const capabilities = [
   {
-    title: "Session Management",
-    desc: "Manage high-quality live modules with advanced moderation and control.",
-    icon: PlayCircle,
-    offset: "mt-0"
+    title: "Programme Management",
+    desc: "Organise structures, schedules, and delivery pipelines.",
+    icon: Layers
   },
   {
-    title: "Cohort Management",
-    desc: "Organise cohorts, manage access and track participant progress.",
-    icon: Users,
-    offset: "mt-8"
+    title: "Participant Tracking",
+    desc: "Track engagement, progress, and performance across cohorts.",
+    icon: Users
   },
   {
-    title: "Attendance Tracking",
-    desc: "Automated attendance capture with detailed participation analytics.",
-    icon: Activity,
-    offset: "mt-4"
-  },
-  {
-    title: "Assessments",
-    desc: "Create quizzes, assignments and evaluations with ease.",
-    icon: FileText,
-    offset: "mt-10"
+    title: "Attendance Intelligence",
+    desc: "Automated attendance capture with deep participation metrics.",
+    icon: Activity
   },
   {
     title: "Resource Library",
-    desc: "Store, organise and share materials securely with participants.",
-    icon: Box,
-    offset: "mt-6"
+    desc: "Store, organise, and share content securely with participants.",
+    icon: Box
   },
   {
-    title: "Analytics & Reports",
-    desc: "Real-time analytics and custom reports for smarter decisions.",
-    icon: PieChart,
-    offset: "mt-2"
+    title: "Assessments",
+    desc: "Create assignments, quizzes, and evaluate submissions in one dashboard.",
+    icon: FileText
+  },
+  {
+    title: "Certificates",
+    desc: "Design, automate, and issue verified completion credentials.",
+    icon: Award
+  },
+  {
+    title: "Analytics",
+    desc: "Real-time reporting and operational insights for decisions.",
+    icon: BarChart3
   }
 ];
 
 export function OperationalInfrastructure() {
   return (
-    <section className="py-16 bg-[#050816] theme-light-section relative overflow-hidden border-b border-white/5">
+    <section className="py-20 bg-[#050816] theme-light-section relative overflow-hidden border-b border-white/5">
       
-      {/* REFINED AMBIENT GLOW */}
+      {/* Refined ambient glow */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-brand-gold/[0.02] blur-[140px] rounded-full" />
-         <div className="absolute inset-0 opacity-[0.012]" style={{ backgroundImage: "radial-gradient(circle, white 0.5px, transparent 0.5px)", backgroundSize: "32px 32px" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-brand-gold/[0.015] blur-[140px] rounded-full" />
+        <div className="absolute inset-0 opacity-[0.01]" style={{ backgroundImage: "radial-gradient(circle, white 0.5px, transparent 0.5px)", backgroundSize: "32px 32px" }} />
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-8 relative z-10">
         
-        {/* HEADER - REFINED & COMPACT */}
-        <div className="text-center mb-12">
+        {/* Header */}
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="flex items-center justify-center gap-3 mb-4"
           >
-             <div className="w-1 h-1 rounded-full bg-brand-gold/40" />
-             <span className="eyebrow tracking-[0.4em] text-brand-gold/80 font-black uppercase text-[10px]">Operational Infrastructure</span>
-             <div className="w-1 h-1 rounded-full bg-brand-gold/40" />
+            <div className="w-1 h-1 rounded-full bg-brand-gold/40" />
+            <span className="text-[10px] font-black tracking-[0.35em] text-brand-gold uppercase">Platform Capabilities</span>
+            <div className="w-1 h-1 rounded-full bg-brand-gold/40" />
           </motion.div>
           
           <motion.h2 
@@ -77,10 +73,10 @@ export function OperationalInfrastructure() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[28px] md:text-[32px] font-bold text-white max-w-[760px] mx-auto leading-[1.08] tracking-tighter mb-5"
+            className="text-[32px] md:text-[42px] font-bold text-white max-w-[760px] mx-auto leading-[1.1] tracking-tight mb-5"
           >
             Everything needed to coordinate <br className="hidden md:block" />
-            <span className="text-brand-gold">institutional programme operations.</span>
+            <span className="text-brand-gold">programme operations.</span>
           </motion.h2>
 
           <motion.p
@@ -88,48 +84,34 @@ export function OperationalInfrastructure() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-[13px] leading-relaxed text-white/40 max-w-[560px] mx-auto font-medium"
+            className="text-[14px] leading-relaxed text-white/50 max-w-[560px] mx-auto font-light"
           >
-            OYEN GRID unifies programme delivery, participant coordination, communication, analytics and operational intelligence into one connected infrastructure layer.
+            OYEN GRID unifies programme delivery, participant coordination, communication, analytics and operational visibility into one connected infrastructure layer.
           </motion.p>
         </div>
 
-        {/* 6-COLUMN REBALANCED GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 items-start">
-           {capabilities.map((cap, i) => (
-             <motion.div
-               key={i}
-               initial={{ opacity: 0, y: 30 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-               whileHover={{ y: -5 }}
-               className={cn(
-                 "group relative p-4 rounded-[16px] bg-white/[0.01] border border-white/5 backdrop-blur-xl transition-all duration-700 hover:bg-white/[0.03] hover:border-brand-gold/30 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] min-h-[200px] flex flex-col",
-                 cap.offset
-               )}
-             >
-                <div className="w-8 h-8 rounded-[10px] bg-white/[0.02] border border-white/5 flex items-center justify-center mb-5 group-hover:border-brand-gold/20 group-hover:bg-brand-gold/5 transition-all duration-700 shadow-inner relative overflow-hidden shrink-0">
-                   <cap.icon className="w-4 h-4 text-brand-gold/30 group-hover:text-brand-gold transition-colors duration-700 relative z-10" />
-                   <div className="absolute inset-0 bg-brand-gold/10 blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-700" />
-                </div>
-                
-                <h3 className="text-[14px] font-bold text-white mb-2 tracking-tight group-hover:text-brand-gold transition-colors duration-500 leading-tight">{cap.title}</h3>
-                
-                <p className="text-[11px] leading-[1.5] text-white/30 group-hover:text-white/50 transition-colors duration-700 mb-4">
-                  {cap.desc}
-                </p>
-
-                {/* Vertical Architectural Detail */}
-                <div className="mt-auto pt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-1 group-hover:translate-y-0">
-                   <div className="w-3 h-[1px] bg-brand-gold/30" />
-                   <span className="text-[8px] font-black text-brand-gold uppercase tracking-[0.2em]">Institutional Ready</span>
-                </div>
-
-                {/* Subtler Bloom Effect */}
-                <div className="absolute inset-0 rounded-[20px] bg-gradient-to-br from-brand-gold/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
-             </motion.div>
-           ))}
+        {/* 7 Capabilities Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-stretch">
+          {capabilities.map((cap, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              className="group p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-xl transition-all duration-300 hover:bg-white/[0.04] hover:border-brand-gold/30 hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)] flex flex-col min-h-[180px]"
+            >
+              <div className="w-8 h-8 rounded-lg bg-brand-gold/5 border border-brand-gold/15 flex items-center justify-center mb-4 group-hover:border-brand-gold/30 transition-all duration-300">
+                <cap.icon className="w-4 h-4 text-brand-gold/60 group-hover:text-brand-gold transition-colors duration-300" />
+              </div>
+              
+              <h3 className="text-[14px] font-bold text-white mb-1.5 group-hover:text-brand-gold transition-colors duration-300">{cap.title}</h3>
+              
+              <p className="text-[11px] leading-normal text-white/40 group-hover:text-white/60 transition-colors duration-300">
+                {cap.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
