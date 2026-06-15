@@ -108,7 +108,7 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="relative min-h-[720px] bg-[#050505] flex items-center pt-24 pb-16 overflow-hidden">
+    <section className="relative min-h-[720px] bg-[#050505] flex items-center pt-10 pb-16 overflow-hidden">
       
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
         
@@ -116,7 +116,7 @@ export function HeroInstitutional() {
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center min-h-[500px]">
           
           {/* LEFT: CONTENT AREA (Aligned upward for visual balance) */}
-          <div className="hero-content flex flex-col justify-center text-left lg:translate-y-[-24px]">
+          <div className="hero-content flex flex-col justify-center text-left lg:translate-y-[-48px]">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
