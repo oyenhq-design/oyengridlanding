@@ -251,15 +251,15 @@ export function HeroInstitutional() {
           </div>
 
           {/* CENTERED SCROLL TO EXPLORE INDICATOR (Aligned with CTA buttons vertically) */}
-          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 bottom-[145px] flex-col items-center gap-1.5 z-30">
-            <div className="w-[16px] h-[26px] rounded-full border border-[#E2B84C]/40 flex items-start justify-center p-1">
+          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 bottom-[145px] flex-col items-center gap-2 z-30">
+            <div className="w-[20px] h-[32px] rounded-full border border-[#E2B84C]/40 flex items-start justify-center p-1.5">
               <motion.div 
-                animate={{ y: [0, 5, 0] }}
+                animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-1 h-1 bg-[#E2B84C] rounded-full"
+                className="w-1.5 h-1.5 bg-[#E2B84C] rounded-full"
               />
             </div>
-            <span className="text-[8px] font-bold tracking-[0.18em] text-[#E2B84C]/50 uppercase">Scroll</span>
+            <span className="text-[8px] font-bold tracking-[0.2em] text-[#E2B84C]/50 uppercase">score to explore</span>
           </div>
 
         </div>
