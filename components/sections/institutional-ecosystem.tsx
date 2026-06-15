@@ -108,7 +108,7 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="relative min-h-[720px] bg-[#050505] flex items-center pt-10 pb-16 overflow-hidden">
+    <section className="relative min-h-[680px] bg-[#050505] flex items-center pt-8 pb-8 overflow-hidden">
       
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
         
@@ -174,20 +174,8 @@ export function HeroInstitutional() {
 
         </div>
 
-        {/* CENTERED SCROLL TO EXPLORE INDICATOR */}
-        <div className="flex flex-col items-center gap-2 mt-8 mb-4 w-full text-center">
-          <div className="w-[18px] h-[30px] rounded-full border-2 border-[#E2B84C]/50 flex items-start justify-center p-1">
-            <motion.div 
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-1.5 h-1.5 bg-[#E2B84C] rounded-full"
-            />
-          </div>
-          <span className="text-[9px] font-bold tracking-[0.18em] text-[#E2B84C]/70 uppercase">Scroll to explore</span>
-        </div>
-
-        {/* BOTTOM: REDESIGNED PREMIUM TRUST BAR */}
-        <div className="mt-10 border border-white/5 rounded-2xl bg-[#0a0a0a]/40 backdrop-blur-md px-10 py-6 flex flex-col gap-6 shadow-[0_12px_40px_rgba(0,0,0,0.8)]">
+        {/* TOP: REDESIGNED PREMIUM TRUST BAR */}
+        <div className="mt-6 border border-white/5 rounded-2xl bg-[#0a0a0a]/40 backdrop-blur-md px-10 py-5 flex flex-col gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.8)]">
           <span className="text-[9px] font-black tracking-[0.24em] text-[#E2B84C]/80 uppercase text-center select-none">
             Trusted by organisations
           </span>
@@ -204,14 +192,22 @@ export function HeroInstitutional() {
           </div>
         </div>
 
+        {/* CENTERED SCROLL TO EXPLORE INDICATOR */}
+        <div className="flex flex-col items-center gap-1.5 mt-6 mb-2 w-full text-center">
+          <div className="w-[18px] h-[30px] rounded-full border-2 border-[#E2B84C]/50 flex items-start justify-center p-1">
+            <motion.div 
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="w-1.5 h-1.5 bg-[#E2B84C] rounded-full"
+            />
+          </div>
+          <span className="text-[9px] font-bold tracking-[0.18em] text-[#E2B84C]/70 uppercase">Scroll to explore</span>
+        </div>
+
       </div>
     </section>
   );
 }
-
-
-
-
 
 export function PlatformOverview() {
   const capabilities = [
