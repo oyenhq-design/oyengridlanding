@@ -211,20 +211,209 @@ export function Chatbot() {
       };
     }
 
-    // Appreciation
+    // Short Acknowledgements
+    if (q === "okay" || q === "ok") {
+      return {
+        content: "Great. Let me know how you'd like to proceed."
+      };
+    }
+    if (q === "alright") {
+      return {
+        content: "Perfect. What would you like to explore next?"
+      };
+    }
+    if (q === "cool") {
+      return {
+        content: "Glad to hear that. How else can I help?"
+      };
+    }
+    if (q === "nice") {
+      return {
+        content: "Happy you found that useful."
+      };
+    }
+    if (q === "interesting") {
+      return {
+        content: "It certainly is. Would you like me to explain it in more detail?"
+      };
+    }
+
+    // Ending Temporarily
+    if (q === "later then") {
+      return {
+        content: "No problem. I'll be here whenever you need assistance."
+      };
+    }
+    if (q === "talk later" || q.includes("talk to you later")) {
+      return {
+        content: "Of course. I'll be here when you're ready."
+      };
+    }
+    if (q === "catch you later") {
+      return {
+        content: "Looking forward to it. Have a great day."
+      };
+    }
+
+    // Thinking Responses
+    if (q === "let me think about it" || q.includes("think about it")) {
+      return {
+        content: "Absolutely. Take your time."
+      };
+    }
+    if (q === "i need some time" || q.includes("need some time")) {
+      return {
+        content: "Of course. There's no rush."
+      };
+    }
+    if (q === "i'm not sure" || q === "im not sure" || q === "i am not sure") {
+      return {
+        content: "That's completely understandable. What part would you like me to clarify?"
+      };
+    }
+
+    // Positive Reactions
+    if (q === "awesome") {
+      return {
+        content: "Glad you think so."
+      };
+    }
+    if (q === "that's helpful" || q === "thats helpful" || q === "helpful") {
+      return {
+        content: "I'm happy it helped."
+      };
+    }
+    if (q === "perfect") {
+      return {
+        content: "Great. Let me know if you'd like help with anything else."
+      };
+    }
+    if (q === "exactly") {
+      return {
+        content: "Glad we're on the same page."
+      };
+    }
+
+    // Hesitation
+    if (q === "maybe") {
+      return {
+        content: "That's perfectly fine. Would you like more information to help with the decision?"
+      };
+    }
+    if (q === "i don't know yet" || q === "i dont know yet" || q === "i don't know" || q === "i dont know") {
+      return {
+        content: "No worries. Exploring your options is often the best place to start."
+      };
+    }
+
+    // Price Concerns
+    if (q.includes("expensive") || q.includes("too costly") || q.includes("high price")) {
+      return {
+        content: "I understand pricing is an important consideration. The right plan often depends on your programme size, participant volume and operational needs."
+      };
+    }
+    if (q.includes("not sure it's worth it") || q.includes("not sure its worth it") || q.includes("worth the money")) {
+      return {
+        content: "That's a fair question. If you'd like, I can walk through the specific benefits and help determine whether it's a good fit for your organization."
+      };
+    }
+
+    // Surprise
+    if (q === "wow") {
+      return {
+        content: "Glad that caught your attention."
+      };
+    }
+    if (q === "seriously?" || q === "seriously") {
+      return {
+        content: "Yes. If you'd like, I can provide more details."
+      };
+    }
+
+    // Waiting
+    if (q === "hold on") {
+      return {
+        content: "Of course. Take your time."
+      };
+    }
+    if (q === "one sec") {
+      return {
+        content: "No problem."
+      };
+    }
+    if (q === "wait") {
+      return {
+        content: "Sure. I'm here."
+      };
+    }
+
+    // Checking Presence
+    if (q === "you there?" || q === "you there") {
+      return {
+        content: "Yes, I'm here and ready to help."
+      };
+    }
+    if (q === "still there?" || q === "still there") {
+      return {
+        content: "Absolutely."
+      };
+    }
+
+    // Gratitude
+    if (q === "thanks") {
+      return {
+        content: "You're welcome."
+      };
+    }
+    if (q === "thanks a lot") {
+      return {
+        content: "My pleasure."
+      };
+    }
+    if (q === "appreciate it") {
+      return {
+        content: "Happy to help."
+      };
+    }
     if (q === "thank you") {
       return {
         content: "You're very welcome. I'm happy I could help."
       };
     }
-    if (q.includes("thanks a lot")) {
+
+    // Good Night / Goodbye
+    if (q === "good night") {
       return {
-        content: "My pleasure. If there's anything else you'd like to explore, just let me know."
+        content: "Good night, and thank you for visiting OYEN GRID."
       };
     }
-    if (q.includes("thank you") || q === "thanks" || q.startsWith("thanks ") || q.includes("appreciate it") || q.includes("helpful") || q.includes("great job") || q.includes("smart") || q.includes("intelligent")) {
+    if (q === "goodbye") {
       return {
-        content: "Thank you. I'm glad the information was useful."
+        content: "Thank you for your time. Have a wonderful day."
+      };
+    }
+
+    // Light Humor
+    if (q === "lol" || q === "lmao") {
+      return {
+        content: "😄 Glad we could share a moment."
+      };
+    }
+    if (q === "haha") {
+      return {
+        content: "Glad you're enjoying the conversation."
+      };
+    }
+
+    // Compliments
+    if (q === "you're smart" || q === "youre smart") {
+      return {
+        content: "Thank you. My goal is to provide useful and accurate guidance."
+      };
+    }
+    if (q === "you're good" || q === "youre good") {
+      return {
+        content: "That's kind of you to say. I'm glad I could help."
       };
     }
 
