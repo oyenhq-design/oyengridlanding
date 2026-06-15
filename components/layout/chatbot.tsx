@@ -612,9 +612,7 @@ export function Chatbot() {
       ]);
       setIsTyping(false);
     }, 1000);
-  };
-
-  return (
+  };  return (
     <div className="fixed bottom-8 right-8 z-[200]">
       <AnimatePresence>
         {isOpen && (
@@ -622,20 +620,20 @@ export function Chatbot() {
             initial={{ opacity: 0, scale: 0.95, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
-            className="mb-4 w-[340px] h-[480px] flex flex-col bg-[#0A0C10]/95 backdrop-blur-[40px] border border-white/5 rounded-[20px] overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.95)]"
+            className="mb-4 w-[350px] h-[490px] flex flex-col bg-[#06080C]/95 backdrop-blur-[80px] border border-white/10 rounded-[28px] overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.95),_0_0_60px_rgba(245,185,66,0.04)]"
           >
             {/* Header */}
-            <div className="px-4 py-3 border-b border-white/5 flex items-center justify-between bg-white/[0.01]">
-              <div className="flex items-center gap-2">
+            <div className="px-5 py-4 flex items-center justify-between bg-white/[0.01]">
+              <div className="flex items-center gap-2.5">
                 <div className="relative">
-                  <div className="w-8 h-8 rounded-xl overflow-hidden border border-white/10">
-                    <Image src="/oyen-ai-avatar.png" alt="OYEN AI" width={32} height={32} className="object-cover" />
+                  <div className="w-8.5 h-8.5 rounded-xl overflow-hidden border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                    <Image src="/oyen-ai-avatar.png" alt="OYEN AI" width={34} height={34} className="object-cover" />
                   </div>
-                  <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-500 rounded-full border border-[#0A0C10]" />
+                  <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-500 rounded-full border border-[#06080C]" />
                 </div>
                 <div>
-                  <div className="text-[12px] font-semibold text-white tracking-tight">OYEN AI</div>
-                  <div className="text-[7px] font-medium text-white/30 uppercase tracking-[0.1em]">Product Specialist</div>
+                  <div className="text-[12.5px] font-semibold text-white tracking-tight">OYEN AI</div>
+                  <div className="text-[7.5px] font-medium text-white/30 uppercase tracking-[0.12em]">Product Specialist</div>
                 </div>
               </div>
               <div className="flex items-center gap-0.5">
@@ -658,7 +656,7 @@ export function Chatbot() {
             {/* Content Feed */}
             <div 
               ref={feedRef}
-              className="flex-1 p-4 overflow-y-auto space-y-3 scrollbar-thin scrollbar-thumb-white/5 scrollbar-track-transparent"
+              className="flex-1 px-5 py-4 overflow-y-auto space-y-3.5 scrollbar-thin scrollbar-thumb-white/5 scrollbar-track-transparent"
             >
               {messages.map((msg, i) => (
                 <div key={msg.id || i} className="flex flex-col gap-1.5">
@@ -666,7 +664,7 @@ export function Chatbot() {
                   {msg.content && (
                     <div
                       className={cn(
-                        "flex flex-col gap-1 max-w-[85%] rounded-[16px] px-3.5 py-2.5 text-[12px] leading-relaxed font-light border transition-all whitespace-pre-line shadow-sm",
+                        "flex flex-col gap-1 max-w-[85%] rounded-[18px] px-3.5 py-2.5 text-[12px] leading-relaxed font-light border transition-all whitespace-pre-line shadow-sm",
                         msg.role === "assistant"
                           ? "bg-white/[0.02] border-white/5 text-white/80 rounded-tl-none self-start"
                           : "bg-brand-gold/10 border-brand-gold/20 text-brand-gold rounded-tr-none self-end ml-auto"
@@ -675,7 +673,6 @@ export function Chatbot() {
                       <p>{msg.content}</p>
                     </div>
                   )}
-
                   {/* Inline Widgets */}
                   {msg.role === "assistant" && msg.widget && (
                     <div className="w-full max-w-[90%] self-start">
@@ -941,35 +938,35 @@ export function Chatbot() {
             </div>
 
             {/* Input Area */}
-            <form 
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSend(input);
-              }}
-              className="p-3 bg-[#0A0C10] border-t border-white/5 shrink-0"
-            >
-              <div className="relative">
+            <div className="px-5 py-4 bg-transparent shrink-0">
+              <form 
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSend(input);
+                }}
+                className="relative flex items-center bg-[#131722]/80 border border-white/5 focus-within:border-brand-gold/30 rounded-2xl px-4 py-2.5 transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.4)]"
+              >
                 <input 
                   type="text" 
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask about pricing, features, solutions..."
-                  className="w-full h-9 bg-white/[0.03] border border-white/5 rounded-xl px-3.5 pr-10 text-[11px] text-white placeholder:text-white/20 focus:outline-none focus:border-brand-gold/40 transition-all font-light"
+                  className="flex-1 bg-transparent text-[12px] text-white placeholder:text-white/20 focus:outline-none font-light"
                 />
                 <button 
                   type="submit"
                   disabled={!input.trim()}
                   className={cn(
-                    "absolute right-1 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg flex items-center justify-center text-black shadow-lg transition-all",
+                    "ml-2 w-7 h-7 rounded-lg flex items-center justify-center transition-all",
                     input.trim()
-                      ? "bg-brand-gold hover:scale-105 opacity-100"
-                      : "bg-white/5 text-white/20 opacity-50 cursor-not-allowed"
+                      ? "bg-brand-gold text-black shadow-[0_0_15px_rgba(245,185,66,0.3)] hover:scale-105"
+                      : "bg-white/5 text-white/20 cursor-not-allowed"
                   )}
                 >
                   <Send className="w-2.5 h-2.5" />
                 </button>
-              </div>
-            </form>
+              </form>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -990,8 +987,8 @@ export function Chatbot() {
         className={cn(
           "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 group relative overflow-hidden",
           isOpen 
-            ? "bg-white/[0.03] border border-white/10 text-white" 
-            : "bg-[#0A0C10] border border-white/10 text-white shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+            ? "bg-[#06080C]/80 border border-white/10 text-white" 
+            : "bg-[#06080C] border border-white/10 text-white shadow-[0_8px_30px_rgba(0,0,0,0.6),_0_0_20px_rgba(245,185,66,0.05)]"
         )}
       >
         <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -1003,7 +1000,7 @@ export function Chatbot() {
             <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10">
               <Image src="/oyen-ai-avatar.png" alt="OYEN AI" width={32} height={32} className="object-cover" />
             </div>
-            <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-500 rounded-full border border-[#0A0C10]" />
+            <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-500 rounded-full border border-[#06080C]" />
           </div>
         )}
       </motion.button>
@@ -1041,7 +1038,7 @@ function InteractiveForm({
 
   if (submitted) {
     return (
-      <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-3 flex items-center gap-2 text-emerald-400">
+      <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-[14px] p-3 flex items-center gap-2 text-emerald-400">
         <CheckCircle2 className="w-4 h-4 shrink-0" />
         <span className="text-[10px] font-medium">Form submitted successfully.</span>
       </div>
@@ -1049,17 +1046,17 @@ function InteractiveForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white/[0.01] border border-white/5 rounded-2xl p-3 space-y-2">
+    <form onSubmit={handleSubmit} className="bg-white/[0.01] border border-white/5 rounded-[16px] p-3 space-y-2">
       {fields.map((f) => (
         <div key={f.name} className="flex flex-col gap-0.5">
-          <label className="text-[8px] font-bold text-white/40 uppercase tracking-[0.05em]">{f.label}</label>
+          <label className="text-[8px] font-semibold text-white/30 uppercase tracking-[0.05em]">{f.label}</label>
           <input
             type={f.type}
             required
             placeholder={f.placeholder}
             value={formData[f.name] || ""}
             onChange={(e) => setFormData({ ...formData, [f.name]: e.target.value })}
-            className="w-full h-7 bg-white/[0.03] border border-white/5 rounded-lg px-2 text-[10px] text-white placeholder:text-white/10 focus:outline-none focus:border-brand-gold/30 transition-all font-light"
+            className="w-full h-7 bg-white/[0.02] border border-white/5 rounded-lg px-2.5 text-[10px] text-white placeholder:text-white/10 focus:outline-none focus:border-brand-gold/30 focus:bg-white/[0.04] transition-all font-light"
           />
         </div>
       ))}
