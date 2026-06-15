@@ -5,7 +5,7 @@ import Link from "next/link";
 import { 
   ChevronDown, X, Menu, Radio, Activity, Target, Zap, Globe, 
   Users, Lock, Layers, Bot, LineChart, Brain, BookOpen, 
-  GraduationCap, Building2, Boxes
+  GraduationCap, Building2, Boxes, HelpCircle
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -14,86 +14,62 @@ import { cn } from "@/lib/utils";
 
 const navigationData = [
   {
-    label: "Operations",
-    status: "LIVE DELIVERY INFRASTRUCTURE ACTIVE",
-    cta: "Explore Operations",
-    href: "/operations",
-    items: [
-      { title: "Live Session Infrastructure", desc: "HD conferencing, moderation and structured operational delivery.", icon: Radio, href: "/operations/live-session-infrastructure" },
-      { title: "Attendance Intelligence", desc: "Automated participation tracking and session telemetry systems.", icon: Activity, href: "/operations/attendance-intelligence" },
-      { title: "Operational Monitoring", desc: "Real-time oversight across facilitators, cohorts and delivery systems.", icon: Target, href: "/operations/operational-monitoring" },
-      { title: "AI Facilitation", desc: "AI-assisted moderation, summaries and engagement visibility.", icon: Bot, href: "/operations/ai-facilitation" },
-    ]
-  },
-  {
-    label: "Programmes",
-    status: "STRUCTURED PROGRAMME DELIVERY SYSTEM",
-    cta: "View Programme Architecture",
-    href: "/programmes",
-    items: [
-      { title: "Cohort Management", desc: "Manage participant groups, programme schedules and delivery pipelines.", icon: Boxes, href: "/programmes/cohort-management" },
-      { title: "Curriculum Systems", desc: "Structure modules, milestones and institutional learning paths.", icon: BookOpen, href: "/programmes/curriculum-architecture" },
-      { title: "Assessments & Certifications", desc: "Track evaluations, grading and programme completion systems.", icon: GraduationCap, href: "/programmes/delivery-workflows" },
-      { title: "Programme Analytics", desc: "Monitor delivery effectiveness and operational outcomes.", icon: LineChart, href: "/programmes/participant-operations" },
-    ]
-  },
-  {
-    label: "Intelligence",
-    status: "LIVE INFRASTRUCTURE STATUS",
-    cta: "View System Architecture",
-    href: "/intelligence",
-    items: [
-      { title: "Operational AI", desc: "Autonomous facilitation and intelligent operational assistance.", icon: Bot, href: "/intelligence/operational-ai" },
-      { title: "Decision Layer", desc: "Data-driven institutional intelligence and operational reasoning.", icon: Brain, href: "/intelligence/decision-layer" },
-      { title: "Predictive Insights", desc: "Future-state operational modeling and coordination forecasting.", icon: LineChart, href: "/intelligence/predictive-insights" },
-      { title: "Analytics Engine", desc: "Deep telemetry, reporting and institutional performance visibility.", icon: Activity, href: "/intelligence/analytics-engine" },
-    ]
-  },
-  {
     label: "Solutions",
-    status: "STRUCTURED DELIVERY SYSTEMS FOR MODERN INSTITUTIONS",
-    cta: "Explore Solutions",
+    status: "WHO OYEN GRID SERVES",
+    cta: "EXPLORE SOLUTIONS",
     href: "/solutions",
     items: [
-      { title: "Global Sync", desc: "Structured programme delivery for academies and technical training systems.", icon: Globe, href: "/solutions/global-sync" },
-      { title: "Coordination Grid", desc: "Coordinate distributed cohorts, facilitators and operational workflows.", icon: Network, href: "/solutions/coordination-grid" },
-      { title: "Automation Layer", desc: "Enterprise workforce onboarding and institutional training operations.", icon: Zap, href: "/solutions/automation-layer" },
-      { title: "Institutional Nodes", desc: "Infrastructure for national-scale programme coordination systems.", icon: Building2, href: "/solutions/institutional-nodes" },
+      { title: "Bootcamps & Training", desc: "Structured programme delivery for bootcamps, training organisations and fellowship programmes.", icon: GraduationCap, href: "/solutions/bootcamps-training" },
+      { title: "Webinars & Events", desc: "Live coordination infrastructure for webinars, workshops and virtual events.", icon: Radio, href: "/solutions/webinars-events" },
+      { title: "Education & Institutions", desc: "Academic systems and institutional learning infrastructure.", icon: Building2, href: "/solutions/education-institutions" },
+      { title: "Enterprise Operations", desc: "Operational coordination, governance and institutional delivery systems.", icon: Target, href: "/solutions/enterprise-operations" }
     ]
   },
   {
-    label: "Enterprise",
-    status: "ENTERPRISE DEPLOYMENT NETWORK VERIFIED",
-    cta: "Contact Enterprise Team",
-    href: "/enterprise",
+    label: "Features",
+    status: "CORE PLATFORM CAPABILITIES",
+    cta: "EXPLORE FEATURES",
+    href: "/features",
     items: [
-      { title: "Governance", desc: "Infrastructure for national and institutional programme delivery.", icon: Shield, href: "/enterprise/governance" },
-      { title: "Security & Compliance", desc: "Operational coordination for large-scale workforce programmes.", icon: Lock, href: "/enterprise/security-compliance" },
-      { title: "White-Label Infrastructure", desc: "Custom enterprise delivery environments and governance systems.", icon: Layers, href: "/enterprise/white-label-infrastructure" },
-      { title: "Global Deployment", desc: "Private operational architecture and enterprise deployment systems.", icon: Globe, href: "/enterprise/global-deployment" },
+      { title: "Programme Management", desc: "Create, manage and scale structured programmes.", icon: Boxes, href: "/features/programme-management" },
+      { title: "Participant Management", desc: "Registration, tracking and engagement intelligence.", icon: Users, href: "/features/participant-management" },
+      { title: "OYEN Live", desc: "Live sessions, attendance and delivery infrastructure.", icon: Zap, href: "/features/oyen-live" },
+      { title: "Analytics & AI", desc: "Operational insights, reporting and AI intelligence.", icon: LineChart, href: "/features/analytics-ai" }
     ]
   },
   {
-    label: "Infrastructure",
-    status: "ENTERPRISE INFRASTRUCTURE STATUS: STABLE",
-    cta: "View Infrastructure",
-    href: "/infrastructure",
+    label: "Resources",
+    status: "LEARNING AND COMPANY RESOURCES",
+    cta: "EXPLORE RESOURCES",
+    href: "/resources",
     items: [
-      { title: "Multi-Region Systems", desc: "Distributed operational systems with resilient deployment architecture.", icon: Globe, href: "/infrastructure/multi-region-systems" },
-      { title: "Network Telemetry", desc: "Enterprise-grade security, permissions and institutional governance.", icon: Activity, href: "/infrastructure/network-telemetry" },
-      { title: "Distributed Delivery", desc: "Deploy branded operational environments for organizations.", icon: Network, href: "/infrastructure/distributed-delivery" },
-      { title: "Institutional Architecture", desc: "Connect institutional systems with operational infrastructure.", icon: Building2, href: "/infrastructure/institutional-architecture" },
+      { title: "Documentation", desc: "Platform guides and implementation resources.", icon: BookOpen, href: "/resources/docs" },
+      { title: "Case Studies", desc: "Customer success stories and programme outcomes.", icon: Activity, href: "/resources/case-studies" },
+      { title: "Blog", desc: "Insights, updates and operational intelligence.", icon: Globe, href: "/resources/blog" },
+      { title: "Help Center", desc: "Support articles and FAQs.", icon: HelpCircle, href: "/resources/help" }
+    ]
+  },
+  {
+    label: "Company",
+    status: "ABOUT OYEN GRID",
+    cta: "EXPLORE COMPANY",
+    href: "/company",
+    items: [
+      { title: "About Us", desc: "Company vision and mission.", icon: Users, href: "/company/about" },
+      { title: "Careers", desc: "Join the team.", icon: Zap, href: "/company/careers" },
+      { title: "Partners", desc: "Partnership opportunities.", icon: Globe, href: "/company/partners" },
+      { title: "Contact", desc: "Get in touch.", icon: Radio, href: "/company/contact" }
     ]
   }
 ];
 
-// Helper components for local scope to avoid missing icon types
-function Shield(props: any) {
-  return <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>;
-}
-function Network(props: any) {
-  return <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M12 8v8M12 16H5M12 16h7"/></svg>;
-}
+const navItems = [
+  { type: "dropdown", label: "Solutions" },
+  { type: "dropdown", label: "Features" },
+  { type: "dropdown", label: "Resources" },
+  { type: "link", label: "Pricing", href: "/pricing" },
+  { type: "dropdown", label: "Company" }
+];
 
 // ─── Component ─────────────────────────────────────────────────────────────
 
@@ -102,7 +78,6 @@ export function Header() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
-  const [pulseClass, setPulseClass] = useState("");
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -114,17 +89,27 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
+    
     const handleClickOutside = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setActiveMenu(null);
       }
     };
 
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveMenu(null);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("keydown", handleKeyDown);
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
@@ -146,31 +131,44 @@ export function Header() {
           <span className="font-bold text-white text-[13px] tracking-[0.08em] uppercase">OYEN GRID.</span>
         </Link>
 
-        {/* Desktop Navigation Row (Simplified) */}
+        {/* Desktop Navigation Row */}
         <nav className="hidden lg:flex items-center gap-[40px] justify-center">
-          {navigationData
-            .filter((menu) => ["Operations", "Programmes", "Intelligence"].includes(menu.label))
-            .map((menu) => (
+          {navItems.map((item) => {
+            if (item.type === "link") {
+              return (
+                <Link 
+                  key={item.label}
+                  href={item.href!} 
+                  className={cn(
+                    "text-[12px] font-semibold tracking-wide transition-colors duration-200",
+                    activeMenu === null ? "text-white/60 hover:text-white" : "text-white/40 hover:text-white"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            }
+
+            const menu = navigationData.find(m => m.label === item.label)!;
+            return (
               <div 
                 key={menu.label} 
                 className="relative flex items-center h-[68px]"
                 onMouseEnter={() => setActiveMenu(menu.label)}
               >
-                <button className={cn(
-                  "text-[12px] font-semibold tracking-wide h-8 px-2 flex items-center gap-1 transition-colors duration-200 cursor-pointer",
-                  activeMenu === menu.label ? "text-[#E2B84C]" : "text-white/60 hover:text-white"
-                )}>
+                <button 
+                  onFocus={() => setActiveMenu(menu.label)}
+                  className={cn(
+                    "text-[12px] font-semibold tracking-wide h-8 px-2 flex items-center gap-1 transition-colors duration-200 cursor-pointer",
+                    activeMenu === menu.label ? "text-[#E2B84C]" : "text-white/60 hover:text-white"
+                  )}
+                >
                   <span>{menu.label}</span>
                   <ChevronDown className={cn("w-3 h-3 transition-transform duration-300 opacity-40", activeMenu === menu.label && "rotate-180 text-[#E2B84C] opacity-100")} />
                 </button>
               </div>
-            ))}
-          <Link 
-            href="/pricing" 
-            className="text-[12px] font-semibold text-white/60 hover:text-white tracking-wide transition-colors duration-200"
-          >
-            Pricing
-          </Link>
+            );
+          })}
         </nav>
 
         {/* Right utilities aligned cleanly */}
@@ -181,8 +179,6 @@ export function Header() {
           >
             Enterprise Sales
           </Link>
-
-
 
           {/* Hamburger Menu (visible on all breakpoints to access solutions/infrastructure etc.) */}
           <button 
@@ -211,7 +207,7 @@ export function Header() {
                 key={item.title} 
                 href={item.href}
                 onClick={() => setActiveMenu(null)}
-                className="p-4 rounded-xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-500 group relative z-10"
+                className="p-4 rounded-xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-500 group relative z-10 hover:shadow-[0_0_20px_rgba(226,184,76,0.08)] hover:border-[#E2B84C]/15"
               >
                 <div className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/5 flex items-center justify-center mb-3.5 group-hover:bg-[#E2B84C]/10 group-hover:border-[#E2B84C]/30 transition-all duration-500">
                   <item.icon className="w-4.5 h-4.5 text-white/40 group-hover:text-[#E2B84C] transition-colors" />

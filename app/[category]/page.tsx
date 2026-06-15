@@ -1,5 +1,7 @@
 import { EnterprisePageTemplate } from "@/components/layout/enterprise-page-template";
 import { getPageData } from "@/lib/enterprise-data";
+import { Header, AnnouncementBar } from "@/components/layout/header";
+import { FooterPremium } from "@/components/layout/footer";
 import { Metadata } from "next";
 
 interface PageProps {
@@ -20,13 +22,18 @@ export default function CategoryRoute({ params }: PageProps) {
   const data = getPageData(params.category);
   
   return (
-    <EnterprisePageTemplate 
-      title={data.category}
-      subtitle="Operational Infrastructure"
-      description={`Professional ${data.category.toLowerCase()} systems designed for global institutional coordination and structured programme delivery.`}
-      focusAreas={data.focusAreas}
-      metrics={data.metrics}
-      category={data.category}
-    />
+    <>
+      <Header />
+      <AnnouncementBar />
+      <EnterprisePageTemplate 
+        title={data.category}
+        subtitle="Operational Infrastructure"
+        description={`Professional ${data.category.toLowerCase()} systems designed for global institutional coordination and structured programme delivery.`}
+        focusAreas={data.focusAreas}
+        metrics={data.metrics}
+        category={data.category}
+      />
+      <FooterPremium hideCTA={false} />
+    </>
   );
 }

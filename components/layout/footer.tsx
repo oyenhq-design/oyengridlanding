@@ -10,37 +10,37 @@ const navColumns = [
   {
     title: "Platform",
     links: [
-      { label: "Overview",      href: "#" },
-      { label: "Features",      href: "#" },
-      { label: "Integrations",  href: "#" },
+      { label: "Overview",      href: "/" },
+      { label: "Features",      href: "/features" },
       { label: "Pricing",       href: "/pricing" },
+      { label: "Enterprise Sales", href: "/enterprise-sales" },
     ],
   },
   {
     title: "Solutions",
     links: [
-      { label: "NGOs",          href: "/solutions/global-sync" },
-      { label: "Government",    href: "/solutions/coordination-grid" },
-      { label: "Education",     href: "/solutions/automation-layer" },
-      { label: "Enterprises",   href: "/solutions/institutional-nodes" },
+      { label: "Bootcamps & Training",    href: "/solutions/bootcamps-training" },
+      { label: "Webinars & Events",       href: "/solutions/webinars-events" },
+      { label: "Education & Institutions", href: "/solutions/education-institutions" },
+      { label: "Enterprise Operations",   href: "/solutions/enterprise-operations" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Blog",          href: "#" },
-      { label: "Guides",        href: "#" },
-      { label: "Case Studies",  href: "#" },
-      { label: "Webinars",      href: "#" },
+      { label: "Documentation",  href: "/resources/docs" },
+      { label: "Case Studies",   href: "/resources/case-studies" },
+      { label: "Blog",           href: "/resources/blog" },
+      { label: "Help Center",    href: "/resources/help" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About Us",      href: "#" },
-      { label: "Careers",       href: "#" },
-      { label: "Partners",      href: "#" },
-      { label: "Contact",       href: "/enterprise-sales" },
+      { label: "About Us",   href: "/company/about" },
+      { label: "Careers",    href: "/company/careers" },
+      { label: "Partners",   href: "/company/partners" },
+      { label: "Contact",    href: "/company/contact" },
     ],
   },
 ];

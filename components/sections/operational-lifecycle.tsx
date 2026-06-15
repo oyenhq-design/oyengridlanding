@@ -185,7 +185,7 @@ export function OperationalLifecycle() {
                   const scale = 1 - absDiff * 0.12;
                   const opacity = Math.max(0, 1 - absDiff * 0.35);
                   const blur = absDiff * 1.5;
-                  const brightness = 1 - absDiff * 0.4;
+                  const brightness = Math.max(0, 1 - absDiff * 0.4);
                   const zIndex = stages.length - absDiff;
 
                   return (
