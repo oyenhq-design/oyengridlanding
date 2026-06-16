@@ -9,52 +9,52 @@ export function FinalCTA() {
 
   const faqItems = [
     {
-      q: "How quickly can we get started with OYEN GRID?",
-      a: "Most organizations are fully operational within a few days depending on programme complexity."
+      q: "What is OYEN GRID?",
+      a: "OYEN GRID is a premium platform designed to manage cohorts, live sessions, instructors, learners, and assessments with automated tracking."
     },
     {
-      q: "Can OYEN GRID manage multiple cohorts simultaneously?",
+      q: "Who is OYEN GRID built for?",
+      a: "It is built for enterprise organizations, training providers, bootcamps, and universities running structured learning programmes."
+    },
+    {
+      q: "Can I use OYEN GRID for multiple programmes?",
       a: "Yes. Administrators can oversee multiple cohorts, schedules, instructors, and learner groups from one dashboard."
     },
     {
-      q: "Does attendance tracking happen automatically?",
-      a: "Yes. Attendance is logged automatically during live sessions and recorded in learner profiles."
-    },
-    {
-      q: "Can we issue certificates through the platform?",
-      a: "Yes. Certificates can be generated and distributed automatically upon programme completion."
-    },
-    {
-      q: "Does OYEN GRID support virtual classrooms?",
+      q: "Does OYEN GRID support live sessions?",
       a: "Yes. Live training sessions can be hosted directly within the platform with attendance and engagement tracking."
     },
     {
-      q: "Can instructors manage their own sessions?",
-      a: "Yes. Instructors have dedicated portal access to run live sessions, grade assessments, and track attendance for their groups."
+      q: "Can I track attendance automatically?",
+      a: "Yes. Attendance is logged automatically during live sessions and recorded in learner profiles."
     },
     {
-      q: "Are learner analytics available?",
-      a: "Yes. Track attendance, assessments, progress, completion rates, and engagement metrics in real time."
+      q: "Is there a mobile app?",
+      a: "Yes. Learners can access resources, join sessions, and view grades via our responsive mobile dashboard."
     },
     {
-      q: "Can OYEN GRID integrate with other tools?",
-      a: "Yes. The platform integrates with major identity systems, CRM tools, and notification systems via our secure API."
+      q: "How does the AI assistant work?",
+      a: "The AI assistant provides real-time support, automates grading feedbacks, and helps answer learner questions."
     },
     {
-      q: "How secure is our data?",
+      q: "Can I issue certificates automatically?",
+      a: "Yes. Certificates can be generated and distributed automatically upon programme completion."
+    },
+    {
+      q: "How secure is my data?",
       a: "OYEN GRID uses enterprise-grade encryption, role-based access control, and is fully compliant with modern data security standards."
     },
     {
-      q: "What kind of support is available?",
-      a: "We offer 24/7 dedicated email support, dedicated customer success managers for enterprise plans, and comprehensive documentation."
+      q: "Can I integrate with other tools?",
+      a: "Yes. The platform integrates with major identity systems, CRM tools, and notification systems via our secure API."
     }
   ];
 
   return (
-    <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-8 md:py-10 border-t border-b border-white/5 overflow-hidden bg-[#05070B]">
-      {/* Background image (22% opacity directly on the dark section background) */}
+    <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-10 md:py-12 border-t border-b border-white/5 overflow-hidden bg-[#05070B]">
+      {/* Background image (25% opacity directly on the dark section background) */}
       <div 
-        className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.22]" 
+        className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.25]" 
         style={{ backgroundImage: "url('/faq-bg.png')" }} 
       />
       
@@ -64,47 +64,66 @@ export function FinalCTA() {
       {/* Subtle Gold Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(232,184,74,0.05),transparent_70%)] pointer-events-none blur-3xl z-20" />
 
-      <div className="max-w-[1150px] mx-auto px-6 relative z-30 flex flex-col gap-5">
+      <div className="max-w-[1150px] mx-auto px-6 relative z-30 flex flex-col gap-6">
         
-        {/* Badge & Typography Header - Spacing compressed */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#E8B84A]/5 border border-[#E8B84A]/10 mb-1.5">
-            <div className="w-1 h-1 rounded-full bg-[#E8B84A]" />
-            <span className="text-[9px] font-black text-[#E8B84A] uppercase tracking-widest">
-              FAQ
-            </span>
-          </div>
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white leading-tight mb-1">
-            Everything You <span className="text-[#E8B84A]">Need To Know</span>
-          </h2>
-          <p className="text-[12px] text-[#A1A1A1] max-w-[600px] mx-auto font-light leading-relaxed">
-            Find answers to common questions about managing bootcamps, cohorts, attendance, assessments, live sessions, certifications, and programme delivery using OYEN GRID.
-          </p>
-        </div>
-
-        {/* Two-Column Grid of FAQ Accordion items */}
-        <div className="grid md:grid-cols-2 gap-3 md:gap-4 items-start mt-2">
+        {/* Two-Column Grid */}
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column (First 5 items) */}
-          <div className="space-y-2">
-            {faqItems.slice(0, 5).map((item, idx) => {
+          {/* Left Column (40%): Title and description */}
+          <div className="lg:col-span-5 flex flex-col items-start pt-2">
+            {/* Pill Badge */}
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#E8B84A]/30 bg-black/40 mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E8B84A]" />
+              <span className="text-[10px] font-black tracking-widest text-[#E8B84A] uppercase">
+                FAQ
+              </span>
+            </div>
+
+            {/* Main Header */}
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.1] mb-5">
+              Frequently<br />
+              Asked <span className="text-[#E8B84A] italic font-serif font-normal">Questions</span>
+            </h2>
+
+            {/* Description Text */}
+            <div className="text-neutral-400 text-xs md:text-[13px] leading-relaxed max-w-[320px] font-light space-y-1.5 mb-7">
+              <p>Everything you need to know about OYEN GRID.</p>
+              <p>Can&apos;t find what you&apos;re looking for?</p>
+              <p>Our team is always here to help.</p>
+            </div>
+
+            {/* Contact Support Button */}
+            <Link
+              href="#demo"
+              className="inline-flex h-[38px] px-5 rounded-lg text-[10px] font-bold border border-[#E8B84A]/40 hover:border-[#E8B84A] bg-[#E8B84A]/5 hover:bg-[#E8B84A]/10 text-[#E8B84A] tracking-wider uppercase transition-all duration-300 items-center justify-center gap-1.5 group cursor-pointer"
+            >
+              Contact Support
+              <span className="text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+            </Link>
+          </div>
+
+          {/* Right Column (60%): Single column FAQ accordion list */}
+          <div className="lg:col-span-7 space-y-2">
+            {faqItems.map((item, idx) => {
               const isOpen = openFaqIndex === idx;
               return (
                 <div 
                   key={idx}
-                  className="rounded-[12px] border border-white/5 bg-black/40 backdrop-blur-md hover:border-[#E8B84A]/10 transition-all duration-300 overflow-hidden shadow-sm"
+                  className="rounded-[10px] border border-white/5 bg-black/60 backdrop-blur-md hover:border-[#E8B84A]/15 transition-all duration-300 overflow-hidden shadow-sm"
                 >
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                    className="w-full px-4.5 py-2.5 md:py-3 flex items-center justify-between gap-4 text-left cursor-pointer group"
+                    className="w-full px-4.5 py-3 md:py-3.5 flex items-center justify-start gap-3.5 text-left cursor-pointer group"
                   >
-                    <span className="text-xs font-bold text-white group-hover:text-[#E8B84A] transition-colors">
-                      {item.q}
-                    </span>
-                    <div className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-[#E8B84A] bg-white/[0.01] group-hover:border-[#E8B84A]/20 transition-colors relative flex-shrink-0">
+                    {/* Gold Circular Plus/Minus Icon on the left */}
+                    <div className="w-5.5 h-5.5 rounded-full border border-[#E8B84A]/30 flex items-center justify-center text-[#E8B84A] bg-[#E8B84A]/5 group-hover:border-[#E8B84A]/60 transition-colors relative flex-shrink-0">
                       <span className={`absolute w-2 h-0.5 bg-[#E8B84A] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
                       <span className={`absolute h-2 w-0.5 bg-[#E8B84A] transition-transform duration-300 ${isOpen ? "rotate-90 scale-y-0" : ""}`} />
                     </div>
+                    
+                    <span className="text-[13px] font-bold text-white group-hover:text-[#E8B84A] transition-colors">
+                      {item.q}
+                    </span>
                   </button>
                   
                   <AnimatePresence initial={false}>
@@ -115,49 +134,7 @@ export function FinalCTA() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2, ease: "easeInOut" }}
                       >
-                        <div className="px-4.5 pb-2.5 pt-0 text-[11px] text-neutral-400 leading-relaxed font-light border-t border-white/[0.01] bg-white/[0.002]">
-                          {item.a}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Right Column (Remaining 5 items) */}
-          <div className="space-y-2">
-            {faqItems.slice(5).map((item, idx) => {
-              const actualIdx = idx + 5;
-              const isOpen = openFaqIndex === actualIdx;
-              return (
-                <div 
-                  key={actualIdx}
-                  className="rounded-[12px] border border-white/5 bg-black/40 backdrop-blur-md hover:border-[#E8B84A]/10 transition-all duration-300 overflow-hidden shadow-sm"
-                >
-                  <button
-                    onClick={() => setOpenFaqIndex(isOpen ? null : actualIdx)}
-                    className="w-full px-4.5 py-2.5 md:py-3 flex items-center justify-between gap-4 text-left cursor-pointer group"
-                  >
-                    <span className="text-xs font-bold text-white group-hover:text-[#E8B84A] transition-colors">
-                      {item.q}
-                    </span>
-                    <div className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-[#E8B84A] bg-white/[0.01] group-hover:border-[#E8B84A]/20 transition-colors relative flex-shrink-0">
-                      <span className={`absolute w-2 h-0.5 bg-[#E8B84A] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
-                      <span className={`absolute h-2 w-0.5 bg-[#E8B84A] transition-transform duration-300 ${isOpen ? "rotate-90 scale-y-0" : ""}`} />
-                    </div>
-                  </button>
-                  
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2, ease: "easeInOut" }}
-                      >
-                        <div className="px-4.5 pb-2.5 pt-0 text-[11px] text-neutral-400 leading-relaxed font-light border-t border-white/[0.01] bg-white/[0.002]">
+                        <div className="pl-13 pr-5 pb-3.5 pt-0 text-[11.5px] text-neutral-400 leading-relaxed font-light border-t border-white/[0.01]">
                           {item.a}
                         </div>
                       </motion.div>
@@ -170,29 +147,28 @@ export function FinalCTA() {
 
         </div>
 
-        {/* Bottom FAQ CTA Compact Strip (Exactly 40-48px spacing using mt-10) */}
-        <div className="p-5 md:p-6 rounded-[16px] bg-black/50 border border-white/5 backdrop-blur-xl relative overflow-hidden max-w-xl mx-auto text-center shadow-lg flex flex-col justify-center mt-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(232,184,74,0.03),transparent_70%)] pointer-events-none z-0" />
-          <div className="relative z-10 space-y-2.5">
-            <h3 className="text-base md:text-lg font-bold text-white tracking-tight">Still have questions?</h3>
-            <p className="text-[11px] text-neutral-400 max-w-md mx-auto leading-relaxed">
-              Speak with our team and see how OYEN GRID can support your training programmes.
-            </p>
-            <div className="flex items-center justify-center gap-2.5">
-              <Link
-                href="#demo"
-                className="inline-flex h-[34px] px-4 rounded-lg text-[10px] font-bold bg-[#E8B84A] text-black hover:shadow-[0_0_15px_rgba(232,184,74,0.2)] hover:scale-[1.01] transition-all items-center justify-center cursor-pointer"
-              >
-                Book a Demo
-              </Link>
-              <Link
-                href="#get-started"
-                className="inline-flex h-[34px] px-4 rounded-lg text-[10px] font-bold bg-white/5 border border-white/10 hover:border-[#E8B84A]/30 hover:bg-[#E8B84A]/10 text-white hover:text-[#E8B84A] transition-all items-center justify-center cursor-pointer"
-              >
-                Start Free Trial
-              </Link>
+        {/* Bottom FAQ CTA Compact Strip */}
+        <div className="mt-8 flex items-center justify-between gap-6 px-6 py-4 rounded-[14px] bg-black/60 border border-white/5 backdrop-blur-xl max-w-4xl mx-auto shadow-lg w-full">
+          <div className="flex items-center gap-4">
+            {/* Headphone Icon Box */}
+            <div className="w-10 h-10 rounded-lg border border-[#E8B84A]/25 bg-[#E8B84A]/5 flex items-center justify-center text-[#E8B84A] flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+              </svg>
+            </div>
+            <div>
+              <h4 className="text-xs font-bold text-white tracking-tight">Still have questions?</h4>
+              <p className="text-[10px] text-neutral-400">We&apos;re here to help.</p>
             </div>
           </div>
+          <Link
+            href="#demo"
+            className="inline-flex h-[36px] px-4 rounded-lg text-[10px] font-bold border border-[#E8B84A]/30 hover:border-[#E8B84A] bg-black hover:bg-[#E8B84A]/10 text-white hover:text-[#E8B84A] transition-all duration-300 items-center gap-1.5 cursor-pointer uppercase tracking-wider"
+          >
+            Contact Us
+            <span className="text-xs">↗</span>
+          </Link>
         </div>
 
       </div>
