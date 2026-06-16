@@ -52,13 +52,11 @@ export function FinalCTA() {
 
   return (
     <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-8 md:py-10 border-t border-b border-white/5 overflow-hidden bg-[#05070B]">
-      {/* Background image & overlay (increased to 35% opacity for better visibility) */}
+      {/* Background image (22% opacity directly on the dark section background) */}
       <div 
-        className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.35]" 
+        className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.22]" 
         style={{ backgroundImage: "url('/faq-bg.png')" }} 
       />
-      {/* Dark overlay above the image (reduced to 70% to let details show through) */}
-      <div className="absolute inset-0 bg-[#05070B]/70 z-10" />
       
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.02] z-20 pointer-events-none" />
