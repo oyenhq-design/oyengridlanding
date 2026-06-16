@@ -28,12 +28,12 @@ export function InstitutionalImpactCinematic() {
 
           {/* Testimonial Quote */}
           <blockquote className="text-[28px] md:text-[36px] font-bold leading-[1.3] text-white tracking-tight max-w-[720px] mb-8">
-            “OYEN GRID replaced five separate tools and gave us a single operational workflow for programme delivery.”
+            “OYEN GRID replaced WhatsApp, Zoom, Google Drive, Sheets, and Typeform for us.”
           </blockquote>
 
           {/* Author info */}
           <div className="flex flex-col items-center">
-            <span className="text-[14px] font-bold text-white tracking-tight">Programme Director</span>
+            <span className="text-[14px] font-bold text-white tracking-tight">Program Director, ALTSCHOOL</span>
             <span className="text-[10px] font-bold text-brand-gold uppercase tracking-[0.2em] mt-1.5">Verified Transformation</span>
           </div>
 

@@ -8,23 +8,23 @@ import {
 
 const features = [
   {
-    title: "AI Session Summaries",
-    desc: "Generate concise summaries and action points automatically.",
+    title: "AI Session Notes",
+    desc: "Auto-generate notes and to-dos after every live class.",
     icon: Sparkles
   },
   {
-    title: "Structured Communication",
-    desc: "Keep discussions and updates organised across every cohort.",
+    title: "Team Chat",
+    desc: "Ditch the WhatsApp groups. Chat with learners by group, right in the app.",
     icon: MessageSquare
   },
   {
-    title: "Operational Visibility",
-    desc: "Monitor participation, attendance and engagement in real time.",
+    title: "Live Dashboard",
+    desc: "See who’s online, who’s late, and engagement as it happens.",
     icon: Activity
   },
   {
-    title: "Intelligent Recommendations",
-    desc: "Receive contextual insights and workflow suggestions.",
+    title: "AI Alerts",
+    desc: "Get pinged when a learner misses 2 classes or fails a quiz.",
     icon: Lightbulb
   }
 ];
@@ -44,17 +44,17 @@ export function HumanCoordination() {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/60 animate-pulse" />
               <span className="text-[10px] font-black tracking-[0.35em] text-brand-gold uppercase">
-                HUMAN COORDINATION • INTELLIGENT OPERATIONS
+                HUMAN COORDINATION • INSIGHTS
               </span>
             </div>
 
             <h2 className="text-[32px] md:text-[44px] font-bold text-white leading-[1.08] tracking-tight mb-6">
-              Human coordination powered by <br />
-              <span className="text-brand-gold italic font-serif">operational intelligence.</span>
+              Give your trainers and coordinators <br />
+              <span className="text-brand-gold italic font-serif">AI superpowers</span>
             </h2>
 
             <p className="text-[14px] leading-relaxed text-white/50 mb-10 max-w-[500px]">
-              Connect participants, trainers and coordinators through intelligent communication, AI assistance and real-time insights that drive better decisions and outcomes.
+              Help your team spend time teaching, not updating spreadsheets.
             </p>
 
             {/* 2x2 Grid of Capability Cards */}
@@ -110,13 +110,13 @@ export function HumanCoordination() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between mb-0.5">
-                      <span className="text-[8px] font-black uppercase tracking-wider text-white/30">AI Session Summary</span>
+                      <span className="text-[8px] font-black uppercase tracking-wider text-white/30">AI Session Notes</span>
                       <div className="flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
                         <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
                         <span className="text-[6px] font-black text-emerald-500 uppercase tracking-widest">Live</span>
                       </div>
                     </div>
-                    <h5 className="text-[11px] font-bold text-white mb-0.5 group-hover:text-brand-gold transition-colors duration-300">Session summary ready</h5>
+                    <h5 className="text-[11px] font-bold text-white mb-0.5 group-hover:text-brand-gold transition-colors duration-300">Session notes ready</h5>
                     <p className="text-[9.5px] text-white/40 leading-snug">Key points and action items generated.</p>
                   </div>
                 </div>

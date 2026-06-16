@@ -21,8 +21,8 @@ const navColumns = [
     links: [
       { label: "Bootcamps & Training",    href: "/solutions/bootcamps-training" },
       { label: "Webinars & Events",       href: "/solutions/webinars-events" },
-      { label: "Education & Institutions", href: "/solutions/education-institutions" },
-      { label: "Enterprise Operations",   href: "/solutions/enterprise-operations" },
+      { label: "Schools & Academies", href: "/solutions/education-institutions" },
+      { label: "Corporate Training",   href: "/solutions/enterprise-operations" },
     ],
   },
   {
@@ -249,7 +249,7 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
 
             {/* Tagline */}
             <p className="text-[12.5px] text-[#4B5563] dark:text-white/35 leading-[1.75] font-normal max-w-[210px]">
-              The operational platform for impactful programmes at scale.
+              The operational platform for impactful programs at scale.
             </p>
           </div>
 

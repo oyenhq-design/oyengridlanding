@@ -6,48 +6,48 @@ import Link from "next/link";
 
 const capabilities = [
   {
-    title: "Programme\nManagement",
-    desc: "Structure delivery, coordinate schedules, and manage programme pipelines from a single operational surface.",
+    title: "Program\nManagement",
+    desc: "Build your curriculum, set dates, and track groups from start to finish.",
     icon: Layers,
     href: "/features/programme-management",
     index: "01",
     accent: "rgba(226,184,76,0.12)"
   },
   {
-    title: "Participant\nTracking",
-    desc: "Monitor engagement, progress, and performance across every cohort with precision telemetry.",
+    title: "Learner\nTracking",
+    desc: "See who’s active, who’s stuck, and who needs help before they drop off.",
     icon: Users,
     href: "/features/participant-management",
     index: "02",
     accent: "rgba(226,184,76,0.08)"
   },
   {
-    title: "Attendance\nIntelligence",
-    desc: "Automated attendance capture with deep participation analytics and pattern recognition.",
+    title: "Auto\nAttendance",
+    desc: "No more roll call. We log who joined, how long they stayed, and if they spoke up.",
     icon: Activity,
     href: "/features/attendance-intelligence",
     index: "03",
     accent: "rgba(226,184,76,0.10)"
   },
   {
-    title: "Resource\nLibrary",
-    desc: "Store, organise, and distribute content securely across cohorts — on-demand and in sync.",
+    title: "Resources",
+    desc: "Upload slides, videos, and PDFs once. Every group gets the right version.",
     icon: Library,
     href: "/features/resource-library",
     index: "04",
     accent: "rgba(226,184,76,0.08)"
   },
   {
-    title: "Assessments\n& Submissions",
-    desc: "Design assignments, evaluate submissions, and track outcomes with structured assessment workflows.",
+    title: "Assessments",
+    desc: "Create tests and assignments. Auto-grade quizzes. Give feedback fast.",
     icon: FileText,
     href: "/features/assessments",
     index: "05",
     accent: "rgba(226,184,76,0.10)"
   },
   {
-    title: "Analytics\n& Reports",
-    desc: "Real-time operational reporting with actionable insights for programme directors and stakeholders.",
+    title: "Reports",
+    desc: "Export attendance, grades, and completion rates for funders in one click.",
     icon: BarChart3,
     href: "/features/analytics",
     index: "06",
@@ -95,9 +95,9 @@ export function OperationalInfrastructure() {
               transition={{ delay: 0.08 }}
               className="text-[36px] md:text-[52px] font-bold text-white leading-[1.06] tracking-[-0.03em] max-w-[560px]"
             >
-              Every tool for{" "}
+              Every tool you need to{" "}
               <span className="text-brand-gold italic font-serif">
-                programme operations.
+                deliver training.
               </span>
             </motion.h2>
 
@@ -108,7 +108,7 @@ export function OperationalInfrastructure() {
               transition={{ delay: 0.14 }}
               className="text-[14px] leading-relaxed text-white/40 max-w-[340px] font-light md:text-right"
             >
-              One platform. Every capability your programme team needs to deliver, engage, and scale.
+              Replace 5 tools with one login.
             </motion.p>
           </div>
         </div>

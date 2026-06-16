@@ -107,16 +107,16 @@ export function HeroInstitutional() {
     { title: "Pricing & Plans", category: "Pricing", href: "/pricing" },
     { title: "Bootcamps & Training", category: "Solutions", href: "/solutions/bootcamps-training" },
     { title: "Webinars & Events", category: "Solutions", href: "/solutions/webinars-events" },
-    { title: "Education & Institutions", category: "Solutions", href: "/solutions/education" },
-    { title: "Enterprise Operations", category: "Solutions", href: "/solutions/enterprise" },
-    { title: "Programme Management", category: "Features", href: "/features/programme-management" },
-    { title: "Participant Management", category: "Features", href: "/features/participant-management" },
+    { title: "Schools & Academies", category: "Solutions", href: "/solutions/education" },
+    { title: "Corporate Training", category: "Solutions", href: "/solutions/enterprise" },
+    { title: "Program Management", category: "Features", href: "/features/programme-management" },
+    { title: "Learner Management", category: "Features", href: "/features/participant-management" },
     { title: "OYEN Live", category: "Features", href: "/features/oyen-live" },
-    { title: "Attendance Intelligence", category: "Features", href: "/features/attendance-intelligence" },
-    { title: "Assessments & Submissions", category: "Features", href: "/features/assessments" },
+    { title: "Auto Attendance", category: "Features", href: "/features/attendance-intelligence" },
+    { title: "Assessments", category: "Features", href: "/features/assessments" },
     { title: "Certificates & Verification", category: "Features", href: "/features/certificates" },
-    { title: "Resource Library", category: "Features", href: "/features/resource-library" },
-    { title: "Analytics & Reports", category: "Features", href: "/features/analytics" },
+    { title: "Resources", category: "Features", href: "/features/resource-library" },
+    { title: "Reports", category: "Features", href: "/features/analytics" },
     { title: "AI Assistant", category: "Features", href: "/features/ai-assistant" },
     { title: "About Us", category: "Company", href: "/company/about" },
     { title: "Careers", category: "Company", href: "/company/careers" },
@@ -172,56 +172,14 @@ export function HeroInstitutional() {
             >
               {/* Headline */}
               <h1 className="text-[52px] sm:text-[68px] font-bold leading-[1.04] tracking-tight text-white select-none">
-                Programme <br />
-                <span className="text-[#E2B84C]">Intelligence.</span>
+                Run your training program <br />
+                <span className="text-[#E2B84C]">without the chaos.</span>
               </h1>
 
               {/* Subheadline (Softer white, improved line-height and spacing) */}
               <p className="text-[16px] sm:text-[17.5px] text-white/60 font-medium leading-[1.6] mt-6 max-w-[480px] tracking-wide">
-                The operating system for programme delivery, participant engagement, live operations, analytics and AI.
+                Run programs, track learners, and report results. All in one place.
               </p>
-
-              {/* Explore Search Input */}
-              <div ref={containerRef} className="relative mt-8 max-w-[400px] z-50">
-                <input
-                  type="text"
-                  value={query}
-                  onChange={(e) => {
-                    setQuery(e.target.value);
-                    setIsFocused(true);
-                  }}
-                  onFocus={() => setIsFocused(true)}
-                  placeholder="Explore OYEN GRID"
-                  className="w-full h-[46px] pl-5 pr-12 rounded-full bg-[#070707] border border-white/10 text-white placeholder-white/30 text-[13px] focus:outline-none focus:border-[#E2B84C]/40 transition-colors"
-                />
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40">
-                  <Search className="w-4 h-4 text-white/30" />
-                </div>
-
-                {/* Dropdown Suggestions Panel */}
-                {isFocused && query.length > 0 && (
-                  <div className="absolute top-[52px] left-0 right-0 bg-[#070707] border border-white/10 rounded-2xl p-2 shadow-2xl space-y-1 overflow-hidden">
-                    {filtered.length > 0 ? (
-                      filtered.map((item, idx) => (
-                        <Link
-                          key={idx}
-                          href={item.href}
-                          onClick={() => setIsFocused(false)}
-                          className="flex items-center justify-between p-3 rounded-xl hover:bg-white/[0.03] transition-colors group text-left"
-                        >
-                          <div>
-                            <span className="text-xs font-bold block text-white group-hover:text-[#E2B84C] transition-colors">{item.title}</span>
-                            <span className="text-[9px] text-white/30 uppercase tracking-wider block">{item.category}</span>
-                          </div>
-                          <ChevronRight className="w-3.5 h-3.5 text-white/20 group-hover:text-[#E2B84C]/50 transition-all group-hover:translate-x-0.5" />
-                        </Link>
-                      ))
-                    ) : (
-                      <div className="p-3 text-[11px] text-white/30 italic text-center">No matching results found</div>
-                    )}
-                  </div>
-                )}
-              </div>
 
               {/* CTA Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 mt-8">
@@ -229,7 +187,7 @@ export function HeroInstitutional() {
                   href="/pricing"
                   className="inline-flex items-center justify-center h-[46px] px-8 rounded-full bg-[#E2B84C] text-black text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#FFCF68] hover:shadow-[0_4px_16px_rgba(226,184,76,0.3)] hover:scale-[1.02]"
                 >
-                  Get Started
+                  Book a Demo
                 </Link>
                 <button className="inline-flex items-center justify-center gap-2 h-[46px] px-8 rounded-full border border-white/20 hover:border-white/40 text-white text-[13px] font-bold uppercase tracking-wider transition-all duration-300 bg-transparent hover:bg-white/5">
                   Watch Demo <span className="text-[11px] leading-none ml-1">▷</span>
@@ -289,8 +247,8 @@ export function HeroInstitutional() {
 
 export function PlatformOverview() {
   const capabilities = [
-    { title: "Programme Governance", desc: "Institutional control and oversight for all programme operations and delivery integrity.", icon: Database },
-    { title: "Participant Control", desc: "Management with real-time attendance, engagement, and cohort tracking.", icon: Users },
+    { title: "Program Governance", desc: "Control and oversight for all program operations and delivery integrity.", icon: Database },
+    { title: "Learner Control", desc: "Management with real-time attendance, engagement, and cohort tracking.", icon: Users },
     { title: "Delivery Coordination", desc: "Orchestrate live sessions and resource allocation across distributed teams.", icon: Workflow },
     { title: "Operational Visibility", desc: "Live dashboards for monitoring metrics, session activity, and throughput.", icon: Globe }
   ];
@@ -304,10 +262,10 @@ export function PlatformOverview() {
           <div>
             <span className="eyebrow">CORE INFRASTRUCTURE</span>
             <h2 className="mb-6 max-w-[480px]">
-              Built for <span className="text-brand-gold">institutional</span> delivery.
+              Built for <span className="text-brand-gold">training</span> delivery.
             </h2>
             <p className="text-editorial mb-10 max-w-[480px]">
-              Our infrastructure is designed for high-stakes programme coordination, providing the stability and visibility required by global organisations.
+              Our infrastructure is designed for high-stakes program coordination, providing the stability and visibility required by global organisations.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4">
@@ -377,7 +335,7 @@ export function OperationalControlCenter() {
               Complete <span className="text-brand-gold">operational</span> orchestration.
             </h2>
             <p className="text-editorial mb-8 max-w-[480px]">
-              Manage the entire lifecycle of your programme from one dashboard. Coordinate trainers, monitor engagement, and analyze delivery health in real-time.
+              Manage the entire lifecycle of your program from one dashboard. Coordinate trainers, monitor engagement, and analyze delivery health in real-time.
             </p>
 
             <div className="space-y-4">

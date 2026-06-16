@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
 const trustPoints = [
-  "Enterprise Security",
-  "Governance Controls",
-  "Audit Logging",
-  "Operational Visibility",
-  "High Availability",
-  "Infrastructure Resilience",
+  "Bank-level security",
+  "Role permissions",
+  "Activity logs",
+  "System status",
+  "99.9% uptime",
+  "Backups daily",
 ];
 
 const pillars = [
@@ -55,17 +55,15 @@ export function ScaleStructure() {
 
             {/* Headline */}
             <h2 className="text-[38px] md:text-[52px] font-bold text-white leading-[1.06] tracking-[-0.03em] mb-7 max-w-[480px]">
-              Built for{" "}
+              Built to{" "}
               <span className="text-brand-gold italic font-serif">
-                operational reliability.
+                not break on demo day.
               </span>
             </h2>
 
             {/* Supporting paragraph */}
             <p className="text-[15px] text-white/45 leading-[1.75] max-w-[420px] mb-12 font-light">
-              OYEN GRID provides the security, governance, scalability and
-              operational resilience required to support modern programme
-              delivery at scale.
+              Secure, fast, and reliable. Even with 500 learners online at once.
             </p>
 
             {/* Trust points — clean list */}

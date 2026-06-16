@@ -19,17 +19,17 @@ export default function SolutionsPage() {
       <EnterprisePageTemplate
         title="Solutions"
         subtitle="Who OYEN GRID Serves"
-        description="Purpose-built operational infrastructure for every type of structured programme delivery — from bootcamps and webinars to institutional education and enterprise operations."
+        description="Purpose-built operational infrastructure for every type of structured program delivery — from training programs and webinars to academic education and corporate training."
         category="Solutions"
         focusAreas={[
-          { title: "Bootcamps & Training", desc: "Structured programme delivery for bootcamps, training organisations and fellowship programmes.", icon: GraduationCap },
-          { title: "Webinars & Events", desc: "Live coordination infrastructure for webinars, workshops and virtual events.", icon: Radio },
-          { title: "Education & Institutions", desc: "Academic systems and institutional learning infrastructure.", icon: Building2 },
-          { title: "Enterprise Operations", desc: "Operational coordination, governance and institutional delivery systems.", icon: Target },
+          { title: "Bootcamps & Training", desc: "Structured program delivery for training organisations and fellowship programs.", icon: GraduationCap },
+          { title: "Webinars & Events", desc: "Host sessions, manage signups, and track who actually showed up.", icon: Radio },
+          { title: "Schools & Academies", desc: "Manage classes, students, and reports in one dashboard.", icon: Building2 },
+          { title: "Corporate Training", desc: "Run internal upskilling programs and prove ROI to leadership.", icon: Target },
         ]}
         metrics={[
-          { label: "Programmes Delivered", value: "12,400+", trend: "+24%" },
-          { label: "Participants Coordinated", value: "2.1M+", trend: "+18%" },
+          { label: "Programs Delivered", value: "12,400+", trend: "+24%" },
+          { label: "Learners Coordinated", value: "2.1M+", trend: "+18%" },
           { label: "Uptime SLA", value: "99.99%", trend: "Stable" },
           { label: "Global Regions", value: "24", trend: "+4" },
         ]}

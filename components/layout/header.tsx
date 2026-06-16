@@ -19,10 +19,10 @@ const navigationData = [
     cta: "EXPLORE SOLUTIONS",
     href: "/solutions",
     items: [
-      { title: "Bootcamps & Training", desc: "Structured programme delivery for bootcamps, training organisations and fellowship programmes.", icon: GraduationCap, href: "/solutions/bootcamps-training" },
-      { title: "Webinars & Events", desc: "Live coordination infrastructure for webinars, workshops and virtual events.", icon: Radio, href: "/solutions/webinars-events" },
-      { title: "Education & Institutions", desc: "Academic systems and institutional learning infrastructure.", icon: Building2, href: "/solutions/education-institutions" },
-      { title: "Enterprise Operations", desc: "Operational coordination, governance and institutional delivery systems.", icon: Target, href: "/solutions/enterprise-operations" }
+      { title: "Bootcamps & Training", desc: "Structured program delivery for training organisations and fellowship programs.", icon: GraduationCap, href: "/solutions/bootcamps-training" },
+      { title: "Webinars & Events", desc: "Host sessions, manage signups, and track who actually showed up.", icon: Radio, href: "/solutions/webinars-events" },
+      { title: "Schools & Academies", desc: "Manage classes, students, and reports in one dashboard.", icon: Building2, href: "/solutions/education-institutions" },
+      { title: "Corporate Training", desc: "Run internal upskilling programs and prove ROI to leadership.", icon: Target, href: "/solutions/enterprise-operations" }
     ]
   },
   {
@@ -31,8 +31,8 @@ const navigationData = [
     cta: "EXPLORE FEATURES",
     href: "/features",
     items: [
-      { title: "Programme Management", desc: "Create, manage and scale structured programmes.", icon: Boxes, href: "/features/programme-management" },
-      { title: "Participant Management", desc: "Registration, tracking and engagement intelligence.", icon: Users, href: "/features/participant-management" },
+      { title: "Program Management", desc: "Create, manage and scale structured programs.", icon: Boxes, href: "/features/programme-management" },
+      { title: "Learner Management", desc: "Registration, tracking and engagement insights.", icon: Users, href: "/features/participant-management" },
       { title: "OYEN Live", desc: "Live sessions, attendance and delivery infrastructure.", icon: Zap, href: "/features/oyen-live" },
       { title: "Analytics & AI", desc: "Operational insights, reporting and AI intelligence.", icon: LineChart, href: "/features/analytics-ai" }
     ]
@@ -44,8 +44,8 @@ const navigationData = [
     href: "/resources",
     items: [
       { title: "Documentation", desc: "Platform guides and implementation resources.", icon: BookOpen, href: "/resources/docs" },
-      { title: "Case Studies", desc: "Customer success stories and programme outcomes.", icon: Activity, href: "/resources/case-studies" },
-      { title: "Blog", desc: "Insights, updates and operational intelligence.", icon: Globe, href: "/resources/blog" },
+      { title: "Case Studies", desc: "Customer success stories and program outcomes.", icon: Activity, href: "/resources/case-studies" },
+      { title: "Blog", desc: "Latest updates and insights.", icon: Globe, href: "/resources/blog" },
       { title: "Help Center", desc: "Support articles and FAQs.", icon: HelpCircle, href: "/resources/help" }
     ]
   },
@@ -290,7 +290,7 @@ export function AnnouncementBar() {
       <div className="py-6 bg-[#050505]/90 backdrop-blur-md border-b border-white/5 flex flex-col items-center justify-center gap-2 px-8">
         {/* Announcement text */}
         <span className="text-[13.5px] font-medium text-white/80 text-center tracking-wide leading-relaxed">
-          Operational Infrastructure for Institutional Delivery
+          The operating system for training delivery
         </span>
 
         {/* CTA directly underneath */}

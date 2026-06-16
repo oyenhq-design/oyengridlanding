@@ -9,24 +9,24 @@ import { cn } from "@/lib/utils";
 const stages = [
   {
     id: "setup",
-    title: "Programme Setup",
+    title: "Program Setup",
     label: "PHASE 01",
     icon: Settings,
     image: "/lifecycle/setup.png",
-    description: "Structure programmes with coordinated scheduling, participant assignment and operational workflows.",
+    description: "Create groups, enroll learners, and set your schedule in minutes. Not days.",
     capabilities: [
-      "Structured delivery architecture",
-      "Cohort-based coordination",
-      "Centralised operational visibility"
+      "Set it up once",
+      "Manage by group",
+      "See everything in one place"
     ]
   },
   {
     id: "onboarding",
-    title: "Participant Onboarding",
+    title: "Learner Onboarding",
     label: "PHASE 02",
     icon: Users,
     image: "/lifecycle/onboarding.png",
-    description: "Automate participant intake and platform orientation with institutional scale and precision.",
+    description: "Automate learner intake and platform orientation with scale and precision.",
     capabilities: [
       "Automated enrollment protocols",
       "Digital orientation flows",
@@ -65,7 +65,7 @@ const stages = [
     label: "PHASE 05",
     icon: MessageSquare,
     image: "/lifecycle/engagement.png",
-    description: "Foster participant collaboration through secure, persistent institutional communication channels.",
+    description: "Foster learner collaboration through secure, persistent communication channels.",
     capabilities: [
       "Secure cohort messaging",
       "Trainer-led discussions",
@@ -78,7 +78,7 @@ const stages = [
     label: "PHASE 06",
     icon: BarChart3,
     image: "/lifecycle/tracking.png",
-    description: "Monitor participant milestones and programme throughput with high-fidelity telemetry.",
+    description: "Monitor learner milestones and program throughput with high-fidelity telemetry.",
     capabilities: [
       "Milestone verification",
       "Automated progress logs",
@@ -87,11 +87,11 @@ const stages = [
   },
   {
     id: "intelligence",
-    title: "Operational Intelligence",
+    title: "Insights",
     label: "PHASE 07",
     icon: Cpu,
     image: "/lifecycle/intelligence.png",
-    description: "Leverage AI-driven insights to optimize programme delivery and participant outcomes.",
+    description: "Leverage AI-driven insights to optimize program delivery and learner outcomes.",
     capabilities: [
       "Autonomous trend analysis",
       "Predictive risk assessment",
@@ -100,11 +100,11 @@ const stages = [
   },
   {
     id: "reporting",
-    title: "Institutional Reporting",
+    title: "Training Reports",
     label: "PHASE 08",
     icon: FileText,
     image: "/lifecycle/reporting.png",
-    description: "Generate high-stakes institutional reports with verified data and operational transparency.",
+    description: "Generate training delivery reports with verified data and operational transparency.",
     capabilities: [
       "Board-ready visualizations",
       "Verified outcome data",
@@ -153,10 +153,10 @@ export function OperationalLifecycle() {
         <div className="mb-16">
           <span className="eyebrow">OPERATIONAL LIFECYCLE</span>
           <h2 className="max-w-[620px] mt-4 mb-4">
-            The lifecycle of <span className="text-brand-gold">structured programme delivery.</span>
+            How to run a training program <span className="text-brand-gold">from start to finish.</span>
           </h2>
           <p className="text-editorial max-w-[580px]">
-            OYEN GRID brings programme coordination, participant management, communication and operational intelligence into one continuous institutional workflow.
+            Stop juggling WhatsApp, Zoom, Sheets, and Forms. Run your entire program in OYEN GRID.
           </p>
         </div>
 

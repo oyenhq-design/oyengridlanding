@@ -35,26 +35,26 @@ export function FinalCTA() {
           <div className="flex items-center justify-center gap-3 mb-8">
             <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/5 border border-brand-gold/20">
               <div className="w-1 h-1 rounded-full bg-brand-gold animate-pulse" />
-              <span className="text-[9px] font-black text-brand-gold uppercase tracking-[0.2em]">Programme Intelligence</span>
+              <span className="text-[9px] font-black text-brand-gold uppercase tracking-[0.2em]">Program Intelligence</span>
             </div>
           </div>
 
           <h2 className="text-white mb-8 text-[40px] md:text-[72px] leading-[0.95] tracking-[-0.05em] font-bold">
-            Ready to orchestrate your <br className="hidden md:block" />
-            <span className="text-brand-gold italic font-semibold">entire ecosystem?</span>
+            Ready to run your <br className="hidden md:block" />
+            <span className="text-brand-gold italic font-semibold">next program?</span>
           </h2>
           
           <p className="text-[15px] md:text-[18px] text-white/40 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
-            One platform. Every capability. Infinite institutional impact. Transition your programme operations to the world's most structured operating system.
+            One login for your whole team. Setup takes 15 minutes.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <button className="group h-14 px-10 rounded-[14px] bg-brand-gold text-black font-black text-[14px] uppercase tracking-wider flex items-center gap-2.5 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_15px_40px_rgba(245,185,66,0.2)]">
-              Get Started
+              Book a Demo
               <ArrowUpRight className="w-4.5 h-4.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
             <button className="h-14 px-10 rounded-[14px] border border-white/10 bg-white/[0.02] backdrop-blur-xl text-white font-bold text-[14px] hover:bg-white/[0.05] transition-all flex items-center gap-2.5">
-              Book a Demo
+              Start Free Trial
               <ChevronRight className="w-4 h-4 text-white/40" />
             </button>
             <button className="h-14 px-10 rounded-[14px] border border-white/10 bg-white/[0.02] backdrop-blur-xl text-white font-bold text-[14px] hover:bg-white/[0.05] transition-all flex items-center gap-2.5">
