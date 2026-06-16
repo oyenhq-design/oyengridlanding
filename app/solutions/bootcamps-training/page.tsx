@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowRight, Globe, Shield, Zap, Activity, Cpu, 
   Users, BarChart3, Settings, Lock, FileCheck, Layers, Boxes, Bot, 
@@ -16,6 +16,34 @@ import { cn } from "@/lib/utils";
 
 export default function BootcampsTrainingPage() {
   const [activeStage, setActiveStage] = useState("programmes");
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
+  const faqItems = [
+    {
+      q: "How quickly can we get started with OYEN GRID?",
+      a: "Most organizations are fully operational within a few days depending on programme complexity."
+    },
+    {
+      q: "Can OYEN GRID manage multiple cohorts simultaneously?",
+      a: "Yes. Administrators can oversee multiple cohorts, schedules, instructors, and learner groups from one dashboard."
+    },
+    {
+      q: "Does attendance tracking happen automatically?",
+      a: "Yes. Attendance is logged automatically during live sessions and recorded in learner profiles."
+    },
+    {
+      q: "Can we issue certificates through the platform?",
+      a: "Yes. Certificates can be generated and distributed automatically upon programme completion."
+    },
+    {
+      q: "Does OYEN GRID support virtual classrooms?",
+      a: "Yes. Live training sessions can be hosted directly within the platform with attendance and engagement tracking."
+    },
+    {
+      q: "Are learner analytics available?",
+      a: "Yes. Track attendance, assessments, progress, completion rates, and engagement metrics in real time."
+    }
+  ];
 
   const stageVisuals: Record<string, any> = {
     programmes: {
@@ -560,6 +588,132 @@ export default function BootcampsTrainingPage() {
                   </div>
                 ))}
               </div>
+            </div>
+          </section>
+
+          {/* =========================================================================
+              7.5 PREMIUM FAQ SECTION
+              ========================================================================= */}
+          <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-24 border-t border-b border-white/5 overflow-hidden">
+            {/* Background image & overlay */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center z-0" 
+              style={{ backgroundImage: "url('/faq-bg.png')" }} 
+            />
+            <div className="absolute inset-0 bg-[#020203]/90 mix-blend-multiply z-10" />
+            
+            {/* Grid pattern overlay */}
+            <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03] z-20 pointer-events-none" />
+
+            {/* Subtle Gold Glow */}
+            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(232,184,74,0.06),transparent_70%)] pointer-events-none blur-3xl z-20" />
+            <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(232,184,74,0.03),transparent_70%)] pointer-events-none blur-3xl z-20" />
+
+            <div className="max-w-[1200px] mx-auto px-8 relative z-30">
+              
+              {/* Badge & Typography Header */}
+              <div className="mb-16 text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8B84A]/5 border border-[#E8B84A]/10 mb-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#E8B84A]" />
+                  <span className="text-[10px] font-black text-[#E8B84A] uppercase tracking-widest">
+                    Frequently Asked Questions
+                  </span>
+                </div>
+                <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-white leading-none mb-4">
+                  Everything You Need To Know
+                </h2>
+                <p className="text-[14px] md:text-[15px] text-[#A1A1A1] max-w-[640px] font-light leading-relaxed">
+                  Answers to common questions about managing bootcamps, cohorts, live sessions, assessments, and certifications with OYEN GRID.
+                </p>
+              </div>
+
+              {/* Two-Column Grid */}
+              <div className="grid lg:grid-cols-12 gap-16 items-start">
+                
+                {/* Left Side Column */}
+                <div className="lg:col-span-5 space-y-6">
+                  <h3 className="text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.05]">
+                    Questions?<br />
+                    <span className="bg-gradient-to-r from-white via-white/90 to-[#E8B84A] bg-clip-text text-transparent italic">
+                      We&apos;ve Got Answers.
+                    </span>
+                  </h3>
+                  <p className="text-neutral-400 text-sm leading-relaxed max-w-[380px] font-medium">
+                    From setup to certification, learn how OYEN GRID helps bootcamps streamline operations.
+                  </p>
+                  
+                  <div className="pt-4">
+                    <Link
+                      href="#demo"
+                      className="inline-flex h-[46px] px-6 rounded-lg text-xs font-bold bg-white/5 border border-white/10 hover:border-[#E8B84A]/40 hover:bg-[#E8B84A]/10 text-white hover:text-[#E8B84A] tracking-wider uppercase transition-all duration-300 items-center justify-center cursor-pointer"
+                    >
+                      Contact Support ↗
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Right Side Column: Accordion */}
+                <div className="lg:col-span-7 space-y-4">
+                  {faqItems.map((item, idx) => {
+                    const isOpen = openFaqIndex === idx;
+                    return (
+                      <div 
+                        key={idx}
+                        className="rounded-[16px] border border-white/5 bg-white/[0.01] hover:border-[#E8B84A]/20 transition-all duration-300 overflow-hidden"
+                      >
+                        <button
+                          onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                          className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left cursor-pointer group"
+                        >
+                          <span className="text-sm font-bold text-white group-hover:text-[#E8B84A] transition-colors">
+                            {item.q}
+                          </span>
+                          <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-[#E8B84A] bg-white/[0.02] group-hover:border-[#E8B84A]/30 transition-colors relative flex-shrink-0">
+                            <span className={`absolute w-3 h-0.5 bg-[#E8B84A] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+                            <span className={`absolute h-3 w-0.5 bg-[#E8B84A] transition-transform duration-300 ${isOpen ? "rotate-90 scale-y-0" : ""}`} />
+                          </div>
+                        </button>
+                        
+                        <AnimatePresence initial={false}>
+                          {isOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3, ease: "easeInOut" }}
+                            >
+                              <div className="px-6 pb-6 pt-1 text-xs text-neutral-400 leading-relaxed font-light border-t border-white/[0.02] bg-white/[0.005]">
+                                {item.a}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
+
+              </div>
+
+              {/* Bottom Support Section */}
+              <div className="mt-20 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#E8B84A]/10 border border-[#E8B84A]/20 flex items-center justify-center text-[#E8B84A]">
+                    <HelpCircle className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white">Still have questions?</h4>
+                    <p className="text-[11px] text-neutral-400">We&apos;re here to help.</p>
+                  </div>
+                </div>
+                <Link
+                  href="#demo"
+                  className="inline-flex h-[46px] px-6 rounded-lg text-xs font-bold bg-[#E8B84A] text-black hover:shadow-[0_0_20px_rgba(232,184,74,0.3)] hover:scale-[1.01] transition-all duration-300 items-center justify-center cursor-pointer"
+                >
+                  Contact Us ↗
+                </Link>
+              </div>
+
             </div>
           </section>
 
