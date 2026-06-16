@@ -40,8 +40,24 @@ export default function BootcampsTrainingPage() {
       a: "Yes. Live training sessions can be hosted directly within the platform with attendance and engagement tracking."
     },
     {
+      q: "Can instructors manage their own sessions?",
+      a: "Yes. Instructors have dedicated portal access to run live sessions, grade assessments, and track attendance for their groups."
+    },
+    {
       q: "Are learner analytics available?",
       a: "Yes. Track attendance, assessments, progress, completion rates, and engagement metrics in real time."
+    },
+    {
+      q: "Can OYEN GRID integrate with other tools?",
+      a: "Yes. The platform integrates with major identity systems, CRM tools, and notification systems via our secure API."
+    },
+    {
+      q: "How secure is our data?",
+      a: "OYEN GRID uses enterprise-grade encryption, role-based access control, and is fully compliant with modern data security standards."
+    },
+    {
+      q: "What kind of support is available?",
+      a: "We offer 24/7 dedicated email support, dedicated customer success managers for enterprise plans, and comprehensive documentation."
     }
   ];
 
@@ -592,7 +608,7 @@ export default function BootcampsTrainingPage() {
           </section>
 
           {/* =========================================================================
-              7.5 PREMIUM FAQ SECTION
+              8. PREMIUM FAQ & CTA SECTION
               ========================================================================= */}
           <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-24 border-t border-b border-white/5 overflow-hidden">
             {/* Background image & overlay */}
@@ -600,14 +616,14 @@ export default function BootcampsTrainingPage() {
               className="absolute inset-0 bg-cover bg-center z-0" 
               style={{ backgroundImage: "url('/faq-bg.png')" }} 
             />
-            <div className="absolute inset-0 bg-[#020203]/90 mix-blend-multiply z-10" />
+            {/* Dark gradient overlay (85-90% left to right) */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#020203]/95 via-[#020203]/90 to-[#020203]/85 mix-blend-multiply z-10" />
             
             {/* Grid pattern overlay */}
             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03] z-20 pointer-events-none" />
 
             {/* Subtle Gold Glow */}
-            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(232,184,74,0.06),transparent_70%)] pointer-events-none blur-3xl z-20" />
-            <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(232,184,74,0.03),transparent_70%)] pointer-events-none blur-3xl z-20" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[radial-gradient(circle,rgba(232,184,74,0.06),transparent_70%)] pointer-events-none blur-3xl z-20" />
 
             <div className="max-w-[1200px] mx-auto px-8 relative z-30">
               
@@ -616,14 +632,14 @@ export default function BootcampsTrainingPage() {
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8B84A]/5 border border-[#E8B84A]/10 mb-4">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#E8B84A]" />
                   <span className="text-[10px] font-black text-[#E8B84A] uppercase tracking-widest">
-                    Frequently Asked Questions
+                    FAQ
                   </span>
                 </div>
                 <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-white leading-none mb-4">
-                  Everything You Need To Know
+                  Everything You <span className="text-[#E8B84A]">Need To Know</span>
                 </h2>
                 <p className="text-[14px] md:text-[15px] text-[#A1A1A1] max-w-[640px] font-light leading-relaxed">
-                  Answers to common questions about managing bootcamps, cohorts, live sessions, assessments, and certifications with OYEN GRID.
+                  Find answers to common questions about managing bootcamps, cohorts, attendance, assessments, live sessions, certifications, and programme delivery using OYEN GRID.
                 </p>
               </div>
 
@@ -631,23 +647,31 @@ export default function BootcampsTrainingPage() {
               <div className="grid lg:grid-cols-12 gap-16 items-start">
                 
                 {/* Left Side Column */}
-                <div className="lg:col-span-5 space-y-6">
-                  <h3 className="text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.05]">
-                    Questions?<br />
-                    <span className="bg-gradient-to-r from-white via-white/90 to-[#E8B84A] bg-clip-text text-transparent italic">
-                      We&apos;ve Got Answers.
-                    </span>
-                  </h3>
-                  <p className="text-neutral-400 text-sm leading-relaxed max-w-[380px] font-medium">
-                    From setup to certification, learn how OYEN GRID helps bootcamps streamline operations.
-                  </p>
+                <div className="lg:col-span-5 space-y-8">
+                  <div className="space-y-4">
+                    <h3 className="text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.05]">
+                      Questions?<br />
+                      <span className="bg-gradient-to-r from-white via-white/90 to-[#E8B84A] bg-clip-text text-transparent italic">
+                        We&apos;ve Got Answers.
+                      </span>
+                    </h3>
+                    <p className="text-neutral-400 text-sm leading-relaxed max-w-[380px] font-medium">
+                      Whether you&apos;re running one cohort or hundreds of learners across multiple programmes, OYEN GRID helps simplify operations from enrollment to certification.
+                    </p>
+                  </div>
                   
-                  <div className="pt-4">
+                  {/* Support Card */}
+                  <div className="p-6 rounded-[18px] bg-white/[0.02] border border-white/5 backdrop-blur-md hover:border-[#E8B84A]/30 hover:shadow-[0_0_20px_rgba(232,184,74,0.05)] transition-all duration-300 relative overflow-hidden group shadow-lg">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(232,184,74,0.02),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <h4 className="text-sm font-bold text-white mb-1">Need help?</h4>
+                    <p className="text-xs text-neutral-400 leading-relaxed mb-4">
+                      Our team is available to guide your implementation and answer questions.
+                    </p>
                     <Link
                       href="#demo"
-                      className="inline-flex h-[46px] px-6 rounded-lg text-xs font-bold bg-white/5 border border-white/10 hover:border-[#E8B84A]/40 hover:bg-[#E8B84A]/10 text-white hover:text-[#E8B84A] tracking-wider uppercase transition-all duration-300 items-center justify-center cursor-pointer"
+                      className="inline-flex h-[38px] px-5 rounded-lg text-[11px] font-bold bg-white/5 border border-white/10 hover:border-[#E8B84A]/40 hover:bg-[#E8B84A]/10 text-white hover:text-[#E8B84A] tracking-wider uppercase transition-all duration-300 items-center justify-center cursor-pointer"
                     >
-                      Contact Support ↗
+                      Contact Support
                     </Link>
                   </div>
                 </div>
@@ -659,7 +683,7 @@ export default function BootcampsTrainingPage() {
                     return (
                       <div 
                         key={idx}
-                        className="rounded-[16px] border border-white/5 bg-white/[0.01] hover:border-[#E8B84A]/20 transition-all duration-300 overflow-hidden"
+                        className="rounded-[18px] border border-white/5 bg-white/[0.01] hover:border-[#E8B84A]/20 transition-all duration-300 overflow-hidden shadow-sm"
                       >
                         <button
                           onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
@@ -695,65 +719,35 @@ export default function BootcampsTrainingPage() {
 
               </div>
 
-              {/* Bottom Support Section */}
-              <div className="mt-20 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#E8B84A]/10 border border-[#E8B84A]/20 flex items-center justify-center text-[#E8B84A]">
-                    <HelpCircle className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white">Still have questions?</h4>
-                    <p className="text-[11px] text-neutral-400">We&apos;re here to help.</p>
+              {/* Subtle Divider */}
+              <div className="w-full h-px bg-white/5 my-16" />
+
+              {/* Bottom FAQ CTA Compact Strip */}
+              <div className="p-8 md:p-10 rounded-[24px] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative overflow-hidden max-w-4xl mx-auto text-center shadow-2xl h-[180px] md:h-[200px] flex flex-col justify-center">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(232,184,74,0.06),transparent_70%)] pointer-events-none z-0" />
+                <div className="relative z-10 space-y-4">
+                  <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">Still have questions?</h3>
+                  <p className="text-xs text-neutral-400 max-w-lg mx-auto leading-relaxed">
+                    Speak with our team and see how OYEN GRID can support your training programmes.
+                  </p>
+                  <div className="flex items-center justify-center gap-4">
+                    <Link
+                      href="#demo"
+                      className="inline-flex h-[42px] px-6 rounded-lg text-xs font-bold bg-[#E8B84A] text-black hover:shadow-[0_0_20px_rgba(232,184,74,0.3)] hover:scale-[1.01] transition-all items-center justify-center cursor-pointer"
+                    >
+                      Book a Demo
+                    </Link>
+                    <Link
+                      href="#get-started"
+                      className="inline-flex h-[42px] px-6 rounded-lg text-xs font-bold bg-white/5 border border-white/10 hover:border-[#E8B84A]/40 hover:bg-[#E8B84A]/10 text-white hover:text-[#E8B84A] transition-all items-center justify-center cursor-pointer"
+                    >
+                      Start Free Trial
+                    </Link>
                   </div>
                 </div>
-                <Link
-                  href="#demo"
-                  className="inline-flex h-[46px] px-6 rounded-lg text-xs font-bold bg-[#E8B84A] text-black hover:shadow-[0_0_20px_rgba(232,184,74,0.3)] hover:scale-[1.01] transition-all duration-300 items-center justify-center cursor-pointer"
-                >
-                  Contact Us ↗
-                </Link>
               </div>
 
             </div>
-          </section>
-
-          {/* =========================================================================
-              8. FINAL CTA (Minimal, Subtle Gold Glow)
-              ========================================================================= */}
-          <section className="py-24" id="get-started">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="py-20 rounded-[40px] bg-gradient-to-br from-[#E8B84A]/10 via-transparent to-transparent border border-[#E8B84A]/20 text-center max-w-4xl mx-auto space-y-8 relative overflow-hidden shadow-2xl"
-            >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(232,184,74,0.06),transparent_70%)]" />
-              <div className="relative z-10 max-w-2xl mx-auto space-y-8">
-                <span className="text-[11px] font-black text-[#E8B84A] uppercase tracking-[0.4em] block">DEPLOY TODAY</span>
-                <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.05]">
-                  Ready To Scale Your <br />
-                  Bootcamp Operations?
-                </h2>
-                <p className="text-neutral-400 text-sm leading-relaxed max-w-md mx-auto">
-                  Deliver better learner experiences while reducing administrative overhead.
-                </p>
-                
-                <div className="pt-4 flex items-center justify-center gap-6">
-                  <Link
-                    href="#get-started"
-                    className="inline-flex h-[52px] px-8 rounded-lg text-xs font-bold bg-[#E8B84A] text-black hover:shadow-[0_0_30px_rgba(232,184,74,0.3)] hover:scale-[1.01] transition-all items-center justify-center"
-                  >
-                    Start Free Trial
-                  </Link>
-                  <Link
-                    href="#demo"
-                    className="inline-flex h-[52px] px-8 rounded-lg text-xs font-bold text-neutral-400 hover:text-white transition-all items-center justify-center"
-                  >
-                    Book Demo
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
           </section>
 
         </div>
