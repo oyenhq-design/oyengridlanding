@@ -106,8 +106,8 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
               <stop offset="100%" stopColor="rgba(255,255,255,0.06)" />
             </linearGradient>
           </defs>
-          <path d="M0,60 L0,15 C450,15 950,55 1440,30 L1440,60 Z" fill="#080B14" />
-          <path d="M0,15 C450,15 950,55 1440,30" fill="none" stroke="url(#footer-curve-grad)" strokeWidth="1.5" />
+          <path d="M0,60 L0,10 C400,10 700,50 1000,50 C1200,50 1350,20 1440,20 L1440,60 Z" fill="#080B14" />
+          <path d="M0,10 C400,10 700,50 1000,50 C1200,50 1350,20 1440,20" fill="none" stroke="url(#footer-curve-grad)" strokeWidth="1.5" />
         </svg>
       </div>
 
