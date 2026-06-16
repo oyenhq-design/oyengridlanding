@@ -105,7 +105,9 @@ const positions = [
 export function InstitutionalImpactCinematic() {
   const [activeId, setActiveId] = useState("becky");
   const [isHovered, setIsHovered] = useState(false);
+  const [isInteracting, setIsInteracting] = useState(false);
   const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const interactionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const activeIndex = customerProfiles.findIndex(p => p.id === activeId);
   const activeProfile = customerProfiles[activeIndex];
@@ -118,31 +120,58 @@ export function InstitutionalImpactCinematic() {
     });
   }, []);
 
-  // Autoplay 8s timer
+  // Autoplay 6s timer, paused by hover or interaction
   useEffect(() => {
     if (autoplayTimerRef.current) clearInterval(autoplayTimerRef.current);
 
-    if (!isHovered) {
+    if (!isHovered && !isInteracting) {
       autoplayTimerRef.current = setInterval(() => {
         selectNext();
-      }, 8000);
+      }, 6000);
     }
 
     return () => {
       if (autoplayTimerRef.current) clearInterval(autoplayTimerRef.current);
     };
-  }, [isHovered, selectNext]);
+  }, [isHovered, isInteracting, selectNext]);
+
+  // Clean up interaction timer on unmount
+  useEffect(() => {
+    return () => {
+      if (interactionTimeoutRef.current) clearTimeout(interactionTimeoutRef.current);
+    };
+  }, []);
+
+  // Handle manual interaction with 10s pause
+  const handleAvatarClick = (id: string) => {
+    setActiveId(id);
+    setIsInteracting(true);
+    
+    if (interactionTimeoutRef.current) clearTimeout(interactionTimeoutRef.current);
+    
+    interactionTimeoutRef.current = setTimeout(() => {
+      setIsInteracting(false);
+    }, 10000);
+  };
 
   // Keyboard navigation support
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") selectNext();
+      if (e.key === "ArrowRight") {
+        selectNext();
+        setIsInteracting(true);
+        if (interactionTimeoutRef.current) clearTimeout(interactionTimeoutRef.current);
+        interactionTimeoutRef.current = setTimeout(() => setIsInteracting(false), 10000);
+      }
       if (e.key === "ArrowLeft") {
         setActiveId(prevId => {
           const idx = customerProfiles.findIndex(p => p.id === prevId);
           const prevIdx = (idx - 1 + customerProfiles.length) % customerProfiles.length;
           return customerProfiles[prevIdx].id;
         });
+        setIsInteracting(true);
+        if (interactionTimeoutRef.current) clearTimeout(interactionTimeoutRef.current);
+        interactionTimeoutRef.current = setTimeout(() => setIsInteracting(false), 10000);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -223,30 +252,32 @@ export function InstitutionalImpactCinematic() {
               return (
                 <motion.button
                   key={profile.id}
-                  onClick={() => {
-                    setActiveId(profile.id);
-                  }}
+                  onClick={() => handleAvatarClick(profile.id)}
                   layout
+                  animate={{
+                    left: pos.left,
+                    top: pos.top,
+                    width: pos.width,
+                    height: pos.height,
+                    scale: isActive ? 1.08 : 0.9,
+                    opacity: isActive ? 1 : 0.6,
+                  }}
                   transition={{
                     type: "spring",
-                    stiffness: 100,
-                    damping: 18,
+                    stiffness: 90,
+                    damping: 15,
                     mass: 0.8,
-                    layout: { duration: 0.5 }
+                    layout: { duration: 0.6 }
                   }}
                   style={{
                     position: "absolute",
-                    left: pos.left,
-                    top: pos.top,
                     transform: "translate(-50%, -50%)",
-                    width: pos.width,
-                    height: pos.height,
                     zIndex: pos.zIndex,
                   }}
-                  className={`rounded-full overflow-hidden flex items-center justify-center transition-all duration-300 cursor-pointer ${
+                  className={`rounded-full overflow-hidden flex items-center justify-center transition-shadow duration-300 cursor-pointer ${
                     isActive 
-                      ? "border-2 border-[#F5D76E] shadow-[0_0_20px_rgba(245,215,110,0.2)] bg-[#0C0F19]" 
-                      : "opacity-60 hover:opacity-100 hover:scale-[1.08] border border-white/10"
+                      ? "border-2 border-[#F5D76E] shadow-[0_0_20px_rgba(245,215,110,0.25)] bg-[#0C0F19]" 
+                      : "hover:opacity-100 hover:scale-[1.05] border border-white/10"
                   }`}
                 >
                   <div className="relative w-full h-full">
@@ -273,7 +304,7 @@ export function InstitutionalImpactCinematic() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.4 }}
               className="flex flex-col items-center"
             >
               
@@ -301,6 +332,23 @@ export function InstitutionalImpactCinematic() {
 
             </motion.div>
           </AnimatePresence>
+
+          {/* PROGRESS INDICATOR DOTS */}
+          <div className="mt-6 flex items-center justify-center gap-2">
+            {customerProfiles.map((profile, idx) => (
+              <button
+                key={`dot-${profile.id}`}
+                onClick={() => handleAvatarClick(profile.id)}
+                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  idx === activeIndex 
+                    ? "bg-[#F5D76E] w-3" 
+                    : "bg-white/20 hover:bg-white/40"
+                }`}
+                aria-label={`Go to story ${idx + 1}`}
+              />
+            ))}
+          </div>
+
         </div>
 
       </div>
