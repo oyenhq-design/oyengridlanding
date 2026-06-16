@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 interface CustomerProfile {
   id: string;
@@ -332,6 +333,23 @@ export function InstitutionalImpactCinematic() {
 
             </motion.div>
           </AnimatePresence>
+
+          {/* Explore More Stories Link */}
+          <div className="w-full text-right mt-6 pr-6">
+            <Link
+              href="/resources/customer-stories"
+              className="inline-flex items-center gap-1.5 text-[14px] font-medium text-[#F5D76E] hover:text-white tracking-[0.02em] group cursor-pointer"
+              style={{ transition: 'color 250ms ease' }}
+            >
+              Explore More Stories
+              <span 
+                className="transform group-hover:translate-x-1"
+                style={{ transition: 'transform 250ms ease' }}
+              >
+                →
+              </span>
+            </Link>
+          </div>
 
           {/* PROGRESS INDICATOR DOTS */}
           <div className="mt-6 flex items-center justify-center gap-2">
