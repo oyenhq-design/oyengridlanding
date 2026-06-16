@@ -94,25 +94,25 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
   };
 
   return (
-    <footer className="relative bg-[#080B14] rounded-t-[40px] md:rounded-t-[56px] border-t border-white/[0.08] text-white overflow-hidden pt-20 pb-12 mt-12">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 flex flex-col gap-16">
+    <footer className="relative bg-[#080B14] rounded-t-[40px] md:rounded-t-[56px] border-t border-white/[0.08] text-white overflow-hidden pt-14 pb-10 mt-12">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 flex flex-col gap-10">
         
         {/* MAIN GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1.2fr] gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1.2fr] gap-10 items-start">
           
           {/* Left Side: 3 Columns Sitemap */}
-          <div className="grid grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-3 gap-4 sm:gap-6">
             {columns.map((col) => (
-              <div key={col.title} className="flex flex-col gap-5">
+              <div key={col.title} className="flex flex-col gap-3">
                 <h4 className="text-[13px] font-bold text-white uppercase tracking-wider">
                   {col.title}
                 </h4>
-                <ul className="flex flex-col gap-3.5">
+                <ul className="flex flex-col gap-2">
                   {col.links.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-[14px] text-[#A1A1A1] hover:text-[#F5D76E] transition-colors duration-250 font-normal leading-snug cursor-pointer"
+                        className="text-[14px] text-[#A1A1A1] hover:text-[#F5D76E] transition-colors duration-250 font-normal leading-tight cursor-pointer"
                       >
                         {link.label}
                       </Link>
@@ -124,25 +124,25 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
           </div>
 
           {/* Right Side: Newsletter Area */}
-          <div className="flex flex-col items-start gap-4">
+          <div className="flex flex-col items-start gap-2.5">
             <h4 className="text-[16px] font-bold text-white tracking-tight">
               Stay updated with OYEN GRID
             </h4>
-            <p className="text-[14px] text-[#A1A1A1] leading-relaxed font-light">
+            <p className="text-[14px] text-[#A1A1A1] leading-normal font-light">
               Product updates, industry insights, and platform news.
             </p>
-            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 w-full mt-2">
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2.5 w-full mt-1">
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="h-[46px] px-4 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder-white/30 text-[13px] focus:outline-none focus:border-[#F5D76E]/40 transition-colors w-full sm:max-w-[240px]"
+                className="h-[42px] px-4 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder-white/30 text-[13px] focus:outline-none focus:border-[#F5D76E]/40 transition-colors w-full sm:max-w-[240px]"
               />
               <button
                 type="submit"
-                className="h-[46px] px-6 rounded-xl bg-[#F5D76E] text-black font-bold text-[12px] uppercase tracking-wider transition-all duration-300 hover:bg-[#FFE38E] hover:shadow-[0_4px_16px_rgba(245,215,110,0.3)] hover:scale-[1.02] cursor-pointer"
+                className="h-[42px] px-5 rounded-xl bg-[#F5D76E] text-black font-bold text-[12px] uppercase tracking-wider transition-all duration-300 hover:bg-[#FFE38E] hover:shadow-[0_4px_16px_rgba(245,215,110,0.3)] hover:scale-[1.02] cursor-pointer"
               >
                 Subscribe
               </button>
@@ -152,13 +152,13 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
         </div>
 
         {/* SOCIAL LINKS ROW */}
-        <div className="pt-8 border-t border-white/[0.04] flex items-center justify-start gap-4">
+        <div className="pt-6 border-t border-white/[0.04] flex items-center justify-start gap-3">
           {socialLinks.map((s) => (
             <Link
               key={s.label}
               href={s.href}
               aria-label={s.label}
-              className="w-9 h-9 rounded-lg bg-white/[0.02] border border-white/5 flex items-center justify-center text-[#A1A1A1] hover:text-[#F5D76E] hover:border-[#F5D76E]/30 transition-all duration-300 cursor-pointer"
+              className="w-8.5 h-8.5 rounded-lg bg-white/[0.02] border border-white/5 flex items-center justify-center text-[#A1A1A1] hover:text-[#F5D76E] hover:border-[#F5D76E]/30 transition-all duration-300 cursor-pointer"
             >
               {s.icon}
             </Link>
@@ -166,7 +166,7 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
         </div>
 
         {/* BOTTOM BAR */}
-        <div className="pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="pt-5 border-t border-white/[0.04] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <span className="text-[12px] text-[#A1A1A1]/60 font-light tracking-wide">
             © {new Date().getFullYear()} OYEN GRID. All rights reserved.
           </span>
