@@ -92,14 +92,14 @@ const customerProfiles: CustomerProfile[] = [
 // 8 Surrounding coordinates mapping to relative positions in a circle/constellation layout
 const positions = [
   { left: "50%", top: "50%" }, // 0: Center position (active profile)
-  { left: "15%", top: "25%" }, // 1
-  { left: "28%", top: "35%" }, // 2
-  { left: "20%", top: "70%" }, // 3
-  { left: "38%", top: "80%" }, // 4
-  { left: "72%", top: "22%" }, // 5
-  { left: "85%", top: "35%" }, // 6
-  { left: "68%", top: "75%" }, // 7
-  { left: "80%", top: "68%" }  // 8
+  { left: "20%", top: "20%" }, // 1
+  { left: "32%", top: "30%" }, // 2
+  { left: "24%", top: "70%" }, // 3
+  { left: "38%", top: "76%" }, // 4
+  { left: "68%", top: "20%" }, // 5
+  { left: "80%", top: "30%" }, // 6
+  { left: "64%", top: "70%" }, // 7
+  { left: "76%", top: "76%" }  // 8
 ];
 
 export function InstitutionalImpactCinematic() {
@@ -154,8 +154,8 @@ export function InstitutionalImpactCinematic() {
     if (id === activeId) {
       return {
         ...positions[0],
-        width: 96,
-        height: 96,
+        width: 88,
+        height: 88,
         zIndex: 30
       };
     }
@@ -166,35 +166,32 @@ export function InstitutionalImpactCinematic() {
 
     return {
       ...pos,
-      width: 52,
-      height: 52,
+      width: 48,
+      height: 48,
       zIndex: 20
     };
   };
 
   return (
     <section 
-      className="py-24 md:py-32 bg-[#0A0A0A] relative overflow-hidden border-b border-white/5"
+      className="py-16 md:py-24 bg-[#0A0A0A] relative overflow-hidden border-b border-white/5"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
         
         {/* SECTION HEADER */}
-        <div className="text-center mb-12">
-          <span className="text-[10px] font-black tracking-[0.35em] text-[#F5D76E] uppercase">
-            CUSTOMER STORIES
-          </span>
-          <h2 className="text-[36px] md:text-[48px] font-bold text-white tracking-tight leading-none mt-4 mb-5">
+        <div className="text-center mb-8">
+          <h2 className="text-[32px] md:text-[40px] font-bold text-white tracking-tight leading-none mb-4">
             Trusted by the people behind successful programs.
           </h2>
-          <p className="text-[15px] text-[#A1A1A1] max-w-[620px] mx-auto font-light leading-relaxed">
+          <p className="text-[14px] md:text-[15px] text-[#A1A1A1] max-w-[620px] mx-auto font-light leading-relaxed">
             Hear from program directors, facilitators, coordinators, and organizations using OYEN GRID to deliver training at scale.
           </p>
         </div>
 
         {/* ECOSYSTEM/AVATARS CLUSTER CONTAINER */}
-        <div className="relative h-[260px] md:h-[300px] max-w-[800px] mx-auto mb-10">
+        <div className="relative h-[180px] md:h-[200px] max-w-[720px] mx-auto mb-3">
           
           {/* Subtle connection lines connecting surrounding avatars to active center */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30 z-0">
@@ -248,8 +245,8 @@ export function InstitutionalImpactCinematic() {
                   }}
                   className={`rounded-full overflow-hidden flex items-center justify-center transition-all duration-300 cursor-pointer ${
                     isActive 
-                      ? "border-2 border-[#F5D76E] shadow-[0_0_30px_rgba(245,215,110,0.25)] bg-[#0C0F19]" 
-                      : "opacity-60 hover:opacity-100 hover:scale-[1.08] hover:shadow-[0_0_15px_rgba(245,215,110,0.1)] border border-white/10"
+                      ? "border-2 border-[#F5D76E] shadow-[0_0_20px_rgba(245,215,110,0.2)] bg-[#0C0F19]" 
+                      : "opacity-60 hover:opacity-100 hover:scale-[1.08] border border-white/10"
                   }`}
                 >
                   <div className="relative w-full h-full">
@@ -269,39 +266,36 @@ export function InstitutionalImpactCinematic() {
         </div>
 
         {/* ACTIVE TESTIMONIAL DISPLAY (Primary focus) */}
-        <div className="max-w-[760px] mx-auto text-center relative z-20">
+        <div className="max-w-[500px] mx-auto text-center relative z-20 flex flex-col items-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeId}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.4 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3 }}
               className="flex flex-col items-center"
             >
               
-              {/* Large quote icon above text */}
-              <div className="text-[72px] leading-none text-[#F5D76E] opacity-25 select-none mb-2 font-serif">
-                “
+              {/* Quote Wrapper with positioned icon */}
+              <div className="relative w-full px-6 mt-3">
+                <span className="absolute top-[-10px] left-[10px] text-[36px] text-[#F5D76E] opacity-35 select-none font-serif leading-none">
+                  ❝
+                </span>
+                
+                {/* Testimonial Quote */}
+                <blockquote className="text-[20px] md:text-[22px] font-bold text-white tracking-tight leading-[1.35] pt-1">
+                  "{activeProfile.quote}"
+                </blockquote>
               </div>
 
-              {/* Testimonial Quote */}
-              <blockquote className="text-[22px] md:text-[28px] font-bold text-white tracking-tight leading-[1.3] mb-6 max-w-[680px]">
-                {activeProfile.quote}
-              </blockquote>
-
-              {/* Supporting Paragraph */}
-              <p className="text-[14px] md:text-[15px] text-[#A1A1A1] leading-relaxed max-w-[580px] mb-8 font-light">
-                {activeProfile.supporting}
-              </p>
-
               {/* Author Info */}
-              <div className="flex flex-col items-center">
-                <span className="text-[15px] font-bold text-white tracking-tight">
+              <div className="mt-4 flex flex-col items-center">
+                <span className="text-[16px] font-semibold text-white tracking-tight leading-none">
                   {activeProfile.name}
                 </span>
-                <span className="text-[11px] font-black text-[#F5D76E] uppercase tracking-[0.2em] mt-1.5">
-                  {activeProfile.role}, {activeProfile.org}
+                <span className="text-[13px] font-black text-[#F5D76E] uppercase tracking-[0.2em] mt-1 block">
+                  {activeProfile.role} · {activeProfile.org}
                 </span>
               </div>
 
