@@ -92,15 +92,15 @@ const customerProfiles: CustomerProfile[] = [
 
 // 8 Surrounding coordinates mapping to relative positions in a circle/constellation layout
 const positions = [
-  { left: "50%", top: "50%" }, // 0: Center position (active profile)
-  { left: "20%", top: "20%" }, // 1
-  { left: "32%", top: "30%" }, // 2
-  { left: "24%", top: "70%" }, // 3
-  { left: "38%", top: "76%" }, // 4
-  { left: "68%", top: "20%" }, // 5
-  { left: "80%", top: "30%" }, // 6
-  { left: "64%", top: "70%" }, // 7
-  { left: "76%", top: "76%" }  // 8
+  { left: "50%", top: "50%", size: 120 }, // 0: Center position (active profile)
+  { left: "6%", top: "25%", size: 52 },   // 1
+  { left: "20%", top: "30%", size: 64 },   // 2
+  { left: "10%", top: "72%", size: 48 },   // 3
+  { left: "32%", top: "78%", size: 56 },   // 4
+  { left: "94%", top: "25%", size: 52 },   // 5
+  { left: "80%", top: "30%", size: 64 },   // 6
+  { left: "90%", top: "72%", size: 48 },   // 7
+  { left: "68%", top: "78%", size: 56 }    // 8
 ];
 
 export function InstitutionalImpactCinematic() {
@@ -184,8 +184,6 @@ export function InstitutionalImpactCinematic() {
     if (id === activeId) {
       return {
         ...positions[0],
-        width: 88,
-        height: 88,
         zIndex: 30
       };
     }
@@ -196,8 +194,6 @@ export function InstitutionalImpactCinematic() {
 
     return {
       ...pos,
-      width: 48,
-      height: 48,
       zIndex: 20
     };
   };
@@ -221,7 +217,7 @@ export function InstitutionalImpactCinematic() {
         </div>
 
         {/* ECOSYSTEM/AVATARS CLUSTER CONTAINER */}
-        <div className="relative h-[180px] md:h-[200px] max-w-[720px] mx-auto mb-3">
+        <div className="relative h-[200px] md:h-[220px] max-w-[1200px] mx-auto mb-3">
           
           {/* Subtle connection lines connecting surrounding avatars to active center */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30 z-0">
@@ -258,8 +254,8 @@ export function InstitutionalImpactCinematic() {
                   animate={{
                     left: pos.left,
                     top: pos.top,
-                    width: pos.width,
-                    height: pos.height,
+                    width: pos.size,
+                    height: pos.size,
                     scale: isActive ? 1.08 : 0.9,
                     opacity: isActive ? 1 : 0.6,
                   }}
@@ -298,7 +294,7 @@ export function InstitutionalImpactCinematic() {
         </div>
 
         {/* ACTIVE TESTIMONIAL DISPLAY (Primary focus) */}
-        <div className="max-w-[500px] mx-auto text-center relative z-20 flex flex-col items-center">
+        <div className="max-w-[1200px] mx-auto relative z-20 flex flex-col items-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeId}
@@ -306,12 +302,12 @@ export function InstitutionalImpactCinematic() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.4 }}
-              className="flex flex-col items-center"
+              className="flex flex-col items-center max-w-[900px] w-full"
             >
               
               {/* Quote Wrapper with positioned icon */}
-              <div className="relative w-full px-6 mt-3">
-                <span className="absolute top-[-10px] left-[10px] text-[36px] text-[#F5D76E] opacity-35 select-none font-serif leading-none">
+              <div className="relative w-full px-12 mt-3 text-center">
+                <span className="absolute top-[-10px] left-[15px] text-[36px] text-[#F5D76E] opacity-35 select-none font-serif leading-none">
                   ❝
                 </span>
                 
@@ -322,7 +318,7 @@ export function InstitutionalImpactCinematic() {
               </div>
 
               {/* Author Info */}
-              <div className="mt-4 flex flex-col items-center">
+              <div className="mt-4 flex flex-col items-center text-center">
                 <span className="text-[16px] font-semibold text-white tracking-tight leading-none">
                   {activeProfile.name}
                 </span>
@@ -334,37 +330,42 @@ export function InstitutionalImpactCinematic() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Explore More Stories Link */}
-          <div className="w-full text-right mt-6 pr-6">
-            <Link
-              href="/resources/customer-stories"
-              className="inline-flex items-center gap-1.5 text-[14px] font-medium text-[#F5D76E] hover:text-white tracking-[0.02em] group cursor-pointer"
-              style={{ transition: 'color 250ms ease' }}
-            >
-              Explore More Stories
-              <span 
-                className="transform group-hover:translate-x-1"
-                style={{ transition: 'transform 250ms ease' }}
+          {/* Bottom Controls Row: Centers dots, aligns explore link to the far right */}
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 items-center mt-8 gap-4 px-6">
+            <div className="hidden md:block" />
+            
+            {/* PROGRESS INDICATOR DOTS */}
+            <div className="flex items-center justify-center gap-2">
+              {customerProfiles.map((profile, idx) => (
+                <button
+                  key={`dot-${profile.id}`}
+                  onClick={() => handleAvatarClick(profile.id)}
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    idx === activeIndex 
+                      ? "bg-[#F5D76E] w-3" 
+                      : "bg-white/20 hover:bg-white/40"
+                  }`}
+                  aria-label={`Go to story ${idx + 1}`}
+                />
+              ))}
+            </div>
+            
+            {/* Explore More Stories Link */}
+            <div className="text-center md:text-right">
+              <Link
+                href="/resources/customer-stories"
+                className="inline-flex items-center gap-1.5 text-[14px] font-medium text-[#F5D76E] hover:text-white tracking-[0.02em] group cursor-pointer"
+                style={{ transition: 'color 250ms ease' }}
               >
-                →
-              </span>
-            </Link>
-          </div>
-
-          {/* PROGRESS INDICATOR DOTS */}
-          <div className="mt-6 flex items-center justify-center gap-2">
-            {customerProfiles.map((profile, idx) => (
-              <button
-                key={`dot-${profile.id}`}
-                onClick={() => handleAvatarClick(profile.id)}
-                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                  idx === activeIndex 
-                    ? "bg-[#F5D76E] w-3" 
-                    : "bg-white/20 hover:bg-white/40"
-                }`}
-                aria-label={`Go to story ${idx + 1}`}
-              />
-            ))}
+                Explore More Stories
+                <span 
+                  className="transform group-hover:translate-x-1"
+                  style={{ transition: 'transform 250ms ease' }}
+                >
+                  →
+                </span>
+              </Link>
+            </div>
           </div>
 
         </div>
