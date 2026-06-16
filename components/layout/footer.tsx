@@ -1,19 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface FooterPremiumProps {
   hideCTA?: boolean;
 }
 
 export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
-  const primaryLinks = [
-    { label: "Features", href: "/features" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Solutions", href: "/solutions" },
-    { label: "Resources", href: "/resources" },
-    { label: "Contact", href: "/company/contact" }
+  const [email, setEmail] = useState("");
+
+  const columns = [
+    {
+      title: "Solutions",
+      links: [
+        { label: "Training Programs", href: "/solutions/bootcamps-training" },
+        { label: "Webinars & Events", href: "/solutions/webinars-events" },
+        { label: "Education", href: "/solutions/education-institutions" },
+        { label: "Enterprise", href: "/solutions/enterprise-operations" }
+      ]
+    },
+    {
+      title: "Resources",
+      links: [
+        { label: "Blog", href: "/resources/blog" },
+        { label: "Customer Stories", href: "/resources/case-studies" },
+        { label: "Help Center", href: "/resources/help" },
+        { label: "Documentation", href: "/resources/docs" }
+      ]
+    },
+    {
+      title: "Company",
+      links: [
+        { label: "About", href: "/company/about" },
+        { label: "Contact", href: "/company/contact" },
+        { label: "Careers", href: "/company/careers" },
+        { label: "Partners", href: "/company/partners" }
+      ]
+    }
   ];
 
   const socialLinks = [
@@ -43,96 +67,120 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
           <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
         </svg>
       )
+    },
+    {
+      label: "Facebook",
+      href: "#",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+          <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
+        </svg>
+      )
+    },
+    {
+      label: "Instagram",
+      href: "#",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      )
     }
   ];
 
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    setEmail("");
+  };
+
   return (
-    <footer className="bg-[#0A0A0A] border-t border-[#1F1F1F] text-white overflow-hidden py-16 md:py-20">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 flex flex-col gap-12 md:gap-16">
+    <footer className="relative bg-[#080B14] rounded-t-[40px] md:rounded-t-[56px] border-t border-white/[0.08] text-white overflow-hidden pt-20 pb-12 mt-12">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 flex flex-col gap-16">
         
-        {/* TOP ROW: Brand and Main Navigation Links */}
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+        {/* MAIN GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1.2fr] gap-16">
           
-          {/* Left Side: Brand Wordmark, Tagline & CTA */}
-          <div className="flex flex-col items-start gap-4">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <svg 
-                className="w-5.5 h-5.5 text-[#F5D76E] transition-transform duration-300 group-hover:scale-105" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2.8"
-              >
-                <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4Z" />
-              </svg>
-              <span className="font-bold text-white text-[13px] tracking-[0.08em] uppercase">OYEN GRID.</span>
-            </Link>
-            <p className="text-[14px] text-[#A1A1A1] max-w-[280px] leading-relaxed font-light">
-              Program intelligence for modern training organizations.
-            </p>
-            <Link 
-              href="/company/contact"
-              className="mt-2 inline-flex items-center justify-center h-9 px-4 rounded-lg bg-white/5 border border-white/10 hover:border-[#F5D76E]/40 hover:bg-[#F5D76E]/10 text-white hover:text-[#F5D76E] text-[12px] font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer"
-            >
-              Book a Demo
-            </Link>
+          {/* Left Side: 3 Columns Sitemap */}
+          <div className="grid grid-cols-3 gap-6 sm:gap-8">
+            {columns.map((col) => (
+              <div key={col.title} className="flex flex-col gap-5">
+                <h4 className="text-[13px] font-bold text-white uppercase tracking-wider">
+                  {col.title}
+                </h4>
+                <ul className="flex flex-col gap-3.5">
+                  {col.links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="text-[14px] text-[#A1A1A1] hover:text-[#F5D76E] transition-colors duration-250 font-normal leading-snug cursor-pointer"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
-          {/* Right Side: Horizontal Minimal Links */}
-          <nav className="flex flex-wrap items-center gap-x-8 gap-y-3">
-            {primaryLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-[14px] font-medium text-[#A1A1A1] hover:text-[#F5D76E] transition-colors duration-250 cursor-pointer"
+          {/* Right Side: Newsletter Area */}
+          <div className="flex flex-col items-start gap-4">
+            <h4 className="text-[16px] font-bold text-white tracking-tight">
+              Stay updated with OYEN GRID
+            </h4>
+            <p className="text-[14px] text-[#A1A1A1] leading-relaxed font-light">
+              Product updates, industry insights, and platform news.
+            </p>
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 w-full mt-2">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="h-[46px] px-4 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder-white/30 text-[13px] focus:outline-none focus:border-[#F5D76E]/40 transition-colors w-full sm:max-w-[240px]"
+              />
+              <button
+                type="submit"
+                className="h-[46px] px-6 rounded-xl bg-[#F5D76E] text-black font-bold text-[12px] uppercase tracking-wider transition-all duration-300 hover:bg-[#FFE38E] hover:shadow-[0_4px_16px_rgba(245,215,110,0.3)] hover:scale-[1.02] cursor-pointer"
               >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+                Subscribe
+              </button>
+            </form>
+          </div>
 
         </div>
 
-        {/* BOTTOM ROW: Socials, Copyright, and Policies */}
-        <div className="pt-8 border-t border-white/[0.04] flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          
-          {/* Left Column: Social Links & Copyright */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-            
-            {/* Social Icons */}
-            <div className="flex items-center gap-4">
-              {socialLinks.map((s) => (
-                <Link
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  className="w-8 h-8 rounded-lg bg-white/[0.02] border border-white/5 flex items-center justify-center text-[#A1A1A1] hover:text-[#F5D76E] hover:border-[#F5D76E]/30 transition-all duration-300 cursor-pointer"
-                >
-                  {s.icon}
-                </Link>
-              ))}
-            </div>
+        {/* SOCIAL LINKS ROW */}
+        <div className="pt-8 border-t border-white/[0.04] flex items-center justify-start gap-4">
+          {socialLinks.map((s) => (
+            <Link
+              key={s.label}
+              href={s.href}
+              aria-label={s.label}
+              className="w-9 h-9 rounded-lg bg-white/[0.02] border border-white/5 flex items-center justify-center text-[#A1A1A1] hover:text-[#F5D76E] hover:border-[#F5D76E]/30 transition-all duration-300 cursor-pointer"
+            >
+              {s.icon}
+            </Link>
+          ))}
+        </div>
 
-            {/* Copyright */}
-            <span className="text-[12px] text-[#A1A1A1]/60 font-light tracking-wide">
-              © {new Date().getFullYear()} OYEN GRID. All rights reserved.
-            </span>
-            
-          </div>
-
-          {/* Right Column: Policies */}
+        {/* BOTTOM BAR */}
+        <div className="pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <span className="text-[12px] text-[#A1A1A1]/60 font-light tracking-wide">
+            © {new Date().getFullYear()} OYEN GRID. All rights reserved.
+          </span>
           <div className="flex items-center gap-6">
             {["Privacy Policy", "Terms of Service"].map((item) => (
               <Link
                 key={item}
                 href="#"
-                className="text-[12px] text-[#A1A1A1] hover:text-[#F5D76E] transition-colors duration-250 font-light"
+                className="text-[12px] text-[#A1A1A1] hover:text-[#F5D76E] transition-colors duration-250 font-light cursor-pointer"
               >
                 {item}
               </Link>
             ))}
           </div>
-
         </div>
 
       </div>
