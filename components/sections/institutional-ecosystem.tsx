@@ -15,9 +15,9 @@ export function TopographicWave() {
   return (
     <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
       {/* Subtle gold radial background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(226,184,76,0.06),transparent_75%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,199,44,0.08),transparent_70%)] pointer-events-none" />
 
-      <svg className="w-[115%] h-[115%] opacity-90 text-[#E2B84C]" viewBox="0 0 800 600" fill="none">
+      <svg className="w-[115%] h-[115%] opacity-100 text-[#FFC72C]" viewBox="0 0 800 600" fill="none">
         {Array.from({ length: pathsCount }).map((_, index) => {
           const radius = 90 + index * 16;
           const opacity = 0.95 - (index / pathsCount) * 0.78;
@@ -71,13 +71,13 @@ export function TopographicWave() {
           return (
             <motion.div
               key={i}
-              className="absolute rounded-full bg-[#E2B84C]"
+              className="absolute rounded-full bg-[#FFC72C]"
               style={{
                 width: size,
                 height: size,
                 top: `${top}%`,
                 left: `${left}%`,
-                boxShadow: "0 0 6px rgba(226,184,76,0.8)",
+                boxShadow: "0 0 6px rgba(255,199,44,0.95)",
               }}
               animate={{
                 y: [0, -50, 0],
@@ -156,14 +156,14 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="relative min-h-[680px] bg-[#050505] flex items-center pt-8 pb-8 overflow-hidden">
+    <section className="relative min-h-[680px] bg-[#0B0B0B] flex items-center pt-8 pb-8 overflow-hidden">
 
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
 
         {/* Main Columns Grid */}
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center min-h-[500px] relative">
 
-          {/* LEFT: CONTENT AREA (Aligned upward for visual balance) */}
+          {/* LEFT: CONTENT AREA */}
           <div className="hero-content flex flex-col justify-center text-left lg:translate-y-[-48px]">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -171,13 +171,13 @@ export function HeroInstitutional() {
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Headline */}
-              <h1 className="text-[52px] sm:text-[68px] font-bold leading-[1.04] tracking-tight text-white select-none">
+              <h1 className="text-[52px] sm:text-[68px] font-bold leading-[1.04] tracking-tight text-[#FFFFFF] select-none">
                 Run your training program <br />
-                <span className="text-[#E2B84C]">without the chaos.</span>
+                <span className="text-[#FFC72C]">without the chaos.</span>
               </h1>
 
-              {/* Subheadline (Softer white, improved line-height and spacing) */}
-              <p className="text-[16px] sm:text-[17.5px] text-white/60 font-medium leading-[1.6] mt-6 max-w-[480px] tracking-wide">
+              {/* Subheadline */}
+              <p className="text-[16px] sm:text-[17.5px] text-[#E2E8F0] font-medium leading-[1.6] mt-6 max-w-[480px] tracking-wide">
                 Run programs, track learners, and report results. All in one place.
               </p>
 
@@ -185,11 +185,11 @@ export function HeroInstitutional() {
               <div className="flex flex-wrap items-center gap-4 mt-8">
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center justify-center h-[46px] px-8 rounded-full bg-[#E2B84C] text-black text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#FFCF68] hover:shadow-[0_4px_16px_rgba(226,184,76,0.3)] hover:scale-[1.02]"
+                  className="inline-flex items-center justify-center h-[46px] px-8 rounded-full bg-[#FFC72C] text-[#0B0B0B] text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#FFD45B] hover:shadow-[0_4px_16px_rgba(255,199,44,0.3)] hover:scale-[1.02]"
                 >
                   Book a Demo
                 </Link>
-                <button className="inline-flex items-center justify-center gap-2 h-[46px] px-8 rounded-full border border-white/20 hover:border-white/40 text-white text-[13px] font-bold uppercase tracking-wider transition-all duration-300 bg-transparent hover:bg-white/5">
+                <button className="inline-flex items-center justify-center gap-2 h-[46px] px-8 rounded-full border border-white/20 hover:border-white/40 text-[#FFFFFF] text-[13px] font-bold uppercase tracking-wider transition-all duration-300 bg-transparent hover:bg-white/5">
                   Watch Demo <span className="text-[11px] leading-none ml-1">▷</span>
                 </button>
               </div>
@@ -208,23 +208,23 @@ export function HeroInstitutional() {
             </motion.div>
           </div>
 
-          {/* CENTERED SCROLL TO EXPLORE INDICATOR (Aligned with CTA buttons vertically) */}
+          {/* CENTERED SCROLL TO EXPLORE INDICATOR */}
           <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 bottom-[145px] flex-col items-center gap-2.5 z-30">
-            <div className="w-[26px] h-[42px] rounded-full border border-[#E2B84C]/40 flex items-start justify-center p-2">
+            <div className="w-[26px] h-[42px] rounded-full border-[#FFC72C]/40 flex items-start justify-center p-2">
               <motion.div
                 animate={{ y: [0, 14, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-2 h-2 bg-[#E2B84C] rounded-full"
+                className="w-2 h-2 bg-[#FFC72C] rounded-full"
               />
             </div>
-            <span className="text-[9px] font-bold tracking-[0.22em] text-[#E2B84C]/50 uppercase">scroll to explore</span>
+            <span className="text-[9px] font-bold tracking-[0.22em] text-[#FFC72C]/50 uppercase">scroll to explore</span>
           </div>
 
         </div>
 
         {/* TOP: REDESIGNED PREMIUM TRUST BAR */}
         <div className="mt-6 border border-white/5 rounded-2xl bg-[#0a0a0a]/40 backdrop-blur-md px-10 py-5 flex flex-col gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.8)]">
-          <span className="text-[9px] font-black tracking-[0.24em] text-[#E2B84C]/80 uppercase text-center select-none">
+          <span className="text-[9px] font-black tracking-[0.24em] text-[#FFC72C] uppercase text-center select-none">
             Trusted by organisations
           </span>
           <div className="w-full h-px bg-white/5" />
@@ -254,26 +254,28 @@ export function PlatformOverview() {
   ];
 
   return (
-    <section className="section-gap relative bg-[#050816] border-b border-white/5">
+    <section className="section-gap relative bg-[#0B0B0B] border-b border-white/5">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-[60px] items-center">
 
           {/* LEFT: Content */}
           <div>
             <span className="eyebrow">CORE INFRASTRUCTURE</span>
-            <h2 className="mb-6 max-w-[480px]">
-              Built for <span className="text-brand-gold">training</span> delivery.
+            <h2 className="mb-6 max-w-[480px] text-[#FFFFFF] text-3xl md:text-4xl font-extrabold tracking-tight">
+              Built for <span className="text-[#FFC72C]">training</span> delivery.
             </h2>
-            <p className="text-editorial mb-10 max-w-[480px]">
+            <p className="text-[14.5px] text-[#E2E8F0] leading-relaxed mb-10 max-w-[480px] font-light">
               Our infrastructure is designed for high-stakes program coordination, providing the stability and visibility required by global organisations.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4">
               {capabilities.map((cap, i) => (
-                <div key={i} className="card-institutional">
-                  <cap.icon className="w-4.5 h-4.5 text-brand-gold/60 mb-3" />
-                  <h4 className="text-[14px] font-bold text-white mb-1.5">{cap.title}</h4>
-                  <p className="text-[10px] text-white/40 leading-relaxed">{cap.desc}</p>
+                <div key={i} className="p-5 rounded-2xl bg-[#161616] border border-white/[0.08] hover:border-[#FFC72C]/30 hover:scale-[1.02] transition-all duration-300 shadow-lg flex flex-col justify-between min-h-[140px]">
+                  <cap.icon className="w-5.5 h-5.5 text-[#FFC72C] mb-3.5" />
+                  <div>
+                    <h4 className="text-[14.5px] font-bold text-[#FFFFFF] mb-1.5">{cap.title}</h4>
+                    <p className="text-[11px] text-[#E2E8F0] leading-relaxed font-light">{cap.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -288,12 +290,12 @@ export function PlatformOverview() {
                 fill
                 className="object-cover opacity-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#050816] via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#0B0B0B] via-transparent to-transparent opacity-90" />
 
               {/* Floating Detail */}
               <div className="absolute top-6 left-6 glass-panel-institutional p-3.5 flex items-center gap-3">
-                <div className="w-7 h-7 rounded-[6px] bg-brand-gold/10 flex items-center justify-center">
-                  <Activity className="w-3.5 h-3.5 text-brand-gold" />
+                <div className="w-7 h-7 rounded-[6px] bg-[#FFC72C]/10 flex items-center justify-center">
+                  <Activity className="w-3.5 h-3.5 text-[#FFC72C]" />
                 </div>
                 <div>
                   <div className="text-[9px] font-black text-white/40 uppercase tracking-widest">Active Sync</div>
@@ -311,7 +313,7 @@ export function PlatformOverview() {
 
 export function OperationalControlCenter() {
   return (
-    <section className="section-gap relative bg-[#050816] border-b border-white/5">
+    <section className="section-gap relative bg-[#0B0B0B] border-b border-white/5">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-[60px] items-center">
 
@@ -324,18 +326,18 @@ export function OperationalControlCenter() {
                 fill
                 className="object-cover opacity-60 grayscale scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-bl from-[#050816]/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-bl from-[#0B0B0B]/90 via-transparent to-transparent opacity-90" />
             </div>
           </div>
 
           {/* RIGHT: Narrative */}
           <div className="order-1 lg:order-2">
             <span className="eyebrow">COMMAND & CONTROL</span>
-            <h2 className="mb-6 max-w-[480px]">
-              Complete <span className="text-brand-gold">operational</span> orchestration.
+            <h2 className="mb-6 max-w-[480px] text-[#FFFFFF] text-3xl md:text-4xl font-extrabold tracking-tight">
+              Complete <span className="text-[#FFC72C]">operational</span> orchestration.
             </h2>
-            <p className="text-editorial mb-8 max-w-[480px]">
-              Manage the entire lifecycle of your program from one dashboard. Coordinate trainers, monitor engagement, and analyze delivery health in real-time.
+            <p className="text-[14.5px] text-[#E2E8F0] leading-relaxed mb-8 max-w-[480px] font-light">
+              Refine the entire lifecycle of your program from one dashboard. Coordinate trainers, monitor engagement, and analyze delivery health in real-time.
             </p>
 
             <div className="space-y-4">
@@ -344,12 +346,12 @@ export function OperationalControlCenter() {
                 { t: "Automated Resource Sync", d: "Sync materials and assets across all cohorts." }
               ].map((item, i) => (
                 <div key={i} className="flex gap-5 p-5 rounded-xl bg-white/[0.02] border border-white/5">
-                  <div className="w-9 h-9 rounded-lg bg-brand-gold/10 flex items-center justify-center shrink-0">
-                    <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+                  <div className="w-9 h-9 rounded-lg bg-[#FFC72C]/10 flex items-center justify-center shrink-0">
+                    <Sparkles className="w-3.5 h-3.5 text-[#FFC72C]" />
                   </div>
                   <div>
-                    <h4 className="text-[16px] font-bold text-white mb-1">{item.t}</h4>
-                    <p className="text-[12px] text-white/30">{item.d}</p>
+                    <h4 className="text-[16px] font-bold text-[#FFFFFF] mb-1">{item.t}</h4>
+                    <p className="text-[12px] text-[#E2E8F0]">{item.d}</p>
                   </div>
                 </div>
               ))}
@@ -361,4 +363,3 @@ export function OperationalControlCenter() {
     </section>
   );
 }
-
