@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { MessageSquare, X, Send, RotateCcw, Home, Sparkles, CheckCircle2, ChevronRight, BarChart3, Users, Landmark, AlertCircle } from "lucide-react";
+import { MessageSquare, X, Send, RotateCcw, Home, Sparkles, CheckCircle2, ChevronRight, BarChart3, Users, Landmark, AlertCircle, Paperclip, Smile, MoreHorizontal, ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -68,12 +68,20 @@ export function Chatbot() {
   }, [messages, isTyping, recStep]);
 
   const resetChat = () => {
+    const now = new Date();
     setMessages([
       {
-        id: "init",
+        id: "init-1",
         role: "assistant",
-        content: "👋 Welcome to OYEN GRID\n\nI'm your OYEN AI Assistant. I can help you explore solutions, understand pricing, discover platform features, and find the right setup for your organization.\n\nHow can we help today?",
-        timestamp: new Date(),
+        content: "Hi there! I'm OYEN's Virtual Agent.",
+        timestamp: now,
+      },
+      {
+        id: "init-2",
+        role: "assistant",
+        content: "How can I help?",
+        timestamp: now,
+        widget: "success"
       },
     ]);
     setRecStep(0);
@@ -605,7 +613,9 @@ export function Chatbot() {
       ]);
       setIsTyping(false);
     }, 1000);
-  }; return (
+  };
+
+  return (
     <div className="fixed bottom-8 right-8 z-[200]">
       <AnimatePresence>
         {isOpen && (
@@ -613,35 +623,27 @@ export function Chatbot() {
             initial={{ opacity: 0, scale: 0.95, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
-            className="mb-4 w-[350px] h-[490px] flex flex-col bg-[#06080C]/95 backdrop-blur-[80px] border border-white/10 rounded-[28px] overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.95),_0_0_60px_rgba(245,185,66,0.04)]"
+            className="mb-4 w-[400px] h-[580px] flex flex-col bg-white border border-gray-200 rounded-[24px] overflow-hidden shadow-2xl"
           >
             {/* Header */}
-            <div className="px-5 py-4 flex items-center justify-between bg-white/[0.01]">
-              <div className="flex items-center gap-2.5">
-                <div className="relative">
-                  <div className="w-8.5 h-8.5 rounded-xl overflow-hidden border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-                    <Image src="/oyen-ai-avatar.png" alt="OYEN AI" width={34} height={34} className="object-cover" />
-                  </div>
-                  <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-500 rounded-full border border-[#06080C]" />
-                </div>
-                <div>
-                  <div className="text-[12.5px] font-semibold text-white tracking-tight">OYEN AI</div>
-                  <div className="text-[7.5px] font-medium text-white/30 uppercase tracking-[0.12em]">Product Specialist</div>
-                </div>
+            <div className="px-5 py-4 flex items-center justify-between bg-gradient-to-r from-[#0D6EFD] to-[#8A2BE2] select-none shrink-0">
+              <div className="flex items-center gap-2">
+                <span className="text-white font-bold text-[20px] tracking-tight">oyen</span>
+                <span className="text-white/95 font-medium text-[20px]">Virtual Agent</span>
               </div>
-              <div className="flex items-center gap-0.5">
+              <div className="flex items-center gap-2">
                 <button
                   onClick={resetChat}
                   title="Reset Chat"
-                  className="w-7 h-7 rounded-lg hover:bg-white/5 flex items-center justify-center text-white/30 hover:text-white transition-all"
+                  className="w-8 h-8 rounded-full hover:bg-white/15 flex items-center justify-center text-white/80 hover:text-white transition-all"
                 >
-                  <RotateCcw className="w-3 h-3" />
+                  <MoreHorizontal className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="w-7 h-7 rounded-lg hover:bg-white/5 flex items-center justify-center text-white/30 hover:text-white transition-all"
+                  className="w-8 h-8 rounded-full hover:bg-white/15 flex items-center justify-center text-white/80 hover:text-white transition-all"
                 >
-                  <X className="w-3.5 h-3.5" />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
             </div>
@@ -649,316 +651,341 @@ export function Chatbot() {
             {/* Content Feed */}
             <div
               ref={feedRef}
-              className="flex-1 px-5 py-4 overflow-y-auto space-y-3.5 scrollbar-thin scrollbar-thumb-white/5 scrollbar-track-transparent"
+              className="flex-1 px-5 py-5 overflow-y-auto space-y-5 bg-white scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent"
             >
-              {messages.map((msg, i) => (
-                <div key={msg.id || i} className="flex flex-col gap-1.5">
-                  {/* Text bubble */}
-                  {msg.content && (
-                    <div
-                      className={cn(
-                        "flex flex-col gap-1 max-w-[85%] rounded-[18px] px-3.5 py-2.5 text-[12px] leading-relaxed font-light border transition-all whitespace-pre-line shadow-sm",
-                        msg.role === "assistant"
-                          ? "bg-white/[0.02] border-white/5 text-white/80 rounded-tl-none self-start"
-                          : "bg-brand-gold/10 border-brand-gold/20 text-brand-gold rounded-tr-none self-end ml-auto"
+              {messages.map((msg, i) => {
+                const isAssistant = msg.role === "assistant";
+                return (
+                  <div key={msg.id || i} className={cn("flex gap-3 items-start w-full", !isAssistant && "justify-end")}>
+                    {/* Left: Avatar for assistant */}
+                    {isAssistant && (
+                      <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 border border-gray-100 shadow-sm bg-gray-50">
+                        <Image src="/oyen-ai-avatar.png" alt="OYEN BOT" width={40} height={40} className="object-cover" />
+                      </div>
+                    )}
+
+                    {/* Right: Message Details */}
+                    <div className={cn("flex flex-col gap-1.5", isAssistant ? "flex-1 max-w-[80%]" : "max-w-[80%]")}>
+                      {/* Name / Tag / Timestamp */}
+                      {isAssistant && (
+                        <div className="flex items-center gap-1.5 text-[11px] text-gray-400 select-none">
+                          <span className="font-bold text-gray-800">OYEN</span>
+                          <span className="text-[9px] bg-gray-100 text-gray-500 px-1 py-0.5 rounded font-bold uppercase tracking-wider">BOT</span>
+                          <span>{msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '8:51 PM'}</span>
+                        </div>
                       )}
-                    >
-                      <p>{msg.content}</p>
+
+                      {/* Text Bubble */}
+                      {msg.content && (
+                        <div
+                          className={cn(
+                            "rounded-[18px] px-4 py-2.5 text-sm leading-relaxed whitespace-pre-line shadow-sm border",
+                            isAssistant
+                              ? "bg-[#F3F4F6] border-gray-100 text-gray-800 rounded-tl-none self-start"
+                              : "bg-[#0D6EFD] border-[#0D6EFD] text-white rounded-tr-none self-end ml-auto"
+                          )}
+                        >
+                          <p>{msg.content}</p>
+                        </div>
+                      )}
+
+                      {/* Inline Widgets */}
+                      {isAssistant && msg.widget && (
+                        <div className="w-full mt-2">
+                          {msg.widget === "pricing-select" && (
+                            <div className="flex flex-col gap-2">
+                              {["🎓 Bootcamps", "🎤 Webinars", "🏫 Education", "🏢 Enterprise"].map((opt) => (
+                                <button
+                                  key={opt}
+                                  onClick={() => selectPricingOption(opt)}
+                                  className="text-sm text-left px-4 py-2 rounded-full border border-[#0D6EFD] hover:bg-[#0D6EFD]/5 bg-white text-[#0D6EFD] transition-all font-medium w-fit shadow-sm"
+                                >
+                                  {opt}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+
+                          {msg.widget === "demo" && (
+                            <InteractiveForm
+                              fields={[
+                                { name: "name", label: "Full Name", placeholder: "e.g. Jane Doe", type: "text" },
+                                { name: "organization", label: "Organization", placeholder: "e.g. Tech Academy", type: "text" },
+                                { name: "email", label: "Email Address", placeholder: "e.g. jane@academy.com", type: "email" },
+                                { name: "phone", label: "Phone Number", placeholder: "e.g. +234 ...", type: "tel" },
+                                { name: "participants", label: "Estimated Participants", placeholder: "e.g. 250", type: "number" },
+                                { name: "useCase", label: "Primary Use Case", placeholder: "e.g. Launch a fellowship", type: "text" },
+                              ]}
+                              submitLabel="Book Demo"
+                              onSubmit={(data) => handleFormSubmit("demo", data)}
+                            />
+                          )}
+
+                          {msg.widget === "sales" && (
+                            <InteractiveForm
+                              fields={[
+                                { name: "name", label: "Full Name", placeholder: "e.g. Robert Smith", type: "text" },
+                                { name: "organization", label: "Organization", placeholder: "e.g. Global NGOs", type: "text" },
+                                { name: "email", label: "Email Address", placeholder: "e.g. robert@ngoglobal.org", type: "email" },
+                                { name: "phone", label: "Phone Number", placeholder: "e.g. +234...", type: "tel" },
+                              ]}
+                              submitLabel="Connect With Sales"
+                              onSubmit={(data) => handleFormSubmit("sales", data)}
+                            />
+                          )}
+
+                          {msg.widget === "waitlist" && (
+                            <InteractiveForm
+                              fields={[
+                                { name: "name", label: "Full Name", placeholder: "e.g. Alex Carter", type: "text" },
+                                { name: "organization", label: "Organization Name", placeholder: "e.g. Gov Training Institute", type: "text" },
+                                { name: "email", label: "Email Address", placeholder: "e.g. alex@gov.org", type: "email" },
+                              ]}
+                              submitLabel="Join Waitlist"
+                              onSubmit={(data) => handleFormSubmit("waitlist", data)}
+                            />
+                          )}
+
+                          {msg.widget === "specialist-cta" && (
+                            <div className="bg-white border border-gray-200 rounded-2xl p-4 space-y-3 shadow-sm max-w-[95%]">
+                              <div className="text-sm font-bold text-gray-800">Need personalized guidance?</div>
+                              <div className="text-xs text-gray-500 space-y-1">
+                                <div>✓ Choose the right solution</div>
+                                <div>✓ Compare plans</div>
+                                <div>✓ Discuss implementation</div>
+                                <div>✓ Explore enterprise options</div>
+                              </div>
+                              <button
+                                onClick={() => {
+                                  setMessages((prev) => [
+                                    ...prev,
+                                    {
+                                      id: Math.random().toString(36).substring(7),
+                                      role: "assistant",
+                                      content: "Please fill in the specialized requirements form below:",
+                                      timestamp: new Date(),
+                                      widget: "specialist-form",
+                                    }
+                                  ]);
+                                }}
+                                className="w-full py-2 bg-[#0D6EFD] hover:bg-[#0D6EFD]/90 text-white text-xs font-semibold rounded-full transition-all"
+                              >
+                                Talk to a Specialist
+                              </button>
+                            </div>
+                          )}
+
+                          {msg.widget === "specialist-form" && (
+                            <InteractiveForm
+                              fields={[
+                                { name: "name", label: "Full Name", placeholder: "e.g. John Doe", type: "text" },
+                                { name: "organization", label: "Organization Name", placeholder: "e.g. University of Lagos", type: "text" },
+                                { name: "email", label: "Work Email", placeholder: "e.g. john@unilag.edu.ng", type: "email" },
+                                { name: "phone", label: "Phone Number", placeholder: "e.g. +234...", type: "tel" },
+                                { name: "orgType", label: "Organization Type", placeholder: "e.g. University", type: "text" },
+                                { name: "participants", label: "Number of Participants", placeholder: "e.g. 1500", type: "number" },
+                                { name: "programmes", label: "Number of Programmes", placeholder: "e.g. 5", type: "number" },
+                                { name: "contactMethod", label: "Preferred Contact Method", placeholder: "Email or Phone", type: "text" },
+                              ]}
+                              submitLabel="Submit Specialist Request"
+                              onSubmit={(data) => handleFormSubmit("specialist", data)}
+                            />
+                          )}
+
+                          {msg.widget === "recommendation" && (
+                            <div className="flex flex-col gap-2">
+                              {recStep === 0 && ["Bootcamps & Training", "Webinars & Events", "Education & Institutions", "Enterprise Operations"].map((opt) => (
+                                <button
+                                  key={opt}
+                                  onClick={() => handleRecommendationAnswer(opt)}
+                                  className="text-sm text-left px-4 py-2 rounded-full border border-[#0D6EFD] hover:bg-[#0D6EFD]/5 bg-white text-[#0D6EFD] transition-all font-medium w-fit shadow-sm"
+                                >
+                                  {opt}
+                                </button>
+                              ))}
+
+                              {recStep === 1 && ["Under 100", "100 - 500", "500 - 2,000", "2,000+"].map((opt) => (
+                                <button
+                                  key={opt}
+                                  onClick={() => handleRecommendationAnswer(opt)}
+                                  className="text-sm text-left px-4 py-2 rounded-full border border-[#0D6EFD] hover:bg-[#0D6EFD]/5 bg-white text-[#0D6EFD] transition-all font-medium w-fit shadow-sm"
+                                >
+                                  {opt}
+                                </button>
+                              ))}
+
+                              {recStep === 2 && ["1 - 2 programmes", "3 - 5 programmes", "More than 5 programmes"].map((opt) => (
+                                <button
+                                  key={opt}
+                                  onClick={() => handleRecommendationAnswer(opt)}
+                                  className="text-sm text-left px-4 py-2 rounded-full border border-[#0D6EFD] hover:bg-[#0D6EFD]/5 bg-white text-[#0D6EFD] transition-all font-medium w-fit shadow-sm"
+                                >
+                                  {opt}
+                                </button>
+                              ))}
+
+                              {recStep === 3 && ["Yes, frequently", "No live sessions"].map((opt) => (
+                                <button
+                                  key={opt}
+                                  onClick={() => handleRecommendationAnswer(opt)}
+                                  className="text-sm text-left px-4 py-2 rounded-full border border-[#0D6EFD] hover:bg-[#0D6EFD]/5 bg-white text-[#0D6EFD] transition-all font-medium w-fit shadow-sm"
+                                >
+                                  {opt}
+                                </button>
+                              ))}
+
+                              {recStep === 4 && ["Yes, issue certificates", "No certificate workflow"].map((opt) => (
+                                <button
+                                  key={opt}
+                                  onClick={() => handleRecommendationAnswer(opt)}
+                                  className="text-sm text-left px-4 py-2 rounded-full border border-[#0D6EFD] hover:bg-[#0D6EFD]/5 bg-white text-[#0D6EFD] transition-all font-medium w-fit shadow-sm"
+                                >
+                                  {opt}
+                                </button>
+                              ))}
+
+                              {recStep === 5 && ["Yes, require intelligence", "Not required"].map((opt) => (
+                                <button
+                                  key={opt}
+                                  onClick={() => handleRecommendationAnswer(opt)}
+                                  className="text-sm text-left px-4 py-2 rounded-full border border-[#0D6EFD] hover:bg-[#0D6EFD]/5 bg-white text-[#0D6EFD] transition-all font-medium w-fit shadow-sm"
+                                >
+                                  {opt}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+
+                          {msg.widget === "success" && (
+                            <div className="flex flex-col gap-2">
+                              <button
+                                onClick={() => handleSend("Explore Features")}
+                                className="text-sm text-left px-4 py-2 rounded-full border border-[#0D6EFD] hover:bg-[#0D6EFD]/5 bg-white text-[#0D6EFD] transition-all font-medium w-fit shadow-sm"
+                              >
+                                Explore Platform Features
+                              </button>
+                              <button
+                                onClick={() => handleSend("Compare Pricing")}
+                                className="text-sm text-left px-4 py-2 rounded-full border border-[#0D6EFD] hover:bg-[#0D6EFD]/5 bg-white text-[#0D6EFD] transition-all font-medium w-fit shadow-sm"
+                              >
+                                Compare Pricing Plans
+                              </button>
+                              <button
+                                onClick={() => handleSend("Book a Demo")}
+                                className="text-sm text-left px-4 py-2 rounded-full border border-[#0D6EFD] hover:bg-[#0D6EFD]/5 bg-white text-[#0D6EFD] transition-all font-medium w-fit shadow-sm"
+                              >
+                                Book a Demo
+                              </button>
+                              <button
+                                onClick={() => handleSend("Speak with sales")}
+                                className="text-sm text-left px-4 py-2 rounded-full border border-[#0D6EFD] hover:bg-[#0D6EFD]/5 bg-white text-[#0D6EFD] transition-all font-medium w-fit shadow-sm"
+                              >
+                                Speak with Enterprise Sales
+                              </button>
+                            </div>
+                          )}
+
+                          {msg.widget === "analytics" && (
+                            <div className="bg-white border border-gray-200 rounded-2xl p-4 space-y-3 shadow-sm max-w-[95%]">
+                              <div className="text-xs font-bold text-gray-800 flex items-center gap-1.5">
+                                <BarChart3 className="w-4 h-4 text-[#0D6EFD]" />
+                                <span>Operational Intelligence Telemetry</span>
+                              </div>
+                              <div className="grid grid-cols-2 gap-2 text-[10px] text-gray-500">
+                                <div className="bg-gray-50 border border-gray-100 rounded-lg p-2.5">
+                                  <div>Questions Asked</div>
+                                  <div className="text-gray-800 text-sm font-bold mt-0.5">{analytics.questionsAsked}</div>
+                                </div>
+                                <div className="bg-gray-50 border border-gray-100 rounded-lg p-2.5">
+                                  <div>Specialist CTAs</div>
+                                  <div className="text-gray-800 text-sm font-bold mt-0.5">{analytics.specialistRequests}</div>
+                                </div>
+                                <div className="bg-gray-50 border border-gray-100 rounded-lg p-2.5">
+                                  <div>Demos Booked</div>
+                                  <div className="text-gray-800 text-sm font-bold mt-0.5">{analytics.demoRequests}</div>
+                                </div>
+                                <div className="bg-gray-50 border border-gray-100 rounded-lg p-2.5">
+                                  <div>Sales Queries</div>
+                                  <div className="text-gray-800 text-sm font-bold mt-0.5">{analytics.salesRequests}</div>
+                                </div>
+                              </div>
+                              <div className="text-[10px] text-[#0D6EFD] font-semibold flex items-center gap-1 px-1">
+                                <Sparkles className="w-3.5 h-3.5" />
+                                <span>Lead Score Status: {sessionContext.leadScore} Intent</span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
-                  )}
-                  {/* Inline Widgets */}
-                  {msg.role === "assistant" && msg.widget && (
-                    <div className="w-full max-w-[90%] self-start">
-                      {msg.widget === "pricing-select" && (
-                        <div className="grid grid-cols-2 gap-1.5 bg-white/[0.01] border border-white/5 rounded-2xl p-2.5">
-                          {["🎓 Bootcamps", "🎤 Webinars", "🏫 Education", "🏢 Enterprise"].map((opt) => (
-                            <button
-                              key={opt}
-                              onClick={() => selectPricingOption(opt)}
-                              className="text-[10px] text-left p-2 rounded-lg bg-white/[0.02] border border-white/5 hover:border-brand-gold/40 text-white/60 hover:text-white transition-all font-medium"
-                            >
-                              {opt}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-
-                      {msg.widget === "demo" && (
-                        <InteractiveForm
-                          fields={[
-                            { name: "name", label: "Full Name", placeholder: "e.g. Jane Doe", type: "text" },
-                            { name: "organization", label: "Organization", placeholder: "e.g. Tech Academy", type: "text" },
-                            { name: "email", label: "Email Address", placeholder: "e.g. jane@academy.com", type: "email" },
-                            { name: "phone", label: "Phone Number", placeholder: "e.g. +234 ...", type: "tel" },
-                            { name: "participants", label: "Estimated Participants", placeholder: "e.g. 250", type: "number" },
-                            { name: "useCase", label: "Primary Use Case", placeholder: "e.g. Launch a fellowship", type: "text" },
-                          ]}
-                          submitLabel="Book Demo"
-                          onSubmit={(data) => handleFormSubmit("demo", data)}
-                        />
-                      )}
-
-                      {msg.widget === "sales" && (
-                        <InteractiveForm
-                          fields={[
-                            { name: "name", label: "Full Name", placeholder: "e.g. Robert Smith", type: "text" },
-                            { name: "organization", label: "Organization", placeholder: "e.g. Global NGOs", type: "text" },
-                            { name: "email", label: "Email Address", placeholder: "e.g. robert@ngoglobal.org", type: "email" },
-                            { name: "phone", label: "Phone Number", placeholder: "e.g. +234...", type: "tel" },
-                          ]}
-                          submitLabel="Connect With Sales"
-                          onSubmit={(data) => handleFormSubmit("sales", data)}
-                        />
-                      )}
-
-                      {msg.widget === "waitlist" && (
-                        <InteractiveForm
-                          fields={[
-                            { name: "name", label: "Full Name", placeholder: "e.g. Alex Carter", type: "text" },
-                            { name: "organization", label: "Organization Name", placeholder: "e.g. Gov Training Institute", type: "text" },
-                            { name: "email", label: "Email Address", placeholder: "e.g. alex@gov.org", type: "email" },
-                          ]}
-                          submitLabel="Join Waitlist"
-                          onSubmit={(data) => handleFormSubmit("waitlist", data)}
-                        />
-                      )}
-
-                      {msg.widget === "specialist-cta" && (
-                        <div className="bg-[#0A0A0B] border border-brand-gold/20 rounded-2xl p-3.5 space-y-3 shadow-lg">
-                          <div className="text-[11px] font-bold text-white tracking-tight">Need personalized guidance?</div>
-                          <div className="text-[10px] text-white/50 space-y-1 font-light">
-                            <div>✓ Choose the right solution</div>
-                            <div>✓ Compare plans</div>
-                            <div>✓ Discuss implementation</div>
-                            <div>✓ Explore enterprise options</div>
-                          </div>
-                          <button
-                            onClick={() => {
-                              setMessages((prev) => [
-                                ...prev,
-                                {
-                                  id: Math.random().toString(36).substring(7),
-                                  role: "assistant",
-                                  content: "Please fill in the specialized requirements form below:",
-                                  timestamp: new Date(),
-                                  widget: "specialist-form",
-                                }
-                              ]);
-                            }}
-                            className="w-full py-2 bg-brand-gold hover:bg-brand-gold/90 text-black text-[10px] font-bold rounded-lg transition-all"
-                          >
-                            Talk to a Specialist
-                          </button>
-                        </div>
-                      )}
-
-                      {msg.widget === "specialist-form" && (
-                        <InteractiveForm
-                          fields={[
-                            { name: "name", label: "Full Name", placeholder: "e.g. John Doe", type: "text" },
-                            { name: "organization", label: "Organization Name", placeholder: "e.g. University of Lagos", type: "text" },
-                            { name: "email", label: "Work Email", placeholder: "e.g. john@unilag.edu.ng", type: "email" },
-                            { name: "phone", label: "Phone Number", placeholder: "e.g. +234...", type: "tel" },
-                            { name: "orgType", label: "Organization Type", placeholder: "e.g. University", type: "text" },
-                            { name: "participants", label: "Number of Participants", placeholder: "e.g. 1500", type: "number" },
-                            { name: "programmes", label: "Number of Programmes", placeholder: "e.g. 5", type: "number" },
-                            { name: "contactMethod", label: "Preferred Contact Method", placeholder: "Email or Phone", type: "text" },
-                          ]}
-                          submitLabel="Submit Specialist Request"
-                          onSubmit={(data) => handleFormSubmit("specialist", data)}
-                        />
-                      )}
-
-                      {msg.widget === "recommendation" && (
-                        <div className="bg-white/[0.01] border border-white/5 rounded-2xl p-2.5 flex flex-col gap-1.5">
-                          {recStep === 0 && (
-                            <div className="flex flex-col gap-1">
-                              {["Bootcamps & Training", "Webinars & Events", "Education & Institutions", "Enterprise Operations"].map((opt) => (
-                                <button
-                                  key={opt}
-                                  onClick={() => handleRecommendationAnswer(opt)}
-                                  className="text-[10px] text-left px-2.5 py-1.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-brand-gold/40 text-white/70 hover:text-white transition-all"
-                                >
-                                  {opt}
-                                </button>
-                              ))}
-                            </div>
-                          )}
-
-                          {recStep === 1 && (
-                            <div className="flex flex-col gap-1">
-                              {["Under 100", "100 - 500", "500 - 2,000", "2,000+"].map((opt) => (
-                                <button
-                                  key={opt}
-                                  onClick={() => handleRecommendationAnswer(opt)}
-                                  className="text-[10px] text-left px-2.5 py-1.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-brand-gold/40 text-white/70 hover:text-white transition-all"
-                                >
-                                  {opt}
-                                </button>
-                              ))}
-                            </div>
-                          )}
-
-                          {recStep === 2 && (
-                            <div className="flex flex-col gap-1">
-                              {["1 - 2 programmes", "3 - 5 programmes", "More than 5 programmes"].map((opt) => (
-                                <button
-                                  key={opt}
-                                  onClick={() => handleRecommendationAnswer(opt)}
-                                  className="text-[10px] text-left px-2.5 py-1.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-brand-gold/40 text-white/70 hover:text-white transition-all"
-                                >
-                                  {opt}
-                                </button>
-                              ))}
-                            </div>
-                          )}
-
-                          {recStep === 3 && (
-                            <div className="flex gap-1.5">
-                              {["Yes, frequently", "No live sessions"].map((opt) => (
-                                <button
-                                  key={opt}
-                                  onClick={() => handleRecommendationAnswer(opt)}
-                                  className="flex-1 text-[10px] text-center py-2 rounded-lg bg-white/[0.02] border border-white/5 hover:border-brand-gold/40 text-white/70 hover:text-white transition-all"
-                                >
-                                  {opt}
-                                </button>
-                              ))}
-                            </div>
-                          )}
-
-                          {recStep === 4 && (
-                            <div className="flex gap-1.5">
-                              {["Yes, issue certificates", "No certificate workflow"].map((opt) => (
-                                <button
-                                  key={opt}
-                                  onClick={() => handleRecommendationAnswer(opt)}
-                                  className="flex-1 text-[10px] text-center py-2 rounded-lg bg-white/[0.02] border border-white/5 hover:border-brand-gold/40 text-white/70 hover:text-white transition-all"
-                                >
-                                  {opt}
-                                </button>
-                              ))}
-                            </div>
-                          )}
-
-                          {recStep === 5 && (
-                            <div className="flex gap-1.5">
-                              {["Yes, require intelligence", "Not required"].map((opt) => (
-                                <button
-                                  key={opt}
-                                  onClick={() => handleRecommendationAnswer(opt)}
-                                  className="flex-1 text-[10px] text-center py-2 rounded-lg bg-white/[0.02] border border-white/5 hover:border-brand-gold/40 text-white/70 hover:text-white transition-all"
-                                >
-                                  {opt}
-                                </button>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      )}
-
-                      {msg.widget === "success" && (
-                        <div className="flex flex-col gap-1">
-                          <button
-                            onClick={() => handleSend("Explore Features")}
-                            className="text-[10px] text-left px-2.5 py-1.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-brand-gold/30 hover:bg-white/[0.04] transition-all text-white/50 hover:text-white"
-                          >
-                            ⚡ Explore Platform Features
-                          </button>
-                          <button
-                            onClick={() => handleSend("Compare Pricing")}
-                            className="text-[10px] text-left px-2.5 py-1.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-brand-gold/30 hover:bg-white/[0.04] transition-all text-white/50 hover:text-white"
-                          >
-                            💳 Compare Pricing Plans
-                          </button>
-                          <button
-                            onClick={() => handleSend("Book a Demo")}
-                            className="text-[10px] text-left px-2.5 py-1.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-brand-gold/30 hover:bg-white/[0.04] transition-all text-white/50 hover:text-white"
-                          >
-                            📅 Book a Demo
-                          </button>
-                          <button
-                            onClick={() => handleSend("Speak with sales")}
-                            className="text-[10px] text-left px-2.5 py-1.5 rounded-lg bg-white/[0.02] border border-white/5 hover:border-brand-gold/30 hover:bg-white/[0.04] transition-all text-white/50 hover:text-white"
-                          >
-                            🏢 Speak with Enterprise Sales
-                          </button>
-                        </div>
-                      )}
-
-                      {msg.widget === "analytics" && (
-                        <div className="bg-[#0A0A0B] border border-brand-gold/15 rounded-2xl p-3 space-y-2.5 shadow-lg">
-                          <div className="text-[10px] font-bold text-white flex items-center gap-1.5">
-                            <BarChart3 className="w-3.5 h-3.5 text-brand-gold" />
-                            <span>Operational Intelligence Telemetry</span>
-                          </div>
-                          <div className="grid grid-cols-2 gap-2 text-[9px] text-white/40">
-                            <div className="bg-white/[0.02] border border-white/5 rounded-lg p-2">
-                              <div>Questions Asked</div>
-                              <div className="text-white text-[12px] font-bold mt-0.5">{analytics.questionsAsked}</div>
-                            </div>
-                            <div className="bg-white/[0.02] border border-white/5 rounded-lg p-2">
-                              <div>Specialist CTAs</div>
-                              <div className="text-white text-[12px] font-bold mt-0.5">{analytics.specialistRequests}</div>
-                            </div>
-                            <div className="bg-white/[0.02] border border-white/5 rounded-lg p-2">
-                              <div>Demos Booked</div>
-                              <div className="text-white text-[12px] font-bold mt-0.5">{analytics.demoRequests}</div>
-                            </div>
-                            <div className="bg-white/[0.02] border border-white/5 rounded-lg p-2">
-                              <div>Sales Queries</div>
-                              <div className="text-white text-[12px] font-bold mt-0.5">{analytics.salesRequests}</div>
-                            </div>
-                          </div>
-                          <div className="text-[8px] text-brand-gold flex items-center gap-1 px-1">
-                            <Sparkles className="w-2.5 h-2.5" />
-                            <span>Lead Score Status: {sessionContext.leadScore} Intent</span>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-              ))}
+                  </div>
+                );
+              })}
 
               {isTyping && (
-                <div className="bg-white/[0.03] border border-white/5 rounded-2xl p-3 max-w-[85%] text-[12px] text-white/40 self-start flex items-center gap-1 font-light">
-                  <span className="w-1.5 h-1.5 bg-brand-gold/60 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                  <span className="w-1.5 h-1.5 bg-brand-gold/60 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                  <span className="w-1.5 h-1.5 bg-brand-gold/60 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                <div className="flex gap-3 items-start">
+                  <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 border border-gray-100 shadow-sm bg-gray-50">
+                    <Image src="/oyen-ai-avatar.png" alt="OYEN BOT" width={40} height={40} className="object-cover" />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <div className="flex items-center gap-1.5 text-[11px] text-gray-400 select-none">
+                      <span className="font-semibold text-gray-800">OYEN</span>
+                      <span className="text-[9px] bg-gray-100 text-gray-500 px-1 py-0.5 rounded font-bold uppercase tracking-wider">BOT</span>
+                    </div>
+                    <div className="bg-[#F3F4F6] border border-gray-100 rounded-[18px] rounded-tl-none p-3 max-w-[85%] text-xs text-gray-500 self-start flex items-center gap-1 font-light">
+                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
 
             {/* Input Area */}
-            <div className="px-5 py-4 bg-transparent shrink-0">
+            <div className="px-5 py-4 bg-white border-t border-gray-100 shrink-0">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
                   handleSend(input);
                 }}
-                className="relative flex items-center bg-[#131722]/80 border border-white/5 focus-within:border-brand-gold/30 rounded-2xl px-4 py-2.5 transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.4)]"
+                className="flex flex-col bg-white border border-gray-200 rounded-[20px] px-4 py-3 shadow-sm focus-within:border-blue-500/50 transition-all"
               >
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask about pricing, features, solutions..."
-                  className="flex-1 bg-transparent text-[12px] text-white placeholder:text-white/20 focus:outline-none font-light"
+                  placeholder="Write a message"
+                  className="w-full bg-transparent text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none font-normal"
                 />
-                <button
-                  type="submit"
-                  disabled={!input.trim()}
-                  className={cn(
-                    "ml-2 w-7 h-7 rounded-lg flex items-center justify-center transition-all",
-                    input.trim()
-                      ? "bg-brand-gold text-black shadow-[0_0_15px_rgba(245,185,66,0.3)] hover:scale-105"
-                      : "bg-white/5 text-white/20 cursor-not-allowed"
-                  )}
-                >
-                  <Send className="w-2.5 h-2.5" />
-                </button>
+                <div className="flex items-center justify-between mt-2.5 pt-1.5 border-t border-gray-50">
+                  <div className="flex items-center gap-3 text-gray-400">
+                    <button type="button" className="hover:text-gray-600 transition-colors">
+                      <Paperclip className="w-4 h-4" />
+                    </button>
+                    <button type="button" className="hover:text-gray-600 transition-colors">
+                      <Smile className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={!input.trim()}
+                    className={cn(
+                      "w-7 h-7 rounded-full flex items-center justify-center transition-all",
+                      input.trim()
+                        ? "bg-[#0D6EFD] text-white shadow-sm hover:scale-105"
+                        : "bg-gray-100 text-gray-300 cursor-not-allowed"
+                    )}
+                  >
+                    <ArrowUp className="w-4 h-4" />
+                  </button>
+                </div>
               </form>
+              
+              {/* Footer Tagline */}
+              <div className="text-center text-[10px] text-gray-400 mt-2.5">
+                OYEN may retain transcripts for training purposes
+              </div>
             </div>
           </motion.div>
         )}
@@ -969,9 +996,9 @@ export function Chatbot() {
         onClick={() => setIsOpen(!isOpen)}
         animate={{
           boxShadow: [
-            "0 10px 30px rgba(0,0,0,0.5), 0 0 0px rgba(245,185,66,0)",
-            "0 15px 35px rgba(0,0,0,0.6), 0 0 15px rgba(245,185,66,0.1)",
-            "0 10px 30px rgba(0,0,0,0.5), 0 0 0px rgba(245,185,66,0)"
+            "0 10px 30px rgba(0,0,0,0.5), 0 0 0px rgba(13,110,253,0)",
+            "0 15px 35px rgba(0,0,0,0.6), 0 0 15px rgba(13,110,253,0.1)",
+            "0 10px 30px rgba(0,0,0,0.5), 0 0 0px rgba(13,110,253,0)"
           ]
         }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -980,21 +1007,16 @@ export function Chatbot() {
         className={cn(
           "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 group relative overflow-hidden",
           isOpen
-            ? "bg-[#06080C]/80 border border-white/10 text-white"
-            : "bg-[#06080C] border border-white/10 text-white shadow-[0_8px_30px_rgba(0,0,0,0.6),_0_0_20px_rgba(245,185,66,0.05)]"
+            ? "bg-white border border-gray-200 text-gray-800"
+            : "bg-[#0D6EFD] border border-blue-600/30 text-white shadow-[0_8px_30px_rgba(0,0,0,0.3)]"
         )}
       >
-        <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.1] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
         {isOpen ? (
-          <X className="w-4 h-4" />
+          <X className="w-5 h-5 text-gray-600" />
         ) : (
-          <div className="relative shrink-0">
-            <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10">
-              <Image src="/oyen-ai-avatar.png" alt="OYEN AI" width={32} height={32} className="object-cover" />
-            </div>
-            <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-emerald-500 rounded-full border border-[#06080C]" />
-          </div>
+          <MessageSquare className="w-5 h-5 text-white" />
         )}
       </motion.button>
     </div>
@@ -1031,31 +1053,31 @@ function InteractiveForm({
 
   if (submitted) {
     return (
-      <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-[14px] p-3 flex items-center gap-2 text-emerald-400">
+      <div className="bg-emerald-50 border border-emerald-200 rounded-[14px] p-3 flex items-center gap-2 text-emerald-600">
         <CheckCircle2 className="w-4 h-4 shrink-0" />
-        <span className="text-[10px] font-medium">Form submitted successfully.</span>
+        <span className="text-xs font-medium">Form submitted successfully.</span>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white/[0.01] border border-white/5 rounded-[16px] p-3 space-y-2">
+    <form onSubmit={handleSubmit} className="bg-white border border-gray-200 rounded-[16px] p-4 space-y-2.5 max-w-[95%] shadow-sm">
       {fields.map((f) => (
-        <div key={f.name} className="flex flex-col gap-0.5">
-          <label className="text-[8px] font-semibold text-white/30 uppercase tracking-[0.05em]">{f.label}</label>
+        <div key={f.name} className="flex flex-col gap-1">
+          <label className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">{f.label}</label>
           <input
             type={f.type}
             required
             placeholder={f.placeholder}
             value={formData[f.name] || ""}
             onChange={(e) => setFormData({ ...formData, [f.name]: e.target.value })}
-            className="w-full h-7 bg-white/[0.02] border border-white/5 rounded-lg px-2.5 text-[10px] text-white placeholder:text-white/10 focus:outline-none focus:border-brand-gold/30 focus:bg-white/[0.04] transition-all font-light"
+            className="w-full h-8 bg-gray-50 border border-gray-200 rounded-lg px-2.5 text-xs text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-[#0D6EFD] focus:bg-white transition-all font-light"
           />
         </div>
       ))}
       <button
         type="submit"
-        className="w-full h-7 bg-brand-gold hover:bg-brand-gold/90 text-black text-[10px] font-bold rounded-lg transition-all mt-1"
+        className="w-full h-8 bg-[#0D6EFD] hover:bg-[#0D6EFD]/90 text-white text-xs font-bold rounded-lg transition-all mt-1 shadow-sm"
       >
         {submitLabel}
       </button>
