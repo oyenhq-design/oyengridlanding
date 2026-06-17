@@ -36,7 +36,7 @@ interface AnalyticsData {
 
 export function Chatbot() {
   const [mounted, setMounted] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
