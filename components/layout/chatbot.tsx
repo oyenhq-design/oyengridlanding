@@ -35,7 +35,8 @@ interface AnalyticsData {
 }
 
 export function Chatbot() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -56,16 +57,6 @@ export function Chatbot() {
   // Diagnostic wizard state
   const [recStep, setRecStep] = useState(0);
   const [recAnswers, setRecAnswers] = useState<Record<string, string>>({});
-
-  useEffect(() => {
-    resetChat();
-  }, []);
-
-  useEffect(() => {
-    if (feedRef.current) {
-      feedRef.current.scrollTop = feedRef.current.scrollHeight;
-    }
-  }, [messages, isTyping, recStep]);
 
   const resetChat = () => {
     const now = new Date();
@@ -89,6 +80,19 @@ export function Chatbot() {
     setInput("");
     setSessionContext({ leadScore: "Low" });
   };
+
+  useEffect(() => {
+    setMounted(true);
+    resetChat();
+  }, []);
+
+  useEffect(() => {
+    if (feedRef.current) {
+      feedRef.current.scrollTop = feedRef.current.scrollHeight;
+    }
+  }, [messages, isTyping, recStep]);
+
+  if (!mounted) return null;
 
   const updateAnalytics = (key: keyof AnalyticsData, subkey?: string) => {
     setAnalytics((prev) => {
@@ -616,7 +620,7 @@ export function Chatbot() {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-[200]">
+    <div className="fixed bottom-8 right-8 z-[9999]">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -992,23 +996,13 @@ export function Chatbot() {
       </AnimatePresence>
 
       {/* Trigger Button */}
-      <motion.button
+      <button
         onClick={() => setIsOpen(!isOpen)}
-        animate={{
-          boxShadow: [
-            "0 10px 30px rgba(0,0,0,0.5), 0 0 0px rgba(13,110,253,0)",
-            "0 15px 35px rgba(0,0,0,0.6), 0 0 15px rgba(13,110,253,0.1)",
-            "0 10px 30px rgba(0,0,0,0.5), 0 0 0px rgba(13,110,253,0)"
-          ]
-        }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
         className={cn(
-          "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 group relative overflow-hidden",
+          "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 group relative overflow-hidden shadow-lg",
           isOpen
             ? "bg-white border border-gray-200 text-gray-800"
-            : "bg-[#0D6EFD] border border-blue-600/30 text-white shadow-[0_8px_30px_rgba(0,0,0,0.3)]"
+            : "bg-[#0D6EFD] border border-blue-600/30 text-white hover:bg-[#0D6EFD]/95"
         )}
       >
         <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.1] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -1018,7 +1012,7 @@ export function Chatbot() {
         ) : (
           <MessageSquare className="w-5 h-5 text-white" />
         )}
-      </motion.button>
+      </button>
     </div>
   );
 }
