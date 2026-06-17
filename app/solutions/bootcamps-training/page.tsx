@@ -563,12 +563,6 @@ export default function BootcampsTrainingPage() {
               </div>
             </div>
           </section>
-
-          {/* =========================================================================
-              8. PREMIUM FAQ & CTA SECTION
-              ========================================================================= */}
-          <FinalCTA />
-
         </div>
       </div>
 

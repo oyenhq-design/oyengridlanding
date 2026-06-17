@@ -51,7 +51,7 @@ export function FinalCTA() {
   ];
 
   return (
-    <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-10 md:py-12 border-t border-b border-white/5 overflow-hidden bg-[#05070B]">
+    <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-6 md:py-8 border-t border-b border-white/5 overflow-hidden bg-[#05070B]">
       {/* Background image (25% opacity directly on the dark section background) */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.25]" 
@@ -64,7 +64,7 @@ export function FinalCTA() {
       {/* Subtle Gold Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(232,184,74,0.05),transparent_70%)] pointer-events-none blur-3xl z-20" />
 
-      <div className="max-w-[1150px] mx-auto px-6 relative z-30 flex flex-col gap-6">
+      <div className="max-w-[1150px] mx-auto px-6 relative z-30 flex flex-col gap-4">
         
         {/* Two-Column Grid */}
         <div className="grid lg:grid-cols-12 gap-8 items-start">
@@ -72,7 +72,7 @@ export function FinalCTA() {
           {/* Left Column (40%): Title and description */}
           <div className="lg:col-span-5 flex flex-col items-start pt-2">
             {/* Pill Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#E8B84A]/30 bg-black/40 mb-5">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#E8B84A]/30 bg-black/40 mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E8B84A]" />
               <span className="text-[10px] font-black tracking-widest text-[#E8B84A] uppercase">
                 FAQ
@@ -80,13 +80,13 @@ export function FinalCTA() {
             </div>
 
             {/* Main Header */}
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.1] mb-5">
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.1] mb-3.5">
               Frequently<br />
               Asked <span className="text-[#E8B84A] italic font-serif font-normal">Questions</span>
             </h2>
 
             {/* Description Text */}
-            <div className="text-neutral-400 text-xs md:text-[13px] leading-relaxed max-w-[320px] font-light space-y-1.5 mb-7">
+            <div className="text-neutral-400 text-xs md:text-[13px] leading-relaxed max-w-[320px] font-light space-y-1.5 mb-4">
               <p>Everything you need to know about OYEN GRID.</p>
               <p>Can&apos;t find what you&apos;re looking for?</p>
               <p>Our team is always here to help.</p>
@@ -113,7 +113,7 @@ export function FinalCTA() {
                 >
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                    className="w-full px-4.5 py-3 md:py-3.5 flex items-center justify-start gap-3.5 text-left cursor-pointer group"
+                    className="w-full px-4 py-2 md:py-2.5 flex items-center justify-start gap-3.5 text-left cursor-pointer group"
                   >
                     {/* Gold Circular Plus/Minus Icon on the left */}
                     <div className="w-5.5 h-5.5 rounded-full border border-[#E8B84A]/30 flex items-center justify-center text-[#E8B84A] bg-[#E8B84A]/5 group-hover:border-[#E8B84A]/60 transition-colors relative flex-shrink-0">
@@ -134,7 +134,7 @@ export function FinalCTA() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2, ease: "easeInOut" }}
                       >
-                        <div className="pl-13 pr-5 pb-3.5 pt-0 text-[11.5px] text-neutral-400 leading-relaxed font-light border-t border-white/[0.01]">
+                        <div className="pl-13 pr-5 pb-2.5 pt-0 text-[11.5px] text-neutral-400 leading-relaxed font-light border-t border-white/[0.01]">
                           {item.a}
                         </div>
                       </motion.div>
@@ -148,7 +148,7 @@ export function FinalCTA() {
         </div>
 
         {/* Bottom FAQ CTA Compact Strip */}
-        <div className="mt-8 flex items-center justify-between gap-6 px-6 py-4 rounded-[14px] bg-black/60 border border-white/5 backdrop-blur-xl max-w-4xl mx-auto shadow-lg w-full">
+        <div className="mt-5 flex items-center justify-between gap-6 px-5 py-3 rounded-[14px] bg-black/60 border border-white/5 backdrop-blur-xl max-w-4xl mx-auto shadow-lg w-full">
           <div className="flex items-center gap-4">
             {/* Headphone Icon Box */}
             <div className="w-10 h-10 rounded-lg border border-[#E8B84A]/25 bg-[#E8B84A]/5 flex items-center justify-center text-[#E8B84A] flex-shrink-0">
