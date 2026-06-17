@@ -168,47 +168,31 @@ export function Header() {
                 <AnimatePresence>
                   {activeMenu === menu.label && (
                     <motion.div
-                      initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                      initial={{ opacity: 0, y: 4, scale: 0.98 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 6, scale: 0.97 }}
-                      transition={{ duration: 0.15, ease: "easeOut" }}
-                      className="absolute top-[60px] left-1/2 -translate-x-1/2 pt-2 z-[110] w-[340px] pointer-events-auto"
+                      exit={{ opacity: 0, y: 4, scale: 0.98 }}
+                      transition={{ duration: 0.12, ease: "easeOut" }}
+                      className="absolute top-[60px] left-1/2 -translate-x-1/2 pt-2 z-[110] w-[280px] pointer-events-auto"
                     >
-                      <div className="bg-[#0D0D11]/98 border border-white/10 backdrop-blur-xl rounded-[18px] p-3.5 shadow-[0_25px_60px_rgba(0,0,0,0.8)] flex flex-col gap-1 relative overflow-hidden">
-                        {/* Thin golden glow header accent line */}
-                        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#E2B84C]/40 to-transparent pointer-events-none" />
-
+                      <div className="bg-[#0E0B09]/90 border border-white/[0.08] backdrop-blur-xl rounded-xl p-2 shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col gap-0.5">
                         {menu.items.map((subItem) => (
                           <Link
                             key={subItem.title}
                             href={subItem.href}
                             onClick={() => setActiveMenu(null)}
-                            className="flex items-start gap-3.5 p-2.5 rounded-xl hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all duration-200 group"
+                            className="flex items-start gap-3 p-2 rounded-lg hover:bg-white/[0.04] transition-all duration-150 group"
                           >
-                            <div className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/5 flex items-center justify-center shrink-0 group-hover:bg-[#E2B84C]/10 group-hover:border-[#E2B84C]/30 transition-all duration-300">
-                              <subItem.icon className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#E2B84C] transition-colors" />
-                            </div>
-                            <div className="space-y-0.5">
-                              <h4 className="text-[12px] font-bold text-white tracking-tight group-hover:text-[#E2B84C] transition-colors">
+                            <subItem.icon className="w-4 h-4 text-[#C5B9AC] group-hover:text-[#B58750] transition-colors mt-0.5 shrink-0" />
+                            <div className="flex flex-col">
+                              <span className="text-[11.5px] font-semibold text-[#FAF6EE] group-hover:text-[#B58750] transition-colors leading-none mb-1">
                                 {subItem.title}
-                              </h4>
-                              <p className="text-[10.5px] text-[#9CA3AF] leading-relaxed font-light group-hover:text-white/70 transition-colors">
+                              </span>
+                              <span className="text-[10px] text-[#C5B9AC]/70 leading-normal font-light">
                                 {subItem.desc}
-                              </p>
+                              </span>
                             </div>
                           </Link>
                         ))}
-
-                        {/* Dropdown bottom strip */}
-                        <div className="mt-1.5 pt-2.5 border-t border-white/5 px-2.5 flex justify-end">
-                          <Link
-                            href={menu.href}
-                            onClick={() => setActiveMenu(null)}
-                            className="inline-flex items-center gap-1 text-[9.5px] font-bold text-[#E2B84C] hover:text-[#FFCF68] tracking-widest uppercase transition-colors"
-                          >
-                            {menu.cta} <span className="text-xs">→</span>
-                          </Link>
-                        </div>
                       </div>
                     </motion.div>
                   )}
