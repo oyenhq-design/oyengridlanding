@@ -1181,15 +1181,15 @@ html:not(.dark) .text-emerald-400 {
   animation: floating-cursor-anim 4.2s ease-in-out infinite;
 }
 
-/* ─── Premium High-Contrast Dark Theme Overrides (Deep Black + Vibrant Gold + Silver-Gray) ─── */
+/* ─── Premium Enterprise Dark Theme Overrides (Linear & Stripe Inspired) ─── */
 html.dark {
-  --background: #0B0B0B;
+  --background: #0A0A0A;
   --foreground: #FFFFFF;
-  --brand-gold: #FFC72C;
-  --brand-dark: #0B0B0B;
-  --glass-bg: rgba(22, 22, 22, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --text-muted: #E2E8F0;
+  --brand-gold: #C8A97E;
+  --brand-dark: #0A0A0A;
+  --glass-bg: rgba(23, 23, 23, 0.85);
+  --glass-border: #232323;
+  --text-muted: #A1A1A1;
 }
 
 html.dark,
@@ -1202,16 +1202,18 @@ html.dark [class*="bg-[#050B1A]"],
 html.dark [class*="bg-[#010205]"],
 html.dark [class*="bg-[#000000]"],
 html.dark [class*="bg-[#0E0B09]"],
+html.dark [class*="bg-[#0B0B0B]"],
 html.dark [class*="bg-black/"] {
-  background-color: #0B0B0B !important; /* Deep Black Background */
+  background-color: #0A0A0A !important; /* Premium Dark Background */
 }
 
 html.dark [class*="bg-[#020408]"],
 html.dark [class*="bg-[#02040A]"],
 html.dark [class*="bg-[#07111F]/90"],
 html.dark [class*="bg-[#0D0D11]"],
-html.dark [class*="bg-[#120E0C]"] {
-  background-color: #161616 !important; /* Lighter Charcoal Contrast Background */
+html.dark [class*="bg-[#120E0C]"],
+html.dark [class*="bg-[#161616]"] {
+  background-color: #121212 !important; /* Surface Background */
 }
 
 html.dark .card-institutional,
@@ -1225,8 +1227,8 @@ html.dark [class*="bg-[#0A0E18]"],
 html.dark [class*="bg-[#0a0e18]"],
 html.dark [class*="bg-[#15110E]"],
 html.dark [class*="bg-slate-950"] {
-  background-color: #161616 !important; /* Contrast Card Containers */
-  border-color: rgba(255, 255, 255, 0.08) !important; /* Subtle Lighter Border */
+  background-color: #171717 !important; /* Cards Background */
+  border-color: #232323 !important; /* Premium Borders */
 }
 
 /* Typography contrast and colors */
@@ -1240,7 +1242,7 @@ html.dark .text-white,
 html.dark [class*="text-white"],
 html.dark [class*="text-[#ffffff]"],
 html.dark [class*="text-[#FAF6EE]"] {
-  color: #FFFFFF !important; /* Crisp Pure White Typography */
+  color: #FFFFFF !important; /* Primary Text */
 }
 
 html.dark p,
@@ -1252,15 +1254,16 @@ html.dark .text-slate-300,
 html.dark .text-slate-400,
 html.dark [class*="text-neutral-"],
 html.dark [class*="text-[#9CA3AF]"],
-html.dark [class*="text-[#C5B9AC]"] {
-  color: #E2E8F0 !important; /* Legible Silver-Gray Typography */
+html.dark [class*="text-[#C5B9AC]"],
+html.dark [class*="text-[#E2E8F0]"] {
+  color: #A1A1A1 !important; /* Secondary Text */
 }
 
-/* Override all radial/ellipse gradients with vibrant gold in dark mode */
+/* Eliminate glowing radial/ellipse gradients in dark mode */
 html.dark [class*="bg-[radial-gradient"],
 html.dark [class*="bg-[radial-gradient(ellipse"],
 html.dark [class*="bg-[radial-gradient(circle"] {
-  background-image: radial-gradient(circle, rgba(255, 199, 44, 0.08), transparent 70%) !important;
+  background-image: radial-gradient(circle, rgba(200, 169, 126, 0.02), transparent 75%) !important; /* Very subtle glow */
 }
 
 /* Eliminate blue/purple/cyan accent vectors and blur backdrops in dark mode */
@@ -1276,7 +1279,7 @@ html.dark [class*="border-cyan-"] {
   display: none !important;
 }
 
-/* Preserve gold/amber branding accents mapping to the new vibrant Gold */
+/* Preserve gold/amber branding accents mapping to the new premium Bronze */
 html.dark .text-brand-gold,
 html.dark [class*="text-brand-gold"],
 html.dark .text-\[\#E2B84C\],
@@ -1284,8 +1287,9 @@ html.dark .text-\[\#E8B84A\],
 html.dark .text-\[\#F59E0B\],
 html.dark .text-\[\#FFCF68\],
 html.dark .text-\[\#F5B942\],
-html.dark .text-\[\#B58750\] {
-  color: #FFC72C !important; /* Vibrant Gold Accent */
+html.dark .text-\[\#B58750\],
+html.dark .text-\[\#FFC72C\] {
+  color: #C8A97E !important; /* Warm Bronze Accent */
 }
 
 html.dark .bg-brand-gold,
@@ -1294,16 +1298,30 @@ html.dark .bg-\[\#E2B84C\],
 html.dark .bg-\[\#E8B84A\],
 html.dark .bg-\[\#F59E0B\],
 html.dark .bg-\[\#F5B942\],
-html.dark .bg-\[\#B58750\] {
-  background-color: #FFC72C !important;
+html.dark .bg-\[\#B58750\],
+html.dark .bg-\[\#FFC72C\] {
+  background-color: #C8A97E !important;
 }
 
 /* Primary CTA Button: Gold bg with black text */
 html.dark .btn-institutional-primary,
 html.dark [class*="btn-primary"] {
-  background-color: #FFC72C !important;
-  color: #0B0B0B !important;
-  font-weight: 700 !important;
+  background-color: #C8A97E !important;
+  color: #0A0A0A !important;
+  font-weight: 600 !important;
+}
+
+/* Secondary Button: Transparent, border #232323, hover background */
+html.dark .btn-institutional-secondary,
+html.dark [class*="btn-secondary"] {
+  background-color: transparent !important;
+  border-color: #232323 !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .btn-institutional-secondary:hover,
+html.dark [class*="btn-secondary"]:hover {
+  background-color: rgba(200, 169, 126, 0.08) !important;
 }
 
 html.dark .border-brand-gold,
@@ -1312,20 +1330,22 @@ html.dark .border-\[\#E2B84C\],
 html.dark .border-\[\#E8B84A\],
 html.dark .border-\[\#F59E0B\],
 html.dark .border-\[\#F5B942\],
-html.dark .border-\[\#B58750\] {
-  border-color: rgba(255, 199, 44, 0.25) !important;
+html.dark .border-\[\#B58750\],
+html.dark .border-\[\#FFC72C\] {
+  border-color: rgba(200, 169, 126, 0.25) !important;
 }
 
 /* Border styles for dark mode */
 html.dark [class*="border-white/"] {
-  border-color: rgba(255, 255, 255, 0.08) !important; /* Crisp border */
+  border-color: #232323 !important; /* Solid Premium Border */
 }
 
 html.dark [class*="hover:border-brand-gold"]:hover,
 html.dark [class*="hover:border-[#E8B84A]"]:hover,
 html.dark [class*="hover:border-[#F59E0B]"]:hover,
-html.dark [class*="hover:border-[#B58750]"]:hover {
-  border-color: rgba(255, 199, 44, 0.4) !important;
+html.dark [class*="hover:border-[#B58750]"]:hover,
+html.dark [class*="hover:border-[#C8A97E]"]:hover {
+  border-color: #D7B78A !important;
 }
 
 
