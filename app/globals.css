@@ -1181,7 +1181,17 @@ html:not(.dark) .text-emerald-400 {
   animation: floating-cursor-anim 4.2s ease-in-out infinite;
 }
 
-/* ─── Premium Dark Theme Overrides (Black + Gold + White) ─── */
+/* ─── Premium Dark Theme Overrides (Espresso + Bronze + Sand + Off-White) ─── */
+html.dark {
+  --background: #0E0B09;
+  --foreground: #FAF6EE;
+  --brand-gold: #B58750;
+  --brand-dark: #0E0B09;
+  --glass-bg: rgba(22, 18, 16, 0.85);
+  --glass-border: rgba(181, 135, 80, 0.15);
+  --text-muted: #C5B9AC;
+}
+
 html.dark,
 html.dark body,
 html.dark main,
@@ -1190,14 +1200,16 @@ html.dark [class*="bg-[#05070B]"],
 html.dark [class*="bg-[#050816]"],
 html.dark [class*="bg-[#050B1A]"],
 html.dark [class*="bg-[#010205]"],
+html.dark [class*="bg-[#000000]"],
 html.dark [class*="bg-black/"] {
-  background-color: #050505 !important;
+  background-color: #0E0B09 !important; /* Deep Espresso Background */
 }
 
 html.dark [class*="bg-[#020408]"],
 html.dark [class*="bg-[#02040A]"],
-html.dark [class*="bg-[#07111F]/90"] {
-  background-color: #070707 !important;
+html.dark [class*="bg-[#07111F]/90"],
+html.dark [class*="bg-[#0D0D11]"] {
+  background-color: #120E0C !important; /* Medium Espresso/Charcoal */
 }
 
 html.dark .card-institutional,
@@ -1210,15 +1222,40 @@ html.dark [class*="bg-[#0a0d14]"],
 html.dark [class*="bg-[#0A0E18]"],
 html.dark [class*="bg-[#0a0e18]"],
 html.dark [class*="bg-slate-950"] {
-  background-color: #0a0a0a !important;
-  border-color: rgba(255, 255, 255, 0.05) !important;
+  background-color: #15110E !important; /* Espresso Card Panels */
+  border-color: rgba(181, 135, 80, 0.15) !important; /* Subtle Bronze Borders */
 }
 
-/* Override all radial/ellipse gradients with OYEN gold in dark mode */
+/* Typography contrast and colors */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6,
+html.dark .text-white,
+html.dark [class*="text-white"],
+html.dark [class*="text-[#ffffff]"] {
+  color: #FAF6EE !important; /* Off-white Typography */
+}
+
+html.dark p,
+html.dark .text-neutral-400,
+html.dark .text-neutral-350,
+html.dark .text-neutral-300,
+html.dark .text-slate-350,
+html.dark .text-slate-300,
+html.dark .text-slate-400,
+html.dark [class*="text-neutral-"],
+html.dark [class*="text-[#9CA3AF]"] {
+  color: #C5B9AC !important; /* Soft Sand Highlights */
+}
+
+/* Override all radial/ellipse gradients with warm bronze in dark mode */
 html.dark [class*="bg-[radial-gradient"],
 html.dark [class*="bg-[radial-gradient(ellipse"],
 html.dark [class*="bg-[radial-gradient(circle"] {
-  background-image: radial-gradient(circle, rgba(226, 184, 76, 0.07), transparent 70%) !important;
+  background-image: radial-gradient(circle, rgba(181, 135, 80, 0.08), transparent 70%) !important;
 }
 
 /* Eliminate blue/purple/cyan accent vectors and blur backdrops in dark mode */
@@ -1234,19 +1271,44 @@ html.dark [class*="border-cyan-"] {
   display: none !important;
 }
 
-/* Preserve gold accents mapping to the new premium E2B84C gold */
+/* Preserve gold/amber branding accents mapping to the new premium Bronze */
+html.dark .text-brand-gold,
+html.dark [class*="text-brand-gold"],
+html.dark .text-\[\#E2B84C\],
 html.dark .text-\[\#E8B84A\],
+html.dark .text-\[\#F59E0B\],
+html.dark .text-\[\#FFCF68\],
 html.dark .text-\[\#F5B942\] {
-  color: #E2B84C !important;
+  color: #B58750 !important; /* Warm Bronze Accent */
 }
+
+html.dark .bg-brand-gold,
+html.dark [class*="bg-brand-gold"],
+html.dark .bg-\[\#E2B84C\],
 html.dark .bg-\[\#E8B84A\],
+html.dark .bg-\[\#F59E0B\],
 html.dark .bg-\[\#F5B942\] {
-  background-color: #E2B84C !important;
+  background-color: #B58750 !important;
+}
+
+html.dark .border-brand-gold,
+html.dark [class*="border-brand-gold"],
+html.dark .border-\[\#E2B84C\],
+html.dark .border-\[\#E8B84A\],
+html.dark .border-\[\#F59E0B\],
+html.dark .border-\[\#F5B942\] {
+  border-color: rgba(181, 135, 80, 0.25) !important;
 }
 
 /* Border styles for dark mode */
 html.dark [class*="border-white/"] {
-  border-color: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(181, 135, 80, 0.12) !important; /* Subtle Bronze Border */
+}
+
+html.dark [class*="hover:border-brand-gold"]:hover,
+html.dark [class*="hover:border-[#E8B84A]"]:hover,
+html.dark [class*="hover:border-[#F59E0B]"]:hover {
+  border-color: rgba(181, 135, 80, 0.4) !important;
 }
 
 
