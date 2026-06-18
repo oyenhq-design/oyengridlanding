@@ -35,14 +35,16 @@ export function WhatsNew() {
             {/* Top Area */}
             <div className="relative flex-1 p-8 flex flex-col min-h-[380px]">
               {/* Image Background */}
-              <div className="absolute inset-y-0 right-0 w-[70%] overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#111111] via-[#111111]/80 to-transparent z-10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent z-10 opacity-60" />
+              <div className="absolute inset-0 overflow-hidden">
+                {/* Subtle warm OYEN gold glow in the bottom right */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(245,215,110,0.06),transparent_65%)] z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#111111] via-[#111111]/90 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-[#111111]/40 z-10 opacity-80" />
                 <Image
-                  src="/presenter-cinematic.png"
-                  alt="AltSchool"
+                  src="/customer-story.png"
+                  alt="AltSchool Customer Story"
                   fill
-                  className="object-cover object-right opacity-90 group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-right opacity-60 group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
 
