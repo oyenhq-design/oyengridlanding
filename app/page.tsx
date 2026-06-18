@@ -9,7 +9,6 @@ import { WhatsNew } from "@/components/sections/whats-new";
 import { FinalCTA } from "@/components/sections/final-cta";
 
 import { FooterPremium } from "@/components/layout/footer";
-import { Chatbot } from "@/components/layout/chatbot";
 import { SearchSystem } from "@/components/layout/search-system";
 
 export default function Home() {
@@ -51,7 +50,6 @@ export default function Home() {
       </div>
 
       {/* OPERATIONAL UTILITIES */}
-      <Chatbot />
       <SearchSystem />
     </main>
   );
