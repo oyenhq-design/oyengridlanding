@@ -85,7 +85,7 @@ export function HumanCoordination() {
               
               <div className="relative w-full h-full rounded-[23px] overflow-hidden border border-white/5">
                 <Image
-                  src="/section-2-background.png"
+                  src="/section-2-bg.png"
                   alt="Platform in action"
                   fill
                   className="object-cover"

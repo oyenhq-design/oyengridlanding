@@ -8,6 +8,11 @@ import { ArrowRight, Activity, Globe, Users, Database, Workflow, Sparkles, Searc
 import { useSearch } from "@/context/search-context";
 
 export function TopographicWave() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const pathsCount = 18;
   const centerX = 440;
   const centerY = 300;
@@ -62,7 +67,7 @@ export function TopographicWave() {
 
       {/* Dynamic Gold Dust Particles */}
       <div className="absolute inset-0 pointer-events-none">
-        {Array.from({ length: 22 }).map((_, i) => {
+        {mounted && Array.from({ length: 22 }).map((_, i) => {
           const size = Math.random() * 2 + 1;
           const delay = Math.random() * 6;
           const duration = Math.random() * 12 + 10;
