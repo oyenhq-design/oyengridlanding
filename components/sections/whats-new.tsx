@@ -178,15 +178,18 @@ export function WhatsNew() {
 
             {/* Bottom Right Card */}
             <div className="flex-1 bg-[#111111] border border-white/[0.08] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px]">
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#1A1A1A] border border-white/[0.05] rounded-xl rotate-12 flex flex-col gap-2 p-4 justify-end opacity-60">
-                <div className="w-full h-1.5 bg-zinc-800 rounded-full" />
-                <div className="w-3/4 h-1.5 bg-zinc-800 rounded-full" />
-                <div className="flex items-end gap-1 mt-2 h-10">
-                   <div className="w-2.5 h-4 bg-zinc-700 rounded-sm" />
-                   <div className="w-2.5 h-8 bg-zinc-700 rounded-sm" />
-                   <div className="w-2.5 h-3 bg-zinc-700 rounded-sm" />
-                   <div className="w-2.5 h-6 bg-zinc-700 rounded-sm" />
-                </div>
+              {/* Image Background */}
+              <div className="absolute inset-0 overflow-hidden">
+                {/* Subtle warm OYEN gold glow in the bottom right */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(245,215,110,0.06),transparent_65%)] z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#111111] via-[#111111]/85 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-[#111111]/40 z-10 opacity-80" />
+                <Image
+                  src="/insights-laptop.png"
+                  alt="Insights laptop"
+                  fill
+                  className="object-cover object-right opacity-65 group-hover:scale-105 transition-transform duration-700"
+                />
               </div>
               
               <div className="relative z-10">
