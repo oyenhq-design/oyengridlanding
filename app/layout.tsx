@@ -7,6 +7,7 @@ export const metadata: Metadata = {
 };
 
 import { SearchProvider } from "@/context/search-context";
+import { SupportWidget } from "@/components/layout/support-widget";
 
 export default function RootLayout({
   children,
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body className="font-sans">
         <SearchProvider>
           {children}
+          <SupportWidget />
         </SearchProvider>
       </body>
     </html>
