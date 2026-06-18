@@ -6,6 +6,7 @@ import { HumanCoordination } from "@/components/sections/human-coordination";
 import { ScaleStructure } from "@/components/sections/scale-structure";
 import { InstitutionalImpactCinematic } from "@/components/sections/institutional-impact-cinematic";
 import { WhatsNew } from "@/components/sections/whats-new";
+import { CleanConversion } from "@/components/sections/clean-conversion";
 import { FinalCTA } from "@/components/sections/final-cta";
 
 import { FooterPremium } from "@/components/layout/footer";
@@ -40,6 +41,9 @@ export default function Home() {
 
           {/* 7.5. WHAT'S NEW SECTION */}
           <WhatsNew />
+
+          {/* 7.8. FINAL CONVERSION */}
+          <CleanConversion />
 
           {/* 8. FINAL CTA */}
           <FinalCTA />
