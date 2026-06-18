@@ -10,6 +10,7 @@ import { FinalCTA } from "@/components/sections/final-cta";
 
 import { FooterPremium } from "@/components/layout/footer";
 import { SearchSystem } from "@/components/layout/search-system";
+import { SupportWidget } from "@/components/layout/support-widget";
 
 export default function Home() {
   return (
@@ -51,6 +52,7 @@ export default function Home() {
 
       {/* OPERATIONAL UTILITIES */}
       <SearchSystem />
+      <SupportWidget />
     </main>
   );
 }
