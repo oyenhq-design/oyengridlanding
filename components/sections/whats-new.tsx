@@ -150,7 +150,19 @@ export function WhatsNew() {
             
             {/* Top Right Card */}
             <div className="flex-1 bg-[#111111] border border-white/[0.08] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px]">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#F5D76E]/[0.03] to-transparent pointer-events-none" />
+              {/* Image Background */}
+              <div className="absolute inset-0 overflow-hidden">
+                {/* Subtle warm OYEN gold glow in the bottom right */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(245,215,110,0.06),transparent_65%)] z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#111111] via-[#111111]/85 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-[#111111]/40 z-10 opacity-80" />
+                <Image
+                  src="/product-update.png"
+                  alt="Product update workspace"
+                  fill
+                  className="object-cover object-right opacity-65 group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
               
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-6">
