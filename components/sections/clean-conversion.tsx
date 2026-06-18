@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export function CleanConversion() {
   return (
     <section className="relative bg-[#0A0A0A] border-t border-white/[0.05] py-20 md:py-28 overflow-hidden">
-      <div className="max-w-[900px] mx-auto px-6 text-center relative z-10">
+      <div className="max-w-[1100px] mx-auto px-6 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -20,14 +20,9 @@ export function CleanConversion() {
           </span>
 
           {/* Headline */}
-          <h2 className="text-3xl md:text-[48px] font-extrabold text-white tracking-tight leading-[1.15] max-w-[640px]">
+          <h2 className="text-3xl md:text-[48px] font-extrabold text-white tracking-tight leading-[1.15] max-w-none">
             Ready to run your next training program?
           </h2>
-
-          {/* Supporting Text */}
-          <p className="text-sm md:text-base text-[#A1A1A1] max-w-[500px] leading-relaxed font-light">
-            Streamline cohort delivery, automate presence tracking, and generate verified outcomes from one intelligent operational platform.
-          </p>
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
