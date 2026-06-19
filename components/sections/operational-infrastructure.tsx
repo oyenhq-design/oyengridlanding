@@ -63,9 +63,21 @@ export function OperationalInfrastructure() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="md:col-span-2 rounded-[24px] border border-white/[0.08] bg-[#0D0D11] p-8 flex flex-col justify-between hover:border-[#F59E0B]/30 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(245,158,11,0.04)] transition-all duration-300 group overflow-hidden relative"
+            className="md:col-span-2 rounded-[24px] border border-white/[0.08] p-8 flex flex-col justify-between hover:border-[#F59E0B]/30 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(245,158,11,0.08)] transition-all duration-300 group overflow-hidden relative"
           >
-            <div>
+            {/* Full-card background: timeline infographic */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/timeline-infographic.png"
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover object-center opacity-30 pointer-events-none select-none"
+            />
+            {/* Dark gradient overlay — keeps text legible */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0D0D11]/95 via-[#0D0D11]/80 to-[#0D0D11]/50 pointer-events-none" />
+
+            {/* Card content — sits above background */}
+            <div className="relative z-10">
               <div className="flex items-center justify-between mb-6">
                 <div className="w-10 h-10 rounded-xl bg-[#F59E0B]/5 border border-[#F59E0B]/20 flex items-center justify-center text-[#F59E0B] group-hover:bg-[#F59E0B]/10 transition-colors">
                   <Layers className="w-5 h-5" />
@@ -78,20 +90,8 @@ export function OperationalInfrastructure() {
               </p>
             </div>
 
-            {/* Timeline Infographic */}
-            <div className="relative mt-2 rounded-xl border border-white/[0.06] overflow-hidden min-h-[160px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/timeline-infographic.png"
-                alt="Program workflow and timeline infographic"
-                className="w-full h-full object-cover object-center"
-                style={{ minHeight: "160px", maxHeight: "200px" }}
-              />
-              {/* Subtle vignette overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D11]/60 via-transparent to-transparent pointer-events-none" />
-            </div>
 
-            <div className="mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#F59E0B] group-hover:text-white transition-colors">
+            <div className="relative z-10 mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#F59E0B] group-hover:text-white transition-colors">
               <Link href="/features/programme-management" className="inline-flex items-center gap-1.5 cursor-pointer">
                 Configure Workflow <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
