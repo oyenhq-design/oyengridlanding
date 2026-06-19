@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Check, Shield, TrendingUp, Activity, Database } from "lucide-react";
+import { Check, Lock, TrendingUp, Activity, Database } from "lucide-react";
 
 const trustPoints = [
   "End-to-end data encryption",
@@ -18,7 +18,7 @@ const nodes = [
     id: "security",
     label: "Security",
     desc: "Bank-grade data isolation",
-    icon: Shield,
+    icon: Lock,
     x: 260,
     y: 50,
     textOffsetClass: "left-16 top-1 text-left",
@@ -228,7 +228,6 @@ export function ScaleStructure() {
               {/* CONNECTED NODES */}
               {nodes.map((node) => {
                 const NodeIcon = node.icon;
-                const isSecurity = node.id === "security";
                 return (
                   <div
                     key={node.id}
@@ -240,18 +239,7 @@ export function ScaleStructure() {
                       whileHover={{ scale: 1.08 }}
                       className="relative w-12 h-12 rounded-full bg-[#161616] border border-white/[0.08] hover:border-[#F5D76E]/50 flex items-center justify-center shadow-[0_8px_24px_rgba(0,0,0,0.5)] transition-all duration-300 group overflow-hidden cursor-default"
                     >
-                      {isSecurity ? (
-                        <div className="relative w-7 h-7 flex items-center justify-center">
-                          <Image
-                            src="/security-icon.png"
-                            alt="Security"
-                            fill
-                            className="object-contain"
-                          />
-                        </div>
-                      ) : (
-                        <NodeIcon className="w-5 h-5 text-[#F5D76E]/70 group-hover:text-[#F5D76E] transition-colors" />
-                      )}
+                      <NodeIcon className="w-5 h-5 text-[#F5D76E]/70 group-hover:text-[#F5D76E] transition-colors" />
                     </motion.div>
 
                     {/* Node Labels */}
