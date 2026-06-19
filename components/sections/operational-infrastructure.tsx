@@ -78,12 +78,17 @@ export function OperationalInfrastructure() {
               </p>
             </div>
 
-            {/* Embedded Component Placeholder */}
-            <div className="relative mt-2 p-4 rounded-xl border border-white/[0.06] bg-[#000000]/60 overflow-hidden flex flex-col gap-3 min-h-[110px] justify-center">
-              {/* UI Component will be embedded here */}
-              <div className="absolute inset-0 flex items-center justify-center bg-[#F59E0B]/[0.02]">
-                <span className="text-[10px] text-[#9CA3AF] tracking-widest uppercase font-semibold">Workflow & Timeline Component Area</span>
-              </div>
+            {/* Timeline Infographic */}
+            <div className="relative mt-2 rounded-xl border border-white/[0.06] overflow-hidden min-h-[160px]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/timeline-infographic.png"
+                alt="Program workflow and timeline infographic"
+                className="w-full h-full object-cover object-center"
+                style={{ minHeight: "160px", maxHeight: "200px" }}
+              />
+              {/* Subtle vignette overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D11]/60 via-transparent to-transparent pointer-events-none" />
             </div>
 
             <div className="mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#F59E0B] group-hover:text-white transition-colors">
