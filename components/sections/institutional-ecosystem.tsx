@@ -7,7 +7,101 @@ import Link from "next/link";
 import { ArrowRight, Activity, Globe, Users, Database, Workflow, Sparkles, Search, ChevronRight } from "lucide-react";
 import { useSearch } from "@/context/search-context";
 
+export function TopographicWave() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
+  const pathsCount = 18;
+  const centerX = 440;
+  const centerY = 300;
+
+  return (
+    <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+      {/* Subtle gold radial background glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,199,44,0.08),transparent_70%)] pointer-events-none" />
+
+      <svg className="w-[115%] h-[115%] opacity-100 text-[#FFC72C]" viewBox="0 0 800 600" fill="none">
+        {Array.from({ length: pathsCount }).map((_, index) => {
+          const radius = 90 + index * 16;
+          const opacity = 0.95 - (index / pathsCount) * 0.78;
+          const strokeWidth = 1 + (index % 2) * 0.4;
+
+          // Generate wavy concentric loop paths
+          const points = [];
+          const steps = 64;
+          for (let i = 0; i <= steps; i++) {
+            const theta = (i / steps) * 2 * Math.PI;
+            // Distortions to represent coordinates and network flow
+            const wave1 = Math.sin(theta * 2) * 20;
+            const wave2 = Math.cos(theta * 3) * 12;
+            const r = radius + wave1 + wave2;
+            const x = centerX + r * Math.cos(theta) * 1.25;
+            const y = centerY + r * Math.sin(theta) * 0.95;
+            points.push(`${i === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`);
+          }
+          const pathData = points.join(' ') + ' Z';
+
+          return (
+            <motion.path
+              key={index}
+              d={pathData}
+              stroke="currentColor"
+              strokeWidth={strokeWidth}
+              strokeOpacity={opacity}
+              initial={{ pathLength: 0, rotate: 0 }}
+              animate={{
+                pathLength: 1,
+                rotate: [0, 360],
+              }}
+              transition={{
+                pathLength: { duration: 2.2 + index * 0.08, ease: "easeInOut" },
+                rotate: { duration: 75 + index * 4, repeat: Infinity, ease: "linear" }
+              }}
+              style={{ transformOrigin: "440px 300px" }}
+            />
+          );
+        })}
+      </svg>
+
+      {/* Dynamic Gold Dust Particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {mounted && Array.from({ length: 22 }).map((_, i) => {
+          const size = Math.random() * 2 + 1;
+          const delay = Math.random() * 6;
+          const duration = Math.random() * 12 + 10;
+          const top = Math.random() * 100;
+          const left = Math.random() * 100;
+          return (
+            <motion.div
+              key={i}
+              className="absolute rounded-full bg-[#FFC72C]"
+              style={{
+                width: size,
+                height: size,
+                top: `${top}%`,
+                left: `${left}%`,
+                boxShadow: "0 0 6px rgba(255,199,44,0.95)",
+              }}
+              animate={{
+                y: [0, -50, 0],
+                x: [0, Math.random() * 24 - 12, 0],
+                opacity: [0, 0.75, 0],
+              }}
+              transition={{
+                duration,
+                repeat: Infinity,
+                delay,
+                ease: "easeInOut",
+              }}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export function HeroInstitutional() {
   const [query, setQuery] = useState("");
@@ -107,21 +201,15 @@ export function HeroInstitutional() {
             </motion.div>
           </div>
 
-          {/* RIGHT: COMMAND CENTER DASHBOARD VISUAL */}
+          {/* RIGHT: DYNAMIC VECTOR WAVE GRAPHIC */}
           <div className="relative h-[480px] lg:h-[550px] flex items-center justify-center w-full">
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full h-full relative"
+              className="w-full h-full"
             >
-              <Image
-                src="/hero-dashboard.png"
-                alt="Operations Control Dashboard"
-                fill
-                className="object-contain"
-                priority
-              />
+              <TopographicWave />
             </motion.div>
           </div>
 
