@@ -1,7 +1,5 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -90,194 +88,94 @@ const customerProfiles: CustomerProfile[] = [
   }
 ];
 
-// 8 Surrounding coordinates mapping to relative positions in a circle/constellation layout
-const positions = [
-  { left: "50%", top: "50%", size: 120 }, // 0: Center position (active profile)
-  { left: "6%", top: "25%", size: 52 },   // 1
-  { left: "20%", top: "30%", size: 64 },   // 2
-  { left: "10%", top: "72%", size: 48 },   // 3
-  { left: "32%", top: "78%", size: 56 },   // 4
-  { left: "94%", top: "25%", size: 52 },   // 5
-  { left: "80%", top: "30%", size: 64 },   // 6
-  { left: "90%", top: "72%", size: 48 },   // 7
-  { left: "68%", top: "78%", size: 56 }    // 8
-];
-
 export function InstitutionalImpactCinematic() {
-  const [activeId, setActiveId] = useState("becky");
-  const [isHovered, setIsHovered] = useState(false);
-  const [isInteracting, setIsInteracting] = useState(false);
-  const autoplayTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const interactionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const activeIndex = customerProfiles.findIndex(p => p.id === activeId);
-  const activeProfile = customerProfiles[activeIndex];
-
-  const selectNext = useCallback(() => {
-    setActiveId(prevId => {
-      const idx = customerProfiles.findIndex(p => p.id === prevId);
-      const nextIdx = (idx + 1) % customerProfiles.length;
-      return customerProfiles[nextIdx].id;
-    });
-  }, []);
-
-  // Autoplay 6s timer, paused by hover or interaction
-  useEffect(() => {
-    if (autoplayTimerRef.current) clearInterval(autoplayTimerRef.current);
-
-    if (!isHovered && !isInteracting) {
-      autoplayTimerRef.current = setInterval(() => {
-        selectNext();
-      }, 6000);
-    }
-
-    return () => {
-      if (autoplayTimerRef.current) clearInterval(autoplayTimerRef.current);
-    };
-  }, [isHovered, isInteracting, selectNext]);
-
-  // Clean up interaction timer on unmount
-  useEffect(() => {
-    return () => {
-      if (interactionTimeoutRef.current) clearTimeout(interactionTimeoutRef.current);
-    };
-  }, []);
-
-  // Handle manual interaction with 10s pause
-  const handleAvatarClick = (id: string) => {
-    setActiveId(id);
-    setIsInteracting(true);
-    
-    if (interactionTimeoutRef.current) clearTimeout(interactionTimeoutRef.current);
-    
-    interactionTimeoutRef.current = setTimeout(() => {
-      setIsInteracting(false);
-    }, 10000);
-  };
-
-  // Keyboard navigation support
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") {
-        selectNext();
-        setIsInteracting(true);
-        if (interactionTimeoutRef.current) clearTimeout(interactionTimeoutRef.current);
-        interactionTimeoutRef.current = setTimeout(() => setIsInteracting(false), 10000);
-      }
-      if (e.key === "ArrowLeft") {
-        setActiveId(prevId => {
-          const idx = customerProfiles.findIndex(p => p.id === prevId);
-          const prevIdx = (idx - 1 + customerProfiles.length) % customerProfiles.length;
-          return customerProfiles[prevIdx].id;
-        });
-        setIsInteracting(true);
-        if (interactionTimeoutRef.current) clearTimeout(interactionTimeoutRef.current);
-        interactionTimeoutRef.current = setTimeout(() => setIsInteracting(false), 10000);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectNext]);
-
-  // Node position styling mapper
-  const getNodeStyle = (id: string) => {
-    if (id === activeId) {
-      return {
-        ...positions[0],
-        zIndex: 30
-      };
-    }
-
-    const surroundingProfiles = customerProfiles.filter(p => p.id !== activeId);
-    const indexInFiltered = surroundingProfiles.findIndex(p => p.id === id);
-    const pos = positions[indexInFiltered + 1] || positions[1];
-
-    return {
-      ...pos,
-      zIndex: 20
-    };
-  };
+  // Double the profiles array to ensure seamless infinite looping
+  const doubleProfiles = [...customerProfiles, ...customerProfiles];
 
   return (
-    <section 
-      className="py-16 md:py-24 bg-[#0A0A0A] relative overflow-hidden border-b border-white/5"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
+    <section className="py-20 md:py-28 bg-[#050505] relative overflow-hidden border-b border-white/5">
+      <style>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-marquee-track {
+          display: flex;
+          gap: 24px;
+          width: max-content;
+          animation: marquee 50s linear infinite;
+        }
+        .animate-marquee-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
+      {/* Ambient background glows */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[400px] bg-brand-gold/[0.015] blur-[150px] rounded-full" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-gold/[0.01] blur-[120px] rounded-full" />
+      </div>
+
+      <div className="max-w-[1440px] mx-auto relative z-10">
         
         {/* SECTION HEADER */}
-        <div className="text-center mb-8">
-          <h2 className="text-[32px] md:text-[40px] font-bold text-white tracking-tight leading-none mb-4">
+        <div className="text-center mb-16 px-6">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
+            <span className="text-[10px] font-black tracking-widest text-brand-gold uppercase">
+              Success Stories
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-[44px] font-extrabold text-white tracking-tight leading-[1.1] mb-5 max-w-[700px] mx-auto">
             Trusted by the people behind successful programs.
           </h2>
-          <p className="text-[14px] md:text-[15px] text-[#A1A1A1] max-w-[620px] mx-auto font-light leading-relaxed">
+          <p className="text-sm md:text-base text-zinc-400 max-w-[620px] mx-auto font-light leading-relaxed">
             Hear from program directors, facilitators, coordinators, and organizations using OYEN GRID to deliver training at scale.
           </p>
         </div>
 
-        {/* ECOSYSTEM/AVATARS CLUSTER CONTAINER */}
-        <div className="relative h-[200px] md:h-[220px] max-w-[1200px] mx-auto mb-3">
+        {/* INFINITE MARQUEE ROW */}
+        <div className="relative w-full overflow-hidden py-4 select-none">
+          {/* Side Fade Gradients */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none" />
           
-          {/* Subtle connection lines connecting surrounding avatars to active center */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30 z-0">
-            {customerProfiles.map(p => {
-              if (p.id === activeId) return null;
-              const pos = getNodeStyle(p.id);
-              return (
-                <motion.line
-                  key={`line-${p.id}`}
-                  x1="50%"
-                  y1="50%"
-                  x2={pos.left}
-                  y2={pos.top}
-                  stroke="#F5D76E"
-                  strokeWidth="0.75"
-                  strokeOpacity="0.15"
-                  layout
-                />
-              );
-            })}
-          </svg>
+          <div className="animate-marquee-track">
+            {doubleProfiles.map((profile, i) => (
+              <div
+                key={`${profile.id}-${i}`}
+                className="w-[340px] md:w-[380px] flex-shrink-0 bg-[#0c0c0e]/60 border border-white/[0.03] rounded-2xl p-6 md:p-8 flex flex-col justify-between hover:border-brand-gold/30 hover:bg-[#0f0f12] transition-all duration-300 shadow-[0_15px_40px_rgba(0,0,0,0.4)] backdrop-blur-md relative group"
+              >
+                {/* Gold Quote Mark Icon */}
+                <span className="absolute top-6 right-8 text-[44px] text-brand-gold/10 font-serif leading-none group-hover:text-brand-gold/25 transition-colors duration-300">
+                  ”
+                </span>
 
-          {/* Avatars */}
-          <div className="absolute inset-0 z-10">
-            {customerProfiles.map(profile => {
-              const isActive = profile.id === activeId;
-              const pos = getNodeStyle(profile.id);
+                {/* Star Ratings */}
+                <div className="flex gap-0.5 mb-5">
+                  {Array.from({ length: 5 }).map((_, starIdx) => (
+                    <svg
+                      key={starIdx}
+                      className="w-3.5 h-3.5 text-brand-gold fill-current"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
 
-              return (
-                <motion.button
-                  key={profile.id}
-                  onClick={() => handleAvatarClick(profile.id)}
-                  layout
-                  animate={{
-                    left: pos.left,
-                    top: pos.top,
-                    width: pos.size,
-                    height: pos.size,
-                    scale: isActive ? 1.08 : 0.9,
-                    opacity: isActive ? 1 : 0.6,
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 90,
-                    damping: 15,
-                    mass: 0.8,
-                    layout: { duration: 0.6 }
-                  }}
-                  style={{
-                    position: "absolute",
-                    transform: "translate(-50%, -50%)",
-                    zIndex: pos.zIndex,
-                  }}
-                  className={`rounded-full overflow-hidden flex items-center justify-center transition-shadow duration-300 cursor-pointer ${
-                    isActive 
-                      ? "border-2 border-[#F5D76E] shadow-[0_0_20px_rgba(245,215,110,0.25)] bg-[#0C0F19]" 
-                      : "hover:opacity-100 hover:scale-[1.05] border border-white/10"
-                  }`}
-                >
-                  <div className="relative w-full h-full">
+                {/* Quote Content */}
+                <blockquote className="text-zinc-200 text-[13.5px] md:text-[14.5px] leading-relaxed font-normal mb-8 italic flex-grow">
+                  &ldquo;{profile.quote}&rdquo;
+                </blockquote>
+
+                {/* Profile Info */}
+                <div className="flex items-center gap-3.5 pt-5 border-t border-white/[0.04]">
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/10 shrink-0">
                     <Image
                       src={profile.avatarUrl}
                       alt={profile.name}
@@ -286,88 +184,35 @@ export function InstitutionalImpactCinematic() {
                       unoptimized
                     />
                   </div>
-                </motion.button>
-              );
-            })}
+                  <div className="min-w-0">
+                    <h4 className="text-xs font-bold text-white truncate tracking-wide">
+                      {profile.name}
+                    </h4>
+                    <span className="text-[9.5px] font-black text-brand-gold tracking-[0.18em] uppercase mt-0.5 block truncate">
+                      {profile.role} · {profile.org}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-
         </div>
 
-        {/* ACTIVE TESTIMONIAL DISPLAY (Primary focus) */}
-        <div className="max-w-[1200px] mx-auto relative z-20 flex flex-col items-center">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeId}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.4 }}
-              className="flex flex-col items-center max-w-[900px] w-full"
+        {/* BOTTOM ACTION */}
+        <div className="text-center mt-12 px-6">
+          <Link
+            href="/resources/customer-stories"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-gold hover:text-white uppercase tracking-widest group cursor-pointer"
+            style={{ transition: 'color 250ms ease' }}
+          >
+            Explore More Stories
+            <span 
+              className="transform group-hover:translate-x-1.5"
+              style={{ transition: 'transform 250ms ease' }}
             >
-              
-              {/* Quote Wrapper with positioned icon */}
-              <div className="relative w-full px-12 mt-3 text-center">
-                <span className="absolute top-[-10px] left-[15px] text-[36px] text-[#F5D76E] opacity-35 select-none font-serif leading-none">
-                  ❝
-                </span>
-                
-                {/* Testimonial Quote */}
-                <blockquote className="text-[20px] md:text-[22px] font-bold text-white tracking-tight leading-[1.35] pt-1">
-                  "{activeProfile.quote}"
-                </blockquote>
-              </div>
-
-              {/* Author Info */}
-              <div className="mt-4 flex flex-col items-center text-center">
-                <span className="text-[16px] font-semibold text-white tracking-tight leading-none">
-                  {activeProfile.name}
-                </span>
-                <span className="text-[13px] font-black text-[#F5D76E] uppercase tracking-[0.2em] mt-1 block">
-                  {activeProfile.role} · {activeProfile.org}
-                </span>
-              </div>
-
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Bottom Controls Row: Centers dots, aligns explore link to the far right */}
-          <div className="w-full grid grid-cols-1 md:grid-cols-3 items-center mt-8 gap-4 px-6">
-            <div className="hidden md:block" />
-            
-            {/* PROGRESS INDICATOR DOTS */}
-            <div className="flex items-center justify-center gap-2">
-              {customerProfiles.map((profile, idx) => (
-                <button
-                  key={`dot-${profile.id}`}
-                  onClick={() => handleAvatarClick(profile.id)}
-                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    idx === activeIndex 
-                      ? "bg-[#F5D76E] w-3" 
-                      : "bg-white/20 hover:bg-white/40"
-                  }`}
-                  aria-label={`Go to story ${idx + 1}`}
-                />
-              ))}
-            </div>
-            
-            {/* Explore More Stories Link */}
-            <div className="text-center md:text-right">
-              <Link
-                href="/resources/customer-stories"
-                className="inline-flex items-center gap-1.5 text-[14px] font-medium text-[#F5D76E] hover:text-white tracking-[0.02em] group cursor-pointer"
-                style={{ transition: 'color 250ms ease' }}
-              >
-                Explore More Stories
-                <span 
-                  className="transform group-hover:translate-x-1"
-                  style={{ transition: 'transform 250ms ease' }}
-                >
-                  →
-                </span>
-              </Link>
-            </div>
-          </div>
-
+              →
+            </span>
+          </Link>
         </div>
 
       </div>
