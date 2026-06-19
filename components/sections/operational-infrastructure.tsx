@@ -71,10 +71,10 @@ export function OperationalInfrastructure() {
               src="/timeline-infographic.png"
               alt=""
               aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover object-center opacity-30 pointer-events-none select-none"
+              className="absolute inset-0 w-full h-full object-cover object-center opacity-60 pointer-events-none select-none"
             />
             {/* Dark gradient overlay — keeps text legible */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0D0D11]/95 via-[#0D0D11]/80 to-[#0D0D11]/50 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0D0D11]/80 via-[#0D0D11]/50 to-[#0D0D11]/20 pointer-events-none" />
 
             {/* Card content — sits above background */}
             <div className="relative z-10">
