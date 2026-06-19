@@ -58,12 +58,6 @@ export function ScaleStructure() {
 
   return (
     <section className="py-24 md:py-32 bg-[#050505] relative overflow-hidden border-b border-white/5">
-      {/* Background Image Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.16] pointer-events-none" 
-        style={{ backgroundImage: "url('/infra-bg.png')" }} 
-      />
-
       {/* Ambient background glows */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[800px] h-[500px] bg-[#F5D76E]/[0.02] blur-[150px] rounded-full" />
@@ -133,6 +127,12 @@ export function ScaleStructure() {
             className="w-full flex items-center justify-center lg:justify-end"
           >
             <div className="relative w-full max-w-[520px] h-[380px] bg-[#0A0A0A]/40 border border-white/[0.03] rounded-3xl p-6 shadow-[0_24px_50px_rgba(0,0,0,0.8)] overflow-hidden">
+              {/* Box Background Image Overlay */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.28] pointer-events-none" 
+                style={{ backgroundImage: "url('/diagram-bg.png')" }} 
+              />
+
               {/* Dynamic gold dust particles float */}
               <div className="absolute inset-0 pointer-events-none z-0">
                 {Array.from({ length: 8 }).map((_, i) => (
