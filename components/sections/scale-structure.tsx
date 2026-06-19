@@ -57,10 +57,16 @@ export function ScaleStructure() {
 
   return (
     <section className="py-24 md:py-32 bg-[#050505] relative overflow-hidden border-b border-white/5">
+      {/* Background Image Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.16] pointer-events-none" 
+        style={{ backgroundImage: "url('/infra-bg.png')" }} 
+      />
+
       {/* Ambient background glows */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[800px] h-[500px] bg-[#F5D76E]/[0.015] blur-[150px] rounded-full" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#F5D76E]/[0.01] blur-[120px] rounded-full" />
+        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[800px] h-[500px] bg-[#F5D76E]/[0.02] blur-[150px] rounded-full" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#F5D76E]/[0.015] blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
