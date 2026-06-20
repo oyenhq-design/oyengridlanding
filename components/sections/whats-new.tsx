@@ -5,9 +5,12 @@ import { ArrowRight, TrendingUp, FileText } from "lucide-react";
 
 export function WhatsNew() {
   return (
-    <section className="relative py-24 bg-[#0A0A0A] overflow-hidden flex flex-col items-center">
-      {/* Background Atmosphere */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#F5D76E]/[0.03] blur-[120px] pointer-events-none" />
+    <section className="relative py-24 bg-[#05070F] overflow-hidden flex flex-col items-center">
+      {/* Background Atmosphere — boosted */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#F5D76E]/[0.06] blur-[130px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-[#3B6FE8]/[0.05] blur-[110px] rounded-full" />
+      </div>
 
       <div className="w-full max-w-[1400px] mx-auto px-6 relative z-10">
         {/* Header */}
@@ -31,7 +34,7 @@ export function WhatsNew() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
           {/* Card 1: AltSchool (Customer Story) - col-span-5 */}
-          <div className="lg:col-span-5 flex flex-col bg-[#111111] border border-white/[0.08] rounded-[20px] overflow-hidden group">
+          <div className="lg:col-span-5 flex flex-col bg-[#0C1020] border border-white/[0.08] rounded-[20px] overflow-hidden group">
             {/* Top Area */}
             <div className="relative flex-1 p-8 flex flex-col min-h-[380px]">
               {/* Image Background */}
@@ -86,7 +89,7 @@ export function WhatsNew() {
           </div>
 
           {/* Card 2: TalentQL (Case Study) - col-span-4 */}
-          <div className="lg:col-span-4 flex flex-col bg-[#111111] border border-white/[0.08] rounded-[20px] overflow-hidden group">
+          <div className="lg:col-span-4 flex flex-col bg-[#0C1020] border border-white/[0.08] rounded-[20px] overflow-hidden group">
             {/* Top Area */}
             <div className="relative flex-1 p-8 flex flex-col min-h-[380px]">
               {/* Image Background */}
@@ -149,7 +152,7 @@ export function WhatsNew() {
           <div className="lg:col-span-3 flex flex-col gap-6">
             
             {/* Top Right Card */}
-            <div className="flex-1 bg-[#111111] border border-white/[0.08] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px]">
+            <div className="flex-1 bg-[#0C1020] border border-white/[0.08] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px]">
               {/* Image Background */}
               <div className="absolute inset-0 overflow-hidden">
                 {/* Subtle warm OYEN gold glow in the bottom right */}
@@ -189,7 +192,7 @@ export function WhatsNew() {
             </div>
 
             {/* Bottom Right Card */}
-            <div className="flex-1 bg-[#111111] border border-white/[0.08] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px]">
+            <div className="flex-1 bg-[#0C1020] border border-white/[0.08] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px]">
               {/* Image Background */}
               <div className="absolute inset-0 overflow-hidden">
                 {/* Subtle warm OYEN gold glow in the bottom right */}

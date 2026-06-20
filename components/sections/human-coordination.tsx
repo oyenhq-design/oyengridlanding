@@ -31,10 +31,14 @@ const features = [
 
 export function HumanCoordination() {
   return (
-    <section className="relative py-24 md:py-28 lg:py-32 bg-[#050816] theme-navy-section overflow-hidden border-b border-white/5 flex items-center">
+    <section className="relative py-24 md:py-28 lg:py-32 bg-[#060A1C] theme-navy-section overflow-hidden border-b border-white/5 flex items-center">
       
-      {/* Subtle background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(226,184,76,0.02),transparent_50%)] pointer-events-none" />
+      {/* Rich atmospheric glows for AI section */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-20%] right-[-10%] w-[700px] h-[700px] bg-[#E2B84C]/[0.07] blur-[130px] rounded-full" />
+        <div className="absolute bottom-[-10%] left-[10%] w-[600px] h-[500px] bg-[#3B6FE8]/[0.07] blur-[110px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#7C3AED]/[0.04] blur-[130px] rounded-full" />
+      </div>
 
       <div className="w-full max-w-[1280px] mx-auto px-6 md:px-8 relative z-10">
         <div className="grid lg:grid-cols-[1fr_1.3fr] gap-16 lg:gap-20 items-center">

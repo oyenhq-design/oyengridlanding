@@ -9,13 +9,13 @@
 }
 
 :root {
-  --background: #050505;
+  --background: #05070F;
   --foreground: #ffffff;
   --brand-gold: #E2B84C;
-  --brand-dark: #050505;
-  --glass-bg: rgba(7, 7, 7, 0.78);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --text-muted: rgba(255, 255, 255, 0.7);
+  --brand-dark: #05070F;
+  --glass-bg: rgba(5, 7, 15, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --text-muted: rgba(255, 255, 255, 0.72);
 }
 
 html:not(.dark) {

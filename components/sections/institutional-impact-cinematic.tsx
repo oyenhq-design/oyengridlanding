@@ -93,7 +93,7 @@ export function InstitutionalImpactCinematic() {
   const doubleProfiles = [...customerProfiles, ...customerProfiles];
 
   return (
-    <section className="py-20 md:py-28 bg-[#050505] relative overflow-hidden border-b border-white/5">
+    <section className="py-20 md:py-28 bg-[#04080F] relative overflow-hidden border-b border-white/5">
       <style>{`
         @keyframes marquee {
           0% {
@@ -114,10 +114,11 @@ export function InstitutionalImpactCinematic() {
         }
       `}</style>
 
-      {/* Ambient background glows */}
+      {/* Ambient background glows — boosted */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[400px] bg-brand-gold/[0.015] blur-[150px] rounded-full" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-gold/[0.01] blur-[120px] rounded-full" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[700px] h-[500px] bg-brand-gold/[0.06] blur-[150px] rounded-full" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-gold/[0.04] blur-[120px] rounded-full" />
+        <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-[#3B6FE8]/[0.05] blur-[130px] rounded-full" />
       </div>
 
       <div className="max-w-[1440px] mx-auto relative z-10">
@@ -141,14 +142,14 @@ export function InstitutionalImpactCinematic() {
         {/* INFINITE MARQUEE ROW */}
         <div className="relative w-full overflow-hidden py-4 select-none">
           {/* Side Fade Gradients */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-[#04080F] to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-[#04080F] to-transparent z-20 pointer-events-none" />
           
           <div className="animate-marquee-track">
             {doubleProfiles.map((profile, i) => (
               <div
                 key={`${profile.id}-${i}`}
-                className="w-[340px] md:w-[380px] flex-shrink-0 bg-[#0c0c0e]/60 border border-white/[0.03] rounded-2xl p-6 md:p-8 flex flex-col justify-between hover:border-brand-gold/30 hover:bg-[#0f0f12] transition-all duration-300 shadow-[0_15px_40px_rgba(0,0,0,0.4)] backdrop-blur-md relative group"
+                className="w-[340px] md:w-[380px] flex-shrink-0 bg-[#090E1C]/80 border border-white/[0.06] rounded-2xl p-6 md:p-8 flex flex-col justify-between hover:border-brand-gold/30 hover:bg-[#0C1224] transition-all duration-300 shadow-[0_15px_40px_rgba(0,0,0,0.4)] backdrop-blur-md relative group"
               >
                 {/* Gold Quote Mark Icon */}
                 <span className="absolute top-6 right-8 text-[44px] text-brand-gold/10 font-serif leading-none group-hover:text-brand-gold/25 transition-colors duration-300">

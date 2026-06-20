@@ -161,7 +161,14 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="relative min-h-[680px] bg-[#0B0B0B] flex items-center pt-8 pb-8 overflow-hidden">
+    <section className="relative min-h-[680px] bg-[#070B1A] flex items-center pt-8 pb-8 overflow-hidden">
+
+      {/* Rich atmospheric glows — gold + blue */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-10%] left-[-5%] w-[700px] h-[700px] bg-[#FFC72C]/[0.06] blur-[120px] rounded-full" />
+        <div className="absolute top-[10%] right-[0%] w-[500px] h-[500px] bg-[#3B6FE8]/[0.07] blur-[100px] rounded-full" />
+        <div className="absolute bottom-[-10%] left-[30%] w-[600px] h-[400px] bg-[#1A3A7A]/[0.08] blur-[100px] rounded-full" />
+      </div>
 
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
 
@@ -228,7 +235,7 @@ export function HeroInstitutional() {
         </div>
 
         {/* TOP: REDESIGNED PREMIUM TRUST BAR */}
-        <div className="mt-6 border border-white/5 rounded-2xl bg-[#0a0a0a]/40 backdrop-blur-md px-10 py-5 flex flex-col gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.8)]">
+        <div className="mt-6 border border-white/[0.07] rounded-2xl bg-[#0A0D1A]/60 backdrop-blur-md px-10 py-5 flex flex-col gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.8)]" style={{borderColor: "rgba(59,111,232,0.12)"}}>
           <span className="text-[9px] font-black tracking-[0.24em] text-[#FFC72C] uppercase text-center select-none">
             Trusted by organisations
           </span>

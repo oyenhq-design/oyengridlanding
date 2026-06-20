@@ -9,7 +9,13 @@ import Link from "next/link";
 
 export function OperationalInfrastructure() {
   return (
-    <section className="py-24 md:py-32 bg-[#000000] relative overflow-hidden border-b border-white/5">
+    <section className="py-24 md:py-32 bg-[#04060F] relative overflow-hidden border-b border-white/5">
+      {/* Rich section glows */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#E2B84C]/[0.04] blur-[130px] rounded-full" />
+        <div className="absolute bottom-0 left-1/4 w-[600px] h-[400px] bg-[#3B6FE8]/[0.05] blur-[120px] rounded-full" />
+        <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-[#1A4A8A]/[0.06] blur-[100px] rounded-full" />
+      </div>
       {/* Background radial atmosphere */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-[radial-gradient(circle,rgba(245,158,11,0.02),transparent_75%)] pointer-events-none blur-[130px]" />
@@ -104,7 +110,7 @@ export function OperationalInfrastructure() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="md:col-span-1 rounded-[24px] border border-white/[0.08] bg-[#0D0D11] p-8 flex flex-col justify-between hover:border-[#F59E0B]/30 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(245,158,11,0.04)] transition-all duration-300 group overflow-hidden relative"
+            className="md:col-span-1 rounded-[24px] border border-white/[0.08] bg-[#0A0D1C] p-8 flex flex-col justify-between hover:border-[#F59E0B]/40 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(245,158,11,0.08)] transition-all duration-300 group overflow-hidden relative"
           >
             <div>
               <div className="flex items-center justify-between mb-6">
@@ -203,7 +209,7 @@ export function OperationalInfrastructure() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="md:col-span-2 rounded-[24px] border border-white/[0.08] bg-[#0D0D11] p-8 flex flex-col justify-between hover:border-[#F59E0B]/30 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(245,158,11,0.04)] transition-all duration-300 group overflow-hidden relative"
+            className="md:col-span-2 rounded-[24px] border border-white/[0.08] bg-[#0A0D1C] p-8 flex flex-col justify-between hover:border-[#F59E0B]/40 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(245,158,11,0.08)] transition-all duration-300 group overflow-hidden relative"
           >
             <div>
               <div className="flex items-center justify-between mb-6">
