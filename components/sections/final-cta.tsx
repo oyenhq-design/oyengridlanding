@@ -51,7 +51,7 @@ export function FinalCTA() {
   ];
 
   return (
-    <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-4 md:py-5 border-t border-b border-white/5 overflow-hidden bg-[#05070B]">
+    <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-4 md:py-5 border-t border-b border-white/5 overflow-hidden bg-[#0C1029]">
       {/* Background image (25% opacity directly on the dark section background) */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.25]" 

@@ -14,7 +14,7 @@ import { SearchSystem } from "@/components/layout/search-system";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#05070B] selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden">
+    <main className="min-h-screen bg-[#FAFAF8] selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden">
       {/* 1. NAVIGATION & ANNOUNCEMENT */}
       <Header />
       <AnnouncementBar />

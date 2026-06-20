@@ -31,7 +31,7 @@ const features = [
 
 export function HumanCoordination() {
   return (
-    <section className="relative py-24 md:py-28 lg:py-32 bg-[#060A1C] theme-navy-section overflow-hidden border-b border-white/5 flex items-center">
+    <section className="relative py-24 md:py-28 lg:py-32 bg-[#0C1029] theme-navy-section overflow-hidden border-b border-white/5 flex items-center">
       
       {/* Rich atmospheric glows for AI section */}
       <div className="absolute inset-0 pointer-events-none">

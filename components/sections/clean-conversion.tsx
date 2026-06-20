@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function CleanConversion() {
   return (
-    <section className="relative bg-[#0A0A0A] border-t border-white/[0.05] py-20 md:py-28 overflow-hidden">
+    <section className="relative bg-[#0C1029] border-t border-white/[0.05] py-20 md:py-28 overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-6 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

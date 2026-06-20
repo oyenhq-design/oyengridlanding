@@ -9,16 +9,11 @@ import Link from "next/link";
 
 export function OperationalInfrastructure() {
   return (
-    <section className="py-24 md:py-32 bg-[#04060F] relative overflow-hidden border-b border-white/5">
-      {/* Rich section glows */}
+    <section className="py-24 md:py-32 bg-[#F3EFE5] relative overflow-hidden border-b border-[#0A0D1F]/5">
+      {/* Subtle section glows */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#E2B84C]/[0.04] blur-[130px] rounded-full" />
-        <div className="absolute bottom-0 left-1/4 w-[600px] h-[400px] bg-[#3B6FE8]/[0.05] blur-[120px] rounded-full" />
-        <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-[#1A4A8A]/[0.06] blur-[100px] rounded-full" />
-      </div>
-      {/* Background radial atmosphere */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-[radial-gradient(circle,rgba(245,158,11,0.02),transparent_75%)] pointer-events-none blur-[130px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#D4A017]/[0.05] blur-[130px] rounded-full" />
+        <div className="absolute bottom-0 left-1/4 w-[600px] h-[400px] bg-[#D4A017]/[0.02] blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-[1200px] mx-auto px-6 relative z-10">
@@ -31,8 +26,8 @@ export function OperationalInfrastructure() {
             viewport={{ once: true }}
             className="flex items-center gap-2 mb-4"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
-            <span className="text-[10px] font-black tracking-widest text-[#F59E0B] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4A017]" />
+            <span className="text-[10px] font-black tracking-widest text-[#D4A017] uppercase">
               Platform Capabilities
             </span>
           </motion.div>
@@ -42,10 +37,10 @@ export function OperationalInfrastructure() {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-extrabold text-[#FFFFFF] leading-[1.1] tracking-tight max-w-[620px]"
+              className="text-4xl md:text-5xl font-extrabold text-[#0A0D1F] leading-[1.1] tracking-tight max-w-[620px]"
             >
               Every tool you need to{" "}
-              <span className="text-[#F59E0B] italic font-serif font-normal">
+              <span className="text-[#D4A017] italic font-serif font-normal">
                 deliver training.
               </span>
             </motion.h2>
@@ -53,7 +48,7 @@ export function OperationalInfrastructure() {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-xs md:text-sm text-[#9CA3AF] max-w-[280px] font-light leading-relaxed"
+              className="text-xs md:text-sm text-[#55534E] max-w-[280px] font-normal leading-relaxed"
             >
               Replace multiple disconnected systems with a single comprehensive, high-performance platform.
             </motion.p>
@@ -69,7 +64,7 @@ export function OperationalInfrastructure() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="md:col-span-2 rounded-[24px] border border-white/[0.08] p-8 flex flex-col justify-between hover:border-[#F59E0B]/30 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(245,158,11,0.08)] transition-all duration-300 group overflow-hidden relative"
+            className="md:col-span-2 rounded-[24px] border border-[#0A0D1F]/10 bg-white p-8 flex flex-col justify-between hover:border-[#D4A017]/30 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(10,13,31,0.06)] transition-all duration-300 group overflow-hidden relative"
           >
             {/* Full-card background: timeline infographic */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -77,27 +72,26 @@ export function OperationalInfrastructure() {
               src="/timeline-infographic.png"
               alt=""
               aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover object-center opacity-45 pointer-events-none select-none"
+              className="absolute inset-0 w-full h-full object-cover object-center opacity-25 pointer-events-none select-none"
             />
             {/* Blended overlay — strong top for text, clears at bottom */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D11]/90 via-[#0D0D11]/60 to-[#0D0D11]/10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white/10 pointer-events-none" />
 
             {/* Card content — sits above background */}
             <div className="relative z-10">
               <div className="flex items-center justify-between mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[#F59E0B]/5 border border-[#F59E0B]/20 flex items-center justify-center text-[#F59E0B] group-hover:bg-[#F59E0B]/10 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#D4A017]/5 border border-[#D4A017]/20 flex items-center justify-center text-[#D4A017] group-hover:bg-[#D4A017]/10 transition-colors">
                   <Layers className="w-5 h-5" />
                 </div>
-                <span className="text-[10px] font-bold text-[#9CA3AF] uppercase tracking-widest">01 / FEATURE</span>
+                <span className="text-[10px] font-bold text-[#55534E] uppercase tracking-widest">01 / FEATURE</span>
               </div>
-              <h3 className="text-2xl font-bold text-[#FFFFFF] mb-3">Program Management</h3>
-              <p className="text-sm text-[#9CA3AF] font-light leading-relaxed max-w-[480px] mb-6">
+              <h3 className="text-2xl font-bold text-[#0A0D1F] mb-3">Program Management</h3>
+              <p className="text-sm text-[#55534E] font-normal leading-relaxed max-w-[480px] mb-6">
                 Manage programs, cohorts, schedules, facilitators, and delivery workflows. Build curriculums, set dates, and coordinate facilitators with high-efficiency cohorts.
               </p>
             </div>
 
-
-            <div className="relative z-10 mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#F59E0B] group-hover:text-white transition-colors">
+            <div className="relative z-10 mt-8 pt-4 border-t border-[#0A0D1F]/5 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#D4A017] group-hover:text-[#B38012] transition-colors">
               <Link href="/features/programme-management" className="inline-flex items-center gap-1.5 cursor-pointer">
                 Configure Workflow <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
@@ -110,27 +104,27 @@ export function OperationalInfrastructure() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="md:col-span-1 rounded-[24px] border border-white/[0.08] bg-[#0A0D1C] p-8 flex flex-col justify-between hover:border-[#F59E0B]/40 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(245,158,11,0.08)] transition-all duration-300 group overflow-hidden relative"
+            className="md:col-span-1 rounded-[24px] border border-[#0A0D1F]/10 bg-white p-8 flex flex-col justify-between hover:border-[#D4A017]/40 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(10,13,31,0.06)] transition-all duration-300 group overflow-hidden relative"
           >
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[#F59E0B]/5 border border-[#F59E0B]/20 flex items-center justify-center text-[#F59E0B] group-hover:bg-[#F59E0B]/10 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#D4A017]/5 border border-[#D4A017]/20 flex items-center justify-center text-[#D4A017] group-hover:bg-[#D4A017]/10 transition-colors">
                   <Users className="w-5 h-5" />
                 </div>
-                <span className="text-[10px] font-bold text-[#9CA3AF] uppercase tracking-widest">02 / TRACKING</span>
+                <span className="text-[10px] font-bold text-[#55534E] uppercase tracking-widest">02 / TRACKING</span>
               </div>
-              <h3 className="text-xl font-bold text-[#FFFFFF] mb-3">Learner Tracking</h3>
-              <p className="text-sm text-[#9CA3AF] font-light leading-relaxed mb-6">
+              <h3 className="text-xl font-bold text-[#0A0D1F] mb-3">Learner Tracking</h3>
+              <p className="text-sm text-[#55534E] font-normal leading-relaxed mb-6">
                 Monitor attendance, engagement, progress, and completion rate of all participants.
               </p>
             </div>
 
             {/* Embedded Component Placeholder */}
-            <div className="relative p-4 rounded-xl border border-white/[0.06] bg-[#000000]/60 min-h-[90px] flex items-center justify-center">
-              <span className="text-[10px] text-[#9CA3AF] tracking-widest uppercase font-semibold text-center">Analytics & Avatars Area</span>
+            <div className="relative p-4 rounded-xl border border-[#0A0D1F]/5 bg-[#F3EFE5] min-h-[90px] flex items-center justify-center">
+              <span className="text-[10px] text-[#55534E] tracking-widest uppercase font-semibold text-center">Analytics & Avatars Area</span>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#F59E0B] group-hover:text-white transition-colors">
+            <div className="mt-8 pt-4 border-t border-[#0A0D1F]/5 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#D4A017] group-hover:text-[#B38012] transition-colors">
               <Link href="/features/participant-management" className="inline-flex items-center gap-1.5 cursor-pointer">
                 Track Students <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
@@ -143,27 +137,27 @@ export function OperationalInfrastructure() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="md:col-span-1 rounded-[24px] border border-white/[0.08] bg-[#0D0D11] p-8 flex flex-col justify-between hover:border-[#F59E0B]/30 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(245,158,11,0.04)] transition-all duration-300 group overflow-hidden relative"
+            className="md:col-span-1 rounded-[24px] border border-[#0A0D1F]/10 bg-white p-8 flex flex-col justify-between hover:border-[#D4A017]/30 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(10,13,31,0.06)] transition-all duration-300 group overflow-hidden relative"
           >
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[#F59E0B]/5 border border-[#F59E0B]/20 flex items-center justify-center text-[#F59E0B] group-hover:bg-[#F59E0B]/10 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#D4A017]/5 border border-[#D4A017]/20 flex items-center justify-center text-[#D4A017] group-hover:bg-[#D4A017]/10 transition-colors">
                   <Activity className="w-5 h-5" />
                 </div>
-                <span className="text-[10px] font-bold text-[#9CA3AF] uppercase tracking-widest">03 / AUTOMATION</span>
+                <span className="text-[10px] font-bold text-[#55534E] uppercase tracking-widest">03 / AUTOMATION</span>
               </div>
-              <h3 className="text-xl font-bold text-[#FFFFFF] mb-3">Auto Attendance</h3>
-              <p className="text-sm text-[#9CA3AF] font-light leading-relaxed mb-6">
+              <h3 className="text-xl font-bold text-[#0A0D1F] mb-3">Auto Attendance</h3>
+              <p className="text-sm text-[#55534E] font-normal leading-relaxed mb-6">
                 Automatically capture attendance and participation data directly from integration logs.
               </p>
             </div>
 
             {/* Embedded Component Placeholder */}
-            <div className="relative p-4 rounded-xl border border-white/[0.06] bg-[#000000]/60 min-h-[90px] flex items-center justify-center">
-              <span className="text-[10px] text-[#9CA3AF] tracking-widest uppercase font-semibold text-center">Live Status Grid Area</span>
+            <div className="relative p-4 rounded-xl border border-[#0A0D1F]/5 bg-[#F3EFE5] min-h-[90px] flex items-center justify-center">
+              <span className="text-[10px] text-[#55534E] tracking-widest uppercase font-semibold text-center">Live Status Grid Area</span>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#F59E0B] group-hover:text-white transition-colors">
+            <div className="mt-8 pt-4 border-t border-[#0A0D1F]/5 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#D4A017] group-hover:text-[#B38012] transition-colors">
               <Link href="/features/attendance-intelligence" className="inline-flex items-center gap-1.5 cursor-pointer">
                 View Logs <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
@@ -176,27 +170,27 @@ export function OperationalInfrastructure() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="md:col-span-1 rounded-[24px] border border-white/[0.08] bg-[#0D0D11] p-8 flex flex-col justify-between hover:border-[#F59E0B]/30 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(245,158,11,0.04)] transition-all duration-300 group overflow-hidden relative"
+            className="md:col-span-1 rounded-[24px] border border-[#0A0D1F]/10 bg-white p-8 flex flex-col justify-between hover:border-[#D4A017]/30 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(10,13,31,0.06)] transition-all duration-300 group overflow-hidden relative"
           >
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[#F59E0B]/5 border border-[#F59E0B]/20 flex items-center justify-center text-[#F59E0B] group-hover:bg-[#F59E0B]/10 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#D4A017]/5 border border-[#D4A017]/20 flex items-center justify-center text-[#D4A017] group-hover:bg-[#D4A017]/10 transition-colors">
                   <FileText className="w-5 h-5" />
                 </div>
-                <span className="text-[10px] font-bold text-[#9CA3AF] uppercase tracking-widest">04 / GRADES</span>
+                <span className="text-[10px] font-bold text-[#55534E] uppercase tracking-widest">04 / GRADES</span>
               </div>
-              <h3 className="text-xl font-bold text-[#FFFFFF] mb-3">Assessments</h3>
-              <p className="text-sm text-[#9CA3AF] font-light leading-relaxed mb-6">
+              <h3 className="text-xl font-bold text-[#0A0D1F] mb-3">Assessments</h3>
+              <p className="text-sm text-[#55534E] font-normal leading-relaxed mb-6">
                 Create quizzes, assignments, evaluations, and configure automatic grading workflows.
               </p>
             </div>
 
             {/* Embedded Component Placeholder */}
-            <div className="relative p-4 rounded-xl border border-white/[0.06] bg-[#000000]/60 min-h-[90px] flex items-center justify-center">
-              <span className="text-[10px] text-[#9CA3AF] tracking-widest uppercase font-semibold text-center">Evaluation Panel Area</span>
+            <div className="relative p-4 rounded-xl border border-[#0A0D1F]/5 bg-[#F3EFE5] min-h-[90px] flex items-center justify-center">
+              <span className="text-[10px] text-[#55534E] tracking-widest uppercase font-semibold text-center">Evaluation Panel Area</span>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#F59E0B] group-hover:text-white transition-colors">
+            <div className="mt-8 pt-4 border-t border-[#0A0D1F]/5 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#D4A017] group-hover:text-[#B38012] transition-colors">
               <Link href="/features/assessments" className="inline-flex items-center gap-1.5 cursor-pointer">
                 Manage Quizzes <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
@@ -209,30 +203,30 @@ export function OperationalInfrastructure() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="md:col-span-2 rounded-[24px] border border-white/[0.08] bg-[#0A0D1C] p-8 flex flex-col justify-between hover:border-[#F59E0B]/40 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(245,158,11,0.08)] transition-all duration-300 group overflow-hidden relative"
+            className="md:col-span-2 rounded-[24px] border border-[#0A0D1F]/10 bg-white p-8 flex flex-col justify-between hover:border-[#D4A017]/40 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(10,13,31,0.06)] transition-all duration-300 group overflow-hidden relative"
           >
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[#F59E0B]/5 border border-[#F59E0B]/20 flex items-center justify-center text-[#F59E0B] group-hover:bg-[#F59E0B]/10 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#D4A017]/5 border border-[#D4A017]/20 flex items-center justify-center text-[#D4A017] group-hover:bg-[#D4A017]/10 transition-colors">
                   <BarChart3 className="w-5 h-5" />
                 </div>
-                <span className="text-[10px] font-bold text-[#9CA3AF] uppercase tracking-widest">05 / ANALYTICS</span>
+                <span className="text-[10px] font-bold text-[#55534E] uppercase tracking-widest">05 / ANALYTICS</span>
               </div>
-              <h3 className="text-2xl font-bold text-[#FFFFFF] mb-3">Reports</h3>
-              <p className="text-sm text-[#9CA3AF] font-light leading-relaxed max-w-[480px] mb-6">
+              <h3 className="text-2xl font-bold text-[#0A0D1F] mb-3">Reports</h3>
+              <p className="text-sm text-[#55534E] font-normal leading-relaxed max-w-[480px] mb-6">
                 Generate and export detailed attendance, completion, sponsor, and impact reports in one click. Fully audit facilitator contributions and participant achievements.
               </p>
             </div>
 
             {/* Embedded Component Placeholder */}
-            <div className="relative mt-2 p-4 rounded-xl border border-white/[0.06] bg-[#000000]/60 overflow-hidden flex flex-col gap-3 min-h-[110px] justify-center">
+            <div className="relative mt-2 p-4 rounded-xl border border-[#0A0D1F]/5 bg-[#F3EFE5] overflow-hidden flex flex-col gap-3 min-h-[110px] justify-center">
               {/* UI Component will be embedded here */}
-              <div className="absolute inset-0 flex items-center justify-center bg-[#F59E0B]/[0.02]">
-                <span className="text-[10px] text-[#9CA3AF] tracking-widest uppercase font-semibold">Charts & Export Panel Area</span>
+              <div className="absolute inset-0 flex items-center justify-center bg-[#D4A017]/[0.01]">
+                <span className="text-[10px] text-[#55534E] tracking-widest uppercase font-semibold">Charts & Export Panel Area</span>
               </div>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#F59E0B] group-hover:text-white transition-colors">
+            <div className="mt-8 pt-4 border-t border-[#0A0D1F]/5 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#D4A017] group-hover:text-[#B38012] transition-colors">
               <Link href="/features/analytics" className="inline-flex items-center gap-1.5 cursor-pointer">
                 Export Reports <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>

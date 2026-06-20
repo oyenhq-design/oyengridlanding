@@ -106,13 +106,13 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
               <stop offset="100%" stopColor="rgba(255,255,255,0.06)" />
             </linearGradient>
           </defs>
-          <path d="M0,60 L0,10 C400,10 700,50 1000,50 C1200,50 1350,20 1440,20 L1440,60 Z" fill="#080B14" />
+          <path d="M0,60 L0,10 C400,10 700,50 1000,50 C1200,50 1350,20 1440,20 L1440,60 Z" fill="#0C1029" />
           <path d="M0,10 C400,10 700,50 1000,50 C1200,50 1350,20 1440,20" fill="none" stroke="url(#footer-curve-grad)" strokeWidth="1.5" />
         </svg>
       </div>
 
       {/* Main Footer Body */}
-      <div className="bg-[#080B14] pt-8 pb-10">
+      <div className="bg-[#0C1029] pt-8 pb-10">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 flex flex-col gap-10">
           
           {/* MAIN GRID */}

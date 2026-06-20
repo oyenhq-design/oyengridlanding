@@ -93,17 +93,17 @@ function NavDropdown({
       <button
         className={cn(
           "flex items-center gap-1 text-[12.5px] font-semibold tracking-wide px-1 h-8 transition-colors duration-150 cursor-pointer",
-          active ? "text-white" : "text-white/55 hover:text-white"
+          active ? "text-[#0A0D1F]" : "text-[#0A0D1F]/60 hover:text-[#0A0D1F]"
         )}
       >
         {(menu as { isAI?: boolean }).isAI && (
-          <Sparkles className="w-3 h-3 text-[#E2B84C] mr-0.5" />
+          <Sparkles className="w-3 h-3 text-[#D4A017] mr-0.5" />
         )}
         <span>{menu.label}</span>
         <ChevronDown
           className={cn(
             "w-3 h-3 transition-transform duration-200 opacity-50",
-            active && "rotate-180 opacity-100 text-[#E2B84C]"
+            active && "rotate-180 opacity-100 text-[#D4A017]"
           )}
         />
       </button>
@@ -126,31 +126,31 @@ function NavDropdown({
                 </span>
               </div>
             )}
-            <div className="bg-[#0C0C0F]/95 border border-white/[0.08] backdrop-blur-xl rounded-xl p-1.5 shadow-[0_24px_60px_rgba(0,0,0,0.7)] flex flex-col gap-0.5">
+            <div className="bg-white/95 border border-[#0A0D1F]/10 backdrop-blur-xl rounded-xl p-1.5 shadow-[0_12px_40px_rgba(10,13,31,0.08)] flex flex-col gap-0.5">
               {menu.items.map((item) => (
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-white/[0.05] transition-all duration-150 group"
+                  className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#0A0D1F]/5 transition-all duration-150 group"
                 >
                   <div className={cn(
                     "w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-colors",
                     (menu as { isAI?: boolean }).isAI
-                      ? "bg-[#E2B84C]/10 group-hover:bg-[#E2B84C]/20"
-                      : "bg-white/[0.04] group-hover:bg-white/[0.08]"
+                      ? "bg-[#D4A017]/10 group-hover:bg-[#D4A017]/20"
+                      : "bg-[#0A0D1F]/5 group-hover:bg-[#0A0D1F]/10"
                   )}>
                     <item.icon className={cn(
                       "w-3.5 h-3.5 transition-colors",
                       (menu as { isAI?: boolean }).isAI
-                        ? "text-[#E2B84C]"
-                        : "text-white/40 group-hover:text-white/70"
+                        ? "text-[#D4A017]"
+                        : "text-[#0A0D1F]/40 group-hover:text-[#0A0D1F]"
                     )} />
                   </div>
                   <div className="flex flex-col min-w-0">
-                    <span className="text-[12px] font-semibold text-white/90 group-hover:text-white leading-none mb-1 transition-colors">
+                    <span className="text-[12px] font-semibold text-[#0A0D1F]/90 group-hover:text-[#0A0D1F] leading-none mb-1 transition-colors">
                       {item.title}
                     </span>
-                    <span className="text-[10.5px] text-white/35 leading-snug font-light">
+                    <span className="text-[10.5px] text-[#55534E] leading-snug font-normal">
                       {item.desc}
                     </span>
                   </div>
@@ -171,10 +171,6 @@ export function Header() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -199,8 +195,8 @@ export function Header() {
       ref={headerRef}
       className={cn(
         "fixed top-0 left-0 right-0 z-[100] h-[64px] flex items-center transition-all duration-300",
-        "bg-[#07070A]/95 border-b border-white/[0.06]",
-        scrolled && "shadow-[0_8px_32px_rgba(0,0,0,0.8)] backdrop-blur-xl"
+        "bg-[#FAFAF8]/95 border-b border-[#0A0D1F]/10",
+        scrolled && "shadow-[0_4px_20px_rgba(10,13,31,0.05)] backdrop-blur-xl"
       )}
     >
       <div className="w-full max-w-[1320px] mx-auto px-6 flex items-center justify-between gap-4">
@@ -216,9 +212,8 @@ export function Header() {
               alt=""
               aria-hidden="true"
               className="w-7 h-7 object-contain"
-              style={{ mixBlendMode: "screen" }}
             />
-            <span className="font-bold text-white text-[13px] tracking-[0.07em] uppercase group-hover:text-[#E2B84C] transition-colors duration-200">
+            <span className="font-bold text-[#0A0D1F] text-[13px] tracking-[0.07em] uppercase group-hover:text-[#D4A017] transition-colors duration-200">
               OYEN GRID
             </span>
           </Link>
@@ -236,7 +231,7 @@ export function Header() {
             ))}
             <Link
               href="/pricing"
-              className="text-[12.5px] font-semibold text-white/55 hover:text-white tracking-wide px-1 transition-colors duration-150"
+              className="text-[12.5px] font-semibold text-[#0A0D1F]/60 hover:text-[#0A0D1F] tracking-wide px-1 transition-colors duration-150"
             >
               Pricing
             </Link>
@@ -247,7 +242,7 @@ export function Header() {
         <div className="flex items-center gap-1">
 
           {/* Search icon */}
-          <button className="hidden lg:flex p-2 text-white/40 hover:text-white transition-colors rounded-lg hover:bg-white/[0.05] cursor-pointer">
+          <button className="hidden lg:flex p-2 text-[#0A0D1F]/40 hover:text-[#0A0D1F] transition-colors rounded-lg hover:bg-[#0A0D1F]/5 cursor-pointer">
             <Search className="w-4 h-4" />
           </button>
 
@@ -265,12 +260,12 @@ export function Header() {
           </div>
 
           {/* Divider */}
-          <div className="hidden lg:block w-px h-4 bg-white/10 mx-2" />
+          <div className="hidden lg:block w-px h-4 bg-[#0A0D1F]/10 mx-2" />
 
           {/* Sign In */}
           <Link
             href="/sign-in"
-            className="hidden lg:inline-block text-[12px] font-semibold text-white/55 hover:text-white transition-colors px-2 py-1.5"
+            className="hidden lg:inline-block text-[12px] font-semibold text-[#0A0D1F]/60 hover:text-[#0A0D1F] transition-colors px-2 py-1.5"
           >
             Sign In
           </Link>
@@ -278,18 +273,18 @@ export function Header() {
           {/* Support */}
           <Link
             href="/resources/help"
-            className="hidden lg:inline-block text-[12px] font-semibold text-white/55 hover:text-white transition-colors px-2 py-1.5"
+            className="hidden lg:inline-block text-[12px] font-semibold text-[#0A0D1F]/60 hover:text-[#0A0D1F] transition-colors px-2 py-1.5"
           >
             Support
           </Link>
 
           {/* Divider */}
-          <div className="hidden lg:block w-px h-4 bg-white/10 mx-2" />
+          <div className="hidden lg:block w-px h-4 bg-[#0A0D1F]/10 mx-2" />
 
           {/* Contact Sales — outline */}
           <Link
             href="/company/enterprise-sales"
-            className="hidden lg:inline-flex items-center px-3.5 py-1.5 rounded-lg border border-white/20 hover:border-[#E2B84C]/50 text-[11.5px] font-bold text-white/80 hover:text-white tracking-wide uppercase transition-all duration-200"
+            className="hidden lg:inline-flex items-center px-3.5 py-1.5 rounded-lg border border-[#0A0D1F]/20 hover:border-[#D4A017] text-[11.5px] font-bold text-[#0A0D1F]/80 hover:text-[#0A0D1F] tracking-wide uppercase transition-all duration-200"
           >
             Contact Sales
           </Link>
@@ -297,7 +292,7 @@ export function Header() {
           {/* Book a Demo — filled */}
           <Link
             href="/company/enterprise-sales"
-            className="hidden lg:inline-flex items-center px-4 py-1.5 rounded-lg bg-[#E2B84C] hover:bg-[#F5CC6A] text-black text-[11.5px] font-bold tracking-wide uppercase transition-all duration-200 shadow-[0_0_16px_rgba(226,184,76,0.25)] hover:shadow-[0_0_24px_rgba(226,184,76,0.4)]"
+            className="hidden lg:inline-flex items-center px-4 py-1.5 rounded-lg bg-[#E2B84C] hover:bg-[#F5CC6A] text-black text-[11.5px] font-bold tracking-wide uppercase transition-all duration-200 shadow-sm"
           >
             Book a Demo
           </Link>
@@ -305,7 +300,7 @@ export function Header() {
           {/* Hamburger — mobile only */}
           <button
             onClick={() => setMobileOpen(true)}
-            className="lg:hidden ml-2 p-1.5 text-white/60 hover:text-white cursor-pointer"
+            className="lg:hidden ml-2 p-1.5 text-[#0A0D1F]/60 hover:text-[#0A0D1F] cursor-pointer"
           >
             <Menu className="w-5 h-5" />
           </button>
@@ -420,13 +415,13 @@ export function Header() {
 export function AnnouncementBar() {
   return (
     <div className="relative pt-[64px] w-full z-[60]">
-      <div className="py-6 bg-[#07070A]/90 backdrop-blur-md border-b border-white/5 flex flex-col items-center justify-center gap-2 px-8">
-        <span className="text-[13.5px] font-medium text-white/80 text-center tracking-wide leading-relaxed">
+      <div className="py-6 bg-[#F3EFE5] border-b border-[#0A0D1F]/5 flex flex-col items-center justify-center gap-2 px-8">
+        <span className="text-[13.5px] font-medium text-[#0A0D1F]/80 text-center tracking-wide leading-relaxed">
           The operating system for training delivery
         </span>
         <Link
           href="/infrastructure"
-          className="text-[13.5px] font-semibold text-[#E2B84C] hover:text-[#FFCF68] transition-colors duration-200 text-center tracking-wide"
+          className="text-[13.5px] font-semibold text-[#D4A017] hover:text-[#B38012] transition-colors duration-200 text-center tracking-wide"
         >
           Explore Infrastructure →
         </Link>

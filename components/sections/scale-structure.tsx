@@ -57,19 +57,16 @@ export function ScaleStructure() {
   const centerY = 190;
 
   return (
-    <section className="py-24 md:py-32 bg-[#07040F] relative overflow-hidden border-b border-white/5">
+    <section className="py-24 md:py-32 bg-[#FAFAF8] relative overflow-hidden border-b border-[#0A0D1F]/5">
       {/* Section Background Image Overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.15] pointer-events-none" 
+        className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.05] pointer-events-none" 
         style={{ backgroundImage: "url('/blue-mesh-bg.png')" }} 
       />
 
-      {/* Ambient background glows — boosted */}
+      {/* Ambient background glows */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[900px] h-[600px] bg-[#F5D76E]/[0.07] blur-[150px] rounded-full" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#F5D76E]/[0.04] blur-[120px] rounded-full" />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#7C3AED]/[0.06] blur-[130px] rounded-full" />
-        <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#3B6FE8]/[0.05] blur-[110px] rounded-full" />
+        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[900px] h-[600px] bg-[#D4A017]/[0.04] blur-[150px] rounded-full" />
       </div>
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
@@ -84,23 +81,23 @@ export function ScaleStructure() {
           >
             {/* Badge */}
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-8 bg-[#F5D76E]/40" />
-              <span className="text-[10px] font-black tracking-[0.3em] text-[#F5D76E] uppercase">
+              <div className="h-px w-8 bg-[#D4A017]/40" />
+              <span className="text-[10px] font-black tracking-[0.3em] text-[#D4A017] uppercase">
                 Enterprise Infrastructure
               </span>
             </div>
 
             {/* Headline */}
-            <h2 className="text-3xl md:text-[44px] font-extrabold text-white leading-[1.1] tracking-tight mb-6 max-w-[500px]">
+            <h2 className="text-3xl md:text-[44px] font-extrabold text-[#0A0D1F] leading-[1.1] tracking-tight mb-6 max-w-[500px]">
               Powered by secure, scalable,{" "}
-              <span className="text-[#F5D76E] italic font-serif font-normal">
+              <span className="text-[#D4A017] italic font-serif font-normal">
                 enterprise-grade
               </span>{" "}
               infrastructure.
             </h2>
 
             {/* Supporting paragraph */}
-            <p className="text-sm md:text-base text-[#A1A1A1] leading-relaxed max-w-[465px] mb-10 font-light">
+            <p className="text-sm md:text-base text-[#55534E] leading-relaxed max-w-[465px] mb-10 font-normal">
               OYEN GRID runs on high-performance operational network architecture, ensuring total reliability, regulatory compliance, and seamless scalability for your institutional training demands.
             </p>
 
@@ -115,10 +112,10 @@ export function ScaleStructure() {
                   transition={{ delay: i * 0.05, duration: 0.5 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="w-5 h-5 rounded-full border border-[#F5D76E]/20 bg-[#F5D76E]/[0.03] flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="w-2.5 h-2.5 text-[#F5D76E]" strokeWidth={3} />
+                  <div className="w-5 h-5 rounded-full border border-[#D4A017]/20 bg-[#D4A017]/[0.03] flex items-center justify-center shrink-0 mt-0.5">
+                    <Check className="w-2.5 h-2.5 text-[#D4A017]" strokeWidth={3} />
                   </div>
-                  <span className="text-xs text-zinc-300 font-medium tracking-wide">
+                  <span className="text-xs text-[#0A0D1F]/80 font-medium tracking-wide">
                     {point}
                   </span>
                 </motion.li>
@@ -134,10 +131,10 @@ export function ScaleStructure() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="w-full flex items-center justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-[520px] h-[380px] bg-[#0A0A0A]/40 border border-white/[0.03] rounded-3xl p-6 shadow-[0_24px_50px_rgba(0,0,0,0.8)] overflow-hidden">
+            <div className="relative w-full max-w-[520px] h-[380px] bg-white border border-[#0A0D1F]/10 rounded-3xl p-6 shadow-[0_12px_40px_rgba(10,13,31,0.06)] overflow-hidden">
               {/* Box Background Image Overlay */}
               <div 
-                className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.28] pointer-events-none" 
+                className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.10] pointer-events-none" 
                 style={{ backgroundImage: "url('/diagram-bg.png')" }} 
               />
 
@@ -146,11 +143,11 @@ export function ScaleStructure() {
                 {Array.from({ length: 8 }).map((_, i) => (
                   <motion.div
                     key={i}
-                    className="absolute w-1.5 h-1.5 rounded-full bg-[#F5D76E] opacity-25"
+                    className="absolute w-1.5 h-1.5 rounded-full bg-[#D4A017] opacity-25"
                     style={{
                       left: `${20 + Math.random() * 70}%`,
                       top: `${15 + Math.random() * 70}%`,
-                      boxShadow: "0 0 8px rgba(245,215,110,0.8)",
+                      boxShadow: "0 0 8px rgba(212,160,23,0.8)",
                     }}
                     animate={{
                       y: [0, -35, 0],
@@ -182,7 +179,7 @@ export function ScaleStructure() {
                       {/* Ambient Glowing Line */}
                       <path
                         d={pathD}
-                        stroke="#F5D76E"
+                        stroke="#D4A017"
                         strokeWidth="1.5"
                         strokeOpacity="0.1"
                         fill="none"
@@ -190,7 +187,7 @@ export function ScaleStructure() {
                       {/* Flowing animated dash path */}
                       <motion.path
                         d={pathD}
-                        stroke="#F5D76E"
+                        stroke="#D4A017"
                         strokeWidth="1.2"
                         strokeOpacity="0.6"
                         strokeDasharray="4 12"
@@ -211,12 +208,12 @@ export function ScaleStructure() {
                 className="absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-default"
                 style={{ left: centerX, top: centerY }}
               >
-                <div className="relative w-24 h-24 rounded-full bg-[#111111] border border-[#F5D76E]/30 flex flex-col items-center justify-center shadow-[0_0_35px_rgba(245,215,110,0.1)] group hover:border-[#F5D76E]/60 transition-colors duration-500">
-                  <div className="absolute inset-1 rounded-full border border-white/[0.04]" />
-                  <span className="text-[10px] font-black text-white tracking-[0.2em] leading-none uppercase">
+                <div className="relative w-24 h-24 rounded-full bg-white border border-[#D4A017]/30 flex flex-col items-center justify-center shadow-sm group hover:border-[#D4A017]/60 transition-colors duration-500">
+                  <div className="absolute inset-1 rounded-full border border-[#0A0D1F]/5" />
+                  <span className="text-[10px] font-black text-[#0A0D1F] tracking-[0.2em] leading-none uppercase">
                     OYEN
                   </span>
-                  <span className="text-[10px] font-black text-[#F5D76E] tracking-[0.2em] leading-none uppercase mt-1">
+                  <span className="text-[10px] font-black text-[#D4A017] tracking-[0.2em] leading-none uppercase mt-1">
                     GRID
                   </span>
                   {/* Status Indicator */}
@@ -239,17 +236,17 @@ export function ScaleStructure() {
                     {/* Node Circle */}
                     <motion.div
                       whileHover={{ scale: 1.08 }}
-                      className="relative w-12 h-12 rounded-full bg-[#161616] border border-white/[0.08] hover:border-[#F5D76E]/50 flex items-center justify-center shadow-[0_8px_24px_rgba(0,0,0,0.5)] transition-all duration-300 group overflow-hidden cursor-default"
+                      className="relative w-12 h-12 rounded-full bg-[#F3EFE5] border border-[#0A0D1F]/10 hover:border-[#D4A017]/50 flex items-center justify-center shadow-[0_4px_12px_rgba(10,13,31,0.05)] transition-all duration-300 group overflow-hidden cursor-default"
                     >
-                      <NodeIcon className="w-5 h-5 text-[#F5D76E]/70 group-hover:text-[#F5D76E] transition-colors" />
+                      <NodeIcon className="w-5 h-5 text-[#D4A017]/70 group-hover:text-[#D4A017] transition-colors" />
                     </motion.div>
 
                     {/* Node Labels */}
                     <div className={`absolute w-[180px] pointer-events-none ${node.textOffsetClass}`}>
-                      <h4 className="text-xs font-bold text-white tracking-wide">
+                      <h4 className="text-xs font-bold text-[#0A0D1F] tracking-wide">
                         {node.label}
                       </h4>
-                      <p className="text-[10px] text-[#A1A1A1] leading-tight mt-0.5 font-light">
+                      <p className="text-[10px] text-[#55534E] leading-tight mt-0.5 font-normal">
                         {node.desc}
                       </p>
                     </div>

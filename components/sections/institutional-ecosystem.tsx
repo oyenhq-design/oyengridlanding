@@ -161,7 +161,7 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="relative min-h-[680px] bg-[#070B1A] flex items-center pt-8 pb-8 overflow-hidden">
+    <section className="relative min-h-[680px] bg-[#0C1029] flex items-center pt-8 pb-8 overflow-hidden">
 
       {/* Rich atmospheric glows — gold + blue */}
       <div className="absolute inset-0 pointer-events-none">
