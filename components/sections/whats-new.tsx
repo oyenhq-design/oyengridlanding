@@ -44,8 +44,6 @@ export function WhatsNew() {
                   fill
                   className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                {/* Gradient overlay to ensure text legibility while keeping the image clear */}
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent z-10" />
               </div>
  
               {/* Content */}
@@ -97,8 +95,6 @@ export function WhatsNew() {
                   fill
                   className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                {/* Gradient overlay to ensure text legibility while keeping the image clear */}
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent z-10" />
               </div>
  
               {/* Content */}
@@ -156,7 +152,6 @@ export function WhatsNew() {
                   fill
                   className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent z-10" />
               </div>
               
               <div className="relative z-10 w-[78%]">
@@ -193,7 +188,6 @@ export function WhatsNew() {
                   fill
                   className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent z-10" />
               </div>
               
               <div className="relative z-10 w-[78%]">
