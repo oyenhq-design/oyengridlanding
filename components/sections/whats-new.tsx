@@ -33,7 +33,7 @@ export function WhatsNew() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
           {/* Card 1: AltSchool (Customer Story) - col-span-5 */}
-          <div className="lg:col-span-5 flex flex-col bg-white border border-[#0A0D1F]/10 rounded-[20px] overflow-hidden group shadow-sm">
+          <div className="lg:col-span-5 flex flex-col bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] overflow-hidden group shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
             {/* Top Area */}
             <div className="relative flex-1 p-8 flex flex-col min-h-[380px]">
               {/* Image Background (Strictly on the right, fully clear) */}
@@ -49,20 +49,20 @@ export function WhatsNew() {
 
               {/* Content */}
               <div className="relative z-20 flex-1 flex flex-col w-[58%]">
-                <span className="w-fit text-[10px] font-bold tracking-widest text-[#D4A017] border border-[#D4A017]/25 px-3 py-1 rounded-full uppercase mb-6">
+                <span className="w-fit text-[9.5px] font-semibold tracking-wider text-[#B38012] bg-[#D4A017]/8 px-3 py-1.5 rounded-full uppercase mb-6">
                   CUSTOMER STORY
                 </span>
                 <h3 className="text-[26px] font-bold text-[#0A0D1F] mb-4 leading-[1.2] tracking-tight">
                   How AltSchool reduced attendance tracking from 4 hours to 10 minutes.
                 </h3>
-                <p className="text-[#55534E] text-sm leading-relaxed mb-8 flex-1 pr-4 font-normal">
+                <p className="text-[#4A4F6B] text-sm leading-relaxed mb-8 flex-1 pr-4 font-normal">
                   AltSchool scaled their learner programs across 7 cohorts using automated attendance, real-time reports, and smart reminders.
                 </p>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 text-[#D4A017] font-medium text-sm hover:gap-3 transition-all duration-300 w-fit"
+                  className="inline-flex items-center gap-2 text-[#D4A017] font-medium text-sm w-fit group/link"
                 >
-                  Read story <ArrowRight className="w-4 h-4" />
+                  Read story <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
                 </a>
               </div>
             </div>
@@ -85,7 +85,7 @@ export function WhatsNew() {
           </div>
 
           {/* Card 2: TalentQL (Case Study) - col-span-4 */}
-          <div className="lg:col-span-4 flex flex-col bg-white border border-[#0A0D1F]/10 rounded-[20px] overflow-hidden group shadow-sm">
+          <div className="lg:col-span-4 flex flex-col bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] overflow-hidden group shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
             {/* Top Area */}
             <div className="relative flex-1 p-8 flex flex-col min-h-[380px]">
               {/* Image Background (Strictly on the right, fully clear) */}
@@ -101,20 +101,20 @@ export function WhatsNew() {
 
               {/* Content */}
               <div className="relative z-20 flex-1 flex flex-col w-[58%]">
-                <span className="w-fit text-[10px] font-bold tracking-widest text-[#D4A017] border border-[#D4A017]/25 px-3 py-1 rounded-full uppercase mb-6">
+                <span className="w-fit text-[9.5px] font-semibold tracking-wider text-[#B38012] bg-[#D4A017]/8 px-3 py-1.5 rounded-full uppercase mb-6">
                   CASE STUDY
                 </span>
                 <h3 className="text-[26px] font-bold text-[#0A0D1F] mb-4 leading-[1.2] tracking-tight">
                   Managing 5,000+ learners across 3 countries with OYEN GRID.
                 </h3>
-                <p className="text-[#55534E] text-sm leading-relaxed mb-8 flex-1 pr-4 font-normal">
+                <p className="text-[#4A4F6B] text-sm leading-relaxed mb-8 flex-1 pr-4 font-normal">
                   See how TalentQL centralized training delivery, improved engagement, and scaled without adding more admin work.
                 </p>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 text-[#D4A017] font-medium text-sm hover:gap-3 transition-all duration-300 w-fit"
+                  className="inline-flex items-center gap-2 text-[#D4A017] font-medium text-sm w-fit group/link"
                 >
-                  View case study <ArrowRight className="w-4 h-4" />
+                  View case study <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
                 </a>
               </div>
             </div>
@@ -145,7 +145,7 @@ export function WhatsNew() {
           <div className="lg:col-span-3 flex flex-col gap-6">
             
             {/* Top Right Card */}
-            <div className="flex-1 bg-white border border-[#0A0D1F]/10 rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-sm">
+            <div className="flex-1 bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
               {/* Image Background (Strictly on the right, fully clear) */}
               <div className="absolute right-0 top-0 bottom-0 w-[35%] overflow-hidden">
                 <Image
@@ -159,30 +159,30 @@ export function WhatsNew() {
               
               <div className="relative z-10 w-[62%]">
                 <div className="flex justify-between items-start mb-6">
-                  <span className="text-[10px] font-bold tracking-widest text-[#D4A017] border border-[#D4A017]/25 px-3 py-1 rounded-full uppercase">
+                  <span className="text-[9.5px] font-semibold tracking-wider text-[#B38012] bg-[#D4A017]/8 px-3 py-1.5 rounded-full uppercase">
                     PRODUCT UPDATE
                   </span>
-                  <div className="w-8 h-8 rounded border border-[#0A0D1F]/10 flex items-center justify-center text-[#D4A017] bg-white/80">
+                  <div className="w-8 h-8 rounded-lg border border-[#0A0D1F]/5 flex items-center justify-center text-[#D4A017] bg-[#D4A017]/5">
                     <TrendingUp className="w-4 h-4" />
                   </div>
                 </div>
                 <h4 className="text-xl font-bold text-[#0A0D1F] mb-3 leading-snug">
                   AI Session Summaries are now live.
                 </h4>
-                <p className="text-[#55534E] text-sm leading-relaxed mb-6 font-normal">
+                <p className="text-[#4A4F6B] text-sm leading-relaxed mb-6 font-normal">
                   Automatically generate session summaries, action items, and follow-ups in seconds.
                 </p>
               </div>
               <a
                 href="#"
-                className="inline-flex items-center gap-2 text-[#D4A017] font-medium text-sm hover:gap-3 transition-all duration-300 w-fit relative z-10 mt-auto"
+                className="inline-flex items-center gap-2 text-[#D4A017] font-medium text-sm w-fit relative z-10 mt-auto group/link"
               >
-                Learn more <ArrowRight className="w-4 h-4" />
+                Learn more <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
               </a>
             </div>
 
             {/* Bottom Right Card */}
-            <div className="flex-1 bg-white border border-[#0A0D1F]/10 rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-sm">
+            <div className="flex-1 bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
               {/* Image Background (Strictly on the right, fully clear) */}
               <div className="absolute right-0 top-0 bottom-0 w-[35%] overflow-hidden">
                 <Image
@@ -196,25 +196,25 @@ export function WhatsNew() {
               
               <div className="relative z-10 w-[62%]">
                 <div className="flex justify-between items-start mb-6">
-                  <span className="text-[10px] font-bold tracking-widest text-[#D4A017] border border-[#D4A017]/25 px-3 py-1 rounded-full uppercase">
+                  <span className="text-[9.5px] font-semibold tracking-wider text-[#B38012] bg-[#D4A017]/8 px-3 py-1.5 rounded-full uppercase">
                     INSIGHTS
                   </span>
-                  <div className="w-8 h-8 rounded border border-[#0A0D1F]/10 flex items-center justify-center text-[#D4A017] bg-white/80">
+                  <div className="w-8 h-8 rounded-lg border border-[#0A0D1F]/5 flex items-center justify-center text-[#D4A017] bg-[#D4A017]/5">
                     <FileText className="w-4 h-4" />
                   </div>
                 </div>
                 <h4 className="text-xl font-bold text-[#0A0D1F] mb-3 leading-snug">
                   5 reasons training programs fail at scale
                 </h4>
-                <p className="text-[#55534E] text-sm leading-relaxed mb-6 font-normal">
+                <p className="text-[#4A4F6B] text-sm leading-relaxed mb-6 font-normal">
                   Learn the biggest challenges training teams face — and how to solve them.
                 </p>
               </div>
               <a
                 href="#"
-                className="inline-flex items-center gap-2 text-[#D4A017] font-medium text-sm hover:gap-3 transition-all duration-300 w-fit relative z-10 mt-auto"
+                className="inline-flex items-center gap-2 text-[#D4A017] font-medium text-sm w-fit relative z-10 mt-auto group/link"
               >
-                Read article <ArrowRight className="w-4 h-4" />
+                Read article <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
               </a>
             </div>
 
