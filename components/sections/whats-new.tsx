@@ -36,19 +36,20 @@ export function WhatsNew() {
           <div className="lg:col-span-5 flex flex-col bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] overflow-hidden group shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
             {/* Top Area */}
             <div className="relative flex-1 p-8 flex flex-col min-h-[380px]">
-              {/* Image Background (Strictly on the right, fully clear) */}
-              <div className="absolute right-0 top-0 bottom-0 w-[42%] overflow-hidden">
+              {/* Image Background (Covers full card, text sits directly on it) */}
+              <div className="absolute inset-0 overflow-hidden">
                 <Image
                   src="/customer-story.png"
                   alt="AltSchool Customer Story"
                   fill
-                  className="object-cover object-center opacity-100 group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-white to-transparent z-10" />
+                {/* Gradient overlay to ensure text legibility while keeping the image clear */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent z-10" />
               </div>
-
+ 
               {/* Content */}
-              <div className="relative z-20 flex-1 flex flex-col w-[58%]">
+              <div className="relative z-20 flex-1 flex flex-col w-[75%] md:w-[70%]">
                 <span className="w-fit text-[9.5px] font-semibold tracking-wider text-[#B38012] bg-[#D4A017]/8 px-3 py-1.5 rounded-full uppercase mb-6">
                   CUSTOMER STORY
                 </span>
@@ -88,19 +89,20 @@ export function WhatsNew() {
           <div className="lg:col-span-4 flex flex-col bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] overflow-hidden group shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
             {/* Top Area */}
             <div className="relative flex-1 p-8 flex flex-col min-h-[380px]">
-              {/* Image Background (Strictly on the right, fully clear) */}
-              <div className="absolute right-0 top-0 bottom-0 w-[42%] overflow-hidden">
+              {/* Image Background (Covers full card, text sits directly on it) */}
+              <div className="absolute inset-0 overflow-hidden">
                 <Image
                   src="/case-study.png"
                   alt="TalentQL Case Study"
                   fill
-                  className="object-cover object-center opacity-100 group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-white to-transparent z-10" />
+                {/* Gradient overlay to ensure text legibility while keeping the image clear */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent z-10" />
               </div>
-
+ 
               {/* Content */}
-              <div className="relative z-20 flex-1 flex flex-col w-[58%]">
+              <div className="relative z-20 flex-1 flex flex-col w-[75%] md:w-[70%]">
                 <span className="w-fit text-[9.5px] font-semibold tracking-wider text-[#B38012] bg-[#D4A017]/8 px-3 py-1.5 rounded-full uppercase mb-6">
                   CASE STUDY
                 </span>
@@ -146,18 +148,18 @@ export function WhatsNew() {
             
             {/* Top Right Card */}
             <div className="flex-1 bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
-              {/* Image Background (Strictly on the right, fully clear) */}
-              <div className="absolute right-0 top-0 bottom-0 w-[35%] overflow-hidden">
+              {/* Image Background (Covers full card, text sits directly on it) */}
+              <div className="absolute inset-0 overflow-hidden">
                 <Image
                   src="/product-update.png"
                   alt="Product update workspace"
                   fill
-                  className="object-cover object-center opacity-100 group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-white to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent z-10" />
               </div>
               
-              <div className="relative z-10 w-[62%]">
+              <div className="relative z-10 w-[78%]">
                 <div className="flex justify-between items-start mb-6">
                   <span className="text-[9.5px] font-semibold tracking-wider text-[#B38012] bg-[#D4A017]/8 px-3 py-1.5 rounded-full uppercase">
                     PRODUCT UPDATE
@@ -183,18 +185,18 @@ export function WhatsNew() {
 
             {/* Bottom Right Card */}
             <div className="flex-1 bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
-              {/* Image Background (Strictly on the right, fully clear) */}
-              <div className="absolute right-0 top-0 bottom-0 w-[35%] overflow-hidden">
+              {/* Image Background (Covers full card, text sits directly on it) */}
+              <div className="absolute inset-0 overflow-hidden">
                 <Image
                   src="/insights-laptop.png"
                   alt="Insights laptop"
                   fill
-                  className="object-cover object-center opacity-100 group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-white to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent z-10" />
               </div>
               
-              <div className="relative z-10 w-[62%]">
+              <div className="relative z-10 w-[78%]">
                 <div className="flex justify-between items-start mb-6">
                   <span className="text-[9.5px] font-semibold tracking-wider text-[#B38012] bg-[#D4A017]/8 px-3 py-1.5 rounded-full uppercase">
                     INSIGHTS
