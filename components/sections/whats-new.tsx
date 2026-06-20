@@ -40,13 +40,13 @@ export function WhatsNew() {
               <div className="absolute inset-0 overflow-hidden">
                 {/* Subtle warm OYEN gold glow in the bottom right */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(212,160,23,0.04),transparent_65%)] z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent z-10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40 z-10 opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent z-10" />
                 <Image
                   src="/customer-story.png"
                   alt="AltSchool Customer Story"
                   fill
-                  className="object-cover object-right opacity-30 group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-right opacity-85 group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
 
@@ -95,13 +95,13 @@ export function WhatsNew() {
               <div className="absolute inset-0 overflow-hidden">
                 {/* Subtle warm OYEN gold glow in the bottom right */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(212,160,23,0.04),transparent_65%)] z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent z-10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40 z-10 opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent z-10" />
                 <Image
                   src="/case-study.png"
                   alt="TalentQL Case Study"
                   fill
-                  className="object-cover object-right opacity-30 group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-right opacity-85 group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
 
@@ -156,13 +156,13 @@ export function WhatsNew() {
               <div className="absolute inset-0 overflow-hidden">
                 {/* Subtle warm OYEN gold glow in the bottom right */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(212,160,23,0.04),transparent_65%)] z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent z-10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40 z-10 opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/45 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent z-10" />
                 <Image
                   src="/product-update.png"
                   alt="Product update workspace"
                   fill
-                  className="object-cover object-right opacity-30 group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-right opacity-85 group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
               
@@ -196,13 +196,13 @@ export function WhatsNew() {
               <div className="absolute inset-0 overflow-hidden">
                 {/* Subtle warm OYEN gold glow in the bottom right */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(212,160,23,0.04),transparent_65%)] z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent z-10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40 z-10 opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/45 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent z-10" />
                 <Image
                   src="/insights-laptop.png"
                   alt="Insights laptop"
                   fill
-                  className="object-cover object-right opacity-30 group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-right opacity-85 group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
               
