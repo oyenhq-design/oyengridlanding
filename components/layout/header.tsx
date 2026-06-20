@@ -119,15 +119,19 @@ export function Header() {
     >
       <div className="max-w-[1280px] w-full mx-auto px-8 flex items-center justify-between">
         
-        {/* Logo */}
-        <Link href="/" className="flex items-center shrink-0 group">
+        {/* Logo lockup — icon mark + wordmark */}
+        <Link href="/" className="flex items-center gap-2 shrink-0 group">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/oyen-grid-logo.png"
-            alt="OYEN GRID"
-            className="h-10 w-auto object-contain group-hover:brightness-110 transition-all duration-300"
+            src="/oyen-grid-icon.png"
+            alt=""
+            aria-hidden="true"
+            className="w-7 h-7 object-contain flex-shrink-0"
             style={{ mixBlendMode: "screen" }}
           />
+          <span className="font-bold text-white text-[13.5px] tracking-[0.06em] uppercase group-hover:text-[#E2B84C] transition-colors duration-200">
+            OYEN GRID
+          </span>
         </Link>
 
         {/* Desktop Navigation Row */}
@@ -234,13 +238,17 @@ export function Header() {
             className="fixed inset-0 z-[200] bg-[#050505] flex flex-col"
           >
             <div className="h-[68px] flex items-center justify-between px-8 border-b border-white/5">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/oyen-grid-logo.png"
-                alt="OYEN GRID"
-                className="h-9 w-auto object-contain"
-                style={{ mixBlendMode: "screen" }}
-              />
+              <div className="flex items-center gap-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/oyen-grid-icon.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="w-7 h-7 object-contain"
+                  style={{ mixBlendMode: "screen" }}
+                />
+                <span className="font-bold text-white text-[14px] tracking-[0.06em] uppercase">OYEN GRID</span>
+              </div>
               <button onClick={() => setMobileMenuOpen(false)} className="p-2 text-white/40 cursor-pointer">
                 <X className="w-6 h-6" />
               </button>

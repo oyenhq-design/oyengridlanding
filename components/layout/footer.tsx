@@ -184,12 +184,13 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
           </div>
 
           <div className="pt-5 border-t border-white/[0.04] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/oyen-grid-logo.png"
-                alt="OYEN GRID"
-                className="h-8 w-auto object-contain"
+                src="/oyen-grid-icon.png"
+                alt=""
+                aria-hidden="true"
+                className="w-6 h-6 object-contain"
                 style={{ mixBlendMode: "screen" }}
               />
               <span className="text-[12px] text-[#A1A1A1]/60 font-light tracking-wide">
