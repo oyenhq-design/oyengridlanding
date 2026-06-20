@@ -125,8 +125,8 @@ export function Header() {
           <img
             src="/oyen-grid-logo.png"
             alt="OYEN GRID"
-            className="h-9 w-auto object-contain brightness-100 group-hover:brightness-110 transition-all duration-300"
-            style={{ filter: "drop-shadow(0 0 6px rgba(226,184,76,0.25))" }}
+            className="h-10 w-auto object-contain group-hover:brightness-110 transition-all duration-300"
+            style={{ mixBlendMode: "screen" }}
           />
         </Link>
 
@@ -238,8 +238,8 @@ export function Header() {
               <img
                 src="/oyen-grid-logo.png"
                 alt="OYEN GRID"
-                className="h-8 w-auto object-contain"
-                style={{ filter: "drop-shadow(0 0 4px rgba(226,184,76,0.2))" }}
+                className="h-9 w-auto object-contain"
+                style={{ mixBlendMode: "screen" }}
               />
               <button onClick={() => setMobileMenuOpen(false)} className="p-2 text-white/40 cursor-pointer">
                 <X className="w-6 h-6" />

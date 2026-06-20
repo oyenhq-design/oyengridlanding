@@ -189,8 +189,8 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
               <img
                 src="/oyen-grid-logo.png"
                 alt="OYEN GRID"
-                className="h-7 w-auto object-contain opacity-80"
-                style={{ filter: "drop-shadow(0 0 4px rgba(226,184,76,0.15))" }}
+                className="h-8 w-auto object-contain"
+                style={{ mixBlendMode: "screen" }}
               />
               <span className="text-[12px] text-[#A1A1A1]/60 font-light tracking-wide">
                 © {new Date().getFullYear()} OYEN GRID. All rights reserved.
