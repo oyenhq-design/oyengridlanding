@@ -119,12 +119,15 @@ export function Header() {
     >
       <div className="max-w-[1280px] w-full mx-auto px-8 flex items-center justify-between">
         
-        {/* Logo Wordmark with Infinity SVG */}
-        <Link href="/" className="flex items-center gap-2.5 group shrink-0 relative">
-          <svg className="w-5.5 h-5.5 text-[#E2B84C] transition-transform duration-300 group-hover:scale-105" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8">
-            <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4Z" />
-          </svg>
-          <span className="font-bold text-white text-[13px] tracking-[0.08em] uppercase">OYEN GRID.</span>
+        {/* Logo */}
+        <Link href="/" className="flex items-center shrink-0 group">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/oyen-grid-logo.png"
+            alt="OYEN GRID"
+            className="h-9 w-auto object-contain brightness-100 group-hover:brightness-110 transition-all duration-300"
+            style={{ filter: "drop-shadow(0 0 6px rgba(226,184,76,0.25))" }}
+          />
         </Link>
 
         {/* Desktop Navigation Row */}
@@ -231,7 +234,13 @@ export function Header() {
             className="fixed inset-0 z-[200] bg-[#050505] flex flex-col"
           >
             <div className="h-[68px] flex items-center justify-between px-8 border-b border-white/5">
-              <span className="font-bold text-white uppercase tracking-tight text-[15px]">OYEN GRID</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/oyen-grid-logo.png"
+                alt="OYEN GRID"
+                className="h-8 w-auto object-contain"
+                style={{ filter: "drop-shadow(0 0 4px rgba(226,184,76,0.2))" }}
+              />
               <button onClick={() => setMobileMenuOpen(false)} className="p-2 text-white/40 cursor-pointer">
                 <X className="w-6 h-6" />
               </button>

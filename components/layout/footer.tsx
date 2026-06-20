@@ -183,11 +183,19 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
             ))}
           </div>
 
-          {/* BOTTOM BAR */}
           <div className="pt-5 border-t border-white/[0.04] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <span className="text-[12px] text-[#A1A1A1]/60 font-light tracking-wide">
-              © {new Date().getFullYear()} OYEN GRID. All rights reserved.
-            </span>
+            <div className="flex items-center gap-3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/oyen-grid-logo.png"
+                alt="OYEN GRID"
+                className="h-7 w-auto object-contain opacity-80"
+                style={{ filter: "drop-shadow(0 0 4px rgba(226,184,76,0.15))" }}
+              />
+              <span className="text-[12px] text-[#A1A1A1]/60 font-light tracking-wide">
+                © {new Date().getFullYear()} OYEN GRID. All rights reserved.
+              </span>
+            </div>
             <div className="flex items-center gap-6">
               {["Privacy Policy", "Terms of Service"].map((item) => (
                 <Link
