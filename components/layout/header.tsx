@@ -243,13 +243,10 @@ export function Header() {
         {/* ── RIGHT: Secondary nav (CTAs removed) ───────────────────────── */}
         <div className="flex items-center gap-3">
 
-          {/* Search icon */}
-          <button 
-            onClick={openSearch}
-            className="hidden lg:flex p-2 text-white/40 hover:text-white transition-colors rounded-lg hover:bg-white/5 cursor-pointer"
-          >
-            <Search className="w-4 h-4" />
-          </button>
+          {/* Inline Active Search Bar & Suggestion Dropdown */}
+          <div className="relative flex items-center">
+            <HeaderInlineSearch />
+          </div>
 
           {/* Resources dropdown */}
           <div className="hidden lg:flex items-center">
@@ -395,6 +392,125 @@ export function AnnouncementBar() {
           Explore Infrastructure →
         </Link>
       </div>
+    </div>
+  );
+}
+
+// ─── Inline Header Search Component ─────────────────────────────────────────
+
+function HeaderInlineSearch() {
+  const [active, setActive] = useState(false);
+  const [query, setQuery] = useState("");
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Suggested links database
+  const protocols = [
+    { title: "Pricing & Plans", category: "Pricing", href: "/pricing" },
+    { title: "Bootcamps & Training", category: "Solutions", href: "/solutions/bootcamps-training" },
+    { title: "Webinars & Events", category: "Solutions", href: "/solutions/webinars-events" },
+    { title: "Schools & Academies", category: "Solutions", href: "/solutions/education" },
+    { title: "Corporate Training", category: "Solutions", href: "/solutions/enterprise" },
+    { title: "Program Management", category: "Features", href: "/features/programme-management" },
+    { title: "Learner Management", category: "Features", href: "/features/participant-management" },
+    { title: "AI Coordination", category: "Features", href: "/features/ai-assistant" },
+    { title: "Documentation Guides", category: "Resources", href: "/resources/docs" },
+    { title: "Help Center Support FAQ", category: "Resources", href: "/resources/help" }
+  ];
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setActive(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const filtered = query
+    ? protocols.filter(p =>
+        p.title.toLowerCase().includes(query.toLowerCase()) ||
+        p.category.toLowerCase().includes(query.toLowerCase())
+      )
+    : protocols.slice(0, 4);
+
+  return (
+    <div ref={containerRef} className="relative flex items-center justify-end">
+      <AnimatePresence initial={false}>
+        {!active ? (
+          <motion.button
+            key="search-trigger"
+            onClick={() => setActive(true)}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            className="p-2 text-white/40 hover:text-white transition-colors rounded-lg hover:bg-white/5 cursor-pointer mr-2"
+          >
+            <Search className="w-4 h-4" />
+          </motion.button>
+        ) : (
+          <motion.div
+            key="search-input-wrapper"
+            initial={{ width: 40, opacity: 0 }}
+            animate={{ width: 220, opacity: 1 }}
+            exit={{ width: 40, opacity: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="relative flex items-center mr-2"
+          >
+            <input
+              autoFocus
+              type="text"
+              placeholder="Search OYEN..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="w-full h-8 pl-3 pr-8 text-[12px] bg-[#050b14] border border-[#FFC72C] rounded-lg text-white placeholder-white/30 outline-none shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+            />
+            <button 
+              onClick={() => { setActive(false); setQuery(""); }}
+              className="absolute right-2 text-white/30 hover:text-white p-0.5 cursor-pointer"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Suggestion Dropdown */}
+      <AnimatePresence>
+        {active && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            className="absolute top-[40px] right-2 w-[280px] bg-[#090D16]/95 border border-white/[0.08] backdrop-blur-xl rounded-xl p-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.6)] z-[200] flex flex-col gap-0.5"
+          >
+            <div className="px-2.5 py-1.5 text-[9px] font-black text-white/20 uppercase tracking-[0.2em]">
+              {query ? `Search Results (${filtered.length})` : "Suggested Links"}
+            </div>
+            {filtered.length > 0 ? (
+              filtered.map((item, idx) => (
+                <Link
+                  key={idx}
+                  href={item.href}
+                  onClick={() => { setActive(false); setQuery(""); }}
+                  className="flex flex-col p-2 rounded-lg hover:bg-white/[0.04] transition-all group"
+                >
+                  <span className="text-[12px] font-semibold text-white/90 group-hover:text-[#FFC72C] transition-colors">
+                    {item.title}
+                  </span>
+                  <span className="text-[9.5px] text-white/35">
+                    {item.category}
+                  </span>
+                </Link>
+              ))
+            ) : (
+              <div className="p-4 text-center text-white/20 text-[11px]">
+                No suggestions found.
+              </div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
