@@ -592,7 +592,7 @@ function PricingContent() {
         <CornerDetail position="bottom-left" />
         <CornerDetail position="bottom-right" />
 
-        <div className="max-w-[1200px] mx-auto px-6 pt-20 pb-24 relative z-10 text-center">
+        <div className="max-w-[1200px] mx-auto px-6 pt-12 pb-14 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -662,7 +662,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           2. CHOOSE YOUR SOLUTION
       ════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-[#F5F1E8] dark:bg-[#020408] border-b border-[#E5DDD0] dark:border-white/[0.04]">
+      <section className="py-12 bg-[#F5F1E8] dark:bg-[#020408] border-b border-[#E5DDD0] dark:border-white/[0.04]">
         <div className="max-w-[1200px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -780,7 +780,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           3. PRICING PLANS  — or — ENTERPRISE COMING SOON
       ════════════════════════════════════════════════════════════════ */}
-      <section ref={plansRef} className="py-24 bg-[#FAF9F6] dark:bg-[#05070B] border-b border-[#EBE9E1] dark:border-white/[0.04] relative">
+      <section ref={plansRef} className="py-12 bg-[#FAF9F6] dark:bg-[#05070B] border-b border-[#EBE9E1] dark:border-white/[0.04] relative">
         {/* Subtle radial glow for Operational Core Section */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(212,160,23,0.025),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.04),transparent_70%)]" />
@@ -1089,7 +1089,7 @@ function PricingContent() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="py-24 bg-[#F6F7FB] dark:bg-[#020408] border-b border-[#E5DDD0] dark:border-white/[0.04] overflow-hidden"
+            className="py-12 bg-[#F6F7FB] dark:bg-[#020408] border-b border-[#E5DDD0] dark:border-white/[0.04] overflow-hidden"
           >
             <div className="max-w-[1200px] mx-auto px-6">
               <motion.div
@@ -1201,7 +1201,7 @@ function PricingContent() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="py-24 bg-[#F5F2EA] dark:bg-[#05070B] border-b border-[#E5DDD0] dark:border-white/[0.04] overflow-hidden"
+            className="py-12 bg-[#F5F2EA] dark:bg-[#05070B] border-b border-[#E5DDD0] dark:border-white/[0.04] overflow-hidden"
           >
             <div className="max-w-[1200px] mx-auto px-6">
               <motion.div
@@ -1281,7 +1281,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           6. ENTERPRISE BENEFITS
       ════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-gradient-to-b from-[#07111F] to-[#0A1830] border-b border-transparent relative text-white">
+      <section className="py-12 bg-gradient-to-b from-[#07111F] to-[#0A1830] border-b border-transparent relative text-white">
         {/* Subtle radial glow for Institutional Coordination Section */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.015),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(232,184,74,0.04),transparent_70%)]" />
@@ -1345,7 +1345,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           7. FAQ SECTION
       ════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-[#F5F1E8] dark:bg-[#05070B] border-b border-[#E5DDD0] dark:border-white/[0.04]">
+      <section className="py-12 bg-[#F5F1E8] dark:bg-[#05070B] border-b border-[#E5DDD0] dark:border-white/[0.04]">
         <div className="max-w-[820px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -1426,7 +1426,7 @@ function PricingContent() {
       {/* ════════════════════════════════════════════════════════════════
           8. FINAL CTA
       ════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-32 overflow-hidden bg-gradient-to-b from-[#FFFDF8] to-[#F5F0E2] dark:from-[#020306] dark:to-[#07111F] border-b border-[#E5DDD0] dark:border-white/[0.04]">
+      <section className="relative py-16 overflow-hidden bg-gradient-to-b from-[#FFFDF8] to-[#F5F0E2] dark:from-[#020306] dark:to-[#07111F] border-b border-[#E5DDD0] dark:border-white/[0.04]">
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute inset-0 opacity-[0.012] dark:opacity-[0.03]"
