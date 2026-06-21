@@ -21,12 +21,35 @@ export function SearchSystem() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [openSearch, closeSearch]);
 
-  const results = [
-    { title: "Infrastructure Overview", category: "Platform", icon: LayoutGrid },
-    { title: "Corporate Governance", category: "Solutions", icon: Building2 },
-    { title: "Sovereign Security Layer", category: "Governance", icon: Shield },
-    { title: "Operational Support", category: "Resources", icon: LifeBuoy },
+  // Complete index of landing page categories/protocols
+  const protocols = [
+    { title: "Pricing & Plans", category: "Pricing", icon: LayoutGrid, href: "/pricing" },
+    { title: "Bootcamps & Training", category: "Solutions", icon: Building2, href: "/solutions/bootcamps-training" },
+    { title: "Webinars & Events", category: "Solutions", icon: LayoutGrid, href: "/solutions/webinars-events" },
+    { title: "Schools & Academies", category: "Solutions", icon: Building2, href: "/solutions/education" },
+    { title: "Corporate Training", category: "Solutions", icon: Shield, href: "/solutions/enterprise" },
+    { title: "Program Management", category: "Features", icon: LayoutGrid, href: "/features/programme-management" },
+    { title: "Learner Management", category: "Features", icon: Building2, href: "/features/participant-management" },
+    { title: "OYEN Live Logs", category: "Features", icon: Shield, href: "/features/oyen-live" },
+    { title: "Auto Attendance Sync", category: "Features", icon: Shield, href: "/features/attendance-intelligence" },
+    { title: "Assessments & Grading", category: "Features", icon: LayoutGrid, href: "/features/assessments" },
+    { title: "Certificates & Verification", category: "Features", icon: Shield, href: "/features/certificates" },
+    { title: "Document Library", category: "Features", icon: LifeBuoy, href: "/features/resource-library" },
+    { title: "Telemetry & Reports", category: "Features", icon: LayoutGrid, href: "/features/analytics" },
+    { title: "AI Coordination Assistant", category: "Features", icon: Shield, href: "/features/ai-assistant" },
+    { title: "Help Center Support FAQ", category: "Resources", icon: LifeBuoy, href: "/resources/help" },
+    { title: "Platform Case Studies", category: "Resources", icon: LifeBuoy, href: "/resources/case-studies" },
+    { title: "Blog & Press Releases", category: "Resources", icon: LifeBuoy, href: "/resources/blog" },
+    { title: "Documentation & Guides", category: "Resources", icon: LifeBuoy, href: "/resources/docs" }
   ];
+
+  // Filtering suggested list dynamically based on input query
+  const filtered = query
+    ? protocols.filter(p =>
+        p.title.toLowerCase().includes(query.toLowerCase()) ||
+        p.category.toLowerCase().includes(query.toLowerCase())
+      )
+    : protocols.slice(0, 5); // Default suggested items when empty
 
   return (
     <AnimatePresence>
@@ -52,39 +75,49 @@ export function SearchSystem() {
               <input
                 autoFocus
                 type="text"
-                placeholder="Search institutional infrastructure..."
+                placeholder="Search landing page links & infrastructure features..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 className="flex-1 bg-transparent border-none outline-none text-[20px] text-white placeholder:text-white/10 font-light"
               />
-              <div className="flex items-center gap-3 px-4 py-2 bg-white/[0.03] border border-white/10 rounded-xl">
-                 <Command className="w-3.5 h-3.5 text-white/20" />
+              <div className="flex items-center gap-3 px-4 py-2 bg-white/[0.03] border border-white/10 rounded-xl cursor-pointer" onClick={closeSearch}>
+                 <X className="w-3.5 h-3.5 text-white/40 hover:text-white" />
                  <span className="text-[11px] font-black text-white/20">ESC</span>
               </div>
             </div>
 
             {/* Results Layer */}
-            <div className="p-4 max-h-[480px] overflow-y-auto scrollbar-hide">
-               <div className="px-6 py-6 text-[10px] font-black text-white/10 uppercase tracking-[0.4em]">Suggested Protocols</div>
+            <div className="p-4 max-h-[380px] overflow-y-auto scrollbar-hide">
+               <div className="px-6 py-4 text-[10px] font-black text-white/10 uppercase tracking-[0.4em]">
+                 {query ? `Search Results (${filtered.length})` : "Suggested Protocols"}
+               </div>
                
                <div className="space-y-2">
-                  {results.map((item, i) => (
-                    <button 
-                      key={i}
-                      className="w-full flex items-center justify-between p-6 rounded-[24px] hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all group"
-                    >
-                       <div className="flex items-center gap-6">
-                          <div className="w-12 h-12 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center text-white/20 group-hover:text-brand-gold group-hover:border-brand-gold/20 group-hover:bg-brand-gold/10 transition-all">
-                             <item.icon className="w-5 h-5" />
-                          </div>
-                          <div className="text-left">
-                             <div className="text-[17px] font-bold text-white group-hover:text-brand-gold transition-colors">{item.title}</div>
-                             <div className="text-[12px] text-white/20 font-medium uppercase tracking-widest mt-1">{item.category}</div>
-                          </div>
-                       </div>
-                       <div className="text-[10px] font-black text-white/5 uppercase tracking-widest group-hover:text-brand-gold/40 transition-colors">Select Protocol →</div>
-                    </button>
-                  ))}
+                  {filtered.length > 0 ? (
+                    filtered.map((item, i) => (
+                      <a 
+                        key={i}
+                        href={item.href}
+                        onClick={closeSearch}
+                        className="w-full flex items-center justify-between p-5 rounded-[20px] hover:bg-white/[0.03] border border-transparent hover:border-white/5 transition-all group block"
+                      >
+                         <div className="flex items-center gap-6">
+                            <div className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center text-white/20 group-hover:text-brand-gold group-hover:border-brand-gold/20 group-hover:bg-brand-gold/10 transition-all">
+                               <item.icon className="w-4.5 h-4.5" />
+                            </div>
+                            <div className="text-left">
+                               <div className="text-[16px] font-bold text-white group-hover:text-brand-gold transition-colors">{item.title}</div>
+                               <div className="text-[11px] text-white/20 font-medium uppercase tracking-widest mt-1">{item.category}</div>
+                            </div>
+                         </div>
+                         <div className="text-[10px] font-black text-white/5 uppercase tracking-widest group-hover:text-brand-gold/40 transition-colors">Select Protocol →</div>
+                      </a>
+                    ))
+                  ) : (
+                    <div className="p-12 text-center text-white/20 text-sm font-medium">
+                      No protocols found matching search query.
+                    </div>
+                  )}
                </div>
             </div>
 

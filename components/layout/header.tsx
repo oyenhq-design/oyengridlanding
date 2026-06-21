@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useSearch } from "@/context/search-context";
 
 // ─── Nav Data ───────────────────────────────────────────────────────────────
 
@@ -171,6 +172,7 @@ export function Header() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+  const { openSearch } = useSearch();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -242,7 +244,10 @@ export function Header() {
         <div className="flex items-center gap-3">
 
           {/* Search icon */}
-          <button className="hidden lg:flex p-2 text-white/40 hover:text-white transition-colors rounded-lg hover:bg-white/5 cursor-pointer">
+          <button 
+            onClick={openSearch}
+            className="hidden lg:flex p-2 text-white/40 hover:text-white transition-colors rounded-lg hover:bg-white/5 cursor-pointer"
+          >
             <Search className="w-4 h-4" />
           </button>
 
