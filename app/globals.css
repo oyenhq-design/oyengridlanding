@@ -77,7 +77,7 @@ h1 {
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 0.95;
-  color: var(--foreground);
+  color: #ffffff !important;
   transition: color 0.25s ease;
 }
 

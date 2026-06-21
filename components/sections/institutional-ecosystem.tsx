@@ -189,7 +189,7 @@ export function HeroInstitutional() {
               </h1>
 
               {/* Subheadline */}
-              <p className="text-[16px] sm:text-[17.5px] text-[#E2E8F0] font-medium leading-[1.6] mt-6 max-w-[480px] tracking-wide">
+              <p className="text-[16px] sm:text-[17.5px] text-[#FFFFFF] font-bold leading-[1.6] mt-6 max-w-[480px] tracking-wide">
                 Run programs, track learners, and report results. All in one place.
               </p>
 
