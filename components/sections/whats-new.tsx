@@ -35,8 +35,8 @@ export function WhatsNew() {
           {/* Card 1: AltSchool (Customer Story) - col-span-5 */}
           <div className="lg:col-span-5 flex flex-col bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] overflow-hidden group shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
             {/* Top Area */}
-            <div className="relative flex-1 p-8 flex flex-col min-h-[380px]">
-              {/* Image Background (Covers full card, text sits directly on it) */}
+            <div className="relative flex-1 p-5 flex flex-col min-h-[380px] justify-center">
+              {/* Image Background (Covers full card) */}
               <div className="absolute inset-0 overflow-hidden">
                 <Image
                   src="/customer-story.png"
@@ -44,24 +44,24 @@ export function WhatsNew() {
                   fill
                   className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                {/* Dark gradient to make white text pop on the left, keeping right image clear */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0C1029]/85 via-[#0C1029]/40 to-transparent z-10" />
               </div>
  
-              {/* Content */}
-              <div className="relative z-20 flex-1 flex flex-col w-[75%] md:w-[70%]">
-                <span className="w-fit text-[9.5px] font-semibold tracking-wider text-[#D4A017] bg-[#D4A017]/15 border border-[#D4A017]/30 px-3 py-1.5 rounded-full uppercase mb-6">
-                  CUSTOMER STORY
-                </span>
-                <h3 className="text-[26px] font-bold text-white mb-4 leading-[1.2] tracking-tight">
-                  How AltSchool reduced attendance tracking from 4 hours to 10 minutes.
-                </h3>
-                <p className="text-[#E2E4F0] text-sm leading-relaxed mb-8 flex-1 pr-4 font-normal">
-                  AltSchool scaled their learner programs across 7 cohorts using automated attendance, real-time reports, and smart reminders.
-                </p>
+              {/* Content wrapped in a premium frosted glass card */}
+              <div className="relative z-20 w-[85%] sm:w-[75%] bg-white/85 backdrop-blur-md border border-white/60 rounded-2xl p-6 shadow-[0_8px_32px_rgba(10,13,31,0.04)] flex flex-col justify-between">
+                <div>
+                  <span className="w-fit inline-block text-[9.5px] font-bold tracking-wider text-[#B38012] bg-[#D4A017]/10 px-3 py-1 rounded-full uppercase mb-4">
+                    CUSTOMER STORY
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#0A0D1F] mb-3 leading-[1.25] tracking-tight">
+                    How AltSchool reduced attendance tracking from 4 hours to 10 minutes.
+                  </h3>
+                  <p className="text-[#55534E] text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                    AltSchool scaled their learner programs across 7 cohorts using automated attendance, real-time reports, and smart reminders.
+                  </p>
+                </div>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 text-[#D4A017] hover:text-[#F3C043] font-medium text-sm w-fit group/link transition-colors"
+                  className="inline-flex items-center gap-2 text-[#D4A017] font-semibold text-xs sm:text-sm w-fit group/link hover:text-[#B38012] transition-colors"
                 >
                   Read story <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
                 </a>
@@ -88,8 +88,8 @@ export function WhatsNew() {
           {/* Card 2: TalentQL (Case Study) - col-span-4 */}
           <div className="lg:col-span-4 flex flex-col bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] overflow-hidden group shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
             {/* Top Area */}
-            <div className="relative flex-1 p-8 flex flex-col min-h-[380px]">
-              {/* Image Background (Covers full card, text sits directly on it) */}
+            <div className="relative flex-1 p-5 flex flex-col min-h-[380px] justify-center">
+              {/* Image Background (Covers full card) */}
               <div className="absolute inset-0 overflow-hidden">
                 <Image
                   src="/case-study.png"
@@ -97,24 +97,24 @@ export function WhatsNew() {
                   fill
                   className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                {/* Dark gradient to make white text pop on the left, keeping right image clear */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0C1029]/85 via-[#0C1029]/40 to-transparent z-10" />
               </div>
  
-              {/* Content */}
-              <div className="relative z-20 flex-1 flex flex-col w-[75%] md:w-[70%]">
-                <span className="w-fit text-[9.5px] font-semibold tracking-wider text-[#D4A017] bg-[#D4A017]/15 border border-[#D4A017]/30 px-3 py-1.5 rounded-full uppercase mb-6">
-                  CASE STUDY
-                </span>
-                <h3 className="text-[26px] font-bold text-white mb-4 leading-[1.2] tracking-tight">
-                  Managing 5,000+ learners across 3 countries with OYEN GRID.
-                </h3>
-                <p className="text-[#E2E4F0] text-sm leading-relaxed mb-8 flex-1 pr-4 font-normal">
-                  See how TalentQL centralized training delivery, improved engagement, and scaled without adding more admin work.
-                </p>
+              {/* Content wrapped in a premium frosted glass card */}
+              <div className="relative z-20 w-[85%] sm:w-[75%] bg-white/85 backdrop-blur-md border border-white/60 rounded-2xl p-6 shadow-[0_8px_32px_rgba(10,13,31,0.04)] flex flex-col justify-between">
+                <div>
+                  <span className="w-fit inline-block text-[9.5px] font-bold tracking-wider text-[#B38012] bg-[#D4A017]/10 px-3 py-1 rounded-full uppercase mb-4">
+                    CASE STUDY
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#0A0D1F] mb-3 leading-[1.25] tracking-tight">
+                    Managing 5,000+ learners across 3 countries with OYEN GRID.
+                  </h3>
+                  <p className="text-[#55534E] text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                    See how TalentQL centralized training delivery, improved engagement, and scaled without adding more admin work.
+                  </p>
+                </div>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 text-[#D4A017] hover:text-[#F3C043] font-medium text-sm w-fit group/link transition-colors"
+                  className="inline-flex items-center gap-2 text-[#D4A017] font-semibold text-xs sm:text-sm w-fit group/link hover:text-[#B38012] transition-colors"
                 >
                   View case study <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
                 </a>
@@ -147,8 +147,8 @@ export function WhatsNew() {
           <div className="lg:col-span-3 flex flex-col gap-6">
             
             {/* Top Right Card */}
-            <div className="flex-1 bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
-              {/* Image Background (Covers full card, text sits directly on it) */}
+            <div className="flex-1 bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] p-5 group relative overflow-hidden flex flex-col justify-center min-h-[220px] shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
+              {/* Image Background (Covers full card) */}
               <div className="absolute inset-0 overflow-hidden">
                 <Image
                   src="/product-update.png"
@@ -156,37 +156,35 @@ export function WhatsNew() {
                   fill
                   className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                {/* Dark gradient to make white text pop on the left, keeping right image clear */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0C1029]/85 via-[#0C1029]/40 to-transparent z-10" />
               </div>
               
-              <div className="relative z-10 w-[78%]">
-                <div className="flex justify-between items-start mb-6">
-                  <span className="text-[9.5px] font-semibold tracking-wider text-[#D4A017] bg-[#D4A017]/15 border border-[#D4A017]/30 px-3 py-1.5 rounded-full uppercase">
+              <div className="relative z-10 w-[90%] bg-white/85 backdrop-blur-md border border-white/60 rounded-2xl p-5 shadow-[0_8px_32px_rgba(10,13,31,0.04)]">
+                <div className="flex justify-between items-start mb-4">
+                  <span className="text-[9px] font-bold tracking-wider text-[#B38012] bg-[#D4A017]/10 px-2.5 py-1 rounded-full uppercase">
                     PRODUCT UPDATE
                   </span>
-                  <div className="w-8 h-8 rounded-lg border border-white/15 flex items-center justify-center text-[#D4A017] bg-[#D4A017]/10">
-                    <TrendingUp className="w-4 h-4" />
+                  <div className="w-6 h-6 rounded-lg border border-[#0A0D1F]/5 flex items-center justify-center text-[#D4A017] bg-[#D4A017]/5">
+                    <TrendingUp className="w-3.5 h-3.5" />
                   </div>
                 </div>
-                <h4 className="text-xl font-bold text-white mb-3 leading-snug">
+                <h4 className="text-base font-bold text-[#0A0D1F] mb-2 leading-snug">
                   AI Session Summaries are now live.
                 </h4>
-                <p className="text-[#E2E4F0] text-sm leading-relaxed mb-6 font-normal">
-                  Automatically generate session summaries, action items, and follow-ups in seconds.
+                <p className="text-[#55534E] text-xs leading-relaxed mb-4 font-normal">
+                  Automatically generate session summaries, action items, and follow-ups.
                 </p>
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 text-[#D4A017] font-semibold text-xs w-fit group/link hover:text-[#B38012] transition-colors"
+                >
+                  Learn more <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
+                </a>
               </div>
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 text-[#D4A017] hover:text-[#F3C043] font-medium text-sm w-fit relative z-10 mt-auto group/link transition-colors"
-              >
-                Learn more <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
-              </a>
             </div>
 
             {/* Bottom Right Card */}
-            <div className="flex-1 bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
-              {/* Image Background (Covers full card, text sits directly on it) */}
+            <div className="flex-1 bg-white border border-[#0A0D1F]/[0.06] rounded-[20px] p-5 group relative overflow-hidden flex flex-col justify-center min-h-[220px] shadow-[0_2px_8px_rgba(10,13,31,0.02)] hover:shadow-[0_16px_48px_rgba(10,13,31,0.06)] hover:border-[#D4A017]/35 transition-all duration-300">
+              {/* Image Background (Covers full card) */}
               <div className="absolute inset-0 overflow-hidden">
                 <Image
                   src="/insights-laptop.png"
@@ -194,32 +192,30 @@ export function WhatsNew() {
                   fill
                   className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
-                {/* Dark gradient to make white text pop on the left, keeping right image clear */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0C1029]/85 via-[#0C1029]/40 to-transparent z-10" />
               </div>
               
-              <div className="relative z-10 w-[78%]">
-                <div className="flex justify-between items-start mb-6">
-                  <span className="text-[9.5px] font-semibold tracking-wider text-[#D4A017] bg-[#D4A017]/15 border border-[#D4A017]/30 px-3 py-1.5 rounded-full uppercase">
+              <div className="relative z-10 w-[90%] bg-white/85 backdrop-blur-md border border-white/60 rounded-2xl p-5 shadow-[0_8px_32px_rgba(10,13,31,0.04)]">
+                <div className="flex justify-between items-start mb-4">
+                  <span className="text-[9px] font-bold tracking-wider text-[#B38012] bg-[#D4A017]/10 px-2.5 py-1 rounded-full uppercase">
                     INSIGHTS
                   </span>
-                  <div className="w-8 h-8 rounded-lg border border-white/15 flex items-center justify-center text-[#D4A017] bg-[#D4A017]/10">
-                    <FileText className="w-4 h-4" />
+                  <div className="w-6 h-6 rounded-lg border border-[#0A0D1F]/5 flex items-center justify-center text-[#D4A017] bg-[#D4A017]/5">
+                    <FileText className="w-3.5 h-3.5" />
                   </div>
                 </div>
-                <h4 className="text-xl font-bold text-white mb-3 leading-snug">
+                <h4 className="text-base font-bold text-[#0A0D1F] mb-2 leading-snug">
                   5 reasons training programs fail at scale
                 </h4>
-                <p className="text-[#E2E4F0] text-sm leading-relaxed mb-6 font-normal">
+                <p className="text-[#55534E] text-xs leading-relaxed mb-4 font-normal">
                   Learn the biggest challenges training teams face — and how to solve them.
                 </p>
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 text-[#D4A017] font-semibold text-xs w-fit group/link hover:text-[#B38012] transition-colors"
+                >
+                  Read article <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
+                </a>
               </div>
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 text-[#D4A017] hover:text-[#F3C043] font-medium text-sm w-fit relative z-10 mt-auto group/link transition-colors"
-              >
-                Read article <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
-              </a>
             </div>
 
           </div>
