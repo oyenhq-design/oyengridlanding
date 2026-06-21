@@ -475,9 +475,9 @@ function HeaderInlineSearch() {
         )}
       </AnimatePresence>
 
-      {/* Suggestion Dropdown */}
+      {/* Suggestion Dropdown - Only visible when query.length > 0 */}
       <AnimatePresence>
-        {active && (
+        {active && query.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -485,7 +485,7 @@ function HeaderInlineSearch() {
             className="absolute top-[40px] right-2 w-[280px] bg-[#090D16]/95 border border-white/[0.08] backdrop-blur-xl rounded-xl p-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.6)] z-[200] flex flex-col gap-0.5"
           >
             <div className="px-2.5 py-1.5 text-[9px] font-black text-white/20 uppercase tracking-[0.2em]">
-              {query ? `Search Results (${filtered.length})` : "Suggested Links"}
+              Search Results ({filtered.length})
             </div>
             {filtered.length > 0 ? (
               filtered.map((item, idx) => (
@@ -505,7 +505,7 @@ function HeaderInlineSearch() {
               ))
             ) : (
               <div className="p-4 text-center text-white/20 text-[11px]">
-                No suggestions found.
+                No protocols found.
               </div>
             )}
           </motion.div>
