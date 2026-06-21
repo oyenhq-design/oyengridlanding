@@ -8,10 +8,10 @@ async function main() {
     console.log('Loading image from:', inputPath);
     const image = await Jimp.read(inputPath);
 
-    // Target background color (solid pitch-black #000000)
-    const targetR = 0;
-    const targetG = 0;
-    const targetB = 0;
+    // Target background color (solid dark midnight-blue #050b14)
+    const targetR = 5;
+    const targetG = 11;
+    const targetB = 20;
 
     console.log('Processing pixels with smart feathering...');
     let transparentCount = 0;
@@ -22,14 +22,14 @@ async function main() {
       const green = this.bitmap.data[idx + 1];
       const blue = this.bitmap.data[idx + 2];
 
-      // Distance to target background color (pure black)
+      // Distance to target background color
       const dist = Math.sqrt(
         Math.pow(red - targetR, 2) +
         Math.pow(green - targetG, 2) +
         Math.pow(blue - targetB, 2)
       );
 
-      // Keys out solid black (#000000) background pixels cleanly and feathers borders
+      // Keys out solid midnight-blue (#050b14) background pixels cleanly and feathers borders
       if (dist < 10) {
         this.bitmap.data[idx + 3] = 0;
         transparentCount++;
