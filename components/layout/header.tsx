@@ -202,13 +202,13 @@ export function Header() {
       <div className="w-full max-w-[1320px] mx-auto px-6 flex items-center justify-between gap-4">
 
         {/* ── LEFT: Logo + primary nav ───────────────────────────────────── */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-8">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0 group mr-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/oyen-grid-icon.png"
+              src="/oyen-grid-icon-clean.png"
               alt=""
               aria-hidden="true"
               className="w-7 h-7 object-contain"
@@ -219,7 +219,7 @@ export function Header() {
           </Link>
 
           {/* Primary nav — desktop only */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-2">
             {LEFT_MENUS.map((menu) => (
               <NavDropdown
                 key={menu.label}
@@ -231,15 +231,15 @@ export function Header() {
             ))}
             <Link
               href="/pricing"
-              className="text-[12.5px] font-semibold text-[#0A0D1F]/60 hover:text-[#0A0D1F] tracking-wide px-1 transition-colors duration-150"
+              className="text-[12.5px] font-semibold text-[#0A0D1F]/60 hover:text-[#0A0D1F] tracking-wide px-2 h-8 flex items-center transition-colors duration-150"
             >
               Pricing
             </Link>
           </nav>
         </div>
 
-        {/* ── RIGHT: Secondary nav + CTAs ───────────────────────────────── */}
-        <div className="flex items-center gap-1">
+        {/* ── RIGHT: Secondary nav (CTAs removed) ───────────────────────── */}
+        <div className="flex items-center gap-3">
 
           {/* Search icon */}
           <button className="hidden lg:flex p-2 text-[#0A0D1F]/40 hover:text-[#0A0D1F] transition-colors rounded-lg hover:bg-[#0A0D1F]/5 cursor-pointer">
@@ -260,41 +260,22 @@ export function Header() {
           </div>
 
           {/* Divider */}
-          <div className="hidden lg:block w-px h-4 bg-[#0A0D1F]/10 mx-2" />
-
-          {/* Sign In */}
-          <Link
-            href="/sign-in"
-            className="hidden lg:inline-block text-[12px] font-semibold text-[#0A0D1F]/60 hover:text-[#0A0D1F] transition-colors px-2 py-1.5"
-          >
-            Sign In
-          </Link>
+          <div className="hidden lg:block w-px h-4 bg-[#0A0D1F]/10 mx-1" />
 
           {/* Support */}
           <Link
             href="/resources/help"
-            className="hidden lg:inline-block text-[12px] font-semibold text-[#0A0D1F]/60 hover:text-[#0A0D1F] transition-colors px-2 py-1.5"
+            className="hidden lg:inline-block text-[12.5px] font-semibold text-[#0A0D1F]/60 hover:text-[#0A0D1F] transition-colors px-2 py-1.5"
           >
             Support
           </Link>
 
-          {/* Divider */}
-          <div className="hidden lg:block w-px h-4 bg-[#0A0D1F]/10 mx-2" />
-
-          {/* Contact Sales — outline */}
+          {/* Sign In */}
           <Link
-            href="/company/enterprise-sales"
-            className="hidden lg:inline-flex items-center px-3.5 py-1.5 rounded-lg border border-[#0A0D1F]/20 hover:border-[#D4A017] text-[11.5px] font-bold text-[#0A0D1F]/80 hover:text-[#0A0D1F] tracking-wide uppercase transition-all duration-200"
+            href="/sign-in"
+            className="hidden lg:inline-block text-[12.5px] font-semibold text-[#0A0D1F]/60 hover:text-[#0A0D1F] transition-colors px-2 py-1.5"
           >
-            Contact Sales
-          </Link>
-
-          {/* Book a Demo — filled */}
-          <Link
-            href="/company/enterprise-sales"
-            className="hidden lg:inline-flex items-center px-4 py-1.5 rounded-lg bg-[#E2B84C] hover:bg-[#F5CC6A] text-black text-[11.5px] font-bold tracking-wide uppercase transition-all duration-200 shadow-sm"
-          >
-            Book a Demo
+            Sign In
           </Link>
 
           {/* Hamburger — mobile only */}
@@ -322,11 +303,10 @@ export function Header() {
               <div className="flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/oyen-grid-icon.png"
+                  src="/oyen-grid-icon-clean.png"
                   alt=""
                   aria-hidden="true"
                   className="w-7 h-7 object-contain"
-                  style={{ mixBlendMode: "screen" }}
                 />
                 <span className="font-bold text-white text-[13px] tracking-[0.07em] uppercase">
                   OYEN GRID
@@ -375,7 +355,7 @@ export function Header() {
               ))}
 
               {/* Mobile footer links */}
-              <div className="pt-4 border-t border-white/[0.06] flex flex-col gap-3">
+              <div className="pt-4 border-t border-white/[0.06] flex flex-col gap-3 pb-8">
                 <Link href="/pricing" onClick={() => setMobileOpen(false)} className="text-[13px] font-bold text-white">
                   Pricing
                 </Link>
@@ -384,22 +364,6 @@ export function Header() {
                 </Link>
                 <Link href="/resources/help" onClick={() => setMobileOpen(false)} className="text-[13px] font-semibold text-white/50">
                   Support
-                </Link>
-              </div>
-              <div className="flex flex-col gap-3 pb-8">
-                <Link
-                  href="/company/enterprise-sales"
-                  onClick={() => setMobileOpen(false)}
-                  className="w-full text-center py-3 rounded-xl border border-white/20 text-[12px] font-bold text-white uppercase tracking-wide"
-                >
-                  Contact Sales
-                </Link>
-                <Link
-                  href="/company/enterprise-sales"
-                  onClick={() => setMobileOpen(false)}
-                  className="w-full text-center py-3 rounded-xl bg-[#E2B84C] text-black text-[12px] font-bold uppercase tracking-wide"
-                >
-                  Book a Demo
                 </Link>
               </div>
             </div>

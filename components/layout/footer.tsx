@@ -187,7 +187,7 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
             <div className="flex items-center gap-2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/oyen-grid-icon.png"
+                src="/oyen-grid-icon-clean.png"
                 alt=""
                 aria-hidden="true"
                 className="w-6 h-6 object-contain"
