@@ -241,12 +241,17 @@ export function HeroInstitutional() {
         </div>
 
         {/* TOP: REDESIGNED PREMIUM TRUST BAR */}
-        <div className="mt-6 border border-white/[0.07] rounded-2xl bg-[#0A0D1A]/60 backdrop-blur-md px-10 py-5 flex flex-col gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.8)]" style={{borderColor: "rgba(59,111,232,0.12)"}}>
-          <span className="text-[9px] font-black tracking-[0.24em] text-[#FFC72C] uppercase text-center select-none">
+        <div className="mt-6 border border-white/[0.07] rounded-2xl bg-[#0A0D1A]/60 backdrop-blur-md px-10 py-5 flex flex-col gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.8)] relative overflow-hidden" style={{borderColor: "rgba(59,111,232,0.12)"}}>
+          
+          {/* Edge fading gradient masks */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#0A0D1A] to-transparent pointer-events-none z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#0A0D1A] to-transparent pointer-events-none z-10" />
+
+          <span className="text-[9px] font-black tracking-[0.24em] text-[#FFC72C] uppercase text-center select-none z-20">
             Trusted by organisations
           </span>
-          <div className="w-full h-px bg-white/5" />
-          <div className="flex flex-wrap items-center justify-between gap-x-12 gap-y-6 w-full px-4">
+          <div className="w-full h-px bg-white/5 z-20" />
+          <div className="flex flex-wrap items-center justify-between gap-x-12 gap-y-6 w-full px-4 z-20">
             {trustLogos.map((logo, index) => (
               <div key={index} className="flex items-center gap-2.5 text-white/40 hover:text-white/80 transition-colors duration-300 select-none">
                 <svg className="w-4.5 h-4.5 shrink-0" viewBox="0 0 24 24" fill="none">
