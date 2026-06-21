@@ -60,7 +60,7 @@ export function ScaleStructure() {
     <section className="py-24 md:py-32 bg-[#FAFAF8] relative overflow-hidden border-b border-[#0A0D1F]/5">
       {/* Section Background Image Overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.85] pointer-events-none" 
+        className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.05] pointer-events-none" 
         style={{ backgroundImage: "url('/blue-mesh-bg.png')" }} 
       />
 
@@ -134,7 +134,7 @@ export function ScaleStructure() {
             <div className="relative w-full max-w-[520px] h-[380px] bg-white border border-[#0A0D1F]/10 rounded-3xl p-6 shadow-[0_12px_40px_rgba(10,13,31,0.06)] overflow-hidden">
               {/* Box Background Image Overlay */}
               <div 
-                className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.85] pointer-events-none" 
+                className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.10] pointer-events-none" 
                 style={{ backgroundImage: "url('/diagram-bg.png')" }} 
               />
 
