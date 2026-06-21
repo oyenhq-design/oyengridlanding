@@ -57,7 +57,7 @@ export function ScaleStructure() {
   const centerY = 190;
 
   return (
-    <section className="py-24 md:py-32 bg-[#FAFAF8] relative overflow-hidden border-b border-[#0A0D1F]/5">
+    <section className="py-24 md:py-32 bg-[#0C1029] relative overflow-hidden border-b border-white/5">
       {/* Section Background Image Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.85] pointer-events-none" 
@@ -66,7 +66,7 @@ export function ScaleStructure() {
 
       {/* Ambient background glows */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[900px] h-[600px] bg-[#D4A017]/[0.04] blur-[150px] rounded-full" />
+        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[900px] h-[600px] bg-[#D4A017]/[0.08] blur-[150px] rounded-full" />
       </div>
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
@@ -88,7 +88,7 @@ export function ScaleStructure() {
             </div>
 
             {/* Headline */}
-            <h2 className="text-3xl md:text-[44px] font-extrabold text-[#0A0D1F] leading-[1.1] tracking-tight mb-6 max-w-[500px]">
+            <h2 className="text-3xl md:text-[44px] font-extrabold text-white leading-[1.1] tracking-tight mb-6 max-w-[500px]">
               Powered by secure, scalable,{" "}
               <span className="text-[#D4A017] italic font-serif font-normal">
                 enterprise-grade
@@ -97,7 +97,7 @@ export function ScaleStructure() {
             </h2>
 
             {/* Supporting paragraph */}
-            <p className="text-sm md:text-base text-[#55534E] leading-relaxed max-w-[465px] mb-10 font-normal">
+            <p className="text-sm md:text-base text-[#A5A9C0] leading-relaxed max-w-[465px] mb-10 font-normal">
               OYEN GRID runs on high-performance operational network architecture, ensuring total reliability, regulatory compliance, and seamless scalability for your institutional training demands.
             </p>
 
@@ -112,10 +112,10 @@ export function ScaleStructure() {
                   transition={{ delay: i * 0.05, duration: 0.5 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="w-5 h-5 rounded-full border border-[#D4A017]/20 bg-[#D4A017]/[0.03] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-5 h-5 rounded-full border border-[#D4A017]/30 bg-[#D4A017]/[0.08] flex items-center justify-center shrink-0 mt-0.5">
                     <Check className="w-2.5 h-2.5 text-[#D4A017]" strokeWidth={3} />
                   </div>
-                  <span className="text-xs text-[#0A0D1F]/80 font-medium tracking-wide">
+                  <span className="text-xs text-white/80 font-medium tracking-wide">
                     {point}
                   </span>
                 </motion.li>
@@ -131,7 +131,7 @@ export function ScaleStructure() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="w-full flex items-center justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-[520px] h-[380px] bg-white border border-[#0A0D1F]/10 rounded-3xl p-6 shadow-[0_12px_40px_rgba(10,13,31,0.06)] overflow-hidden">
+            <div className="relative w-full max-w-[520px] h-[380px] bg-[#0A0D1F]/50 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-[0_24px_50px_rgba(0,0,0,0.3)] overflow-hidden">
               {/* Box Background Image Overlay */}
               <div 
                 className="absolute inset-0 bg-cover bg-center z-0 opacity-[0.85] pointer-events-none" 
@@ -208,9 +208,9 @@ export function ScaleStructure() {
                 className="absolute -translate-x-1/2 -translate-y-1/2 z-20 cursor-default"
                 style={{ left: centerX, top: centerY }}
               >
-                <div className="relative w-24 h-24 rounded-full bg-white border border-[#D4A017]/30 flex flex-col items-center justify-center shadow-sm group hover:border-[#D4A017]/60 transition-colors duration-500">
-                  <div className="absolute inset-1 rounded-full border border-[#0A0D1F]/5" />
-                  <span className="text-[10px] font-black text-[#0A0D1F] tracking-[0.2em] leading-none uppercase">
+                <div className="relative w-24 h-24 rounded-full bg-[#0C1029]/95 border border-[#D4A017]/40 flex flex-col items-center justify-center shadow-lg group hover:border-[#D4A017]/70 transition-colors duration-500">
+                  <div className="absolute inset-1 rounded-full border border-white/5" />
+                  <span className="text-[10px] font-black text-white tracking-[0.2em] leading-none uppercase">
                     OYEN
                   </span>
                   <span className="text-[10px] font-black text-[#D4A017] tracking-[0.2em] leading-none uppercase mt-1">
@@ -236,17 +236,17 @@ export function ScaleStructure() {
                     {/* Node Circle */}
                     <motion.div
                       whileHover={{ scale: 1.08 }}
-                      className="relative w-12 h-12 rounded-full bg-[#F3EFE5] border border-[#0A0D1F]/10 hover:border-[#D4A017]/50 flex items-center justify-center shadow-[0_4px_12px_rgba(10,13,31,0.05)] transition-all duration-300 group overflow-hidden cursor-default"
+                      className="relative w-12 h-12 rounded-full bg-[#0C1029]/90 border border-white/10 hover:border-[#D4A017]/50 flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.3)] transition-all duration-300 group overflow-hidden cursor-default"
                     >
-                      <NodeIcon className="w-5 h-5 text-[#D4A017]/70 group-hover:text-[#D4A017] transition-colors" />
+                      <NodeIcon className="w-5 h-5 text-[#D4A017]/80 group-hover:text-[#D4A017] transition-colors" />
                     </motion.div>
 
                     {/* Node Labels */}
                     <div className={`absolute w-[180px] pointer-events-none ${node.textOffsetClass}`}>
-                      <h4 className="text-xs font-bold text-[#0A0D1F] tracking-wide">
+                      <h4 className="text-xs font-bold text-white tracking-wide">
                         {node.label}
                       </h4>
-                      <p className="text-[10px] text-[#55534E] leading-tight mt-0.5 font-normal">
+                      <p className="text-[10px] text-white/60 leading-tight mt-0.5 font-normal">
                         {node.desc}
                       </p>
                     </div>
