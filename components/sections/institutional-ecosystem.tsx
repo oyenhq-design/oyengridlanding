@@ -183,13 +183,13 @@ export function HeroInstitutional() {
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Headline */}
-              <h1 className="text-[52px] sm:text-[68px] font-extrabold leading-[1.04] tracking-tight text-[#FFFFFF] select-none">
+              <h1 className="text-[52px] sm:text-[68px] font-bold leading-[1.04] tracking-tight text-[#FFFFFF] select-none">
                 Run your training program <br />
                 <span className="text-[#FFC72C]">without the chaos.</span>
               </h1>
 
               {/* Subheadline */}
-              <p className="text-[16px] sm:text-[17.5px] text-[#FFFFFF] font-extrabold leading-[1.6] mt-6 max-w-[480px] tracking-wide">
+              <p className="text-[16px] sm:text-[17.5px] text-[#E2E8F0] font-medium leading-[1.6] mt-6 max-w-[480px] tracking-wide">
                 Run programs, track learners, and report results. All in one place.
               </p>
 
