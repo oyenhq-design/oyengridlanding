@@ -137,27 +137,27 @@ export function OperationalInfrastructure() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="md:col-span-1 rounded-[24px] border border-[#0A0D1F]/10 bg-white p-8 flex flex-col justify-between hover:border-[#D4A017]/30 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(10,13,31,0.06)] transition-all duration-300 group overflow-hidden relative"
+            className="md:col-span-1 rounded-[24px] border border-white/10 bg-[#0C1029] p-8 flex flex-col justify-between hover:border-[#D4A017]/40 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-300 group overflow-hidden relative"
           >
             {/* Full-card background: attendance diagram */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/attendance-diagram.jpg"
               alt="Auto Attendance Diagram"
-              className="absolute inset-0 w-full h-full object-cover object-center opacity-90 pointer-events-none select-none group-hover:scale-[1.03] transition-transform duration-700"
+              className="absolute inset-0 w-full h-full object-cover object-center opacity-100 pointer-events-none select-none group-hover:scale-[1.03] transition-transform duration-700"
             />
-            {/* Blended overlay — strong top for text, clear at bottom */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white via-white/70 to-transparent pointer-events-none z-10" />
+            {/* Blended overlay — dark gradient to protect white text */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0C1029]/85 via-[#0C1029]/30 to-transparent pointer-events-none z-10" />
 
             <div className="relative z-20">
               <div className="flex items-center justify-between mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[#D4A017]/5 border border-[#D4A017]/20 flex items-center justify-center text-[#D4A017] group-hover:bg-[#D4A017]/10 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#D4A017]/15 border border-[#D4A017]/30 flex items-center justify-center text-[#D4A017] group-hover:bg-[#D4A017]/25 transition-colors">
                   <Activity className="w-5 h-5" />
                 </div>
-                <span className="text-[10px] font-bold text-[#55534E] uppercase tracking-widest">03 / AUTOMATION</span>
+                <span className="text-[10px] font-extrabold text-white/80 uppercase tracking-widest">03 / AUTOMATION</span>
               </div>
-              <h3 className="text-xl font-bold text-[#0A0D1F] mb-3">Auto Attendance</h3>
-              <p className="text-sm text-[#55534E] font-normal leading-relaxed mb-6">
+              <h3 className="text-xl font-extrabold text-white mb-3">Auto Attendance</h3>
+              <p className="text-sm text-white font-bold leading-relaxed mb-6">
                 Automatically capture attendance and participation data directly from integration logs.
               </p>
             </div>
@@ -165,7 +165,7 @@ export function OperationalInfrastructure() {
             {/* Transparent spacer to maintain card height and reveal background image */}
             <div className="relative min-h-[90px] bg-transparent pointer-events-none z-20" />
 
-            <div className="relative z-20 mt-8 pt-4 border-t border-[#0A0D1F]/5 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#D4A017] group-hover:text-[#B38012] transition-colors">
+            <div className="relative z-20 mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#D4A017] group-hover:text-[#F3C043] transition-colors">
               <Link href="/features/attendance-intelligence" className="inline-flex items-center gap-1.5 cursor-pointer">
                 View Logs <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
