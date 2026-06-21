@@ -8,10 +8,10 @@ async function main() {
     console.log('Loading image from:', inputPath);
     const image = await Jimp.read(inputPath);
 
-    // Target background color (cream/beige)
-    const targetR = 239;
-    const targetG = 227;
-    const targetB = 217;
+    // Target background color (solid pitch-black #000000)
+    const targetR = 0;
+    const targetG = 0;
+    const targetB = 0;
 
     console.log('Processing pixels with smart feathering...');
     let transparentCount = 0;
@@ -22,21 +22,19 @@ async function main() {
       const green = this.bitmap.data[idx + 1];
       const blue = this.bitmap.data[idx + 2];
 
-      // Distance to target background color
+      // Distance to target background color (pure black)
       const dist = Math.sqrt(
         Math.pow(red - targetR, 2) +
         Math.pow(green - targetG, 2) +
         Math.pow(blue - targetB, 2)
       );
 
-      // Using a very tight threshold (e.g. 15) to only transparentize the actual solid cream background,
-      // and feathering over a small range (15 to 30) to smooth the outer borders.
-      // This protects any lighter color components inside the dashboard mockup from getting keyed out.
-      if (dist < 15) {
+      // Keys out solid black (#000000) background pixels cleanly and feathers borders
+      if (dist < 10) {
         this.bitmap.data[idx + 3] = 0;
         transparentCount++;
-      } else if (dist < 30) {
-        const factor = (dist - 15) / 15; // 0 to 1
+      } else if (dist < 25) {
+        const factor = (dist - 10) / 15; // 0 to 1
         const alpha = Math.round(factor * 255);
         this.bitmap.data[idx + 3] = Math.min(this.bitmap.data[idx + 3], alpha);
         featheredCount++;
