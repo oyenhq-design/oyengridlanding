@@ -669,7 +669,7 @@ function PricingContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
             <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
               Personalized View
@@ -695,10 +695,10 @@ function PricingContent() {
                   transition={{ duration: 0.5, delay: i * 0.07 }}
                   onClick={() => handleSelectSolution(sol.id)}
                   className={cn(
-                    "solution-card group relative p-6 rounded-[20px] border cursor-pointer transition-all duration-300 flex flex-col gap-4 overflow-hidden",
+                    "solution-card group relative p-4 rounded-[16px] border cursor-pointer transition-all duration-300 flex flex-col gap-3 overflow-hidden",
                     isActive
-                      ? `active-solution-card bg-white dark:bg-white/[0.04] border-2 border-[#D4A017] shadow-[0_20px_50px_rgba(212,160,23,0.15)] dark:shadow-[0_6px_30px_rgba(232,184,74,0.08)] -translate-y-1.5`
-                      : "bg-white dark:bg-white/[0.015] border-[#E5DDD0] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:bg-white dark:hover:bg-white/[0.03] hover:border-[#E5DDD0] dark:hover:border-white/[0.1] hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1.5"
+                      ? `active-solution-card bg-white dark:bg-white/[0.04] border-2 border-[#D4A017] shadow-[0_12px_32px_rgba(212,160,23,0.1)] dark:shadow-[0_4px_20px_rgba(232,184,74,0.05)] -translate-y-1`
+                      : "bg-white dark:bg-white/[0.015] border-[#E5DDD0] dark:border-white/[0.05] shadow-[0_4px_16px_rgba(15,23,42,0.02)] dark:shadow-none hover:bg-white dark:hover:bg-white/[0.03] hover:border-[#E5DDD0] dark:hover:border-white/[0.1] hover:shadow-[0_8px_24px_rgba(0,0,0,0.05)] hover:-translate-y-1"
                   )}
                 >
                   {isActive && (
@@ -760,7 +760,7 @@ function PricingContent() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.3 }}
-              className="mt-8 flex items-center justify-center gap-3"
+              className="mt-6 flex items-center justify-center gap-3"
             >
               <div className={cn("w-1.5 h-1.5 rounded-full animate-pulse", colorClasses[activeSolution.id].bgSolid)} />
               <span className="text-[12px] font-semibold text-[#6B7280] dark:text-white/40 tracking-wider">
@@ -909,7 +909,7 @@ function PricingContent() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="text-center mb-16">
+                <div className="text-center mb-8">
                   <span className="text-[10px] font-black text-[#D4A017] dark:text-[#E8B84A] tracking-[0.32em] uppercase block mb-3">
                     Plan Options
                   </span>
@@ -937,12 +937,12 @@ function PricingContent() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: i * 0.06 }}
                         className={cn(
-                          "pricing-card relative rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
+                          "pricing-card relative rounded-2xl border p-4 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
                           isPremiumPlus
-                            ? "bg-[#07111F] text-white border-transparent shadow-[0_12px_32px_rgba(7,17,31,0.15)]"
+                            ? "bg-[#07111F] text-white border-transparent shadow-[0_8px_24px_rgba(7,17,31,0.1)]"
                             : (isPremium
-                              ? "bg-gradient-to-b from-[#FFFDF7] to-[#FDF6E3] dark:from-[#FFFDF7]/[0.02] dark:to-[#FDF6E3]/[0.02] border-[#D4A017] shadow-[0_12px_32px_rgba(212,160,23,0.08)] dark:shadow-[0_12px_40px_rgba(232,184,74,0.08)] hover:border-[#D4A017]"
-                              : "bg-white dark:bg-white/[0.015] border-[#E5DDD0] dark:border-white/[0.05] shadow-[0_8px_24px_rgba(15,23,42,0.04)] dark:shadow-none hover:border-[#D1D5DB] dark:hover:border-white/[0.12] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)]"
+                              ? "bg-gradient-to-b from-[#FFFDF7] to-[#FDF6E3] dark:from-[#FFFDF7]/[0.02] dark:to-[#FDF6E3]/[0.02] border-[#D4A017] shadow-[0_8px_24px_rgba(212,160,23,0.06)] dark:shadow-[0_8px_30px_rgba(232,184,74,0.06)] hover:border-[#D4A017]"
+                              : "bg-white dark:bg-white/[0.015] border-[#E5DDD0] dark:border-white/[0.05] shadow-[0_4px_16px_rgba(15,23,42,0.02)] dark:shadow-none hover:border-[#D1D5DB] dark:hover:border-white/[0.1] hover:shadow-[0_8px_24px_rgba(15,23,42,0.05)]"
                             )
                         )}
                       >
@@ -974,7 +974,7 @@ function PricingContent() {
                               animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: -6 }}
                               transition={{ duration: 0.25 }}
-                              className="mt-4 mb-1 flex items-baseline gap-1"
+                              className="mt-3 mb-1 flex items-baseline gap-1"
                             >
                               <span className={cn(
                                 "font-extrabold tracking-tighter leading-none",
@@ -1002,7 +1002,7 @@ function PricingContent() {
                               exit={{ opacity: 0 }}
                               transition={{ duration: 0.25 }}
                               className={cn(
-                                "text-[12px] leading-[1.6] mb-6 font-medium",
+                                "text-[12px] leading-[1.5] mb-4 font-medium",
                                 isPremiumPlus ? "text-white/70" : "text-[#374151] dark:text-white/70"
                               )}
                             >
@@ -1012,12 +1012,12 @@ function PricingContent() {
 
 
                           <div className={cn(
-                            "h-px mb-6",
+                            "h-px mb-4",
                             isPremiumPlus ? "bg-white/10" : "bg-[#EBE9E1] dark:bg-white/[0.06]"
                           )} />
 
                           <h4 className={cn(
-                            "text-[9.5px] font-bold tracking-widest uppercase mb-4",
+                            "text-[9.5px] font-bold tracking-widest uppercase mb-3",
                             isPremiumPlus ? "text-white/55" : "text-[#4B5563] dark:text-white/60"
                           )}>
                             {plan.planLabel}
@@ -1031,7 +1031,7 @@ function PricingContent() {
                               animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: -6 }}
                               transition={{ duration: 0.28 }}
-                              className="space-y-3"
+                              className="space-y-2.5"
                             >
                               {features.map((feat, fi) => (
                                 <li key={fi} className={cn(
@@ -1049,7 +1049,7 @@ function PricingContent() {
                         </div>
 
                         <div className={cn(
-                          "mt-8 pt-6 border-t relative z-10",
+                          "mt-6 pt-4 border-t relative z-10",
                           isPremiumPlus ? "border-white/10" : "border-[#EBE9E1] dark:border-white/[0.05]"
                         )}>
                           <Link
