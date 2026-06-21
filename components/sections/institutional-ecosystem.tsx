@@ -208,19 +208,19 @@ export function HeroInstitutional() {
             </motion.div>
           </div>
 
-          {/* RIGHT: HERO MOCK-UP GRAPHIC */}
+          {/* RIGHT: HERO MOCK-UP GRAPHIC (CLEAN TRANSPARENT FLOATING) */}
           <div className="relative h-[480px] lg:h-[550px] flex items-center justify-center w-full">
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full h-full max-w-[580px] rounded-[24px] overflow-hidden shadow-[0_32px_96px_rgba(0,0,0,0.65)] border border-white/[0.08]"
+              className="relative w-full h-full max-w-[580px]"
             >
               <Image
-                src="/hero-mockup.png"
+                src="/hero-mockup-clean.png"
                 alt="OYEN GRID Platform Mockup"
                 fill
-                className="object-cover object-center"
+                className="object-contain"
                 priority
               />
             </motion.div>
