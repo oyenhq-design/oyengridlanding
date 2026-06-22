@@ -67,15 +67,14 @@ export function OperationalInfrastructure() {
             className="md:col-span-2 rounded-[24px] border border-[#0A0D1F]/10 bg-white p-8 flex flex-col justify-between hover:border-[#D4A017]/30 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(10,13,31,0.06)] transition-all duration-300 group overflow-hidden relative"
           >
             {/* Full-card background: timeline infographic */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/timeline-infographic.png"
               alt=""
               aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover object-center opacity-25 pointer-events-none select-none"
+              className="absolute inset-0 w-full h-full object-cover object-center opacity-90 pointer-events-none select-none"
             />
             {/* Blended overlay — strong top for text, clears at bottom */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white/10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-transparent pointer-events-none" />
 
             {/* Card content — sits above background */}
             <div className="relative z-10">
