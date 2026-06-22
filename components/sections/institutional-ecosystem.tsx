@@ -226,17 +226,7 @@ export function HeroInstitutional() {
             </motion.div>
           </div>
 
-          {/* CENTERED SCROLL TO EXPLORE INDICATOR */}
-          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 bottom-[145px] flex-col items-center gap-2.5 z-30">
-            <div className="w-[26px] h-[42px] rounded-full border border-[#FFC72C]/40 flex items-start justify-center p-2">
-              <motion.div
-                animate={{ y: [0, 14, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-2 h-2 bg-[#FFC72C] rounded-full"
-              />
-            </div>
-            <span className="text-[9px] font-bold tracking-[0.22em] text-[#FFC72C]/50 uppercase">scroll to explore</span>
-          </div>
+
 
         </div>
 
