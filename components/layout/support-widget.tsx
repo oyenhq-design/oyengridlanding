@@ -414,8 +414,12 @@ export function SupportWidget() {
             {/* Header */}
             <div className="px-3.5 py-2 bg-[#111111] border-b border-[#222222] flex items-center justify-between shrink-0">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-lg bg-[#FFC72C]/10 border border-[#FFC72C]/20 flex items-center justify-center">
-                  <Sparkles className="w-3 h-3 text-[#FFC72C]" />
+                <div className="w-6 h-6 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                  <img
+                    src="/oyen-grid-icon-clean.png"
+                    alt=""
+                    className="w-4 h-4 object-contain"
+                  />
                 </div>
                 <div>
                   <p className="font-bold text-[10px] text-[#FFC72C] tracking-widest uppercase leading-none">
