@@ -291,6 +291,14 @@ export function Header() {
             Sign In
           </Link>
 
+          {/* Get Started — Register CTA */}
+          <Link
+            href="/register"
+            className="hidden lg:inline-flex items-center gap-1.5 h-8 px-4 rounded-full bg-[#FFC72C] hover:bg-[#FFD45B] text-[#0B0B0B] text-[11.5px] font-extrabold uppercase tracking-wider transition-all duration-200 hover:shadow-[0_0_14px_rgba(255,199,44,0.35)] active:scale-[0.97]"
+          >
+            Get Started
+          </Link>
+
           {/* Hamburger — mobile only */}
           <button
             onClick={() => setMobileOpen(true)}
@@ -403,6 +411,14 @@ export function Header() {
                 </Link>
                 <Link href="/resources/help" onClick={() => setMobileOpen(false)} className="text-[13px] font-semibold text-white/50">
                   Support
+                </Link>
+                {/* Mobile Register CTA */}
+                <Link
+                  href="/register"
+                  onClick={() => setMobileOpen(false)}
+                  className="mt-2 w-full h-10 rounded-xl bg-[#FFC72C] flex items-center justify-center text-[12.5px] font-extrabold uppercase tracking-wider text-[#0B0B0B] transition-all"
+                >
+                  Get Started — Create Account
                 </Link>
               </div>
             </div>
