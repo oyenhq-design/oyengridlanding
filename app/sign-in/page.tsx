@@ -47,7 +47,7 @@ export default function SignInPage() {
         </div>
 
         {/* Middle: Form Area */}
-        <div className="my-auto py-12 max-w-[420px] w-full mx-auto">
+        <div className="max-w-[420px] w-full mx-auto pt-6 pb-12">
           <div className="mb-8">
             <h1 className="text-3xl font-extrabold tracking-tight text-zinc-900 mb-2">
               Welcome back
