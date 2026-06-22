@@ -61,25 +61,20 @@ export default function RegisterPage() {
 
           {/* Logo + Already have account */}
           <div className="flex items-start justify-between mb-10">
-            <Link href="/" className="flex items-center gap-2.5 group w-fit">
-              {/* Golden circular icon */}
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#F5C842] to-[#9A6C0E] flex items-center justify-center shadow-md flex-shrink-0">
-                <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5">
-                  <circle cx="10" cy="10" r="9" stroke="#7A4E08" strokeWidth="1" fill="none" opacity="0.4" />
-                  <path d="M7 6.5 C7 4 13 4 13 6.5" stroke="#FFF8D0" strokeWidth="1.6" strokeLinecap="round" fill="none" />
-                  <path d="M7 13.5 C7 16 13 16 13 13.5" stroke="#FFF8D0" strokeWidth="1.6" strokeLinecap="round" fill="none" />
-                  <line x1="7" y1="6.5" x2="7" y2="13.5" stroke="#FFF8D0" strokeWidth="1.6" strokeLinecap="round" />
-                  <line x1="13" y1="6.5" x2="13" y2="13.5" stroke="#FFF8D0" strokeWidth="1.6" strokeLinecap="round" />
-                  <line x1="12.5" y1="5.5" x2="7.5" y2="14.5" stroke="#7A4E08" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="12.5" y1="5.5" x2="7.5" y2="14.5" stroke="#FFF8D0" strokeWidth="1" strokeLinecap="round" />
-                </svg>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-extrabold text-[#111827] text-[13.5px] tracking-[0.07em] uppercase leading-none">
+            <Link href="/" className="flex items-center gap-2 group w-fit">
+              {/* Logo */}
+              <img
+                src="/oyen-grid-icon-clean.png"
+                alt=""
+                aria-hidden="true"
+                className="w-9.5 h-9.5 object-contain"
+              />
+              <div className="flex flex-col">
+                <span className="font-extrabold text-[#111827] text-[14.5px] tracking-[0.06em] uppercase leading-none">
                   OYEN GRID
                 </span>
-                <span className="text-[7px] font-bold text-zinc-400 uppercase tracking-[0.18em] leading-none mt-[3px]">
-                  Training Operations Infrastructure
+                <span className="text-[7.5px] font-black text-zinc-400 uppercase tracking-[0.18em] leading-none mt-1">
+                  TRAINING OPERATIONS INFRASTRUCTURE
                 </span>
               </div>
             </Link>
