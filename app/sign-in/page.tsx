@@ -173,7 +173,7 @@ export default function SignInPage() {
         {/* Bottom: Footer / Sign Up Link */}
         <div className="text-center text-xs text-zinc-500 font-medium shrink-0 pt-4">
           Don&apos;t have an account?{" "}
-          <Link href="#" className="font-bold text-[#D4A017] hover:text-[#B38012] transition-colors ml-0.5">
+          <Link href="/register" className="font-bold text-[#D4A017] hover:text-[#B38012] transition-colors ml-0.5">
             Sign up
           </Link>
         </div>
