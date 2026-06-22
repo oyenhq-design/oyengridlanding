@@ -31,7 +31,7 @@ export function WhatsNew() {
 
         {/* Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          
+
           {/* Card 1: AltSchool (Customer Story) - col-span-5 */}
           <div className="lg:col-span-5 flex flex-col bg-[#111638]/60 border border-white/[0.08] rounded-[20px] overflow-hidden group shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_16px_48px_rgba(212,160,23,0.1)] hover:border-[#FFC72C]/40 transition-all duration-300">
             {/* Top Area */}
@@ -47,7 +47,7 @@ export function WhatsNew() {
                 {/* Dark gradient to make white text pop on the left, keeping right image clear */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#0C1029] via-[#0C1029]/65 to-transparent z-10" />
               </div>
- 
+
               {/* Content */}
               <div className="relative z-20 flex-1 flex flex-col w-[75%] md:w-[70%]">
                 <span className="w-fit text-[9.5px] font-black tracking-wider text-[#FFC72C] bg-[#FFC72C]/15 border border-[#FFC72C]/30 px-3 py-1.5 rounded-full uppercase mb-6">
@@ -60,7 +60,7 @@ export function WhatsNew() {
                   AltSchool scaled their learner programs across 7 cohorts using automated attendance, real-time reports, and smart reminders.
                 </p>
                 <a
-                  href="#"
+                  href="/resources/case-studies"
                   className="inline-flex items-center gap-2 text-[#FFC72C] hover:text-[#FFD45B] font-bold text-sm w-fit group/link transition-colors"
                 >
                   Read story <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
@@ -100,7 +100,7 @@ export function WhatsNew() {
                 {/* Dark gradient to make white text pop on the left, keeping right image clear */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#0C1029] via-[#0C1029]/65 to-transparent z-10" />
               </div>
- 
+
               {/* Content */}
               <div className="relative z-20 flex-1 flex flex-col w-[75%] md:w-[70%]">
                 <span className="w-fit text-[9.5px] font-black tracking-wider text-[#FFC72C] bg-[#FFC72C]/15 border border-[#FFC72C]/30 px-3 py-1.5 rounded-full uppercase mb-6">
@@ -113,7 +113,7 @@ export function WhatsNew() {
                   See how TalentQL centralized training delivery, improved engagement, and scaled without adding more admin work.
                 </p>
                 <a
-                  href="#"
+                  href="/resources/case-studies"
                   className="inline-flex items-center gap-2 text-[#FFC72C] hover:text-[#FFD45B] font-bold text-sm w-fit group/link transition-colors"
                 >
                   View case study <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
@@ -145,7 +145,7 @@ export function WhatsNew() {
 
           {/* Column 3: Stacked Cards - col-span-3 */}
           <div className="lg:col-span-3 flex flex-col gap-6">
-            
+
             {/* Top Right Card */}
             <div className="flex-1 bg-[#111638]/60 border border-white/[0.08] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_16px_48px_rgba(212,160,23,0.1)] hover:border-[#FFC72C]/40 transition-all duration-300">
               {/* Image Background (Covers full card, text sits directly on it) */}
@@ -159,7 +159,7 @@ export function WhatsNew() {
                 {/* Dark gradient to make white text pop on the left, keeping right image clear */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#0C1029] via-[#0C1029]/65 to-transparent z-10" />
               </div>
-              
+
               <div className="relative z-10 w-[78%]">
                 <div className="flex justify-between items-start mb-6">
                   <span className="text-[9.5px] font-black tracking-wider text-[#FFC72C] bg-[#FFC72C]/15 border border-[#FFC72C]/30 px-3 py-1.5 rounded-full uppercase">
@@ -177,7 +177,7 @@ export function WhatsNew() {
                 </p>
               </div>
               <a
-                href="#"
+                href="/features/analytics-ai"
                 className="inline-flex items-center gap-2 text-[#FFC72C] hover:text-[#FFD45B] font-bold text-sm w-fit relative z-10 mt-auto group/link transition-colors"
               >
                 Learn more <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
@@ -197,7 +197,7 @@ export function WhatsNew() {
                 {/* Dark gradient to make white text pop on the left, keeping right image clear */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#0C1029] via-[#0C1029]/65 to-transparent z-10" />
               </div>
-              
+
               <div className="relative z-10 w-[78%]">
                 <div className="flex justify-between items-start mb-6">
                   <span className="text-[9.5px] font-black tracking-wider text-[#FFC72C] bg-[#FFC72C]/15 border border-[#FFC72C]/30 px-3 py-1.5 rounded-full uppercase">
@@ -215,7 +215,7 @@ export function WhatsNew() {
                 </p>
               </div>
               <a
-                href="#"
+                href="/resources/blog"
                 className="inline-flex items-center gap-2 text-[#FFC72C] hover:text-[#FFD45B] font-bold text-sm w-fit relative z-10 mt-auto group/link transition-colors"
               >
                 Read article <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
@@ -230,7 +230,7 @@ export function WhatsNew() {
           <div className="w-full max-w-2xl flex items-center gap-6">
             <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-white/10" />
             <a
-              href="#"
+              href="/resources/case-studies"
               className="inline-flex items-center gap-2 text-[#FFC72C] font-bold text-sm hover:gap-3 transition-all duration-300 shrink-0"
             >
               Explore all stories & insights <ArrowRight className="w-4 h-4" />

@@ -226,11 +226,11 @@ export default function RegisterPage() {
               </div>
               <span className="text-[12.5px] text-zinc-500 leading-relaxed">
                 I agree to the{" "}
-                <Link href="#" className="font-semibold text-[#D4A017] hover:underline">
+                <Link href="/resources/docs" className="font-semibold text-[#D4A017] hover:underline">
                   Terms of Service
                 </Link>{" "}
                 and{" "}
-                <Link href="#" className="font-semibold text-[#D4A017] hover:underline">
+                <Link href="/resources/docs" className="font-semibold text-[#D4A017] hover:underline">
                   Privacy Policy
                 </Link>
               </span>

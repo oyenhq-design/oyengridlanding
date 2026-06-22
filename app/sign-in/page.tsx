@@ -114,7 +114,7 @@ export default function SignInPage() {
                 />
                 Remember me
               </label>
-              <Link href="#" className="font-bold text-[#D4A017] hover:text-[#B38012] transition-colors">
+              <Link href="/resources/help" className="font-bold text-[#D4A017] hover:text-[#B38012] transition-colors">
                 Forgot password?
               </Link>
             </div>
