@@ -212,21 +212,21 @@ export function Header() {
         scrolled && "shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-xl"
       )}
     >
-      <div className="w-full max-w-[1320px] mx-auto px-6 flex items-center justify-between gap-4">
+      <div className="w-full max-w-full mx-auto px-6 flex items-center justify-between gap-4">
 
         {/* ── LEFT: Logo + primary nav ───────────────────────────────────── */}
         <div className="flex items-center gap-8">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0 group mr-2">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0 group mr-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/oyen-grid-icon-clean.png"
               alt=""
               aria-hidden="true"
-              className="w-7 h-7 object-contain"
+              className="w-9.5 h-9.5 object-contain"
             />
-            <span className="font-bold text-white text-[13px] tracking-[0.07em] uppercase group-hover:text-[#FFC72C] transition-colors duration-200">
+            <span className="font-bold text-white text-[14.5px] tracking-[0.07em] uppercase group-hover:text-[#FFC72C] transition-colors duration-200">
               OYEN GRID
             </span>
           </Link>
