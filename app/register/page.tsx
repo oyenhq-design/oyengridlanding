@@ -260,7 +260,7 @@ export default function RegisterPage() {
           {/* OAuth buttons */}
           <div className="grid grid-cols-2 gap-3">
             <a
-              href="https://accounts.google.com/o/oauth2/v2/auth?client_id=mock_id&redirect_uri=http://localhost:3000/&response_type=token&scope=email%20profile"
+              href="/"
               className="h-11 rounded-xl border border-zinc-200 hover:border-zinc-300 bg-white flex items-center justify-center gap-2.5 text-[12.5px] font-semibold text-zinc-700 hover:bg-zinc-50 transition-all active:scale-[0.99]"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24">
@@ -273,7 +273,7 @@ export default function RegisterPage() {
             </a>
 
             <a
-              href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=mock_id&redirect_uri=http://localhost:3000/&response_type=token&scope=user.read"
+              href="/"
               className="h-11 rounded-xl border border-zinc-200 hover:border-zinc-300 bg-white flex items-center justify-center gap-2.5 text-[12.5px] font-semibold text-zinc-700 hover:bg-zinc-50 transition-all active:scale-[0.99]"
             >
               <svg className="w-4 h-4" viewBox="0 0 23 23">
