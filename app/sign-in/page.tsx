@@ -33,13 +33,13 @@ export default function SignInPage() {
               src="/oyen-grid-icon-clean.png"
               alt=""
               aria-hidden="true"
-              className="w-7 h-7 object-contain"
+              className="w-9.5 h-9.5 object-contain"
             />
             <div className="flex flex-col">
-              <span className="font-extrabold text-[#111827] text-[13.5px] tracking-[0.06em] uppercase">
+              <span className="font-extrabold text-[#111827] text-[14.5px] tracking-[0.06em] uppercase leading-none">
                 OYEN GRID
               </span>
-              <span className="text-[7.5px] font-black text-zinc-400 uppercase tracking-[0.18em] leading-none mt-0.5">
+              <span className="text-[7.5px] font-black text-zinc-400 uppercase tracking-[0.18em] leading-none mt-1">
                 TRAINING OPERATIONS INFRASTRUCTURE
               </span>
             </div>
