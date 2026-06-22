@@ -21,11 +21,10 @@ export function WhatsNew() {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4 select-none">
-            Making news, making impact
+            Proven operational outcomes.
           </h2>
           <p className="text-[#E2E8F0] text-base max-w-2xl text-center leading-relaxed font-medium">
-            Stay updated with product releases, customer stories, and insights <br className="hidden md:block" />
-            from the world of training operations.
+            See how enterprise training teams scale and measure real impact.
           </p>
         </div>
 
@@ -54,10 +53,10 @@ export function WhatsNew() {
                   CUSTOMER STORY
                 </span>
                 <h3 className="text-[26px] font-extrabold text-white mb-4 leading-[1.2] tracking-tight">
-                  How AltSchool reduced attendance tracking from 4 hours to 10 minutes.
+                  AltSchool saves 4 hours weekly per cohort.
                 </h3>
                 <p className="text-[#E2E8F0] text-sm leading-relaxed mb-8 flex-1 pr-4 font-medium">
-                  AltSchool scaled their learner programs across 7 cohorts using automated attendance, real-time reports, and smart reminders.
+                  Automated tracking scaled AltSchool programs to 2,400+ active learners.
                 </p>
                 <a
                   href="/resources/case-studies"
@@ -107,10 +106,10 @@ export function WhatsNew() {
                   CASE STUDY
                 </span>
                 <h3 className="text-[26px] font-extrabold text-white mb-4 leading-[1.2] tracking-tight">
-                  Managing 5,000+ learners across 3 countries with OYEN GRID.
+                  TalentQL scales training across 3 countries.
                 </h3>
                 <p className="text-[#E2E8F0] text-sm leading-relaxed mb-8 flex-1 pr-4 font-medium">
-                  See how TalentQL centralized training delivery, improved engagement, and scaled without adding more admin work.
+                  Centralized operations enabled multi-country scale without administrative overhead.
                 </p>
                 <a
                   href="/resources/case-studies"
@@ -170,10 +169,10 @@ export function WhatsNew() {
                   </div>
                 </div>
                 <h4 className="text-xl font-bold text-white mb-3 leading-snug">
-                  AI Session Summaries are now live.
+                  AI Summaries feature live.
                 </h4>
                 <p className="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-medium">
-                  Automatically generate session summaries, action items, and follow-ups in seconds.
+                  Generate cohort summaries and action items instantly from live sessions.
                 </p>
               </div>
               <a
@@ -208,10 +207,10 @@ export function WhatsNew() {
                   </div>
                 </div>
                 <h4 className="text-xl font-bold text-white mb-3 leading-snug">
-                  5 reasons training programs fail at scale
+                  Scaling training programs successfully.
                 </h4>
                 <p className="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-medium">
-                  Learn the biggest challenges training teams face — and how to solve them.
+                  Avoid administrative friction points when scaling enterprise learning cohorts.
                 </p>
               </div>
               <a
