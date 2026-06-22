@@ -141,8 +141,8 @@ export default function SignInPage() {
           {/* OAuth Buttons */}
           <div className="grid grid-cols-2 gap-4">
             {/* Google */}
-            <button
-              onClick={() => console.log("Google Login")}
+            <a
+              href="https://accounts.google.com/o/oauth2/v2/auth?client_id=mock_id&redirect_uri=http://localhost:3000/&response_type=token&scope=email%20profile"
               className="h-11 rounded-xl border border-zinc-200 hover:border-zinc-300 bg-white flex items-center justify-center gap-2 text-[12px] font-bold text-zinc-700 transition-colors hover:bg-zinc-50 active:scale-[0.99] transition-all"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24">
@@ -152,11 +152,11 @@ export default function SignInPage() {
                 />
               </svg>
               Google
-            </button>
+            </a>
             
             {/* Microsoft */}
-            <button
-              onClick={() => console.log("Microsoft Login")}
+            <a
+              href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=mock_id&redirect_uri=http://localhost:3000/&response_type=token&scope=user.read"
               className="h-11 rounded-xl border border-zinc-200 hover:border-zinc-300 bg-white flex items-center justify-center gap-2 text-[12px] font-bold text-zinc-700 transition-colors hover:bg-zinc-50 active:scale-[0.99] transition-all"
             >
               <svg className="w-4 h-4" viewBox="0 0 23 23">
@@ -166,7 +166,7 @@ export default function SignInPage() {
                 <rect x="11.5" y="11.5" width="10.5" height="10.5" fill="#FFB900" />
               </svg>
               Microsoft
-            </button>
+            </a>
           </div>
         </div>
 
