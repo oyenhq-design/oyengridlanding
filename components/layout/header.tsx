@@ -171,8 +171,19 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileActiveMenu, setMobileActiveMenu] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
   const { openSearch } = useSearch();
+
+  const toggleMobileMenu = (label: string) => {
+    setMobileActiveMenu(mobileActiveMenu === label ? null : label);
+  };
+
+  useEffect(() => {
+    if (!mobileOpen) {
+      setMobileActiveMenu(null);
+    }
+  }, [mobileOpen]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -323,38 +334,64 @@ export function Header() {
             </div>
 
             {/* Drawer body */}
-            <div className="flex-1 overflow-y-auto px-6 py-8 space-y-8">
-              {ALL_MENUS.map((menu) => (
-                <div key={menu.label} className="space-y-3">
-                  <h3 className={cn(
-                    "text-[10px] font-black uppercase tracking-[0.4em]",
-                    (menu as { isAI?: boolean }).isAI ? "text-[#E2B84C] flex items-center gap-1.5" : "text-white/30"
-                  )}>
-                    {(menu as { isAI?: boolean }).isAI && <Sparkles className="w-3 h-3" />}
-                    {menu.label}
-                  </h3>
-                  <div className="flex flex-col gap-4 pl-1">
-                    {menu.items.map((item) => (
-                      <Link
-                        key={item.title}
-                        href={item.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="flex items-start gap-3 group"
-                      >
-                        <div className="w-7 h-7 rounded-lg bg-white/[0.04] flex items-center justify-center shrink-0">
-                          <item.icon className="w-3.5 h-3.5 text-white/35" />
-                        </div>
-                        <div>
-                          <div className="text-[13px] font-semibold text-white group-hover:text-[#E2B84C] transition-colors">
-                            {item.title}
+            <div className="flex-1 overflow-y-auto px-6 py-6 space-y-4">
+              {ALL_MENUS.map((menu) => {
+                const isOpen = mobileActiveMenu === menu.label;
+                return (
+                  <div key={menu.label} className="space-y-2 border-b border-white/[0.04] pb-3">
+                    <button
+                      onClick={() => toggleMobileMenu(menu.label)}
+                      className="w-full flex items-center justify-between text-left focus:outline-none cursor-pointer py-1"
+                    >
+                      <h3 className={cn(
+                        "text-[11.5px] font-black uppercase tracking-[0.3em] flex items-center gap-1.5",
+                        (menu as { isAI?: boolean }).isAI ? "text-[#E2B84C]" : "text-white/80"
+                      )}>
+                        {(menu as { isAI?: boolean }).isAI && <Sparkles className="w-3.5 h-3.5 text-[#E2B84C]" />}
+                        {menu.label}
+                      </h3>
+                      <ChevronDown
+                        className={cn(
+                          "w-4 h-4 text-white/40 transition-transform duration-200",
+                          isOpen && "rotate-180 text-[#FFC72C] opacity-100"
+                        )}
+                      />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="flex flex-col gap-4 pl-1.5 pt-2 pb-1.5">
+                            {menu.items.map((item) => (
+                              <Link
+                                key={item.title}
+                                href={item.href}
+                                onClick={() => setMobileOpen(false)}
+                                className="flex items-start gap-3 group"
+                              >
+                                <div className="w-7 h-7 rounded-lg bg-white/[0.04] flex items-center justify-center shrink-0">
+                                  <item.icon className="w-3.5 h-3.5 text-white/35 group-hover:text-white transition-colors" />
+                                </div>
+                                <div>
+                                  <div className="text-[13px] font-semibold text-white group-hover:text-[#E2B84C] transition-colors leading-none">
+                                    {item.title}
+                                  </div>
+                                  <div className="text-[11px] text-white/35 mt-1">{item.desc}</div>
+                                </div>
+                              </Link>
+                            ))}
                           </div>
-                          <div className="text-[11px] text-white/30 mt-0.5">{item.desc}</div>
-                        </div>
-                      </Link>
-                    ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
-                </div>
-              ))}
+                );
+              })}
 
               {/* Mobile footer links */}
               <div className="pt-4 border-t border-white/[0.06] flex flex-col gap-3 pb-8">
