@@ -695,7 +695,7 @@ function PricingContent() {
                   transition={{ duration: 0.5, delay: i * 0.07 }}
                   onClick={() => handleSelectSolution(sol.id)}
                   className={cn(
-                    "solution-card group relative p-4 rounded-[16px] border cursor-pointer transition-all duration-300 flex flex-col gap-3 overflow-hidden",
+                    "solution-card group relative py-3.5 px-4 rounded-[16px] border cursor-pointer transition-all duration-300 flex flex-col gap-2.5 overflow-hidden",
                     isActive
                       ? `active-solution-card bg-white dark:bg-white/[0.04] border-2 border-[#D4A017] shadow-[0_12px_32px_rgba(212,160,23,0.1)] dark:shadow-[0_4px_20px_rgba(232,184,74,0.05)] -translate-y-1`
                       : "bg-white dark:bg-white/[0.015] border-[#E5DDD0] dark:border-white/[0.05] shadow-[0_4px_16px_rgba(15,23,42,0.02)] dark:shadow-none hover:bg-white dark:hover:bg-white/[0.03] hover:border-[#E5DDD0] dark:hover:border-white/[0.1] hover:shadow-[0_8px_24px_rgba(0,0,0,0.05)] hover:-translate-y-1"
@@ -709,34 +709,34 @@ function PricingContent() {
                   )}
                   {isActive && (
                     <div
-                      className={cn("absolute top-4 right-4 w-2 h-2 rounded-full animate-pulse", colorClasses[sol.id].bgSolid)}
+                      className={cn("absolute top-3 right-4 w-1.5 h-1.5 rounded-full animate-pulse", colorClasses[sol.id].bgSolid)}
                     />
                   )}
 
                   <div
                     className={cn(
-                      "w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-300 relative z-10",
+                      "w-8 h-8 rounded-lg flex items-center justify-center border transition-all duration-300 relative z-10",
                       isActive
                         ? `${colorClasses[sol.id].text} ${colorClasses[sol.id].bg} ${colorClasses[sol.id].border}`
                         : "bg-[#F3F4F6] dark:bg-white/[0.05] border-transparent text-[#6B7280] dark:text-white/40"
                     )}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-4.5 h-4.5" />
                   </div>
 
                   <div className="relative z-10">
-                    <h3 className="text-[15px] font-bold text-[#111827] dark:text-white tracking-tight mb-2 transition-colors">
+                    <h3 className="text-[14.5px] font-bold text-[#111827] dark:text-white tracking-tight mb-1 transition-colors">
                       {sol.title}
                     </h3>
-                    <p className="text-[12px] text-[#374151] dark:text-white/70 leading-[1.6] mb-3 font-medium">
+                    <p className="text-[11.5px] text-[#374151] dark:text-white/70 leading-[1.5] mb-2 font-medium">
                       {sol.tagline}
                     </p>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-1">
                       {sol.audience.map((a) => (
                         <span
                           key={a}
                           className={cn(
-                            "text-[9.5px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full border transition-all",
+                            "text-[9px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full border transition-all",
                             isActive
                               ? `text-[#4B5563] dark:text-white/80 ${colorClasses[sol.id].bg} ${colorClasses[sol.id].border}`
                               : "bg-[#F3F4F6] dark:bg-white/[0.04] border-transparent text-[#4B5563] dark:text-white/50"
@@ -937,7 +937,7 @@ function PricingContent() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: i * 0.06 }}
                         className={cn(
-                          "pricing-card relative rounded-2xl border p-4 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
+                          "pricing-card relative rounded-2xl border p-3.5 pb-4 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
                           isPremiumPlus
                             ? "bg-[#07111F] text-white border-transparent shadow-[0_8px_24px_rgba(7,17,31,0.1)]"
                             : (isPremium
@@ -951,7 +951,7 @@ function PricingContent() {
                         )}
 
                         {plan.badge && (
-                          <div className="absolute top-4 right-5 px-2.5 py-0.5 rounded-full bg-[#D4A017]/10 border border-[#D4A017]/20 text-[8.5px] font-black text-[#D4A017] dark:text-[#E8B84A] uppercase tracking-widest flex items-center gap-1">
+                          <div className="absolute top-3.5 right-4 px-2 py-0.5 rounded-full bg-[#D4A017]/10 border border-[#D4A017]/20 text-[8px] font-black text-[#D4A017] dark:text-[#E8B84A] uppercase tracking-widest flex items-center gap-1">
                             <Star className="w-2.5 h-2.5" />
                             {plan.badge}
                           </div>
@@ -959,7 +959,7 @@ function PricingContent() {
 
                         <div className="relative z-10">
                           <span className={cn(
-                            "text-[10px] font-bold uppercase tracking-widest",
+                            "text-[9.5px] font-bold uppercase tracking-widest",
                             isPremiumPlus ? "text-white/60" : "text-[#111827] dark:text-white"
                           )}>
                             {plan.name}
@@ -970,22 +970,22 @@ function PricingContent() {
                           <AnimatePresence mode="wait">
                             <motion.div
                               key={`price-${plan.key}-${selectedSolution}`}
-                              initial={{ opacity: 0, y: 6 }}
+                              initial={{ opacity: 0, y: 4 }}
                               animate={{ opacity: 1, y: 0 }}
-                              exit={{ opacity: 0, y: -6 }}
-                              transition={{ duration: 0.25 }}
-                              className="mt-3 mb-1 flex items-baseline gap-1"
+                              exit={{ opacity: 0, y: -4 }}
+                              transition={{ duration: 0.2 }}
+                              className="mt-1.5 mb-0.5 flex items-baseline gap-1"
                             >
                               <span className={cn(
                                 "font-extrabold tracking-tighter leading-none",
                                 isPremiumPlus ? "text-white" : "text-[#111827] dark:text-white",
-                                isTalkToSales ? "text-[22px]" : "text-[34px]"
+                                isTalkToSales ? "text-[20px]" : "text-[30px]"
                               )}>
                                 {meta.price}
                               </span>
                               {meta.period && (
                                 <span className={cn(
-                                  "text-[12px] font-medium",
+                                  "text-[11px] font-medium",
                                   isPremiumPlus ? "text-white/50" : "text-[#6B7280] dark:text-white/50"
                                 )}>
                                   {meta.period}
@@ -1000,9 +1000,9 @@ function PricingContent() {
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                               exit={{ opacity: 0 }}
-                              transition={{ duration: 0.25 }}
+                              transition={{ duration: 0.2 }}
                               className={cn(
-                                "text-[12px] leading-[1.5] mb-4 font-medium",
+                                "text-[11px] leading-[1.4] mb-2 font-medium",
                                 isPremiumPlus ? "text-white/70" : "text-[#374151] dark:text-white/70"
                               )}
                             >
@@ -1012,12 +1012,12 @@ function PricingContent() {
 
 
                           <div className={cn(
-                            "h-px mb-4",
+                            "h-px mb-2.5",
                             isPremiumPlus ? "bg-white/10" : "bg-[#EBE9E1] dark:bg-white/[0.06]"
                           )} />
 
                           <h4 className={cn(
-                            "text-[9.5px] font-bold tracking-widest uppercase mb-3",
+                            "text-[9px] font-bold tracking-widest uppercase mb-1.5",
                             isPremiumPlus ? "text-white/55" : "text-[#4B5563] dark:text-white/60"
                           )}>
                             {plan.planLabel}
@@ -1027,19 +1027,19 @@ function PricingContent() {
                           <AnimatePresence mode="wait">
                             <motion.ul
                               key={`features-${plan.key}-${selectedSolution}`}
-                              initial={{ opacity: 0, y: 6 }}
+                              initial={{ opacity: 0, y: 4 }}
                               animate={{ opacity: 1, y: 0 }}
-                              exit={{ opacity: 0, y: -6 }}
-                              transition={{ duration: 0.28 }}
-                              className="space-y-2.5"
+                              exit={{ opacity: 0, y: -4 }}
+                              transition={{ duration: 0.22 }}
+                              className="space-y-1.5"
                             >
                               {features.map((feat, fi) => (
                                 <li key={fi} className={cn(
-                                  "flex items-start gap-2.5 text-[12.5px] font-medium",
+                                  "flex items-start gap-2 text-[12px] font-medium",
                                   isPremiumPlus ? "text-white/90" : "text-[#374151] dark:text-white/85"
                                 )}>
                                   <Check
-                                    className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#D4A017] dark:text-[#E8B84A]"
+                                    className="w-3 h-3 shrink-0 mt-0.5 text-[#D4A017] dark:text-[#E8B84A]"
                                   />
                                   <span>{feat}</span>
                                 </li>
@@ -1049,13 +1049,13 @@ function PricingContent() {
                         </div>
 
                         <div className={cn(
-                          "mt-6 pt-4 border-t relative z-10",
+                          "mt-4 pt-3 border-t relative z-10",
                           isPremiumPlus ? "border-white/10" : "border-[#EBE9E1] dark:border-white/[0.05]"
                         )}>
                           <Link
                             href={plan.href}
                             className={cn(
-                              "w-full h-11 rounded-xl flex items-center justify-center gap-2 text-[11.5px] font-black uppercase tracking-wider transition-all group/btn",
+                              "w-full h-9 rounded-xl flex items-center justify-center gap-1.5 text-[11px] font-black uppercase tracking-wider transition-all group/btn",
                               isPremiumPlus
                                 ? "bg-white text-black hover:bg-white/90 shadow-[0_4px_16px_rgba(255,255,255,0.05)] hover:scale-[1.02] active:scale-[0.98]"
                                 : (isPremium
@@ -1065,7 +1065,7 @@ function PricingContent() {
                             )}
                           >
                             {plan.cta}
-                            <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform opacity-60" />
+                            <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform opacity-60" />
                           </Link>
                         </div>
                       </motion.div>
@@ -1125,10 +1125,10 @@ function PricingContent() {
                     return (
                       <motion.div
                         key={`${selectedSolution}-${tier.plan}`}
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: i * 0.07 }}
-                        className="relative p-6 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#E5DDD0] dark:border-white/[0.06] shadow-[0_10px_30px_rgba(0,0,0,0.05)] dark:shadow-none hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] dark:hover:shadow-none transition-all group overflow-hidden"
+                        className="relative p-4 rounded-2xl bg-white dark:bg-white/[0.02] border border-[#E5DDD0] dark:border-white/[0.06] shadow-[0_10px_30px_rgba(0,0,0,0.05)] dark:shadow-none hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] dark:hover:shadow-none transition-all group overflow-hidden"
                       >
                         <div
                           className="absolute bottom-0 left-0 right-0 h-[3px] opacity-60"
@@ -1137,27 +1137,27 @@ function PricingContent() {
 
                         <div
                           className={cn(
-                            "w-10 h-10 rounded-xl flex items-center justify-center mb-4 border transition-all",
+                            "w-8 h-8 rounded-xl flex items-center justify-center mb-2.5 border transition-all",
                             getThemeColor(tier.color), getThemeBgColor(tier.color), getThemeBorderColor(tier.color)
                           )}
                         >
-                          <Icon className="w-5 h-5" />
+                          <Icon className="w-4.5 h-4.5" />
                         </div>
 
-                        <div className={cn("text-[10px] font-black uppercase tracking-[0.25em] mb-1", getThemeColor(tier.color))}>
+                        <div className={cn("text-[9px] font-black uppercase tracking-[0.25em] mb-0.5", getThemeColor(tier.color))}>
                           {tier.plan}
                         </div>
-                        <h4 className="text-[14.5px] font-bold text-[#111827] dark:text-white tracking-tight mb-2">
+                        <h4 className="text-[13.5px] font-bold text-[#111827] dark:text-white tracking-tight mb-1">
                           {tier.title}
                         </h4>
-                        <p className="text-[12.5px] text-[#4B5563] dark:text-white/70 leading-[1.6] mb-5 font-medium">
+                        <p className="text-[11.5px] text-[#4B5563] dark:text-white/70 leading-[1.5] mb-3.5 font-medium">
                           {tier.desc}
                         </p>
 
-                        <div className="mb-5">
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="text-[9.5px] font-bold text-[#4B5563] dark:text-white/60 uppercase tracking-wider">AI Level</span>
-                            <span className="text-[11px] font-extrabold text-[#111827] dark:text-white">
+                        <div className="mb-3.5">
+                          <div className="flex items-center justify-between mb-1.5">
+                            <span className="text-[9px] font-bold text-[#4B5563] dark:text-white/60 uppercase tracking-wider">AI Level</span>
+                            <span className="text-[10px] font-extrabold text-[#111827] dark:text-white">
                               {tier.level === 100 ? "Max" : `${tier.level}%`}
                             </span>
                           </div>
@@ -1172,9 +1172,9 @@ function PricingContent() {
                           </div>
                         </div>
 
-                        <div className="space-y-2 pt-4 border-t border-[#EBE9E1] dark:border-white/[0.05]">
+                        <div className="space-y-1.5 pt-3 border-t border-[#EBE9E1] dark:border-white/[0.05]">
                           {tier.features.map((feat, fi) => (
-                            <div key={fi} className="flex items-center gap-2 text-[12px] text-[#374151] dark:text-white/70 font-medium">
+                            <div key={fi} className="flex items-center gap-2 text-[11.5px] text-[#374151] dark:text-white/70 font-medium">
                               <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: tier.color }} />
                               <span>{feat}</span>
                             </div>
@@ -1240,13 +1240,13 @@ function PricingContent() {
                   >
                     <thead>
                       <tr className="border-b border-black/[0.08] dark:border-white/[0.06] bg-[#E5DDD0] dark:bg-white/[0.02]">
-                        <th className="py-10 px-6 dark:py-8 text-[12px] font-bold text-[#4B5563] dark:text-white tracking-[0.08em] dark:tracking-widest uppercase w-[28%] border-b border-black/[0.08] dark:border-white/[0.06]">
+                        <th className="py-4 px-6 text-[11px] font-bold text-[#4B5563] dark:text-white tracking-[0.08em] dark:tracking-widest uppercase w-[28%] border-b border-black/[0.08] dark:border-white/[0.06]">
                           Capability
                         </th>
-                        <th className="py-10 px-6 dark:py-8 text-[12px] font-bold text-[#4B5563] dark:text-white tracking-[0.08em] dark:tracking-widest uppercase border-b border-black/[0.08] dark:border-white/[0.06]">Basic</th>
-                        <th className="py-10 px-6 dark:py-8 text-[12px] font-bold text-[#4B5563] dark:text-white tracking-[0.08em] dark:tracking-widest uppercase border-b border-black/[0.08] dark:border-white/[0.06]">Standard</th>
-                        <th className="py-10 px-6 dark:py-8 text-[12px] font-bold text-[#4B5563] dark:text-[#E8B84A] tracking-[0.08em] dark:tracking-widest uppercase bg-[#FFF2D4]/30 dark:bg-[#E8B84A]/5 border-x border-black/[0.08] dark:border-transparent border-b border-black/[0.08] dark:border-white/[0.06]">★ Premium</th>
-                        <th className="py-10 px-6 dark:py-8 text-[12px] font-bold text-[#4B5563] dark:text-white tracking-[0.08em] dark:tracking-widest uppercase border-b border-black/[0.08] dark:border-white/[0.06]">Premium+</th>
+                        <th className="py-4 px-6 text-[11px] font-bold text-[#4B5563] dark:text-white tracking-[0.08em] dark:tracking-widest uppercase border-b border-black/[0.08] dark:border-white/[0.06]">Basic</th>
+                        <th className="py-4 px-6 text-[11px] font-bold text-[#4B5563] dark:text-white tracking-[0.08em] dark:tracking-widest uppercase border-b border-black/[0.08] dark:border-white/[0.06]">Standard</th>
+                        <th className="py-4 px-6 text-[11px] font-bold text-[#4B5563] dark:text-[#E8B84A] tracking-[0.08em] dark:tracking-widest uppercase bg-[#FFF2D4]/30 dark:bg-[#E8B84A]/5 border-x border-black/[0.08] dark:border-transparent border-b border-black/[0.08] dark:border-white/[0.06]">★ Premium</th>
+                        <th className="py-4 px-6 text-[11px] font-bold text-[#4B5563] dark:text-white tracking-[0.08em] dark:tracking-widest uppercase border-b border-black/[0.08] dark:border-white/[0.06]">Premium+</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-black/[0.08] dark:divide-white/[0.04]">
@@ -1262,11 +1262,11 @@ function PricingContent() {
                             "hover:bg-[#EAE4D8] dark:hover:bg-white/[0.012]"
                           )}
                         >
-                          <td className="py-10 px-6 dark:py-8 text-[14.5px] dark:text-[13.5px] font-semibold dark:font-bold text-[#1F2937] dark:text-white">{row.feature}</td>
-                          <td className="py-10 px-6 dark:py-8 text-[13.5px] dark:text-[13px] text-[#374151] dark:text-white/70 font-medium dark:font-medium">{row.basic}</td>
-                          <td className="py-10 px-6 dark:py-8 text-[13.5px] dark:text-[13px] text-[#374151] dark:text-white/70 font-medium dark:font-medium">{row.standard}</td>
-                          <td className="py-10 px-6 dark:py-8 text-[13.5px] dark:text-[13px] text-[#374151] dark:text-white font-medium dark:font-semibold bg-[#FFF6E0]/40 dark:bg-[#E8B84A]/3 border-x border-black/[0.08] dark:border-transparent">{row.premium}</td>
-                          <td className="py-10 px-6 dark:py-8 text-[13.5px] dark:text-[13px] text-[#D4A017] dark:text-[#E8B84A] font-bold dark:font-bold">{row.plus}</td>
+                          <td className="py-3.5 px-6 text-[13.5px] dark:text-[13px] font-semibold dark:font-bold text-[#1F2937] dark:text-white">{row.feature}</td>
+                          <td className="py-3.5 px-6 text-[13px] dark:text-[12.5px] text-[#374151] dark:text-white/70 font-medium dark:font-medium">{row.basic}</td>
+                          <td className="py-3.5 px-6 text-[13px] dark:text-[12.5px] text-[#374151] dark:text-white/70 font-medium dark:font-medium">{row.standard}</td>
+                          <td className="py-3.5 px-6 text-[13px] dark:text-[12.5px] text-[#374151] dark:text-white font-medium dark:font-semibold bg-[#FFF6E0]/40 dark:bg-[#E8B84A]/3 border-x border-black/[0.08] dark:border-transparent">{row.premium}</td>
+                          <td className="py-3.5 px-6 text-[13px] dark:text-[12.5px] text-[#D4A017] dark:text-[#E8B84A] font-bold dark:font-bold">{row.plus}</td>
                         </motion.tr>
                       ))}
                     </tbody>
@@ -1315,7 +1315,7 @@ function PricingContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.07 }}
-                  className="relative p-7 rounded-[20px] bg-white/5 border border-white/[0.08] hover:bg-white/[0.08] transition-all group overflow-hidden"
+                  className="relative p-5 rounded-[16px] bg-white/5 border border-white/[0.08] hover:bg-white/[0.08] transition-all group overflow-hidden"
                 >
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -1323,16 +1323,16 @@ function PricingContent() {
                   />
                   <div
                     className={cn(
-                      "w-11 h-11 rounded-xl flex items-center justify-center mb-5 border transition-all duration-300",
+                      "w-9 h-9 rounded-lg flex items-center justify-center mb-3.5 border transition-all duration-300",
                       getThemeColor(item.color), getThemeBgColor(item.color), getThemeBorderColor(item.color)
                     )}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-4.5 h-4.5" />
                   </div>
-                  <h3 className="text-[15.5px] font-bold text-white tracking-tight mb-2 relative z-10">
+                  <h3 className="text-[14.5px] font-bold text-white tracking-tight mb-1 relative z-10">
                     {item.title}
                   </h3>
-                  <p className="text-[13px] text-white/70 leading-[1.6] relative z-10 font-medium">
+                  <p className="text-[12px] text-white/70 leading-[1.5] relative z-10 font-medium">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -1382,11 +1382,11 @@ function PricingContent() {
                   <button
                     id={`faq-${i}`}
                     onClick={() => setActiveFaq(isOpen ? null : i)}
-                    className="w-full px-6 py-5 flex items-center justify-between text-left group"
+                    className="w-full px-5 py-3.5 flex items-center justify-between text-left group"
                     aria-expanded={isOpen}
                   >
                     <span className={cn(
-                      "text-[14.5px] font-semibold tracking-tight transition-colors pr-4",
+                      "text-[14px] font-semibold tracking-tight transition-colors pr-4",
                       isOpen
                         ? "text-[#111827] dark:text-white"
                         : "text-[#111827] dark:text-white group-hover:text-[#D4A017] dark:group-hover:text-[#E8B84A]"
@@ -1410,7 +1410,7 @@ function PricingContent() {
                         transition={{ duration: 0.32, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 pt-1 text-[13.5px] text-[#374151] dark:text-white/70 leading-relaxed border-t border-[#E5DDD0] dark:border-white/[0.05] font-medium">
+                        <div className="px-5 pb-4 pt-1 text-[13px] text-[#374151] dark:text-white/70 leading-relaxed border-t border-[#E5DDD0] dark:border-white/[0.05] font-medium">
                           {faq.a}
                         </div>
                       </motion.div>
