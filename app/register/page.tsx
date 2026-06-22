@@ -259,8 +259,9 @@ export default function RegisterPage() {
 
           {/* OAuth buttons */}
           <div className="grid grid-cols-2 gap-3">
-            <a
-              href="https://accounts.google.com/o/oauth2/v2/auth?client_id=mock_id&redirect_uri=http://localhost:3000/&response_type=token&scope=email%20profile"
+            <button
+              type="button"
+              onClick={() => console.log("Google")}
               className="h-11 rounded-xl border border-zinc-200 hover:border-zinc-300 bg-white flex items-center justify-center gap-2.5 text-[12.5px] font-semibold text-zinc-700 hover:bg-zinc-50 transition-all active:scale-[0.99]"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24">
@@ -270,10 +271,11 @@ export default function RegisterPage() {
                 <path fill="#EA4335" d="M12.255 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C18.205 1.19 15.495 0 12.255 0c-4.64 0-8.74 2.7-10.71 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"/>
               </svg>
               Google
-            </a>
+            </button>
 
-            <a
-              href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=mock_id&redirect_uri=http://localhost:3000/&response_type=token&scope=user.read"
+            <button
+              type="button"
+              onClick={() => console.log("Microsoft")}
               className="h-11 rounded-xl border border-zinc-200 hover:border-zinc-300 bg-white flex items-center justify-center gap-2.5 text-[12.5px] font-semibold text-zinc-700 hover:bg-zinc-50 transition-all active:scale-[0.99]"
             >
               <svg className="w-4 h-4" viewBox="0 0 23 23">
@@ -283,7 +285,7 @@ export default function RegisterPage() {
                 <rect x="11.5" y="11.5" width="10.5" height="10.5" fill="#FFB900" />
               </svg>
               Microsoft
-            </a>
+            </button>
           </div>
 
           {/* Mobile: already have account */}
