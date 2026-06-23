@@ -7,11 +7,6 @@ import Image from "next/image";
 
 const slides = [
   {
-    image: "/slide-deliver-training.jpg",
-    title: "Every tool you need to deliver training",
-    badge: "Operational Center"
-  },
-  {
     image: "/slide-dashboard.jpg",
     title: "OYEN GRID Interactive Dashboard",
     badge: "Live Analytics"
@@ -27,6 +22,7 @@ export function OperationalInfrastructure() {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
 
   // Auto-play logic
   useEffect(() => {
