@@ -99,7 +99,7 @@ export function HumanCoordination() {
               className="relative w-full h-[480px] lg:h-[550px] max-w-[640px]"
             >
               <Image
-                src="/hero-mockup-clean.png"
+                src="/human-coordination-mockup.png"
                 alt="OYEN GRID Platform Mockup"
                 fill
                 className="object-contain"
