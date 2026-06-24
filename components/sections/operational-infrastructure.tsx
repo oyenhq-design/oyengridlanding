@@ -63,16 +63,16 @@ export function OperationalInfrastructure() {
         </div>
 
         {/* LAYER 2: Office Environment Background Container (Not blur) */}
-        <div className="relative w-full aspect-[16/9] rounded-[24px] overflow-hidden shadow-[0_15px_45px_rgba(0,0,0,0.06)] border border-zinc-200/80 bg-white">
+        <div className="relative w-full aspect-[16/9] rounded-[24px] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.12)] border border-zinc-300/90 bg-white">
           <Image
             src="/office-context-bg.jpg"
             alt="Office Workspace Environment"
             fill
-            className="object-cover opacity-85 select-none pointer-events-none"
+            className="object-cover opacity-100 select-none pointer-events-none filter contrast-[1.12] brightness-[0.96] saturate-[1.05]"
             priority
           />
-          {/* Subtle light gradient scrim over the office background to make the dashboard pop without blur */}
-          <div className="absolute inset-0 bg-white/20 pointer-events-none" />
+          {/* High-fidelity subtle gradient scrim for depth without blurring the background */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-zinc-950/10 via-transparent to-white/5 pointer-events-none" />
 
           {/* LAYER 3: Floating OYEN GRID Dashboard Mockup (Suspended above the office background) */}
           <div className="absolute inset-0 flex items-center justify-center">
