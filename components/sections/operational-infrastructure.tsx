@@ -15,11 +15,6 @@ const slides = [
     image: "/slide-competencies.png",
     title: "Curriculum & Competency Matrix",
     badge: "Governance System"
-  },
-  {
-    image: "/slide-dark-dashboard.png",
-    title: "OYEN GRID Training Lab Performance Tracker",
-    badge: "Lab Metrics"
   }
 ];
 
