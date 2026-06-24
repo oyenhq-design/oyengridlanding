@@ -30,6 +30,21 @@ const slides = [
     image: "/slide-catalog.jpg",
     title: "Program Catalog & Filters",
     badge: "Curriculum Management"
+  },
+  {
+    image: "/slide-facilitators.png",
+    title: "Facilitator Profiles & Management",
+    badge: "Staff Management"
+  },
+  {
+    image: "/slide-coordinator.png",
+    title: "Training Coordinator Dashboard",
+    badge: "Coordinator Workspace"
+  },
+  {
+    image: "/slide-organization.png",
+    title: "Organization Overview & Metrics",
+    badge: "Enterprise Analytics"
   }
 ];
 
