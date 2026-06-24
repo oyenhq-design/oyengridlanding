@@ -7,14 +7,29 @@ import Image from "next/image";
 
 const slides = [
   {
+    image: "/slide-deliver-training.jpg",
+    title: "OYEN GRID Training Orchestration",
+    badge: "Workspace Overview"
+  },
+  {
     image: "/slide-dashboard.jpg",
-    title: "OYEN GRID Interactive Dashboard",
+    title: "Cohort Management Dashboard",
     badge: "Live Analytics"
   },
   {
     image: "/slide-competencies.png",
     title: "Curriculum & Competency Matrix",
     badge: "Governance System"
+  },
+  {
+    image: "/slide-coverage.png",
+    title: "Cohort Competency Coverage Overview",
+    badge: "Performance Tracker"
+  },
+  {
+    image: "/slide-catalog.jpg",
+    title: "Program Catalog & Filters",
+    badge: "Curriculum Management"
   }
 ];
 
