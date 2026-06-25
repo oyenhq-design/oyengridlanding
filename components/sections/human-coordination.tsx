@@ -98,8 +98,8 @@ export function HumanCoordination() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-full h-[480px] lg:h-[550px] max-w-[640px]"
               style={{
-                maskImage: "radial-gradient(circle at center, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)",
-                WebkitMaskImage: "radial-gradient(circle at center, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)"
+                maskImage: "radial-gradient(circle at center, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 90%)",
+                WebkitMaskImage: "radial-gradient(circle at center, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 90%)"
               }}
             >
               <Image
