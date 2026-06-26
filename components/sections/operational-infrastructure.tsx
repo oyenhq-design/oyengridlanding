@@ -526,10 +526,10 @@ export function OperationalInfrastructure() {
                     }}
                     className="absolute pointer-events-none z-50 flex flex-col items-start"
                   >
-                    {/* macOS Style Custom Cursor SVG */}
+                    {/* Standard High-Fidelity Custom Cursor SVG */}
                     <svg
-                      width="18"
-                      height="18"
+                      width="20"
+                      height="20"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -540,12 +540,11 @@ export function OperationalInfrastructure() {
                       className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.45)]"
                     >
                       <path
-                        d="M4.3 3c-.3 0-.6.2-.6.5v16.1c0 .4.4.6.8.3l4.5-3.5h7.2c.4 0 .7-.3.7-.7V3.7c0-.4-.3-.7-.7-.7H4.3z"
+                        d="M3.5 3V18.5L7.8 14.2L12.5 22L14.5 20.8L9.8 13.2H15.5L3.5 3Z"
                         fill="white"
-                      />
-                      <path
-                        d="M5 4.5v13.2l3.4-2.7.3-.2h5.8V4.5H5z"
-                        fill="black"
+                        stroke="black"
+                        strokeWidth="1.5"
+                        strokeLinejoin="round"
                       />
                     </svg>
 
