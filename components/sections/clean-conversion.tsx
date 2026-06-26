@@ -20,7 +20,10 @@ export function CleanConversion() {
           </span>
 
           {/* Headline */}
-          <h2 className="text-3xl md:text-[48px] font-extrabold text-white tracking-tight leading-[1.15] max-w-none">
+          <h2 
+            className="text-3xl md:text-[48px] font-extrabold tracking-tight leading-[1.15] max-w-none"
+            style={{ color: '#ffffff' }}
+          >
             Ready to run your next training program?
           </h2>
 
