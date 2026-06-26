@@ -2,8 +2,15 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { 
-  MessageSquare, Sparkles, Activity, Bell, CheckCircle2 
+import {
+  MessageSquare,
+  Sparkles,
+  Activity,
+  Bell,
+  CheckCircle2,
+  Shield,
+  FileText,
+  BarChart2,
 } from "lucide-react";
 
 const features = [
@@ -11,127 +18,246 @@ const features = [
     title: "AI Session Notes",
     desc: "Instant summaries and action items generated post-session.",
     icon: Sparkles,
-    iconBg: "bg-purple-500/10 border-purple-500/20",
-    iconColor: "text-purple-400",
-    hoverBorder: "group-hover:border-purple-500/30 group-hover:bg-purple-500/[0.02]",
-    hoverTitle: "group-hover:text-purple-400"
+    iconBg: "bg-purple-50",
+    iconBorder: "border-purple-100",
+    iconColor: "text-purple-500",
   },
   {
     title: "Team Chat",
     desc: "Centralize cohort communication directly inside your workspace.",
     icon: MessageSquare,
-    iconBg: "bg-amber-500/10 border-amber-500/20",
-    iconColor: "text-amber-400",
-    hoverBorder: "group-hover:border-amber-500/30 group-hover:bg-amber-500/[0.02]",
-    hoverTitle: "group-hover:text-amber-400"
+    iconBg: "bg-amber-50",
+    iconBorder: "border-amber-100",
+    iconColor: "text-amber-500",
   },
   {
     title: "Live Dashboard",
     desc: "Monitor cohorts, attendance, engagement, and activity in real-time.",
     icon: Activity,
-    iconBg: "bg-blue-500/10 border-blue-500/20",
-    iconColor: "text-blue-400",
-    hoverBorder: "group-hover:border-blue-500/30 group-hover:bg-blue-500/[0.02]",
-    hoverTitle: "group-hover:text-blue-400"
+    iconBg: "bg-blue-50",
+    iconBorder: "border-blue-100",
+    iconColor: "text-blue-500",
   },
   {
     title: "AI Alerts",
     desc: "Get notified before learner issues become problems.",
     icon: Bell,
-    iconBg: "bg-emerald-500/10 border-emerald-500/20",
-    iconColor: "text-emerald-400",
-    hoverBorder: "group-hover:border-emerald-500/30 group-hover:bg-emerald-500/[0.02]",
-    hoverTitle: "group-hover:text-emerald-400"
-  }
+    iconBg: "bg-emerald-50",
+    iconBorder: "border-emerald-100",
+    iconColor: "text-emerald-500",
+  },
 ];
+
+const avatarColors = ["bg-sky-400", "bg-violet-400", "bg-rose-400", "bg-amber-400", "bg-teal-400"];
 
 export function HumanCoordination() {
   return (
-    <section className="relative py-24 md:py-28 lg:py-36 bg-[#FFFFFF] overflow-hidden border-b border-zinc-200 flex items-center min-h-[750px] lg:min-h-[850px]">
-      
-      {/* Background Image Layer (Very Clear Light Office Environment) */}
-      <div 
-        className="absolute inset-0 opacity-[0.92] pointer-events-none bg-cover bg-center select-none z-0 filter contrast-[1.02] brightness-[0.98]"
+    <section className="relative overflow-hidden border-b border-zinc-200 flex items-center min-h-[820px] lg:min-h-[880px]">
+
+      {/* ── Office Background (bright, warm) ── */}
+      <div
+        className="absolute inset-0 bg-cover bg-center z-0"
         style={{ backgroundImage: "url('/human-coordination-bg.png')" }}
       />
-      
-      {/* Subtle overlay to soften the background image behind the text for readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-black/10 pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-white/25 z-0 pointer-events-none" />
 
-      <div className="w-full max-w-[1280px] mx-auto px-6 md:px-8 relative z-10">
-        <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 lg:gap-20 items-center">
-          
-          {/* LEFT SIDE (40%) - Styled to match the dim text & dark-mode elements of Image 1 */}
-          <div className="flex flex-col relative z-20">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#D4A017]" />
-              <span className="text-[10px] font-black tracking-[0.35em] text-[#D4A017] uppercase">
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-10 py-20 lg:py-24">
+        <div className="grid lg:grid-cols-[460px_1fr] items-center gap-8 lg:gap-0">
+
+          {/* ══════════════════════════════════
+              LEFT PANEL
+          ══════════════════════════════════ */}
+          <motion.div
+            initial={{ opacity: 0, x: -28 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col p-8 md:p-10 rounded-[26px] bg-white/90 backdrop-blur-[16px] border border-white/70 shadow-[0_24px_70px_rgba(15,23,42,0.09)] z-20"
+          >
+            <div className="flex items-center gap-2 mb-5">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#C8931A]" />
+              <span className="text-[10px] font-black tracking-[0.32em] text-[#C8931A] uppercase">
                 HUMAN COORDINATION • INSIGHTS
               </span>
             </div>
 
-            {/* Title rendered in a dark/dim color as shown in Image 1 */}
-            <h2 className="text-[32px] md:text-[44px] font-bold text-[#0F172A]/40 leading-[1.08] tracking-tight mb-6">
-              Give your trainers and coordinators <br />
+            <h2 className="text-[30px] md:text-[42px] font-extrabold text-[#0F172A] leading-[1.1] tracking-tight mb-4">
+              Give your trainers and coordinators
+              <br />
               <span className="text-[#D4A017] italic font-serif font-normal">AI superpowers</span>
             </h2>
 
-            <p className="text-[14.5px] leading-relaxed text-[#0F172A]/70 mb-10 max-w-[500px] font-medium">
-              Automate the busywork. Surface what matters. Focus on learner outcomes.
+            <p className="text-[14px] leading-relaxed text-[#64748B] mb-8 max-w-[420px]">
+              Automate the busywork. Surface what matters.
+              <br />
+              Focus on learner outcomes.
             </p>
 
-            {/* 2x2 Grid of Capability Cards - Reverted to dark styles */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-              {features.map((feature, i) => (
+            <div className="grid grid-cols-2 gap-3 mb-7">
+              {features.map((f, i) => (
                 <div
                   key={i}
-                  className={`group p-5 rounded-2xl bg-[#090D1A]/90 border border-white/10 backdrop-blur-md transition-all duration-300 min-h-[140px] flex flex-col justify-between ${feature.hoverBorder}`}
+                  className="group p-4 rounded-[18px] bg-white border border-zinc-100 shadow-[0_4px_18px_rgba(15,23,42,0.06)] hover:shadow-[0_10px_30px_rgba(15,23,42,0.10)] hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className={`w-8 h-8 rounded-lg border flex items-center justify-center mb-3 transition-all duration-300 ${feature.iconBg}`}>
-                    <feature.icon className={`w-4 h-4 transition-colors duration-300 ${feature.iconColor}`} />
+                  <div className={`w-9 h-9 rounded-[10px] border ${f.iconBorder} ${f.iconBg} flex items-center justify-center mb-3`}>
+                    <f.icon className={`w-[18px] h-[18px] ${f.iconColor}`} />
                   </div>
-                  <div>
-                    <h4 className={`text-[13px] font-bold text-white mb-1 transition-colors duration-300 ${feature.hoverTitle}`}>{feature.title}</h4>
-                    <p className="text-[11px] text-zinc-400 leading-snug group-hover:text-white transition-colors duration-300 line-clamp-2">{feature.desc}</p>
-                  </div>
+                  <h4 className="text-[13px] font-bold text-[#0F172A] mb-1">{f.title}</h4>
+                  <p className="text-[11px] text-[#64748B] leading-snug">{f.desc}</p>
                 </div>
               ))}
             </div>
 
-            {/* Bottom checkmark annotation */}
-            <div className="flex items-start gap-3 text-zinc-800">
-              <CheckCircle2 className="w-5 h-5 text-[#D4A017] shrink-0 mt-0.5" />
-              <div className="text-[13px] font-bold leading-tight">
-                Secure. Reliable. Built for scale. <br />
-                <span className="text-[#0F172A]/60 font-normal">Your data, always protected.</span>
-              </div>
+            <div className="inline-flex items-center gap-3 px-4 py-3 rounded-[14px] bg-white border border-zinc-100 shadow-sm w-full">
+              <Shield className="w-5 h-5 text-[#D4A017] shrink-0" />
+              <p className="text-[12px] leading-snug">
+                <span className="font-bold text-[#0F172A]">Secure. Reliable. Built for scale.</span>{" "}
+                <span className="text-[#64748B]">Your data, always protected.</span>
+              </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* RIGHT SIDE (60%) - Mockup Tablet */}
-          <div className="relative flex items-center justify-center lg:justify-end pt-10 lg:pt-0 w-full min-h-[480px] lg:min-h-[640px] lg:-mr-40 lg:-mb-32">
-            
-            {/* Ambient volumetric light blooms behind the tablet */}
-            <div className="absolute left-[15%] top-[20%] w-[480px] h-[480px] bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.18)_0%,transparent_75%)] blur-[60px] pointer-events-none z-0" />
-            <div className="absolute right-[10%] bottom-[15%] w-[550px] h-[550px] bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.14)_0%,transparent_75%)] blur-[70px] pointer-events-none z-0" />
-            
+          {/* ══════════════════════════════════
+              RIGHT SIDE — Tablet + Floating UI Cards
+          ══════════════════════════════════ */}
+
+          {/* Desktop version — fixed height so absolute positions are reliable */}
+          <div className="hidden lg:block relative" style={{ height: "780px" }}>
+
+            {/* Tablet image: positioned to bleed right and bottom */}
             <motion.div
-              initial={{ opacity: 0, x: 60, scale: 0.96 }}
+              initial={{ opacity: 0, x: 50, scale: 0.97 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-0 bottom-0 w-[140%] lg:w-[960px] h-[120%] lg:h-[820px] translate-x-[15%] lg:translate-x-[10%] translate-y-[8%] lg:translate-y-[8%] z-10"
+              transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                WebkitMaskImage: "radial-gradient(circle at 80% 80%, black 40%, transparent 92%)",
-                maskImage: "radial-gradient(circle at 80% 80%, black 40%, transparent 92%)"
+                position: "absolute",
+                right: "-80px",
+                bottom: "-40px",
+                width: "740px",
+                height: "720px",
               }}
             >
               <Image
                 src="/human-coordination-mockup-new.jpg"
-                alt="OYEN GRID Platform Mockup"
+                alt="OYEN GRID Platform on tablet held by trainer"
                 fill
-                className="object-contain object-bottom-right"
+                className="object-contain object-right-bottom"
+                style={{ filter: "drop-shadow(0 40px 80px rgba(15,23,42,0.20))" }}
                 priority
+                unoptimized
+              />
+            </motion.div>
+
+            {/* Card 1 — AI Session Notes (top-left of right col, white) */}
+            <motion.div
+              initial={{ opacity: 0, y: -16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              style={{ position: "absolute", top: "60px", left: "80px", width: "192px", zIndex: 30 }}
+              className="bg-white rounded-2xl border border-zinc-100 shadow-[0_8px_36px_rgba(15,23,42,0.13)] p-4"
+            >
+              <div className="flex items-center gap-2 mb-2.5">
+                <div className="w-7 h-7 rounded-lg bg-purple-50 border border-purple-100 flex items-center justify-center">
+                  <Sparkles className="w-3.5 h-3.5 text-purple-500" />
+                </div>
+                <span className="text-[12px] font-bold text-[#0F172A]">AI Session Notes</span>
+              </div>
+              <p className="text-[11px] text-[#64748B] leading-snug mb-2.5">Summary generated in 8.4s</p>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                <span className="text-[11px] font-semibold text-emerald-500">Completed</span>
+              </div>
+            </motion.div>
+
+            {/* Card 2 — Live Dashboard (top-right, dark) */}
+            <motion.div
+              initial={{ opacity: 0, y: -16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.58, ease: [0.16, 1, 0.3, 1] }}
+              style={{ position: "absolute", top: "40px", right: "-50px", width: "200px", zIndex: 30 }}
+              className="bg-[#0D1526] rounded-2xl border border-[#1E3050] shadow-[0_8px_36px_rgba(15,23,42,0.32)] p-4"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-7 h-7 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
+                  <BarChart2 className="w-3.5 h-3.5 text-blue-400" />
+                </div>
+                <span className="text-[12px] font-bold text-white">Live Dashboard</span>
+              </div>
+              <div className="text-[32px] font-black text-white leading-none mb-0.5">92%</div>
+              <div className="text-[10.5px] text-zinc-400 mb-3">Completion Rate</div>
+              <div className="flex items-center mb-3">
+                {avatarColors.map((c, i) => (
+                  <div
+                    key={i}
+                    className={`w-6 h-6 rounded-full ${c} border-2 border-[#0D1526]`}
+                    style={{ marginLeft: i === 0 ? 0 : -8 }}
+                  />
+                ))}
+                <span className="text-[10px] text-zinc-400 ml-2">+24</span>
+              </div>
+              <span className="text-[11px] font-semibold text-blue-400">View dashboard →</span>
+            </motion.div>
+
+            {/* Card 3 — AI Alerts (bottom-left, dark + amber glow) */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.68, ease: [0.16, 1, 0.3, 1] }}
+              style={{ position: "absolute", bottom: "110px", left: "55px", width: "178px", zIndex: 30 }}
+              className="bg-[#0D1526] rounded-2xl border border-[#C8931A]/40 shadow-[0_8px_36px_rgba(15,23,42,0.32),0_0_24px_rgba(200,147,26,0.12)] p-4"
+            >
+              <div className="flex items-center gap-2 mb-2.5">
+                <div className="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
+                  <Bell className="w-3.5 h-3.5 text-amber-400" />
+                </div>
+                <span className="text-[12px] font-bold text-white">AI Alerts</span>
+              </div>
+              <div className="text-[42px] font-black text-white leading-none mb-0.5">3</div>
+              <div className="text-[10.5px] text-zinc-400 mb-3">At-risk learners</div>
+              <span className="text-[11px] font-semibold text-amber-400">View alerts →</span>
+            </motion.div>
+
+            {/* Card 4 — Reports (bottom-right, dark + teal glow) */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.78, ease: [0.16, 1, 0.3, 1] }}
+              style={{ position: "absolute", bottom: "90px", right: "-45px", width: "190px", zIndex: 30 }}
+              className="bg-[#0D1526] rounded-2xl border border-teal-500/40 shadow-[0_8px_36px_rgba(15,23,42,0.32),0_0_24px_rgba(20,184,166,0.12)] p-4"
+            >
+              <div className="flex items-center gap-2 mb-2.5">
+                <div className="w-7 h-7 rounded-lg bg-teal-500/20 border border-teal-500/30 flex items-center justify-center">
+                  <FileText className="w-3.5 h-3.5 text-teal-400" />
+                </div>
+                <span className="text-[12px] font-bold text-white">Reports</span>
+              </div>
+              <p className="text-[11px] text-zinc-400 leading-snug mb-3">
+                Sponsor report generated and ready for download.
+              </p>
+              <span className="text-[11px] font-semibold text-teal-400">Download PDF →</span>
+            </motion.div>
+
+          </div>
+
+          {/* Mobile fallback */}
+          <div className="block lg:hidden relative w-full" style={{ height: "420px" }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute inset-0"
+            >
+              <Image
+                src="/human-coordination-mockup-new.jpg"
+                alt="OYEN GRID Platform on tablet"
+                fill
+                className="object-contain"
                 unoptimized
               />
             </motion.div>
