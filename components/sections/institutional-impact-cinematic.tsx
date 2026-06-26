@@ -120,7 +120,7 @@ export function InstitutionalImpactCinematic() {
       </div>
 
       <div className="max-w-[1440px] mx-auto relative z-10">
-        
+
         {/* SECTION HEADER */}
         <div className="text-center mb-16 px-6">
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -142,7 +142,7 @@ export function InstitutionalImpactCinematic() {
           {/* Side Fade Gradients */}
           <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-[#F3EFE5] to-transparent z-20 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-[#F3EFE5] to-transparent z-20 pointer-events-none" />
-          
+
           <div className="animate-marquee-track">
             {doubleProfiles.map((profile, i) => (
               <div
@@ -202,10 +202,9 @@ export function InstitutionalImpactCinematic() {
           <Link
             href="/resources/customer-stories"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4A017] hover:text-[#0A0D1F] uppercase tracking-widest group cursor-pointer"
-            style={{ transition: 'color 250ms ease' }}
           >
             Explore More Stories
-            <span 
+            <span
               className="transform group-hover:translate-x-1.5"
               style={{ transition: 'transform 250ms ease' }}
             >
