@@ -2,6 +2,7 @@ import { Header, AnnouncementBar } from "@/components/layout/header";
 import { HeroInstitutional } from "@/components/sections/institutional-ecosystem";
 import { OperationalLifecycle } from "@/components/sections/operational-lifecycle";
 import { OperationalInfrastructure } from "@/components/sections/operational-infrastructure";
+import { HumanCoordination } from "@/components/sections/human-coordination";
 import { ScaleStructure } from "@/components/sections/scale-structure";
 import { InstitutionalImpactCinematic } from "@/components/sections/institutional-impact-cinematic";
 import { WhatsNew } from "@/components/sections/whats-new";
@@ -28,6 +29,9 @@ export default function Home() {
 
           {/* 4. PLATFORM CAPABILITIES */}
           <OperationalInfrastructure />
+
+          {/* 5. HUMAN COORDINATION */}
+          <HumanCoordination />
 
           {/* 6. INFRASTRUCTURE SECTION */}
           <ScaleStructure />

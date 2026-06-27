@@ -7,10 +7,7 @@ import {
   Sparkles,
   Activity,
   Bell,
-  CheckCircle2,
   Shield,
-  FileText,
-  BarChart2,
 } from "lucide-react";
 
 const features = [
@@ -48,219 +45,159 @@ const features = [
   },
 ];
 
-const avatarColors = ["bg-sky-400", "bg-violet-400", "bg-rose-400", "bg-amber-400", "bg-teal-400"];
-
 export function HumanCoordination() {
   return (
-    <section className="relative overflow-hidden border-b border-zinc-200 flex items-center min-h-[820px] lg:min-h-[880px]">
+    <section className="relative overflow-hidden border-b border-zinc-200 min-h-[860px] flex items-center">
 
-      {/* ── Office Background (bright, warm) ── */}
+      {/* ── LAYER 0: Office background — desaturated to become atmosphere ── */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: "url('/human-coordination-bg.png')" }}
+        style={{
+          backgroundImage: "url('/human-coordination-bg.png')",
+          filter: "saturate(0.6) brightness(1.1) contrast(0.85)",
+        }}
       />
-      <div className="absolute inset-0 bg-white/25 z-0 pointer-events-none" />
+      {/* Warm upper-left light source */}
+      <div className="absolute inset-0 z-[1] pointer-events-none" style={{
+        background: "radial-gradient(ellipse 75% 65% at 8% 15%, rgba(255,250,240,0.60) 0%, transparent 65%)",
+      }} />
+      {/* Overall veil */}
+      <div className="absolute inset-0 bg-white/18 z-[1] pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-10 py-20 lg:py-24">
-        <div className="grid lg:grid-cols-[460px_1fr] items-center gap-8 lg:gap-0">
+      {/* ── LAYER 1: Ambient glow environment behind tablet ── */}
+      <div className="absolute hidden lg:block z-[2] pointer-events-none" style={{
+        right: "-80px", top: "50%", transform: "translateY(-50%)",
+        width: "900px", height: "900px",
+        background: `
+          radial-gradient(ellipse 60% 65% at 58% 50%, rgba(30,58,138,0.22) 0%, transparent 65%),
+          radial-gradient(ellipse 42% 48% at 74% 34%, rgba(99,102,241,0.16) 0%, transparent 58%),
+          radial-gradient(ellipse 38% 42% at 44% 68%, rgba(16,185,129,0.10) 0%, transparent 55%)
+        `,
+      }} />
 
-          {/* ══════════════════════════════════
-              LEFT PANEL
-          ══════════════════════════════════ */}
+      {/* ── LAYER 2: Main content grid ── */}
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-10 py-16 lg:py-20">
+        <div className="grid lg:grid-cols-[480px_1fr] items-center gap-8 lg:gap-0">
+
+          {/* ════════════════ LEFT GLASS PANEL ════════════════ */}
           <motion.div
-            initial={{ opacity: 0, x: -28 }}
+            initial={{ opacity: 0, x: -32 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col p-8 md:p-10 rounded-[26px] bg-white/90 backdrop-blur-[16px] border border-white/70 shadow-[0_24px_70px_rgba(15,23,42,0.09)] z-20"
+            className="flex flex-col p-8 md:p-10 rounded-[28px] relative z-20"
+            style={{
+              background: "rgba(255,255,255,0.86)",
+              backdropFilter: "blur(24px) saturate(1.5)",
+              WebkitBackdropFilter: "blur(24px) saturate(1.5)",
+              border: "1px solid rgba(255,255,255,0.75)",
+              boxShadow: "0 4px 6px rgba(15,23,42,0.02), 0 16px 48px rgba(15,23,42,0.07), 0 40px 96px rgba(15,23,42,0.05), inset 0 1px 0 rgba(255,255,255,0.95)",
+            }}
           >
+            {/* Warm light catch */}
+            <div className="absolute top-0 left-0 w-40 h-16 rounded-tl-[28px] pointer-events-none" style={{
+              background: "radial-gradient(ellipse 100% 100% at 0% 0%, rgba(255,245,210,0.55) 0%, transparent 70%)",
+            }} />
+
+            {/* Eyebrow */}
             <div className="flex items-center gap-2 mb-5">
               <div className="w-1.5 h-1.5 rounded-full bg-[#C8931A]" />
-              <span className="text-[10px] font-black tracking-[0.32em] text-[#C8931A] uppercase">
-                HUMAN COORDINATION • INSIGHTS
+              <span className="text-[10px] font-black tracking-[0.34em] text-[#C8931A] uppercase">
+                Human Coordination • Insights
               </span>
             </div>
 
-            <h2 className="text-[30px] md:text-[42px] font-extrabold text-[#0F172A] leading-[1.1] tracking-tight mb-4">
+            {/* Headline */}
+            <h2 className="text-[30px] md:text-[38px] font-extrabold text-[#0F172A] leading-[1.12] tracking-tight mb-4">
               Give your trainers and coordinators
               <br />
-              <span className="text-[#D4A017] italic font-serif font-normal">AI superpowers</span>
+              <span className="text-[#D4A017] italic font-serif font-normal text-[32px] md:text-[40px]">
+                AI superpowers
+              </span>
             </h2>
 
-            <p className="text-[14px] leading-relaxed text-[#64748B] mb-8 max-w-[420px]">
+            {/* Body */}
+            <p className="text-[14px] leading-relaxed text-[#475569] mb-8 max-w-[400px]">
               Automate the busywork. Surface what matters.
               <br />
               Focus on learner outcomes.
             </p>
 
+            {/* 2×2 feature cards */}
             <div className="grid grid-cols-2 gap-3 mb-7">
               {features.map((f, i) => (
                 <div
                   key={i}
-                  className="group p-4 rounded-[18px] bg-white border border-zinc-100 shadow-[0_4px_18px_rgba(15,23,42,0.06)] hover:shadow-[0_10px_30px_rgba(15,23,42,0.10)] hover:-translate-y-1 transition-all duration-300"
+                  className="p-4 rounded-[16px] hover:-translate-y-1 transition-all duration-300"
+                  style={{
+                    background: "rgba(255,255,255,0.92)",
+                    border: "1px solid rgba(15,23,42,0.06)",
+                    boxShadow: "0 2px 8px rgba(15,23,42,0.04), 0 6px 20px rgba(15,23,42,0.04)",
+                  }}
                 >
-                  <div className={`w-9 h-9 rounded-[10px] border ${f.iconBorder} ${f.iconBg} flex items-center justify-center mb-3`}>
+                  <div className={`w-9 h-9 rounded-[10px] ${f.iconBg} flex items-center justify-center mb-3`}
+                    style={{ border: "1px solid rgba(15,23,42,0.05)" }}>
                     <f.icon className={`w-[18px] h-[18px] ${f.iconColor}`} />
                   </div>
-                  <h4 className="text-[13px] font-bold text-[#0F172A] mb-1">{f.title}</h4>
+                  <h4 className="text-[12.5px] font-bold text-[#0F172A] mb-1">{f.title}</h4>
                   <p className="text-[11px] text-[#64748B] leading-snug">{f.desc}</p>
                 </div>
               ))}
             </div>
 
-            <div className="inline-flex items-center gap-3 px-4 py-3 rounded-[14px] bg-white border border-zinc-100 shadow-sm w-full">
-              <Shield className="w-5 h-5 text-[#D4A017] shrink-0" />
-              <p className="text-[12px] leading-snug">
+            {/* Security strip */}
+            <div className="flex items-center gap-3 px-4 py-3 rounded-[12px]"
+              style={{ background: "rgba(255,255,255,0.75)", border: "1px solid rgba(15,23,42,0.055)" }}>
+              <Shield className="w-4 h-4 text-[#D4A017] shrink-0" />
+              <p className="text-[11.5px] leading-snug">
                 <span className="font-bold text-[#0F172A]">Secure. Reliable. Built for scale.</span>{" "}
                 <span className="text-[#64748B]">Your data, always protected.</span>
               </p>
             </div>
           </motion.div>
 
-          {/* ══════════════════════════════════
-              RIGHT SIDE — Tablet + Floating UI Cards
-          ══════════════════════════════════ */}
-
-          {/* Desktop version — fixed height so absolute positions are reliable */}
-          <div className="hidden lg:block relative" style={{ height: "780px" }}>
-
-            {/* Tablet image: positioned to bleed right and bottom */}
+          {/* ════════════════ RIGHT — Tablet image ════════════════ */}
+          <div className="hidden lg:block relative" style={{ height: "820px" }}>
             <motion.div
-              initial={{ opacity: 0, x: 50, scale: 0.97 }}
+              initial={{ opacity: 0, x: 50, scale: 0.96 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 position: "absolute",
-                right: "-80px",
-                bottom: "-40px",
-                width: "740px",
-                height: "720px",
+                right: "-85px",
+                bottom: "-30px",
+                width: "800px",
+                height: "780px",
+                WebkitMaskImage: `
+                  linear-gradient(to right,  transparent 0%, black 14%, black 100%),
+                  linear-gradient(to bottom, transparent 0%, black 6%,  black 94%, transparent 100%)
+                `,
+                WebkitMaskComposite: "source-in",
+                maskImage: `
+                  linear-gradient(to right,  transparent 0%, black 14%, black 100%),
+                  linear-gradient(to bottom, transparent 0%, black 6%,  black 94%, transparent 100%)
+                `,
+                maskComposite: "intersect",
               }}
             >
               <Image
                 src="/human-coordination-mockup-new.jpg"
-                alt="OYEN GRID Platform on tablet held by trainer"
+                alt="OYEN GRID platform on tablet held by trainer"
                 fill
                 className="object-contain object-right-bottom"
-                style={{ filter: "drop-shadow(0 40px 80px rgba(15,23,42,0.20))" }}
+                style={{
+                  filter: "drop-shadow(0 28px 56px rgba(15,23,42,0.30)) drop-shadow(0 0 1px rgba(255,255,255,0.12))",
+                }}
                 priority
                 unoptimized
               />
             </motion.div>
-
-            {/* Card 1 — AI Session Notes (top-left of right col, white) */}
-            <motion.div
-              initial={{ opacity: 0, y: -16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              style={{ position: "absolute", top: "60px", left: "80px", width: "192px", zIndex: 30 }}
-              className="bg-white rounded-2xl border border-zinc-100 shadow-[0_8px_36px_rgba(15,23,42,0.13)] p-4"
-            >
-              <div className="flex items-center gap-2 mb-2.5">
-                <div className="w-7 h-7 rounded-lg bg-purple-50 border border-purple-100 flex items-center justify-center">
-                  <Sparkles className="w-3.5 h-3.5 text-purple-500" />
-                </div>
-                <span className="text-[12px] font-bold text-[#0F172A]">AI Session Notes</span>
-              </div>
-              <p className="text-[11px] text-[#64748B] leading-snug mb-2.5">Summary generated in 8.4s</p>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                <span className="text-[11px] font-semibold text-emerald-500">Completed</span>
-              </div>
-            </motion.div>
-
-            {/* Card 2 — Live Dashboard (top-right, dark) */}
-            <motion.div
-              initial={{ opacity: 0, y: -16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.58, ease: [0.16, 1, 0.3, 1] }}
-              style={{ position: "absolute", top: "40px", right: "-50px", width: "200px", zIndex: 30 }}
-              className="bg-[#0D1526] rounded-2xl border border-[#1E3050] shadow-[0_8px_36px_rgba(15,23,42,0.32)] p-4"
-            >
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-7 h-7 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
-                  <BarChart2 className="w-3.5 h-3.5 text-blue-400" />
-                </div>
-                <span className="text-[12px] font-bold text-white">Live Dashboard</span>
-              </div>
-              <div className="text-[32px] font-black text-white leading-none mb-0.5">92%</div>
-              <div className="text-[10.5px] text-zinc-400 mb-3">Completion Rate</div>
-              <div className="flex items-center mb-3">
-                {avatarColors.map((c, i) => (
-                  <div
-                    key={i}
-                    className={`w-6 h-6 rounded-full ${c} border-2 border-[#0D1526]`}
-                    style={{ marginLeft: i === 0 ? 0 : -8 }}
-                  />
-                ))}
-                <span className="text-[10px] text-zinc-400 ml-2">+24</span>
-              </div>
-              <span className="text-[11px] font-semibold text-blue-400">View dashboard →</span>
-            </motion.div>
-
-            {/* Card 3 — AI Alerts (bottom-left, dark + amber glow) */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.68, ease: [0.16, 1, 0.3, 1] }}
-              style={{ position: "absolute", bottom: "110px", left: "55px", width: "178px", zIndex: 30 }}
-              className="bg-[#0D1526] rounded-2xl border border-[#C8931A]/40 shadow-[0_8px_36px_rgba(15,23,42,0.32),0_0_24px_rgba(200,147,26,0.12)] p-4"
-            >
-              <div className="flex items-center gap-2 mb-2.5">
-                <div className="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
-                  <Bell className="w-3.5 h-3.5 text-amber-400" />
-                </div>
-                <span className="text-[12px] font-bold text-white">AI Alerts</span>
-              </div>
-              <div className="text-[42px] font-black text-white leading-none mb-0.5">3</div>
-              <div className="text-[10.5px] text-zinc-400 mb-3">At-risk learners</div>
-              <span className="text-[11px] font-semibold text-amber-400">View alerts →</span>
-            </motion.div>
-
-            {/* Card 4 — Reports (bottom-right, dark + teal glow) */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.78, ease: [0.16, 1, 0.3, 1] }}
-              style={{ position: "absolute", bottom: "90px", right: "-45px", width: "190px", zIndex: 30 }}
-              className="bg-[#0D1526] rounded-2xl border border-teal-500/40 shadow-[0_8px_36px_rgba(15,23,42,0.32),0_0_24px_rgba(20,184,166,0.12)] p-4"
-            >
-              <div className="flex items-center gap-2 mb-2.5">
-                <div className="w-7 h-7 rounded-lg bg-teal-500/20 border border-teal-500/30 flex items-center justify-center">
-                  <FileText className="w-3.5 h-3.5 text-teal-400" />
-                </div>
-                <span className="text-[12px] font-bold text-white">Reports</span>
-              </div>
-              <p className="text-[11px] text-zinc-400 leading-snug mb-3">
-                Sponsor report generated and ready for download.
-              </p>
-              <span className="text-[11px] font-semibold text-teal-400">Download PDF →</span>
-            </motion.div>
-
           </div>
 
           {/* Mobile fallback */}
-          <div className="block lg:hidden relative w-full" style={{ height: "420px" }}>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-0"
-            >
-              <Image
-                src="/human-coordination-mockup-new.jpg"
-                alt="OYEN GRID Platform on tablet"
-                fill
-                className="object-contain"
-                unoptimized
-              />
-            </motion.div>
+          <div className="block lg:hidden relative w-full" style={{ height: "400px" }}>
+            <Image src="/human-coordination-mockup-new.jpg" alt="OYEN GRID platform on tablet" fill className="object-contain" unoptimized />
           </div>
 
         </div>

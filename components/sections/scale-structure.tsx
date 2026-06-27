@@ -81,8 +81,8 @@ export function ScaleStructure() {
           >
             {/* Badge */}
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-8 bg-[#D4A017]/40" />
-              <span className="text-[10px] font-black tracking-[0.3em] text-[#D4A017] uppercase">
+              <div className="h-px w-8 bg-white/40" />
+              <span className="text-[10px] font-black tracking-[0.3em] text-white uppercase">
                 Enterprise Infrastructure
               </span>
             </div>
@@ -90,7 +90,7 @@ export function ScaleStructure() {
             {/* Headline */}
             <h2 className="text-3xl md:text-[44px] font-extrabold text-white leading-[1.1] tracking-tight mb-6 max-w-[500px]">
               Powered by secure, scalable,{" "}
-              <span className="text-[#D4A017] italic font-serif font-normal">
+              <span className="text-white italic font-serif font-bold">
                 enterprise-grade
               </span>{" "}
               infrastructure.
