@@ -184,13 +184,13 @@ export function HeroInstitutional() {
             >
               {/* Headline */}
               <h1 className="text-[52px] sm:text-[68px] font-bold leading-[1.04] tracking-tight text-[#FFFFFF] select-none">
-                Run your training program <br />
+                Run your organization <br />
                 <span className="text-[#FFC72C]">without the chaos.</span>
               </h1>
 
               {/* Subheadline */}
-              <p className="text-[16px] sm:text-[17.5px] text-[#FFFFFF] font-bold leading-[1.6] mt-6 max-w-[480px] tracking-wide">
-                Run programs, track learners, and report results. All in one place.
+              <p className="text-[16px] sm:text-[17.5px] text-[#FFFFFF] font-bold leading-[1.6] mt-6 max-w-[520px] tracking-wide">
+                Manage training, teams, communication, AI workflows, reporting, and enterprise operations from one secure platform.
               </p>
 
               {/* CTA Action Buttons */}
@@ -230,24 +230,37 @@ export function HeroInstitutional() {
 
         </div>
 
-        {/* TOP: REDESIGNED PREMIUM TRUST BAR */}
-        <div className="mt-6 border border-white/[0.07] rounded-2xl bg-[#0A0D1A]/60 backdrop-blur-md px-10 py-5 flex flex-col gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.8)] relative overflow-hidden" style={{borderColor: "rgba(59,111,232,0.12)"}}>
+        {/* TOP: REDESIGNED PREMIUM TRUST BAR (METRICS - NO BOX, SUBTLE HORIZONTAL DIVIDER ABOVE & BELOW, LOTS OF BREATHING ROOM COMPRESSED) */}
+        <div className="mt-8 md:mt-10 py-5 md:py-6 border-t border-b border-white/10 flex flex-col md:flex-row items-center justify-between gap-8 relative">
           
-          {/* Edge fading gradient masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#0A0D1A] to-transparent pointer-events-none z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#0A0D1A] to-transparent pointer-events-none z-10" />
-
-          <span className="text-[9px] font-black tracking-[0.24em] text-[#FFC72C] uppercase text-center select-none z-20">
-            Trusted by organisations
+          {/* Label */}
+          <span className="text-[11px] font-black tracking-[0.25em] text-[#FFC72C] uppercase select-none shrink-0">
+            Built for modern organizations
           </span>
-          <div className="w-full h-px bg-white/5 z-20" />
-          <div className="flex flex-wrap items-center justify-between gap-x-12 gap-y-6 w-full px-4 z-20">
-            {trustLogos.map((logo, index) => (
-              <div key={index} className="flex items-center gap-2.5 text-white/40 hover:text-white/80 transition-colors duration-300 select-none">
-                <svg className="w-4.5 h-4.5 shrink-0" viewBox="0 0 24 24" fill="none">
-                  {logo.icon}
-                </svg>
-                <span className="text-[12px] font-bold uppercase tracking-wider">{logo.name}</span>
+          
+          {/* Vertical divider on desktop */}
+          <div className="hidden md:block w-px h-8 bg-white/10" />
+
+          {/* Metrics */}
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-8 md:gap-x-12 gap-y-6 w-full md:w-auto">
+            {[
+              { value: "50+", label: "Organizations" },
+              { value: "18K+", label: "Learners" },
+              { value: "250K+", label: "Training Activities" },
+              { value: "99.9%", label: "Uptime" }
+            ].map((metric, index, arr) => (
+              <div key={index} className="flex items-center gap-8">
+                <div className="flex flex-col items-center md:items-start select-none">
+                  <span className="text-2xl md:text-3xl font-black text-white leading-none tracking-tight">
+                    {metric.value}
+                  </span>
+                  <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest mt-1.5">
+                    {metric.label}
+                  </span>
+                </div>
+                {index < arr.length - 1 && (
+                  <div className="hidden sm:block h-8 w-px bg-white/10 shrink-0" />
+                )}
               </div>
             ))}
           </div>

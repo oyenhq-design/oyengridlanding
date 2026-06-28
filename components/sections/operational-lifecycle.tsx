@@ -152,11 +152,11 @@ export function OperationalLifecycle() {
       <div className="container-custom">
         <div className="mb-16">
           <span className="eyebrow">OPERATIONAL LIFECYCLE</span>
-          <h2 className="max-w-[620px] mt-4 mb-4 text-[#0A0D1F]">
-            How to run a training program <span className="text-[#D4A017]">from start to finish.</span>
+          <h2 className="max-w-[720px] mt-4 mb-4 text-[#0A0D1F]">
+            Everything you need to run successful learning programs.
           </h2>
-          <p className="text-editorial max-w-[580px] text-[#55534E]">
-            Stop juggling WhatsApp, Zoom, Sheets, and Forms. Run your entire program in OYEN GRID.
+          <p className="text-editorial max-w-[640px] text-[#55534E]">
+            Coordinate facilitators, enroll learners, manage attendance, automate assessments, and measure outcomes—all from one workspace.
           </p>
         </div>
 

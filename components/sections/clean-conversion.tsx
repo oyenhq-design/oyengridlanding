@@ -24,8 +24,13 @@ export function CleanConversion() {
             className="text-3xl md:text-[48px] font-extrabold tracking-tight leading-[1.15] max-w-none"
             style={{ color: '#ffffff' }}
           >
-            Ready to run your next training program?
+            Ready to build a smarter organization?
           </h2>
+
+          {/* Subtext */}
+          <p className="text-sm md:text-base text-white/70 max-w-2xl text-center leading-relaxed font-normal">
+            See why modern organizations choose OYEN GRID to power training, internal collaboration, reporting, and AI-assisted operations.
+          </p>
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">

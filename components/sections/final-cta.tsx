@@ -10,43 +10,35 @@ export function FinalCTA() {
   const faqItems = [
     {
       q: "What is OYEN GRID?",
-      a: "OYEN GRID is a premium platform designed to manage cohorts, live sessions, instructors, learners, and assessments with automated tracking."
+      a: "OYEN GRID is an intelligent workspace that enables modern organizations to centralize training, communication, workflows, reporting, and learning operations in one secure platform."
     },
     {
       q: "Who is OYEN GRID built for?",
-      a: "It is built for enterprise organizations, training providers, bootcamps, and universities running structured learning programmes."
+      a: "It is built for enterprise organizations, training providers, corporate teams, and academic institutions that need to deliver and track structured training programs at scale."
     },
     {
-      q: "Can I use OYEN GRID for multiple programmes?",
-      a: "Yes. Administrators can oversee multiple cohorts, schedules, instructors, and learner groups from one dashboard."
+      q: "Can we manage multiple departments?",
+      a: "Yes. Administrators can configure custom permissions and views, allowing multiple departments, subsidiaries, or business units to manage their cohorts independently from a single tenant."
     },
     {
-      q: "Does OYEN GRID support live sessions?",
-      a: "Yes. Live training sessions can be hosted directly within the platform with attendance and engagement tracking."
+      q: "Does OYEN GRID support enterprise organizations?",
+      a: "Absolutely. OYEN GRID provides enterprise-grade reliability, dedicated cloud hosting options, custom single sign-on (SSO), and scaling support to handle thousands of concurrent active learners."
     },
     {
-      q: "Can I track attendance automatically?",
-      a: "Yes. Attendance is logged automatically during live sessions and recorded in learner profiles."
+      q: "Is our data secure?",
+      a: "Yes, security is our priority. We use bank-grade data isolation, end-to-end encryption in transit and at rest, secure role-based access control, and automated daily backups."
     },
     {
-      q: "Is there a mobile app?",
-      a: "Yes. Learners can access resources, join sessions, and view grades via our responsive mobile dashboard."
+      q: "Can we customize workflows?",
+      a: "Yes. The platform allows you to construct tailored training paths, automate resource distribution, set custom enrollment triggers, and configure specific milestone tracking logic."
     },
     {
-      q: "How does the AI assistant work?",
-      a: "The AI assistant provides real-time support, automates grading feedbacks, and helps answer learner questions."
+      q: "Can OYEN GRID integrate with our existing systems?",
+      a: "Yes. We offer robust API endpoints and built-in integration support for identity systems, communication channels, CRM databases, and productivity suites."
     },
     {
-      q: "Can I issue certificates automatically?",
-      a: "Yes. Certificates can be generated and distributed automatically upon programme completion."
-    },
-    {
-      q: "How secure is my data?",
-      a: "OYEN GRID uses enterprise-grade encryption, role-based access control, and is fully compliant with modern data security standards."
-    },
-    {
-      q: "Can I integrate with other tools?",
-      a: "Yes. The platform integrates with major identity systems, CRM tools, and notification systems via our secure API."
+      q: "How does AI help our teams?",
+      a: "OYEN AI automates administrative tasks by generating instant session notes, cohort performance summaries, and predictive alerts for disengaged learners so your team can focus on outcomes."
     }
   ];
 

@@ -5,11 +5,11 @@ import Link from "next/link";
 import { Header, AnnouncementBar } from "@/components/layout/header";
 import { FooterPremium } from "@/components/layout/footer";
 import { 
-  GraduationCap, Users, BarChart3, Sparkles, 
-  CheckCircle2, Play, Layout, Activity, Shield
+  Bot, Calendar, Clock, Users, Bell, Sparkles,
+  Play, CheckCircle2
 } from "lucide-react";
 
-export default function BootcampsTrainingPage() {
+export default function AICoordinationPage() {
   return (
     <>
       <Header />
@@ -20,8 +20,8 @@ export default function BootcampsTrainingPage() {
         {/* ─── 1. HERO SECTION ─────────────────────────────────────────────────── */}
         <section className="relative pt-32 pb-24 md:pt-40 md:pb-36 overflow-hidden">
           {/* Ambient Glows */}
-          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none" />
+          <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-[#FFC72C]/5 rounded-full blur-[150px] pointer-events-none" />
 
           {/* Grid background */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
@@ -38,7 +38,7 @@ export default function BootcampsTrainingPage() {
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-[#FFC72C]" />
                 <span className="text-[11px] font-black tracking-[0.3em] text-[#FFC72C] uppercase">
-                  SOLUTIONS
+                  AI AUTOMATION
                 </span>
               </motion.div>
 
@@ -49,9 +49,9 @@ export default function BootcampsTrainingPage() {
                 transition={{ duration: 0.7, delay: 0.1 }}
                 className="text-4xl md:text-[62px] font-black tracking-tight leading-[1.05] mb-8"
               >
-                Bootcamps &amp;{" "}
+                AI{"  "}
                 <span className="text-[#FFC72C] italic font-serif font-normal block md:inline">
-                  Training
+                  Coordination
                 </span>
               </motion.h1>
 
@@ -62,7 +62,7 @@ export default function BootcampsTrainingPage() {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="text-base md:text-xl text-white/70 font-normal leading-relaxed mb-10 max-w-[720px]"
               >
-                Deliver cohort-based programs with automation, AI, attendance, assessments, and reporting.
+                Coordinate facilitators, learners, schedules, reminders, and program logistics automatically using intelligent workflows.
               </motion.p>
 
               {/* CTAs */}
@@ -90,29 +90,29 @@ export default function BootcampsTrainingPage() {
           </div>
         </section>
 
-        {/* ─── 2. BUILT FOR MODERN BOOTCAMPS OVERVIEW ────────────────────────── */}
+        {/* ─── 2. FEATURE OVERVIEW GRID ────────────────────────────────────────── */}
         <section id="overview" className="py-24 bg-[#090C16] border-t border-white/5 relative">
           <div className="max-w-[1280px] mx-auto px-8 relative z-10">
             
             <div className="mb-16">
               <span className="text-[10px] font-black tracking-[0.25em] text-[#FFC72C] uppercase block mb-3">
-                OVERVIEW
+                FEATURES
               </span>
               <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4">
-                Built for modern bootcamps
+                Automated Logistics Control
               </h2>
               <p className="text-white/60 max-w-[640px] text-sm md:text-base leading-relaxed">
-                Coordinate multiple cohort tracks, track learner progression parameters, leverage AI transcription tools, and issue secure digital certificates from one platform.
+                Let AI coordinate the logistics while your team focuses on program quality.
               </p>
             </div>
 
             {/* Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { title: "Cohort Management", desc: "Automate intake fields, assign workspace reviewers, and manage group allocations.", icon: Users, color: "text-blue-400" },
-                { title: "Learner Progress", desc: "Monitor lesson checks, grades, and portfolio submittals automatically.", icon: BarChart3, color: "text-purple-400" },
-                { title: "AI Automation", desc: "Transcribe live sessions and draft summary notes using OYEN AI.", icon: Sparkles, color: "text-emerald-400" },
-                { title: "Enterprise Security", desc: "Isolate databases and setup custom role permission parameters.", icon: Shield, color: "text-[#FFC72C]" }
+                { title: "Smart Scheduling", desc: "Automate calendar bookings for facilitators and cohorts.", icon: Calendar, color: "text-[#FFC72C]" },
+                { title: "Calendar Coordination", desc: "Sync live updates directly to Google and Outlook accounts.", icon: Clock, color: "text-purple-400" },
+                { title: "Facilitator Assignment", desc: "Assign matching specialists to active modules dynamically.", icon: Users, color: "text-blue-400" },
+                { title: "Automated Reminders", desc: "Send deadline nudge notifications to slack automatically.", icon: Bell, color: "text-emerald-400" }
               ].map((card, i) => (
                 <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col justify-between min-h-[180px] hover:border-white/10 transition-all duration-300">
                   <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mb-5">
@@ -129,61 +129,15 @@ export default function BootcampsTrainingPage() {
           </div>
         </section>
 
-        {/* ─── 3. DETAIL SECTIONS ────────────────────────────────────────────── */}
-        <section className="py-24 bg-[#070913]">
-          <div className="max-w-[1280px] mx-auto px-8 space-y-32">
-            
-            {/* 3.1 COHORT OPERATIONS */}
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <span className="text-[10px] font-black tracking-[0.25em] text-[#FFC72C] uppercase block mb-4">
-                  COHORT DEPLOYMENTS
-                </span>
-                <h3 className="text-3xl font-extrabold text-white mb-6">
-                  Deploy and scale cohorts with confidence.
-                </h3>
-                <p className="text-white/60 text-sm md:text-base leading-relaxed mb-8">
-                  OYEN GRID makes cohort management straightforward. Monitor team allocation matrices, orchestrate session calendars, and verify attendance records automatically.
-                </p>
-                <ul className="space-y-3.5">
-                  {["Visual cohort mapping", "Granular group permissions", "Facilitator assignments"].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-xs md:text-sm font-semibold text-white/80">
-                      <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 shadow-2xl relative overflow-hidden flex flex-col justify-center min-h-[300px]">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/5 to-transparent pointer-events-none" />
-                {/* Cohort panel */}
-                <div className="relative p-4 rounded-xl bg-[#090C22] border border-white/5 space-y-3">
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="font-bold text-white">Full Stack Track A</span>
-                    <span className="text-emerald-400 font-extrabold">Active</span>
-                  </div>
-                  <div className="h-1.5 w-full rounded bg-white/5 overflow-hidden">
-                    <div className="h-full bg-blue-500" style={{ width: "72%" }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        {/* ─── 4. FINAL CONVERSION CTA ────────────────────────────────────────── */}
+        {/* ─── 3. AI FINAL CONVERSION CTA ────────────────────────────────────────── */}
         <section className="py-24 bg-[#070913] border-t border-white/5">
           <div className="max-w-[800px] mx-auto px-8 text-center flex flex-col items-center gap-6">
             <span className="text-[11px] font-black tracking-[0.25em] text-[#FFC72C] uppercase">
-              DELIVER WORKSPACES
+              Ready to work smarter with AI?
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
-              Ready to scale your training operations?
+              Discover how OYEN AI helps your organization automate routine work, improve decision-making, and keep every program running smoothly.
             </h2>
-            <p className="text-sm md:text-base text-white/60 max-w-xl leading-relaxed">
-              Automate participant registrations, trace milestone gradebooks, and leverage artificial intelligence to track cohort performance.
-            </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full sm:w-auto">
               <Link
                 href="/register"

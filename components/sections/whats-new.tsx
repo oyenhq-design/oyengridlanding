@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, TrendingUp, FileText } from "lucide-react";
 
 export function WhatsNew() {
@@ -17,14 +18,14 @@ export function WhatsNew() {
           <div className="flex items-center gap-2 mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FFC72C]" />
             <span className="text-xs font-bold tracking-widest text-[#FFC72C] uppercase">
-              WHAT'S NEW
+              INSIGHTS & RESOURCES
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4 select-none">
             Proven operational outcomes.
           </h2>
           <p className="text-[#E2E8F0] text-base max-w-2xl text-center leading-relaxed font-medium">
-            See how enterprise training teams scale and measure real impact.
+            Learn how forward-thinking organizations improve training, collaboration, and productivity with OYEN GRID.
           </p>
         </div>
 
@@ -50,7 +51,7 @@ export function WhatsNew() {
               {/* Content */}
               <div className="relative z-20 flex-1 flex flex-col w-[75%] md:w-[70%]">
                 <span className="w-fit text-[9.5px] font-black tracking-wider text-[#FFC72C] bg-[#FFC72C]/15 border border-[#FFC72C]/30 px-3 py-1.5 rounded-full uppercase mb-6">
-                  CUSTOMER STORY
+                  CUSTOMER STORY • 4 min read
                 </span>
                 <h3 className="text-[26px] font-extrabold text-white mb-4 leading-[1.2] tracking-tight">
                   AltSchool saves 4 hours weekly per cohort.
@@ -58,12 +59,12 @@ export function WhatsNew() {
                 <p className="text-[#E2E8F0] text-sm leading-relaxed mb-8 flex-1 pr-4 font-medium">
                   Automated tracking scaled AltSchool programs to 2,400+ active learners.
                 </p>
-                <a
-                  href="/resources/case-studies"
+                <Link
+                  href="/resources/blog/altschool-saves-4-hours-weekly"
                   className="inline-flex items-center gap-2 text-[#FFC72C] hover:text-[#FFD45B] font-bold text-sm w-fit group/link transition-colors"
                 >
                   Read story <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -103,7 +104,7 @@ export function WhatsNew() {
               {/* Content */}
               <div className="relative z-20 flex-1 flex flex-col w-[75%] md:w-[70%]">
                 <span className="w-fit text-[9.5px] font-black tracking-wider text-[#FFC72C] bg-[#FFC72C]/15 border border-[#FFC72C]/30 px-3 py-1.5 rounded-full uppercase mb-6">
-                  CASE STUDY
+                  CASE STUDY • 6 min read
                 </span>
                 <h3 className="text-[26px] font-extrabold text-white mb-4 leading-[1.2] tracking-tight">
                   TalentQL scales training across 3 countries.
@@ -111,12 +112,12 @@ export function WhatsNew() {
                 <p className="text-[#E2E8F0] text-sm leading-relaxed mb-8 flex-1 pr-4 font-medium">
                   Centralized operations enabled multi-country scale without administrative overhead.
                 </p>
-                <a
-                  href="/resources/case-studies"
+                <Link
+                  href="/resources/blog/talentql-scales-training-across-three-countries"
                   className="inline-flex items-center gap-2 text-[#FFC72C] hover:text-[#FFD45B] font-bold text-sm w-fit group/link transition-colors"
                 >
                   View case study <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -162,7 +163,7 @@ export function WhatsNew() {
               <div className="relative z-10 w-[78%]">
                 <div className="flex justify-between items-start mb-6">
                   <span className="text-[9.5px] font-black tracking-wider text-[#FFC72C] bg-[#FFC72C]/15 border border-[#FFC72C]/30 px-3 py-1.5 rounded-full uppercase">
-                    PRODUCT UPDATE
+                    PRODUCT UPDATE • 3 min read
                   </span>
                   <div className="w-8 h-8 rounded-lg border border-white/15 flex items-center justify-center text-[#FFC72C] bg-[#FFC72C]/10">
                     <TrendingUp className="w-4 h-4" />
@@ -175,12 +176,12 @@ export function WhatsNew() {
                   Generate cohort summaries and action items instantly from live sessions.
                 </p>
               </div>
-              <a
-                href="/features/analytics-ai"
+              <Link
+                href="/resources/blog/introducing-ai-summaries"
                 className="inline-flex items-center gap-2 text-[#FFC72C] hover:text-[#FFD45B] font-bold text-sm w-fit relative z-10 mt-auto group/link transition-colors"
               >
                 Learn more <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
-              </a>
+              </Link>
             </div>
 
             {/* Bottom Right Card */}
@@ -200,7 +201,7 @@ export function WhatsNew() {
               <div className="relative z-10 w-[78%]">
                 <div className="flex justify-between items-start mb-6">
                   <span className="text-[9.5px] font-black tracking-wider text-[#FFC72C] bg-[#FFC72C]/15 border border-[#FFC72C]/30 px-3 py-1.5 rounded-full uppercase">
-                    INSIGHTS
+                    INSIGHTS • 5 min read
                   </span>
                   <div className="w-8 h-8 rounded-lg border border-white/15 flex items-center justify-center text-[#FFC72C] bg-[#FFC72C]/10">
                     <FileText className="w-4 h-4" />
@@ -213,12 +214,12 @@ export function WhatsNew() {
                   Avoid administrative friction points when scaling enterprise learning cohorts.
                 </p>
               </div>
-              <a
-                href="/resources/blog"
+              <Link
+                href="/resources/blog/scaling-training-programs-successfully"
                 className="inline-flex items-center gap-2 text-[#FFC72C] hover:text-[#FFD45B] font-bold text-sm w-fit relative z-10 mt-auto group/link transition-colors"
               >
                 Read article <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
-              </a>
+              </Link>
             </div>
 
           </div>

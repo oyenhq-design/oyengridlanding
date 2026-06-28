@@ -130,7 +130,7 @@ export function InstitutionalImpactCinematic() {
             </span>
           </div>
           <h2 className="text-3xl md:text-[44px] font-extrabold text-[#0A0D1F] tracking-tight leading-[1.1] mb-5 max-w-[700px] mx-auto">
-            Trusted by the people behind successful programs.
+            Trusted by teams building better organizations.
           </h2>
           <p className="text-sm md:text-base text-[#55534E] max-w-[620px] mx-auto font-normal leading-relaxed">
             Hear from program directors, facilitators, coordinators, and organizations using OYEN GRID to deliver training at scale.
@@ -147,10 +147,10 @@ export function InstitutionalImpactCinematic() {
             {doubleProfiles.map((profile, i) => (
               <div
                 key={`${profile.id}-${i}`}
-                className="w-[340px] md:w-[380px] flex-shrink-0 bg-white border border-[#0A0D1F]/10 rounded-2xl p-6 md:p-8 flex flex-col justify-between hover:border-[#D4A017]/40 hover:shadow-[0_12px_36px_rgba(10,13,31,0.06)] transition-all duration-300 shadow-sm backdrop-blur-md relative group"
+                className="w-[340px] md:w-[400px] min-h-[270px] md:min-h-[300px] flex-shrink-0 bg-white border border-[#0A0D1F]/10 rounded-2xl p-8 md:p-10 flex flex-col justify-between hover:border-[#D4A017]/40 hover:shadow-[0_16px_40px_rgba(10,13,31,0.08)] transition-all duration-300 shadow-sm backdrop-blur-md relative group"
               >
                 {/* Gold Quote Mark Icon */}
-                <span className="absolute top-6 right-8 text-[44px] text-[#D4A017]/10 font-serif leading-none group-hover:text-[#D4A017]/25 transition-colors duration-300">
+                <span className="absolute top-8 right-10 text-[44px] text-[#D4A017]/10 font-serif leading-none group-hover:text-[#D4A017]/25 transition-colors duration-300">
                   ”
                 </span>
 
@@ -172,23 +172,32 @@ export function InstitutionalImpactCinematic() {
                   &ldquo;{profile.quote}&rdquo;
                 </blockquote>
 
-                {/* Profile Info */}
-                <div className="flex items-center gap-3.5 pt-5 border-t border-[#0A0D1F]/5">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#0A0D1F]/10 shrink-0">
-                    <Image
-                      src={profile.avatarUrl}
-                      alt={profile.name}
-                      fill
-                      className="object-cover"
-                      unoptimized
-                    />
+                {/* Profile Info & Company Logo */}
+                <div className="flex items-center justify-between pt-5 border-t border-[#0A0D1F]/5">
+                  <div className="flex items-center gap-3.5 min-w-0">
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#0A0D1F]/10 shrink-0">
+                      <Image
+                        src={profile.avatarUrl}
+                        alt={profile.name}
+                        fill
+                        className="object-cover"
+                        unoptimized
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="text-xs font-bold text-[#0A0D1F] truncate tracking-wide">
+                        {profile.name}
+                      </h4>
+                      <span className="text-[9.5px] font-black text-[#D4A017] tracking-[0.18em] uppercase mt-0.5 block truncate">
+                        {profile.role}
+                      </span>
+                    </div>
                   </div>
-                  <div className="min-w-0">
-                    <h4 className="text-xs font-bold text-[#0A0D1F] truncate tracking-wide">
-                      {profile.name}
-                    </h4>
-                    <span className="text-[9.5px] font-black text-[#D4A017] tracking-[0.18em] uppercase mt-0.5 block truncate">
-                      {profile.role} · {profile.org}
+
+                  {/* Company Logo Badge */}
+                  <div className="shrink-0 px-2.5 py-1 rounded-md bg-[#0A0D1F]/[0.03] border border-[#0A0D1F]/5 flex items-center justify-center">
+                    <span className="text-[9px] font-black tracking-widest text-[#0A0D1F]/60 uppercase">
+                      {profile.org}
                     </span>
                   </div>
                 </div>

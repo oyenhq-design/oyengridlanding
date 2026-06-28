@@ -359,7 +359,7 @@ export function OperationalInfrastructure() {
             SaaS Showcase
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 mt-2 leading-tight tracking-tight">
-            How training is <span className="text-[#D4A017] italic font-serif font-normal">orchestrated.</span>
+            See OYEN GRID in action
           </h2>
         </div>
 

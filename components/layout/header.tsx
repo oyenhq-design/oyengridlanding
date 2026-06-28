@@ -28,10 +28,10 @@ const LEFT_MENUS = [
     label: "AI",
     isAI: true,
     items: [
-      { title: "AI Session Notes", desc: "Auto-generated structured notes for every session.", icon: FileText, href: "/features/analytics-ai#session-notes" },
-      { title: "AI Summaries", desc: "Instant program and cohort performance summaries.", icon: Brain, href: "/features/analytics-ai#summaries" },
-      { title: "AI Coordination", desc: "Smart scheduling and facilitator coordination tools.", icon: Bot, href: "/features/analytics-ai#coordination" },
-      { title: "Automated Alerts", desc: "Intelligent notifications for attendance and progress.", icon: BellRing, href: "/features/analytics-ai#alerts" },
+      { title: "AI Session Notes", desc: "Auto-generated structured notes for every session.", icon: FileText, href: "/features/ai-session-notes" },
+      { title: "AI Summaries", desc: "Instant program and cohort performance summaries.", icon: Brain, href: "/features/ai-summaries" },
+      { title: "AI Coordination", desc: "Smart scheduling and facilitator coordination tools.", icon: Bot, href: "/features/ai-coordination" },
+      { title: "Automated Alerts", desc: "Intelligent notifications for attendance and progress.", icon: BellRing, href: "/features/automated-alerts" },
     ],
   },
   {
@@ -93,17 +93,17 @@ function NavDropdown({
     >
       <button
         className={cn(
-          "flex items-center gap-1 text-[12.5px] font-semibold tracking-wide px-1 h-8 transition-colors duration-150 cursor-pointer",
+          "flex items-center gap-1.5 text-[14px] font-bold tracking-wide px-1 h-8 transition-colors duration-150 cursor-pointer",
           active ? "text-white" : "text-white/60 hover:text-white"
         )}
       >
         {(menu as { isAI?: boolean }).isAI && (
-          <Sparkles className="w-3 h-3 text-[#FFC72C] mr-0.5" />
+          <Sparkles className="w-3.5 h-3.5 text-[#FFC72C] mr-0.5" />
         )}
         <span>{menu.label}</span>
         <ChevronDown
           className={cn(
-            "w-3 h-3 transition-transform duration-200 opacity-50",
+            "w-3.5 h-3.5 transition-transform duration-200 opacity-50",
             active && "rotate-180 opacity-100 text-[#FFC72C]"
           )}
         />
@@ -244,7 +244,7 @@ export function Header() {
             ))}
             <Link
               href="/pricing"
-              className="text-[12.5px] font-semibold text-white/60 hover:text-white tracking-wide px-2 h-8 flex items-center transition-colors duration-150"
+              className="text-[14px] font-bold text-white/60 hover:text-white tracking-wide px-2 h-8 flex items-center transition-colors duration-150"
             >
               Pricing
             </Link>
@@ -252,7 +252,7 @@ export function Header() {
         </div>
 
         {/* ── RIGHT: Secondary nav (CTAs removed) ───────────────────────── */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
 
           {/* Inline Active Search Bar & Suggestion Dropdown */}
           <div className="relative flex items-center">
@@ -273,12 +273,12 @@ export function Header() {
           </div>
 
           {/* Divider */}
-          <div className="hidden lg:block w-px h-4 bg-white/10 mx-1" />
+          <div className="hidden lg:block w-px h-5 bg-white/10 mx-1" />
 
           {/* Support */}
           <Link
             href="/resources/help"
-            className="hidden lg:inline-block text-[12.5px] font-semibold text-white/60 hover:text-white transition-colors px-2 py-1.5"
+            className="hidden lg:inline-block text-[14px] font-bold text-white/60 hover:text-white transition-colors px-2 py-1.5"
           >
             Support
           </Link>
@@ -286,7 +286,7 @@ export function Header() {
           {/* Sign In */}
           <Link
             href="/sign-in"
-            className="hidden lg:inline-block text-[12.5px] font-semibold text-white/60 hover:text-white transition-colors px-2 py-1.5"
+            className="hidden lg:inline-block text-[14px] font-bold text-white/60 hover:text-white transition-colors px-2 py-1.5"
           >
             Sign In
           </Link>
@@ -294,7 +294,7 @@ export function Header() {
           {/* Get Started — Register CTA */}
           <Link
             href="/register"
-            className="hidden lg:inline-flex items-center gap-1.5 h-8 px-4 rounded-full bg-[#FFC72C] hover:bg-[#FFD45B] text-[#0B0B0B] text-[11.5px] font-extrabold uppercase tracking-wider transition-all duration-200 hover:shadow-[0_0_14px_rgba(255,199,44,0.35)] active:scale-[0.97]"
+            className="hidden lg:inline-flex items-center gap-1.5 h-10 px-5 rounded-full bg-[#FFC72C] hover:bg-[#FFD45B] text-[#0B0B0B] text-[13px] font-black uppercase tracking-wider transition-all duration-200 hover:shadow-[0_0_14px_rgba(255,199,44,0.35)] active:scale-[0.97]"
           >
             Get Started
           </Link>
@@ -436,7 +436,7 @@ export function AnnouncementBar() {
     <div className="relative pt-[64px] w-full z-[60]">
       <div className="py-6 bg-[#090D16] border-b border-white/[0.06] flex flex-col items-center justify-center gap-2 px-8">
         <span className="text-[13.5px] font-medium text-white/80 text-center tracking-wide leading-relaxed">
-          The operating system for training delivery
+          The intelligent workspace for modern organizations
         </span>
         <Link
           href="/infrastructure"

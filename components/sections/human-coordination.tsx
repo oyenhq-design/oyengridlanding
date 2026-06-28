@@ -12,7 +12,7 @@ import {
 
 const features = [
   {
-    title: "AI Session Notes",
+    title: "AI Meeting Intelligence",
     desc: "Instant summaries and action items generated post-session.",
     icon: Sparkles,
     iconBg: "bg-purple-50",
@@ -20,7 +20,7 @@ const features = [
     iconColor: "text-purple-500",
   },
   {
-    title: "Team Chat",
+    title: "Team Collaboration",
     desc: "Centralize cohort communication directly inside your workspace.",
     icon: MessageSquare,
     iconBg: "bg-amber-50",
@@ -28,7 +28,7 @@ const features = [
     iconColor: "text-amber-500",
   },
   {
-    title: "Live Dashboard",
+    title: "Reports & Analytics",
     desc: "Monitor cohorts, attendance, engagement, and activity in real-time.",
     icon: Activity,
     iconBg: "bg-blue-50",
@@ -36,7 +36,7 @@ const features = [
     iconColor: "text-blue-500",
   },
   {
-    title: "AI Alerts",
+    title: "Smart Notifications",
     desc: "Get notified before learner issues become problems.",
     icon: Bell,
     iconBg: "bg-emerald-50",
@@ -109,10 +109,10 @@ export function HumanCoordination() {
 
             {/* Headline */}
             <h2 className="text-[30px] md:text-[38px] font-extrabold text-[#0F172A] leading-[1.12] tracking-tight mb-4">
-              Give your trainers and coordinators
+              Let AI handle the admin
               <br />
-              <span className="text-[#D4A017] italic font-serif font-normal text-[32px] md:text-[40px]">
-                AI superpowers
+              <span className="text-[#D4A017] italic font-serif font-normal text-[32px] md:text-[38px]">
+                while your team focuses on learners.
               </span>
             </h2>
 

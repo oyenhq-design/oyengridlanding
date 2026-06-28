@@ -1,5 +1,6 @@
 import { Header, AnnouncementBar } from "@/components/layout/header";
 import { HeroInstitutional } from "@/components/sections/institutional-ecosystem";
+import { WhyOyen } from "@/components/sections/why-oyen";
 import { OperationalLifecycle } from "@/components/sections/operational-lifecycle";
 import { OperationalInfrastructure } from "@/components/sections/operational-infrastructure";
 import { HumanCoordination } from "@/components/sections/human-coordination";
@@ -23,6 +24,9 @@ export default function Home() {
         <div className="relative z-10">
           {/* 2. HERO */}
           <HeroInstitutional />
+
+          {/* 2.5. WHY OYEN GRID VALUE PROP */}
+          <WhyOyen />
 
           {/* 3. PROGRAMME LIFECYCLE */}
           <OperationalLifecycle />
