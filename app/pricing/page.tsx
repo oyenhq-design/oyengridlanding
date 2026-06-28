@@ -1052,21 +1052,37 @@ function PricingContent() {
                           "mt-4 pt-3 border-t relative z-10",
                           isPremiumPlus ? "border-white/10" : "border-[#EBE9E1] dark:border-white/[0.05]"
                         )}>
-                          <Link
-                            href={plan.href}
-                            className={cn(
-                              "w-full h-9 rounded-xl flex items-center justify-center gap-1.5 text-[11px] font-black uppercase tracking-wider transition-all group/btn",
-                              isPremiumPlus
-                                ? "bg-white text-black hover:bg-white/90 shadow-[0_4px_16px_rgba(255,255,255,0.05)] hover:scale-[1.02] active:scale-[0.98]"
-                                : (isPremium
-                                  ? "bg-[#D4A017] text-black hover:bg-[#E5B228] shadow-[0_4px_16px_rgba(212,160,23,0.18)] hover:scale-[1.02] active:scale-[0.98]"
-                                  : "border border-[#EBE9E1] dark:border-white/[0.08] text-[#111827] dark:text-white hover:bg-[#F9FAFB] dark:hover:bg-white/[0.05] hover:border-[#D1D5DB] dark:hover:border-white/[0.15]"
-                                )
-                            )}
-                          >
-                            {plan.cta}
-                            <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform opacity-60" />
-                          </Link>
+                          {(() => {
+                            const planNameMap: Record<string, string> = {
+                              basic: "starter",
+                              standard: "professional",
+                              premium: "premium",
+                              premiumPlus: "enterprise"
+                            };
+                            const planSlug = planNameMap[plan.key] || plan.key;
+                            const isLoggedIn = typeof window !== "undefined" && localStorage.getItem("isLoggedIn") === "true";
+                            const planHref = isLoggedIn
+                              ? `/billing?plan=${planSlug}`
+                              : `/register?plan=${planSlug}`;
+
+                            return (
+                              <Link
+                                href={planHref}
+                                className={cn(
+                                  "w-full h-9 rounded-xl flex items-center justify-center gap-1.5 text-[11px] font-black uppercase tracking-wider transition-all group/btn",
+                                  isPremiumPlus
+                                    ? "bg-white text-black hover:bg-white/90 shadow-[0_4px_16px_rgba(255,255,255,0.05)] hover:scale-[1.02] active:scale-[0.98]"
+                                    : (isPremium
+                                      ? "bg-[#D4A017] text-black hover:bg-[#E5B228] shadow-[0_4px_16px_rgba(212,160,23,0.18)] hover:scale-[1.02] active:scale-[0.98]"
+                                      : "border border-[#EBE9E1] dark:border-white/[0.08] text-[#111827] dark:text-white hover:bg-[#F9FAFB] dark:hover:bg-white/[0.05] hover:border-[#D1D5DB] dark:hover:border-white/[0.15]"
+                                    )
+                                )}
+                              >
+                                {plan.cta}
+                                <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform opacity-60" />
+                              </Link>
+                            );
+                          })()}
                         </div>
                       </motion.div>
                     );
