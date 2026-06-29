@@ -8,6 +8,7 @@ import {
   Activity,
   Bell,
   Shield,
+  ArrowRight
 } from "lucide-react";
 
 const features = [
@@ -15,69 +16,69 @@ const features = [
     title: "AI Meeting Intelligence",
     desc: "Instant summaries and action items generated post-session.",
     icon: Sparkles,
-    iconBg: "bg-purple-50",
-    iconBorder: "border-purple-100",
-    iconColor: "text-purple-500",
+    iconBg: "bg-purple-500/10",
+    iconBorder: "border-purple-500/20",
+    iconColor: "text-purple-600 dark:text-purple-400",
   },
   {
     title: "Team Collaboration",
     desc: "Centralize cohort communication directly inside your workspace.",
     icon: MessageSquare,
-    iconBg: "bg-amber-50",
-    iconBorder: "border-amber-100",
-    iconColor: "text-amber-500",
+    iconBg: "bg-[#D4A017]/10",
+    iconBorder: "border-[#D4A017]/20",
+    iconColor: "text-[#D4A017]",
   },
   {
     title: "Reports & Analytics",
     desc: "Monitor cohorts, attendance, engagement, and activity in real-time.",
     icon: Activity,
-    iconBg: "bg-blue-50",
-    iconBorder: "border-blue-100",
-    iconColor: "text-blue-500",
+    iconBg: "bg-blue-500/10",
+    iconBorder: "border-blue-500/20",
+    iconColor: "text-blue-600 dark:text-blue-400",
   },
   {
     title: "Smart Notifications",
     desc: "Get notified before learner issues become problems.",
     icon: Bell,
-    iconBg: "bg-emerald-50",
-    iconBorder: "border-emerald-100",
-    iconColor: "text-emerald-500",
+    iconBg: "bg-emerald-500/10",
+    iconBorder: "border-emerald-500/20",
+    iconColor: "text-emerald-600 dark:text-emerald-400",
   },
 ];
 
 export function HumanCoordination() {
   return (
-    <section className="relative overflow-hidden border-b border-zinc-200 min-h-[860px] flex items-center">
+    <section className="relative overflow-hidden border-b border-zinc-200/50 min-h-[860px] flex items-center bg-white">
 
       {/* ── LAYER 0: Office background — desaturated to become atmosphere ── */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
           backgroundImage: "url('/human-coordination-bg.png')",
-          filter: "saturate(0.6) brightness(1.1) contrast(0.85)",
+          filter: "saturate(0.5) brightness(1.15) contrast(0.85)",
         }}
       />
       {/* Warm upper-left light source */}
       <div className="absolute inset-0 z-[1] pointer-events-none" style={{
-        background: "radial-gradient(ellipse 75% 65% at 8% 15%, rgba(255,250,240,0.60) 0%, transparent 65%)",
+        background: "radial-gradient(ellipse 75% 65% at 8% 15%, rgba(255,250,240,0.7) 0%, transparent 65%)",
       }} />
       {/* Overall veil */}
-      <div className="absolute inset-0 bg-white/18 z-[1] pointer-events-none" />
+      <div className="absolute inset-0 bg-white/20 z-[1] pointer-events-none" />
 
       {/* ── LAYER 1: Ambient glow environment behind tablet ── */}
       <div className="absolute hidden lg:block z-[2] pointer-events-none" style={{
         right: "-80px", top: "50%", transform: "translateY(-50%)",
         width: "900px", height: "900px",
         background: `
-          radial-gradient(ellipse 60% 65% at 58% 50%, rgba(30,58,138,0.22) 0%, transparent 65%),
-          radial-gradient(ellipse 42% 48% at 74% 34%, rgba(99,102,241,0.16) 0%, transparent 58%),
-          radial-gradient(ellipse 38% 42% at 44% 68%, rgba(16,185,129,0.10) 0%, transparent 55%)
+          radial-gradient(ellipse 60% 65% at 58% 50%, rgba(30,58,138,0.18) 0%, transparent 65%),
+          radial-gradient(ellipse 42% 48% at 74% 34%, rgba(99,102,241,0.12) 0%, transparent 58%),
+          radial-gradient(ellipse 38% 42% at 44% 68%, rgba(16,185,129,0.08) 0%, transparent 55%)
         `,
       }} />
 
       {/* ── LAYER 2: Main content grid ── */}
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-10 py-16 lg:py-20">
-        <div className="grid lg:grid-cols-[480px_1fr] items-center gap-8 lg:gap-0">
+        <div className="grid lg:grid-cols-[510px_1fr] items-center gap-12 lg:gap-0">
 
           {/* ════════════════ LEFT GLASS PANEL ════════════════ */}
           <motion.div
@@ -85,73 +86,72 @@ export function HumanCoordination() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col p-8 md:p-10 rounded-[28px] relative z-20"
+            className="flex flex-col p-8 md:p-10 rounded-[32px] relative z-20"
             style={{
-              background: "rgba(255,255,255,0.86)",
-              backdropFilter: "blur(24px) saturate(1.5)",
-              WebkitBackdropFilter: "blur(24px) saturate(1.5)",
-              border: "1px solid rgba(255,255,255,0.75)",
-              boxShadow: "0 4px 6px rgba(15,23,42,0.02), 0 16px 48px rgba(15,23,42,0.07), 0 40px 96px rgba(15,23,42,0.05), inset 0 1px 0 rgba(255,255,255,0.95)",
+              background: "rgba(255, 255, 255, 0.82)",
+              backdropFilter: "blur(32px) saturate(1.8)",
+              WebkitBackdropFilter: "blur(32px) saturate(1.8)",
+              border: "1px solid rgba(255, 255, 255, 0.55)",
+              boxShadow: "0 10px 40px rgba(15,23,42,0.04), 0 24px 64px rgba(15,23,42,0.08), inset 0 1px 0 rgba(255,255,255,0.95)",
             }}
           >
             {/* Warm light catch */}
-            <div className="absolute top-0 left-0 w-40 h-16 rounded-tl-[28px] pointer-events-none" style={{
-              background: "radial-gradient(ellipse 100% 100% at 0% 0%, rgba(255,245,210,0.55) 0%, transparent 70%)",
+            <div className="absolute top-0 left-0 w-48 h-20 rounded-tl-[32px] pointer-events-none" style={{
+              background: "radial-gradient(ellipse 100% 100% at 0% 0%, rgba(255,245,210,0.65) 0%, transparent 70%)",
             }} />
 
             {/* Eyebrow */}
-            <div className="flex items-center gap-2 mb-5">
+            <div className="flex items-center gap-2 mb-6">
               <div className="w-1.5 h-1.5 rounded-full bg-[#C8931A]" />
-              <span className="text-[10px] font-black tracking-[0.34em] text-[#C8931A] uppercase">
-                Human Coordination • Insights
+              <span className="text-[10px] font-black tracking-[0.35em] text-[#C8931A] uppercase">
+                HUMAN COORDINATION • INSIGHTS
               </span>
             </div>
 
             {/* Headline */}
-            <h2 className="text-[30px] md:text-[38px] font-extrabold text-[#0F172A] leading-[1.12] tracking-tight mb-4">
-              Let AI handle the admin
-              <br />
-              <span className="text-[#D4A017] italic font-serif font-normal text-[32px] md:text-[38px]">
+            <h2 className="text-[32px] md:text-[40px] font-black text-[#111827] leading-[1.08] tracking-tight mb-4">
+              Let AI handle the admin{" "}
+              <span className="text-[#D4A017] italic font-serif font-normal block mt-1">
                 while your team focuses on learners.
               </span>
             </h2>
 
             {/* Body */}
-            <p className="text-[14px] leading-relaxed text-[#475569] mb-8 max-w-[400px]">
-              Automate the busywork. Surface what matters.
-              <br />
-              Focus on learner outcomes.
+            <p className="text-[14.5px] leading-relaxed text-[#4B5563] mb-8 font-medium">
+              Automate the busywork. Surface what matters. Coordinate with complete workspace visibility.
             </p>
 
             {/* 2×2 feature cards */}
-            <div className="grid grid-cols-2 gap-3 mb-7">
-              {features.map((f, i) => (
-                <div
-                  key={i}
-                  className="p-4 rounded-[16px] hover:-translate-y-1 transition-all duration-300"
-                  style={{
-                    background: "rgba(255,255,255,0.92)",
-                    border: "1px solid rgba(15,23,42,0.06)",
-                    boxShadow: "0 2px 8px rgba(15,23,42,0.04), 0 6px 20px rgba(15,23,42,0.04)",
-                  }}
-                >
-                  <div className={`w-9 h-9 rounded-[10px] ${f.iconBg} flex items-center justify-center mb-3`}
-                    style={{ border: "1px solid rgba(15,23,42,0.05)" }}>
-                    <f.icon className={`w-[18px] h-[18px] ${f.iconColor}`} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              {features.map((f, i) => {
+                const Icon = f.icon;
+                return (
+                  <div
+                    key={i}
+                    className="p-5 rounded-2xl border border-zinc-200/40 bg-white/95 hover:border-[#D4A017]/30 hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(15,23,42,0.03)] transition-all duration-[300ms] ease-out flex flex-col justify-between"
+                  >
+                    <div>
+                      {/* Icon container */}
+                      <div className={`w-9 h-9 rounded-xl ${f.iconBg} border ${f.iconBorder} flex items-center justify-center mb-4`}>
+                        <Icon className={`w-4 h-4 ${f.iconColor}`} />
+                      </div>
+                      <h4 className="text-[13.5px] font-extrabold text-[#111827] mb-1.5 leading-snug">{f.title}</h4>
+                      <p className="text-[11.5px] text-[#6B7280] leading-normal font-light">{f.desc}</p>
+                    </div>
                   </div>
-                  <h4 className="text-[12.5px] font-bold text-[#0F172A] mb-1">{f.title}</h4>
-                  <p className="text-[11px] text-[#64748B] leading-snug">{f.desc}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Security strip */}
-            <div className="flex items-center gap-3 px-4 py-3 rounded-[12px]"
-              style={{ background: "rgba(255,255,255,0.75)", border: "1px solid rgba(15,23,42,0.055)" }}>
-              <Shield className="w-4 h-4 text-[#D4A017] shrink-0" />
-              <p className="text-[11.5px] leading-snug">
-                <span className="font-bold text-[#0F172A]">Secure. Reliable. Built for scale.</span>{" "}
-                <span className="text-[#64748B]">Your data, always protected.</span>
+            <div 
+              className="flex items-center gap-3 px-5 py-4 rounded-2xl border border-zinc-200/40 bg-white/90"
+              style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.01)" }}
+            >
+              <Shield className="w-4.5 h-4.5 text-[#D4A017] shrink-0" />
+              <p className="text-[12px] leading-snug">
+                <span className="font-extrabold text-[#111827] block sm:inline">Secure. Reliable. Built for scale.</span>{" "}
+                <span className="text-[#6B7280] font-light">Your data, always protected.</span>
               </p>
             </div>
           </motion.div>
