@@ -15,8 +15,8 @@ export default function AltSchoolCaseStudy() {
         <div className="max-w-[800px] mx-auto px-6">
           
           {/* Back link */}
-          <Link href="/resources" className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white mb-8 transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Back to Resources
+          <Link href="/resources/blog" className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white mb-8 transition-colors">
+            <ArrowLeft className="w-4 h-4" /> Back to Blog
           </Link>
 
           {/* Article Header */}
