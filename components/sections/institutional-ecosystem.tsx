@@ -172,10 +172,6 @@ export function HeroInstitutional() {
           className="object-cover object-center"
           priority
         />
-        {/* Holographic Topographic Wave Vector Overlay */}
-        <div className="absolute inset-0 opacity-[0.25] mix-blend-screen pointer-events-none">
-          <TopographicWave />
-        </div>
         {/* Lighter gradient overlay to make background image significantly sharper and clearer */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0C1029]/40 via-transparent to-[#0C1029]/55 z-0" />
       </div>
