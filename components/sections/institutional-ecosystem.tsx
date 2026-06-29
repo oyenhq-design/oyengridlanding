@@ -172,8 +172,8 @@ export function HeroInstitutional() {
           className="object-cover object-center"
           priority
         />
-        {/* Soft atmospheric overlay to keep text legible */}
-        <div className="absolute inset-0 bg-[#0C1029]/85 backdrop-blur-[2px]" />
+        {/* Gradient overlay to preserve text legibility while showing the image */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0C1029]/80 via-transparent to-[#0C1029] z-0" />
       </div>
 
       {/* Rich atmospheric glows — gold + blue */}
