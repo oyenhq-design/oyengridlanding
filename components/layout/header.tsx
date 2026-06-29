@@ -208,8 +208,9 @@ export function Header() {
       ref={headerRef}
       className={cn(
         "fixed top-0 left-0 right-0 z-[100] h-[64px] flex items-center transition-all duration-300",
-        "bg-[#090D16] border-b border-white/[0.06]",
-        scrolled && "shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-xl"
+        scrolled 
+          ? "bg-[#090D16]/90 border-b border-white/[0.06] shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-xl"
+          : "bg-transparent border-b border-transparent"
       )}
     >
       <div className="w-full max-w-full mx-auto px-6 flex items-center justify-between gap-4">
@@ -434,7 +435,7 @@ export function Header() {
 export function AnnouncementBar() {
   return (
     <div className="relative pt-[64px] w-full z-[60]">
-      <div className="py-6 bg-[#090D16] border-b border-white/[0.06] flex flex-col items-center justify-center gap-2 px-8">
+      <div className="py-6 bg-transparent border-b border-transparent flex flex-col items-center justify-center gap-2 px-8">
         <span className="text-[13.5px] font-medium text-white/80 text-center tracking-wide leading-relaxed">
           The intelligent workspace for modern organizations
         </span>

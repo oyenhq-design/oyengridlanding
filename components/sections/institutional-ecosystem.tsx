@@ -161,7 +161,7 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="relative min-h-[680px] bg-[#0C1029] flex items-center pt-8 pb-8 overflow-hidden">
+    <section className="relative min-h-[680px] bg-[#0C1029] flex items-center mt-[-176px] pt-[190px] pb-8 overflow-hidden">
 
       {/* Global Server Map Background Image */}
       <div className="absolute inset-0 z-0 pointer-events-none">
