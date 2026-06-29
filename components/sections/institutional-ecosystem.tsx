@@ -163,8 +163,21 @@ export function HeroInstitutional() {
   return (
     <section className="relative min-h-[680px] bg-[#0C1029] flex items-center pt-8 pb-8 overflow-hidden">
 
+      {/* Global Server Map Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Image
+          src="/global-map-bg.png"
+          alt="Global Server Map Background"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* Soft atmospheric overlay to keep text legible */}
+        <div className="absolute inset-0 bg-[#0C1029]/85 backdrop-blur-[2px]" />
+      </div>
+
       {/* Rich atmospheric glows — gold + blue */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none z-10">
         <div className="absolute top-[-10%] left-[-5%] w-[700px] h-[700px] bg-[#FFC72C]/[0.06] blur-[120px] rounded-full" />
         <div className="absolute top-[10%] right-[0%] w-[500px] h-[500px] bg-[#3B6FE8]/[0.07] blur-[100px] rounded-full" />
         <div className="absolute bottom-[-10%] left-[30%] w-[600px] h-[400px] bg-[#1A3A7A]/[0.08] blur-[100px] rounded-full" />
