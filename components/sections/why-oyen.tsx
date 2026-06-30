@@ -67,10 +67,10 @@ export function WhyOyen() {
               WHY OYEN GRID
             </span>
           </div>
-          <h2 className="text-3xl md:text-[44px] font-extrabold text-[#0A0D1F] tracking-tight leading-[1.1] mb-6 max-w-[800px]">
+          <h2 className="text-3xl md:text-[44px] font-black text-[#0A0D1F] tracking-tight leading-[1.1] mb-6 max-w-[800px]">
             Everything your teams need to manage training, people, and operations in one workspace.
           </h2>
-          <p className="text-sm md:text-base text-[#55534E] max-w-[620px] font-normal leading-relaxed">
+          <p className="text-sm md:text-base text-[#374151] max-w-[620px] font-medium leading-relaxed">
             Manage training, collaboration, AI workflows, communication, reporting, and operations from one secure platform.
           </p>
         </div>
@@ -95,12 +95,12 @@ export function WhyOyen() {
                   </div>
                   
                   {/* Title */}
-                  <h4 className="text-[15px] font-bold text-[#0A0D1F] mb-2.5">
+                  <h4 className="text-[15px] font-extrabold text-[#0A0D1F] mb-2.5">
                     {prop.title}
                   </h4>
                   
                   {/* Description */}
-                  <p className="text-[12.5px] text-[#55534E] leading-relaxed font-light">
+                  <p className="text-[13px] text-[#4B5563] leading-relaxed font-normal">
                     {prop.desc}
                   </p>
                 </div>
