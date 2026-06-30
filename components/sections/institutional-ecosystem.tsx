@@ -172,8 +172,8 @@ export function HeroInstitutional() {
           className="object-cover object-center"
           priority
         />
-        {/* Lighter gradient overlay to make background image significantly sharper and clearer */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0C1029]/40 via-transparent to-[#0C1029]/55 z-0" />
+        {/* Ultra-soft gradient overlay to maximize image sharpness and definition */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#0C1029]/35 z-0" />
       </div>
 
       {/* Rich atmospheric glows — gold + blue */}
