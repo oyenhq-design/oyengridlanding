@@ -161,27 +161,45 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="relative min-h-[680px] bg-[#0C1029] flex items-center mt-[-176px] pt-[190px] pb-8 overflow-hidden">
+    <section
+      className="relative min-h-[680px] flex items-center mt-[-176px] pt-[190px] pb-8 overflow-hidden"
+      style={{ background: "linear-gradient(160deg, #0B1020 0%, #10172E 55%, #151C36 100%)" }}
+    >
 
-      {/* Global Server Map Background Image */}
+      {/* Geometric mesh background — texture only, not decoration */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
           src="/global-map-bg.jpg"
           alt="Global Server Map Background"
           fill
-          className="object-cover object-center opacity-30"
+          className="object-cover object-center opacity-[0.06]"
           priority
         />
-        {/* Dark overlay to keep text sharp and clear */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0C1029]/70 via-[#0C1029]/40 to-[#0C1029]/80 z-0" />
       </div>
 
-      {/* Rich atmospheric glows — gold + blue */}
-      <div className="absolute inset-0 pointer-events-none z-10">
-        <div className="absolute top-[-10%] left-[-5%] w-[700px] h-[700px] bg-[#FFC72C]/[0.06] blur-[120px] rounded-full" />
-        <div className="absolute top-[10%] right-[0%] w-[500px] h-[500px] bg-[#3B6FE8]/[0.07] blur-[100px] rounded-full" />
-        <div className="absolute bottom-[-10%] left-[30%] w-[600px] h-[400px] bg-[#1A3A7A]/[0.08] blur-[100px] rounded-full" />
-      </div>
+      {/* PRIMARY LIGHT SOURCE — warm ivory spotlight from upper-left (cinematic depth) */}
+      <div
+        className="absolute inset-0 pointer-events-none z-10"
+        style={{
+          background: "radial-gradient(circle at 20% 20%, rgba(247,242,232,0.13) 0%, transparent 55%)"
+        }}
+      />
+
+      {/* SECONDARY GLOW — right side warm ivory behind mockup */}
+      <div
+        className="absolute top-0 right-0 w-[65%] h-full pointer-events-none z-10"
+        style={{
+          background: "radial-gradient(circle at 70% 45%, rgba(247,242,232,0.10) 0%, transparent 60%)"
+        }}
+      />
+
+      {/* Subtle gold warmth — bottom fade */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[280px] pointer-events-none z-10"
+        style={{
+          background: "linear-gradient(to top, rgba(11,16,32,0.95) 0%, transparent 100%)"
+        }}
+      />
 
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
 
@@ -195,39 +213,75 @@ export function HeroInstitutional() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              {/* Headline */}
-              <h1 className="text-[52px] sm:text-[68px] font-bold leading-[1.04] tracking-tight text-[#FFFFFF] select-none">
+              {/* Headline — warm ivory, not stark white */}
+              <h1 className="text-[52px] sm:text-[68px] font-bold leading-[1.04] tracking-tight select-none" style={{ color: "#FAF7F2" }}>
                 Run your organization <br />
-                <span className="text-[#FFC72C]">without the chaos.</span>
+                <span style={{ color: "#F4C542" }}>without the chaos.</span>
               </h1>
 
-              {/* Subheadline */}
-              <p className="text-[16px] sm:text-[17.5px] text-[#FFFFFF] font-bold leading-[1.6] mt-6 max-w-[520px] tracking-wide">
+              {/* Subheadline — milk-grey for premium warmth */}
+              <p className="text-[16px] sm:text-[17.5px] font-medium leading-[1.65] mt-6 max-w-[520px] tracking-wide" style={{ color: "#DAD7CF" }}>
                 Manage training, teams, communication, AI workflows, reporting, and enterprise operations from one secure platform.
               </p>
 
               {/* CTA Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 mt-8">
+              <div className="flex flex-wrap items-center gap-4 mt-9">
+                {/* Primary — gold */}
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center justify-center h-[46px] px-8 rounded-full bg-[#FFC72C] text-[#0B0B0B] text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#FFD45B] hover:shadow-[0_4px_16px_rgba(255,199,44,0.3)] hover:scale-[1.02]"
+                  className="inline-flex items-center justify-center h-[47px] px-9 rounded-full text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02]"
+                  style={{
+                    background: "#F4C542",
+                    color: "#0B1020",
+                    boxShadow: "0 4px 20px rgba(244,197,66,0.28)"
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.background = "#FFD768")}
+                  onMouseLeave={e => (e.currentTarget.style.background = "#F4C542")}
                 >
                   Book a Demo
                 </Link>
-                <button className="inline-flex items-center justify-center gap-2 h-[46px] px-8 rounded-full border border-white/20 hover:border-white/40 text-[#FFFFFF] text-[13px] font-bold uppercase tracking-wider transition-all duration-300 bg-transparent hover:bg-white/5">
+                {/* Secondary — frosted glass Apple/Linear style */}
+                <button
+                  className="inline-flex items-center justify-center gap-2 h-[47px] px-9 rounded-full text-[13px] font-bold uppercase tracking-wider transition-all duration-300"
+                  style={{
+                    background: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.18)",
+                    backdropFilter: "blur(14px)",
+                    WebkitBackdropFilter: "blur(14px)",
+                    color: "#FAF7F2"
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.10)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.28)";
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.06)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.18)";
+                  }}
+                >
                   Watch Demo <span className="text-[11px] leading-none ml-1">▷</span>
                 </button>
               </div>
             </motion.div>
           </div>
 
-          {/* RIGHT: HERO MOCK-UP GRAPHIC (CLEAN TRANSPARENT FLOATING) */}
+          {/* RIGHT: HERO MOCK-UP — grounded with ambient glow + elevation */}
           <div className="relative h-[480px] lg:h-[550px] flex items-center justify-center w-full">
+            {/* Ambient ivory glow behind the mockup */}
+            <div
+              className="absolute inset-0 pointer-events-none z-0"
+              style={{
+                background: "radial-gradient(ellipse at 50% 50%, rgba(247,242,232,0.14) 0%, transparent 70%)"
+              }}
+            />
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.96, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full h-full max-w-[580px]"
+              className="relative w-full h-full max-w-[580px] z-10"
+              style={{
+                filter: "drop-shadow(0 80px 120px rgba(0,0,0,0.55)) drop-shadow(0 20px 40px rgba(0,0,0,0.35))"
+              }}
             >
               <Image
                 src="/hero-mockup-clean.png"
@@ -241,16 +295,19 @@ export function HeroInstitutional() {
 
         </div>
 
-        {/* TOP: REDESIGNED PREMIUM TRUST BAR (METRICS - NO BOX, SUBTLE HORIZONTAL DIVIDER ABOVE & BELOW, LOTS OF BREATHING ROOM COMPRESSED) */}
-        <div className="mt-8 md:mt-10 py-5 md:py-6 border-t border-b border-white/10 flex flex-col md:flex-row items-center justify-between gap-8 relative">
-          
+        {/* TRUST BAR — softened dividers, warmer numbers */}
+        <div
+          className="mt-8 md:mt-10 py-5 md:py-6 flex flex-col md:flex-row items-center justify-between gap-8 relative"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}
+        >
+
           {/* Label */}
-          <span className="text-[11px] font-black tracking-[0.25em] text-[#FFC72C] uppercase select-none shrink-0">
+          <span className="text-[11px] font-black tracking-[0.25em] uppercase select-none shrink-0" style={{ color: "#F4C542" }}>
             Built for modern organizations
           </span>
-          
+
           {/* Vertical divider on desktop */}
-          <div className="hidden md:block w-px h-8 bg-white/10" />
+          <div className="hidden md:block w-px h-8" style={{ background: "rgba(255,255,255,0.08)" }} />
 
           {/* Metrics */}
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-8 md:gap-x-12 gap-y-6 w-full md:w-auto">
@@ -262,15 +319,15 @@ export function HeroInstitutional() {
             ].map((metric, index, arr) => (
               <div key={index} className="flex items-center gap-8">
                 <div className="flex flex-col items-center md:items-start select-none">
-                  <span className="text-2xl md:text-3xl font-black text-white leading-none tracking-tight">
+                  <span className="text-2xl md:text-3xl font-black leading-none tracking-tight" style={{ color: "#FAF7F2" }}>
                     {metric.value}
                   </span>
-                  <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest mt-1.5">
+                  <span className="text-[10px] font-bold uppercase tracking-widest mt-1.5" style={{ color: "#B9B8B3" }}>
                     {metric.label}
                   </span>
                 </div>
                 {index < arr.length - 1 && (
-                  <div className="hidden sm:block h-8 w-px bg-white/10 shrink-0" />
+                  <div className="hidden sm:block h-8 w-px shrink-0" style={{ background: "rgba(255,255,255,0.08)" }} />
                 )}
               </div>
             ))}
