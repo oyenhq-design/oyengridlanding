@@ -34,42 +34,42 @@ export default function Home() {
           </GlideSection>
 
           {/* 3. PROGRAMME LIFECYCLE */}
-          <GlideSection index={3} speedMultiplier={1.5}>
+          <GlideSection index={3} speedMultiplier={1.6}>
             <OperationalLifecycle />
           </GlideSection>
 
           {/* 4. PLATFORM CAPABILITIES */}
-          <GlideSection index={4}>
+          <GlideSection index={4} speedMultiplier={1.6}>
             <OperationalInfrastructure />
           </GlideSection>
 
           {/* 5. HUMAN COORDINATION */}
-          <GlideSection index={5}>
+          <GlideSection index={5} speedMultiplier={1.6}>
             <HumanCoordination />
           </GlideSection>
 
           {/* 6. INFRASTRUCTURE SECTION */}
-          <GlideSection index={6}>
+          <GlideSection index={6} speedMultiplier={1.6}>
             <ScaleStructure />
           </GlideSection>
           
           {/* 7. CUSTOMER TESTIMONIAL */}
-          <GlideSection index={7}>
+          <GlideSection index={7} speedMultiplier={1.6}>
             <InstitutionalImpactCinematic />
           </GlideSection>
 
           {/* 7.5. WHAT'S NEW SECTION */}
-          <GlideSection index={8}>
+          <GlideSection index={8} speedMultiplier={1.6}>
             <WhatsNew />
           </GlideSection>
 
           {/* 7.8. FINAL CONVERSION */}
-          <GlideSection index={9}>
+          <GlideSection index={9} speedMultiplier={1.6}>
             <CleanConversion />
           </GlideSection>
 
           {/* 8. FINAL CTA */}
-          <GlideSection index={10}>
+          <GlideSection index={10} speedMultiplier={1.6}>
             <FinalCTA />
           </GlideSection>
 
