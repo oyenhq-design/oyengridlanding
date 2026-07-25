@@ -161,7 +161,7 @@ export function HeroInstitutional() {
   ];
 
   return (
-    <section className="relative min-h-[680px] bg-[#FAF8F5] flex items-center mt-[-176px] pt-[190px] pb-8 overflow-hidden">
+    <section className="relative min-h-[680px] bg-[#0C1029] flex items-center mt-[-176px] pt-[190px] pb-8 overflow-hidden">
 
       {/* Global Server Map Background Image */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -169,17 +169,18 @@ export function HeroInstitutional() {
           src="/global-map-bg.jpg"
           alt="Global Server Map Background"
           fill
-          className="object-cover object-center opacity-65"
+          className="object-cover object-center opacity-30"
           priority
         />
-        {/* Soft cream gradient overlay to maximize readability and clarity of text and mockup */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/50 via-transparent to-[#FAF8F5] z-0" />
+        {/* Dark overlay to keep text sharp and clear */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0C1029]/70 via-[#0C1029]/40 to-[#0C1029]/80 z-0" />
       </div>
 
-      {/* Rich atmospheric glows — gold/warm light */}
+      {/* Rich atmospheric glows — gold + blue */}
       <div className="absolute inset-0 pointer-events-none z-10">
-        <div className="absolute top-[-10%] left-[-5%] w-[700px] h-[700px] bg-[#D4A017]/[0.04] blur-[120px] rounded-full" />
-        <div className="absolute top-[10%] right-[0%] w-[500px] h-[500px] bg-[#D4A017]/[0.02] blur-[100px] rounded-full" />
+        <div className="absolute top-[-10%] left-[-5%] w-[700px] h-[700px] bg-[#FFC72C]/[0.06] blur-[120px] rounded-full" />
+        <div className="absolute top-[10%] right-[0%] w-[500px] h-[500px] bg-[#3B6FE8]/[0.07] blur-[100px] rounded-full" />
+        <div className="absolute bottom-[-10%] left-[30%] w-[600px] h-[400px] bg-[#1A3A7A]/[0.08] blur-[100px] rounded-full" />
       </div>
 
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
@@ -195,13 +196,13 @@ export function HeroInstitutional() {
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Headline */}
-              <h1 className="text-[52px] sm:text-[68px] font-bold leading-[1.04] tracking-tight text-[#0A0D1F] select-none">
+              <h1 className="text-[52px] sm:text-[68px] font-bold leading-[1.04] tracking-tight text-[#FFFFFF] select-none">
                 Run your organization <br />
-                <span className="text-[#D4A017]">without the chaos.</span>
+                <span className="text-[#FFC72C]">without the chaos.</span>
               </h1>
 
               {/* Subheadline */}
-              <p className="text-[16px] sm:text-[17.5px] text-[#374151] font-medium leading-[1.6] mt-6 max-w-[520px] tracking-wide">
+              <p className="text-[16px] sm:text-[17.5px] text-[#FFFFFF] font-bold leading-[1.6] mt-6 max-w-[520px] tracking-wide">
                 Manage training, teams, communication, AI workflows, reporting, and enterprise operations from one secure platform.
               </p>
 
@@ -209,11 +210,11 @@ export function HeroInstitutional() {
               <div className="flex flex-wrap items-center gap-4 mt-8">
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center justify-center h-[46px] px-8 rounded-full bg-[#D4A017] hover:bg-[#E5B22D] text-white text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-[0_4px_16px_rgba(212,160,23,0.25)] hover:scale-[1.02]"
+                  className="inline-flex items-center justify-center h-[46px] px-8 rounded-full bg-[#FFC72C] text-[#0B0B0B] text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#FFD45B] hover:shadow-[0_4px_16px_rgba(255,199,44,0.3)] hover:scale-[1.02]"
                 >
                   Book a Demo
                 </Link>
-                <button className="inline-flex items-center justify-center gap-2 h-[46px] px-8 rounded-full border border-[#0A0D1F]/20 hover:border-[#0A0D1F]/40 text-[#0A0D1F] text-[13px] font-bold uppercase tracking-wider transition-all duration-300 bg-transparent hover:bg-[#0A0D1F]/5">
+                <button className="inline-flex items-center justify-center gap-2 h-[46px] px-8 rounded-full border border-white/20 hover:border-white/40 text-[#FFFFFF] text-[13px] font-bold uppercase tracking-wider transition-all duration-300 bg-transparent hover:bg-white/5">
                   Watch Demo <span className="text-[11px] leading-none ml-1">▷</span>
                 </button>
               </div>
@@ -241,15 +242,15 @@ export function HeroInstitutional() {
         </div>
 
         {/* TOP: REDESIGNED PREMIUM TRUST BAR (METRICS - NO BOX, SUBTLE HORIZONTAL DIVIDER ABOVE & BELOW, LOTS OF BREATHING ROOM COMPRESSED) */}
-        <div className="mt-8 md:mt-10 py-5 md:py-6 border-t border-b border-[#0A0D1F]/10 flex flex-col md:flex-row items-center justify-between gap-8 relative">
+        <div className="mt-8 md:mt-10 py-5 md:py-6 border-t border-b border-white/10 flex flex-col md:flex-row items-center justify-between gap-8 relative">
           
           {/* Label */}
-          <span className="text-[11px] font-black tracking-[0.25em] text-[#D4A017] uppercase select-none shrink-0">
+          <span className="text-[11px] font-black tracking-[0.25em] text-[#FFC72C] uppercase select-none shrink-0">
             Built for modern organizations
           </span>
           
           {/* Vertical divider on desktop */}
-          <div className="hidden md:block w-px h-8 bg-[#0A0D1F]/10" />
+          <div className="hidden md:block w-px h-8 bg-white/10" />
 
           {/* Metrics */}
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-8 md:gap-x-12 gap-y-6 w-full md:w-auto">
@@ -261,15 +262,15 @@ export function HeroInstitutional() {
             ].map((metric, index, arr) => (
               <div key={index} className="flex items-center gap-8">
                 <div className="flex flex-col items-center md:items-start select-none">
-                  <span className="text-2xl md:text-3xl font-black text-[#0A0D1F] leading-none tracking-tight">
+                  <span className="text-2xl md:text-3xl font-black text-white leading-none tracking-tight">
                     {metric.value}
                   </span>
-                  <span className="text-[10px] font-bold text-[#0A0D1F]/40 uppercase tracking-widest mt-1.5">
+                  <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest mt-1.5">
                     {metric.label}
                   </span>
                 </div>
                 {index < arr.length - 1 && (
-                  <div className="hidden sm:block h-8 w-px bg-[#0A0D1F]/10 shrink-0" />
+                  <div className="hidden sm:block h-8 w-px bg-white/10 shrink-0" />
                 )}
               </div>
             ))}
