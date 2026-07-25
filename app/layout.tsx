@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 
 import { SearchProvider } from "@/context/search-context";
 import { SupportWidget } from "@/components/layout/support-widget";
+import { SmoothScroll } from "@/components/layout/smooth-scroll";
 
 export default function RootLayout({
   children,
@@ -17,10 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans">
-        <SearchProvider>
-          {children}
-          <SupportWidget />
-        </SearchProvider>
+        <SmoothScroll>
+          <SearchProvider>
+            {children}
+            <SupportWidget />
+          </SearchProvider>
+        </SmoothScroll>
       </body>
     </html>
   );
