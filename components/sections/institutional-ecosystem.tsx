@@ -169,11 +169,11 @@ export function HeroInstitutional() {
           src="/global-map-bg.jpg"
           alt="Global Server Map Background"
           fill
-          className="object-cover object-center"
+          className="object-cover object-center opacity-25"
           priority
         />
-        {/* Ultra-soft gradient overlay to maximize image sharpness and definition */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#0C1029]/35 z-0" />
+        {/* Dark gradient overlay to maximize readability and clarity of text and mockup */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0C1029]/80 via-[#0C1029]/50 to-[#0C1029] z-0" />
       </div>
 
       {/* Rich atmospheric glows — gold + blue */}
