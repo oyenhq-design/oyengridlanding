@@ -12,6 +12,7 @@ import { FinalCTA } from "@/components/sections/final-cta";
 
 import { FooterPremium } from "@/components/layout/footer";
 import { SearchSystem } from "@/components/layout/search-system";
+import { GlideSection } from "@/components/layout/glide-section";
 
 export default function Home() {
   return (
@@ -23,37 +24,59 @@ export default function Home() {
       <div className="relative">
         <div className="relative z-10">
           {/* 2. HERO */}
-          <HeroInstitutional />
+          <div className="relative" style={{ zIndex: 1 }}>
+            <HeroInstitutional />
+          </div>
 
           {/* 2.5. WHY OYEN GRID VALUE PROP */}
-          <WhyOyen />
+          <GlideSection index={2}>
+            <WhyOyen />
+          </GlideSection>
 
           {/* 3. PROGRAMME LIFECYCLE */}
-          <OperationalLifecycle />
+          <GlideSection index={3}>
+            <OperationalLifecycle />
+          </GlideSection>
 
           {/* 4. PLATFORM CAPABILITIES */}
-          <OperationalInfrastructure />
+          <GlideSection index={4}>
+            <OperationalInfrastructure />
+          </GlideSection>
 
           {/* 5. HUMAN COORDINATION */}
-          <HumanCoordination />
+          <GlideSection index={5}>
+            <HumanCoordination />
+          </GlideSection>
 
           {/* 6. INFRASTRUCTURE SECTION */}
-          <ScaleStructure />
+          <GlideSection index={6}>
+            <ScaleStructure />
+          </GlideSection>
           
           {/* 7. CUSTOMER TESTIMONIAL */}
-          <InstitutionalImpactCinematic />
+          <GlideSection index={7}>
+            <InstitutionalImpactCinematic />
+          </GlideSection>
 
           {/* 7.5. WHAT'S NEW SECTION */}
-          <WhatsNew />
+          <GlideSection index={8}>
+            <WhatsNew />
+          </GlideSection>
 
           {/* 7.8. FINAL CONVERSION */}
-          <CleanConversion />
+          <GlideSection index={9}>
+            <CleanConversion />
+          </GlideSection>
 
           {/* 8. FINAL CTA */}
-          <FinalCTA />
+          <GlideSection index={10}>
+            <FinalCTA />
+          </GlideSection>
 
           {/* 9. FOOTER */}
-          <FooterPremium hideCTA={true} />
+          <div className="relative" style={{ zIndex: 11 }}>
+            <FooterPremium hideCTA={true} />
+          </div>
         </div>
       </div>
 
