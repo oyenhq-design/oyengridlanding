@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Activity, Globe, Users, Database, Workflow, Sparkles, Search, ChevronRight } from "lucide-react";
 import { useSearch } from "@/context/search-context";
+import { HeroBackground } from "@/components/ui/hero-background";
 
 export function TopographicWave() {
   const [mounted, setMounted] = useState(false);
@@ -166,15 +167,9 @@ export function HeroInstitutional() {
       style={{ background: "linear-gradient(160deg, #0B1020 0%, #10172E 55%, #151C36 100%)" }}
     >
 
-      {/* Geometric mesh background — texture only, not decoration */}
+      {/* Animated intelligence background — network lines, particles, light trails */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <Image
-          src="/global-map-bg.jpg"
-          alt="Global Server Map Background"
-          fill
-          className="object-cover object-center opacity-[0.06]"
-          priority
-        />
+        <HeroBackground />
       </div>
 
       {/* PRIMARY LIGHT SOURCE — warm ivory spotlight from upper-left (cinematic depth) */}
