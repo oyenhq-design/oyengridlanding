@@ -16,6 +16,21 @@
   --glass-bg: rgba(5, 7, 15, 0.82);
   --glass-border: rgba(255, 255, 255, 0.09);
   --text-muted: rgba(255, 255, 255, 0.72);
+  
+  /* Responsive stack offset for card stacked scroll */
+  --stack-offset: 100px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --stack-offset: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --stack-offset: 80px;
+  }
 }
 
 html:not(.dark) {
@@ -35,7 +50,7 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
   transition: background-color 0.25s ease, color 0.25s ease;
   
   /* Zoom/Scale Page to 90% */

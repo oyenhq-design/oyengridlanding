@@ -15,7 +15,7 @@ import { SearchSystem } from "@/components/layout/search-system";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#FAFAF8] selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden">
+    <main className="min-h-screen bg-[#FAFAF8] selection:bg-brand-gold selection:text-black antialiased overflow-x-clip">
       {/* 1. NAVIGATION & ANNOUNCEMENT */}
       <Header />
       <AnnouncementBar />
@@ -23,37 +23,59 @@ export default function Home() {
       <div className="relative">
         <div className="relative z-10">
           {/* 2. HERO */}
-          <HeroInstitutional />
+          <div className="sticky" style={{ top: 'calc(0 * var(--stack-offset))', zIndex: 10 }}>
+            <HeroInstitutional />
+          </div>
 
           {/* 2.5. WHY OYEN GRID VALUE PROP */}
-          <WhyOyen />
+          <div className="sticky" style={{ top: 'calc(1 * var(--stack-offset))', zIndex: 11 }}>
+            <WhyOyen />
+          </div>
 
           {/* 3. PROGRAMME LIFECYCLE */}
-          <OperationalLifecycle />
+          <div className="sticky" style={{ top: 'calc(2 * var(--stack-offset))', zIndex: 12 }}>
+            <OperationalLifecycle />
+          </div>
 
           {/* 4. PLATFORM CAPABILITIES */}
-          <OperationalInfrastructure />
+          <div className="sticky" style={{ top: 'calc(3 * var(--stack-offset))', zIndex: 13 }}>
+            <OperationalInfrastructure />
+          </div>
 
           {/* 5. HUMAN COORDINATION */}
-          <HumanCoordination />
+          <div className="sticky" style={{ top: 'calc(4 * var(--stack-offset))', zIndex: 14 }}>
+            <HumanCoordination />
+          </div>
 
           {/* 6. INFRASTRUCTURE SECTION */}
-          <ScaleStructure />
+          <div className="sticky" style={{ top: 'calc(5 * var(--stack-offset))', zIndex: 15 }}>
+            <ScaleStructure />
+          </div>
           
           {/* 7. CUSTOMER TESTIMONIAL */}
-          <InstitutionalImpactCinematic />
+          <div className="sticky" style={{ top: 'calc(6 * var(--stack-offset))', zIndex: 16 }}>
+            <InstitutionalImpactCinematic />
+          </div>
 
           {/* 7.5. WHAT'S NEW SECTION */}
-          <WhatsNew />
+          <div className="sticky" style={{ top: 'calc(7 * var(--stack-offset))', zIndex: 17 }}>
+            <WhatsNew />
+          </div>
 
           {/* 7.8. FINAL CONVERSION */}
-          <CleanConversion />
+          <div className="sticky" style={{ top: 'calc(8 * var(--stack-offset))', zIndex: 18 }}>
+            <CleanConversion />
+          </div>
 
           {/* 8. FINAL CTA */}
-          <FinalCTA />
+          <div className="sticky" style={{ top: 'calc(9 * var(--stack-offset))', zIndex: 19 }}>
+            <FinalCTA />
+          </div>
 
           {/* 9. FOOTER */}
-          <FooterPremium hideCTA={true} />
+          <div className="relative" style={{ zIndex: 20 }}>
+            <FooterPremium hideCTA={true} />
+          </div>
         </div>
       </div>
 
