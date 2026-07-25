@@ -16,11 +16,11 @@ export function GlideSection({ children, index, speedMultiplier = 1 }: GlideSect
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setBaseAmount(-90); // Mobile base: -90px
+        setBaseAmount(-75); // Mobile base: -75px (refined & smooth)
       } else if (window.innerWidth < 1024) {
-        setBaseAmount(-120); // Tablet base: -120px
+        setBaseAmount(-95); // Tablet base: -95px (refined & smooth)
       } else {
-        setBaseAmount(-150); // Desktop base: -150px
+        setBaseAmount(-120); // Desktop base: -120px (refined & smooth)
       }
     };
 
