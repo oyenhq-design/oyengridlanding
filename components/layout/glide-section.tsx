@@ -6,20 +6,21 @@ import { motion, useScroll, useTransform } from "framer-motion";
 interface GlideSectionProps {
   children: React.ReactNode;
   index: number;
+  speedMultiplier?: number;
 }
 
-export function GlideSection({ children, index }: GlideSectionProps) {
+export function GlideSection({ children, index, speedMultiplier = 1 }: GlideSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [translationAmount, setTranslationAmount] = useState(-100);
+  const [baseAmount, setBaseAmount] = useState(-100);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setTranslationAmount(-90); // Mobile: 0px -> -90px (faster)
+        setBaseAmount(-90); // Mobile base: -90px
       } else if (window.innerWidth < 1024) {
-        setTranslationAmount(-120); // Tablet: 0px -> -120px (faster)
+        setBaseAmount(-120); // Tablet base: -120px
       } else {
-        setTranslationAmount(-150); // Desktop: 0px -> -150px (faster)
+        setBaseAmount(-150); // Desktop base: -150px
       }
     };
 
@@ -27,6 +28,8 @@ export function GlideSection({ children, index }: GlideSectionProps) {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const translationAmount = baseAmount * speedMultiplier;
 
   // Track the scroll position of the section relative to the viewport.
   // We track from when the top of the section enters the bottom of the viewport ("start end")

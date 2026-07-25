@@ -34,7 +34,7 @@ export default function Home() {
           </GlideSection>
 
           {/* 3. PROGRAMME LIFECYCLE */}
-          <GlideSection index={3}>
+          <GlideSection index={3} speedMultiplier={1.5}>
             <OperationalLifecycle />
           </GlideSection>
 
