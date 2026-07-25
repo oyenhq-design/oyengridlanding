@@ -166,7 +166,7 @@ export function HeroInstitutional() {
       {/* Global Server Map Background Image */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
-          src="/global-map-bg.png"
+          src="/global-map-bg.jpg"
           alt="Global Server Map Background"
           fill
           className="object-cover object-center"
