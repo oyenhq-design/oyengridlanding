@@ -15,11 +15,11 @@ export function GlideSection({ children, index }: GlideSectionProps) {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setTranslationAmount(-60); // Mobile: 0px -> -60px
+        setTranslationAmount(-90); // Mobile: 0px -> -90px (faster)
       } else if (window.innerWidth < 1024) {
-        setTranslationAmount(-80); // Tablet: 0px -> -80px
+        setTranslationAmount(-120); // Tablet: 0px -> -120px (faster)
       } else {
-        setTranslationAmount(-100); // Desktop: 0px -> -100px
+        setTranslationAmount(-150); // Desktop: 0px -> -150px (faster)
       }
     };
 
