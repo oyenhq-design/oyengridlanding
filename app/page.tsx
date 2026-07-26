@@ -64,14 +64,10 @@ export default function Home() {
           </GlideSection>
 
           {/* 7.8. FINAL CONVERSION */}
-          <GlideSection index={9}>
-            <CleanConversion />
-          </GlideSection>
+          <CleanConversion />
 
           {/* 8. FINAL CTA */}
-          <GlideSection index={10}>
-            <FinalCTA />
-          </GlideSection>
+          <FinalCTA />
 
           {/* 9. FOOTER */}
           <div className="relative" style={{ zIndex: 11 }}>
