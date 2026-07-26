@@ -253,21 +253,14 @@ export function HeroInstitutional() {
 
           {/* RIGHT: HERO MOCK-UP — grounded with ambient glow + elevation */}
           <div className="relative h-[480px] lg:h-[550px] flex items-center justify-center w-full">
-            {/* Ambient ivory glow behind the mockup */}
-            <div
-              className="absolute inset-0 pointer-events-none z-0"
-              style={{
-                background: "radial-gradient(ellipse at 50% 50%, rgba(247,242,232,0.14) 0%, transparent 70%)"
-              }}
-            />
             <motion.div
               initial={{ opacity: 0, scale: 0.96, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full h-full max-w-[580px] z-10"
+              className="relative w-full h-full max-w-[600px] z-10"
               style={{
-                maskImage: "radial-gradient(ellipse 90% 82% at 52% 50%, black 30%, rgba(0,0,0,0.6) 55%, transparent 75%)",
-                WebkitMaskImage: "radial-gradient(ellipse 90% 82% at 52% 50%, black 30%, rgba(0,0,0,0.6) 55%, transparent 75%)",
+                maskImage: "radial-gradient(ellipse 82% 76% at 50% 50%, black 20%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.4) 55%, transparent 68%)",
+                WebkitMaskImage: "radial-gradient(ellipse 82% 76% at 50% 50%, black 20%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.4) 55%, transparent 68%)",
               }}
             >
               <Image
