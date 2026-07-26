@@ -158,6 +158,8 @@ export function OperationalLifecycle() {
           fill
           className="object-cover opacity-100"
           quality={100}
+          unoptimized={true}
+          priority={true}
         />
       </div>
 
