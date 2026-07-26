@@ -1,54 +1,55 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Zap, Users, Sparkles, Activity, Shield, TrendingUp } from "lucide-react";
 
 const valueProps = [
   {
     icon: Zap,
-    iconColor: "text-amber-500",
-    iconBg: "bg-amber-50",
-    iconBorder: "border-amber-100",
+    iconColor: "text-amber-400",
+    iconBg: "bg-amber-400/10",
+    iconBorder: "border-amber-400/20",
     title: "Reduce Administrative Work",
     desc: "Automate repetitive tasks so your teams spend less time coordinating and more time delivering results.",
   },
   {
     icon: Users,
-    iconColor: "text-blue-500",
-    iconBg: "bg-blue-50",
-    iconBorder: "border-blue-100",
+    iconColor: "text-blue-400",
+    iconBg: "bg-blue-400/10",
+    iconBorder: "border-blue-400/20",
     title: "Improve Team Collaboration",
     desc: "Keep conversations, meetings, files, and workflows connected inside one workspace.",
   },
   {
     icon: Sparkles,
-    iconColor: "text-purple-500",
-    iconBg: "bg-purple-50",
-    iconBorder: "border-purple-100",
+    iconColor: "text-purple-400",
+    iconBg: "bg-purple-400/10",
+    iconBorder: "border-purple-400/20",
     title: "AI That Works for You",
     desc: "Generate summaries, automate actions, surface insights, and assist every team.",
   },
   {
     icon: Activity,
-    iconColor: "text-emerald-500",
-    iconBg: "bg-emerald-50",
-    iconBorder: "border-emerald-100",
+    iconColor: "text-emerald-400",
+    iconBg: "bg-emerald-400/10",
+    iconBorder: "border-emerald-400/20",
     title: "Gain Real-Time Visibility",
     desc: "Monitor progress, engagement, performance, and organizational health from live dashboards.",
   },
   {
     icon: Shield,
-    iconColor: "text-indigo-500",
-    iconBg: "bg-indigo-50",
-    iconBorder: "border-indigo-100",
+    iconColor: "text-indigo-400",
+    iconBg: "bg-indigo-400/10",
+    iconBorder: "border-indigo-400/20",
     title: "Enterprise-Ready Security",
     desc: "Enterprise-grade permissions, audit logs, encrypted data, and infrastructure built for scale.",
   },
   {
     icon: TrendingUp,
-    iconColor: "text-rose-500",
-    iconBg: "bg-rose-50",
-    iconBorder: "border-rose-100",
+    iconColor: "text-rose-400",
+    iconBg: "bg-rose-400/10",
+    iconBorder: "border-rose-400/20",
     title: "Scale Without Complexity",
     desc: "Support one team or thousands of employees without changing how your organization works.",
   },
@@ -56,7 +57,21 @@ const valueProps = [
 
 export function WhyOyen() {
   return (
-    <section className="relative py-24 md:py-32 bg-white overflow-hidden border-b border-zinc-200/50">
+    <section className="relative py-24 md:py-32 overflow-hidden border-b border-white/5 bg-[#0A0D1F]">
+      
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/why-bg.jpg"
+          alt="Why Oyen Grid Background"
+          fill
+          className="object-cover opacity-90"
+          quality={100}
+        />
+        {/* Subtle dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+
       <div className="max-w-[1280px] mx-auto px-8 relative z-10">
         
         {/* Section Header */}
@@ -67,10 +82,10 @@ export function WhyOyen() {
               WHY OYEN GRID
             </span>
           </div>
-          <h2 className="text-3xl md:text-[44px] font-black text-[#0A0D1F] tracking-tight leading-[1.1] mb-6 max-w-[800px]">
+          <h2 className="text-3xl md:text-[44px] font-black text-white tracking-tight leading-[1.1] mb-6 max-w-[800px]">
             Everything your teams need to manage training, people, and operations in one workspace.
           </h2>
-          <p className="text-sm md:text-base text-[#374151] max-w-[620px] font-medium leading-relaxed">
+          <p className="text-sm md:text-base text-zinc-300 max-w-[620px] font-medium leading-relaxed">
             Manage training, collaboration, AI workflows, communication, reporting, and operations from one secure platform.
           </p>
         </div>
@@ -86,7 +101,7 @@ export function WhyOyen() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className="p-6 md:p-8 bg-[#FAFAF8] border border-[#0A0D1F]/5 rounded-2xl flex flex-col justify-between hover:border-[#D4A017]/30 hover:bg-white hover:shadow-[0_16px_40px_rgba(10,13,31,0.06)] hover:-translate-y-1 transition-all duration-300 min-h-[200px]"
+                className="p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex flex-col justify-between hover:border-[#D4A017]/40 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 min-h-[200px]"
               >
                 <div>
                   {/* Icon Box */}
@@ -95,12 +110,12 @@ export function WhyOyen() {
                   </div>
                   
                   {/* Title */}
-                  <h4 className="text-[15px] font-extrabold text-[#0A0D1F] mb-2.5">
+                  <h4 className="text-[15px] font-extrabold text-white mb-2.5">
                     {prop.title}
                   </h4>
                   
                   {/* Description */}
-                  <p className="text-[13px] text-[#4B5563] leading-relaxed font-normal">
+                  <p className="text-[13px] text-zinc-400 leading-relaxed font-normal">
                     {prop.desc}
                   </p>
                 </div>
