@@ -6,25 +6,32 @@ import { ArrowRight, TrendingUp, FileText } from "lucide-react";
 
 export function WhatsNew() {
   return (
-    <section className="relative py-24 bg-[#0C1029] overflow-hidden flex flex-col items-center border-t border-white/[0.05]">
-      {/* Background Atmosphere */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#D4A017]/[0.05] blur-[130px] rounded-full" />
+    <section className="relative py-24 overflow-hidden flex flex-col items-center border-t border-zinc-200/30">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/whats-new-bg.png"
+          alt="Insights & Resources Background"
+          fill
+          className="object-cover opacity-100"
+          unoptimized
+          priority
+        />
       </div>
 
       <div className="w-full max-w-[1400px] mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16 flex flex-col items-center">
           <div className="flex items-center gap-2 mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FFC72C]" />
-            <span className="text-xs font-bold tracking-widest text-[#FFC72C] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C8931A]" />
+            <span className="text-xs font-black tracking-widest text-[#C8931A] uppercase">
               INSIGHTS & RESOURCES
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4 select-none">
+          <h2 className="text-4xl md:text-5xl font-black text-black tracking-tight mb-4 select-none">
             Proven operational outcomes.
           </h2>
-          <p className="text-[#E2E8F0] text-base max-w-2xl text-center leading-relaxed font-medium">
+          <p className="text-zinc-800 text-base max-w-2xl text-center leading-relaxed font-bold">
             Learn how forward-thinking organizations improve training, collaboration, and productivity with OYEN GRID.
           </p>
         </div>
