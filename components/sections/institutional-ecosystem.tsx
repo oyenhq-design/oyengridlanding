@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Activity, Globe, Users, Database, Workflow, Sparkles, Search, ChevronRight } from "lucide-react";
+import { ArrowRight, Activity, Globe, Users, Database, Workflow, Sparkles, Search, ChevronRight, Play } from "lucide-react";
 import { useSearch } from "@/context/search-context";
 
 export function TopographicWave() {
@@ -189,18 +189,33 @@ export function HeroInstitutional() {
 
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
 
+        {/* Top Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-center justify-center text-center w-full mb-10 lg:mb-16 pt-8"
+        >
+          <p className="text-[13px] md:text-[14px] font-medium tracking-wide mb-2" style={{ color: "#DAD7CF" }}>
+            The intelligent workspace for modern organizations
+          </p>
+          <Link href="/solutions" className="text-[13px] md:text-[14px] font-bold tracking-wide hover:opacity-80 transition-opacity flex items-center gap-1.5" style={{ color: "#F4C542" }}>
+            Explore Infrastructure <span>→</span>
+          </Link>
+        </motion.div>
+
         {/* Main Columns Grid */}
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center min-h-[500px] relative">
 
           {/* LEFT: CONTENT AREA */}
-          <div className="hero-content flex flex-col justify-center text-left lg:translate-y-[-48px]">
+          <div className="hero-content flex flex-col justify-center text-left lg:translate-y-[-24px]">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Headline — warm ivory, not stark white */}
-              <h1 className="text-[52px] sm:text-[68px] font-bold leading-[1.04] tracking-tight select-none" style={{ color: "#FAF7F2" }}>
+              <h1 className="text-[52px] sm:text-[68px] lg:text-[76px] font-black leading-[1.04] tracking-tight select-none" style={{ color: "#FAF7F2" }}>
                 Run your organization <br />
                 <span style={{ color: "#F4C542" }}>without the chaos.</span>
               </h1>
@@ -228,7 +243,7 @@ export function HeroInstitutional() {
                 </Link>
                 {/* Secondary — frosted glass Apple/Linear style */}
                 <button
-                  className="inline-flex items-center justify-center gap-2 h-[47px] px-9 rounded-full text-[13px] font-bold uppercase tracking-wider transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2.5 h-[47px] px-9 rounded-full text-[13px] font-bold uppercase tracking-wider transition-all duration-300"
                   style={{
                     background: "rgba(255,255,255,0.06)",
                     border: "1px solid rgba(255,255,255,0.18)",
@@ -245,7 +260,7 @@ export function HeroInstitutional() {
                     (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.18)";
                   }}
                 >
-                  Watch Demo <span className="text-[11px] leading-none ml-1">▷</span>
+                  Watch Demo <Play size={14} className="fill-current" />
                 </button>
               </div>
             </motion.div>
