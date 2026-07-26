@@ -269,7 +269,8 @@ export function HeroInstitutional() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-full h-full max-w-[580px] z-10"
               style={{
-                filter: "drop-shadow(0 80px 120px rgba(0,0,0,0.55)) drop-shadow(0 20px 40px rgba(0,0,0,0.35))"
+                maskImage: "radial-gradient(ellipse 90% 82% at 52% 50%, black 30%, rgba(0,0,0,0.6) 55%, transparent 75%)",
+                WebkitMaskImage: "radial-gradient(ellipse 90% 82% at 52% 50%, black 30%, rgba(0,0,0,0.6) 55%, transparent 75%)",
               }}
             >
               <Image
