@@ -189,21 +189,6 @@ export function HeroInstitutional() {
 
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
 
-        {/* Top Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-center justify-center text-center w-full mb-10 lg:mb-16 pt-8"
-        >
-          <p className="text-[13px] md:text-[14px] font-medium tracking-wide mb-2" style={{ color: "#DAD7CF" }}>
-            The intelligent workspace for modern organizations
-          </p>
-          <Link href="/solutions" className="text-[13px] md:text-[14px] font-bold tracking-wide hover:opacity-80 transition-opacity flex items-center gap-1.5" style={{ color: "#F4C542" }}>
-            Explore Infrastructure <span>→</span>
-          </Link>
-        </motion.div>
-
         {/* Main Columns Grid */}
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center min-h-[500px] relative">
 
