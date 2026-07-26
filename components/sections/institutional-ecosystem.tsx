@@ -163,32 +163,29 @@ export function HeroInstitutional() {
   return (
     <section
       className="relative min-h-[680px] flex items-center mt-[-176px] pt-[190px] pb-8 overflow-hidden"
-      style={{ background: "linear-gradient(160deg, #0B1020 0%, #10172E 55%, #151C36 100%)" }}
+      style={{ background: "#07090F" }}
     >
 
-      {/* PRIMARY LIGHT SOURCE — warm ivory spotlight from upper-left (cinematic depth) */}
-      <div
-        className="absolute inset-0 pointer-events-none z-10"
-        style={{
-          background: "radial-gradient(circle at 20% 20%, rgba(247,242,232,0.13) 0%, transparent 55%)"
-        }}
-      />
-
-      {/* SECONDARY GLOW — right side warm ivory behind mockup */}
-      <div
-        className="absolute top-0 right-0 w-[65%] h-full pointer-events-none z-10"
-        style={{
-          background: "radial-gradient(circle at 70% 45%, rgba(247,242,232,0.10) 0%, transparent 60%)"
-        }}
-      />
-
-      {/* Subtle gold warmth — bottom fade */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-[280px] pointer-events-none z-10"
-        style={{
-          background: "linear-gradient(to top, rgba(11,16,32,0.95) 0%, transparent 100%)"
-        }}
-      />
+      {/* Gold wave background image */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Image
+          src="/hero-bg.jpg"
+          alt=""
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* Left scrim — keeps headline text readable without hiding the wave */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(100deg, rgba(7,9,15,0.78) 0%, rgba(7,9,15,0.42) 45%, rgba(7,9,15,0.08) 100%)" }}
+        />
+        {/* Bottom fade into next section */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-[160px]"
+          style={{ background: "linear-gradient(to top, #07090F 0%, transparent 100%)" }}
+        />
+      </div>
 
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
 
