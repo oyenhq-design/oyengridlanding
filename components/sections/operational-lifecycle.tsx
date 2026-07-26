@@ -148,8 +148,20 @@ export function OperationalLifecycle() {
   }, []);
 
   return (
-    <section className="pb-24 md:pb-32 pt-12 md:pt-16 bg-[#FAFAF8] relative overflow-hidden">
-      <div className="container-custom">
+    <section className="pb-24 md:pb-32 pt-12 md:pt-16 relative overflow-hidden">
+      
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/operational-bg.png"
+          alt="Operational Lifecycle Background"
+          fill
+          className="object-cover opacity-100"
+          quality={100}
+        />
+      </div>
+
+      <div className="container-custom relative z-10">
         <div className="mb-16">
           <span className="eyebrow">OPERATIONAL LIFECYCLE</span>
           <h2 className="max-w-[720px] mt-4 mb-4 text-[#0A0D1F]">
