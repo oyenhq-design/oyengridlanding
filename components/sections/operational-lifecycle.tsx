@@ -163,7 +163,7 @@ export function OperationalLifecycle() {
 
       <div className="container-custom relative z-10">
         <div className="mb-16">
-          <span className="eyebrow">OPERATIONAL LIFECYCLE</span>
+          <span className="eyebrow text-[#0A0D1F] font-black">OPERATIONAL LIFECYCLE</span>
           <h2 className="max-w-[720px] mt-4 mb-4 text-[#0A0D1F]">
             Everything you need to run successful learning programs.
           </h2>
