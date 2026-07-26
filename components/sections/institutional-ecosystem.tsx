@@ -259,11 +259,12 @@ export function HeroInstitutional() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-full h-full max-w-[600px] z-10"
               style={{
-                filter: "drop-shadow(0 80px 120px rgba(0,0,0,0.55)) drop-shadow(0 20px 40px rgba(0,0,0,0.35))"
+                filter: "drop-shadow(0 80px 120px rgba(0,0,0,0.55)) drop-shadow(0 20px 40px rgba(0,0,0,0.35))",
+                mixBlendMode: "lighten"
               }}
             >
               <Image
-                src="/hero-mockup-clean.png"
+                src="/hero-mockup-clean.jpg"
                 alt="OYEN GRID Platform Mockup"
                 fill
                 className="object-contain"
