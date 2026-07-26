@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 interface GlideSectionProps {
   children: React.ReactNode;
@@ -16,11 +16,11 @@ export function GlideSection({ children, index, speedMultiplier = 1 }: GlideSect
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setBaseAmount(-75); // Mobile base: -75px (refined & smooth)
+        setBaseAmount(-150); // Mobile base
       } else if (window.innerWidth < 1024) {
-        setBaseAmount(-95); // Tablet base: -95px (refined & smooth)
+        setBaseAmount(-250); // Tablet base
       } else {
-        setBaseAmount(-120); // Desktop base: -120px (refined & smooth)
+        setBaseAmount(-380); // Desktop base (much faster scrolling)
       }
     };
 
@@ -32,15 +32,20 @@ export function GlideSection({ children, index, speedMultiplier = 1 }: GlideSect
   const translationAmount = baseAmount * speedMultiplier;
 
   // Track the scroll position of the section relative to the viewport.
-  // We track from when the top of the section enters the bottom of the viewport ("start end")
-  // to when the top of the section reaches the top of the viewport ("start start").
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "start start"],
   });
 
-  // Use a smooth exponential transition (or standard ease) for vertical movement
-  const y = useTransform(scrollYProgress, [0, 1], [0, translationAmount]);
+  // Calculate the raw translation
+  const rawY = useTransform(scrollYProgress, [0, 1], [0, translationAmount]);
+  
+  // Wrap in a spring for buttery smooth movement
+  const y = useSpring(rawY, {
+    stiffness: 70,
+    damping: 20,
+    mass: 0.8
+  });
 
   return (
     <motion.div
