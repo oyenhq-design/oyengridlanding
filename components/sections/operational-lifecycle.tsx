@@ -163,11 +163,11 @@ export function OperationalLifecycle() {
 
       <div className="container-custom relative z-10">
         <div className="mb-16">
-          <span className="eyebrow text-[#0A0D1F] font-black">OPERATIONAL LIFECYCLE</span>
-          <h2 className="max-w-[720px] mt-4 mb-4 text-[#0A0D1F]">
+          <span className="eyebrow !text-black !font-black !tracking-widest">OPERATIONAL LIFECYCLE</span>
+          <h2 className="max-w-[720px] mt-4 mb-4 !text-black font-black">
             Everything you need to run successful learning programs.
           </h2>
-          <p className="text-editorial max-w-[640px] text-[#0A0D1F] font-semibold">
+          <p className="text-editorial max-w-[640px] !text-black !font-bold">
             Coordinate facilitators, enroll learners, manage attendance, automate assessments, and measure outcomes—all from one workspace.
           </p>
         </div>
@@ -286,18 +286,18 @@ export function OperationalLifecycle() {
                   className="space-y-12"
                 >
                    <div>
-                      <h3 className="text-[34px] font-bold text-[#0A0D1F] mb-6 leading-[1.1] tracking-tighter">{stages[activeIdx].title}</h3>
-                      <p className="text-[16px] leading-relaxed text-[#0A0D1F] font-semibold mb-10 max-w-[380px]">
+                      <h3 className="text-[34px] font-black !text-black mb-6 leading-[1.1] tracking-tighter">{stages[activeIdx].title}</h3>
+                      <p className="text-[16px] leading-relaxed !text-black !font-bold mb-10 max-w-[380px]">
                         {stages[activeIdx].description}
                       </p>
                       
                       <div className="space-y-5">
                          {stages[activeIdx].capabilities.map((cap, i) => (
                            <div key={i} className="flex items-center gap-4 group">
-                              <div className="w-5 h-5 rounded-full bg-[#D4A017]/10 border border-[#D4A017]/30 flex items-center justify-center shrink-0 group-hover:bg-[#D4A017]/20 group-hover:border-[#D4A017]/40 transition-all">
+                              <div className="w-5 h-5 rounded-full bg-[#D4A017]/20 border border-[#D4A017]/50 flex items-center justify-center shrink-0 group-hover:bg-[#D4A017]/30 group-hover:border-[#D4A017]/60 transition-all">
                                  <Check className="w-3 h-3 text-[#D4A017]" />
                               </div>
-                              <span className="text-[15px] font-extrabold text-[#0A0D1F] transition-colors duration-500">{cap}</span>
+                              <span className="text-[15px] !font-black !text-black transition-colors duration-500">{cap}</span>
                            </div>
                          ))}
                       </div>
