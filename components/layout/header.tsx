@@ -87,13 +87,13 @@ function NavDropdown({
 }) {
   return (
     <div
-      className="relative flex items-center h-[64px]"
+      className="relative flex items-center h-[76px]"
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
     >
       <button
         className={cn(
-          "flex items-center gap-1.5 text-[14px] font-bold tracking-wide px-1 h-8 transition-colors duration-150 cursor-pointer",
+          "flex items-center gap-1.5 text-[15.5px] font-bold tracking-wide px-1.5 h-9 transition-colors duration-150 cursor-pointer",
           active ? "text-white" : "text-white/60 hover:text-white"
         )}
       >
@@ -207,7 +207,7 @@ export function Header() {
     <header
       ref={headerRef}
       className={cn(
-        "fixed top-0 left-0 right-0 z-[100] h-[64px] flex items-center transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-[100] h-[76px] flex items-center transition-all duration-300",
         scrolled 
           ? "bg-[#090D16]/90 border-b border-white/[0.06] shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-xl"
           : "bg-transparent border-b border-transparent"
@@ -216,7 +216,7 @@ export function Header() {
       <div className="w-full max-w-full mx-auto px-6 flex items-center justify-between gap-4">
 
         {/* ── LEFT: Logo + primary nav ───────────────────────────────────── */}
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-10">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3.5 shrink-0 group mr-2">
@@ -225,15 +225,15 @@ export function Header() {
               src="/oyen-grid-icon-clean.png"
               alt=""
               aria-hidden="true"
-              className="w-12 h-12 object-contain"
+              className="w-13 h-13 object-contain"
             />
-            <span className="font-extrabold text-white text-[18px] tracking-[0.07em] uppercase group-hover:text-[#FFC72C] transition-colors duration-200">
+            <span className="font-extrabold text-white text-[20px] tracking-[0.07em] uppercase group-hover:text-[#FFC72C] transition-colors duration-200">
               OYEN GRID
             </span>
           </Link>
 
           {/* Primary nav — desktop only */}
-          <nav className="hidden lg:flex items-center gap-2">
+          <nav className="hidden lg:flex items-center gap-3.5">
             {LEFT_MENUS.map((menu) => (
               <NavDropdown
                 key={menu.label}
@@ -245,7 +245,7 @@ export function Header() {
             ))}
             <Link
               href="/pricing"
-              className="text-[14px] font-bold text-white/60 hover:text-white tracking-wide px-2 h-8 flex items-center transition-colors duration-150"
+              className="text-[15.5px] font-bold text-white/60 hover:text-white tracking-wide px-2 h-9 flex items-center transition-colors duration-150"
             >
               Pricing
             </Link>
@@ -253,7 +253,7 @@ export function Header() {
         </div>
 
         {/* ── RIGHT: Secondary nav (CTAs removed) ───────────────────────── */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5">
 
           {/* Inline Active Search Bar & Suggestion Dropdown */}
           <div className="relative flex items-center">
@@ -279,7 +279,7 @@ export function Header() {
           {/* Support */}
           <Link
             href="/resources/help"
-            className="hidden lg:inline-block text-[14px] font-bold text-white/60 hover:text-white transition-colors px-2 py-1.5"
+            className="hidden lg:inline-block text-[15.5px] font-bold text-white/60 hover:text-white transition-colors px-2 py-1.5"
           >
             Support
           </Link>
@@ -287,7 +287,7 @@ export function Header() {
           {/* Sign In */}
           <Link
             href="/sign-in"
-            className="hidden lg:inline-block text-[14px] font-bold text-white/60 hover:text-white transition-colors px-2 py-1.5"
+            className="hidden lg:inline-block text-[15.5px] font-bold text-white/60 hover:text-white transition-colors px-2 py-1.5"
           >
             Sign In
           </Link>
@@ -295,7 +295,7 @@ export function Header() {
           {/* Get Started — Register CTA */}
           <Link
             href="/register"
-            className="hidden lg:inline-flex items-center gap-1.5 h-10 px-5 rounded-full bg-[#FFC72C] hover:bg-[#FFD45B] text-[#0B0B0B] text-[13px] font-black uppercase tracking-wider transition-all duration-200 hover:shadow-[0_0_14px_rgba(255,199,44,0.35)] active:scale-[0.97]"
+            className="hidden lg:inline-flex items-center gap-1.5 h-11 px-6 rounded-full bg-[#FFC72C] hover:bg-[#FFD45B] text-[#0B0B0B] text-[14px] font-black uppercase tracking-wider transition-all duration-200 hover:shadow-[0_0_14px_rgba(255,199,44,0.35)] active:scale-[0.97]"
           >
             Get Started
           </Link>
