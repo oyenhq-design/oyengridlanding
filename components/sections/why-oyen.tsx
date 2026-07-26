@@ -57,7 +57,7 @@ const valueProps = [
 
 export function WhyOyen() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden border-b border-white/5 bg-[#0A0D1F]">
+    <section className="relative py-24 md:py-32 overflow-hidden bg-[#0A0D1F]">
       
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -71,6 +71,9 @@ export function WhyOyen() {
         {/* Subtle dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/40" />
       </div>
+
+      {/* Bottom fade into cream */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 md:h-56 bg-gradient-to-t from-[#FAFAF8] to-transparent z-10 pointer-events-none" />
 
       <div className="max-w-[1280px] mx-auto px-8 relative z-10">
         
