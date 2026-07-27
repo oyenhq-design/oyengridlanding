@@ -156,7 +156,7 @@ export function OperationalLifecycle() {
           src="/operational-bg.png"
           alt="Operational Lifecycle Background"
           fill
-          className="object-cover opacity-100"
+          className="object-cover opacity-[0.70] blur-[4px]"
           quality={100}
           unoptimized={true}
           priority={true}
@@ -233,12 +233,12 @@ export function OperationalLifecycle() {
                          animate={{ 
                            filter: `blur(${blur}px) brightness(${brightness})`,
                            boxShadow: isActive 
-                             ? "0 20px 50px rgba(212,160,23,0.15), 0 0 30px rgba(212,160,23,0.08)" 
+                             ? "0 30px 60px rgba(212,160,23,0.25), 0 0 40px rgba(212,160,23,0.12)" 
                              : "0 10px 30px rgba(10,13,31,0.05)"
                          }}
                          className={cn(
-                           "relative w-full h-full rounded-[28px] overflow-hidden border transition-colors duration-1000",
-                           isActive ? "border-[#D4A017]/50" : "border-[#0A0D1F]/10 grayscale-[0.4]"
+                           "relative w-full h-full rounded-[28px] overflow-hidden border-2 transition-all duration-1000",
+                           isActive ? "border-[#D4A017]" : "border-white/40 grayscale-[0.6]"
                          )}
                        >
                           <Image 
