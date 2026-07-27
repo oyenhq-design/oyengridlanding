@@ -41,7 +41,10 @@ export function ScaleStructure() {
       {/* Section Background Image Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0 opacity-100 pointer-events-none" 
-        style={{ backgroundImage: "url('/enterprise-infrastructure-bg.jpg')" }} 
+        style={{ 
+          backgroundImage: "url('/enterprise-infrastructure-bg.jpg')",
+          filter: "blur(3px) brightness(0.90)"
+        }} 
       />
 
       {/* Soft navy gradient overlay for readability (darker left to transparent right) */}
@@ -130,7 +133,7 @@ export function ScaleStructure() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 w-full flex items-center justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-[580px] bg-[#07091B]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-[0_24px_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col items-center">
+            <div className="relative w-full max-w-[580px] bg-[#07091B]/95 backdrop-blur-2xl border border-white/20 rounded-3xl p-6 md:p-8 shadow-[0_30px_70px_rgba(0,0,0,0.65),_0_0_50px_rgba(212,160,23,0.06)] overflow-hidden flex flex-col items-center">
               
               {/* Box Ambient Glows */}
               <div className="absolute top-0 right-1/4 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
