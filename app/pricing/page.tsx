@@ -558,16 +558,17 @@ function PricingContent() {
   const [dbTargetAudiences, setDbTargetAudiences] = useState<any[]>([]);
   const [dbMarketingCopy, setDbMarketingCopy] = useState<any[]>([]);
   const [isLoadingData, setIsLoadingData] = useState(true);
+  const [fetchError, setFetchError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchPricingData() {
       try {
         const [
-          { data: plans },
-          { data: features },
-          { data: aiData },
-          { data: targetData },
-          { data: marketingData }
+          plansRes,
+          featuresRes,
+          aiRes,
+          targetRes,
+          marketingRes
         ] = await Promise.all([
           supabase.from('pricing_plans').select('*').eq('is_active', true).order('display_order'),
           supabase.from('pricing_plan_features').select('*').order('display_order'),
@@ -576,13 +577,20 @@ function PricingContent() {
           supabase.from('pricing_plan_marketing_copy').select('*')
         ]);
         
-        if (plans) setDbPlans(plans);
-        if (features) setDbFeatures(features);
-        if (aiData) setDbAiAllocations(aiData);
-        if (targetData) setDbTargetAudiences(targetData);
-        if (marketingData) setDbMarketingCopy(marketingData);
-      } catch (error) {
+        // Check if ANY of the queries returned a PostgrestError
+        const errors = [plansRes.error, featuresRes.error, aiRes.error, targetRes.error, marketingRes.error].filter(Boolean);
+        if (errors.length > 0) {
+          throw new Error(errors.map(e => `${e?.message} (Code: ${e?.code})`).join(' | '));
+        }
+        
+        if (plansRes.data) setDbPlans(plansRes.data);
+        if (featuresRes.data) setDbFeatures(featuresRes.data);
+        if (aiRes.data) setDbAiAllocations(aiRes.data);
+        if (targetRes.data) setDbTargetAudiences(targetRes.data);
+        if (marketingRes.data) setDbMarketingCopy(marketingRes.data);
+      } catch (error: any) {
         console.error("Error fetching pricing data:", error);
+        setFetchError(error?.message || "Unknown error occurred while fetching pricing data.");
       } finally {
         setIsLoadingData(false);
       }
@@ -961,7 +969,12 @@ function PricingContent() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
-                  {isLoadingData ? (
+                  {fetchError ? (
+                    <div className="col-span-full py-12 px-6 rounded-2xl bg-red-500/10 border border-red-500/20 text-center">
+                      <h3 className="text-red-500 font-bold mb-2">Supabase Connection Error</h3>
+                      <p className="text-red-500/80 text-sm break-all font-mono">{fetchError}</p>
+                    </div>
+                  ) : isLoadingData ? (
                     <div className="col-span-full py-12 flex justify-center items-center">
                       <div className="w-6 h-6 border-2 border-[#D4A017] border-t-transparent rounded-full animate-spin" />
                     </div>
