@@ -5,7 +5,7 @@ const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.
 
 async function main() {
   const { data, error } = await supabase.from('pricing_plans').select('*');
-  console.log("Error:", error);
-  console.log("Categories:", data.map(p => p.category));
+  console.log("Plans:");
+  console.log(JSON.stringify(data, null, 2));
 }
 main();
