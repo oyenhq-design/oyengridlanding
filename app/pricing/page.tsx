@@ -1019,10 +1019,10 @@ function PricingContent() {
                           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(212,160,23,0.03),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_top_left,rgba(232,184,74,0.04),transparent_60%)] pointer-events-none" />
                         )}
 
-                        {plan.badge && (
+                        {planBadge && (
                           <div className="absolute top-3.5 right-4 px-2 py-0.5 rounded-full bg-[#D4A017]/10 border border-[#D4A017]/20 text-[8px] font-black text-[#D4A017] dark:text-[#E8B84A] uppercase tracking-widest flex items-center gap-1">
                             <Star className="w-2.5 h-2.5" />
-                            {plan.badge}
+                            {planBadge}
                           </div>
                         )}
 
@@ -1048,7 +1048,7 @@ function PricingContent() {
                               <span className={cn(
                                 "font-extrabold tracking-tighter leading-none",
                                 isPremiumPlus ? "text-white" : "text-[#111827] dark:text-white",
-                                isTalkToSales ? "text-[20px]" : "text-[30px]"
+                                "text-[30px]"
                               )}>
                                 {formattedPrice}
                               </span>
@@ -1075,7 +1075,7 @@ function PricingContent() {
                                 isPremiumPlus ? "text-white/70" : "text-[#374151] dark:text-white/70"
                               )}
                             >
-                              {meta.subheadline || plan.description}
+                              {meta.subheadline || plan.description || "\u00A0"}
                             </motion.p>
                           </AnimatePresence>
 
@@ -1121,19 +1121,8 @@ function PricingContent() {
                           "mt-4 pt-3 border-t relative z-10",
                           isPremiumPlus ? "border-white/10" : "border-[#EBE9E1] dark:border-white/[0.05]"
                         )}>
-                          {(() => {
-                            const planNameMap: Record<string, string> = {
-                              basic: "starter",
-                              standard: "professional",
-                              premium: "premium",
-                              premiumPlus: "enterprise"
-                            };
-                            
-                            const planHref = plan.cta_destination || `/checkout?plan=${plan.slug}`;
-
-                            return (
                               <Link
-                                href={planHref}
+                                href={ctaLink}
                                 className={cn(
                                   "w-full h-9 rounded-xl flex items-center justify-center gap-1.5 text-[11px] font-black uppercase tracking-wider transition-all group/btn",
                                   isPremiumPlus
@@ -1144,11 +1133,9 @@ function PricingContent() {
                                     )
                                 )}
                               >
-                                {plan.cta_button_label || "Get Started"}
+                                {ctaLabel}
                                 <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform opacity-60" />
                               </Link>
-                            );
-                          })()}
                         </div>
                       </motion.div>
                     );
@@ -1205,21 +1192,21 @@ function PricingContent() {
                   {isLoadingData ? null : dbAiAllocations.filter(ai => currentPlans.some(p => p.id === ai.plan_id)).map((tier, i) => {
                     const plan = currentPlans.find(p => p.id === tier.plan_id)!;
                     
-                    const isEnterprise = plan.slug.includes('enterprise');
-                    const isPremium = plan.slug.includes('premium') && !isEnterprise;
-                    const isStandard = plan.slug.includes('standard');
-                    const isBasic = plan.slug.includes('basic') || plan.slug.includes('starter');
+                    const isEnterprise = plan.name.toLowerCase().includes('enterprise') || plan.name.toLowerCase().includes('plus');
+                    const isPremium = plan.name.toLowerCase().includes('premium') && !isEnterprise;
+                    const isStandard = plan.name.toLowerCase().includes('standard');
+                    const isBasic = plan.name.toLowerCase().includes('basic') || plan.name.toLowerCase().includes('starter');
 
                     const Icon = isEnterprise ? BarChart3 : isPremium ? Cpu : isStandard ? Sparkles : Bot;
                     const color = isEnterprise ? "#a78bfa" : isPremium ? "#E8B84A" : isStandard ? "#60a5fa" : "#94a3b8";
                     
                     const title = isEnterprise ? "Enterprise AI Allocation" : isPremium ? "Premium AI Allocation" : isStandard ? "Standard AI Allocation" : "Basic AI Allocation";
                     const desc = isEnterprise ? "Custom allocation for large-scale operations." : isPremium ? "Operational intelligence for programme governance." : isStandard ? "Session intelligence and cohort visibility." : "Core assistance for small programme teams.";
-                    const level = isEnterprise ? 100 : isPremium ? 82 : isStandard ? 50 : 20;
+                    const level = tier.tier_level || (isEnterprise ? 100 : isPremium ? 82 : isStandard ? 50 : 20);
 
                     const aiFeatures = [
                        tier.tokens_per_month > 0 ? `${tier.tokens_per_month.toLocaleString()} Tokens / mo` : 'Custom Enterprise Quota',
-                       tier.storage_limit ? `${tier.storage_limit} GB Storage` : null,
+                       tier.storage_limit ? `${tier.storage_limit} Storage` : null,
                        ...(tier.accessible_llm_models || [])
                     ].filter(Boolean);
 
@@ -1345,7 +1332,7 @@ function PricingContent() {
                           Capability
                         </th>
                         {currentPlans.map((plan) => {
-                           const isPremium = plan.slug.includes('premium') && !plan.slug.includes('enterprise');
+                           const isPremium = plan.name.toLowerCase().includes('premium') && !plan.name.toLowerCase().includes('enterprise');
                            return (
                              <th key={plan.id} className={cn("py-4 px-6 text-[11px] font-bold tracking-[0.08em] dark:tracking-widest uppercase border-b border-black/[0.08] dark:border-white/[0.06]",
                                isPremium ? "text-[#4B5563] dark:text-[#E8B84A] bg-[#FFF2D4]/30 dark:bg-[#E8B84A]/5 border-x border-black/[0.08] dark:border-transparent" : "text-[#4B5563] dark:text-white"
@@ -1382,10 +1369,11 @@ function PricingContent() {
                             <td className="py-3.5 px-6 text-[13.5px] dark:text-[13px] font-semibold dark:font-bold text-[#1F2937] dark:text-white">{featureName}</td>
                             {currentPlans.map((plan, pi) => {
                                const f = dbFeatures.find(f => f.plan_id === plan.id && f.feature_name === featureName);
-                               const text = f ? (f.enabled ? (f.usage_limit || "Enabled") : "Not Available") : "Not Available";
+                               // Only render available if enabled === true in the database for this plan.
+                               const text = (f && f.enabled) ? (f.usage_limit || "Included") : "Not Available";
                                
-                               const isPremium = plan.slug.includes('premium') && !plan.slug.includes('enterprise');
-                               const isEnterprise = plan.slug.includes('enterprise');
+                               const isPremium = plan.name.toLowerCase().includes('premium') && !plan.name.toLowerCase().includes('plus') && !plan.name.toLowerCase().includes('enterprise');
+                               const isEnterprise = plan.name.toLowerCase().includes('enterprise') || plan.name.toLowerCase().includes('plus');
                                
                                return (
                                  <td key={plan.id} className={cn("py-3.5 px-6 text-[13px] dark:text-[12.5px]", 
