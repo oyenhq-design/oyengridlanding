@@ -985,19 +985,37 @@ function PricingContent() {
                   ) : currentPlans.map((plan, i) => {
                     const meta = dbMarketingCopy.find(m => m.plan_id === plan.id) || {};
                     const audience = dbTargetAudiences.find(t => t.plan_id === plan.id) || {};
-                    const features = dbFeatures.filter(f => f.plan_id === plan.id && f.enabled).sort((a,b) => a.display_order - b.display_order).map(f => {
+                    const aiAlloc = dbAiAllocations.find(a => a.plan_id === plan.id) || {};
+                    
+                    const featuresRaw = dbFeatures.filter(f => f.plan_id === plan.id && f.enabled).sort((a,b) => a.display_order - b.display_order);
+                    const features = featuresRaw.map(f => {
                        return (f.usage_limit && f.usage_limit !== 'Enabled' && f.usage_limit !== 'Not Available') 
                          ? `${f.usage_limit} ${f.feature_name}` 
                          : f.feature_name;
                     });
                     
-                    const isPremium = plan.slug.includes("premium") && !plan.slug.includes("plus") && !plan.slug.includes("enterprise");
-                    const isPremiumPlus = plan.slug.includes("enterprise") || plan.slug.includes("plus");
-                    const isTalkToSales = plan.price >= 10000 || plan.price === 0 || plan.cta_destination?.includes('contact'); 
-                    const isMostPopular = plan.is_popular || plan.badge === 'MOST POPULAR';
-                    const formattedPrice = isTalkToSales ? "Talk to Sales" : `${plan.currency === 'NGN' ? '₦' : '$'}${plan.price.toLocaleString()}`;
-                    const period = formattedPrice === "Talk to Sales" ? "" : `/${plan.billing_period || 'month'}`;
-                    const planLabel = isPremiumPlus ? "ENTERPRISE READY" : isPremium ? "EVERYTHING IN STANDARD PLUS" : plan.slug.includes('standard') ? "EVERYTHING IN BASIC PLUS" : "INCLUDED FEATURES";
+                    console.log("PRICING DEBUG");
+                    console.log("plan id:", plan.id);
+                    console.log("plan name:", plan.name);
+                    console.log("monthly_price:", plan.monthly_price);
+                    console.log("annual_price:", plan.annual_price);
+                    console.log("AI allocation:", aiAlloc);
+                    console.log("feature count:", features.length);
+                    console.log("target audience:", audience);
+                    console.log("marketing copy:", meta);
+
+                    // Strictly use DB fields, do NOT override based on value amounts
+                    const formattedPrice = `${plan.currency === 'NGN' ? '₦' : '$'}${Number(plan.monthly_price ?? plan.price).toLocaleString()}`;
+                    const period = `/${plan.billing_period || 'month'}`;
+                    
+                    // Maintain basic UI styles based on name keywords (DO NOT use these to fake data)
+                    const isPremium = plan.name.toLowerCase().includes("premium") && !plan.name.toLowerCase().includes("plus");
+                    const isPremiumPlus = plan.name.toLowerCase().includes("plus") || plan.name.toLowerCase().includes("enterprise");
+                    
+                    const planBadge = meta.popular_badge_text || plan.badge;
+                    const ctaLabel = meta.cta || plan.cta_button_label || "Get Started";
+                    const ctaLink = plan.cta_destination || `/checkout?plan=${plan.slug}`;
+                    const planLabel = isPremiumPlus ? "ENTERPRISE READY" : isPremium ? "EVERYTHING IN STANDARD PLUS" : plan.name.toLowerCase().includes('standard') ? "EVERYTHING IN BASIC PLUS" : "INCLUDED FEATURES";
 
                     return (
                       <motion.div
