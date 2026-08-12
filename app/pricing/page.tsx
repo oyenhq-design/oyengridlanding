@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback, Suspense } from "react";
+import { useState, useRef, useCallback, Suspense, useEffect } from "react";
 import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Header, AnnouncementBar } from "@/components/layout/header";
@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/lib/supabase";
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 
@@ -549,9 +550,47 @@ function PricingContent() {
 
   const isEnterprise = selectedSolution === "enterprise";
   const activeSolution = solutionsList.find((s) => s.id === selectedSolution)!;
-  const currentPricing = planPricing[selectedSolution];
-  const currentAI = aiAllocationData[selectedSolution];
-  const currentTable = comparisonTables[selectedSolution];
+  
+  // -- SUPABASE DATA STATE --
+  const [dbPlans, setDbPlans] = useState<any[]>([]);
+  const [dbFeatures, setDbFeatures] = useState<any[]>([]);
+  const [dbAiAllocations, setDbAiAllocations] = useState<any[]>([]);
+  const [dbTargetAudiences, setDbTargetAudiences] = useState<any[]>([]);
+  const [dbMarketingCopy, setDbMarketingCopy] = useState<any[]>([]);
+  const [isLoadingData, setIsLoadingData] = useState(true);
+
+  useEffect(() => {
+    async function fetchPricingData() {
+      try {
+        const [
+          { data: plans },
+          { data: features },
+          { data: aiData },
+          { data: targetData },
+          { data: marketingData }
+        ] = await Promise.all([
+          supabase.from('pricing_plans').select('*').eq('is_active', true).order('display_order'),
+          supabase.from('pricing_plan_features').select('*').order('display_order'),
+          supabase.from('pricing_plan_ai_allocation').select('*'),
+          supabase.from('pricing_plan_target_audience').select('*'),
+          supabase.from('pricing_plan_marketing_copy').select('*')
+        ]);
+        
+        if (plans) setDbPlans(plans);
+        if (features) setDbFeatures(features);
+        if (aiData) setDbAiAllocations(aiData);
+        if (targetData) setDbTargetAudiences(targetData);
+        if (marketingData) setDbMarketingCopy(marketingData);
+      } catch (error) {
+        console.error("Error fetching pricing data:", error);
+      } finally {
+        setIsLoadingData(false);
+      }
+    }
+    fetchPricingData();
+  }, []);
+
+  const currentPlans = dbPlans.filter(p => p.category === activeSolution.title);
 
   // Update state + push URL param
   const handleSelectSolution = useCallback(
@@ -922,13 +961,30 @@ function PricingContent() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
-                  {plansBase.map((plan, i) => {
-                    const meta = currentPricing[i];
-                    const features = pricingData[selectedSolution][plan.key];
-                    const isTalkToSales = meta.price === "Talk to Sales";
-                    const isMostPopular = plan.badge === "Most Popular";
-                    const isPremium = plan.key === "premium";
-                    const isPremiumPlus = plan.key === "premiumPlus";
+                  {isLoadingData ? (
+                    <div className="col-span-full py-12 flex justify-center items-center">
+                      <div className="w-6 h-6 border-2 border-[#D4A017] border-t-transparent rounded-full animate-spin" />
+                    </div>
+                  ) : currentPlans.length === 0 ? (
+                    <div className="col-span-full py-12 text-center text-[#6B7280]">
+                      No active plans available for {activeSolution.title}.
+                    </div>
+                  ) : currentPlans.map((plan, i) => {
+                    const meta = dbMarketingCopy.find(m => m.plan_id === plan.id) || {};
+                    const audience = dbTargetAudiences.find(t => t.plan_id === plan.id) || {};
+                    const features = dbFeatures.filter(f => f.plan_id === plan.id && f.enabled).sort((a,b) => a.display_order - b.display_order).map(f => {
+                       return (f.usage_limit && f.usage_limit !== 'Enabled' && f.usage_limit !== 'Not Available') 
+                         ? `${f.usage_limit} ${f.feature_name}` 
+                         : f.feature_name;
+                    });
+                    
+                    const isPremium = plan.slug.includes("premium") && !plan.slug.includes("plus") && !plan.slug.includes("enterprise");
+                    const isPremiumPlus = plan.slug.includes("enterprise") || plan.slug.includes("plus");
+                    const isTalkToSales = plan.price >= 10000 || plan.price === 0 || plan.cta_destination?.includes('contact'); 
+                    const isMostPopular = plan.is_popular || plan.badge === 'MOST POPULAR';
+                    const formattedPrice = isTalkToSales ? "Talk to Sales" : `${plan.currency === 'NGN' ? '₦' : '$'}${plan.price.toLocaleString()}`;
+                    const period = formattedPrice === "Talk to Sales" ? "" : `/${plan.billing_period || 'month'}`;
+                    const planLabel = isPremiumPlus ? "ENTERPRISE READY" : isPremium ? "EVERYTHING IN STANDARD PLUS" : plan.slug.includes('standard') ? "EVERYTHING IN BASIC PLUS" : "INCLUDED FEATURES";
 
                     return (
                       <motion.div
@@ -969,7 +1025,7 @@ function PricingContent() {
                           {/* Price — animated on solution change */}
                           <AnimatePresence mode="wait">
                             <motion.div
-                              key={`price-${plan.key}-${selectedSolution}`}
+                              key={`price-${plan.id}-${selectedSolution}`}
                               initial={{ opacity: 0, y: 4 }}
                               animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: -4 }}
@@ -981,14 +1037,14 @@ function PricingContent() {
                                 isPremiumPlus ? "text-white" : "text-[#111827] dark:text-white",
                                 isTalkToSales ? "text-[20px]" : "text-[30px]"
                               )}>
-                                {meta.price}
+                                {formattedPrice}
                               </span>
-                              {meta.period && (
+                              {period && (
                                 <span className={cn(
                                   "text-[11px] font-medium",
                                   isPremiumPlus ? "text-white/50" : "text-[#6B7280] dark:text-white/50"
                                 )}>
-                                  {meta.period}
+                                  {period}
                                 </span>
                               )}
                             </motion.div>
@@ -996,7 +1052,7 @@ function PricingContent() {
 
                           <AnimatePresence mode="wait">
                             <motion.p
-                              key={`tagline-${plan.key}-${selectedSolution}`}
+                              key={`tagline-${plan.id}-${selectedSolution}`}
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                               exit={{ opacity: 0 }}
@@ -1006,7 +1062,7 @@ function PricingContent() {
                                 isPremiumPlus ? "text-white/70" : "text-[#374151] dark:text-white/70"
                               )}
                             >
-                              {meta.tagline}
+                              {meta.subheadline || plan.description}
                             </motion.p>
                           </AnimatePresence>
 
@@ -1020,13 +1076,13 @@ function PricingContent() {
                             "text-[9px] font-bold tracking-widest uppercase mb-1.5",
                             isPremiumPlus ? "text-white/55" : "text-[#4B5563] dark:text-white/60"
                           )}>
-                            {plan.planLabel}
+                            {planLabel}
                           </h4>
 
                           {/* Feature list — animated on solution change */}
                           <AnimatePresence mode="wait">
                             <motion.ul
-                              key={`features-${plan.key}-${selectedSolution}`}
+                              key={`features-${plan.id}-${selectedSolution}`}
                               initial={{ opacity: 0, y: 4 }}
                               animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: -4 }}
@@ -1059,11 +1115,8 @@ function PricingContent() {
                               premium: "premium",
                               premiumPlus: "enterprise"
                             };
-                            const planSlug = planNameMap[plan.key] || plan.key;
-                            const isLoggedIn = typeof window !== "undefined" && localStorage.getItem("isLoggedIn") === "true";
-                            const planHref = isLoggedIn
-                              ? `/billing?plan=${planSlug}`
-                              : `/register?plan=${planSlug}`;
+                            
+                            const planHref = plan.cta_destination || `/checkout?plan=${plan.slug}`;
 
                             return (
                               <Link
@@ -1078,7 +1131,7 @@ function PricingContent() {
                                     )
                                 )}
                               >
-                                {plan.cta}
+                                {plan.cta_button_label || "Get Started"}
                                 <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform opacity-60" />
                               </Link>
                             );
@@ -1136,11 +1189,30 @@ function PricingContent() {
                   transition={{ duration: 0.3 }}
                   className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
                 >
-                  {currentAI.map((tier, i) => {
-                    const Icon = tier.icon;
+                  {isLoadingData ? null : dbAiAllocations.filter(ai => currentPlans.some(p => p.id === ai.plan_id)).map((tier, i) => {
+                    const plan = currentPlans.find(p => p.id === tier.plan_id)!;
+                    
+                    const isEnterprise = plan.slug.includes('enterprise');
+                    const isPremium = plan.slug.includes('premium') && !isEnterprise;
+                    const isStandard = plan.slug.includes('standard');
+                    const isBasic = plan.slug.includes('basic') || plan.slug.includes('starter');
+
+                    const Icon = isEnterprise ? BarChart3 : isPremium ? Cpu : isStandard ? Sparkles : Bot;
+                    const color = isEnterprise ? "#a78bfa" : isPremium ? "#E8B84A" : isStandard ? "#60a5fa" : "#94a3b8";
+                    
+                    const title = isEnterprise ? "Enterprise AI Allocation" : isPremium ? "Premium AI Allocation" : isStandard ? "Standard AI Allocation" : "Basic AI Allocation";
+                    const desc = isEnterprise ? "Custom allocation for large-scale operations." : isPremium ? "Operational intelligence for programme governance." : isStandard ? "Session intelligence and cohort visibility." : "Core assistance for small programme teams.";
+                    const level = isEnterprise ? 100 : isPremium ? 82 : isStandard ? 50 : 20;
+
+                    const aiFeatures = [
+                       tier.tokens_per_month > 0 ? `${tier.tokens_per_month.toLocaleString()} Tokens / mo` : 'Custom Enterprise Quota',
+                       tier.storage_limit ? `${tier.storage_limit} GB Storage` : null,
+                       ...(tier.accessible_llm_models || [])
+                    ].filter(Boolean);
+
                     return (
                       <motion.div
-                        key={`${selectedSolution}-${tier.plan}`}
+                        key={`${selectedSolution}-${plan.id}`}
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: i * 0.07 }}
@@ -1148,51 +1220,51 @@ function PricingContent() {
                       >
                         <div
                           className="absolute bottom-0 left-0 right-0 h-[3px] opacity-60"
-                          style={{ backgroundColor: tier.color }}
+                          style={{ backgroundColor: color }}
                         />
 
                         <div
                           className={cn(
                             "w-8 h-8 rounded-xl flex items-center justify-center mb-2.5 border transition-all",
-                            getThemeColor(tier.color), getThemeBgColor(tier.color), getThemeBorderColor(tier.color)
+                            getThemeColor(color), getThemeBgColor(color), getThemeBorderColor(color)
                           )}
                         >
                           <Icon className="w-4.5 h-4.5" />
                         </div>
 
-                        <div className={cn("text-[9px] font-black uppercase tracking-[0.25em] mb-0.5", getThemeColor(tier.color))}>
-                          {tier.plan}
+                        <div className={cn("text-[9px] font-black uppercase tracking-[0.25em] mb-0.5", getThemeColor(color))}>
+                          {plan.name}
                         </div>
                         <h4 className="text-[13.5px] font-bold text-[#111827] dark:text-white tracking-tight mb-1">
-                          {tier.title}
+                          {title}
                         </h4>
                         <p className="text-[11.5px] text-[#4B5563] dark:text-white/70 leading-[1.5] mb-3.5 font-medium">
-                          {tier.desc}
+                          {desc}
                         </p>
 
                         <div className="mb-3.5">
                           <div className="flex items-center justify-between mb-1.5">
                             <span className="text-[9px] font-bold text-[#4B5563] dark:text-white/60 uppercase tracking-wider">AI Level</span>
                             <span className="text-[10px] font-extrabold text-[#111827] dark:text-white">
-                              {tier.level === 100 ? "Max" : `${tier.level}%`}
+                              {level === 100 ? "Max" : `${level}%`}
                             </span>
                           </div>
                           <div className="h-1.5 w-full bg-[#EBE9E1] dark:bg-white/[0.05] rounded-full overflow-hidden">
                             <motion.div
                               className="h-full rounded-full"
-                              style={{ backgroundColor: tier.color }}
+                              style={{ backgroundColor: color }}
                               initial={{ width: 0 }}
-                              animate={{ width: `${tier.level}%` }}
+                              animate={{ width: `${level}%` }}
                               transition={{ duration: 1.1, delay: i * 0.1, ease: "easeOut" }}
                             />
                           </div>
                         </div>
 
                         <div className="space-y-1.5 pt-3 border-t border-[#EBE9E1] dark:border-white/[0.05]">
-                          {tier.features.map((feat, fi) => (
+                          {aiFeatures.map((feat, fi) => (
                             <div key={fi} className="flex items-center gap-2 text-[11.5px] text-[#374151] dark:text-white/70 font-medium">
-                              <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: tier.color }} />
-                              <span>{feat}</span>
+                              <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: color }} />
+                              <span>{String(feat)}</span>
                             </div>
                           ))}
                         </div>
@@ -1259,32 +1331,60 @@ function PricingContent() {
                         <th className="py-4 px-6 text-[11px] font-bold text-[#4B5563] dark:text-white tracking-[0.08em] dark:tracking-widest uppercase w-[28%] border-b border-black/[0.08] dark:border-white/[0.06]">
                           Capability
                         </th>
-                        <th className="py-4 px-6 text-[11px] font-bold text-[#4B5563] dark:text-white tracking-[0.08em] dark:tracking-widest uppercase border-b border-black/[0.08] dark:border-white/[0.06]">Basic</th>
-                        <th className="py-4 px-6 text-[11px] font-bold text-[#4B5563] dark:text-white tracking-[0.08em] dark:tracking-widest uppercase border-b border-black/[0.08] dark:border-white/[0.06]">Standard</th>
-                        <th className="py-4 px-6 text-[11px] font-bold text-[#4B5563] dark:text-[#E8B84A] tracking-[0.08em] dark:tracking-widest uppercase bg-[#FFF2D4]/30 dark:bg-[#E8B84A]/5 border-x border-black/[0.08] dark:border-transparent border-b border-black/[0.08] dark:border-white/[0.06]">★ Premium</th>
-                        <th className="py-4 px-6 text-[11px] font-bold text-[#4B5563] dark:text-white tracking-[0.08em] dark:tracking-widest uppercase border-b border-black/[0.08] dark:border-white/[0.06]">Premium+</th>
+                        {currentPlans.map((plan) => {
+                           const isPremium = plan.slug.includes('premium') && !plan.slug.includes('enterprise');
+                           return (
+                             <th key={plan.id} className={cn("py-4 px-6 text-[11px] font-bold tracking-[0.08em] dark:tracking-widest uppercase border-b border-black/[0.08] dark:border-white/[0.06]",
+                               isPremium ? "text-[#4B5563] dark:text-[#E8B84A] bg-[#FFF2D4]/30 dark:bg-[#E8B84A]/5 border-x border-black/[0.08] dark:border-transparent" : "text-[#4B5563] dark:text-white"
+                             )}>
+                               {isPremium ? "★ " : ""}{plan.name}
+                             </th>
+                           );
+                        })}
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-black/[0.08] dark:divide-white/[0.04]">
-                      {currentTable.map((row, i) => (
-                        <motion.tr
-                          key={`${selectedSolution}-row-${i}`}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.3, delay: i * 0.03 }}
-                          className={cn(
-                            "transition-colors",
-                            i % 2 === 1 ? "bg-[#F0EAE0] dark:bg-white/[0.005]" : "bg-[#F7F4ED] dark:bg-transparent",
-                            "hover:bg-[#EAE4D8] dark:hover:bg-white/[0.012]"
-                          )}
-                        >
-                          <td className="py-3.5 px-6 text-[13.5px] dark:text-[13px] font-semibold dark:font-bold text-[#1F2937] dark:text-white">{row.feature}</td>
-                          <td className="py-3.5 px-6 text-[13px] dark:text-[12.5px] text-[#374151] dark:text-white/70 font-medium dark:font-medium">{row.basic}</td>
-                          <td className="py-3.5 px-6 text-[13px] dark:text-[12.5px] text-[#374151] dark:text-white/70 font-medium dark:font-medium">{row.standard}</td>
-                          <td className="py-3.5 px-6 text-[13px] dark:text-[12.5px] text-[#374151] dark:text-white font-medium dark:font-semibold bg-[#FFF6E0]/40 dark:bg-[#E8B84A]/3 border-x border-black/[0.08] dark:border-transparent">{row.premium}</td>
-                          <td className="py-3.5 px-6 text-[13px] dark:text-[12.5px] text-[#D4A017] dark:text-[#E8B84A] font-bold dark:font-bold">{row.plus}</td>
-                        </motion.tr>
-                      ))}
+                      {(() => {
+                        if (isLoadingData) return null;
+                        
+                        // Get all unique feature names for this category's plans
+                        const allFeatureNames = Array.from(new Set(
+                           dbFeatures.filter(f => currentPlans.some(p => p.id === f.plan_id))
+                                     .sort((a,b) => a.display_order - b.display_order)
+                                     .map(f => f.feature_name)
+                        ));
+                        
+                        return allFeatureNames.map((featureName, i) => (
+                          <motion.tr
+                            key={`${selectedSolution}-row-${i}`}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.3, delay: i * 0.03 }}
+                            className={cn(
+                              "transition-colors",
+                              i % 2 === 1 ? "bg-[#F0EAE0] dark:bg-white/[0.005]" : "bg-[#F7F4ED] dark:bg-transparent",
+                              "hover:bg-[#EAE4D8] dark:hover:bg-white/[0.012]"
+                            )}
+                          >
+                            <td className="py-3.5 px-6 text-[13.5px] dark:text-[13px] font-semibold dark:font-bold text-[#1F2937] dark:text-white">{featureName}</td>
+                            {currentPlans.map((plan, pi) => {
+                               const f = dbFeatures.find(f => f.plan_id === plan.id && f.feature_name === featureName);
+                               const text = f ? (f.enabled ? (f.usage_limit || "Enabled") : "Not Available") : "Not Available";
+                               
+                               const isPremium = plan.slug.includes('premium') && !plan.slug.includes('enterprise');
+                               const isEnterprise = plan.slug.includes('enterprise');
+                               
+                               return (
+                                 <td key={plan.id} className={cn("py-3.5 px-6 text-[13px] dark:text-[12.5px]", 
+                                    isEnterprise ? "text-[#D4A017] dark:text-[#E8B84A] font-bold dark:font-bold" :
+                                    isPremium ? "text-[#374151] dark:text-white font-medium dark:font-semibold bg-[#FFF6E0]/40 dark:bg-[#E8B84A]/3 border-x border-black/[0.08] dark:border-transparent" :
+                                    "text-[#374151] dark:text-white/70 font-medium dark:font-medium"
+                                 )}>{text}</td>
+                               );
+                            })}
+                          </motion.tr>
+                        ));
+                      })()}
                     </tbody>
                   </motion.table>
                 </AnimatePresence>
