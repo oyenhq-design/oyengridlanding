@@ -453,7 +453,7 @@ function PricingContent() {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
                 <Link
-                  href="/pricing/enterprise"
+                  href="/company/contact"
                   className="h-12 px-8 rounded-[13px] border border-[#EBE9E1] dark:border-white/10 bg-white dark:bg-white/[0.02] text-[#111827] dark:text-white font-bold text-[12px] hover:bg-[#F9FAFB] dark:hover:bg-white/[0.05] hover:border-[#D1D5DB] transition-all flex items-center gap-2 uppercase tracking-wider"
                 >
                   Talk to Sales
@@ -762,7 +762,9 @@ function PricingContent() {
 
                       const planBadge = meta.popular_badge_text || plan.badge || (plan.is_popular ? "MOST POPULAR" : null);
                       const ctaLabel = meta.cta || plan.cta_button_label || "Get Started";
-                      const ctaLink = plan.cta_destination || `/checkout?plan=${plan.slug}`;
+                      const ctaLink = plan.slug
+                        ? `https://app.oyengrid.com/checkout?plan=${encodeURIComponent(plan.slug)}`
+                        : `https://app.oyengrid.com/checkout`;
                       const planLabel = isPremiumPlus ? "ENTERPRISE READY" : isPremium ? "EVERYTHING IN STANDARD PLUS" : plan.name.toLowerCase().includes('standard') ? "EVERYTHING IN BASIC PLUS" : "INCLUDED FEATURES";
 
                       return (
@@ -1399,7 +1401,7 @@ function PricingContent() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
                 <Link
-                  href="/pricing/premium"
+                  href="/register"
                   className="group px-10 rounded-[14px] bg-[#D4A017] text-black font-black text-[13px] uppercase tracking-wider flex items-center gap-2.5 hover:bg-[#E5B228] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_12px_32px_rgba(212,160,23,0.18)]"
                   style={{ height: "52px" }}
                 >
@@ -1407,7 +1409,7 @@ function PricingContent() {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
                 <Link
-                  href="/pricing/enterprise"
+                  href="/company/contact"
                   className="h-[52px] px-10 rounded-[14px] border border-[#EBE9E1] dark:border-white/10 bg-white dark:bg-white/[0.03] text-[#111827] dark:text-white font-bold text-[13px] hover:bg-[#F9FAFB] dark:hover:bg-white/[0.07] hover:border-[#D1D5DB] transition-all flex items-center gap-2.5 uppercase tracking-wider"
                 >
                   Contact Sales
