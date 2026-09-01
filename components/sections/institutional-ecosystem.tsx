@@ -163,19 +163,24 @@ export function HeroInstitutional() {
   return (
     <section
       className="relative min-h-[680px] flex items-center mt-[-176px] pt-[190px] pb-8 overflow-hidden"
-      style={{ background: "#FFFFFF" }}
+      style={{ background: "linear-gradient(to bottom, #07111F 0%, #0C1828 60%, #17263B 100%)" }}
     >
-
-      {/* Extremely subtle warm tint vignette — barely perceptible depth */}
+      {/* Large soft radial illumination behind the headline (champagne/gold) */}
       <div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, #FBFAF7 0%, transparent 70%)" }}
+        className="absolute top-[20%] left-[20%] w-[800px] h-[800px] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0"
+        style={{ background: "radial-gradient(circle, rgba(107,84,37,0.15) 0%, transparent 60%)", filter: "blur(60px)" }}
       />
 
-      {/* Very faint blue radial glow behind product visual area */}
+      {/* Very subtle OYEN signature-gold atmospheric glow behind product */}
       <div
-        className="absolute top-0 right-0 w-[55%] h-full pointer-events-none z-0"
-        style={{ background: "radial-gradient(ellipse 70% 60% at 65% 50%, rgba(11,92,255,0.04) 0%, transparent 70%)" }}
+        className="absolute top-[40%] right-[-10%] w-[700px] h-[700px] pointer-events-none z-0"
+        style={{ background: "radial-gradient(circle, rgba(212,160,23,0.06) 0%, transparent 70%)", filter: "blur(80px)" }}
+      />
+
+      {/* Smooth transition into next bright section at the very bottom */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10"
+        style={{ background: "linear-gradient(to bottom, transparent, #FBFAF7)" }}
       />
 
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
@@ -191,50 +196,48 @@ export function HeroInstitutional() {
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Headline — navy + primary blue split */}
-              <h1 className="text-[52px] sm:text-[68px] lg:text-[76px] font-black leading-[1.04] tracking-tight select-none" style={{ color: "#0B1220" }}>
+              <h1 className="text-[52px] sm:text-[68px] lg:text-[76px] font-black leading-[1.04] tracking-tight select-none" style={{ color: "#FFFFFF" }}>
                 Run your organization <br />
-                <span style={{ color: "#0B5CFF" }}>without the chaos.</span>
+                <span style={{ color: "#FFFFFF" }}>without the chaos.</span>
               </h1>
 
               {/* Body copy — secondary grey */}
-              <p className="text-[16px] sm:text-[17.5px] font-medium leading-[1.65] mt-6 max-w-[520px] tracking-wide" style={{ color: "#475467" }}>
+              <p className="text-[16px] sm:text-[17.5px] font-medium leading-[1.65] mt-6 max-w-[520px] tracking-wide" style={{ color: "rgba(255,255,255,0.78)" }}>
                 Manage training, teams, communication, AI workflows, reporting, and enterprise operations from one secure platform.
               </p>
 
               {/* CTA Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 mt-9">
-                {/* Primary — blue */}
+                {/* Primary */}
                 <Link
                   href="/pricing"
                   className="inline-flex items-center justify-center h-[47px] px-9 rounded-full text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02]"
                   style={{
-                    background: "#0B5CFF",
-                    color: "#FFFFFF",
-                    boxShadow: "0 4px 20px rgba(11,92,255,0.25)"
+                    background: "#F8FAFC",
+                    color: "#07111F",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.15)"
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "#084BD8")}
-                  onMouseLeave={e => (e.currentTarget.style.background = "#0B5CFF")}
+                  onMouseEnter={e => (e.currentTarget.style.background = "#FFFFFF")}
+                  onMouseLeave={e => (e.currentTarget.style.background = "#F8FAFC")}
                 >
                   Book a Demo
                 </Link>
-                {/* Secondary — white / navy / light border */}
+                {/* Secondary */}
                 <button
                   className="inline-flex items-center justify-center gap-2.5 h-[47px] px-9 rounded-full text-[13px] font-bold uppercase tracking-wider transition-all duration-300"
                   style={{
-                    background: "#FFFFFF",
-                    border: "1px solid #D0D5DD",
-                    color: "#0B1220"
+                    background: "rgba(255,255,255,0.05)",
+                    border: "1px solid rgba(255,255,255,0.30)",
+                    color: "#FFFFFF"
                   }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLButtonElement).style.borderColor = "#0B5CFF";
-                    (e.currentTarget as HTMLButtonElement).style.color = "#0B5CFF";
+                    (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.10)";
                   }}
                   onMouseLeave={e => {
-                    (e.currentTarget as HTMLButtonElement).style.borderColor = "#D0D5DD";
-                    (e.currentTarget as HTMLButtonElement).style.color = "#0B1220";
+                    (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.05)";
                   }}
                 >
-                  Watch Demo <Play size={14} className="fill-current" />
+                  Watch Demo <Play size={14} className="fill-current text-[#D4A017]" />
                 </button>
               </div>
             </motion.div>
@@ -248,7 +251,9 @@ export function HeroInstitutional() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-full h-full max-w-[600px] z-10"
               style={{
-                filter: "drop-shadow(0 24px 70px rgba(11,18,32,0.10)) drop-shadow(0 8px 24px rgba(11,18,32,0.06))"
+                filter: "drop-shadow(0 35px 100px rgba(0,0,0,0.30))",
+                maskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 85%, transparent 100%)"
               }}
             >
               <Image
@@ -266,15 +271,15 @@ export function HeroInstitutional() {
         {/* TRUST BAR — light borders, navy numbers */}
         <div
           className="mt-8 md:mt-10 py-5 md:py-6 flex flex-col md:flex-row items-center justify-between gap-8 relative"
-          style={{ borderTop: "1px solid #EAECF0", borderBottom: "1px solid #EAECF0" }}
+          style={{ borderTop: "1px solid rgba(255,255,255,0.1)", borderBottom: "1px solid rgba(255,255,255,0.1)" }}
         >
 
-          <span className="text-[11px] font-black tracking-[0.25em] uppercase select-none shrink-0" style={{ color: "#C99718" }}>
+          <span className="text-[11px] font-black tracking-[0.25em] uppercase select-none shrink-0" style={{ color: "#D4A017" }}>
             Built for modern organizations
           </span>
 
           {/* Vertical divider on desktop */}
-          <div className="hidden md:block w-px h-8" style={{ background: "#EAECF0" }} />
+          <div className="hidden md:block w-px h-8" style={{ background: "rgba(255,255,255,0.1)" }} />
 
           {/* Metrics */}
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-8 md:gap-x-12 gap-y-6 w-full md:w-auto">
@@ -286,15 +291,15 @@ export function HeroInstitutional() {
             ].map((metric, index, arr) => (
               <div key={index} className="flex items-center gap-8">
                 <div className="flex flex-col items-center md:items-start select-none">
-                  <span className="text-2xl md:text-3xl font-black leading-none tracking-tight" style={{ color: "#0B1220" }}>
+                  <span className="text-2xl md:text-3xl font-black leading-none tracking-tight" style={{ color: "#FFFFFF" }}>
                     {metric.value}
                   </span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest mt-1.5" style={{ color: "#98A2B3" }}>
+                  <span className="text-[10px] font-bold uppercase tracking-widest mt-1.5" style={{ color: "rgba(255,255,255,0.6)" }}>
                     {metric.label}
                   </span>
                 </div>
                 {index < arr.length - 1 && (
-                  <div className="hidden sm:block h-8 w-px shrink-0" style={{ background: "#EAECF0" }} />
+                  <div className="hidden sm:block h-8 w-px shrink-0" style={{ background: "rgba(255,255,255,0.1)" }} />
                 )}
               </div>
             ))}

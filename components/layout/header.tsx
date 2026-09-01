@@ -94,7 +94,7 @@ function NavDropdown({
       <button
         className={cn(
           "flex items-center gap-1.5 text-[15.5px] font-bold tracking-wide px-1.5 h-9 transition-colors duration-150 cursor-pointer",
-          active ? "text-[#0B1220]" : "text-[#344054] hover:text-[#0B5CFF]"
+          active ? "text-[#FFFFFF]" : "text-[rgba(255,255,255,0.82)] hover:text-[#FFFFFF]"
         )}
       >
         {(menu as { isAI?: boolean }).isAI && (
@@ -104,7 +104,7 @@ function NavDropdown({
         <ChevronDown
           className={cn(
             "w-3.5 h-3.5 transition-transform duration-200 opacity-50",
-            active && "rotate-180 opacity-100 text-[#0B5CFF]"
+            active && "rotate-180 opacity-100 text-[#FFFFFF]"
           )}
         />
       </button>
@@ -127,31 +127,31 @@ function NavDropdown({
                 </span>
               </div>
             )}
-            <div className="bg-white border border-[#E8E5DF] backdrop-blur-xl rounded-xl p-1.5 shadow-[0_12px_40px_rgba(7,20,38,0.10)] flex flex-col gap-0.5">
+            <div className="bg-[#07111F] border border-[rgba(255,255,255,0.12)] backdrop-blur-xl rounded-xl p-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.30)] flex flex-col gap-0.5">
               {menu.items.map((item) => (
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#FBFAF7] transition-all duration-150 group"
+                  className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-[rgba(255,255,255,0.05)] transition-all duration-150 group"
                 >
                   <div className={cn(
                     "w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-colors",
                     (menu as { isAI?: boolean }).isAI
                       ? "bg-[#C99718]/10 group-hover:bg-[#C99718]/20"
-                      : "bg-[#0B1220]/5 group-hover:bg-[#0B1220]/10"
+                      : "bg-[rgba(255,255,255,0.05)] group-hover:bg-[rgba(255,255,255,0.1)]"
                   )}>
                     <item.icon className={cn(
                       "w-3.5 h-3.5 transition-colors",
                       (menu as { isAI?: boolean }).isAI
                         ? "text-[#C99718]"
-                        : "text-[#0B1220]/40 group-hover:text-[#0B1220]"
+                        : "text-[rgba(255,255,255,0.5)] group-hover:text-[#FFFFFF]"
                     )} />
                   </div>
                   <div className="flex flex-col min-w-0">
-                    <span className="text-[12px] font-semibold text-[#0B1220]/90 group-hover:text-[#0B5CFF] leading-none mb-1 transition-colors">
+                    <span className="text-[12px] font-semibold text-[#FFFFFF] group-hover:text-[#FFFFFF] leading-none mb-1 transition-colors">
                       {item.title}
                     </span>
-                    <span className="text-[10.5px] text-[#667085] leading-snug font-normal">
+                    <span className="text-[10.5px] text-[rgba(255,255,255,0.6)] leading-snug font-normal">
                       {item.desc}
                     </span>
                   </div>
@@ -209,8 +209,8 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-[100] h-[76px] flex items-center transition-all duration-300",
         scrolled 
-          ? "bg-white border-b border-[#E8E5DF] shadow-[0_4px_20px_rgba(7,20,38,0.06)] backdrop-blur-xl"
-          : "bg-white/95 border-b border-[#E8E5DF]/60"
+          ? "bg-[#07111F]/95 border-b border-[rgba(255,255,255,0.12)] shadow-[0_4px_20px_rgba(0,0,0,0.2)] backdrop-blur-xl"
+          : "bg-transparent border-b border-transparent"
       )}
     >
       <div className="w-full max-w-full mx-auto px-6 flex items-center justify-between gap-4">
@@ -227,7 +227,7 @@ export function Header() {
               aria-hidden="true"
               className="w-13 h-13 object-contain"
             />
-            <span className="font-extrabold text-[#0B1220] text-[20px] tracking-[0.07em] uppercase group-hover:text-[#0B5CFF] transition-colors duration-200">
+            <span className="font-extrabold text-[#FFFFFF] text-[20px] tracking-[0.07em] uppercase transition-colors duration-200">
               OYEN GRID
             </span>
           </Link>
@@ -245,7 +245,7 @@ export function Header() {
             ))}
             <Link
               href="/pricing"
-              className="text-[15.5px] font-bold text-[#344054] hover:text-[#0B5CFF] tracking-wide px-2 h-9 flex items-center transition-colors duration-150"
+              className="text-[15.5px] font-bold text-[rgba(255,255,255,0.82)] hover:text-[#FFFFFF] tracking-wide px-2 h-9 flex items-center transition-colors duration-150"
             >
               Pricing
             </Link>
@@ -279,7 +279,7 @@ export function Header() {
           {/* Support */}
           <Link
             href="/resources/help"
-            className="hidden lg:inline-block text-[15.5px] font-bold text-[#344054] hover:text-[#0B5CFF] transition-colors px-2 py-1.5"
+            className="hidden lg:inline-block text-[15.5px] font-bold text-[rgba(255,255,255,0.82)] hover:text-[#FFFFFF] transition-colors px-2 py-1.5"
           >
             Support
           </Link>
@@ -287,7 +287,7 @@ export function Header() {
           {/* Sign In */}
           <Link
             href="/sign-in"
-            className="hidden lg:inline-block text-[15.5px] font-bold text-[#344054] hover:text-[#0B5CFF] transition-colors px-2 py-1.5"
+            className="hidden lg:inline-block text-[15.5px] font-bold text-[rgba(255,255,255,0.82)] hover:text-[#FFFFFF] transition-colors px-2 py-1.5"
           >
             Sign In
           </Link>
@@ -295,7 +295,7 @@ export function Header() {
           {/* Get Started — Register CTA */}
           <Link
             href="/register"
-            className="hidden lg:inline-flex items-center gap-1.5 h-11 px-6 rounded-full bg-[#0B5CFF] hover:bg-[#084BD8] text-[#FFFFFF] text-[14px] font-black uppercase tracking-wider transition-all duration-200 hover:shadow-[0_0_14px_rgba(11,92,255,0.30)] active:scale-[0.97]"
+            className="hidden lg:inline-flex items-center gap-1.5 h-11 px-6 rounded-full bg-[#F8FAFC] hover:bg-[#FFFFFF] text-[#07111F] text-[14px] font-black uppercase tracking-wider transition-all duration-200 hover:shadow-[0_0_14px_rgba(255,255,255,0.20)] active:scale-[0.97]"
           >
             Get Started
           </Link>
@@ -303,7 +303,7 @@ export function Header() {
           {/* Hamburger — mobile only */}
           <button
             onClick={() => setMobileOpen(true)}
-            className="lg:hidden ml-2 p-1.5 text-[#344054] hover:text-[#111827] cursor-pointer"
+            className="lg:hidden ml-2 p-1.5 text-[rgba(255,255,255,0.82)] hover:text-[#FFFFFF] cursor-pointer"
           >
             <Menu className="w-5 h-5" />
           </button>
@@ -436,12 +436,12 @@ export function AnnouncementBar() {
   return (
     <div className="relative pt-[64px] w-full z-[60]">
       <div className="py-6 bg-transparent border-b border-transparent flex flex-col items-center justify-center gap-2 px-8">
-        <span className="text-[13.5px] font-medium text-[#344054] text-center tracking-wide leading-relaxed">
+        <span className="text-[13.5px] font-medium text-[rgba(255,255,255,0.60)] text-center tracking-wide leading-relaxed">
           The intelligent workspace for modern organizations
         </span>
         <Link
           href="/infrastructure"
-          className="text-[13.5px] font-bold text-[#0B5CFF] hover:text-[#084BD8] transition-colors duration-200 text-center tracking-wide"
+          className="text-[13.5px] font-bold text-[#E5B82E] hover:text-[#FFFFFF] transition-colors duration-200 text-center tracking-wide"
         >
           Explore Infrastructure →
         </Link>
