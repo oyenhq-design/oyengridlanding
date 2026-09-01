@@ -93,7 +93,7 @@ export function InstitutionalImpactCinematic() {
   const doubleProfiles = [...customerProfiles, ...customerProfiles];
 
   return (
-    <section className="py-20 md:py-28 bg-[#FBFAF7] relative overflow-hidden border-b border-[#0B1220]/5">
+    <section className="py-20 md:py-28 bg-[#FFFFFF] relative overflow-hidden border-b border-[#E7E3DA]">
       <style>{`
         @keyframes marquee {
           0% {
@@ -114,9 +114,8 @@ export function InstitutionalImpactCinematic() {
         }
       `}</style>
 
-      {/* Subtle background glows */}
+      {/* Subtle background glows removed as per instruction */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[700px] h-[500px] bg-[#0B5CFF]/[0.03] blur-[150px] rounded-full" />
       </div>
 
       <div className="max-w-[1440px] mx-auto relative z-10">
@@ -124,15 +123,15 @@ export function InstitutionalImpactCinematic() {
         {/* SECTION HEADER */}
         <div className="text-center mb-16 px-6">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0B5CFF]" />
-            <span className="text-[10px] font-black tracking-widest text-[#0B5CFF] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C99A20]" />
+            <span className="text-[10px] font-black tracking-widest text-[#C99A20] uppercase">
               Success Stories
             </span>
           </div>
-          <h2 className="text-3xl md:text-[44px] font-extrabold text-[#0B1220] tracking-tight leading-[1.1] mb-5 max-w-[700px] mx-auto">
+          <h2 className="text-3xl md:text-[44px] font-extrabold text-[#08111F] tracking-tight leading-[1.1] mb-5 max-w-[700px] mx-auto">
             Trusted by teams building better organizations.
           </h2>
-          <p className="text-sm md:text-base text-[#55534E] max-w-[620px] mx-auto font-normal leading-relaxed">
+          <p className="text-sm md:text-base text-[#667085] max-w-[620px] mx-auto font-normal leading-relaxed">
             Hear from program directors, facilitators, coordinators, and organizations using OYEN GRID to deliver training at scale.
           </p>
         </div>
@@ -140,17 +139,17 @@ export function InstitutionalImpactCinematic() {
         {/* INFINITE MARQUEE ROW */}
         <div className="relative w-full overflow-hidden py-4 select-none">
           {/* Side Fade Gradients */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-[#F3EFE5] to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-[#F3EFE5] to-transparent z-20 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-[#FFFFFF] to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-[#FFFFFF] to-transparent z-20 pointer-events-none" />
 
           <div className="animate-marquee-track">
             {doubleProfiles.map((profile, i) => (
               <div
                 key={`${profile.id}-${i}`}
-                className="w-[340px] md:w-[400px] min-h-[270px] md:min-h-[300px] flex-shrink-0 bg-white border border-[#0B1220]/10 rounded-2xl p-8 md:p-10 flex flex-col justify-between hover:border-[#0B5CFF]/40 hover:shadow-[0_16px_40px_rgba(7,20,38,0.08)] transition-all duration-300 shadow-sm backdrop-blur-md relative group"
+                className="w-[340px] md:w-[400px] min-h-[270px] md:min-h-[300px] flex-shrink-0 bg-[#FCFBF8] border border-[#E7E3DA] rounded-2xl p-8 md:p-10 flex flex-col justify-between hover:border-[#C99A20]/40 hover:shadow-sm transition-all duration-300 shadow-sm backdrop-blur-md relative group"
               >
                 {/* Gold Quote Mark Icon */}
-                <span className="absolute top-8 right-10 text-[44px] text-[#0B5CFF]/10 font-serif leading-none group-hover:text-[#0B5CFF]/25 transition-colors duration-300">
+                <span className="absolute top-8 right-10 text-[44px] text-[#C99A20]/10 font-serif leading-none group-hover:text-[#C99A20]/25 transition-colors duration-300">
                   ”
                 </span>
 
@@ -159,7 +158,7 @@ export function InstitutionalImpactCinematic() {
                   {Array.from({ length: 5 }).map((_, starIdx) => (
                     <svg
                       key={starIdx}
-                      className="w-3.5 h-3.5 text-[#0B5CFF] fill-current"
+                      className="w-3.5 h-3.5 text-[#C99A20] fill-current"
                       viewBox="0 0 20 20"
                     >
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -168,14 +167,14 @@ export function InstitutionalImpactCinematic() {
                 </div>
 
                 {/* Quote Content */}
-                <blockquote className="text-[#0B1220]/90 text-[13.5px] md:text-[14.5px] leading-relaxed font-normal mb-8 italic flex-grow">
+                <blockquote className="text-[#08111F]/90 text-[13.5px] md:text-[14.5px] leading-relaxed font-normal mb-8 italic flex-grow">
                   &ldquo;{profile.quote}&rdquo;
                 </blockquote>
 
                 {/* Profile Info & Company Logo */}
-                <div className="flex items-center justify-between pt-5 border-t border-[#0B1220]/5">
+                <div className="flex items-center justify-between pt-5 border-t border-[#E7E3DA]">
                   <div className="flex items-center gap-3.5 min-w-0">
-                    <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#0B1220]/10 shrink-0">
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#E7E3DA] shrink-0">
                       <Image
                         src={profile.avatarUrl}
                         alt={profile.name}
@@ -185,18 +184,18 @@ export function InstitutionalImpactCinematic() {
                       />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs font-bold text-[#0B1220] truncate tracking-wide">
+                      <h4 className="text-xs font-bold text-[#08111F] truncate tracking-wide">
                         {profile.name}
                       </h4>
-                      <span className="text-[9.5px] font-black text-[#0B5CFF] tracking-[0.18em] uppercase mt-0.5 block truncate">
+                      <span className="text-[9.5px] font-black text-[#C99A20] tracking-[0.18em] uppercase mt-0.5 block truncate">
                         {profile.role}
                       </span>
                     </div>
                   </div>
 
                   {/* Company Logo Badge */}
-                  <div className="shrink-0 px-2.5 py-1 rounded-md bg-[#0B1220]/[0.03] border border-[#0B1220]/5 flex items-center justify-center">
-                    <span className="text-[9px] font-black tracking-widest text-[#0B1220]/60 uppercase">
+                  <div className="shrink-0 px-2.5 py-1 rounded-md bg-[#FFFFFF] border border-[#E7E3DA] flex items-center justify-center">
+                    <span className="text-[9px] font-black tracking-widest text-[#667085] uppercase">
                       {profile.org}
                     </span>
                   </div>
@@ -210,11 +209,11 @@ export function InstitutionalImpactCinematic() {
         <div className="text-center mt-12 px-6">
           <Link
             href="/resources/customer-stories"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0B5CFF] hover:text-[#0B1220] uppercase tracking-widest group cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A87812] hover:text-[#08111F] uppercase tracking-widest group cursor-pointer"
           >
             Explore More Stories
             <span
-              className="transform group-hover:translate-x-1.5"
+              className="transform group-hover:translate-x-1.5 text-[#C99A20]"
               style={{ transition: 'transform 250ms ease' }}
             >
               →

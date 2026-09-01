@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function CleanConversion() {
   return (
-    <section className="relative bg-gradient-to-b from-[#FAF7F2] via-[#F6F2EA] to-[#F3EDE2] border-t border-zinc-200/30 py-20 md:py-28 overflow-hidden">
+    <section className="relative bg-[#F4F1EA] border-t border-[#E7E3DA] py-20 md:py-28 overflow-hidden">
       
       {/* 1. Paper/Fabric texture overlay (SVG Filter for pure CSS noise) */}
       <div className="absolute inset-0 z-0 opacity-[0.025] pointer-events-none">
@@ -21,8 +21,8 @@ export function CleanConversion() {
       {/* 2. Extremely subtle flowing wave lines */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.06]">
         <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-100 350 C 350 150, 750 550, 1540 350" stroke="#0B5CFF" strokeWidth="1.5" />
-          <path d="M-100 400 C 450 250, 650 650, 1540 450" stroke="#0B5CFF" strokeWidth="1" />
+          <path d="M-100 350 C 350 150, 750 550, 1540 350" stroke="#C99A20" strokeWidth="1.5" />
+          <path d="M-100 400 C 450 250, 650 650, 1540 450" stroke="#C99A20" strokeWidth="1" />
         </svg>
       </div>
 
@@ -31,7 +31,7 @@ export function CleanConversion() {
       <div className="absolute bottom-0 right-0 w-72 h-72 opacity-[0.08] pointer-events-none bg-[radial-gradient(#111827_1.2px,transparent_1.2px)] [background-size:20px_20px]" />
 
       {/* 4. Subtle radial gold glow behind the content */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[radial-gradient(circle,rgba(11,92,255,0.08),transparent_70%)] pointer-events-none blur-3xl z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[radial-gradient(circle,rgba(201,154,32,0.06),transparent_70%)] pointer-events-none blur-3xl z-0" />
 
       <div className="max-w-[1100px] mx-auto px-6 text-center relative z-10">
         <motion.div
@@ -42,12 +42,12 @@ export function CleanConversion() {
           className="flex flex-col items-center gap-6"
         >
           {/* Eyebrow */}
-          <span className="text-[11px] font-black tracking-[0.25em] text-[#084BD8] uppercase">
+          <span className="text-[11px] font-black tracking-[0.25em] text-[#C99A20] uppercase">
             READY TO GET STARTED
           </span>
 
           {/* Headline */}
-          <h2 className="text-3xl md:text-[48px] font-black tracking-tight leading-[1.15] max-w-none text-[#111827]">
+          <h2 className="text-3xl md:text-[48px] font-black tracking-tight leading-[1.15] max-w-none text-[#08111F]">
             Ready to build a smarter organization?
           </h2>
 
@@ -60,13 +60,13 @@ export function CleanConversion() {
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
             <Link
               href="/pricing"
-              className="inline-flex items-center justify-center h-11 px-8 rounded-full bg-[#0B5CFF] text-[#FFFFFF] text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#084BD8] hover:scale-[1.02] shadow-[0_4px_16px_rgba(11,92,255,0.20)]"
+              className="inline-flex items-center justify-center h-11 px-8 rounded-full bg-[#08111F] text-[#FFFFFF] text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#142235] hover:scale-[1.02] shadow-[0_4px_16px_rgba(8,17,31,0.15)]"
             >
               Get started
             </Link>
             <Link
               href="/pricing"
-              className="inline-flex items-center justify-center h-11 px-8 rounded-full border border-[#E8E5DF] hover:border-[#0B5CFF]/40 text-[#344054] text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-white hover:bg-[#FBFAF7] shadow-[0_2px_8px_rgba(11,18,32,0.04)]"
+              className="inline-flex items-center justify-center h-11 px-8 rounded-full border border-[#CDD3DA] hover:border-[#C99A20] text-[#08111F] text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-transparent shadow-sm"
             >
               View Pricing
             </Link>

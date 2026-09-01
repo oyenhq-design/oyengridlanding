@@ -6,7 +6,7 @@ import { ArrowRight, TrendingUp, FileText } from "lucide-react";
 
 export function WhatsNew() {
   return (
-    <section className="relative py-24 overflow-hidden flex flex-col items-center border-t border-zinc-200/30">
+    <section className="relative py-24 overflow-hidden flex flex-col items-center border-t border-[#E7E3DA] bg-[#FCFBF8]">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -23,15 +23,15 @@ export function WhatsNew() {
         {/* Header */}
         <div className="text-center mb-16 flex flex-col items-center">
           <div className="flex items-center gap-2 mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0B5CFF]" />
-            <span className="text-xs font-black tracking-widest text-[#0B5CFF] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C99A20]" />
+            <span className="text-xs font-black tracking-widest text-[#C99A20] uppercase">
               INSIGHTS & RESOURCES
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-black tracking-tight mb-4 select-none">
+          <h2 className="text-4xl md:text-5xl font-black text-[#08111F] tracking-tight mb-4 select-none">
             Proven operational outcomes.
           </h2>
-          <p className="text-zinc-800 text-base max-w-2xl text-center leading-relaxed font-bold">
+          <p className="text-[#667085] text-base max-w-2xl text-center leading-relaxed font-bold">
             Learn how forward-thinking organizations improve training, collaboration, and productivity with OYEN GRID.
           </p>
         </div>
@@ -40,7 +40,7 @@ export function WhatsNew() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
           {/* Card 1: AltSchool (Customer Story) - col-span-5 */}
-          <div className="lg:col-span-5 flex flex-col bg-[#0B1220]/95 border border-white/[0.08] rounded-[20px] overflow-hidden group shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_48px_rgba(212,160,23,0.08)] hover:border-[#0B5CFF]/40 transition-all duration-300">
+          <div className="lg:col-span-5 flex flex-col bg-[#FFFFFF] border border-[#E7E3DA] rounded-[20px] overflow-hidden group shadow-sm hover:border-[#C99A20]/40 transition-all duration-300">
             {/* Top Area */}
             <div className="relative flex-1 p-8 flex flex-col min-h-[380px]">
               {/* Image Background (Covers full card, text sits directly on it) */}

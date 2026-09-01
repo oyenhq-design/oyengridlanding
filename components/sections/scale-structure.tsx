@@ -37,7 +37,7 @@ const trustPoints = [
 
 export function ScaleStructure() {
   return (
-    <section className="py-24 md:py-32 bg-[#0B1220] relative overflow-hidden border-b border-white/5">
+    <section className="py-24 md:py-32 bg-[#08111F] relative overflow-hidden border-b border-white/5">
       {/* Section Background Image Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0 opacity-100 pointer-events-none" 
@@ -51,13 +51,13 @@ export function ScaleStructure() {
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          background: "linear-gradient(to right, rgba(11, 18, 32, 0.88) 0%, rgba(11, 18, 32, 0.55) 45%, transparent 100%)"
+          background: "linear-gradient(to right, rgba(8, 17, 31, 0.88) 0%, rgba(8, 17, 31, 0.55) 45%, transparent 100%)"
         }}
       />
 
       {/* Ambient background glows */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[900px] h-[600px] bg-[#0B5CFF]/[0.08] blur-[150px] rounded-full" />
+        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[900px] h-[600px] bg-[#C99A20]/[0.05] blur-[150px] rounded-full" />
       </div>
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
@@ -71,10 +71,9 @@ export function ScaleStructure() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5"
           >
-            {/* Badge */}
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-8 bg-[#0B5CFF]" />
-              <span className="text-[10px] font-black tracking-[0.3em] text-[#0B5CFF] uppercase">
+              <div className="h-px w-8 bg-[#C99A20]" />
+              <span className="text-[10px] font-black tracking-[0.3em] text-[#C99A20] uppercase">
                 Enterprise Infrastructure
               </span>
             </div>
@@ -82,7 +81,7 @@ export function ScaleStructure() {
             <h2 className="text-3xl md:text-[44px] font-black leading-[1.1] tracking-tight mb-6 max-w-[550px]" style={{ color: '#ffffff' }}>
               Security, reliability, and<br />
               performance built into<br />
-              <span className="text-[#0B5CFF] italic font-serif font-normal">
+              <span className="text-[#C99A20] italic font-serif font-normal">
                 every workspace.
               </span>
             </h2>
@@ -104,12 +103,12 @@ export function ScaleStructure() {
                   className="flex items-start gap-3"
                 >
                   <div 
-                    className="w-5 h-5 rounded-full border border-[#0B5CFF] bg-[#0B5CFF]/[0.15] flex items-center justify-center shrink-0 mt-0.5"
+                    className="w-5 h-5 rounded-full border border-[#C99A20] bg-[#C99A20]/[0.15] flex items-center justify-center shrink-0 mt-0.5"
                     style={{
-                      boxShadow: "0 0 10px rgba(11, 92, 255, 0.35)",
+                      boxShadow: "0 0 10px rgba(201, 154, 32, 0.25)",
                     }}
                   >
-                    <Check className="w-2.5 h-2.5 text-[#0B5CFF]" strokeWidth={3} />
+                    <Check className="w-2.5 h-2.5 text-[#C99A20]" strokeWidth={3} />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs font-bold text-white tracking-wide">
@@ -132,7 +131,7 @@ export function ScaleStructure() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 w-full flex items-center justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-[580px] bg-[#0B1220]/95 backdrop-blur-2xl border border-white/20 rounded-3xl p-6 md:p-8 shadow-[0_30px_70px_rgba(0,0,0,0.45),_0_0_50px_rgba(11,92,255,0.06)] overflow-hidden flex flex-col items-center">
+            <div className="relative w-full max-w-[580px] bg-[#08111F]/95 backdrop-blur-2xl border border-white/20 rounded-3xl p-6 md:p-8 shadow-[0_30px_70px_rgba(0,0,0,0.45),_0_0_50px_rgba(201,154,32,0.06)] overflow-hidden flex flex-col items-center">
               
               {/* Box Ambient Glows */}
               <div className="absolute top-0 right-1/4 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />

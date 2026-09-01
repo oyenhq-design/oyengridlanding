@@ -163,24 +163,12 @@ export function HeroInstitutional() {
   return (
     <section
       className="relative min-h-[680px] flex items-center mt-[-176px] pt-[190px] pb-8 overflow-hidden"
-      style={{ background: "linear-gradient(to bottom, #07111F 0%, #0C1828 60%, #17263B 100%)" }}
+      style={{ background: "linear-gradient(135deg, #FCFBF8 0%, #FFFFFF 55%, #F6F3EC 100%)" }}
     >
-      {/* Large soft radial illumination behind the headline (champagne/gold) */}
-      <div
-        className="absolute top-[20%] left-[20%] w-[800px] h-[800px] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0"
-        style={{ background: "radial-gradient(circle, rgba(107,84,37,0.15) 0%, transparent 60%)", filter: "blur(60px)" }}
-      />
-
-      {/* Very subtle OYEN signature-gold atmospheric glow behind product */}
+      {/* Very subtle champagne radial glow behind product area only */}
       <div
         className="absolute top-[40%] right-[-10%] w-[700px] h-[700px] pointer-events-none z-0"
-        style={{ background: "radial-gradient(circle, rgba(212,160,23,0.06) 0%, transparent 70%)", filter: "blur(80px)" }}
-      />
-
-      {/* Smooth transition into next bright section at the very bottom */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10"
-        style={{ background: "linear-gradient(to bottom, transparent, #FBFAF7)" }}
+        style={{ background: "radial-gradient(circle, rgba(201,154,32,0.06) 0%, transparent 70%)", filter: "blur(80px)" }}
       />
 
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
@@ -195,14 +183,14 @@ export function HeroInstitutional() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              {/* Headline — navy + primary blue split */}
-              <h1 className="text-[52px] sm:text-[68px] lg:text-[76px] font-black leading-[1.04] tracking-tight select-none" style={{ color: "#FFFFFF" }}>
+              {/* Headline */}
+              <h1 className="text-[52px] sm:text-[68px] lg:text-[76px] font-black leading-[1.04] tracking-tight select-none" style={{ color: "#08111F" }}>
                 Run your organization <br />
-                <span style={{ color: "#FFFFFF" }}>without the chaos.</span>
+                <span style={{ color: "#08111F" }}>without the chaos<span style={{ color: "#C99A20" }}>.</span></span>
               </h1>
 
-              {/* Body copy — secondary grey */}
-              <p className="text-[16px] sm:text-[17.5px] font-medium leading-[1.65] mt-6 max-w-[520px] tracking-wide" style={{ color: "rgba(255,255,255,0.78)" }}>
+              {/* Body copy */}
+              <p className="text-[16px] sm:text-[17.5px] font-medium leading-[1.65] mt-6 max-w-[520px] tracking-wide" style={{ color: "#667085" }}>
                 Manage training, teams, communication, AI workflows, reporting, and enterprise operations from one secure platform.
               </p>
 
@@ -213,12 +201,12 @@ export function HeroInstitutional() {
                   href="/pricing"
                   className="inline-flex items-center justify-center h-[47px] px-9 rounded-full text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02]"
                   style={{
-                    background: "#F8FAFC",
-                    color: "#07111F",
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.15)"
+                    background: "#08111F",
+                    color: "#FFFFFF",
+                    boxShadow: "0 10px 30px rgba(8,17,31,0.15)"
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "#FFFFFF")}
-                  onMouseLeave={e => (e.currentTarget.style.background = "#F8FAFC")}
+                  onMouseEnter={e => (e.currentTarget.style.background = "#142235")}
+                  onMouseLeave={e => (e.currentTarget.style.background = "#08111F")}
                 >
                   Book a Demo
                 </Link>
@@ -226,18 +214,18 @@ export function HeroInstitutional() {
                 <button
                   className="inline-flex items-center justify-center gap-2.5 h-[47px] px-9 rounded-full text-[13px] font-bold uppercase tracking-wider transition-all duration-300"
                   style={{
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid rgba(255,255,255,0.30)",
-                    color: "#FFFFFF"
+                    background: "transparent",
+                    border: "1px solid #CDD3DA",
+                    color: "#08111F"
                   }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.10)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "#C99A20";
                   }}
                   onMouseLeave={e => {
-                    (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.05)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "#CDD3DA";
                   }}
                 >
-                  Watch Demo <Play size={14} className="fill-current text-[#D4A017]" />
+                  Watch Demo <Play size={14} className="fill-[#C99A20] text-[#C99A20]" />
                 </button>
               </div>
             </motion.div>
@@ -251,9 +239,7 @@ export function HeroInstitutional() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-full h-full max-w-[600px] z-10"
               style={{
-                filter: "drop-shadow(0 35px 100px rgba(0,0,0,0.30))",
-                maskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to bottom, black 85%, transparent 100%)"
+                filter: "drop-shadow(0 30px 80px rgba(8,17,31,0.14))"
               }}
             >
               <Image
@@ -268,18 +254,18 @@ export function HeroInstitutional() {
 
         </div>
 
-        {/* TRUST BAR — light borders, navy numbers */}
+        {/* TRUST BAR */}
         <div
           className="mt-8 md:mt-10 py-5 md:py-6 flex flex-col md:flex-row items-center justify-between gap-8 relative"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.1)", borderBottom: "1px solid rgba(255,255,255,0.1)" }}
+          style={{ borderTop: "1px solid #E7E3DA", borderBottom: "1px solid #E7E3DA" }}
         >
 
-          <span className="text-[11px] font-black tracking-[0.25em] uppercase select-none shrink-0" style={{ color: "#D4A017" }}>
+          <span className="text-[11px] font-black tracking-[0.25em] uppercase select-none shrink-0" style={{ color: "#C99A20" }}>
             Built for modern organizations
           </span>
 
           {/* Vertical divider on desktop */}
-          <div className="hidden md:block w-px h-8" style={{ background: "rgba(255,255,255,0.1)" }} />
+          <div className="hidden md:block w-px h-8" style={{ background: "#E7E3DA" }} />
 
           {/* Metrics */}
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-8 md:gap-x-12 gap-y-6 w-full md:w-auto">
@@ -291,15 +277,15 @@ export function HeroInstitutional() {
             ].map((metric, index, arr) => (
               <div key={index} className="flex items-center gap-8">
                 <div className="flex flex-col items-center md:items-start select-none">
-                  <span className="text-2xl md:text-3xl font-black leading-none tracking-tight" style={{ color: "#FFFFFF" }}>
+                  <span className="text-2xl md:text-3xl font-black leading-none tracking-tight" style={{ color: "#08111F" }}>
                     {metric.value}
                   </span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest mt-1.5" style={{ color: "rgba(255,255,255,0.6)" }}>
+                  <span className="text-[10px] font-bold uppercase tracking-widest mt-1.5" style={{ color: "#667085" }}>
                     {metric.label}
                   </span>
                 </div>
                 {index < arr.length - 1 && (
-                  <div className="hidden sm:block h-8 w-px shrink-0" style={{ background: "rgba(255,255,255,0.1)" }} />
+                  <div className="hidden sm:block h-8 w-px shrink-0" style={{ background: "#E7E3DA" }} />
                 )}
               </div>
             ))}
@@ -320,27 +306,27 @@ export function PlatformOverview() {
   ];
 
   return (
-    <section className="section-gap relative bg-[#0B1220] border-b border-white/5">
+    <section className="section-gap relative bg-[#FFFFFF] border-b border-[#E7E3DA]">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-[60px] items-center">
 
           {/* LEFT: Content */}
           <div>
-            <span className="eyebrow">CORE INFRASTRUCTURE</span>
-            <h2 className="mb-6 max-w-[480px] text-[#FFFFFF] text-3xl md:text-4xl font-extrabold tracking-tight">
-              Built for <span className="text-[#4D8DFF]">training</span> delivery.
+            <span className="eyebrow" style={{ color: "#667085" }}>CORE INFRASTRUCTURE</span>
+            <h2 className="mb-6 max-w-[480px] text-[#08111F] text-3xl md:text-4xl font-extrabold tracking-tight">
+              Built for <span className="text-[#C99A20]">training</span> delivery.
             </h2>
-            <p className="text-[14.5px] text-[#E2E8F0] leading-relaxed mb-10 max-w-[480px] font-light">
+            <p className="text-[14.5px] text-[#667085] leading-relaxed mb-10 max-w-[480px] font-light">
               Our infrastructure is designed for high-stakes program coordination, providing the stability and visibility required by global organisations.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4">
               {capabilities.map((cap, i) => (
-                <div key={i} className="p-5 rounded-2xl bg-white/[0.04] border border-white/[0.08] hover:border-[#4D8DFF]/30 hover:scale-[1.02] transition-all duration-300 shadow-lg flex flex-col justify-between min-h-[140px]">
-                  <cap.icon className="w-5.5 h-5.5 text-[#4D8DFF] mb-3.5" />
+                <div key={i} className="p-5 rounded-2xl bg-[#FCFBF8] border border-[#E7E3DA] hover:border-[#C99A20]/30 hover:scale-[1.02] transition-all duration-300 shadow-sm flex flex-col justify-between min-h-[140px]">
+                  <cap.icon className="w-5.5 h-5.5 text-[#08111F] mb-3.5" />
                   <div>
-                    <h4 className="text-[14.5px] font-bold text-[#FFFFFF] mb-1.5">{cap.title}</h4>
-                    <p className="text-[11px] text-[#E2E8F0] leading-relaxed font-light">{cap.desc}</p>
+                    <h4 className="text-[14.5px] font-bold text-[#08111F] mb-1.5">{cap.title}</h4>
+                    <p className="text-[11px] text-[#667085] leading-relaxed font-light">{cap.desc}</p>
                   </div>
                 </div>
               ))}
@@ -349,23 +335,23 @@ export function PlatformOverview() {
 
           {/* RIGHT: Contained Image */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[460px] h-[340px] rounded-[20px] overflow-hidden border border-white/10 shadow-2xl">
+            <div className="relative w-full max-w-[460px] h-[340px] rounded-[20px] overflow-hidden shadow-[0_20px_60px_rgba(8,17,31,0.08)]">
               <Image
                 src="/section-2-bg.png"
                 alt="Platform"
                 fill
-                className="object-cover opacity-60"
+                className="object-cover opacity-90"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#0B1220] via-transparent to-transparent opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#08111F]/20 via-transparent to-transparent opacity-90" />
 
               {/* Floating Detail */}
-              <div className="absolute top-6 left-6 glass-panel-institutional p-3.5 flex items-center gap-3">
-                <div className="w-7 h-7 rounded-[6px] bg-[#C99718]/10 flex items-center justify-center">
-                  <Activity className="w-3.5 h-3.5 text-[#C99718]" />
+              <div className="absolute top-6 left-6 bg-[#FFFFFF] border border-[#E7E3DA] shadow-sm rounded-xl p-3.5 flex items-center gap-3">
+                <div className="w-7 h-7 rounded-[6px] bg-[#C99A20]/10 flex items-center justify-center">
+                  <Activity className="w-3.5 h-3.5 text-[#C99A20]" />
                 </div>
                 <div>
-                  <div className="text-[9px] font-black text-white/40 uppercase tracking-widest">Active Sync</div>
-                  <div className="text-[13px] font-bold text-white">99.9% Uptime</div>
+                  <div className="text-[9px] font-black text-[#667085] uppercase tracking-widest">Active Sync</div>
+                  <div className="text-[13px] font-bold text-[#08111F]">99.9% Uptime</div>
                 </div>
               </div>
             </div>
@@ -379,30 +365,30 @@ export function PlatformOverview() {
 
 export function OperationalControlCenter() {
   return (
-    <section className="section-gap relative bg-[#0B1220] border-b border-white/5">
+    <section className="section-gap relative bg-[#F4F1EA] border-b border-[#E7E3DA]">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-[60px] items-center">
 
           {/* LEFT: Contained Image (Visual First) */}
           <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-[460px] h-[340px] rounded-[20px] overflow-hidden border border-white/10 shadow-2xl">
+            <div className="relative w-full max-w-[460px] h-[340px] rounded-[20px] overflow-hidden shadow-[0_20px_60px_rgba(8,17,31,0.08)]">
               <Image
                 src="/section-3-bg.png"
                 alt="Operations"
                 fill
-                className="object-cover opacity-60 grayscale scale-110"
+                className="object-cover opacity-90 grayscale scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-bl from-[#0B1220]/90 via-transparent to-transparent opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-bl from-[#08111F]/10 via-transparent to-transparent opacity-90" />
             </div>
           </div>
 
           {/* RIGHT: Narrative */}
           <div className="order-1 lg:order-2">
-            <span className="eyebrow">COMMAND & CONTROL</span>
-            <h2 className="mb-6 max-w-[480px] text-[#FFFFFF] text-3xl md:text-4xl font-extrabold tracking-tight">
-              Complete <span className="text-[#4D8DFF]">operational</span> orchestration.
+            <span className="eyebrow" style={{ color: "#667085" }}>COMMAND & CONTROL</span>
+            <h2 className="mb-6 max-w-[480px] text-[#08111F] text-3xl md:text-4xl font-extrabold tracking-tight">
+              Complete <span className="text-[#C99A20]">operational</span> orchestration.
             </h2>
-            <p className="text-[14.5px] text-[#E2E8F0] leading-relaxed mb-8 max-w-[480px] font-light">
+            <p className="text-[14.5px] text-[#667085] leading-relaxed mb-8 max-w-[480px] font-light">
               Refine the entire lifecycle of your program from one dashboard. Coordinate trainers, monitor engagement, and analyze delivery health in real-time.
             </p>
 
@@ -411,13 +397,13 @@ export function OperationalControlCenter() {
                 { t: "Live Session Monitoring", d: "Track attendance and engagement as it happens." },
                 { t: "Automated Resource Sync", d: "Sync materials and assets across all cohorts." }
               ].map((item, i) => (
-                <div key={i} className="flex gap-5 p-5 rounded-xl bg-white/[0.02] border border-white/5">
-                  <div className="w-9 h-9 rounded-lg bg-[#C99718]/10 flex items-center justify-center shrink-0">
-                    <Sparkles className="w-3.5 h-3.5 text-[#C99718]" />
+                <div key={i} className="flex gap-5 p-5 rounded-xl bg-[#FFFFFF] border border-[#E7E3DA] shadow-sm">
+                  <div className="w-9 h-9 rounded-lg bg-[#C99A20]/10 flex items-center justify-center shrink-0">
+                    <Sparkles className="w-3.5 h-3.5 text-[#C99A20]" />
                   </div>
                   <div>
-                    <h4 className="text-[16px] font-bold text-[#FFFFFF] mb-1">{item.t}</h4>
-                    <p className="text-[12px] text-[#E2E8F0]">{item.d}</p>
+                    <h4 className="text-[16px] font-bold text-[#08111F] mb-1">{item.t}</h4>
+                    <p className="text-[12px] text-[#667085]">{item.d}</p>
                   </div>
                 </div>
               ))}
