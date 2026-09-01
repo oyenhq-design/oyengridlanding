@@ -243,7 +243,7 @@ export function HeroInstitutional() {
               }}
             >
               <Image
-                src="/hero-mockup-clean.jpg"
+                src="/hero-mockup-transparent.png"
                 alt="OYEN GRID Platform Mockup"
                 fill
                 className="object-contain"
