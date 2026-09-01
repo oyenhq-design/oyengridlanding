@@ -163,29 +163,20 @@ export function HeroInstitutional() {
   return (
     <section
       className="relative min-h-[680px] flex items-center mt-[-176px] pt-[190px] pb-8 overflow-hidden"
-      style={{ background: "#071426" }}
+      style={{ background: "#FFFFFF" }}
     >
 
-      {/* Gold wave background image */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <Image
-          src="/hero-bg.jpg"
-          alt=""
-          fill
-          className="object-cover object-center"
-          priority
-        />
-        {/* Left scrim — keeps headline text readable without hiding the wave */}
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(100deg, rgba(7,9,15,0.78) 0%, rgba(7,9,15,0.42) 45%, rgba(7,9,15,0.08) 100%)" }}
-        />
-        {/* Bottom fade into next section */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-[160px]"
-          style={{ background: "linear-gradient(to top, #071426 0%, transparent 100%)" }}
-        />
-      </div>
+      {/* Extremely subtle warm tint vignette — barely perceptible depth */}
+      <div
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, #FBFAF7 0%, transparent 70%)" }}
+      />
+
+      {/* Very faint warm gold radial glow behind product visual area */}
+      <div
+        className="absolute top-0 right-0 w-[55%] h-full pointer-events-none z-0"
+        style={{ background: "radial-gradient(ellipse 70% 60% at 65% 50%, rgba(212,160,23,0.05) 0%, transparent 70%)" }}
+      />
 
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
 
@@ -199,14 +190,14 @@ export function HeroInstitutional() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              {/* Headline — warm ivory, not stark white */}
-              <h1 className="text-[52px] sm:text-[68px] lg:text-[76px] font-black leading-[1.04] tracking-tight select-none" style={{ color: "#FAF7F2" }}>
+              {/* Headline — navy + signature gold split */}
+              <h1 className="text-[52px] sm:text-[68px] lg:text-[76px] font-black leading-[1.04] tracking-tight select-none" style={{ color: "#071426" }}>
                 Run your organization <br />
-                <span style={{ color: "#F4C542" }}>without the chaos.</span>
+                <span style={{ color: "#D4A017" }}>without the chaos.</span>
               </h1>
 
-              {/* Subheadline — milk-grey for premium warmth */}
-              <p className="text-[16px] sm:text-[17.5px] font-medium leading-[1.65] mt-6 max-w-[520px] tracking-wide" style={{ color: "#DAD7CF" }}>
+              {/* Body copy — secondary grey */}
+              <p className="text-[16px] sm:text-[17.5px] font-medium leading-[1.65] mt-6 max-w-[520px] tracking-wide" style={{ color: "#667085" }}>
                 Manage training, teams, communication, AI workflows, reporting, and enterprise operations from one secure platform.
               </p>
 
@@ -226,23 +217,19 @@ export function HeroInstitutional() {
                 >
                   Book a Demo
                 </Link>
-                {/* Secondary — frosted glass Apple/Linear style */}
+                {/* Secondary — white / navy / light border */}
                 <button
                   className="inline-flex items-center justify-center gap-2.5 h-[47px] px-9 rounded-full text-[13px] font-bold uppercase tracking-wider transition-all duration-300"
                   style={{
-                    background: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.18)",
-                    backdropFilter: "blur(14px)",
-                    WebkitBackdropFilter: "blur(14px)",
-                    color: "#FAF7F2"
+                    background: "#FFFFFF",
+                    border: "1px solid #D0D5DD",
+                    color: "#071426"
                   }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.10)";
-                    (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.28)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "#D4A017";
                   }}
                   onMouseLeave={e => {
-                    (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.06)";
-                    (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.18)";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "#D0D5DD";
                   }}
                 >
                   Watch Demo <Play size={14} className="fill-current" />
@@ -259,8 +246,7 @@ export function HeroInstitutional() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-full h-full max-w-[600px] z-10"
               style={{
-                filter: "drop-shadow(0 80px 120px rgba(0,0,0,0.55)) drop-shadow(0 20px 40px rgba(0,0,0,0.35))",
-                mixBlendMode: "lighten"
+                filter: "drop-shadow(0 24px 70px rgba(7,20,38,0.10)) drop-shadow(0 8px 24px rgba(7,20,38,0.06))"
               }}
             >
               <Image
@@ -275,19 +261,19 @@ export function HeroInstitutional() {
 
         </div>
 
-        {/* TRUST BAR — softened dividers, warmer numbers */}
+        {/* TRUST BAR — light borders, navy numbers */}
         <div
           className="mt-8 md:mt-10 py-5 md:py-6 flex flex-col md:flex-row items-center justify-between gap-8 relative"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}
+          style={{ borderTop: "1px solid #EAECF0", borderBottom: "1px solid #EAECF0" }}
         >
 
           {/* Label */}
-          <span className="text-[11px] font-black tracking-[0.25em] uppercase select-none shrink-0" style={{ color: "#F4C542" }}>
+          <span className="text-[11px] font-black tracking-[0.25em] uppercase select-none shrink-0" style={{ color: "#A97800" }}>
             Built for modern organizations
           </span>
 
           {/* Vertical divider on desktop */}
-          <div className="hidden md:block w-px h-8" style={{ background: "rgba(255,255,255,0.08)" }} />
+          <div className="hidden md:block w-px h-8" style={{ background: "#EAECF0" }} />
 
           {/* Metrics */}
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-8 md:gap-x-12 gap-y-6 w-full md:w-auto">
@@ -299,15 +285,15 @@ export function HeroInstitutional() {
             ].map((metric, index, arr) => (
               <div key={index} className="flex items-center gap-8">
                 <div className="flex flex-col items-center md:items-start select-none">
-                  <span className="text-2xl md:text-3xl font-black leading-none tracking-tight" style={{ color: "#FAF7F2" }}>
+                  <span className="text-2xl md:text-3xl font-black leading-none tracking-tight" style={{ color: "#071426" }}>
                     {metric.value}
                   </span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest mt-1.5" style={{ color: "#B9B8B3" }}>
+                  <span className="text-[10px] font-bold uppercase tracking-widest mt-1.5" style={{ color: "#98A2B3" }}>
                     {metric.label}
                   </span>
                 </div>
                 {index < arr.length - 1 && (
-                  <div className="hidden sm:block h-8 w-px shrink-0" style={{ background: "rgba(255,255,255,0.08)" }} />
+                  <div className="hidden sm:block h-8 w-px shrink-0" style={{ background: "#EAECF0" }} />
                 )}
               </div>
             ))}
