@@ -239,7 +239,11 @@ export function HeroInstitutional() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-full h-full max-w-[600px] z-10"
               style={{
-                filter: "drop-shadow(0 30px 80px rgba(8,17,31,0.14))"
+                background: "transparent",
+                border: "none",
+                boxShadow: "none",
+                overflow: "visible",
+                filter: "drop-shadow(0 28px 40px rgba(8,17,31,0.12))"
               }}
             >
               <Image
