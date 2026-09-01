@@ -11,11 +11,11 @@ const metrics = [
 
 export function TrustBar() {
   return (
-    <section className="w-full bg-[#071426] py-6 border-b border-white/[0.06] overflow-hidden">
+    <section className="w-full bg-[#0B1220] py-6 border-b border-white/[0.06] overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-6 relative">
         
         {/* Label */}
-        <span className="text-[10px] font-black tracking-[0.25em] text-[#D4A017] uppercase shrink-0">
+        <span className="text-[10px] font-black tracking-[0.25em] text-[#0B5CFF] uppercase shrink-0">
           Built for modern organizations
         </span>
 

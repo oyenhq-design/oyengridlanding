@@ -106,13 +106,13 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
               <stop offset="100%" stopColor="rgba(255,255,255,0.06)" />
             </linearGradient>
           </defs>
-          <path d="M0,60 L0,10 C400,10 700,50 1000,50 C1200,50 1350,20 1440,20 L1440,60 Z" fill="#071426" />
+          <path d="M0,60 L0,10 C400,10 700,50 1000,50 C1200,50 1350,20 1440,20 L1440,60 Z" fill="#0B1220" />
           <path d="M0,10 C400,10 700,50 1000,50 C1200,50 1350,20 1440,20" fill="none" stroke="url(#footer-curve-grad)" strokeWidth="1.5" />
         </svg>
       </div>
 
       {/* Main Footer Body */}
-      <div className="bg-[#071426] pt-8 pb-10">
+      <div className="bg-[#0B1220] pt-8 pb-10">
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 flex flex-col gap-10">
           
           {/* MAIN GRID */}
@@ -130,7 +130,7 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
                       <li key={link.label}>
                         <Link
                           href={link.href}
-                          className="text-[14px] text-[#98A2B3] hover:text-[#D4A017] transition-colors duration-250 font-normal leading-tight cursor-pointer"
+                          className="text-[14px] text-[#98A2B3] hover:text-[#0B5CFF] transition-colors duration-250 font-normal leading-tight cursor-pointer"
                         >
                           {link.label}
                         </Link>
@@ -156,11 +156,11 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="h-[42px] px-4 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder-white/30 text-[13px] focus:outline-none focus:border-[#D4A017]/40 transition-colors w-full sm:max-w-[240px]"
+                  className="h-[42px] px-4 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder-white/30 text-[13px] focus:outline-none focus:border-[#0B5CFF]/40 transition-colors w-full sm:max-w-[240px]"
                 />
                 <button
                   type="submit"
-                  className="h-[42px] px-5 rounded-xl bg-[#D4A017] text-[#071426] font-bold text-[12px] uppercase tracking-wider transition-all duration-300 hover:bg-[#C8931A] hover:shadow-[0_4px_16px_rgba(212,160,23,0.25)] hover:scale-[1.02] cursor-pointer"
+                  className="h-[42px] px-5 rounded-xl bg-[#0B5CFF] text-[#FFFFFF] font-bold text-[12px] uppercase tracking-wider transition-all duration-300 hover:bg-[#084BD8] hover:shadow-[0_4px_16px_rgba(11,92,255,0.25)] hover:scale-[1.02] cursor-pointer"
                 >
                   Subscribe
                 </button>
@@ -176,7 +176,7 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
                 key={s.label}
                 href={s.href}
                 aria-label={s.label}
-                className="w-8.5 h-8.5 rounded-lg bg-white/[0.02] border border-white/5 flex items-center justify-center text-[#98A2B3] hover:text-[#D4A017] hover:border-[#D4A017]/30 transition-all duration-300 cursor-pointer"
+                className="w-8.5 h-8.5 rounded-lg bg-white/[0.02] border border-white/5 flex items-center justify-center text-[#98A2B3] hover:text-[#0B5CFF] hover:border-[#0B5CFF]/30 transition-all duration-300 cursor-pointer"
               >
                 {s.icon}
               </Link>
@@ -202,7 +202,7 @@ export function FooterPremium({ hideCTA = false }: FooterPremiumProps) {
                 <Link
                   key={item}
                   href="#"
-                  className="text-[12px] text-[#98A2B3] hover:text-[#D4A017] transition-colors duration-250 font-light cursor-pointer"
+                  className="text-[12px] text-[#98A2B3] hover:text-[#0B5CFF] transition-colors duration-250 font-light cursor-pointer"
                 >
                   {item}
                 </Link>

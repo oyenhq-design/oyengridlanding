@@ -401,7 +401,7 @@ export function OperationalInfrastructure() {
               </div>
 
               {/* Slider Content Area */}
-              <div ref={containerRef} className="relative w-full h-[calc(100%-36px)] overflow-hidden bg-[#071426]">
+              <div ref={containerRef} className="relative w-full h-[calc(100%-36px)] overflow-hidden bg-[#0B1220]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentIdx}
@@ -432,13 +432,13 @@ export function OperationalInfrastructure() {
                     {isTyping && (
                       <div className="absolute top-[4.2%] left-[54.8%] h-[4.2%] w-[13.5%] bg-[#1E233D] border border-[#3E456C] rounded px-2 flex items-center text-[10px] font-medium text-white z-10 select-none">
                         <span>{typedText}</span>
-                        <span className="w-[1px] h-[10px] bg-brand-gold animate-pulse ml-0.5" />
+                        <span className="w-[1px] h-[10px] bg-[#0B5CFF] animate-pulse ml-0.5" />
                       </div>
                     )}
                     {/* Suggestions list popup overlay */}
                     {showSearchSuggestions && (
                       <div className="absolute top-[9.2%] left-[54.8%] w-[13.5%] bg-[#12162B] border border-[#2E355E] rounded-lg shadow-2xl z-20 overflow-hidden text-[9px] select-none text-zinc-300">
-                        <div className="px-2.5 py-1.5 hover:bg-[#D4A017] hover:text-black font-semibold cursor-pointer">
+                        <div className="px-2.5 py-1.5 hover:bg-[#0B5CFF] hover:text-white font-semibold cursor-pointer">
                           AI Engineering Fellowship
                         </div>
                         <div className="px-2.5 py-1.5 hover:bg-[#20274B] border-t border-[#1F254B] text-zinc-400">
@@ -451,16 +451,16 @@ export function OperationalInfrastructure() {
 
                 {/* Slide 2: Text selection highlight overlay */}
                 {currentIdx === 2 && textHighlight && (
-                  <div className="absolute top-[28.5%] left-[40.4%] w-[12.8%] h-[3.1%] bg-[#D4A017]/30 border-l border-r border-[#D4A017] pointer-events-none mix-blend-screen z-10" />
+                  <div className="absolute top-[28.5%] left-[40.4%] w-[12.8%] h-[3.1%] bg-[#0B5CFF]/30 border-l border-r border-[#0B5CFF] pointer-events-none mix-blend-screen z-10" />
                 )}
 
                 {/* Slide 3 & 7: Dynamic data hover tooltip overlay */}
                 {activeTooltip && (
                   <div 
                     style={{ left: tooltipPos.x, top: tooltipPos.y }}
-                    className="absolute bg-zinc-950/95 border border-[#D4A017]/40 text-[#FAF0D4] text-[9px] font-bold py-1 px-2.5 rounded-md shadow-[0_10px_20px_rgba(0,0,0,0.55)] -translate-x-1/2 -translate-y-full z-30 flex items-center gap-1.5 backdrop-blur-md pointer-events-none whitespace-nowrap"
+                    className="absolute bg-zinc-950/95 border border-[#0B5CFF]/40 text-[#FFFFFF] text-[9px] font-bold py-1 px-2.5 rounded-md shadow-[0_10px_20px_rgba(0,0,0,0.55)] -translate-x-1/2 -translate-y-full z-30 flex items-center gap-1.5 backdrop-blur-md pointer-events-none whitespace-nowrap"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D4A017]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0B5CFF]" />
                     {activeTooltip}
                   </div>
                 )}
@@ -477,7 +477,7 @@ export function OperationalInfrastructure() {
                     {showCategoryDropdown && (
                       <div className="mt-1 bg-[#101430] border border-white/15 rounded shadow-2xl overflow-hidden text-[9px] font-medium text-zinc-300">
                         <div className="px-2 py-1.5 hover:bg-[#202652] cursor-pointer">All Categories</div>
-                        <div className="px-2 py-1.5 hover:bg-[#D4A017] hover:text-black font-bold cursor-pointer">AI & Machine Learning</div>
+                        <div className="px-2 py-1.5 hover:bg-[#0B5CFF] hover:text-white font-bold cursor-pointer">AI & Machine Learning</div>
                         <div className="px-2 py-1.5 hover:bg-[#202652] cursor-pointer">Fullstack Development</div>
                       </div>
                     )}
@@ -492,7 +492,7 @@ export function OperationalInfrastructure() {
                       top: `calc(42.5% + ${dragCardPos.y}px)`,
                       transform: "rotate(-1.5deg)" 
                     }}
-                    className="absolute w-[22%] h-[4.8%] bg-[#1E254A]/80 border border-[#D4A017]/50 rounded-lg pointer-events-none shadow-[0_20px_35px_rgba(0,0,0,0.5)] z-20 opacity-80 backdrop-blur-sm"
+                    className="absolute w-[22%] h-[4.8%] bg-[#1E254A]/80 border border-[#0B5CFF]/50 rounded-lg pointer-events-none shadow-[0_20px_35px_rgba(0,0,0,0.5)] z-20 opacity-80 backdrop-blur-sm"
                   />
                 )}
 
@@ -568,8 +568,8 @@ export function OperationalInfrastructure() {
                     }}
                     className="absolute pointer-events-none w-10 h-10 -ml-5 -mt-5 z-40"
                   >
-                    <div className="absolute inset-0 border-2 border-[#D4A017] rounded-full animate-ping opacity-75" />
-                    <div className="absolute inset-2 border border-[#D4A017] rounded-full animate-pulse opacity-45" />
+                    <div className="absolute inset-0 border-2 border-[#0B5CFF] rounded-full animate-ping opacity-75" />
+                    <div className="absolute inset-2 border border-[#0B5CFF] rounded-full animate-pulse opacity-45" />
                   </div>
                 )}
 
@@ -578,13 +578,13 @@ export function OperationalInfrastructure() {
                 {/* Interactive Navigation Arrows */}
                 <button
                   onClick={handlePrev}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0B0D1A]/85 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#D4A017] hover:border-[#D4A017] hover:scale-105 z-30 cursor-pointer shadow-lg"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0B0D1A]/85 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#0B5CFF] hover:border-[#0B5CFF] hover:scale-105 z-30 cursor-pointer shadow-lg"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0B0D1A]/85 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#D4A017] hover:border-[#D4A017] hover:scale-105 z-30 cursor-pointer shadow-lg"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0B0D1A]/85 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#0B5CFF] hover:border-[#0B5CFF] hover:scale-105 z-30 cursor-pointer shadow-lg"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -593,7 +593,7 @@ export function OperationalInfrastructure() {
                 <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none z-10" />
 
                 <div className="absolute bottom-3 left-5 z-20 flex flex-col text-left">
-                  <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-[#D4A017] mb-0.5">
+                  <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-[#0B5CFF] mb-0.5">
                     {slides[currentIdx].badge}
                   </span>
                   <h4 className="text-white text-xs md:text-sm font-bold drop-shadow-md">
@@ -608,7 +608,7 @@ export function OperationalInfrastructure() {
           <div className="absolute bottom-4 right-6 z-20">
             <button
               onClick={() => setIsPlaying(!isPlaying)}
-              className="w-9 h-9 rounded-lg bg-[#071426]/80 border border-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#D4A017] hover:border-[#D4A017] hover:scale-105 transition-all cursor-pointer shadow-xl"
+              className="w-9 h-9 rounded-lg bg-[#0B1220]/80 border border-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#0B5CFF] hover:border-[#0B5CFF] hover:scale-105 transition-all cursor-pointer shadow-xl"
               title={isPlaying ? "Pause Slideshow" : "Start Slideshow"}
             >
               {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
@@ -626,7 +626,7 @@ export function OperationalInfrastructure() {
                 }}
                 className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                   currentIdx === idx 
-                    ? "w-6 bg-[#D4A017]" 
+                    ? "w-6 bg-[#0B5CFF]" 
                     : "w-1.5 bg-white/40 hover:bg-white/70"
                 }`}
               />

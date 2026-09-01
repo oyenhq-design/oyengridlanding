@@ -172,10 +172,10 @@ export function HeroInstitutional() {
         style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, #FBFAF7 0%, transparent 70%)" }}
       />
 
-      {/* Very faint warm gold radial glow behind product visual area */}
+      {/* Very faint blue radial glow behind product visual area */}
       <div
         className="absolute top-0 right-0 w-[55%] h-full pointer-events-none z-0"
-        style={{ background: "radial-gradient(ellipse 70% 60% at 65% 50%, rgba(212,160,23,0.05) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(ellipse 70% 60% at 65% 50%, rgba(11,92,255,0.04) 0%, transparent 70%)" }}
       />
 
       <div className="max-w-[1280px] mx-auto px-8 w-full flex flex-col relative z-20">
@@ -190,30 +190,30 @@ export function HeroInstitutional() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              {/* Headline — navy + signature gold split */}
-              <h1 className="text-[52px] sm:text-[68px] lg:text-[76px] font-black leading-[1.04] tracking-tight select-none" style={{ color: "#071426" }}>
+              {/* Headline — navy + primary blue split */}
+              <h1 className="text-[52px] sm:text-[68px] lg:text-[76px] font-black leading-[1.04] tracking-tight select-none" style={{ color: "#0B1220" }}>
                 Run your organization <br />
-                <span style={{ color: "#D4A017" }}>without the chaos.</span>
+                <span style={{ color: "#0B5CFF" }}>without the chaos.</span>
               </h1>
 
               {/* Body copy — secondary grey */}
-              <p className="text-[16px] sm:text-[17.5px] font-medium leading-[1.65] mt-6 max-w-[520px] tracking-wide" style={{ color: "#667085" }}>
+              <p className="text-[16px] sm:text-[17.5px] font-medium leading-[1.65] mt-6 max-w-[520px] tracking-wide" style={{ color: "#475467" }}>
                 Manage training, teams, communication, AI workflows, reporting, and enterprise operations from one secure platform.
               </p>
 
               {/* CTA Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 mt-9">
-                {/* Primary — gold */}
+                {/* Primary — blue */}
                 <Link
                   href="/pricing"
                   className="inline-flex items-center justify-center h-[47px] px-9 rounded-full text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02]"
                   style={{
-                    background: "#D4A017",
-                    color: "#071426",
-                    boxShadow: "0 4px 20px rgba(212,160,23,0.25)"
+                    background: "#0B5CFF",
+                    color: "#FFFFFF",
+                    boxShadow: "0 4px 20px rgba(11,92,255,0.25)"
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "#C8931A")}
-                  onMouseLeave={e => (e.currentTarget.style.background = "#D4A017")}
+                  onMouseEnter={e => (e.currentTarget.style.background = "#084BD8")}
+                  onMouseLeave={e => (e.currentTarget.style.background = "#0B5CFF")}
                 >
                   Book a Demo
                 </Link>
@@ -223,13 +223,15 @@ export function HeroInstitutional() {
                   style={{
                     background: "#FFFFFF",
                     border: "1px solid #D0D5DD",
-                    color: "#071426"
+                    color: "#0B1220"
                   }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLButtonElement).style.borderColor = "#D4A017";
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "#0B5CFF";
+                    (e.currentTarget as HTMLButtonElement).style.color = "#0B5CFF";
                   }}
                   onMouseLeave={e => {
                     (e.currentTarget as HTMLButtonElement).style.borderColor = "#D0D5DD";
+                    (e.currentTarget as HTMLButtonElement).style.color = "#0B1220";
                   }}
                 >
                   Watch Demo <Play size={14} className="fill-current" />
@@ -246,7 +248,7 @@ export function HeroInstitutional() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-full h-full max-w-[600px] z-10"
               style={{
-                filter: "drop-shadow(0 24px 70px rgba(7,20,38,0.10)) drop-shadow(0 8px 24px rgba(7,20,38,0.06))"
+                filter: "drop-shadow(0 24px 70px rgba(11,18,32,0.10)) drop-shadow(0 8px 24px rgba(11,18,32,0.06))"
               }}
             >
               <Image
@@ -267,8 +269,7 @@ export function HeroInstitutional() {
           style={{ borderTop: "1px solid #EAECF0", borderBottom: "1px solid #EAECF0" }}
         >
 
-          {/* Label */}
-          <span className="text-[11px] font-black tracking-[0.25em] uppercase select-none shrink-0" style={{ color: "#A97800" }}>
+          <span className="text-[11px] font-black tracking-[0.25em] uppercase select-none shrink-0" style={{ color: "#C99718" }}>
             Built for modern organizations
           </span>
 
@@ -285,7 +286,7 @@ export function HeroInstitutional() {
             ].map((metric, index, arr) => (
               <div key={index} className="flex items-center gap-8">
                 <div className="flex flex-col items-center md:items-start select-none">
-                  <span className="text-2xl md:text-3xl font-black leading-none tracking-tight" style={{ color: "#071426" }}>
+                  <span className="text-2xl md:text-3xl font-black leading-none tracking-tight" style={{ color: "#0B1220" }}>
                     {metric.value}
                   </span>
                   <span className="text-[10px] font-bold uppercase tracking-widest mt-1.5" style={{ color: "#98A2B3" }}>
@@ -314,7 +315,7 @@ export function PlatformOverview() {
   ];
 
   return (
-    <section className="section-gap relative bg-[#071426] border-b border-white/5">
+    <section className="section-gap relative bg-[#0B1220] border-b border-white/5">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-[60px] items-center">
 
@@ -322,7 +323,7 @@ export function PlatformOverview() {
           <div>
             <span className="eyebrow">CORE INFRASTRUCTURE</span>
             <h2 className="mb-6 max-w-[480px] text-[#FFFFFF] text-3xl md:text-4xl font-extrabold tracking-tight">
-              Built for <span className="text-[#D4A017]">training</span> delivery.
+              Built for <span className="text-[#4D8DFF]">training</span> delivery.
             </h2>
             <p className="text-[14.5px] text-[#E2E8F0] leading-relaxed mb-10 max-w-[480px] font-light">
               Our infrastructure is designed for high-stakes program coordination, providing the stability and visibility required by global organisations.
@@ -330,8 +331,8 @@ export function PlatformOverview() {
 
             <div className="grid sm:grid-cols-2 gap-4">
               {capabilities.map((cap, i) => (
-                <div key={i} className="p-5 rounded-2xl bg-white/[0.04] border border-white/[0.08] hover:border-[#D4A017]/30 hover:scale-[1.02] transition-all duration-300 shadow-lg flex flex-col justify-between min-h-[140px]">
-                  <cap.icon className="w-5.5 h-5.5 text-[#D4A017] mb-3.5" />
+                <div key={i} className="p-5 rounded-2xl bg-white/[0.04] border border-white/[0.08] hover:border-[#4D8DFF]/30 hover:scale-[1.02] transition-all duration-300 shadow-lg flex flex-col justify-between min-h-[140px]">
+                  <cap.icon className="w-5.5 h-5.5 text-[#4D8DFF] mb-3.5" />
                   <div>
                     <h4 className="text-[14.5px] font-bold text-[#FFFFFF] mb-1.5">{cap.title}</h4>
                     <p className="text-[11px] text-[#E2E8F0] leading-relaxed font-light">{cap.desc}</p>
@@ -350,12 +351,12 @@ export function PlatformOverview() {
                 fill
                 className="object-cover opacity-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#071426] via-transparent to-transparent opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#0B1220] via-transparent to-transparent opacity-90" />
 
               {/* Floating Detail */}
               <div className="absolute top-6 left-6 glass-panel-institutional p-3.5 flex items-center gap-3">
-                <div className="w-7 h-7 rounded-[6px] bg-[#D4A017]/10 flex items-center justify-center">
-                  <Activity className="w-3.5 h-3.5 text-[#D4A017]" />
+                <div className="w-7 h-7 rounded-[6px] bg-[#C99718]/10 flex items-center justify-center">
+                  <Activity className="w-3.5 h-3.5 text-[#C99718]" />
                 </div>
                 <div>
                   <div className="text-[9px] font-black text-white/40 uppercase tracking-widest">Active Sync</div>
@@ -373,7 +374,7 @@ export function PlatformOverview() {
 
 export function OperationalControlCenter() {
   return (
-    <section className="section-gap relative bg-[#071426] border-b border-white/5">
+    <section className="section-gap relative bg-[#0B1220] border-b border-white/5">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-[60px] items-center">
 
@@ -386,7 +387,7 @@ export function OperationalControlCenter() {
                 fill
                 className="object-cover opacity-60 grayscale scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-bl from-[#071426]/90 via-transparent to-transparent opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-bl from-[#0B1220]/90 via-transparent to-transparent opacity-90" />
             </div>
           </div>
 
@@ -394,7 +395,7 @@ export function OperationalControlCenter() {
           <div className="order-1 lg:order-2">
             <span className="eyebrow">COMMAND & CONTROL</span>
             <h2 className="mb-6 max-w-[480px] text-[#FFFFFF] text-3xl md:text-4xl font-extrabold tracking-tight">
-              Complete <span className="text-[#D4A017]">operational</span> orchestration.
+              Complete <span className="text-[#4D8DFF]">operational</span> orchestration.
             </h2>
             <p className="text-[14.5px] text-[#E2E8F0] leading-relaxed mb-8 max-w-[480px] font-light">
               Refine the entire lifecycle of your program from one dashboard. Coordinate trainers, monitor engagement, and analyze delivery health in real-time.
@@ -406,8 +407,8 @@ export function OperationalControlCenter() {
                 { t: "Automated Resource Sync", d: "Sync materials and assets across all cohorts." }
               ].map((item, i) => (
                 <div key={i} className="flex gap-5 p-5 rounded-xl bg-white/[0.02] border border-white/5">
-                  <div className="w-9 h-9 rounded-lg bg-[#D4A017]/10 flex items-center justify-center shrink-0">
-                    <Sparkles className="w-3.5 h-3.5 text-[#D4A017]" />
+                  <div className="w-9 h-9 rounded-lg bg-[#C99718]/10 flex items-center justify-center shrink-0">
+                    <Sparkles className="w-3.5 h-3.5 text-[#C99718]" />
                   </div>
                   <div>
                     <h4 className="text-[16px] font-bold text-[#FFFFFF] mb-1">{item.t}</h4>

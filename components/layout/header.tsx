@@ -94,7 +94,7 @@ function NavDropdown({
       <button
         className={cn(
           "flex items-center gap-1.5 text-[15.5px] font-bold tracking-wide px-1.5 h-9 transition-colors duration-150 cursor-pointer",
-          active ? "text-[#111827]" : "text-[#344054] hover:text-[#111827]"
+          active ? "text-[#0B1220]" : "text-[#344054] hover:text-[#0B5CFF]"
         )}
       >
         {(menu as { isAI?: boolean }).isAI && (
@@ -104,7 +104,7 @@ function NavDropdown({
         <ChevronDown
           className={cn(
             "w-3.5 h-3.5 transition-transform duration-200 opacity-50",
-            active && "rotate-180 opacity-100 text-[#D4A017]"
+            active && "rotate-180 opacity-100 text-[#0B5CFF]"
           )}
         />
       </button>
@@ -137,18 +137,18 @@ function NavDropdown({
                   <div className={cn(
                     "w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-colors",
                     (menu as { isAI?: boolean }).isAI
-                      ? "bg-[#D4A017]/10 group-hover:bg-[#D4A017]/20"
-                      : "bg-[#071426]/5 group-hover:bg-[#071426]/10"
+                      ? "bg-[#C99718]/10 group-hover:bg-[#C99718]/20"
+                      : "bg-[#0B1220]/5 group-hover:bg-[#0B1220]/10"
                   )}>
                     <item.icon className={cn(
                       "w-3.5 h-3.5 transition-colors",
                       (menu as { isAI?: boolean }).isAI
-                        ? "text-[#D4A017]"
-                        : "text-[#071426]/40 group-hover:text-[#071426]"
+                        ? "text-[#C99718]"
+                        : "text-[#0B1220]/40 group-hover:text-[#0B1220]"
                     )} />
                   </div>
                   <div className="flex flex-col min-w-0">
-                    <span className="text-[12px] font-semibold text-[#111827]/90 group-hover:text-[#111827] leading-none mb-1 transition-colors">
+                    <span className="text-[12px] font-semibold text-[#0B1220]/90 group-hover:text-[#0B5CFF] leading-none mb-1 transition-colors">
                       {item.title}
                     </span>
                     <span className="text-[10.5px] text-[#667085] leading-snug font-normal">
@@ -227,7 +227,7 @@ export function Header() {
               aria-hidden="true"
               className="w-13 h-13 object-contain"
             />
-            <span className="font-extrabold text-[#111827] text-[20px] tracking-[0.07em] uppercase group-hover:text-[#D4A017] transition-colors duration-200">
+            <span className="font-extrabold text-[#0B1220] text-[20px] tracking-[0.07em] uppercase group-hover:text-[#0B5CFF] transition-colors duration-200">
               OYEN GRID
             </span>
           </Link>
@@ -245,7 +245,7 @@ export function Header() {
             ))}
             <Link
               href="/pricing"
-              className="text-[15.5px] font-bold text-[#344054] hover:text-[#111827] tracking-wide px-2 h-9 flex items-center transition-colors duration-150"
+              className="text-[15.5px] font-bold text-[#344054] hover:text-[#0B5CFF] tracking-wide px-2 h-9 flex items-center transition-colors duration-150"
             >
               Pricing
             </Link>
@@ -279,7 +279,7 @@ export function Header() {
           {/* Support */}
           <Link
             href="/resources/help"
-            className="hidden lg:inline-block text-[15.5px] font-bold text-[#344054] hover:text-[#111827] transition-colors px-2 py-1.5"
+            className="hidden lg:inline-block text-[15.5px] font-bold text-[#344054] hover:text-[#0B5CFF] transition-colors px-2 py-1.5"
           >
             Support
           </Link>
@@ -287,7 +287,7 @@ export function Header() {
           {/* Sign In */}
           <Link
             href="/sign-in"
-            className="hidden lg:inline-block text-[15.5px] font-bold text-[#344054] hover:text-[#111827] transition-colors px-2 py-1.5"
+            className="hidden lg:inline-block text-[15.5px] font-bold text-[#344054] hover:text-[#0B5CFF] transition-colors px-2 py-1.5"
           >
             Sign In
           </Link>
@@ -295,7 +295,7 @@ export function Header() {
           {/* Get Started — Register CTA */}
           <Link
             href="/register"
-            className="hidden lg:inline-flex items-center gap-1.5 h-11 px-6 rounded-full bg-[#D4A017] hover:bg-[#C8931A] text-[#071426] text-[14px] font-black uppercase tracking-wider transition-all duration-200 hover:shadow-[0_0_14px_rgba(212,160,23,0.30)] active:scale-[0.97]"
+            className="hidden lg:inline-flex items-center gap-1.5 h-11 px-6 rounded-full bg-[#0B5CFF] hover:bg-[#084BD8] text-[#FFFFFF] text-[14px] font-black uppercase tracking-wider transition-all duration-200 hover:shadow-[0_0_14px_rgba(11,92,255,0.30)] active:scale-[0.97]"
           >
             Get Started
           </Link>
@@ -318,7 +318,7 @@ export function Header() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.22 }}
-            className="fixed inset-0 z-[200] bg-[#071426] flex flex-col"
+            className="fixed inset-0 z-[200] bg-[#0B1220] flex flex-col"
           >
             {/* Drawer header */}
             <div className="h-[64px] flex items-center justify-between px-6 border-b border-white/[0.08] shrink-0">
@@ -354,15 +354,15 @@ export function Header() {
                     >
                       <h3 className={cn(
                         "text-[11.5px] font-black uppercase tracking-[0.3em] flex items-center gap-1.5",
-                        (menu as { isAI?: boolean }).isAI ? "text-[#D4A017]" : "text-white/80"
+                        (menu as { isAI?: boolean }).isAI ? "text-[#C99718]" : "text-white/80"
                       )}>
-                        {(menu as { isAI?: boolean }).isAI && <Sparkles className="w-3.5 h-3.5 text-[#D4A017]" />}
+                        {(menu as { isAI?: boolean }).isAI && <Sparkles className="w-3.5 h-3.5 text-[#C99718]" />}
                         {menu.label}
                       </h3>
                       <ChevronDown
                         className={cn(
                           "w-4 h-4 text-white/40 transition-transform duration-200",
-                          isOpen && "rotate-180 text-[#D4A017] opacity-100"
+                          isOpen && "rotate-180 text-[#0B5CFF] opacity-100"
                         )}
                       />
                     </button>
@@ -387,7 +387,7 @@ export function Header() {
                                   <item.icon className="w-3.5 h-3.5 text-white/40 group-hover:text-white transition-colors" />
                                 </div>
                                 <div>
-                                  <div className="text-[13px] font-semibold text-white group-hover:text-[#D4A017] transition-colors leading-none">
+                                  <div className="text-[13px] font-semibold text-white group-hover:text-[#0B5CFF] transition-colors leading-none">
                                     {item.title}
                                   </div>
                                   <div className="text-[11px] text-white/40 mt-1">{item.desc}</div>
@@ -417,7 +417,7 @@ export function Header() {
                 <Link
                   href="/register"
                   onClick={() => setMobileOpen(false)}
-                  className="mt-2 w-full h-10 rounded-xl bg-[#D4A017] flex items-center justify-center text-[12.5px] font-extrabold uppercase tracking-wider text-[#071426] transition-all"
+                  className="mt-2 w-full h-10 rounded-xl bg-[#0B5CFF] flex items-center justify-center text-[12.5px] font-extrabold uppercase tracking-wider text-[#FFFFFF] transition-all"
                 >
                   Get Started — Create Account
                 </Link>
@@ -441,7 +441,7 @@ export function AnnouncementBar() {
         </span>
         <Link
           href="/infrastructure"
-          className="text-[13.5px] font-bold text-[#D4A017] hover:text-[#A97800] transition-colors duration-200 text-center tracking-wide"
+          className="text-[13.5px] font-bold text-[#0B5CFF] hover:text-[#084BD8] transition-colors duration-200 text-center tracking-wide"
         >
           Explore Infrastructure →
         </Link>

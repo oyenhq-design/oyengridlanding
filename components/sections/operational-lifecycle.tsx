@@ -233,12 +233,12 @@ export function OperationalLifecycle() {
                          animate={{ 
                            filter: `blur(${blur}px) brightness(${brightness})`,
                            boxShadow: isActive 
-                             ? "0 30px 60px rgba(212,160,23,0.25), 0 0 40px rgba(212,160,23,0.12)" 
+                             ? "0 30px 60px rgba(11,92,255,0.25), 0 0 40px rgba(11,92,255,0.12)" 
                              : "0 10px 30px rgba(10,13,31,0.05)"
                          }}
                          className={cn(
                            "relative w-full h-full rounded-[28px] overflow-hidden border-2 transition-all duration-1000",
-                           isActive ? "border-[#D4A017]" : "border-white/40 grayscale-[0.6]"
+                           isActive ? "border-[#0B5CFF]" : "border-white/40 grayscale-[0.6]"
                          )}
                        >
                           <Image 
@@ -255,19 +255,19 @@ export function OperationalLifecycle() {
                             isActive ? "bg-gradient-to-t from-white via-transparent to-transparent opacity-90" : "bg-white/70"
                           )} />
 
-                          <div className="absolute inset-0 bg-gradient-to-tr from-[#D4A017]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                          <div className="absolute inset-0 bg-gradient-to-tr from-[#0B5CFF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                           
                           <div className="absolute bottom-8 left-8 right-8">
                              <div className="flex items-center gap-3 mb-3">
                                 <div className={cn(
                                   "w-8 h-8 rounded-lg backdrop-blur-xl border flex items-center justify-center transition-all duration-1000",
-                                  isActive ? "bg-[#D4A017]/20 border-[#D4A017]/40 shadow-[0_0_20px_rgba(212,160,23,0.2)]" : "bg-[#071426]/5 border-[#071426]/10"
+                                  isActive ? "bg-[#0B5CFF]/20 border-[#0B5CFF]/40 shadow-[0_0_20px_rgba(11,92,255,0.2)]" : "bg-[#0B1220]/5 border-[#0B1220]/10"
                                 )}>
-                                   <stage.icon className={cn("w-3.5 h-3.5 transition-colors duration-1000", isActive ? "text-[#D4A017]" : "text-[#071426]/30")} />
+                                   <stage.icon className={cn("w-3.5 h-3.5 transition-colors duration-1000", isActive ? "text-[#0B5CFF]" : "text-[#0B1220]/30")} />
                                 </div>
-                                <span className={cn("text-[9px] font-black tracking-[0.2em] uppercase transition-colors duration-1000", isActive ? "text-[#071426]/60" : "text-[#071426]/20")}>{stage.label}</span>
+                                <span className={cn("text-[9px] font-black tracking-[0.2em] uppercase transition-colors duration-1000", isActive ? "text-[#0B1220]/60" : "text-[#0B1220]/20")}>{stage.label}</span>
                              </div>
-                             <h3 className={cn("text-[22px] font-bold transition-all duration-1000 leading-tight tracking-tight", isActive ? "text-[#071426] translate-y-0" : "text-[#071426]/20 translate-y-2")}>{stage.title}</h3>
+                             <h3 className={cn("text-[22px] font-bold transition-all duration-1000 leading-tight tracking-tight", isActive ? "text-[#0B1220] translate-y-0" : "text-[#0B1220]/20 translate-y-2")}>{stage.title}</h3>
                           </div>
                        </motion.div>
                     </motion.div>
@@ -296,8 +296,8 @@ export function OperationalLifecycle() {
                       <div className="space-y-5">
                          {stages[activeIdx].capabilities.map((cap, i) => (
                            <div key={i} className="flex items-center gap-4 group">
-                              <div className="w-5 h-5 rounded-full bg-[#D4A017]/20 border border-[#D4A017]/50 flex items-center justify-center shrink-0 group-hover:bg-[#D4A017]/30 group-hover:border-[#D4A017]/60 transition-all">
-                                 <Check className="w-3 h-3 text-[#D4A017]" />
+                              <div className="w-5 h-5 rounded-full bg-[#0B5CFF]/20 border border-[#0B5CFF]/50 flex items-center justify-center shrink-0 group-hover:bg-[#0B5CFF]/30 group-hover:border-[#0B5CFF]/60 transition-all">
+                                 <Check className="w-3 h-3 text-[#0B5CFF]" />
                               </div>
                               <span className="text-[15px] !font-black !text-black transition-colors duration-500">{cap}</span>
                            </div>
@@ -305,7 +305,7 @@ export function OperationalLifecycle() {
                       </div>
                    </div>
 
-                   <div className="flex items-center gap-4 pt-12 border-t border-[#071426]/5">
+                   <div className="flex items-center gap-4 pt-12 border-t border-[#0B1220]/5">
                       <div className="flex gap-2">
                          {stages.map((_, i) => (
                            <button 
@@ -313,7 +313,7 @@ export function OperationalLifecycle() {
                              onClick={() => handleStageClick(i)}
                              className={cn(
                                "h-1.5 rounded-full transition-all duration-700",
-                               activeIdx === i ? "w-10 bg-[#D4A017] shadow-[0_0_15px_rgba(212,160,23,0.3)]" : "w-2 bg-[#071426]/10 hover:bg-[#071426]/30"
+                               activeIdx === i ? "w-10 bg-[#0B5CFF] shadow-[0_0_15px_rgba(11,92,255,0.3)]" : "w-2 bg-[#0B1220]/10 hover:bg-[#0B1220]/30"
                              )}
                            />
                          ))}

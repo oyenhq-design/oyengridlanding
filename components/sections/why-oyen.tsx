@@ -57,7 +57,7 @@ const valueProps = [
 
 export function WhyOyen() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden border-b border-white/5 bg-[#071426]">
+    <section className="relative py-24 md:py-32 overflow-hidden border-b border-white/5 bg-[#0B1220]">
       
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -77,8 +77,8 @@ export function WhyOyen() {
         {/* Section Header */}
         <div className="mb-16 md:mb-20">
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#D4A017]" />
-            <span className="text-[10px] font-black tracking-[0.3em] text-[#D4A017] uppercase">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#0B5CFF]" />
+            <span className="text-[10px] font-black tracking-[0.3em] text-[#0B5CFF] uppercase">
               WHY OYEN GRID
             </span>
           </div>
@@ -101,7 +101,7 @@ export function WhyOyen() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className="p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex flex-col justify-between hover:border-[#D4A017]/40 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 min-h-[200px]"
+                className="p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl flex flex-col justify-between hover:border-[#0B5CFF]/40 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 min-h-[200px]"
               >
                 <div>
                   {/* Icon Box */}

@@ -37,7 +37,7 @@ const trustPoints = [
 
 export function ScaleStructure() {
   return (
-    <section className="py-24 md:py-32 bg-[#071426] relative overflow-hidden border-b border-white/5">
+    <section className="py-24 md:py-32 bg-[#0B1220] relative overflow-hidden border-b border-white/5">
       {/* Section Background Image Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0 opacity-100 pointer-events-none" 
@@ -51,13 +51,13 @@ export function ScaleStructure() {
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          background: "linear-gradient(to right, rgba(7, 20, 38, 0.88) 0%, rgba(7, 20, 38, 0.55) 45%, transparent 100%)"
+          background: "linear-gradient(to right, rgba(11, 18, 32, 0.88) 0%, rgba(11, 18, 32, 0.55) 45%, transparent 100%)"
         }}
       />
 
       {/* Ambient background glows */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[900px] h-[600px] bg-[#D4A017]/[0.08] blur-[150px] rounded-full" />
+        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[900px] h-[600px] bg-[#0B5CFF]/[0.08] blur-[150px] rounded-full" />
       </div>
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
@@ -73,17 +73,16 @@ export function ScaleStructure() {
           >
             {/* Badge */}
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-8 bg-[#D4A017]" />
-              <span className="text-[10px] font-black tracking-[0.3em] text-[#D4A017] uppercase">
+              <div className="h-px w-8 bg-[#0B5CFF]" />
+              <span className="text-[10px] font-black tracking-[0.3em] text-[#0B5CFF] uppercase">
                 Enterprise Infrastructure
               </span>
             </div>
 
-            {/* Headline */}
             <h2 className="text-3xl md:text-[44px] font-black leading-[1.1] tracking-tight mb-6 max-w-[550px]" style={{ color: '#ffffff' }}>
               Security, reliability, and<br />
               performance built into<br />
-              <span className="text-[#D4A017] italic font-serif font-normal">
+              <span className="text-[#0B5CFF] italic font-serif font-normal">
                 every workspace.
               </span>
             </h2>
@@ -105,12 +104,12 @@ export function ScaleStructure() {
                   className="flex items-start gap-3"
                 >
                   <div 
-                    className="w-5 h-5 rounded-full border border-[#D4A017] bg-[#D4A017]/[0.15] flex items-center justify-center shrink-0 mt-0.5"
+                    className="w-5 h-5 rounded-full border border-[#0B5CFF] bg-[#0B5CFF]/[0.15] flex items-center justify-center shrink-0 mt-0.5"
                     style={{
-                      boxShadow: "0 0 10px rgba(212, 160, 23, 0.35)",
+                      boxShadow: "0 0 10px rgba(11, 92, 255, 0.35)",
                     }}
                   >
-                    <Check className="w-2.5 h-2.5 text-[#D4A017]" strokeWidth={3} />
+                    <Check className="w-2.5 h-2.5 text-[#0B5CFF]" strokeWidth={3} />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs font-bold text-white tracking-wide">
@@ -133,15 +132,15 @@ export function ScaleStructure() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 w-full flex items-center justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-[580px] bg-[#071426]/95 backdrop-blur-2xl border border-white/20 rounded-3xl p-6 md:p-8 shadow-[0_30px_70px_rgba(0,0,0,0.45),_0_0_50px_rgba(212,160,23,0.06)] overflow-hidden flex flex-col items-center">
+            <div className="relative w-full max-w-[580px] bg-[#0B1220]/95 backdrop-blur-2xl border border-white/20 rounded-3xl p-6 md:p-8 shadow-[0_30px_70px_rgba(0,0,0,0.45),_0_0_50px_rgba(11,92,255,0.06)] overflow-hidden flex flex-col items-center">
               
               {/* Box Ambient Glows */}
               <div className="absolute top-0 right-1/4 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute bottom-0 left-1/4 w-40 h-40 bg-[#D4A017]/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-1/4 w-40 h-40 bg-[#0B5CFF]/10 rounded-full blur-3xl pointer-events-none" />
 
               {/* ── LEVEL 1: Organization ── */}
               <div className="flex flex-col items-center w-full">
-                <div className="px-5 py-2 rounded-xl bg-[#071426] border border-white/5 flex items-center gap-2.5 shadow-sm relative z-10">
+                <div className="px-5 py-2 rounded-xl bg-[#0B1220] border border-white/5 flex items-center gap-2.5 shadow-sm relative z-10">
                   <div className="w-5.5 h-5.5 rounded-md bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
                     <Users className="w-3.5 h-3.5 text-blue-400" />
                   </div>
@@ -167,7 +166,7 @@ export function ScaleStructure() {
                       {/* Vertical line from horizontal branch to card top */}
                       <div className="absolute top-[-16px] h-4 w-px border-l border-dashed border-blue-500/50" />
                       
-                      <div className="w-full px-2 py-3 rounded-xl bg-[#071426] border border-white/5 flex flex-col items-center gap-2 shadow-sm h-[70px] justify-center relative z-10">
+                      <div className="w-full px-2 py-3 rounded-xl bg-[#0B1220] border border-white/5 flex flex-col items-center gap-2 shadow-sm h-[70px] justify-center relative z-10">
                         <div className={`w-7.5 h-7.5 rounded-md ${item.bg} border ${item.border} flex items-center justify-center`}>
                           <item.icon className={`w-4 h-4 ${item.color}`} />
                         </div>
@@ -190,20 +189,20 @@ export function ScaleStructure() {
               <div className="h-6 w-px border-l border-dashed border-blue-500/50" />
 
               {/* ── LEVEL 3: OYEN GRID (Intelligent Operating System) ── */}
-              <div className="w-full relative p-5 md:p-6 rounded-2xl bg-white/[0.04] border border-[#D4A017]/30 shadow-lg z-10"
-                style={{ boxShadow: "0 0 24px rgba(212, 160, 23, 0.05)" }}>
+              <div className="w-full relative p-5 md:p-6 rounded-2xl bg-white/[0.04] border border-[#0B5CFF]/30 shadow-lg z-10"
+                style={{ boxShadow: "0 0 24px rgba(11, 92, 255, 0.05)" }}>
                 
                 {/* Header branding */}
                 <div className="flex flex-col items-center mb-5">
                   <div className="flex items-center gap-2.5 mb-1.5">
-                    <div className="w-6 h-6 rounded bg-[#D4A017]/20 border border-[#D4A017]/40 flex items-center justify-center">
-                      <div className="w-3 h-3 rounded-sm bg-[#D4A017]" />
+                    <div className="w-6 h-6 rounded bg-[#C99718]/20 border border-[#C99718]/40 flex items-center justify-center">
+                      <div className="w-3 h-3 rounded-sm bg-[#C99718]" />
                     </div>
                     <span className="text-[15px] font-black text-white tracking-[0.2em] uppercase">
                       OYEN GRID
                     </span>
                   </div>
-                  <span className="text-[10.5px] font-black text-[#D4A017] tracking-widest uppercase">
+                  <span className="text-[10.5px] font-black text-[#C99718] tracking-widest uppercase">
                     Intelligent Operating System
                   </span>
                 </div>
@@ -241,7 +240,7 @@ export function ScaleStructure() {
                   
                   {/* Left Side Cards (Security & Compliance) */}
                   <div className="col-span-4 flex flex-col gap-6">
-                    <div className="p-3 rounded-xl bg-[#071426] border border-white/5 flex gap-3 items-center shadow-sm w-full h-[58px] justify-start relative z-10">
+                    <div className="p-3 rounded-xl bg-[#0B1220] border border-white/5 flex gap-3 items-center shadow-sm w-full h-[58px] justify-start relative z-10">
                       <Shield className="w-4 h-4 text-emerald-400 shrink-0" />
                       <div className="min-w-0">
                         <h5 className="text-[11.5px] font-extrabold text-white leading-none truncate">Security</h5>
@@ -249,7 +248,7 @@ export function ScaleStructure() {
                       </div>
                     </div>
                     
-                    <div className="p-3 rounded-xl bg-[#071426] border border-white/5 flex gap-3 items-center shadow-sm w-full h-[58px] justify-start relative z-10">
+                    <div className="p-3 rounded-xl bg-[#0B1220] border border-white/5 flex gap-3 items-center shadow-sm w-full h-[58px] justify-start relative z-10">
                       <FileCheck2 className="w-4 h-4 text-purple-400 shrink-0" />
                       <div className="min-w-0">
                         <h5 className="text-[11.5px] font-extrabold text-white leading-none truncate">Compliance</h5>
@@ -261,7 +260,7 @@ export function ScaleStructure() {
                   {/* Center Column: Central Shield Lock & Bottom Audit Logs */}
                   <div className="col-span-4 flex flex-col items-center justify-center relative min-h-[150px]">
                     {/* Glowing circular badge */}
-                    <div className="w-16 h-16 rounded-full bg-[#071426] border border-blue-500/40 flex items-center justify-center relative shadow-[0_0_30px_rgba(59,130,246,0.3)] z-10">
+                    <div className="w-16 h-16 rounded-full bg-[#0B1220] border border-blue-500/40 flex items-center justify-center relative shadow-[0_0_30px_rgba(59,130,246,0.3)] z-10">
                       <div className="absolute inset-1 rounded-full border border-white/5" />
                       <Lock className="w-5 h-5 text-blue-400" />
                     </div>
@@ -270,7 +269,7 @@ export function ScaleStructure() {
                     <div className="h-6 w-px border-l border-dashed border-blue-500/50 relative z-0" />
 
                     {/* Audit Logs Card at the bottom */}
-                    <div className="px-3.5 py-2.5 rounded-xl bg-[#071426] border border-white/5 flex items-center gap-2.5 shadow-sm w-[150px] h-[58px] justify-start relative z-10">
+                    <div className="px-3.5 py-2.5 rounded-xl bg-[#0B1220] border border-white/5 flex items-center gap-2.5 shadow-sm w-[150px] h-[58px] justify-start relative z-10">
                       <ClipboardList className="w-4 h-4 text-amber-400 shrink-0" />
                       <div className="min-w-0">
                         <h5 className="text-[11.5px] font-extrabold text-white leading-none truncate">Audit Logs</h5>
@@ -281,7 +280,7 @@ export function ScaleStructure() {
 
                   {/* Right Side Cards (Scalability & Reliability) */}
                   <div className="col-span-4 flex flex-col gap-6">
-                    <div className="p-3 rounded-xl bg-[#071426] border border-white/5 flex gap-3 items-center shadow-sm w-full h-[58px] justify-start relative z-10">
+                    <div className="p-3 rounded-xl bg-[#0B1220] border border-white/5 flex gap-3 items-center shadow-sm w-full h-[58px] justify-start relative z-10">
                       <TrendingUp className="w-4 h-4 text-blue-400 shrink-0" />
                       <div className="min-w-0">
                         <h5 className="text-[11.5px] font-extrabold text-white leading-none truncate">Scalability</h5>
@@ -289,7 +288,7 @@ export function ScaleStructure() {
                       </div>
                     </div>
                     
-                    <div className="p-3 rounded-xl bg-[#071426] border border-white/5 flex gap-3 items-center shadow-sm w-full h-[58px] justify-start relative z-10">
+                    <div className="p-3 rounded-xl bg-[#0B1220] border border-white/5 flex gap-3 items-center shadow-sm w-full h-[58px] justify-start relative z-10">
                       <Database className="w-4 h-4 text-amber-400 shrink-0" />
                       <div className="min-w-0">
                         <h5 className="text-[11.5px] font-extrabold text-white leading-none truncate">Reliability</h5>

@@ -23,8 +23,8 @@ export function WhatsNew() {
         {/* Header */}
         <div className="text-center mb-16 flex flex-col items-center">
           <div className="flex items-center gap-2 mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D4A017]" />
-            <span className="text-xs font-black tracking-widest text-[#D4A017] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0B5CFF]" />
+            <span className="text-xs font-black tracking-widest text-[#0B5CFF] uppercase">
               INSIGHTS & RESOURCES
             </span>
           </div>
@@ -40,7 +40,7 @@ export function WhatsNew() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
           {/* Card 1: AltSchool (Customer Story) - col-span-5 */}
-          <div className="lg:col-span-5 flex flex-col bg-[#071426]/95 border border-white/[0.08] rounded-[20px] overflow-hidden group shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_48px_rgba(212,160,23,0.08)] hover:border-[#D4A017]/40 transition-all duration-300">
+          <div className="lg:col-span-5 flex flex-col bg-[#0B1220]/95 border border-white/[0.08] rounded-[20px] overflow-hidden group shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_48px_rgba(212,160,23,0.08)] hover:border-[#0B5CFF]/40 transition-all duration-300">
             {/* Top Area */}
             <div className="relative flex-1 p-8 flex flex-col min-h-[380px]">
               {/* Image Background (Covers full card, text sits directly on it) */}
@@ -52,12 +52,12 @@ export function WhatsNew() {
                   className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
                 {/* Dark gradient to make white text pop on the left, keeping right image clear */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#071426] via-[#071426]/65 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220] via-[#0B1220]/65 to-transparent z-10" />
               </div>
 
               {/* Content */}
               <div className="relative z-20 flex-1 flex flex-col w-[75%] md:w-[70%]">
-                <span className="w-fit text-[9.5px] font-black tracking-wider text-[#D4A017] bg-[#D4A017]/15 border border-[#D4A017]/30 px-3 py-1.5 rounded-full uppercase mb-6">
+                <span className="w-fit text-[9.5px] font-black tracking-wider text-[#0B5CFF] bg-[#0B5CFF]/15 border border-[#0B5CFF]/30 px-3 py-1.5 rounded-full uppercase mb-6">
                   CUSTOMER STORY • 4 min read
                 </span>
                 <h3 className="text-[26px] font-extrabold text-white mb-4 leading-[1.2] tracking-tight">
@@ -68,7 +68,7 @@ export function WhatsNew() {
                 </p>
                 <Link
                   href="/resources/blog/altschool-saves-4-hours-weekly"
-                  className="inline-flex items-center gap-2 text-[#D4A017] hover:text-[#A97800] font-bold text-sm w-fit group/link transition-colors"
+                  className="inline-flex items-center gap-2 text-[#0B5CFF] hover:text-[#084BD8] font-bold text-sm w-fit group/link transition-colors"
                 >
                   Read story <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
                 </Link>
@@ -76,9 +76,9 @@ export function WhatsNew() {
             </div>
 
             {/* Footer */}
-            <div className="px-8 py-5 border-t border-white/[0.05] bg-[#070A1E]/80 flex items-center justify-between">
+            <div className="px-8 py-5 border-t border-white/[0.05] bg-[#0B1220]/80 flex items-center justify-between">
               <div className="flex items-center gap-1">
-                <span className="text-[#D4A017] font-black text-lg tracking-tighter">alt</span>
+                <span className="text-[#0B5CFF] font-black text-lg tracking-tighter">alt</span>
                 <span className="text-white text-sm font-bold tracking-tighter">_school</span>
               </div>
               <div className="flex flex-col">
@@ -93,7 +93,7 @@ export function WhatsNew() {
           </div>
 
           {/* Card 2: TalentQL (Case Study) - col-span-4 */}
-          <div className="lg:col-span-4 flex flex-col bg-[#071426]/95 border border-white/[0.08] rounded-[20px] overflow-hidden group shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_48px_rgba(212,160,23,0.08)] hover:border-[#D4A017]/40 transition-all duration-300">
+          <div className="lg:col-span-4 flex flex-col bg-[#0B1220]/95 border border-white/[0.08] rounded-[20px] overflow-hidden group shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_48px_rgba(212,160,23,0.08)] hover:border-[#0B5CFF]/40 transition-all duration-300">
             {/* Top Area */}
             <div className="relative flex-1 p-8 flex flex-col min-h-[380px]">
               {/* Image Background (Covers full card, text sits directly on it) */}
@@ -105,12 +105,12 @@ export function WhatsNew() {
                   className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
                 {/* Dark gradient to make white text pop on the left, keeping right image clear */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#071426] via-[#071426]/65 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220] via-[#0B1220]/65 to-transparent z-10" />
               </div>
 
               {/* Content */}
               <div className="relative z-20 flex-1 flex flex-col w-[75%] md:w-[70%]">
-                <span className="w-fit text-[9.5px] font-black tracking-wider text-[#D4A017] bg-[#D4A017]/15 border border-[#D4A017]/30 px-3 py-1.5 rounded-full uppercase mb-6">
+                <span className="w-fit text-[9.5px] font-black tracking-wider text-[#0B5CFF] bg-[#0B5CFF]/15 border border-[#0B5CFF]/30 px-3 py-1.5 rounded-full uppercase mb-6">
                   CASE STUDY • 6 min read
                 </span>
                 <h3 className="text-[26px] font-extrabold text-white mb-4 leading-[1.2] tracking-tight">
@@ -121,7 +121,7 @@ export function WhatsNew() {
                 </p>
                 <Link
                   href="/resources/blog/talentql-scales-training-across-three-countries"
-                  className="inline-flex items-center gap-2 text-[#D4A017] hover:text-[#A97800] font-bold text-sm w-fit group/link transition-colors"
+                  className="inline-flex items-center gap-2 text-[#0B5CFF] hover:text-[#084BD8] font-bold text-sm w-fit group/link transition-colors"
                 >
                   View case study <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
                 </Link>
@@ -129,10 +129,10 @@ export function WhatsNew() {
             </div>
 
             {/* Footer */}
-            <div className="px-8 py-5 border-t border-white/[0.05] bg-[#070A1E]/80 flex items-center justify-between">
+            <div className="px-8 py-5 border-t border-white/[0.05] bg-[#0B1220]/80 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 flex items-center justify-center">
-                  <div className="w-3 h-3 border-2 border-[#D4A017] rounded-sm rotate-45" />
+                  <div className="w-3 h-3 border-2 border-[#0B5CFF] rounded-sm rotate-45" />
                 </div>
                 <div className="flex items-center">
                   <span className="text-white/60 font-bold text-sm tracking-widest">TALENT</span>
@@ -154,7 +154,7 @@ export function WhatsNew() {
           <div className="lg:col-span-3 flex flex-col gap-6">
 
             {/* Top Right Card */}
-            <div className="flex-1 bg-[#071426]/95 border border-white/[0.08] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_48px_rgba(212,160,23,0.08)] hover:border-[#D4A017]/40 transition-all duration-300">
+            <div className="flex-1 bg-[#0B1220]/95 border border-white/[0.08] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_48px_rgba(212,160,23,0.08)] hover:border-[#0B5CFF]/40 transition-all duration-300">
               {/* Image Background (Covers full card, text sits directly on it) */}
               <div className="absolute inset-0 overflow-hidden">
                 <Image
@@ -164,15 +164,15 @@ export function WhatsNew() {
                   className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
                 {/* Dark gradient to make white text pop on the left, keeping right image clear */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#071426] via-[#071426]/65 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220] via-[#0B1220]/65 to-transparent z-10" />
               </div>
 
               <div className="relative z-10 w-[78%]">
                 <div className="flex justify-between items-start mb-6">
-                  <span className="text-[9.5px] font-black tracking-wider text-[#D4A017] bg-[#D4A017]/15 border border-[#D4A017]/30 px-3 py-1.5 rounded-full uppercase">
+                  <span className="text-[9.5px] font-black tracking-wider text-[#0B5CFF] bg-[#0B5CFF]/15 border border-[#0B5CFF]/30 px-3 py-1.5 rounded-full uppercase">
                     PRODUCT UPDATE • 3 min read
                   </span>
-                  <div className="w-8 h-8 rounded-lg border border-white/15 flex items-center justify-center text-[#D4A017] bg-[#D4A017]/10">
+                  <div className="w-8 h-8 rounded-lg border border-white/15 flex items-center justify-center text-[#0B5CFF] bg-[#0B5CFF]/10">
                     <TrendingUp className="w-4 h-4" />
                   </div>
                 </div>
@@ -185,14 +185,14 @@ export function WhatsNew() {
               </div>
               <Link
                 href="/resources/blog/introducing-ai-summaries"
-                className="inline-flex items-center gap-2 text-[#D4A017] hover:text-[#A97800] font-bold text-sm w-fit relative z-10 mt-auto group/link transition-colors"
+                className="inline-flex items-center gap-2 text-[#0B5CFF] hover:text-[#084BD8] font-bold text-sm w-fit relative z-10 mt-auto group/link transition-colors"
               >
                 Learn more <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
               </Link>
             </div>
 
             {/* Bottom Right Card */}
-            <div className="flex-1 bg-[#071426]/95 border border-white/[0.08] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_48px_rgba(212,160,23,0.08)] hover:border-[#D4A017]/40 transition-all duration-300">
+            <div className="flex-1 bg-[#0B1220]/95 border border-white/[0.08] rounded-[20px] p-8 group relative overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_16px_48px_rgba(212,160,23,0.08)] hover:border-[#0B5CFF]/40 transition-all duration-300">
               {/* Image Background (Covers full card, text sits directly on it) */}
               <div className="absolute inset-0 overflow-hidden">
                 <Image
@@ -202,15 +202,15 @@ export function WhatsNew() {
                   className="object-cover object-right opacity-100 group-hover:scale-105 transition-transform duration-700"
                 />
                 {/* Dark gradient to make white text pop on the left, keeping right image clear */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#071426] via-[#071426]/65 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220] via-[#0B1220]/65 to-transparent z-10" />
               </div>
 
               <div className="relative z-10 w-[78%]">
                 <div className="flex justify-between items-start mb-6">
-                  <span className="text-[9.5px] font-black tracking-wider text-[#D4A017] bg-[#D4A017]/15 border border-[#D4A017]/30 px-3 py-1.5 rounded-full uppercase">
+                  <span className="text-[9.5px] font-black tracking-wider text-[#0B5CFF] bg-[#0B5CFF]/15 border border-[#0B5CFF]/30 px-3 py-1.5 rounded-full uppercase">
                     INSIGHTS • 5 min read
                   </span>
-                  <div className="w-8 h-8 rounded-lg border border-white/15 flex items-center justify-center text-[#D4A017] bg-[#D4A017]/10">
+                  <div className="w-8 h-8 rounded-lg border border-white/15 flex items-center justify-center text-[#0B5CFF] bg-[#0B5CFF]/10">
                     <FileText className="w-4 h-4" />
                   </div>
                 </div>
@@ -223,7 +223,7 @@ export function WhatsNew() {
               </div>
               <Link
                 href="/resources/blog/scaling-training-programs-successfully"
-                className="inline-flex items-center gap-2 text-[#D4A017] hover:text-[#A97800] font-bold text-sm w-fit relative z-10 mt-auto group/link transition-colors"
+                className="inline-flex items-center gap-2 text-[#0B5CFF] hover:text-[#084BD8] font-bold text-sm w-fit relative z-10 mt-auto group/link transition-colors"
               >
                 Read article <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
               </Link>
@@ -238,7 +238,7 @@ export function WhatsNew() {
             <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-white/10" />
             <a
               href="/resources/case-studies"
-              className="inline-flex items-center gap-2 text-[#D4A017] font-bold text-sm hover:gap-3 transition-all duration-300 shrink-0"
+              className="inline-flex items-center gap-2 text-[#0B5CFF] font-bold text-sm hover:gap-3 transition-all duration-300 shrink-0"
             >
               Explore all stories & insights <ArrowRight className="w-4 h-4" />
             </a>
