@@ -93,7 +93,7 @@ export function InstitutionalImpactCinematic() {
   const doubleProfiles = [...customerProfiles, ...customerProfiles];
 
   return (
-    <section className="py-20 md:py-28 bg-[#F3EFE5] relative overflow-hidden border-b border-[#0A0D1F]/5">
+    <section className="py-20 md:py-28 bg-[#FBFAF7] relative overflow-hidden border-b border-[#071426]/5">
       <style>{`
         @keyframes marquee {
           0% {
@@ -129,7 +129,7 @@ export function InstitutionalImpactCinematic() {
               Success Stories
             </span>
           </div>
-          <h2 className="text-3xl md:text-[44px] font-extrabold text-[#0A0D1F] tracking-tight leading-[1.1] mb-5 max-w-[700px] mx-auto">
+          <h2 className="text-3xl md:text-[44px] font-extrabold text-[#071426] tracking-tight leading-[1.1] mb-5 max-w-[700px] mx-auto">
             Trusted by teams building better organizations.
           </h2>
           <p className="text-sm md:text-base text-[#55534E] max-w-[620px] mx-auto font-normal leading-relaxed">
@@ -147,7 +147,7 @@ export function InstitutionalImpactCinematic() {
             {doubleProfiles.map((profile, i) => (
               <div
                 key={`${profile.id}-${i}`}
-                className="w-[340px] md:w-[400px] min-h-[270px] md:min-h-[300px] flex-shrink-0 bg-white border border-[#0A0D1F]/10 rounded-2xl p-8 md:p-10 flex flex-col justify-between hover:border-[#D4A017]/40 hover:shadow-[0_16px_40px_rgba(10,13,31,0.08)] transition-all duration-300 shadow-sm backdrop-blur-md relative group"
+                className="w-[340px] md:w-[400px] min-h-[270px] md:min-h-[300px] flex-shrink-0 bg-white border border-[#071426]/10 rounded-2xl p-8 md:p-10 flex flex-col justify-between hover:border-[#D4A017]/40 hover:shadow-[0_16px_40px_rgba(7,20,38,0.08)] transition-all duration-300 shadow-sm backdrop-blur-md relative group"
               >
                 {/* Gold Quote Mark Icon */}
                 <span className="absolute top-8 right-10 text-[44px] text-[#D4A017]/10 font-serif leading-none group-hover:text-[#D4A017]/25 transition-colors duration-300">
@@ -168,14 +168,14 @@ export function InstitutionalImpactCinematic() {
                 </div>
 
                 {/* Quote Content */}
-                <blockquote className="text-[#0A0D1F]/90 text-[13.5px] md:text-[14.5px] leading-relaxed font-normal mb-8 italic flex-grow">
+                <blockquote className="text-[#071426]/90 text-[13.5px] md:text-[14.5px] leading-relaxed font-normal mb-8 italic flex-grow">
                   &ldquo;{profile.quote}&rdquo;
                 </blockquote>
 
                 {/* Profile Info & Company Logo */}
-                <div className="flex items-center justify-between pt-5 border-t border-[#0A0D1F]/5">
+                <div className="flex items-center justify-between pt-5 border-t border-[#071426]/5">
                   <div className="flex items-center gap-3.5 min-w-0">
-                    <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#0A0D1F]/10 shrink-0">
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#071426]/10 shrink-0">
                       <Image
                         src={profile.avatarUrl}
                         alt={profile.name}
@@ -185,7 +185,7 @@ export function InstitutionalImpactCinematic() {
                       />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs font-bold text-[#0A0D1F] truncate tracking-wide">
+                      <h4 className="text-xs font-bold text-[#071426] truncate tracking-wide">
                         {profile.name}
                       </h4>
                       <span className="text-[9.5px] font-black text-[#D4A017] tracking-[0.18em] uppercase mt-0.5 block truncate">
@@ -195,8 +195,8 @@ export function InstitutionalImpactCinematic() {
                   </div>
 
                   {/* Company Logo Badge */}
-                  <div className="shrink-0 px-2.5 py-1 rounded-md bg-[#0A0D1F]/[0.03] border border-[#0A0D1F]/5 flex items-center justify-center">
-                    <span className="text-[9px] font-black tracking-widest text-[#0A0D1F]/60 uppercase">
+                  <div className="shrink-0 px-2.5 py-1 rounded-md bg-[#071426]/[0.03] border border-[#071426]/5 flex items-center justify-center">
+                    <span className="text-[9px] font-black tracking-widest text-[#071426]/60 uppercase">
                       {profile.org}
                     </span>
                   </div>
@@ -210,7 +210,7 @@ export function InstitutionalImpactCinematic() {
         <div className="text-center mt-12 px-6">
           <Link
             href="/resources/customer-stories"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4A017] hover:text-[#0A0D1F] uppercase tracking-widest group cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4A017] hover:text-[#071426] uppercase tracking-widest group cursor-pointer"
           >
             Explore More Stories
             <span

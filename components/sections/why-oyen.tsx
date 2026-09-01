@@ -57,7 +57,7 @@ const valueProps = [
 
 export function WhyOyen() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden border-b border-white/5 bg-[#0A0D1F]">
+    <section className="relative py-24 md:py-32 overflow-hidden border-b border-white/5 bg-[#071426]">
       
       {/* Background Image */}
       <div className="absolute inset-0 z-0">

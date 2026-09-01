@@ -42,7 +42,7 @@ export function CleanConversion() {
           className="flex flex-col items-center gap-6"
         >
           {/* Eyebrow */}
-          <span className="text-[11px] font-black tracking-[0.25em] text-[#D6A93A] uppercase">
+          <span className="text-[11px] font-black tracking-[0.25em] text-[#A97800] uppercase">
             READY TO GET STARTED
           </span>
 
@@ -52,7 +52,7 @@ export function CleanConversion() {
           </h2>
 
           {/* Subtext */}
-          <p className="text-sm md:text-base text-[#5B6472] max-w-2xl text-center leading-relaxed font-semibold">
+          <p className="text-sm md:text-base text-[#667085] max-w-2xl text-center leading-relaxed font-semibold">
             See why modern organizations choose OYEN GRID to power training, internal collaboration, reporting, and AI-assisted operations.
           </p>
 
@@ -60,13 +60,13 @@ export function CleanConversion() {
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
             <Link
               href="/pricing"
-              className="inline-flex items-center justify-center h-11 px-8 rounded-full bg-[#F5D76E] text-[#0A0A0A] text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#FBE395] hover:scale-[1.02] shadow-[0_4px_16px_rgba(245,215,110,0.15)]"
+              className="inline-flex items-center justify-center h-11 px-8 rounded-full bg-[#D4A017] text-[#071426] text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#C8931A] hover:scale-[1.02] shadow-[0_4px_16px_rgba(212,160,23,0.20)]"
             >
               Get started
             </Link>
             <Link
               href="/pricing"
-              className="inline-flex items-center justify-center h-11 px-8 rounded-full border border-[#E5E7EB] hover:border-zinc-300 text-zinc-800 text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-white hover:bg-zinc-50 shadow-[0_2px_8px_rgba(0,0,0,0.02)]"
+              className="inline-flex items-center justify-center h-11 px-8 rounded-full border border-[#E8E5DF] hover:border-[#D4A017]/40 text-[#344054] text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-white hover:bg-[#FBFAF7] shadow-[0_2px_8px_rgba(7,20,38,0.04)]"
             >
               View Pricing
             </Link>

@@ -22,7 +22,7 @@ export function TopographicWave() {
       {/* Subtle gold radial background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,199,44,0.08),transparent_70%)] pointer-events-none" />
 
-      <svg className="w-[115%] h-[115%] opacity-100 text-[#FFC72C]" viewBox="0 0 800 600" fill="none">
+      <svg className="w-[115%] h-[115%] opacity-100 text-[#D4A017]" viewBox="0 0 800 600" fill="none">
         {Array.from({ length: pathsCount }).map((_, index) => {
           const radius = 90 + index * 16;
           const opacity = 0.95 - (index / pathsCount) * 0.78;
@@ -76,7 +76,7 @@ export function TopographicWave() {
           return (
             <motion.div
               key={i}
-              className="absolute rounded-full bg-[#FFC72C]"
+              className="absolute rounded-full bg-[#D4A017]"
               style={{
                 width: size,
                 height: size,
@@ -163,7 +163,7 @@ export function HeroInstitutional() {
   return (
     <section
       className="relative min-h-[680px] flex items-center mt-[-176px] pt-[190px] pb-8 overflow-hidden"
-      style={{ background: "#07090F" }}
+      style={{ background: "#071426" }}
     >
 
       {/* Gold wave background image */}
@@ -183,7 +183,7 @@ export function HeroInstitutional() {
         {/* Bottom fade into next section */}
         <div
           className="absolute bottom-0 left-0 right-0 h-[160px]"
-          style={{ background: "linear-gradient(to top, #07090F 0%, transparent 100%)" }}
+          style={{ background: "linear-gradient(to top, #071426 0%, transparent 100%)" }}
         />
       </div>
 
@@ -217,12 +217,12 @@ export function HeroInstitutional() {
                   href="/pricing"
                   className="inline-flex items-center justify-center h-[47px] px-9 rounded-full text-[13px] font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02]"
                   style={{
-                    background: "#F4C542",
-                    color: "#0B1020",
-                    boxShadow: "0 4px 20px rgba(244,197,66,0.28)"
+                    background: "#D4A017",
+                    color: "#071426",
+                    boxShadow: "0 4px 20px rgba(212,160,23,0.25)"
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "#FFD768")}
-                  onMouseLeave={e => (e.currentTarget.style.background = "#F4C542")}
+                  onMouseEnter={e => (e.currentTarget.style.background = "#C8931A")}
+                  onMouseLeave={e => (e.currentTarget.style.background = "#D4A017")}
                 >
                   Book a Demo
                 </Link>
@@ -328,7 +328,7 @@ export function PlatformOverview() {
   ];
 
   return (
-    <section className="section-gap relative bg-[#0B0B0B] border-b border-white/5">
+    <section className="section-gap relative bg-[#071426] border-b border-white/5">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-[60px] items-center">
 
@@ -336,7 +336,7 @@ export function PlatformOverview() {
           <div>
             <span className="eyebrow">CORE INFRASTRUCTURE</span>
             <h2 className="mb-6 max-w-[480px] text-[#FFFFFF] text-3xl md:text-4xl font-extrabold tracking-tight">
-              Built for <span className="text-[#FFC72C]">training</span> delivery.
+              Built for <span className="text-[#D4A017]">training</span> delivery.
             </h2>
             <p className="text-[14.5px] text-[#E2E8F0] leading-relaxed mb-10 max-w-[480px] font-light">
               Our infrastructure is designed for high-stakes program coordination, providing the stability and visibility required by global organisations.
@@ -344,8 +344,8 @@ export function PlatformOverview() {
 
             <div className="grid sm:grid-cols-2 gap-4">
               {capabilities.map((cap, i) => (
-                <div key={i} className="p-5 rounded-2xl bg-[#161616] border border-white/[0.08] hover:border-[#FFC72C]/30 hover:scale-[1.02] transition-all duration-300 shadow-lg flex flex-col justify-between min-h-[140px]">
-                  <cap.icon className="w-5.5 h-5.5 text-[#FFC72C] mb-3.5" />
+                <div key={i} className="p-5 rounded-2xl bg-white/[0.04] border border-white/[0.08] hover:border-[#D4A017]/30 hover:scale-[1.02] transition-all duration-300 shadow-lg flex flex-col justify-between min-h-[140px]">
+                  <cap.icon className="w-5.5 h-5.5 text-[#D4A017] mb-3.5" />
                   <div>
                     <h4 className="text-[14.5px] font-bold text-[#FFFFFF] mb-1.5">{cap.title}</h4>
                     <p className="text-[11px] text-[#E2E8F0] leading-relaxed font-light">{cap.desc}</p>
@@ -364,12 +364,12 @@ export function PlatformOverview() {
                 fill
                 className="object-cover opacity-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#0B0B0B] via-transparent to-transparent opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#071426] via-transparent to-transparent opacity-90" />
 
               {/* Floating Detail */}
               <div className="absolute top-6 left-6 glass-panel-institutional p-3.5 flex items-center gap-3">
-                <div className="w-7 h-7 rounded-[6px] bg-[#FFC72C]/10 flex items-center justify-center">
-                  <Activity className="w-3.5 h-3.5 text-[#FFC72C]" />
+                <div className="w-7 h-7 rounded-[6px] bg-[#D4A017]/10 flex items-center justify-center">
+                  <Activity className="w-3.5 h-3.5 text-[#D4A017]" />
                 </div>
                 <div>
                   <div className="text-[9px] font-black text-white/40 uppercase tracking-widest">Active Sync</div>
@@ -387,7 +387,7 @@ export function PlatformOverview() {
 
 export function OperationalControlCenter() {
   return (
-    <section className="section-gap relative bg-[#0B0B0B] border-b border-white/5">
+    <section className="section-gap relative bg-[#071426] border-b border-white/5">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-[60px] items-center">
 
@@ -400,7 +400,7 @@ export function OperationalControlCenter() {
                 fill
                 className="object-cover opacity-60 grayscale scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-bl from-[#0B0B0B]/90 via-transparent to-transparent opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-bl from-[#071426]/90 via-transparent to-transparent opacity-90" />
             </div>
           </div>
 
@@ -408,7 +408,7 @@ export function OperationalControlCenter() {
           <div className="order-1 lg:order-2">
             <span className="eyebrow">COMMAND & CONTROL</span>
             <h2 className="mb-6 max-w-[480px] text-[#FFFFFF] text-3xl md:text-4xl font-extrabold tracking-tight">
-              Complete <span className="text-[#FFC72C]">operational</span> orchestration.
+              Complete <span className="text-[#D4A017]">operational</span> orchestration.
             </h2>
             <p className="text-[14.5px] text-[#E2E8F0] leading-relaxed mb-8 max-w-[480px] font-light">
               Refine the entire lifecycle of your program from one dashboard. Coordinate trainers, monitor engagement, and analyze delivery health in real-time.
@@ -420,8 +420,8 @@ export function OperationalControlCenter() {
                 { t: "Automated Resource Sync", d: "Sync materials and assets across all cohorts." }
               ].map((item, i) => (
                 <div key={i} className="flex gap-5 p-5 rounded-xl bg-white/[0.02] border border-white/5">
-                  <div className="w-9 h-9 rounded-lg bg-[#FFC72C]/10 flex items-center justify-center shrink-0">
-                    <Sparkles className="w-3.5 h-3.5 text-[#FFC72C]" />
+                  <div className="w-9 h-9 rounded-lg bg-[#D4A017]/10 flex items-center justify-center shrink-0">
+                    <Sparkles className="w-3.5 h-3.5 text-[#D4A017]" />
                   </div>
                   <div>
                     <h4 className="text-[16px] font-bold text-[#FFFFFF] mb-1">{item.t}</h4>

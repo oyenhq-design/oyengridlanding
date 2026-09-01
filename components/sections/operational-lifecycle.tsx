@@ -261,13 +261,13 @@ export function OperationalLifecycle() {
                              <div className="flex items-center gap-3 mb-3">
                                 <div className={cn(
                                   "w-8 h-8 rounded-lg backdrop-blur-xl border flex items-center justify-center transition-all duration-1000",
-                                  isActive ? "bg-[#D4A017]/20 border-[#D4A017]/40 shadow-[0_0_20px_rgba(212,160,23,0.2)]" : "bg-[#0A0D1F]/5 border-[#0A0D1F]/10"
+                                  isActive ? "bg-[#D4A017]/20 border-[#D4A017]/40 shadow-[0_0_20px_rgba(212,160,23,0.2)]" : "bg-[#071426]/5 border-[#071426]/10"
                                 )}>
-                                   <stage.icon className={cn("w-3.5 h-3.5 transition-colors duration-1000", isActive ? "text-[#D4A017]" : "text-[#0A0D1F]/30")} />
+                                   <stage.icon className={cn("w-3.5 h-3.5 transition-colors duration-1000", isActive ? "text-[#D4A017]" : "text-[#071426]/30")} />
                                 </div>
-                                <span className={cn("text-[9px] font-black tracking-[0.2em] uppercase transition-colors duration-1000", isActive ? "text-[#0A0D1F]/60" : "text-[#0A0D1F]/20")}>{stage.label}</span>
+                                <span className={cn("text-[9px] font-black tracking-[0.2em] uppercase transition-colors duration-1000", isActive ? "text-[#071426]/60" : "text-[#071426]/20")}>{stage.label}</span>
                              </div>
-                             <h3 className={cn("text-[22px] font-bold transition-all duration-1000 leading-tight tracking-tight", isActive ? "text-[#0A0D1F] translate-y-0" : "text-[#0A0D1F]/20 translate-y-2")}>{stage.title}</h3>
+                             <h3 className={cn("text-[22px] font-bold transition-all duration-1000 leading-tight tracking-tight", isActive ? "text-[#071426] translate-y-0" : "text-[#071426]/20 translate-y-2")}>{stage.title}</h3>
                           </div>
                        </motion.div>
                     </motion.div>
@@ -305,7 +305,7 @@ export function OperationalLifecycle() {
                       </div>
                    </div>
 
-                   <div className="flex items-center gap-4 pt-12 border-t border-[#0A0D1F]/5">
+                   <div className="flex items-center gap-4 pt-12 border-t border-[#071426]/5">
                       <div className="flex gap-2">
                          {stages.map((_, i) => (
                            <button 
@@ -313,7 +313,7 @@ export function OperationalLifecycle() {
                              onClick={() => handleStageClick(i)}
                              className={cn(
                                "h-1.5 rounded-full transition-all duration-700",
-                               activeIdx === i ? "w-10 bg-[#D4A017] shadow-[0_0_15px_rgba(212,160,23,0.3)]" : "w-2 bg-[#0A0D1F]/10 hover:bg-[#0A0D1F]/30"
+                               activeIdx === i ? "w-10 bg-[#D4A017] shadow-[0_0_15px_rgba(212,160,23,0.3)]" : "w-2 bg-[#071426]/10 hover:bg-[#071426]/30"
                              )}
                            />
                          ))}

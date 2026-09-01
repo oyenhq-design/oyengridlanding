@@ -94,17 +94,17 @@ function NavDropdown({
       <button
         className={cn(
           "flex items-center gap-1.5 text-[15.5px] font-bold tracking-wide px-1.5 h-9 transition-colors duration-150 cursor-pointer",
-          active ? "text-white" : "text-white/60 hover:text-white"
+          active ? "text-[#111827]" : "text-[#344054] hover:text-[#111827]"
         )}
       >
         {(menu as { isAI?: boolean }).isAI && (
-          <Sparkles className="w-3.5 h-3.5 text-[#FFC72C] mr-0.5" />
+          <Sparkles className="w-3.5 h-3.5 text-[#D4A017] mr-0.5" />
         )}
         <span>{menu.label}</span>
         <ChevronDown
           className={cn(
             "w-3.5 h-3.5 transition-transform duration-200 opacity-50",
-            active && "rotate-180 opacity-100 text-[#FFC72C]"
+            active && "rotate-180 opacity-100 text-[#D4A017]"
           )}
         />
       </button>
@@ -120,38 +120,38 @@ function NavDropdown({
           >
             {/* AI badge strip */}
             {(menu as { isAI?: boolean }).isAI && (
-              <div className="mb-1.5 mx-1 px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#FFC72C]/10 to-transparent border border-[#FFC72C]/15 flex items-center gap-2">
-                <Sparkles className="w-3 h-3 text-[#FFC72C]" />
-                <span className="text-[10px] font-bold text-[#FFC72C] tracking-widest uppercase">
+              <div className="mb-1.5 mx-1 px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#D4A017]/10 to-transparent border border-[#D4A017]/20 flex items-center gap-2">
+                <Sparkles className="w-3 h-3 text-[#D4A017]" />
+                <span className="text-[10px] font-bold text-[#A97800] tracking-widest uppercase">
                   OYEN AI — Powered by intelligent automation
                 </span>
               </div>
             )}
-            <div className="bg-[#090D16]/95 border border-white/[0.08] backdrop-blur-xl rounded-xl p-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.5)] flex flex-col gap-0.5">
+            <div className="bg-white border border-[#E8E5DF] backdrop-blur-xl rounded-xl p-1.5 shadow-[0_12px_40px_rgba(7,20,38,0.10)] flex flex-col gap-0.5">
               {menu.items.map((item) => (
                 <Link
                   key={item.title}
                   href={item.href}
-                  className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-white/[0.04] transition-all duration-150 group"
+                  className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#FBFAF7] transition-all duration-150 group"
                 >
                   <div className={cn(
                     "w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-colors",
                     (menu as { isAI?: boolean }).isAI
-                      ? "bg-[#FFC72C]/10 group-hover:bg-[#FFC72C]/20"
-                      : "bg-white/5 group-hover:bg-white/10"
+                      ? "bg-[#D4A017]/10 group-hover:bg-[#D4A017]/20"
+                      : "bg-[#071426]/5 group-hover:bg-[#071426]/10"
                   )}>
                     <item.icon className={cn(
                       "w-3.5 h-3.5 transition-colors",
                       (menu as { isAI?: boolean }).isAI
-                        ? "text-[#FFC72C]"
-                        : "text-white/40 group-hover:text-white"
+                        ? "text-[#D4A017]"
+                        : "text-[#071426]/40 group-hover:text-[#071426]"
                     )} />
                   </div>
                   <div className="flex flex-col min-w-0">
-                    <span className="text-[12px] font-semibold text-white/90 group-hover:text-white leading-none mb-1 transition-colors">
+                    <span className="text-[12px] font-semibold text-[#111827]/90 group-hover:text-[#111827] leading-none mb-1 transition-colors">
                       {item.title}
                     </span>
-                    <span className="text-[10.5px] text-white/55 leading-snug font-normal">
+                    <span className="text-[10.5px] text-[#667085] leading-snug font-normal">
                       {item.desc}
                     </span>
                   </div>
@@ -209,8 +209,8 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-[100] h-[76px] flex items-center transition-all duration-300",
         scrolled 
-          ? "bg-[#090D16]/90 border-b border-white/[0.06] shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-xl"
-          : "bg-transparent border-b border-transparent"
+          ? "bg-white border-b border-[#E8E5DF] shadow-[0_4px_20px_rgba(7,20,38,0.06)] backdrop-blur-xl"
+          : "bg-white/95 border-b border-[#E8E5DF]/60"
       )}
     >
       <div className="w-full max-w-full mx-auto px-6 flex items-center justify-between gap-4">
@@ -227,7 +227,7 @@ export function Header() {
               aria-hidden="true"
               className="w-13 h-13 object-contain"
             />
-            <span className="font-extrabold text-white text-[20px] tracking-[0.07em] uppercase group-hover:text-[#FFC72C] transition-colors duration-200">
+            <span className="font-extrabold text-[#111827] text-[20px] tracking-[0.07em] uppercase group-hover:text-[#D4A017] transition-colors duration-200">
               OYEN GRID
             </span>
           </Link>
@@ -245,7 +245,7 @@ export function Header() {
             ))}
             <Link
               href="/pricing"
-              className="text-[15.5px] font-bold text-white/60 hover:text-white tracking-wide px-2 h-9 flex items-center transition-colors duration-150"
+              className="text-[15.5px] font-bold text-[#344054] hover:text-[#111827] tracking-wide px-2 h-9 flex items-center transition-colors duration-150"
             >
               Pricing
             </Link>
@@ -274,12 +274,12 @@ export function Header() {
           </div>
 
           {/* Divider */}
-          <div className="hidden lg:block w-px h-5 bg-white/10 mx-1" />
+          <div className="hidden lg:block w-px h-5 bg-[#E8E5DF] mx-1" />
 
           {/* Support */}
           <Link
             href="/resources/help"
-            className="hidden lg:inline-block text-[15.5px] font-bold text-white/60 hover:text-white transition-colors px-2 py-1.5"
+            className="hidden lg:inline-block text-[15.5px] font-bold text-[#344054] hover:text-[#111827] transition-colors px-2 py-1.5"
           >
             Support
           </Link>
@@ -287,7 +287,7 @@ export function Header() {
           {/* Sign In */}
           <Link
             href="/sign-in"
-            className="hidden lg:inline-block text-[15.5px] font-bold text-white/60 hover:text-white transition-colors px-2 py-1.5"
+            className="hidden lg:inline-block text-[15.5px] font-bold text-[#344054] hover:text-[#111827] transition-colors px-2 py-1.5"
           >
             Sign In
           </Link>
@@ -295,7 +295,7 @@ export function Header() {
           {/* Get Started — Register CTA */}
           <Link
             href="/register"
-            className="hidden lg:inline-flex items-center gap-1.5 h-11 px-6 rounded-full bg-[#FFC72C] hover:bg-[#FFD45B] text-[#0B0B0B] text-[14px] font-black uppercase tracking-wider transition-all duration-200 hover:shadow-[0_0_14px_rgba(255,199,44,0.35)] active:scale-[0.97]"
+            className="hidden lg:inline-flex items-center gap-1.5 h-11 px-6 rounded-full bg-[#D4A017] hover:bg-[#C8931A] text-[#071426] text-[14px] font-black uppercase tracking-wider transition-all duration-200 hover:shadow-[0_0_14px_rgba(212,160,23,0.30)] active:scale-[0.97]"
           >
             Get Started
           </Link>
@@ -303,7 +303,7 @@ export function Header() {
           {/* Hamburger — mobile only */}
           <button
             onClick={() => setMobileOpen(true)}
-            className="lg:hidden ml-2 p-1.5 text-white/60 hover:text-white cursor-pointer"
+            className="lg:hidden ml-2 p-1.5 text-[#344054] hover:text-[#111827] cursor-pointer"
           >
             <Menu className="w-5 h-5" />
           </button>
@@ -318,10 +318,10 @@ export function Header() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.22 }}
-            className="fixed inset-0 z-[200] bg-[#07070A] flex flex-col"
+            className="fixed inset-0 z-[200] bg-[#071426] flex flex-col"
           >
             {/* Drawer header */}
-            <div className="h-[64px] flex items-center justify-between px-6 border-b border-white/[0.06] shrink-0">
+            <div className="h-[64px] flex items-center justify-between px-6 border-b border-white/[0.08] shrink-0">
               <div className="flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -336,7 +336,7 @@ export function Header() {
               </div>
               <button
                 onClick={() => setMobileOpen(false)}
-                className="p-2 text-white/40 hover:text-white cursor-pointer"
+                className="p-2 text-[#344054]/40 hover:text-[#111827] cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -347,22 +347,22 @@ export function Header() {
               {ALL_MENUS.map((menu) => {
                 const isOpen = mobileActiveMenu === menu.label;
                 return (
-                  <div key={menu.label} className="space-y-2 border-b border-white/[0.04] pb-3">
+                  <div key={menu.label} className="space-y-2 border-b border-white/[0.08] pb-3">
                     <button
                       onClick={() => toggleMobileMenu(menu.label)}
                       className="w-full flex items-center justify-between text-left focus:outline-none cursor-pointer py-1"
                     >
                       <h3 className={cn(
                         "text-[11.5px] font-black uppercase tracking-[0.3em] flex items-center gap-1.5",
-                        (menu as { isAI?: boolean }).isAI ? "text-[#E2B84C]" : "text-white/80"
+                        (menu as { isAI?: boolean }).isAI ? "text-[#D4A017]" : "text-white/80"
                       )}>
-                        {(menu as { isAI?: boolean }).isAI && <Sparkles className="w-3.5 h-3.5 text-[#E2B84C]" />}
+                        {(menu as { isAI?: boolean }).isAI && <Sparkles className="w-3.5 h-3.5 text-[#D4A017]" />}
                         {menu.label}
                       </h3>
                       <ChevronDown
                         className={cn(
                           "w-4 h-4 text-white/40 transition-transform duration-200",
-                          isOpen && "rotate-180 text-[#FFC72C] opacity-100"
+                          isOpen && "rotate-180 text-[#D4A017] opacity-100"
                         )}
                       />
                     </button>
@@ -383,14 +383,14 @@ export function Header() {
                                 onClick={() => setMobileOpen(false)}
                                 className="flex items-start gap-3 group"
                               >
-                                <div className="w-7 h-7 rounded-lg bg-white/[0.04] flex items-center justify-center shrink-0">
-                                  <item.icon className="w-3.5 h-3.5 text-white/35 group-hover:text-white transition-colors" />
+                                <div className="w-7 h-7 rounded-lg bg-white/[0.06] flex items-center justify-center shrink-0">
+                                  <item.icon className="w-3.5 h-3.5 text-white/40 group-hover:text-white transition-colors" />
                                 </div>
                                 <div>
-                                  <div className="text-[13px] font-semibold text-white group-hover:text-[#E2B84C] transition-colors leading-none">
+                                  <div className="text-[13px] font-semibold text-white group-hover:text-[#D4A017] transition-colors leading-none">
                                     {item.title}
                                   </div>
-                                  <div className="text-[11px] text-white/35 mt-1">{item.desc}</div>
+                                  <div className="text-[11px] text-white/40 mt-1">{item.desc}</div>
                                 </div>
                               </Link>
                             ))}
@@ -417,7 +417,7 @@ export function Header() {
                 <Link
                   href="/register"
                   onClick={() => setMobileOpen(false)}
-                  className="mt-2 w-full h-10 rounded-xl bg-[#FFC72C] flex items-center justify-center text-[12.5px] font-extrabold uppercase tracking-wider text-[#0B0B0B] transition-all"
+                  className="mt-2 w-full h-10 rounded-xl bg-[#D4A017] flex items-center justify-center text-[12.5px] font-extrabold uppercase tracking-wider text-[#071426] transition-all"
                 >
                   Get Started — Create Account
                 </Link>
@@ -436,12 +436,12 @@ export function AnnouncementBar() {
   return (
     <div className="relative pt-[64px] w-full z-[60]">
       <div className="py-6 bg-transparent border-b border-transparent flex flex-col items-center justify-center gap-2 px-8">
-        <span className="text-[13.5px] font-medium text-white/80 text-center tracking-wide leading-relaxed">
+        <span className="text-[13.5px] font-medium text-[#344054] text-center tracking-wide leading-relaxed">
           The intelligent workspace for modern organizations
         </span>
         <Link
           href="/infrastructure"
-          className="text-[13.5px] font-bold text-[#FFC72C] hover:text-[#FFD45B] transition-colors duration-200 text-center tracking-wide"
+          className="text-[13.5px] font-bold text-[#D4A017] hover:text-[#A97800] transition-colors duration-200 text-center tracking-wide"
         >
           Explore Infrastructure →
         </Link>
@@ -498,7 +498,7 @@ function HeaderInlineSearch() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            className="p-2 text-white/40 hover:text-white transition-colors rounded-lg hover:bg-white/5 cursor-pointer mr-2"
+            className="p-2 text-[#111827]/40 hover:text-[#111827] transition-colors rounded-lg hover:bg-[#F9F9F8] cursor-pointer mr-2"
           >
             <Search className="w-4 h-4" />
           </motion.button>
@@ -517,11 +517,11 @@ function HeaderInlineSearch() {
               placeholder="Search OYEN..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full h-8 pl-3 pr-8 text-[12px] bg-[#050b14] border border-[#FFC72C] rounded-lg text-white placeholder-white/30 outline-none shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+              className="w-full h-8 pl-3 pr-8 text-[12px] bg-white border border-[#D4A017] rounded-lg text-[#111827] placeholder-[#667085] outline-none shadow-[0_2px_10px_rgba(7,20,38,0.08)]"
             />
             <button 
               onClick={() => { setActive(false); setQuery(""); }}
-              className="absolute right-2 text-white/30 hover:text-white p-0.5 cursor-pointer"
+              className="absolute right-2 text-[#111827]/30 hover:text-[#111827] p-0.5 cursor-pointer"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -536,9 +536,9 @@ function HeaderInlineSearch() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="absolute top-[40px] right-2 w-[280px] bg-[#090D16]/95 border border-white/[0.08] backdrop-blur-xl rounded-xl p-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.6)] z-[200] flex flex-col gap-0.5"
+            className="absolute top-[40px] right-2 w-[280px] bg-white border border-[#E8E5DF] backdrop-blur-xl rounded-xl p-1.5 shadow-[0_12px_40px_rgba(7,20,38,0.10)] z-[200] flex flex-col gap-0.5"
           >
-            <div className="px-2.5 py-1.5 text-[9px] font-black text-white/20 uppercase tracking-[0.2em]">
+            <div className="px-2.5 py-1.5 text-[9px] font-black text-[#667085] uppercase tracking-[0.2em]">
               Search Results ({filtered.length})
             </div>
             {filtered.length > 0 ? (
@@ -547,18 +547,18 @@ function HeaderInlineSearch() {
                   key={idx}
                   href={item.href}
                   onClick={() => { setActive(false); setQuery(""); }}
-                  className="flex flex-col p-2 rounded-lg hover:bg-white/[0.04] transition-all group"
+                  className="flex flex-col p-2 rounded-lg hover:bg-[#FBFAF7] transition-all group"
                 >
-                  <span className="text-[12px] font-semibold text-white/90 group-hover:text-[#FFC72C] transition-colors">
+                  <span className="text-[12px] font-semibold text-[#111827] group-hover:text-[#D4A017] transition-colors">
                     {item.title}
                   </span>
-                  <span className="text-[9.5px] text-white/35">
+                  <span className="text-[9.5px] text-[#667085]">
                     {item.category}
                   </span>
                 </Link>
               ))
             ) : (
-              <div className="p-4 text-center text-white/20 text-[11px]">
+              <div className="p-4 text-center text-[#667085] text-[11px]">
                 No protocols found.
               </div>
             )}

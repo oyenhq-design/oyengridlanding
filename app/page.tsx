@@ -16,7 +16,7 @@ import { GlideSection } from "@/components/layout/glide-section";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#FAFAF8] selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden">
+    <main className="min-h-screen bg-[#FBFAF7] selection:bg-brand-gold selection:text-black antialiased overflow-x-hidden">
       {/* 1. NAVIGATION & ANNOUNCEMENT */}
       <Header />
       <AnnouncementBar />

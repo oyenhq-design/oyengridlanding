@@ -401,7 +401,7 @@ export function OperationalInfrastructure() {
               </div>
 
               {/* Slider Content Area */}
-              <div ref={containerRef} className="relative w-full h-[calc(100%-36px)] overflow-hidden bg-[#05070F]">
+              <div ref={containerRef} className="relative w-full h-[calc(100%-36px)] overflow-hidden bg-[#071426]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentIdx}
@@ -608,7 +608,7 @@ export function OperationalInfrastructure() {
           <div className="absolute bottom-4 right-6 z-20">
             <button
               onClick={() => setIsPlaying(!isPlaying)}
-              className="w-9 h-9 rounded-lg bg-[#0C1029]/80 border border-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#D4A017] hover:border-[#D4A017] hover:scale-105 transition-all cursor-pointer shadow-xl"
+              className="w-9 h-9 rounded-lg bg-[#071426]/80 border border-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#D4A017] hover:border-[#D4A017] hover:scale-105 transition-all cursor-pointer shadow-xl"
               title={isPlaying ? "Pause Slideshow" : "Start Slideshow"}
             >
               {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
